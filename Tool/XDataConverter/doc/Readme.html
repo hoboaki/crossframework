@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>XDataドキュメント</title>
+</head>
+
+<body>
+<p>XDataドキュメント</p>
+<p>目次<br />
+  1. 概要<br />
+  2. 内容<br />
+  3. XMLファイルのフォーマット<br />
+  4. バイナリコンバータ<br />
+  5. C++ライブラリ<br />
+  6. 改訂履歴</p>
+<hr />
+</p> 1. 概要
+<p>XDataはXMLに記述されたデータをバイナリデータに変換し、C++言語で記述されたプログラムからアクセスするツールおよびライブラリ群です。</p>
+<hr />
+<p>2. 内容</p>
+<p>Readme.html - このドキュメントファイル。<br />
+cpplib/include/... - C++ライブラリファイル群。<br />
+  schema/XData.xsd - XMLファイルのスキーマファイル。<br />
+xdata_conv/xdata_conv.exe - バイナリコンバータ。</p>
+<hr />
+<p>3. XMLファイルのフォーマット</p>
+<p>データの内容はXMLファイルに記述します。<br />
+次のようなフォーマットで記述してください。</p>
+<table border="1">
+  <tr>
+    <td>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;<br />
+      &lt;xdata_root<br />
+xmlns=&quot;http://10106.net/xdata&quot;<br />
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;<br />
+xsi:schemaLocation=&quot;<br />
+http://10106.net/xdata ../../schema/XData.xsd<br />
+&quot;<br />
+major_version=&quot;1&quot;<br />
+minor_version=&quot;0&quot;<br />
+&gt;<br />
+&lt;reference label_name=&quot;pos_array&quot;/&gt;<br />
+&lt;label name=&quot;pos_array&quot;/&gt;<br />
+&lt;sint8_array count=&quot;3&quot;&gt;-128 127 1&lt;/sint8_array&gt;<br />
+&lt;uint8 value=&quot;0&quot;/&gt;<br />
+&lt;uint16 value=&quot;0&quot;/&gt;<br />
+&lt;uint32 value=&quot;0&quot;/&gt;<br />
+&lt;uint64 value=&quot;0&quot;/&gt;<br />
+&lt;sint8 value=&quot;0&quot;/&gt;<br />
+&lt;sint16 value=&quot;0&quot;/&gt;<br />
+&lt;sint32 value=&quot;0&quot;/&gt;<br />
+&lt;sint64 value=&quot;0&quot;/&gt;<br />
+&lt;float32_array count=&quot;4&quot;&gt;1.0 0.5  0.25 &lt;!-- comment --&gt; 0 &lt;/float32_array&gt;<br />
+&lt;float32 value=&quot;3.1415926534&quot;/&gt;<br />
+&lt;float64_array count=&quot;0&quot;&gt;&lt;/float64_array&gt;<br />
+&lt;float64 value=&quot;10000.2&quot;/&gt; <br />
+&lt;string  value=&quot;test&quot;/&gt;<br />
+&lt;align  value=&quot;32&quot;/&gt;<br />
+&lt;/xdata_root&gt;</td>
+  </tr>
+</table>
+<p>詳細はスキーマ（schema/XData.xsd）を参照してください。（説明はしょってごめんなさい･･･）</p>
+<hr />
+<p>4. バイナリコンバータ</p>
+<p>xdata_conv/xdata_conv.exeは、XMLファイルをバイナリファイルに変換するコマンドラインアプリケーションです。<br />
+.Netframework2.0を使用しています。Windows上で実行する場合は、.Netframework2.0以上のランタイムをインストールしてください。<br />
+他のOSでは、monoなどのランタイムをインストールして使用してください。</p>
+<p>引数のオプションなどは、アプリケーションを実行して確認してください。（説明はしょってすみません･･･）</p>
+<hr />
+<p>5. CPPライブラリ</p>
+<hr />
+<p>6. 改訂履歴</p>
+<hr />
+<p align="right">作成：http://www.10106.net/~hoboaki/</p>
+<p>&nbsp;</p>
+</body>
+</html>

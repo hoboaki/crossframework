@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema targetNamespace="http://www.10106.net/crossframework/Schema/XG3D/XTEX"
+  xmlns="http://www.10106.net/crossframework/Schema/XG3D/XTEX"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="qualified"
+  >
+
+  <!-- 符号付き整数 -->
+  <xs:simpleType name="sint8">
+    <xs:restriction base="xs:byte" />
+  </xs:simpleType>
+  <xs:simpleType name="sint8_array">
+    <xs:list itemType="sint8"/>
+  </xs:simpleType>
+  <xs:simpleType name="sint16">
+    <xs:restriction base="xs:short" />
+  </xs:simpleType>
+  <xs:simpleType name="sint16_array">
+    <xs:list itemType="sint16"/>
+  </xs:simpleType>
+  <xs:simpleType name="sint32">
+    <xs:restriction base="xs:int" />
+  </xs:simpleType>
+  <xs:simpleType name="sint32_array">
+    <xs:list itemType="sint32"/>
+  </xs:simpleType>
+  <xs:simpleType name="sint64">
+    <xs:restriction base="xs:long" />
+  </xs:simpleType>
+  <xs:simpleType name="sint64_array">
+    <xs:list itemType="sint64"/>
+  </xs:simpleType>
+
+  <!-- 符号無し整数 -->
+  <xs:simpleType name="uint8">
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="uint8_array">
+    <xs:list itemType="uint8"/>
+  </xs:simpleType>
+  <xs:simpleType name="uint16">
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="uint16_array">
+    <xs:list itemType="uint16"/>
+  </xs:simpleType>
+  <xs:simpleType name="uint32">
+    <xs:restriction base="xs:unsignedInt" />
+  </xs:simpleType>
+  <xs:simpleType name="uint32_array">
+    <xs:list itemType="uint32"/>
+  </xs:simpleType>
+  <xs:simpleType name="uint64">
+    <xs:restriction base="xs:unsignedLong" />
+  </xs:simpleType>
+  <xs:simpleType name="uint64_array">
+    <xs:list itemType="uint64"/>
+  </xs:simpleType>
+
+  <!-- 32bit浮動小数 -->
+  <xs:simpleType name="float32">
+    <xs:restriction base="xs:float" />
+  </xs:simpleType>
+  <xs:simpleType name="float32_array">
+    <xs:list itemType="float32"/>
+  </xs:simpleType>
+  <xs:simpleType name="float64">
+    <xs:restriction base="xs:double" />
+  </xs:simpleType>
+  <xs:simpleType name="float64_array">
+    <xs:list itemType="float64"/>
+  </xs:simpleType>
+
+  <!-- 文字列 -->
+  <xs:simpleType name="string">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+
+  <!-- 復帰文字を含まない文字列 -->
+  <xs:simpleType name="nstring">
+    <xs:restriction base="xs:normalizedString" />
+  </xs:simpleType>
+
+  <!-- -->
+  <!-- ##################################### -->
+  <!-- -->
+
+  <!-- pixels -->
+  <xs:element name="pixels">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="uint8_array" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- format_type -->
+  <xs:simpleType name="format_type">
+    <xs:restriction base="string">
+      <xs:enumeration value="RGBA8"/>
+      <xs:enumeration value="RGB8"/>
+      <xs:enumeration value="RGB5A1"/>
+      <xs:enumeration value="RGBA4"/>
+      <xs:enumeration value="RGB565"/>
+      <xs:enumeration value="A8"/>
+      <xs:enumeration value="LA8"/>
+      <xs:enumeration value="L8"/>
+    </xs:restriction>
+  </xs:simpleType>
+    
+  <!-- xtex -->
+  <xs:element name="xtex">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="body">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="pixels"/>
+            </xs:sequence>
+            <xs:attribute name="width" type="uint16" use="required"/>
+            <xs:attribute name="height" type="uint16" use="required"/>
+            <xs:attribute name="format" type="format_type" use="required"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="version_major" type="uint8" use="required"/>
+      <xs:attribute name="version_minor" type="uint8" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

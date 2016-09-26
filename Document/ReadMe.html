@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>CrossFrameowrk - ReadMe</title>
+<style type="text/css">
+<!--
+body {
+	font: 100%/1.4 "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
+	background: #4E5869;
+	margin: 0;
+	padding: 0;
+	color: #444;
+}
+
+/* ~~ エレメント / タグセレクター ~~ */
+ul, ol, dl { /* ブラウザー間の相違により、リストの余白とマージンをゼロにすることをお勧めします。一貫性を保つために、量をここで指定するか、リストに含まれるリスト項目 (LI、DT、DD) で指定できます。より詳細なセレクターを記述しない限り、ここで指定する内容が .nav リストにも適用されることに注意してください。 */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* 上マージンを削除すると、マージンを含む div からマージンがはみ出す場合があるという問題を回避できます。残った下マージンにより、後続のエレメントからは離されます。 */
+	padding-right: 15px;
+	padding-left: 15px; /* div 自体ではなく div 内でエレメントの両側に余白を追加すると、ボックスモデル計算が不要になります。代わりに、両側に余白を指定した div をネストして使用することもできます。 */
+}
+a img { /* このセレクターは、一部のブラウザーでイメージをリンクで囲んだ場合にイメージの周囲に表示される初期設定の青いボーダーを削除します。 */
+	border: none;
+}
+
+/* ~~ サイトのリンクのスタイル付けは、ホバー効果を作成するセレクターグループも含め、この順序にする必要があります。~~ */
+a:link {
+	color:#414958;
+	text-decoration: underline; /* 非常に特殊な表示方法でリンクをスタイル付けする場合を除き、一目で見分けられるように下線を指定することをお勧めします。 */
+}
+a:visited {
+	color: #4E5869;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* このセレクターグループは、キーボードを使用するユーザーに対し、マウスを使用するユーザーと同じホバー効果を提供します。 */
+	text-decoration: none;
+}
+
+/* ~~ このコンテナが他のすべての div を囲み、パーセンテージに基づいた幅を指定します。~~ */
+.container {
+	width: 80%;
+	max-width: 1260px;/* レイアウトが大型モニターで広がりすぎないように、最大幅を指定することをお勧めします。これにより、読みやすい行の長さを保つことができます。IE6 ではこの宣言は無視されます。 */
+	min-width: 780px;/* レイアウトが狭くなりすぎないように、最小幅を指定することをお勧めします。これにより、サイドカラムで読みやすい行の長さを保つことができます。IE6 ではこの宣言は無視されます。 */
+	background: #FFF;
+	margin: 0 auto; /* 幅に加え、両側を自動値とすることで、レイアウトが中央に揃います。.container の幅を 100% に設定した場合、これは必要ありません。 */
+}
+
+/* ~~ これはレイアウト情報です。~~ 
+
+1) 余白は、div の上部または下部にのみ配置されます。この div 内のエレメントには、それ自体に余白があるので、ボックスモデル計算を行う必要がありません。ただし、div 自体に両側の余白やボーダーを指定した場合、その値が加算されたものが合計幅になることに注意してください。div 内のエレメントの余白を削除し、さらにその div 内に、全体のデザインに必要な幅や余白を指定していない 2 つ目の div を追加することもできます。
+
+*/
+.content {
+	padding: 10px 0;
+}
+
+/* ~~ このセレクターグループは、.content 内のリストに領域間隔を指定します。~~ */
+.content ul, .content ol { 
+	padding: 0 15px 15px 40px; /* この余白は、上述の見出しと段落ルールの右の余白を表します。下の余白はリスト内の他のエレメントとの間隔用に配置され、左の余白はインデント作成用に配置されています。これは必要に応じて調整できます。 */
+}
+
+/* ~~ その他の float/clear クラス ~~ */
+.fltrt {  /* このクラスを使用すると、ページ内でエレメントを右にフローティングさせることができます。フローティングさせるエレメントは、ページ内で横に並べて表示するエレメントの前に指定する必要があります。 */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* このクラスを使用すると、ページ内でエレメントを左にフローティングさせることができます。フローティングさせるエレメントは、ページ内で横に並べて表示するエレメントの前に指定する必要があります。 */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* このクラスは、.container で overflow:hidden が削除されている場合に、<br /> または空の div で、フローティングさせる最後の div に続く最後のエレメントとして (#container 内に) 配置できます。 */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+-->
+</style></head>
+
+<body>
+
+<div class="container">
+  <div class="content">
+    <h1>CrossFramework</h1>
+    <p>CrossFrameworkはWindows，MacOSX，iOSをターゲットとしたゲームアプリケーション開発のツール・ライブラリです。    </p>
+    <h2>内容</h2>
+    <p>ReadMe.html - このファイル。<br />
+        ChangeLog.html - 変更履歴。（<a href="ChangeLog.html">HTML</a>）<br />
+        CommandLineTool - コマンドラインツール。<br />
+        CLRDLL - CLRアプリケーション用のDLL。<br />
+        Library - ランタイム用のC++ライブラリ。（<a href="Library/man/Manual.html">リファレンスマニュアルHTML</a>）</p>
+    <h2>動作環境</h2>
+    <ul>
+    <li>ランタイム環境</li>
+    <ul>
+	<li>Windows7</li>
+    <li>MacOSX(10.7以上)</li>
+	<li>iOS(6.1以上)</li>
+    </ul>
+    <li>ビルド環境</li>
+    <ul>
+    <li>Windows7 - Microsoft VisualC++ 2010 ExpressEdition</li>
+    <li>MacOSX 10.8.5 - XCode4.6.3</li>
+    <li>※以上は作者のビルド環境でありこれ以外の環境でも動く可能性はあります</li>
+    </ul>
+    <li>CLR環境</li>
+    <ul>
+    <li>Windows - Microsoft .NET Framework 4</li>
+    <li>MacOSX - Mono2.10.11</li>
+    <li>※以上は作者のCLR環境でありこれ以外の環境でも動く可能性はあります</li>
+    </ul>
+    </ul>
+    <h2>公式サイト</h2>
+    <p><a href="http://www.10106.net/crossframework/" target="_new">http://www.10106.net/crossframework/</a></p>
+    <h2>ライセンス</h2>
+    <h3>原文</h3>
+    <p>本ソフトウェアは何らの保証もなく提供されます。 本ソフトウェアの使用によって生じるいかなる損害について作者は一切の責任を負わないものとします。</p>
+    <p>商用アプリケーションを含めて、本ソフトウェアを任意の目的に使用し、ソフトウェアの一部・全体を自由に複製・改変して再頒布することをすべての人に許可します。ソースまたはバイナリの配布をする際に著作権表示をする必要もありません。</p>
+    <h3>作者要約　(原文はどうしても堅い文章になっちゃうので…)</h3>
+    <ul>
+        <li>crossframeworkを使ったことでトラブルや問題などが発生しても自己責任でお願いします。</li>
+        <li>ソースコードを何かの参考にしたりコピペしていただいて構いません。</li>
+    	<li>配布物に「crossframeworkからコピペした」や「crossframeworkを使った」といった表示はしなくても大丈夫です。</li>
+    </ul>
+	<h2>作者連絡先</h2>
+    <p>Twitterアカウント <a href="http://twitter.com/#!/hoboaki" target="_new">hoboaki</a> までお願いします。</p>
+    <!-- end .content --></div>
+  <!-- end .container --></div>
+</body>
+</html>
