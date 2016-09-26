@@ -1,0 +1,1119 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Collada141;
+using System.IO;
+using System.Xml;
+using System.Xml.Schema;
+using System.Reflection;
+
+namespace CrossFramework.XG3D
+{
+    /// <summary>
+    /// xmdlファイル。
+    /// </summary>
+    public class ResMdl
+    {
+        //------------------------------------------------------------
+        /// <summary>
+        /// ResMdlに含まれる1メッシュを表すクラス。
+        /// </summary>
+        public class Mesh
+        {
+            /// <summary>
+            /// 名前。
+            /// </summary>
+            public readonly string Name;
+            
+            /// <summary>
+            /// 属するサブメッシュ。
+            /// </summary>
+            public readonly SubMesh[] SubMeshes;
+            
+            //============================================================
+
+            //------------------------------------------------------------
+            internal static Mesh FromXml(XmlNode aXml, XmlNamespaceManager aNSMgr)
+            {
+                string name = aXml.Attributes["name"].Value;
+                List<SubMesh> subMeshes = new List<SubMesh>();
+                foreach (XmlNode xmlNode in aXml.SelectNodes("./n:sub_mesh", aNSMgr))
+                {
+                    subMeshes.Add(SubMesh.FromXml(xmlNode, aNSMgr));
+                }
+                return new Mesh(name, subMeshes);
+            }
+
+            //============================================================
+            
+            internal Mesh(string aName, IEnumerable<SubMesh> aSubMeshes)
+            {
+                Name = aName;
+                SubMeshes = aSubMeshes.ToArray();
+            }
+
+            //============================================================
+
+            internal void WriteXml(XmlWriter aXML)
+            {
+                aXML.WriteStartElement("mesh");
+                {
+                    aXML.WriteAttributeString("name", Name);
+                    foreach (var subMesh in SubMeshes)
+                    {
+                        subMesh.WriteXml(aXML);
+                    }
+                }
+                aXML.WriteEndElement();
+            }
+        }
+
+        //------------------------------------------------------------
+        /// <summary>
+        /// ResMdlに含まれる1ノードを表すクラス。
+        /// </summary>
+        public class Node
+        {
+            //============================================================
+
+            /// <summary>
+            /// 名前。
+            /// </summary>
+            public readonly string Name;
+
+            /// <summary>
+            /// 親ノードの名前。なければ長さ0。
+            /// </summary>
+            public readonly string ParentName;
+
+            /// <summary>
+            /// SRT値。
+            /// </summary>
+            public readonly Transform3 Transform;
+
+            //============================================================
+
+            //------------------------------------------------------------
+            internal static Node FromXml(XmlNode aXml, XmlNamespaceManager aNSMgr)
+            {
+                string name = aXml.Attributes["name"].Value;
+                string parentName = aXml.Attributes["parent_name"].Value;
+                Transform3 transform = Transform3.FromXml(aXml.SelectSingleNode("./n:transform", aNSMgr), aNSMgr);
+                return new Node(name, parentName, transform);
+            }
+
+            //============================================================
+
+            internal Node(string aName, string aParentName, Transform3 aTransform)
+            {
+                Name = aName;
+                ParentName = aParentName;
+                Transform = aTransform;
+            }
+
+            //============================================================
+            internal void WriteXml(XmlWriter aXML)
+            {
+                aXML.WriteStartElement("node");
+                {
+                    aXML.WriteAttributeString("name", Name);
+                    aXML.WriteAttributeString("parent_name", ParentName);
+                    Transform.WriteXml(aXML, "transform");
+                }
+                aXML.WriteEndElement();
+            }
+        }
+        
+        //------------------------------------------------------------
+        /// <summary>
+        /// ResMdlに含まれる1シェイプを表すクラス。
+        /// </summary>
+        public class Shape
+        {
+            //============================================================
+            /// <summary>
+            /// 入力データの種類。
+            /// </summary>
+            public enum InputKind
+            {
+                /// <summary>
+                /// 位置。
+                /// </summary>
+                Position,
+
+                /// <summary>
+                /// 法線。
+                /// </summary>
+                Normal,
+
+                /// <summary>
+                /// ウェイトパレット番号。
+                /// </summary>
+                WeightPaletteIndex,
+
+                /// <summary>
+                /// カラー0。
+                /// </summary>
+                Color0,
+
+                /// <summary>
+                /// カラー1。
+                /// </summary>
+                Color1,
+
+                /// <summary>
+                /// カラー2。
+                /// </summary>
+                Color2,
+
+                /// <summary>
+                /// カラー3。
+                /// </summary>
+                Color3,
+
+                /// <summary>
+                /// カラー4。
+                /// </summary>
+                Color4,
+
+                /// <summary>
+                /// カラー5。
+                /// </summary>
+                Color5,
+
+                /// <summary>
+                /// カラー6。
+                /// </summary>
+                Color6,
+
+                /// <summary>
+                /// カラー7。
+                /// </summary>
+                Color7,
+                
+                /// <summary>
+                /// テクスチャ座標0。
+                /// </summary>
+                TexCoord0,
+
+                /// <summary>
+                /// テクスチャ座標1。
+                /// </summary>
+                TexCoord1,
+
+                /// <summary>
+                /// テクスチャ座標2。
+                /// </summary>
+                TexCoord2,
+
+                /// <summary>
+                /// テクスチャ座標3。
+                /// </summary>
+                TexCoord3,
+
+                /// <summary>
+                /// テクスチャ座標4。
+                /// </summary>
+                TexCoord4,
+
+                /// <summary>
+                /// テクスチャ座標5。
+                /// </summary>
+                TexCoord5,
+
+                /// <summary>
+                /// テクスチャ座標6。
+                /// </summary>
+                TexCoord6,
+
+                /// <summary>
+                /// テクスチャ座標7。
+                /// </summary>
+                TexCoord7,
+
+                /// <summary>
+                /// 終端。
+                /// </summary>
+                TERM,
+            };
+
+            //============================================================
+            /// <summary>
+            /// 入力データのデータタイプ。
+            /// </summary>
+            public enum InputType
+            {
+                /// <summary>
+                /// 整数。
+                /// </summary>
+                Int,
+                
+                /// <summary>
+                /// 浮動小数。
+                /// </summary>
+                Float,
+            };
+
+            /// <summary>
+            /// シェイプの頂点入力データ。
+            /// </summary>
+            public class Input
+            {
+                /// <summary>
+                /// 入力の種類。
+                /// </summary>
+                public readonly InputKind Kind;
+                
+                /// <summary>
+                /// 1インデックスあたりの要素数。
+                /// </summary>
+                public readonly int ElemCount;
+                
+                /// <summary>
+                /// インデックス配列。
+                /// </summary>
+                public readonly int[] IndexArray;
+                
+                /// <summary>
+                /// 入力データタイプ。
+                /// </summary>
+                public readonly InputType Type;
+
+                /// <summary>
+                /// データ配列（整数版）。
+                /// </summary>
+                public readonly int[] IntArray;
+
+                /// <summary>
+                /// データ配列（浮動小数版）。
+                /// </summary>
+                public readonly float[] FloatArray;
+                
+                //============================================================
+
+                //------------------------------------------------------------
+                internal static Input FromXml(XmlNode aXml, XmlNamespaceManager aNSMgr)
+                {
+                    InputKind kind = (InputKind)Enum.Parse(typeof(InputKind), aXml.Attributes["kind"].Value);
+                    int elemCount = int.Parse(aXml.Attributes["elem_count"].Value);
+                    int[] indexArray = Array.ConvertAll(aXml.SelectSingleNode("./n:index_array", aNSMgr).Attributes["values"].Value.Trim().Split(' '), (obj) => (int.Parse(obj)));
+                    XmlNode elemArray = aXml.SelectSingleNode("./n:int_array", aNSMgr);
+                    if (elemArray != null)
+                    {// int
+                        int[] intArray = Array.ConvertAll(elemArray.Attributes["values"].Value.Trim().Split(' '), (obj) => (int.Parse(obj)));
+                        return new Input(kind, elemCount, indexArray, intArray);
+                    }
+                    else
+                    {// float
+                        elemArray = aXml.SelectSingleNode("./n:float_array", aNSMgr);
+                        float[] floatArray = Array.ConvertAll(elemArray.Attributes["values"].Value.Trim().Split(' '), (obj) => (float.Parse(obj)));
+                        return new Input(kind, elemCount, indexArray, floatArray);
+                    }
+                }
+
+                //============================================================
+                
+                //------------------------------------------------------------
+                // int配列版コンストラクタ。
+                internal Input(InputKind aKind, int aElemCount, int[] aIndexArray, int[] aIntArray)
+                {
+                    Kind = aKind;
+                    ElemCount = aElemCount;
+                    IndexArray = aIndexArray;
+                    Type = InputType.Int;
+                    IntArray = aIntArray;
+                }
+                //------------------------------------------------------------
+                // float配列版コンストラクタ。
+                internal Input(InputKind aKind, int aElemCount, int[] aIndexArray, float[] aFloatArray)
+                {
+                    Kind = aKind;
+                    ElemCount = aElemCount;
+                    IndexArray = aIndexArray;
+                    Type = InputType.Float;
+                    FloatArray = aFloatArray;
+                }
+
+                //============================================================
+
+                //------------------------------------------------------------
+                internal void WriteXml(XmlWriter aXML)
+                {
+                    aXML.WriteStartElement("input");
+                    {
+                        aXML.WriteAttributeString("kind", Kind.ToString());
+                        aXML.WriteAttributeString("elem_count", ElemCount.ToString());
+                        aXML.WriteAttributeString("type", Type.ToString());
+
+                        aXML.WriteStartElement("index_array");
+                        {
+                            aXML.WriteAttributeString("count", IndexArray.Length.ToString());
+                            aXML.WriteAttributeString("values", string.Join(" ",IndexArray));
+                        }
+                        aXML.WriteEndElement();
+                        
+                        switch (Type)
+                        {
+                        case InputType.Int:
+                            aXML.WriteStartElement("int_array");
+                            aXML.WriteAttributeString("count", IntArray.Length.ToString());
+                            aXML.WriteAttributeString("values", string.Join(" ", IntArray));
+                            aXML.WriteEndElement();
+                            break;
+
+                        case InputType.Float:
+                            aXML.WriteStartElement("float_array");
+                            aXML.WriteAttributeString("count", FloatArray.Length.ToString());
+                            aXML.WriteAttributeString("values", string.Join(" ", FloatArray));
+                            aXML.WriteEndElement();
+                            break;
+
+                        default:
+                            throw new Exception();
+                        }
+                    }
+                    aXML.WriteEndElement();
+                }
+            };
+
+            //============================================================
+
+            /// <summary>
+            /// シェイプ名。
+            /// </summary>
+            public readonly string Name;
+
+            /// <summary>
+            /// 頂点数。
+            /// </summary>
+            public readonly int VertexCount;
+
+            /// <summary>
+            /// 入力データ。
+            /// </summary>
+            public readonly Input[] Inputs;
+
+            // スキンウェイトもここに含まれる？
+
+            //============================================================
+
+            //------------------------------------------------------------
+            internal static Shape FromXml(XmlNode aXml, XmlNamespaceManager aNSMgr)
+            {
+                string name = aXml.Attributes["name"].Value;
+                int vertexCount = int.Parse(aXml.Attributes["vertex_count"].Value);
+                List<Input> inputs = new List<Input>();
+                foreach (XmlNode xmlNode in aXml.SelectNodes("./n:input", aNSMgr))
+                {
+                    inputs.Add(Input.FromXml(xmlNode, aNSMgr));
+                }
+                return new Shape(name, vertexCount, inputs);
+            }
+
+            //============================================================
+
+            //------------------------------------------------------------
+            internal Shape(string aName, int aVertexCount, IEnumerable<Input> aInputs)
+            {
+                Name = aName;
+                VertexCount = aVertexCount;
+                Inputs = aInputs.ToArray();
+            }
+
+            //============================================================
+
+            //------------------------------------------------------------
+            internal void WriteXml(XmlWriter aXML)
+            {
+                aXML.WriteStartElement("shape");
+                {
+                    aXML.WriteAttributeString("name", Name);
+                    aXML.WriteAttributeString("vertex_count", VertexCount.ToString());
+                    foreach (var input in Inputs)
+                    {
+                        input.WriteXml(aXML);
+                    }
+                }
+                aXML.WriteEndElement();
+            }
+        }
+
+        //------------------------------------------------------------
+        /// <summary>
+        /// ResMdlに含まれる1サブメッシュを表すクラス。
+        /// </summary>
+        public class SubMesh
+        {
+            /// <summary>
+            /// シェイプ名。
+            /// </summary>
+            public readonly string ShapeName;
+
+            /// <summary>
+            /// マテリアル名。
+            /// </summary>
+            public readonly string MaterialName;
+            
+            /// <summary>
+            /// シンプルメッシュの場合ぶらさがるノード名。それ以外は長さ0の文字列。
+            /// </summary>
+            public readonly string NodeName;
+            
+            //============================================================
+            
+            //------------------------------------------------------------
+            internal static SubMesh FromXml(XmlNode aXml, XmlNamespaceManager aNSMgr)
+            {
+                string shapeName = aXml.Attributes["shape_name"].Value;
+                string materialName = aXml.Attributes["material_name"].Value;
+                string nodeName = aXml.Attributes["node_name"].Value;
+                return new SubMesh(shapeName, materialName, nodeName);
+            }
+
+            //============================================================
+
+            //------------------------------------------------------------
+            internal SubMesh(string aShapeName, string aMaterialName, string aNodeName)
+            {
+                ShapeName = aShapeName;
+                MaterialName = aMaterialName;
+                NodeName = aNodeName;
+            }
+
+            //============================================================
+
+            //------------------------------------------------------------
+            internal void WriteXml(XmlWriter aXML)
+            {
+                aXML.WriteStartElement("sub_mesh");
+                {
+                    aXML.WriteAttributeString("shape_name", ShapeName);
+                    aXML.WriteAttributeString("material_name", MaterialName);
+                    aXML.WriteAttributeString("node_name", NodeName);
+                }
+                aXML.WriteEndElement();
+            }
+        }
+
+        //============================================================
+        /// <summary>
+        /// DAEファイルから作成。
+        /// </summary>
+        /// <param name="aDAE"></param>
+        /// <param name="aVisualSceneIndex">モデルにするVisualSceneのインデックス値。</param>
+        /// <returns></returns>
+        static public ResMdl FromDAE(COLLADA aDAE, int aVisualSceneIndex)
+        {
+            return new ResMdl(aDAE, aVisualSceneIndex);
+        }
+        
+        /// <summary>
+        /// XMLファイルから作成。
+        /// </summary>
+        /// <returns></returns>
+        static public ResMdl FromXml(XmlDocument aXML, FileInfo aFileInfo)
+        {
+            // 名前
+            string name = aFileInfo.Name.Substring(0, aFileInfo.Name.Length - aFileInfo.Extension.Length);
+
+            // 作成
+            return new ResMdl(aXML.DocumentElement, aXML.NameTable, name);
+        }
+
+        /// <summary>
+        /// XMLファイルから作成。
+        /// </summary>
+        /// <param name="aFilePath"></param>
+        /// <returns></returns>
+        static public ResMdl FromXml(string aFilePath)
+        {
+            // 設定作成
+            XmlReaderSettings setting = new XmlReaderSettings();
+            setting.ValidationType = ValidationType.Schema;
+            {// スキーマ登録
+                string schemaPath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + @"/CrossFramework.XG3D.XMDL.xsd";
+                XmlSchemaSet schemaSet = new XmlSchemaSet();
+                schemaSet.Add(null, schemaPath);
+                setting.Schemas = schemaSet;
+            }
+
+            // XMLロード
+            FileInfo fileInfo = new FileInfo(aFilePath);
+            XmlDocument xml = new XmlDocument();
+            xml.Load(XmlReader.Create(fileInfo.FullName, setting));
+
+            // 作成
+            return FromXml(xml, fileInfo);
+        }
+
+        //============================================================
+
+        /// <summary>
+        /// メジャーバージョン番号。
+        /// </summary>
+        public const byte VersionMajor = 0;
+
+        /// <summary>
+        /// マイナーバージョン番号。
+        /// </summary>
+        public const byte VersionMinor = 0;
+
+        //============================================================
+        /// <summary>
+        /// 名前。
+        /// </summary>
+        public readonly string Name;
+
+        /// <summary>
+        /// ノード。
+        /// </summary>
+        public readonly Node[] Nodes;
+
+        /// <summary>
+        /// メッシュ。
+        /// </summary>
+        public readonly Mesh[] Meshes;
+
+        /// <summary>
+        /// シェイプ。
+        /// </summary>
+        public readonly Shape[] Shapes;
+
+        //============================================================
+        
+        /// <summary>
+        /// XML形式で書き出す。
+        /// </summary>
+        /// <param name="aFilePath"></param>
+        public void WriteXml(string aFilePath)
+        {
+            using (MemoryStream mem = new MemoryStream())
+            {
+                // 設定作成
+                XmlWriterSettings setting = new XmlWriterSettings();
+                setting.Indent = true;
+                setting.IndentChars = "    ";
+                setting.NewLineChars = sNewLineChars;
+
+                // XML作成
+                using (XmlWriter xml = XmlWriter.Create(mem, setting))
+                {
+                    // elem
+                    xml.WriteStartElement("xmdl", @"http://www.10106.net/crossframework/Schema/XG3D/XMDL");
+                    {
+                        // attr
+                        xml.WriteAttributeString("version_major", VersionMajor.ToString());
+                        xml.WriteAttributeString("version_minor", VersionMinor.ToString());
+
+                        // elem
+                        xml.WriteStartElement("body");
+                        {
+                            // elem
+                            xml.WriteStartElement("meshes");
+                            {
+                                foreach (var mesh in Meshes)
+                                {
+                                    mesh.WriteXml(xml);
+                                }
+                            }
+                            xml.WriteEndElement();
+
+                            // elem
+                            xml.WriteStartElement("nodes");
+                            {
+                                foreach (var node in Nodes)
+                                {
+                                    node.WriteXml(xml);
+                                }
+                            }
+                            xml.WriteEndElement();
+
+                            // elem
+                            xml.WriteStartElement("shapes");
+                            {
+                                foreach (var shape in Shapes)
+                                {
+                                    shape.WriteXml(xml);
+                                }
+                            }
+                            xml.WriteEndElement();
+                        }
+                        xml.WriteEndElement();
+                    }
+                    xml.WriteEndDocument();
+                }
+
+                // 書き出し
+                File.WriteAllBytes(aFilePath, mem.ToArray());
+            }
+        }
+
+        //============================================================
+
+        //------------------------------------------------------------
+        // ShapeInputに変換するための中継クラス。
+        class SourceProxy
+        {
+            public string Id { get { return mId; } }
+            public string Semantic { get { return mSemantic; } }
+
+            //============================================================
+            public SourceProxy(source aSRC)
+            {
+                mId = aSRC.id;
+                mStride = (int)aSRC.technique_common.accessor.stride;
+                mIsInt = (aSRC.Item as float_array) == null;
+
+                if (mIsInt)
+                {
+                    mIntArray = ((int_array)aSRC.Item).Values;
+                }
+                else
+                {
+                    mFloatArray = ((float_array)aSRC.Item).Values;
+                }
+
+                mToNewIndexTable = new int[aSRC.technique_common.accessor.count];
+            }
+
+            //============================================================
+            public void Reset(string aSemantic, Shape.InputKind aShapeInputKind)
+            {
+                mSemantic = aSemantic;
+                mShapeInputKind = aShapeInputKind;
+                mNextNewIndex = 0;
+                for(int i = 0; i < mToNewIndexTable.Length; ++i)
+                {
+                    mToNewIndexTable[i] = -1;
+                }
+                mToSrcIndexList = new List<int>();
+                mNewIndexList = new List<int>();
+            }
+
+            //------------------------------------------------------------
+            public void NextIndex(int aIndex)
+            {
+                // まだ1度も使用したことのないIndexなら追加
+                if (mToNewIndexTable[aIndex] == -1)
+                {
+                    mToNewIndexTable[aIndex] = mNextNewIndex;
+                    mToSrcIndexList.Add(aIndex);
+                    ++mNextNewIndex;
+                }
+
+                // リストに追加
+                mNewIndexList.Add(mToNewIndexTable[aIndex]);
+            }
+
+            //------------------------------------------------------------
+            public Shape.Input ToShapeInput()
+            {
+                // IndexArrayの再作成
+                int[] newIndexArray = mNewIndexList.ToArray();
+                int[] toSrcIndexArray  = mToSrcIndexList.ToArray();
+
+                if (mIsInt)
+                {
+                    // IntArrayの再作成
+                    List<int> newElemList = new List<int>();
+                    for (int i = 0; i < toSrcIndexArray.Length; ++i)
+                    {
+                        int srcIndexOffset = toSrcIndexArray[i] * mStride;
+                        for (int elemIdx = 0; elemIdx < mStride; ++i)
+                        {
+                            newElemList.Add((int)mFloatArray[srcIndexOffset + elemIdx]);
+                        }
+                    }
+                    return new Shape.Input(
+                        mShapeInputKind
+                        , mStride
+                        , newIndexArray
+                        , newElemList.ToArray()
+                        );
+                }
+                else
+                {
+                    // FloatArrayの再作成
+                    List<float> newElemList = new List<float>();
+                    for ( int i = 0; i < toSrcIndexArray.Length; ++i)
+                    {
+                        int srcIndexOffset = toSrcIndexArray[i] * mStride;
+                        for ( int elemIdx = 0; elemIdx < mStride; ++elemIdx )
+                        {
+                            newElemList.Add((float)mFloatArray[srcIndexOffset + elemIdx]);
+                        }
+                    }
+                    return new Shape.Input(
+                        mShapeInputKind
+                        , mStride
+                        , newIndexArray
+                        , newElemList.ToArray()
+                        );
+                }
+            }
+
+            //============================================================
+            string mId;
+            int mStride;
+            bool mIsInt;
+            int[] mIntArray;
+            double[] mFloatArray;
+            string mSemantic;
+            Shape.InputKind mShapeInputKind;
+            int mNextNewIndex;
+            int[] mToNewIndexTable;
+            List<int> mToSrcIndexList;
+            List<int> mNewIndexList;
+        };
+
+        //============================================================
+        const string sNewLineChars = "\r\n";
+
+        //============================================================
+        ResMdl(COLLADA aDAE, int aVisualSceneIndex)
+        {
+            // visual_scene を選択
+            visual_scene vs = null;
+            {
+                library_visual_scenes visualScenes = (library_visual_scenes)aDAE.Items.FirstOrDefault((obj) => (obj as library_visual_scenes) != null);
+                if (visualScenes == null || visualScenes.visual_scene == null)
+                {
+                    throw new Exception("library_visual_scenesが存在しません。");
+                }
+                vs = visualScenes.visual_scene[aVisualSceneIndex];
+            }
+
+            // 名前
+            Name = vs.name;
+
+            // ノード
+            var nodes = new List<Node>();
+            List<Pair<Node, instance_geometry>> instanceGeometries = new List<Pair<Node, instance_geometry>>();
+            List<Pair<Node, instance_controller>> instanceControllers = new List<Pair<Node, instance_controller>>();
+            {
+                // ノード追加処理を関数化
+                Action<node, node> addNode = (aNode, aParent) =>
+                {
+                    // 行列のないノードは無視
+                    if (aNode.Items == null)
+                    {
+                        return;
+                    }
+                    matrix mtx = (matrix)aNode.Items.FirstOrDefault((obj) => (obj as matrix) != null);
+                    if (mtx == null)
+                    {
+                        return;
+                    }
+
+                    // Transform解析
+                    Transform3 transform = new Transform3();
+                    {                        
+                        transform.Translate.X = (float)mtx.Values[3];
+                        transform.Translate.Y = (float)mtx.Values[7];
+                        transform.Translate.Z = (float)mtx.Values[11];
+
+                        Direction3 dir3 = new Direction3();
+                        dir3.Left.X = (float)mtx.Values[0];
+                        dir3.Left.Y = (float)mtx.Values[4];
+                        dir3.Left.Z = (float)mtx.Values[8];
+                        dir3.Up.X = (float)mtx.Values[1];
+                        dir3.Up.Y = (float)mtx.Values[5];
+                        dir3.Up.Z = (float)mtx.Values[9];
+                        dir3.Front.X = (float)mtx.Values[2];
+                        dir3.Front.Y = (float)mtx.Values[6];
+                        dir3.Front.Z = (float)mtx.Values[10];
+
+                        transform.Scale.X = dir3.Left.Length();
+                        transform.Scale.Y = dir3.Up.Length();
+                        transform.Scale.Z = dir3.Front.Length();
+
+                        dir3.Left = dir3.Left.Unit();
+                        dir3.Up = dir3.Up.Unit();
+                        dir3.Front = dir3.Front.Unit();
+                        transform.Rotate = dir3.ToQuaternion();
+                    }
+
+                    // ノード追加
+                    Node newNode = new Node(
+                        aNode.name
+                        , aParent == null ? "" : aParent.name
+                        , transform
+                        );
+                    nodes.Add(newNode);
+
+                    // インスタンスの追加
+                    if (aNode.instance_geometry != null)
+                    {
+                        foreach (var obj in aNode.instance_geometry)
+                        {
+                            instanceGeometries.Add(new Pair<Node, instance_geometry>(newNode, obj));
+                        }
+                    }
+                    if (aNode.instance_controller != null)
+                    {
+                        foreach (var obj in aNode.instance_controller)
+                        {
+                            instanceControllers.Add(new Pair<Node, instance_controller>(newNode, obj));
+                        }
+                    }
+                };
+
+                // ルートノード処理
+                List<node> nextNodes = new List<node>();
+                foreach (node node in vs.node)
+                {
+                    addNode(node, null);
+                    nextNodes.Add(node);
+                }
+
+                // それ以下のノード処理
+                while (0 < nextNodes.Count)
+                {
+                    List<node> nextNextNodes = new List<node>();
+                    foreach (node node in nextNodes)
+                    {// 自分の子供を追加していく
+                        if (node.node1 != null)
+                        {
+                            foreach (var childNode in node.node1)
+                            {
+                                addNode(childNode, node);
+                                nextNextNodes.Add(childNode);
+                            }
+                        }
+                    }
+                    nextNodes = nextNextNodes;
+                }
+            }
+
+            // メッシュ＆シェイプ
+            var meshes = new List<Mesh>();            
+            var shapes = new List<Shape>();
+            do
+            {
+                // シェイプ名作成を関数化
+                Func<geometry, int, string> generateShapeName = (aGeometry, aTriangleIndex) =>
+                {
+                    return aGeometry.id + "[" + aTriangleIndex.ToString() + "]";
+                };
+
+                // コントローラの取得
+                library_controllers controllers = (library_controllers)aDAE.Items.FirstOrDefault((obj) => (obj as library_controllers) != null);
+
+                // ジオメトリ取得
+                library_geometries geometries = (library_geometries)aDAE.Items.FirstOrDefault((obj) => (obj as library_geometries) != null);
+                if (geometries == null)
+                {
+                    break;
+                }
+                foreach (geometry geo in geometries.geometry)
+                {
+                    // このモデルに属するジオメトリをサーチ
+                    var meshList = new List<Pair<string, Pair<string, bind_material>>>(); // メッシュ名、親ノード名、バインドマテリアル情報
+                    {
+                        {// node -> geometry のパターン
+                            var referencedNodes = instanceGeometries.FindAll((obj) => (obj.Second.url == "#" + geo.id));
+                            foreach (var referencedNode in referencedNodes)
+                            {
+                                meshList.Add(new Pair<string, Pair<string, bind_material>>(
+                                    referencedNode.First.Name
+                                    , new Pair<string, bind_material>(
+                                        referencedNode.First.Name
+                                        , referencedNode.Second.bind_material
+                                        )
+                                    ));
+                            }
+                        }
+                        if (controllers != null && controllers.controller != null)
+                        {// node -> controller -> skin のパターン
+                            var referencedControllers = controllers.controller.ToList().FindAll((obj) => (((skin)obj.Item).source1 == "#" + geo.id));
+                            var referencedNodes = instanceControllers.FindAll((obj) => (referencedControllers.Exists((ctrl) => (obj.Second.url == "#" + ctrl.id))));
+                            foreach (var referencedNode in referencedNodes)
+                            {
+                                meshList.Add(new Pair<string, Pair<string, bind_material>>(
+                                    referencedNode.First.Name
+                                    , new Pair<string, bind_material>(
+                                        ""
+                                        , referencedNode.Second.bind_material
+                                        )
+                                    ));
+                            }
+                        }
+                    }
+
+                    // メッシュ化する必要がなければ何もしない
+                    if (meshList.Count == 0)
+                    {// このモデルに属するジオメトリではないのでパス
+                        continue;
+                    }
+
+                    // メッシュの準備
+                    mesh mesh = geo.Item as mesh;
+                    if (mesh == null)
+                    {
+                        continue;
+                    }
+
+                    // trianglesの配列をメモ
+                    var trianglesArray = mesh.Items.ToList().FindAll((obj) => ((obj as triangles) != null));
+
+                    // 各instance_geometry＆instance_controllerをMesh化
+                    foreach (var meshEntry in meshList)
+                    {
+                        // SubMeshを作成
+                        List<SubMesh> subMeshes = new List<SubMesh>();
+                        var instanceMaterials = meshEntry.Second.Second.technique_common.ToList();
+                        int trianglesIndex = 0;
+                        foreach (triangles triangles in trianglesArray)
+                        {
+                            string shapeName = generateShapeName(geo, trianglesIndex);
+                            string materialName = instanceMaterials.Find((obj) => (obj.symbol == triangles.material)).target.Substring(1);
+                            subMeshes.Add(new SubMesh(shapeName, materialName, meshEntry.Second.First));
+                            ++trianglesIndex;
+                        }
+
+                        // メッシュを作成
+                        meshes.Add(new Mesh(
+                            meshEntry.First
+                            , subMeshes
+                            ));
+                    }
+
+                    // シェイプを出力
+                    {
+                        // Sourceの準備
+                        var sourceProxies = new List<SourceProxy>();
+                        foreach (source source in mesh.source)
+                        {
+                            sourceProxies.Add(new SourceProxy(source));
+                        }
+
+                        // 各Triangleの処理
+                        int trianglesIndex = 0;
+                        foreach (triangles triangles in trianglesArray)
+                        {
+                            // 必要なソースの収集
+                            SourceProxy[] targetSourceProxies;
+                            {
+                                var targetSourceProxiesList = new List<SourceProxy>();
+                                foreach (InputLocalOffset input in triangles.input)
+                                {
+                                    string semantic = input.semantic;
+                                    SourceProxy targetSource = null;
+                                    if (semantic == "VERTEX")
+                                    {
+                                        // POSITION以外がVERTEXに含まれる例が見当たらないため、
+                                        // とりあえずPOSITIONしかないものといして現状は処理する。
+                                        string findSource = mesh.vertices.input.First((obj) => (obj.semantic == "POSITION")).source;
+                                        targetSource = sourceProxies.Find((obj) => (findSource == "#" + obj.Id));
+                                    }
+                                    else
+                                    {
+                                        targetSource = sourceProxies.Find((obj) => (input.source ==  "#" + obj.Id));
+                                    }
+
+                                    Shape.InputKind inputKind;
+                                    switch (semantic)
+                                    {
+                                    case "VERTEX":
+                                        inputKind = Shape.InputKind.Position;
+                                        break;
+                                    case "NORMAL":
+                                        inputKind = Shape.InputKind.Normal;
+                                        break;
+                                    case "COLOR":
+                                        inputKind = (Shape.InputKind)Enum.Parse(typeof(Shape.InputKind), "Color" + targetSourceProxiesList.Count((obj) => (obj.Semantic == "COLOR")));
+                                        break;
+                                    case "TEXCOORD":
+                                        inputKind = (Shape.InputKind)Enum.Parse(typeof(Shape.InputKind), "TexCoord" + targetSourceProxiesList.Count((obj) => (obj.Semantic == "TEXCOORD")));
+                                        break;
+                                    default:
+                                        throw new Exception("Unsupported semantic '" + semantic + "'.");
+                                    }
+
+                                    targetSource.Reset(semantic, inputKind);
+                                    targetSourceProxiesList.Add(targetSource);
+                                }
+                                targetSourceProxies = targetSourceProxiesList.ToArray();
+                            }
+
+                            // indexリストを作成
+                            int[] vertxIdxArray = Array.ConvertAll<string,int>(triangles.p.Trim().Split(' '), (obj) => (int.Parse(obj))); // todo: 整形されていないXMLだとこれはアウト
+                            int vertexCount = (int)triangles.count * 3;
+                            for (int vertexIdx = 0; vertexIdx < vertexCount; ++vertexIdx)
+                            {
+                                int inputIdxOffset = vertexIdx * targetSourceProxies.Length;
+                                for (int inputIdx = 0; inputIdx < targetSourceProxies.Length; ++inputIdx)
+                                {
+                                    targetSourceProxies[inputIdx].NextIndex(vertxIdxArray[inputIdxOffset + inputIdx]);
+                                }
+                            }
+
+                            // ShapeInputに変換
+                            var shapeInputs = new List<Shape.Input>();
+                            foreach (var targetSourceProxy in targetSourceProxies)
+                            {
+                                shapeInputs.Add(targetSourceProxy.ToShapeInput());
+                            }
+
+                            // Shape作成
+                            string shapeName = generateShapeName(geo, trianglesIndex);
+                            shapes.Add(new Shape(shapeName, vertexCount, shapeInputs));
+                            ++trianglesIndex;
+                        }
+                    }
+                }
+            } while (false);
+
+            // 結果を格納
+            Nodes = nodes.ToArray();
+            Meshes = meshes.ToArray();
+            Shapes = shapes.ToArray();
+        }        
+
+        //------------------------------------------------------------
+        ResMdl(XmlNode aXml,XmlNameTable aNameTable, string aName)
+        {
+            // NameTableセットアップ
+            XmlNamespaceManager nsMgr = new XmlNamespaceManager(aNameTable);
+            nsMgr.AddNamespace("n", aXml.NamespaceURI); // n: に割り当て。
+
+            // 取得
+            XmlNode xnBody = aXml.SelectSingleNode("./n:body", nsMgr);
+            Name = aName;
+
+            // メッシュ
+            {
+                List<Mesh> meshes = new List<Mesh>();
+                XmlNode xnMeshes = xnBody.SelectSingleNode("./n:meshes", nsMgr);
+                foreach (XmlNode xnMesh in xnMeshes)
+                {
+                    meshes.Add(Mesh.FromXml(xnMesh, nsMgr));
+                }
+                Meshes = meshes.ToArray();
+            }
+
+            // ノード
+            {
+                List<Node> nodes = new List<Node>();
+                XmlNode xnNodes = xnBody.SelectSingleNode("./n:nodes", nsMgr);
+                foreach (XmlNode xnNode in xnNodes)
+                {
+                    nodes.Add(Node.FromXml(xnNode, nsMgr));
+                }
+                Nodes = nodes.ToArray();
+            }
+
+            // シェイプ
+            {
+                List<Shape> shapes = new List<Shape>();
+                XmlNode xnShapes = xnBody.SelectSingleNode("./n:shapes", nsMgr);
+                foreach (XmlNode xnShape in xnShapes)
+                {
+                    shapes.Add(Shape.FromXml(xnShape, nsMgr));
+                }
+                Shapes = shapes.ToArray();
+            }
+        }
+    }
+}

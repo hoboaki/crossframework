@@ -1,0 +1,93 @@
+﻿/**
+ * @file
+ * @brief Mouse.hppの実装を記述する。
+ * @author akino
+ */
+#include <XBase/Mouse.hpp>
+
+//------------------------------------------------------------
+namespace XBase {
+//------------------------------------------------------------
+Mouse::Mouse()
+: mData()
+, mPos()
+, mTrigger()
+, mRelease()
+{
+}
+
+//------------------------------------------------------------
+void Mouse::update( const MouseUpdateData& aData )
+{
+    // メモ
+    const MouseUpdateData pre = mData;
+    const MouseUpdateData cur = aData;
+    mData = aData;
+
+    // 更新
+    if ( mData.posUpdated != 0 )
+    {
+        mPos = mData.pos;
+    }
+    mTrigger = ~pre.hold &  cur.hold;
+    mRelease =  pre.hold & ~cur.hold;
+}
+
+//------------------------------------------------------------
+const MouseUpdateData Mouse::lastUpdateData()const
+{
+    return mData;
+}
+
+//------------------------------------------------------------
+bool Mouse::isPosUpdated()const
+{
+    return mData.posUpdated != 0;
+}
+
+//------------------------------------------------------------
+const ScreenPosPOD Mouse::pos()const
+{
+    return mPos;
+}
+
+//------------------------------------------------------------
+bool Mouse::isHold( const MouseBtnKind aKind )const
+{
+    return mData.hold.get( aKind );
+}
+
+//------------------------------------------------------------
+bool Mouse::isTrigger( const MouseBtnKind aKind )const
+{
+    return mTrigger.get( aKind );
+}
+
+//------------------------------------------------------------
+bool Mouse::isRelease( const MouseBtnKind aKind )const
+{
+    return mRelease.get( aKind );
+}
+
+//------------------------------------------------------------
+const MouseBtnBitSet Mouse::hold()const
+{
+    return mData.hold;
+}
+
+//------------------------------------------------------------
+const MouseBtnBitSet Mouse::trigger()const
+{
+    return mTrigger;
+}
+
+//------------------------------------------------------------
+const MouseBtnBitSet Mouse::release()const
+{
+    return mRelease;
+}
+
+//------------------------------------------------------------
+}
+//------------------------------------------------------------
+// EOF

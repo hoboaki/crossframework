@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="debug|Win32">
+      <Configuration>debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="develop|Win32">
+      <Configuration>develop</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="final|Win32">
+      <Configuration>final</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="semifinal|Win32">
+      <Configuration>semifinal</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <ItemGroup>
+    <ClInclude Include="..\..\..\include\XBase\Angle.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\Argument.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\ArrayLength.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\BuiltInTypes.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\Degree.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\EntryPoint.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\Hash.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\Math.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\Matrix34.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\Matrix44.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\OSType.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\PI.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\PODStruct.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\PointerCheck.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\Compiler.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\Config.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\Console.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\DivideCheck.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\Endian.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\FixedString.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\FunctionAttribute.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\OS.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\PODClass.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\PODTypes.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\Quaternion.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\Radian.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\RuntimeArray.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\RuntimeAssert.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\RuntimeAutoArray.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\RuntimeError.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\RuntimeMArray.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\ScalerClass.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\ScalerStruct.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\ScalerTypes.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\ShortString.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\ShortStringFactory.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\StaticAssert.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\StringTraits.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\ToShortString.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\TypeTraits.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\Unused.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\ValueInRange.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\Vector2.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\Vector3.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\Vector4.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\XBase.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\XBase\AABBox2.cpp" />
+    <ClCompile Include="..\src\XBase\AABBox2i.cpp" />
+    <ClCompile Include="..\src\XBase\Angle.cpp" />
+    <ClCompile Include="..\src\XBase\Application.cpp" />
+    <ClCompile Include="..\src\XBase\Argument.cpp" />
+    <ClCompile Include="..\src\XBase\AutoMemBlock.cpp" />
+    <ClCompile Include="..\src\XBase\Calendar.cpp" />
+    <ClCompile Include="..\src\XBase\Color4.cpp" />
+    <ClCompile Include="..\src\XBase\Color4b.cpp" />
+    <ClCompile Include="..\src\XBase\Console.cpp" />
+    <ClCompile Include="..\src\XBase\Degree.cpp" />
+    <ClCompile Include="..\src\XBase\Display.cpp" />
+    <ClCompile Include="..\src\XBase\DisplayContext.cpp" />
+    <ClCompile Include="..\src\XBase\DivideCheck.cpp" />
+    <ClCompile Include="..\src\XBase\FrameCounter.cpp" />
+    <ClCompile Include="..\src\XBase\Hash.cpp" />
+    <ClCompile Include="..\src\XBase\HID.cpp" />
+    <ClCompile Include="..\src\XBase\IAllocator.cpp" />
+    <ClCompile Include="..\src\XBase\IConsoleCallback.cpp" />
+    <ClCompile Include="..\src\XBase\InvalidCheck.cpp" />
+    <ClCompile Include="..\src\XBase\IReadStream.cpp" />
+    <ClCompile Include="..\src\XBase\IRuntimeErrorCallback.cpp" />
+    <ClCompile Include="..\src\XBase\Keyboard.cpp" />
+    <ClCompile Include="..\src\XBase\Math.cpp" />
+    <ClCompile Include="..\src\XBase\Matrix34.cpp" />
+    <ClCompile Include="..\src\XBase\Matrix44.cpp" />
+    <ClCompile Include="..\src\XBase\MemBlock.cpp" />
+    <ClCompile Include="..\src\XBase\Mouse.cpp" />
+    <ClCompile Include="..\src\XBase\Quaternion.cpp" />
+    <ClCompile Include="..\src\XBase\Radian.cpp" />
+    <ClCompile Include="..\src\XBase\Random.cpp" />
+    <ClCompile Include="..\src\XBase\ResFile.cpp" />
+    <ClCompile Include="..\src\XBase\ResFileStream.cpp" />
+    <ClCompile Include="..\src\XBase\RuntimeAssert.cpp" />
+    <ClCompile Include="..\src\XBase\RuntimeError.cpp" />
+    <ClCompile Include="..\src\XBase\Screen.cpp" />
+    <ClCompile Include="..\src\XBase\ScreenPos.cpp" />
+    <ClCompile Include="..\src\XBase\ShortStringFactory.cpp" />
+    <ClCompile Include="..\src\XBase\stdc\ResFileStream_EXT.cpp" />
+    <ClCompile Include="..\src\XBase\StringTraits.cpp" />
+    <ClCompile Include="..\src\XBase\Thread.cpp" />
+    <ClCompile Include="..\src\XBase\Time.cpp" />
+    <ClCompile Include="..\src\XBase\TimeSpan.cpp" />
+    <ClCompile Include="..\src\XBase\Touch.cpp" />
+    <ClCompile Include="..\src\XBase\TouchTap.cpp" />
+    <ClCompile Include="..\src\XBase\Vector2.cpp" />
+    <ClCompile Include="..\src\XBase\Vector2i.cpp" />
+    <ClCompile Include="..\src\XBase\Vector3.cpp" />
+    <ClCompile Include="..\src\XBase\Vector3i.cpp" />
+    <ClCompile Include="..\src\XBase\Vector4.cpp" />
+    <ClCompile Include="..\src\XBase\Vector4i.cpp" />
+    <ClCompile Include="..\src\XBase\windows\Application_EXT.cpp" />
+    <ClCompile Include="..\src\XBase\windows\Display_EXT.cpp" />
+    <ClCompile Include="..\src\XBase\windows\EntryPoint_EXT.cpp" />
+    <ClCompile Include="..\src\XBase\windows\HID_EXT.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F7CCEEA1-49F4-475F-839A-4B75237368B6}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>XBase</RootNamespace>
+  </PropertyGroup>
+  <Import Project="CrossFramework.XLibrary.Lib.props" />
+</Project>

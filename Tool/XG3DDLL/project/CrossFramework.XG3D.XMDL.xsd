@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema targetNamespace="http://www.10106.net/crossframework/Schema/XG3D/XMDL"
+  xmlns="http://www.10106.net/crossframework/Schema/XG3D/XMDL"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="qualified"
+  >
+
+  <!-- 符号付き整数 -->
+  <xs:simpleType name="sint8">
+    <xs:restriction base="xs:byte" />
+  </xs:simpleType>
+  <xs:simpleType name="sint8_array">
+    <xs:list itemType="sint8"/>
+  </xs:simpleType>
+  <xs:simpleType name="sint16">
+    <xs:restriction base="xs:short" />
+  </xs:simpleType>
+  <xs:simpleType name="sint16_array">
+    <xs:list itemType="sint16"/>
+  </xs:simpleType>
+  <xs:simpleType name="sint32">
+    <xs:restriction base="xs:int" />
+  </xs:simpleType>
+  <xs:simpleType name="sint32_array">
+    <xs:list itemType="sint32"/>
+  </xs:simpleType>
+  <xs:simpleType name="sint64">
+    <xs:restriction base="xs:long" />
+  </xs:simpleType>
+  <xs:simpleType name="sint64_array">
+    <xs:list itemType="sint64"/>
+  </xs:simpleType>
+
+  <!-- 符号無し整数 -->
+  <xs:simpleType name="uint8">
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="uint8_array">
+    <xs:list itemType="uint8"/>
+  </xs:simpleType>
+  <xs:simpleType name="uint16">
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="uint16_array">
+    <xs:list itemType="uint16"/>
+  </xs:simpleType>
+  <xs:simpleType name="uint32">
+    <xs:restriction base="xs:unsignedInt" />
+  </xs:simpleType>
+  <xs:simpleType name="uint32_array">
+    <xs:list itemType="uint32"/>
+  </xs:simpleType>
+  <xs:simpleType name="uint64">
+    <xs:restriction base="xs:unsignedLong" />
+  </xs:simpleType>
+  <xs:simpleType name="uint64_array">
+    <xs:list itemType="uint64"/>
+  </xs:simpleType>
+
+  <!-- 32bit浮動小数 -->
+  <xs:simpleType name="float32">
+    <xs:restriction base="xs:float" />
+  </xs:simpleType>
+  <xs:simpleType name="float32_array">
+    <xs:list itemType="float32"/>
+  </xs:simpleType>
+  <xs:simpleType name="float64">
+    <xs:restriction base="xs:double" />
+  </xs:simpleType>
+  <xs:simpleType name="float64_array">
+    <xs:list itemType="float64"/>
+  </xs:simpleType>
+
+  <!-- 文字列 -->
+  <xs:simpleType name="string">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+
+  <!-- 復帰文字を含まない文字列 -->
+  <xs:simpleType name="nstring">
+    <xs:restriction base="xs:normalizedString" />
+  </xs:simpleType>
+
+  <!-- -->
+  <!-- ##################################### -->
+  <!-- -->
+
+  <!-- float_array -->
+  <xs:element name="float_array">
+    <xs:complexType>
+      <xs:attribute name="count" type="sint32" use="required"/>
+      <xs:attribute name="values" type="float32_array" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- index_array -->
+  <xs:element name="index_array">
+    <xs:complexType>
+      <xs:attribute name="count" type="sint32" use="required"/>
+      <xs:attribute name="values" type="sint32_array" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- input -->
+  <xs:element name="input">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="index_array"/>
+        <xs:choice>
+          <xs:element ref="int_array"/>
+          <xs:element ref="float_array"/>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="kind" type="input_kind" use="required"/>
+      <xs:attribute name="elem_count" type="sint32" use="required"/>
+      <xs:attribute name="type" type="input_type" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- input_kind -->
+  <xs:simpleType name="input_kind">
+    <xs:restriction base="nstring">
+      <xs:enumeration value="Position"/>
+      <xs:enumeration value="Normal"/>
+      <xs:enumeration value="WeightPaletteIndex"/>
+      <xs:enumeration value="Color0"/>
+      <xs:enumeration value="Color1"/>
+      <xs:enumeration value="Color2"/>
+      <xs:enumeration value="Color3"/>
+      <xs:enumeration value="Color4"/>
+      <xs:enumeration value="Color5"/>
+      <xs:enumeration value="Color6"/>
+      <xs:enumeration value="Color7"/>
+      <xs:enumeration value="TexCoord0"/>
+      <xs:enumeration value="TexCoord1"/>
+      <xs:enumeration value="TexCoord2"/>
+      <xs:enumeration value="TexCoord3"/>
+      <xs:enumeration value="TexCoord4"/>
+      <xs:enumeration value="TexCoord5"/>
+      <xs:enumeration value="TexCoord6"/>
+      <xs:enumeration value="TexCoord7"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- input_type -->
+  <xs:simpleType name="input_type">
+    <xs:restriction base="nstring">
+      <xs:enumeration value="Int"/>
+      <xs:enumeration value="Float"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <!-- int_array -->
+  <xs:element name="int_array">
+    <xs:complexType>
+      <xs:attribute name="count" type="sint32" use="required"/>
+      <xs:attribute name="values" type="sint32_array" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- mesh -->
+  <xs:element name="mesh">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref ="sub_mesh" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="name" type="nstring" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- meshes -->
+  <xs:element name="meshes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref ="mesh" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- node -->
+  <xs:element name="node">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref ="transform"/>
+      </xs:all>
+      <xs:attribute name="name" type="nstring" use="required"/>
+      <xs:attribute name="parent_name" type="nstring" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- nodes -->
+  <xs:element name="nodes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref ="node" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- rotate -->
+  <xs:element name="rotate">
+    <xs:complexType>
+      <xs:attribute name="x" type="float32" use="required"/>
+      <xs:attribute name="y" type="float32" use="required"/>
+      <xs:attribute name="z" type="float32" use="required"/>
+      <xs:attribute name="w" type="float32" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- scale -->
+  <xs:element name="scale">
+    <xs:complexType>
+      <xs:attribute name="x" type="float32" use="required"/>
+      <xs:attribute name="y" type="float32" use="required"/>
+      <xs:attribute name="z" type="float32" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- shape -->
+  <xs:element name="shape">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref ="input" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="name" type="nstring" use="required"/>
+      <xs:attribute name="vertex_count" type="sint32" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- shapes -->
+  <xs:element name="shapes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref ="shape" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- sub_mesh -->
+  <xs:element name="sub_mesh">
+    <xs:complexType>
+      <xs:attribute name="shape_name" type="nstring" use="required"/>
+      <xs:attribute name="material_name" type="nstring" use="required"/>
+      <xs:attribute name="node_name" type="nstring" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- transform -->
+  <xs:element name="transform">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref ="scale"/>
+        <xs:element ref ="rotate"/>
+        <xs:element ref ="translate"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- translate -->
+  <xs:element name="translate">
+    <xs:complexType>
+      <xs:attribute name="x" type="float32" use="required"/>
+      <xs:attribute name="y" type="float32" use="required"/>
+      <xs:attribute name="z" type="float32" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- xmdl -->
+  <xs:element name="xmdl">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="body">
+          <xs:complexType>
+            <xs:all>
+              <xs:element ref="meshes"/>
+              <xs:element ref="nodes"/>
+              <xs:element ref="shapes"/>
+            </xs:all>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="version_major" type="uint8" use="required"/>
+      <xs:attribute name="version_minor" type="uint8" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

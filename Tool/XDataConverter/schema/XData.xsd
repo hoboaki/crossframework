@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema targetNamespace="http://www.10106.net/crossframework/Schema/XData"
+  xmlns="http://www.10106.net/crossframework/Schema/XData"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="qualified"
+  >
+
+  <!-- 符号付き整数 -->
+  <xs:simpleType name="SInt8">
+    <xs:restriction base="xs:byte" />
+  </xs:simpleType>
+  <xs:simpleType name="ListOfSInt8">
+    <xs:list itemType="SInt8"/>
+  </xs:simpleType>
+  <xs:simpleType name="SInt16">
+    <xs:restriction base="xs:short" />
+  </xs:simpleType>
+  <xs:simpleType name="ListOfSInt16">
+    <xs:list itemType="SInt16"/>
+  </xs:simpleType>
+  <xs:simpleType name="SInt32">
+    <xs:restriction base="xs:int" />
+  </xs:simpleType>
+  <xs:simpleType name="ListOfSInt32">
+    <xs:list itemType="SInt32"/>
+  </xs:simpleType>
+  <xs:simpleType name="SInt64">
+    <xs:restriction base="xs:long" />
+  </xs:simpleType>
+  <xs:simpleType name="ListOfSInt64">
+    <xs:list itemType="SInt64"/>
+  </xs:simpleType>
+
+  <!-- 符号無し整数 -->
+  <xs:simpleType name="UInt8">
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="ListOfUInt8">
+    <xs:list itemType="UInt8"/>
+  </xs:simpleType>
+  <xs:simpleType name="UInt16">
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="ListOfUInt16">
+    <xs:list itemType="UInt16"/>
+  </xs:simpleType>
+  <xs:simpleType name="UInt32">
+    <xs:restriction base="xs:unsignedInt" />
+  </xs:simpleType>
+  <xs:simpleType name="ListOfUInt32">
+    <xs:list itemType="UInt32"/>
+  </xs:simpleType>
+  <xs:simpleType name="UInt64">
+    <xs:restriction base="xs:unsignedLong" />
+  </xs:simpleType>
+  <xs:simpleType name="ListOfUInt64">
+    <xs:list itemType="UInt64"/>
+  </xs:simpleType>
+
+  <!-- 32bit浮動小数 -->
+  <xs:simpleType name="Float32">
+    <xs:restriction base="xs:float" />
+  </xs:simpleType>
+  <xs:simpleType name="ListOfFloat32">
+    <xs:list itemType="Float32"/>
+  </xs:simpleType>
+  <xs:simpleType name="Float64">
+    <xs:restriction base="xs:double" />
+  </xs:simpleType>
+  <xs:simpleType name="ListOfFloat64">
+    <xs:list itemType="Float64"/>
+  </xs:simpleType>
+
+  <!-- 文字列 -->
+  <xs:simpleType name="String">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  
+  <!-- 復帰文字を含まない文字列 -->
+  <xs:simpleType name="NormalizedString">
+    <xs:restriction base="xs:normalizedString" />
+  </xs:simpleType>
+  
+  <!-- -->
+  <!-- ##################################### -->
+  <!-- -->
+
+  <!-- align - alignment of byte size from file head -->
+  <xs:element name="align">
+    <xs:complexType>
+      <xs:attribute name="value" type="UInt32" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- label -->
+  <xs:element name="label">
+    <xs:complexType>
+      <xs:attribute name="name" type="NormalizedString" />
+    </xs:complexType>
+  </xs:element>
+
+  <!-- reference -->
+  <xs:element name="reference">
+    <xs:complexType>
+      <xs:attribute name="label_name" type="NormalizedString" />
+    </xs:complexType>
+  </xs:element>
+
+  <!-- sint8 -->
+  <xs:element name="sint8">
+    <xs:complexType>
+      <xs:attribute name="value" type="SInt8" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- sint16 -->
+  <xs:element name="sint16">
+    <xs:complexType>
+      <xs:attribute name="value" type="SInt16" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- sint32 -->
+  <xs:element name="sint32">
+    <xs:complexType>
+      <xs:attribute name="value" type="SInt32" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- sint64 -->
+  <xs:element name="sint64">
+    <xs:complexType>
+      <xs:attribute name="value" type="SInt64" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- sint8_array -->
+  <xs:element name="sint8_array">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="ListOfSInt8">
+          <xs:attribute name="count" type="UInt32" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- sint16_array -->
+  <xs:element name="sint16_array">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="ListOfSInt16">
+          <xs:attribute name="count" type="UInt32" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- sint32_array -->
+  <xs:element name="sint32_array">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="ListOfSInt32">
+          <xs:attribute name="count" type="UInt32" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- sint64_array -->
+  <xs:element name="sint64_array">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="ListOfSInt64">
+          <xs:attribute name="count" type="UInt32" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- uint8 -->
+  <xs:element name="uint8">
+    <xs:complexType>
+      <xs:attribute name="value" type="UInt8" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- uint16 -->
+  <xs:element name="uint16">
+    <xs:complexType>
+      <xs:attribute name="value" type="UInt16" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- uint32 -->
+  <xs:element name="uint32">
+    <xs:complexType>
+      <xs:attribute name="value" type="UInt32" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- uint64 -->
+  <xs:element name="uint64">
+    <xs:complexType>
+      <xs:attribute name="value" type="UInt64" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- uint8_array -->
+  <xs:element name="uint8_array">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="ListOfUInt8">
+          <xs:attribute name="count" type="UInt32" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- uint16_array -->
+  <xs:element name="uint16_array">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="ListOfUInt16">
+          <xs:attribute name="count" type="UInt32" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- uint32_array -->
+  <xs:element name="uint32_array">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="ListOfUInt32">
+          <xs:attribute name="count" type="UInt32" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- uint64_array -->
+  <xs:element name="uint64_array">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="ListOfUInt64">
+          <xs:attribute name="count" type="UInt32" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- float32 -->
+  <xs:element name="float32">
+    <xs:complexType>
+      <xs:attribute name="value" type="Float32" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- float64 -->
+  <xs:element name="float64">
+    <xs:complexType>
+      <xs:attribute name="value" type="Float64" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- float32_array -->
+  <xs:element name="float32_array">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="ListOfFloat32">
+          <xs:attribute name="count" type="UInt32" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- float64_array -->
+  <xs:element name="float64_array">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="ListOfFloat64">
+          <xs:attribute name="count" type="UInt32" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- string -->
+  <xs:element name="string">
+    <xs:complexType>
+      <xs:attribute name="value" type="NormalizedString" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- string_ref -->
+  <xs:element name="string_ref">
+    <xs:complexType>
+      <xs:attribute name="value" type="NormalizedString" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- xdata -->
+  <xs:element name="xdata_root">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="align" />
+        <xs:element ref="label"/>
+        <xs:element ref="reference"/>
+        <!---->
+        <xs:element ref="float32"/>
+        <xs:element ref="float32_array"/>
+        <xs:element ref="float64"/>
+        <xs:element ref="float64_array"/>
+        <xs:element ref="sint8"/>
+        <xs:element ref="sint8_array"/>
+        <xs:element ref="sint16"/>
+        <xs:element ref="sint16_array"/>
+        <xs:element ref="sint32"/>
+        <xs:element ref="sint32_array"/>
+        <xs:element ref="sint64"/>
+        <xs:element ref="sint64_array"/>
+        <xs:element ref="uint8"/>
+        <xs:element ref="uint8_array"/>
+        <xs:element ref="uint16"/>
+        <xs:element ref="uint16_array"/>
+        <xs:element ref="uint32"/>
+        <xs:element ref="uint32_array"/>
+        <xs:element ref="uint64"/>
+        <xs:element ref="uint64_array"/>
+        <xs:element ref="string" />
+        <xs:element ref="string_ref" />
+      </xs:choice>
+      <xs:attribute name="major_version" type="UInt32" use="required"/>
+      <xs:attribute name="minor_version" type="UInt32" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

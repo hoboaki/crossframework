@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="debug|Win32">
+      <Configuration>debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="develop|Win32">
+      <Configuration>develop</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="final|Win32">
+      <Configuration>final</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="semifinal|Win32">
+      <Configuration>semifinal</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\XG3D\texture\Main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResFiles Include="$(ProjectDir)\..\res\XG3D\texture\win\**\*.*" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{282812F4-49BE-402F-9B2B-FB5D6C92EA50}</ProjectGuid>
+    <RootNamespace>XLibraryDemo</RootNamespace>
+  </PropertyGroup>
+  <Import Project="CrossFramework.XLibrary.Demo.props" />
+</Project>
