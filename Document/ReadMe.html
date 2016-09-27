@@ -49,7 +49,7 @@ a:hover, a:active, a:focus { /* このセレクターグループは、キーボ
 	margin: 0 auto; /* 幅に加え、両側を自動値とすることで、レイアウトが中央に揃います。.container の幅を 100% に設定した場合、これは必要ありません。 */
 }
 
-/* ~~ これはレイアウト情報です。~~ 
+/* ~~ これはレイアウト情報です。~~
 
 1) 余白は、div の上部または下部にのみ配置されます。この div 内のエレメントには、それ自体に余白があるので、ボックスモデル計算を行う必要がありません。ただし、div 自体に両側の余白やボーダーを指定した場合、その値が加算されたものが合計幅になることに注意してください。div 内のエレメントの余白を削除し、さらにその div 内に、全体のデザインに必要な幅や余白を指定していない 2 つ目の div を追加することもできます。
 
@@ -59,7 +59,7 @@ a:hover, a:active, a:focus { /* このセレクターグループは、キーボ
 }
 
 /* ~~ このセレクターグループは、.content 内のリストに領域間隔を指定します。~~ */
-.content ul, .content ol { 
+.content ul, .content ol {
 	padding: 0 15px 15px 40px; /* この余白は、上述の見出しと段落ルールの右の余白を表します。下の余白はリスト内の他のエレメントとの間隔用に配置され、左の余白はインデント作成用に配置されています。これは必要に応じて調整できます。 */
 }
 
@@ -98,13 +98,13 @@ a:hover, a:active, a:focus { /* このセレクターグループは、キーボ
     <li>ランタイム環境</li>
     <ul>
 	<li>Windows7</li>
-    <li>MacOSX(10.7以上)</li>
-	<li>iOS(6.1以上)</li>
+    <li>MacOSX(10.11以上)</li>
+	<li>iOS(9以上)</li>
     </ul>
     <li>ビルド環境</li>
     <ul>
-    <li>Windows7 - Microsoft VisualC++ 2010 ExpressEdition</li>
-    <li>MacOSX 10.8.5 - XCode4.6.3</li>
+    <li>Windows7 - Microsoft Visual Studio 2015 Community Update3</li>
+    <li>MacOSX 10.11.6 - XCode 7.3.1</li>
     <li>※以上は作者のビルド環境でありこれ以外の環境でも動く可能性はあります</li>
     </ul>
     <li>CLR環境</li>
