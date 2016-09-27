@@ -1,15 +1,15 @@
 #------------------------------------------------------------
-# Setting.mk
+# æ–‡å­—ã‚³ãƒ¼ãƒ‰: UTF-8
 #------------------------------------------------------------
 
 #------------------------------------------------------------
-# projectRootƒ`ƒFƒbƒN
+# projectRootãƒã‚§ãƒƒã‚¯
 ifndef projectRoot
   $(error Not defined variable named 'projectRoot')
 endif
 
 #------------------------------------------------------------
-# •Ï”İ’è
+# å¤‰æ•°è¨­å®š
 EchoObject = echo ---- $@ ----
 PublishDirRoot := $(projectRoot)/Publish
 PublishDir := $(PublishDirRoot)/crossframework
