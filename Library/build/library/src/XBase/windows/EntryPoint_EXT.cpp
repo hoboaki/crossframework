@@ -248,7 +248,7 @@ int main(
             const ::XBase::StringTraits< char >::WriteResult result = 
                 ::XBase::StringTraits< char >::NCopy( tArgChars , tArgCharsLength - index , aArgValues[i] );
             tArgPtrs[i] = &tArgChars[index];
-            index += result.length + 1;
+            index += ::XBase::uint(result.length + 1);
         }
         tArgCount = ::XBase::uint( aArgCount - 1 );
     }
