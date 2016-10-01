@@ -1,6 +1,6 @@
 /**
  * @file
- * @brief HID_EXTŒ^‚ğ‹Lq‚·‚éB
+ * @brief HID_EXTå‹ã‚’è¨˜è¿°ã™ã‚‹ã€‚
  * @author akino
  */
 #if defined(XBASE_INCLUDED_HID_MACOSX_HPP)
@@ -14,7 +14,7 @@
 
 //------------------------------------------------------------
 namespace XBase {
-    // MacOSX‚ÌHIDŠg’£B
+    // MacOSXã®HIDæ‹¡å¼µã€‚
     class HID_EXT : public NonCopyable
     {
     public:

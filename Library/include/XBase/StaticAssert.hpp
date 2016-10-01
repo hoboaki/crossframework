@@ -1,4 +1,4 @@
-﻿/** 
+/** 
  * @file 
  * @brief コンパイル時アサートを記述する。
  * @author akino

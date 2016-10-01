@@ -1,4 +1,4 @@
-﻿/**
+/**
 @page Tutorial チュートリアル
 - @subpage TutorialMSVC
 - @subpage TutorialXCode-OSX

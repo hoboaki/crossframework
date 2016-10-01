@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief FrameCounter型を記述する。
  * @author akino

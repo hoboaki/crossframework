@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief TexBuffer_EXT型を記述する。
  * @author akino

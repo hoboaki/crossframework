@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief 円周率の値を記述する。
  * @author akino

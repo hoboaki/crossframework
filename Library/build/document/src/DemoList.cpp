@@ -1,4 +1,4 @@
-﻿/**
+/**
 
 @page DemoList デモ一覧
 @section デモについて

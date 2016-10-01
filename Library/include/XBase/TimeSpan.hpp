@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief TimeSpan,TimeSpanPOD型を記述する。
  * @author akino

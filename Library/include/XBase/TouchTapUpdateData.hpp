@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief TouchTapUpdateData型を記述する。
  * @author akino

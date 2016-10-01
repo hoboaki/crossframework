@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief ResMat.hppの実装を記述する。
  * @author akino

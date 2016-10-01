@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief Unusedマクロを記述する。
  * @author akino

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief 配列の長さに関するマクロを記述する。
  * @author akino

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief AABBox2i型を記述する。
  * @author akino

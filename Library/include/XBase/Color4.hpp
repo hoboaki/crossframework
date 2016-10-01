@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief Color4,Color4POD型を記述する。
  * @author akino

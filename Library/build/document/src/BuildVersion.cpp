@@ -1,4 +1,4 @@
-﻿/**
+/**
 
 @page AboutBuildVersion ビルドバージョン
 @section ビルドバージョン

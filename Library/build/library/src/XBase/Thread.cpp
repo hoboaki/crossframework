@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief Thread.hppの実装を記述する。
  * @author akino

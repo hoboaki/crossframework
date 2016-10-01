@@ -1,6 +1,6 @@
 /**
  * @file
- * @brief UIOpenGLView‚ÉŠÖ‚·‚éŠÖ”‚ğ’è‹`‚·‚éB
+ * @brief UIOpenGLViewã«é–¢ã™ã‚‹é–¢æ•°ã‚’å®šç¾©ã™ã‚‹ã€‚
  * @author akino
  */
 #if defined(XG3D_INCLUDED_XG3DUIOPENGLVIEW_H)

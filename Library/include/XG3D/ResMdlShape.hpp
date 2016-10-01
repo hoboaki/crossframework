@@ -1,4 +1,4 @@
-﻿/*
+/*
  * @file
  * @brief ResMdlShape型を記述する。
  * @author akino

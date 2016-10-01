@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief ResMdlSubMeshImpl型を記述する。
  * @author akino

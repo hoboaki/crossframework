@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief BinResTex型を記述する。
  * @author akino

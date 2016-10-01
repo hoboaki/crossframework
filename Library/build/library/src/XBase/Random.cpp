@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief Random.hppの実装を記述する。
  * @author akino

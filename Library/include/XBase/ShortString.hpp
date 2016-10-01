@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief ShortString型を記述する。
  * @author akino

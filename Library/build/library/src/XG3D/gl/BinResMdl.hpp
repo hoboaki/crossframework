@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief BinResMdl型を記述する。
  * @author akino

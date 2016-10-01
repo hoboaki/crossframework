@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief XDataPlus型を記述する。
  * @author akino

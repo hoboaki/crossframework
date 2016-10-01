@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief Main関数を記述する。
  * @author akino

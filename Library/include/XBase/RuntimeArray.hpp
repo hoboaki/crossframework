@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief RuntimeArray型を記述する。
  * @author akino

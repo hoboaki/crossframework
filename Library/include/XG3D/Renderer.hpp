@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief Renderer型を記述する。
  * @author akino

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief Random型を記述する。
  * @author akino

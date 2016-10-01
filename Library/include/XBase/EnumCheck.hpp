@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief Enumの値をチェックするマクロを記述する。
  * @author akino

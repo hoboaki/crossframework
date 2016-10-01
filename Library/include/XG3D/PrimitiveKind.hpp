@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief PrimitiveKind型を記述する。
  * @author akino

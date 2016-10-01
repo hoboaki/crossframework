@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief Argument.hppの実装を記述する。
  * @author akino

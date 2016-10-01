@@ -1,4 +1,4 @@
-﻿/**
+/**
 
 @page G3DAbstract G3D概要
 @section 座標系

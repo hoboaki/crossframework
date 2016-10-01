@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief SeekOrigin型を記述する。
  * @author akino

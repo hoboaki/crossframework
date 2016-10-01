@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief Windowsのエントリーポイント関数の実装を記述する。
  * @author akino

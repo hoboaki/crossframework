@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief Vector2i,Vector2iPOD(Vec2i)型を記述する。
  * @author akino

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief Vector2.hppの実装を記述する。
  * @author akino

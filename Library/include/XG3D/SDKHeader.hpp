@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief SDKのヘッダファイルのインクルードをする。
  * @author akino

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief Quaternion型を記述する。
  * @author akino

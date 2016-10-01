@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief 動作OSに関する定数を記述する。
  * @author akino

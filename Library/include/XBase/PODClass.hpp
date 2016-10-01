@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief PODClass型を記述する。
  * @author akino

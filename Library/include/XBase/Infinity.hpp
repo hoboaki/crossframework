@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief 無限大の値を記述する。
  * @author akino
