@@ -15,13 +15,20 @@ namespace CppCodeModifier
             // ファイルに対して操作
             string libraryDirPath = "../../../../Library";
             var filePaths = new List<string>();
-            var cppFilePaths = new List<string>();
-            cppFilePaths.AddRange(Directory.EnumerateFiles(libraryDirPath, "*.cpp", SearchOption.AllDirectories));
-            cppFilePaths.AddRange(Directory.EnumerateFiles(libraryDirPath, "*.hpp", SearchOption.AllDirectories));
-            filePaths.AddRange(Directory.EnumerateFiles(libraryDirPath, "*.c", SearchOption.AllDirectories));
-            filePaths.AddRange(Directory.EnumerateFiles(libraryDirPath, "*.h", SearchOption.AllDirectories));
-            filePaths.AddRange(Directory.EnumerateFiles(libraryDirPath, "*.m", SearchOption.AllDirectories));
-            filePaths.AddRange(cppFilePaths);
+            var cppFileList = new List<string>();
+            var cFileList = new List<string>();
+            var cppFiles = Directory.EnumerateFiles(libraryDirPath, "*.cpp", SearchOption.AllDirectories);
+            var hppFiles = Directory.EnumerateFiles(libraryDirPath, "*.hpp", SearchOption.AllDirectories);
+            var cFiles = Directory.EnumerateFiles(libraryDirPath, "*.c", SearchOption.AllDirectories);
+            var hFiles = Directory.EnumerateFiles(libraryDirPath, "*.h", SearchOption.AllDirectories);
+            var mFiles = Directory.EnumerateFiles(libraryDirPath, "*.m", SearchOption.AllDirectories);
+            cppFileList.AddRange(cppFiles);
+            cppFileList.AddRange(hppFiles);
+            cFileList.AddRange(cFiles);
+            cFileList.AddRange(hFiles);
+            filePaths.AddRange(cppFileList);
+            filePaths.AddRange(cFileList);
+            filePaths.AddRange(mFiles);
             var textEditFunc = new Action<List<string>, Func<List<string>, bool>>((paths, func) =>
             {
                 foreach (var path in paths)
@@ -50,6 +57,64 @@ namespace CppCodeModifier
                             return true;
                         }
                         return false;
+                    }
+                    );
+            }
+
+            // ブロックコメントをラインコメントに
+            if (true)
+            {
+                textEditFunc(filePaths,
+                    (lines) =>
+                    {
+                        bool isModify = false;
+                        bool inBlock = false;
+                        string prefix = "";
+                        var result = lines.ToList();
+                        result.Clear();
+                        for (int i = 0; i < lines.Count; ++i)
+                        {
+                            var line = lines[i];
+                            if (!inBlock)
+                            {
+                                if (i != 0 && line.Trim().StartsWith("/**"))
+                                {
+                                    inBlock = true;
+                                    prefix = line.Substring(0, line.IndexOf("/**"));
+                                }
+                                else
+                                {
+                                    result.Add(line);
+                                }
+                            }
+                            else
+                            {
+                                if (line.Trim().StartsWith("*/"))
+                                {
+                                    inBlock = false;
+                                    isModify = true;
+                                }
+                                else
+                                {
+                                    int idx = line.IndexOf(" * ");
+                                    if (idx < 0)
+                                    {
+                                        result.Add(prefix + "/// " + line);
+                                    }
+                                    else
+                                    {
+                                        result.Add(line.Substring(0, idx) + "/// " + line.Substring(idx + 3));
+                                    }
+                                }
+                            }
+                        }
+
+                        if (isModify)
+                        {
+                            lines.Clear();
+                            lines.AddRange(result);
+                        }
+                        return isModify;
                     }
                     );
             }
