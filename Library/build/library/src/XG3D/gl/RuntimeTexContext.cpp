@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief RuntimeTexContext.hppの実装を記述する。
  * @author akino

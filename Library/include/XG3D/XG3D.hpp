@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief XG3Dの全てのヘッダをインクルードする。
  * @author akino

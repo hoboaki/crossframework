@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief ExplicitSingletonを記述する。
  * @author akino

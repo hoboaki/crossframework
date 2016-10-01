@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief IAllocatorを記述する。
  * @author akino

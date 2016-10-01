@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief ResMdlShapeInputKind型を記述する。
  * @author akino

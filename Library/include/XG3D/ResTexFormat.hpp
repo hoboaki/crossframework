@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief ResTexFormat型を記述する。
  * @author akino

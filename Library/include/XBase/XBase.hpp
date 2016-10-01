@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief XBaseの全てのヘッダをインクルードする。
  * @author akino

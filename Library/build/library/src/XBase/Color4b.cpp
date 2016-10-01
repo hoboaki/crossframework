@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief Color4b.hppの実装を記述する。
  * @author akino

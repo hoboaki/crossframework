@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief 組み込み型のtypedefを記述する。
  * @author akino

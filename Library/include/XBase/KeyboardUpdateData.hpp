@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief KeyboardUpdateData型を記述する。
  * @author akino

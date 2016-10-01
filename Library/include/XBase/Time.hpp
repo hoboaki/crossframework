@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief Time,TimePOD型を記述する。
  * @author akino

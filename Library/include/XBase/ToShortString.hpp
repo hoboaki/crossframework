@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief ShortString変換マクロを記述する。
  * @author akino

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief Thread型を記述する。
  * @author akino

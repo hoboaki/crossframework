@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief Boolに関するクラス群を記述する。
  * @author akino

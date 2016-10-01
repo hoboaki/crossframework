@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief Vector4,Vector4POD(Vec4)型を記述する。
  * @author akino

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief 値が範囲内か調べるマクロを記述する。
  * @author akino

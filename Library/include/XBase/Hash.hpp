@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief Hash型を記述する。
  * @author akino

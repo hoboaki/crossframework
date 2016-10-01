@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief KeyBitSet型を記述する。
  * @author akino

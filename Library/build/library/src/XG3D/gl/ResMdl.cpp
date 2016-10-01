@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief ResMdl.hppの実装を記述する。
  * @author akino

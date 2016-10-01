@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief Degree.hppの実装を記述する。
  * @author akino

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief RuntimeTexContext型を記述する。
  * @author akino

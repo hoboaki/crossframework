@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief ResFileStream_STDCを記述する。
  * @author akino

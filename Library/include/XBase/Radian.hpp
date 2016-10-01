@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief Radian,RadianPOD型を記述する。
  * @author akino

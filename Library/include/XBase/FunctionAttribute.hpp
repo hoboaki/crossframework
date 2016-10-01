@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief 関数属性のマクロを記述する。
  * @author akino

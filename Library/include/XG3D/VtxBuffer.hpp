@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief VtxBuffer型を記述する。
  * @author akino

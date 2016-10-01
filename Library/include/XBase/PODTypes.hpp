@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief 組み込み型のラッパークラスたちのtypedefを記述する。
  * @author akino

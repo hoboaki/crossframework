@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief AppEvent型を記述する。
  * @author akino

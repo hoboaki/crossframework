@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief OSの種類に関する定数を記述する。
  * @author akino

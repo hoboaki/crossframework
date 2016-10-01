@@ -1,4 +1,4 @@
-﻿/*
+/*
  * @file
  * @brief ResConstant型を記述する。
  * @author akino

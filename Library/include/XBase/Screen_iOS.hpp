@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief Screen_EXT型を記述する。
  * @author akino

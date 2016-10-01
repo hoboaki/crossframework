@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief RuntimeError型と実行時エラーに関するマクロを記述する。
  * @author akino

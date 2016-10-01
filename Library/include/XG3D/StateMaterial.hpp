@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief StateMaterial型を記述する。
  * @author akino

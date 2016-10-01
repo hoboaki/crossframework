@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief IReadStream型を記述する。
  * @author akino

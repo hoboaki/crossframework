@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief Scaler型の版、Class版のtypedefを記述する。
  * @author akino

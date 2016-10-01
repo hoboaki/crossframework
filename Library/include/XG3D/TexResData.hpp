@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief TexResData型を記述する。
  * @author akino

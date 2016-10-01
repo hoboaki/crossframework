@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief HID_EXT型を記述する。
  * @author akino

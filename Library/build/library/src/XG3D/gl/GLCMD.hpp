@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief GLCMDマクロを記述する。
  * @author akino

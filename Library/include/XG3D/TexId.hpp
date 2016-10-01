@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file
  * @brief TexId型を記述する。
  * @author akino
