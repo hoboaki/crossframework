@@ -118,6 +118,78 @@ namespace CppCodeModifier
                     }
                     );
             }
+
+            // 末尾
+            if (true)
+            {
+                textEditFunc(cppFileList,
+                    (lines) =>
+                    {
+                        // hpp
+                        {
+                            int eofIndex = lines.Count - 1;
+                            int endIf = eofIndex - 1;
+                            int endComment = endIf - 1;
+                            int endKakko = endComment - 1;
+                            if (lines[eofIndex].Contains("EOF") &&
+                                lines[endIf].Contains("endif") &&
+                                lines[endKakko].StartsWith("}") &&
+                                lines[endComment].StartsWith("//--")
+                                )
+                            {
+                                lines.RemoveAt(endKakko);
+                                lines.Insert(endKakko, "} // namespace");
+                                lines.RemoveAt(endComment);
+                                lines.Insert(endKakko, "");
+                                return true;
+                            }
+                        }
+                        // cpp
+                        {
+                            int eofIndex = lines.Count - 1;
+                            int endComment = eofIndex - 1;
+                            int endKakko = endComment - 1;
+                            int endComment2 = endKakko - 1;
+                            if (lines[eofIndex].Contains("EOF") &&
+                                lines[endComment].StartsWith("//--") &&
+                                lines[endKakko].StartsWith("}") &&
+                                lines[endComment2].StartsWith("//--")
+                                )
+                            {
+                                lines.RemoveAt(endKakko);
+                                lines.Insert(endKakko, "} // namespace");
+                                lines.RemoveAt(endComment);
+                                lines.RemoveAt(endComment2);
+                                return true;
+                            }
+                        }
+                        return false;
+                    }
+                    );
+            }
+
+            // 80セパレータ
+            if (true)
+            {
+                textEditFunc(filePaths,
+                    (lines) =>
+                    {
+                        bool isModify = false;
+                        for (int i = 0; i < lines.Count; ++i)
+                        {
+                            var line = lines[i];
+                            if (line.Trim().StartsWith("//----------------------------------------------------------"))
+                            {
+                                string prefix = line.Substring(0, line.IndexOf("//"));
+                                lines.RemoveAt(i);
+                                lines.Insert(i, prefix + "//------------------------------------------------------------------------------");
+                                isModify = true;
+                            }
+                        }
+                        return isModify;
+                    }
+                    );
+            }
         }
     }
 }
