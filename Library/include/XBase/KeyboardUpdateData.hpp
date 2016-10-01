@@ -1,16 +1,12 @@
-/**
- * @file
- * @brief KeyboardUpdateData型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_KEYBOARDUPDATEDATA_HPP)
 #else
 #define XBASE_INCLUDED_KEYBOARDUPDATEDATA_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/KeyBitSet.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-HID
 //@{
@@ -21,7 +17,7 @@ namespace XBase {
         KeyBitSet pulse;
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

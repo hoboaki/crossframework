@@ -1,16 +1,12 @@
-﻿/**
- * @file
- * @brief Matrix34,Matrix34POD(Mtx34)型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_MATRIX34_HPP)
 #else
 #define XBASE_INCLUDED_MATRIX34_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/BuiltInTypes.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
     class Angle;
     class Quaternion;
@@ -19,22 +15,20 @@ namespace XBase {
     struct Vector4POD;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-Math
 //@{
-    /**
-     * @brief 3x4の32bit浮動小数行列構造体。
-     * @details 
-     * 使用頻度のことを考えて Mtx34 という名前でもアクセスできます。
-     * 配列の並びはOpenGL準拠にしてあります。
-     * @code
-     *    c0  c1   c2   c3
-     * r0 [0] [3]  [6]  [9]
-     * r1 [1] [4]  [7] [10]
-     * r2 [2] [5]  [8] [11]
-     * @endcode
-     */
+    /// @brief 3x4の32bit浮動小数行列構造体。
+    /// @details 
+    /// 使用頻度のことを考えて Mtx34 という名前でもアクセスできます。
+    /// 配列の並びはOpenGL準拠にしてあります。
+    /// @code
+    ///    c0  c1   c2   c3
+    /// r0 [0] [3]  [6]  [9]
+    /// r1 [1] [4]  [7] [10]
+    /// r2 [2] [5]  [8] [11]
+    /// @endcode
     struct Matrix34POD
     {
         //============================================================
@@ -80,13 +74,11 @@ namespace XBase {
         static const Matrix34POD Rotate( const Angle& , f32 aAxisX , f32 aAxisY , f32 aAxisZ );   ///< 回転行列の作成。
         static const Matrix34POD Rotate( const Angle& , const Vector3POD& aAxis );                 ///< 回転行列の作成。
         
-        /**
-         * @brief 視野変換行列の作成。
-         * @param aEyePos 目の位置。
-         * @param aTargetPos 注視点。
-         * @param aUpVec 上方向のベクトル。isZeroなベクトルを渡してはいけない。
-         * @details aEyePos != aTargetPosである必要があります。
-         */
+        /// @brief 視野変換行列の作成。
+        /// @param aEyePos 目の位置。
+        /// @param aTargetPos 注視点。
+        /// @param aUpVec 上方向のベクトル。isZeroなベクトルを渡してはいけない。
+        /// @details aEyePos != aTargetPosである必要があります。
         static const Matrix34POD LookAt( const Vector3POD& aEyePos , const Vector3POD& aTargetPos , const Vector3POD& aUpVec );
         //@}
 
@@ -164,7 +156,7 @@ namespace XBase {
     /// Matrix34POD のエイリアス。
     typedef Matrix34POD Mtx34;
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

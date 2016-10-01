@@ -1,13 +1,9 @@
-/**
- * @file
- * @brief ScalerStruct型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_SCALERSTRUCT_HPP)
 #else
 #define XBASE_INCLUDED_SCALERSTRUCT_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <limits>
 #include <XBase/PODStruct.hpp>
 #include <XBase/ShortString.hpp>
@@ -15,7 +11,7 @@
 #include <XBase/StaticAssert.hpp>
 #include <XBase/TypeTraits.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-Types
 //@{
@@ -35,7 +31,7 @@ namespace XBase {
         XBASE_STATIC_ASSERT( sizeof( SuperStruct ) == sizeof( ValueType ) ); // サイズが同じであることを保証。        
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

@@ -1,19 +1,15 @@
-/**
- * @file
- * @brief BinResMdlShape型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_BINRESMDLSHAPE_HPP)
 #else
 #define XG3D_INCLUDED_BINRESMDLSHAPE_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XData/XData.hpp>
 #include <XG3D/BuiltInTypes.hpp>
 #include "ResMdlShapeInputKind.hpp"
 #include "ResMdlShapeInputType.hpp"
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
     // バイナリデータ：モデルシェイプ。
     struct BinResMdlShape
@@ -39,7 +35,7 @@ namespace XG3D {
         ::XData::UInt32     vtxAttrDataStride;  // 1頂点あたりにかかるバイト数。
         ::XData::Reference  vtxAttrDataRef;     // vtxAttrDataSize長のバイト配列。
     };
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

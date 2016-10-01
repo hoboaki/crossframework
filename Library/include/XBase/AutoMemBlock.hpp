@@ -1,32 +1,26 @@
-/**
- * @file
- * @brief AutoMemBlock型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_AUTOMEMBLOCK_HPP)
 #else
 #define XBASE_INCLUDED_AUTOMEMBLOCK_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/IAllocator.hpp>
 #include <XBase/MemBlock.hpp>
 #include <XBase/Pointer.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
     class IAllocator;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-Memory
 //@{
-    /**
-     * @brief MemBlockのオートポインタ。
-     * @details
-     * デストラクタで自分が抱えているMemBlockを解放します。 @n
-     * std::auto_ptr と同じようにインスタンスをコピーしたら破棄責任も移動します。 @n
-     */
+    /// @brief MemBlockのオートポインタ。
+    /// @details
+    /// デストラクタで自分が抱えているMemBlockを解放します。 @n
+    /// std::auto_ptr と同じようにインスタンスをコピーしたら破棄責任も移動します。 @n
     class AutoMemBlock
     {
     public:
@@ -35,17 +29,13 @@ namespace XBase {
         /// 空のオブジェクトを作成。
         AutoMemBlock();
         
-        /**
-         * @brief 指定のサイズのブロックを指定のアロケータから確保したメモリブロックを作成。
-         * @details メモリの確保に失敗したら isEmpty() はtrueを返します。
-         */
+        /// @brief 指定のサイズのブロックを指定のアロケータから確保したメモリブロックを作成。
+        /// @details メモリの確保に失敗したら isEmpty() はtrueを返します。
         AutoMemBlock( pword_t aSize , IAllocator& aAllocator = IAllocator::Default() , pword_t aAlignment = IAllocator::DefaultAlignment );
 
-        /**
-         * @brief 指定のブロックを抱えたメモリブロックを作成。
-         * @param aBlock メモリブロック。
-         * @param aAllocator aBlock を確保する際に使用したアロケータ。
-         */
+        /// @brief 指定のブロックを抱えたメモリブロックを作成。
+        /// @param aBlock メモリブロック。
+        /// @param aAllocator aBlock を確保する際に使用したアロケータ。
         AutoMemBlock( const MemBlock& aBlock , IAllocator& aAllocator );
 
         /// 破棄責任を移動して作成。
@@ -57,16 +47,12 @@ namespace XBase {
 
         /// @name 情報取得
         //@{
-        /**
-         * @brief ブロックを保持していなければtrueを返す。
-         * @details 抱えているブロックのサイズが0の場合でもブロックは保持しているのでfalseを返します。
-         */
+        /// @brief ブロックを保持していなければtrueを返す。
+        /// @details 抱えているブロックのサイズが0の場合でもブロックは保持しているのでfalseを返します。
         bool isEmpty()const;
 
-        /**
-         * @brief 保持しているブロックを解放する。
-         * @details 保持していなければ何もしません。
-         */
+        /// @brief 保持しているブロックを解放する。
+        /// @details 保持していなければ何もしません。
         void clear();
         
         /// ブロックの参照を取得する。
@@ -90,7 +76,7 @@ namespace XBase {
         mutable Pointer< IAllocator > mAllocatorPtr;
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

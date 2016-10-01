@@ -1,13 +1,9 @@
-/**
- * @file
- * @brief VtxBuffer型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_VTXBUFFER_HPP)
 #else
 #define XG3D_INCLUDED_VTXBUFFER_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/Color4.hpp>
 #include <XBase/IAllocator.hpp>
 #include <XBase/Matrix34.hpp>
@@ -24,27 +20,23 @@
     #include <XG3D/VtxBuffer_GL.hpp>
 #endif
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
 /// @addtogroup XG3D-Util
 //@{
-    /**
-     * @brief 頂点バッファ。
-     * @details
-     * 頂点配列のバッファの作成・保持・描画をするクラスです。 @n
-     * プログラムコードで何かを簡易に描画する用に作られています。 @n
-     */
+    /// @brief 頂点バッファ。
+    /// @details
+    /// 頂点配列のバッファの作成・保持・描画をするクラスです。 @n
+    /// プログラムコードで何かを簡易に描画する用に作られています。 @n
     class VtxBuffer : public ::XBase::NonCopyable
     {
     public:
         /// @name コンストラクタとデストラクタ
         //@{
-        /**
-         * @brief コンストラクタ。
-         * @param aMeshCountMax 最大メッシュ数。
-         * @param aVertexCountMax 最大頂点数。
-         * @param aAllocator 頂点・メッシュ情報を配置するためのアロケータ。
-         */
+        /// @brief コンストラクタ。
+        /// @param aMeshCountMax 最大メッシュ数。
+        /// @param aVertexCountMax 最大頂点数。
+        /// @param aAllocator 頂点・メッシュ情報を配置するためのアロケータ。
         VtxBuffer( 
             uint aMeshCountMax 
             , uint aVertexCountMax 
@@ -63,14 +55,12 @@ namespace XG3D {
 
         /// @name メッシュの構築準備
         //@{
-        /**
-         * @brief 次回のメッシュ構築の際に使用するワールド行列を指定する。
-         * @param aMtx XBase::Matrix34POD::Translate() などで作られたワールド行列。
-         * @details
-         * 初期値は単位行列です。@n
-         * 引数の行列の値はコピーされます。 @n
-         * beginの前に呼ぶようにしてください。
-         */
+        /// @brief 次回のメッシュ構築の際に使用するワールド行列を指定する。
+        /// @param aMtx XBase::Matrix34POD::Translate() などで作られたワールド行列。
+        /// @details
+        /// 初期値は単位行列です。@n
+        /// 引数の行列の値はコピーされます。 @n
+        /// beginの前に呼ぶようにしてください。
         void worldMtx( const ::XBase::Matrix34POD& aMtx );
         //@}
 
@@ -101,18 +91,14 @@ namespace XG3D {
         /// @name バッファの構築と描画
         //@{
 
-        /**
-         * @brief 構築された全メッシュをバッファに落とし込む。
-         * @details
-         * この関数を呼ぶと reset() もしくは clear() を呼ぶまでメッシュの構築ができなくなります。
-         */
+        /// @brief 構築された全メッシュをバッファに落とし込む。
+        /// @details
+        /// この関数を呼ぶと reset() もしくは clear() を呼ぶまでメッシュの構築ができなくなります。
         void flush(); 
 
-        /**
-         * @brief 構築されたバッファを使って描画する。
-         * @details
-         * この関数が呼ばれる前に flush() が呼ばれている必要があります。@n
-         */
+        /// @brief 構築されたバッファを使って描画する。
+        /// @details
+        /// この関数が呼ばれる前に flush() が呼ばれている必要があります。@n
         void draw();
 
         //@}
@@ -133,7 +119,7 @@ namespace XG3D {
             PrimitiveKind kind;
         };
         typedef u16 Index;
-        //------------------------------------------------------------
+        //------------------------------------------------------------------------------
         ::XBase::RuntimeMArray< Vertex > mVertexArray;
         ::XBase::RuntimeMArray< Index >  mIndexArray;
         ::XBase::RuntimeMArray< Mesh >   mMeshArray;
@@ -146,7 +132,7 @@ namespace XG3D {
         ::XBase::Bool32 mIsFlushed;
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

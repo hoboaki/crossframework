@@ -1,13 +1,9 @@
-/**
- * @file
- * @brief ShaderConstant型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_SHADERCONSTANT_HPP)
 #else
 #define XG3D_INCLUDED_SHADERCONSTANT_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
     // シェーダーに関する定数群。
     struct ShaderConstant
@@ -51,7 +47,7 @@ namespace XG3D {
             , Uniform_MAX = Uniform_TERMINATE-1
         };
     };
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

@@ -1,14 +1,10 @@
-/**
- * @file
- * @brief XBaseUIScreen.hの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include "XBaseUIScreen.h"
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 #import <UIKit/UIKit.h>
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 void XBaseUIScreen_GetMainScreenBounds( struct XBaseUIRect* aRect )
 { 
     CGRect rect = [[UIScreen mainScreen] bounds];
@@ -18,5 +14,5 @@ void XBaseUIScreen_GetMainScreenBounds( struct XBaseUIRect* aRect )
     aRect->sizeH   = rect.size.height;
 }
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 // EOF

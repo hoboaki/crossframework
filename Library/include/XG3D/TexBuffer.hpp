@@ -1,13 +1,9 @@
-/**
- * @file
- * @brief TexBuffer型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_TEXBUFFER_HPP)
 #else
 #define XG3D_INCLUDED_TEXBUFFER_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/IAllocator.hpp>
 #include <XBase/NonCopyable.hpp>
 #include <XG3D/BuiltInTypes.hpp>
@@ -18,20 +14,18 @@
     #include <XG3D/TexBuffer_GL.hpp>
 #endif
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
     class TexSetting;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
 /// @addtogroup XG3D-Util
 //@{
-    /**
-     * @brief テクスチャバッファ。
-     * @details
-     * テクスチャの描画用バッファの作成・保持をするクラスです。 @n
-     */
+    /// @brief テクスチャバッファ。
+    /// @details
+    /// テクスチャの描画用バッファの作成・保持をするクラスです。 @n
     class TexBuffer : public ::XBase::NonCopyable
     {
     public:
@@ -59,7 +53,7 @@ namespace XG3D {
         TexResData mResData;
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

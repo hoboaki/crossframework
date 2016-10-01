@@ -1,18 +1,14 @@
-﻿/**
- * @file
- * @brief DisplayContext型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_DISPLAYCONTEXT_HPP)
 #else
 #define XBASE_INCLUDED_DISPLAYCONTEXT_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/Bool.hpp>
 #include <XBase/BuiltInTypes.hpp>
 #include <XBase/OSType.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-System
 //@{
@@ -45,7 +41,7 @@ namespace XBase {
 #endif
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

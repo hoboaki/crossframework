@@ -1,11 +1,7 @@
-/**
- * @file
- * @brief ResFileStream.hppの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include <XBase/ResFileStream.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/Application.hpp>
 #include <XBase/Argument.hpp>
 #include <XBase/Compiler.hpp>
@@ -14,15 +10,15 @@
 #include <XBase/StringTraits.hpp>
 #include <XBase/Unused.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 pword_t ResFileStream::CalcReadBufferSize( const pword_t aSize )
 {
     return aSize; // そのままの値で大丈夫。
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 ResFileStream::~ResFileStream()
 {
     if ( mEXT.fp != 0 )
@@ -31,7 +27,7 @@ ResFileStream::~ResFileStream()
     }
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 bool ResFileStream::open( const char* aPath )
 {   
 #if defined(XBASE_OS_WINDOWS)
@@ -46,7 +42,7 @@ bool ResFileStream::open( const char* aPath )
     return mEXT.fp != 0;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 pword_t ResFileStream::seek( const int aOffset , const SeekOrigin aOrigin )
 {
     // whence選択
@@ -92,13 +88,13 @@ pword_t ResFileStream::seek( const int aOffset , const SeekOrigin aOrigin )
     }
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 pword_t ResFileStream::read( const ptr_t aBuffer , const pword_t aSize )
 {
     return std::fread( aBuffer , 1 , aSize , mEXT.fp );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void ResFileStream::close()
 {
     if ( mEXT.fp == 0 )
@@ -112,13 +108,11 @@ void ResFileStream::close()
     mEXT.fp = 0;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 ResFileStream_EXT::ResFileStream_EXT()
 : fp( 0 )
 {
 }
 
-//------------------------------------------------------------
-}
-//------------------------------------------------------------
+} // namespace
 // EOF

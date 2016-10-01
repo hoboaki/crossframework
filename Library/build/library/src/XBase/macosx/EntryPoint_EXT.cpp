@@ -1,16 +1,12 @@
-/**
- * @file
- * @brief MacOSXのエントリーポイント関数の実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include <XBase/EntryPoint.hpp>
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/Application.hpp>
 #include <XBase/Argument.hpp>
 #include <XBase/RuntimeAssert.hpp>
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 extern "C" int mainC( int aArgCount , const char* aArgValues[] , const char* aExeFileName , const char* aExeDirPath );
 int mainC(
     const int aArgCount
@@ -36,5 +32,5 @@ int mainC(
     return xmain( app );
 }
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 // EOF

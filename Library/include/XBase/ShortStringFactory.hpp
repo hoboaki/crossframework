@@ -1,19 +1,15 @@
-/**
- * @file
- * @brief ShortStringFactory型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_SHORTSTRINGFACTORY)
 #else
 #define XBASE_INCLUDED_SHORTSTRINGFACTORY
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/BuiltInTypes.hpp>
 #include <XBase/OS.hpp>
 #include <XBase/ShortString.hpp>
 #include <XBase/TypeTraits.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 
     // ShortStringを作る関数群。
@@ -60,7 +56,7 @@ namespace XBase {
         };
     };
 
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

@@ -1,35 +1,29 @@
-/**
- * @file
- * @brief Placement型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_PLACEMENT_HPP)
 #else
 #define XBASE_INCLUDED_PLACEMENT_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <new>
 #include <XBase/BuiltInTypes.hpp>
 #include <XBase/RuntimeAssert.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-Util
 //@{
-    /**
-     * @brief 確保済みのメモリ領域からオブジェクトを生成するためのテンプレートクラス。
-     * @details
-     * クラスメンバの初期化子で生成できないメンバ変数を後から初期化するときに使います。@n
-     * @n
-     * init 関数の引数に参照を渡す場合は Ref() を使うことをおすすめします。@n
-     * Ref() を使わない場合はオブジェクトのコピーが走るので注意してください。 @n
-     * @code
-// 例
-::XBase::Placement< ::XBase::Vector3 > vec3;
-vec3.init( 1 , 2 , 3 );
-const float len = vec3->length();
-     * @endcode
-     */
+    /// @brief 確保済みのメモリ領域からオブジェクトを生成するためのテンプレートクラス。
+    /// @details
+    /// クラスメンバの初期化子で生成できないメンバ変数を後から初期化するときに使います。@n
+    /// @n
+    /// init 関数の引数に参照を渡す場合は Ref() を使うことをおすすめします。@n
+    /// Ref() を使わない場合はオブジェクトのコピーが走るので注意してください。 @n
+    /// @code
+    /// // 例
+    /// ::XBase::Placement< ::XBase::Vector3 > vec3;
+    /// vec3.init( 1 , 2 , 3 );
+    /// const float len = vec3->length();
+    /// @endcode
     template< typename T >
     class Placement
     {
@@ -143,7 +137,7 @@ const float len = vec3->length();
     private:
         T*     mPtr;
         byte_t mBytes[ sizeof(T) ];
-        //------------------------------------------------------------
+        //------------------------------------------------------------------------------
         void prepareCtor()
         {
             reset();
@@ -152,7 +146,7 @@ const float len = vec3->length();
     };
 
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

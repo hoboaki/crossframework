@@ -1,17 +1,13 @@
-/**
- * @file
- * @brief TouchTapUpdateData型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_TOUCHTAPUPDATEDATA_HPP)
 #else
 #define XBASE_INCLUDED_TOUCHTAPUPDATEDATA_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/BuiltInTypes.hpp>
 #include <XBase/ScreenPos.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-HID
 //@{
@@ -22,7 +18,7 @@ namespace XBase {
         ScreenPosPOD pos;
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

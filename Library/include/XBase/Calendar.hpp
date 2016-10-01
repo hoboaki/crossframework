@@ -1,24 +1,18 @@
-/**
- * @file
- * @brief Calendar,CalendarPOD型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_CALENDAR_HPP)
 #else
 #define XBASE_INCLUDED_CALENDAR_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/BuiltInTypes.hpp>
 #include <XBase/PODInheritClass.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-DateTime
 //@{
-    /**
-     * @brief カレンダー情報を扱う構造体。
-     * @details グレゴリアン歴を使っています。
-     */
+    /// @brief カレンダー情報を扱う構造体。
+    /// @details グレゴリアン歴を使っています。
     struct CalendarPOD
     {
         /// @name 定数
@@ -51,42 +45,32 @@ namespace XBase {
         };
         //@}
 
-        /**
-         * @brief 指定の年が閏年かどうか取得する。
-         * @return 閏年ならtrue。
-         * @param aYear 年。値の意味は CalendarPOD::year と同じ。
-         */
+        /// @brief 指定の年が閏年かどうか取得する。
+        /// @return 閏年ならtrue。
+        /// @param aYear 年。値の意味は CalendarPOD::year と同じ。
         static bool IsLeapYear( uint aYear );
 
-        /**
-         * @brief 西暦1年1月1日から指定の年・月・日まで何日あるか取得する。
-         * @return 日数。
-         * @param aYear 年。値の意味は CalendarPOD::year と同じ。
-         * @param aMonth 月。値の意味は CalendarPOD::month と同じ。
-         * @param aDayOfMonth 日。値の意味は CalendarPOD::dayOfMonth と同じ。
-         */
+        /// @brief 西暦1年1月1日から指定の年・月・日まで何日あるか取得する。
+        /// @return 日数。
+        /// @param aYear 年。値の意味は CalendarPOD::year と同じ。
+        /// @param aMonth 月。値の意味は CalendarPOD::month と同じ。
+        /// @param aDayOfMonth 日。値の意味は CalendarPOD::dayOfMonth と同じ。
         static uint DaysToDate( uint aYear , uint aMonth , uint aDayOfMonth );
 
-        /**
-         * @brief 西暦1年1月1日から指定した日数が経過した日の0:0:0.0.0.0を取得する。
-         * @return カレンダー。
-         * @param aDays 日数。
-         */
+        /// @brief 西暦1年1月1日から指定した日数が経過した日の0:0:0.0.0.0を取得する。
+        /// @return カレンダー。
+        /// @param aDays 日数。
         static const CalendarPOD FromDays( uint aDays );
 
-        /**
-         * @brief 指定の年の総日数を取得する。
-         * @return 総日数。
-         * @param aYear 年。値の意味は CalendarPOD::year と同じ。
-         */
+        /// @brief 指定の年の総日数を取得する。
+        /// @return 総日数。
+        /// @param aYear 年。値の意味は CalendarPOD::year と同じ。
         static uint  DaysInYear( uint aYear );
 
-        /**
-         * @brief 指定の年・月の総日数を取得する。
-         * @return 総日数。
-         * @param aYear 月が所属する年。値の意味は CalendarPOD::year と同じ。
-         * @param aMonth 月。値の意味は CalendarPOD::month と同じ。
-         */
+        /// @brief 指定の年・月の総日数を取得する。
+        /// @return 総日数。
+        /// @param aYear 月が所属する年。値の意味は CalendarPOD::year と同じ。
+        /// @param aMonth 月。値の意味は CalendarPOD::month と同じ。
         static uint  DaysInMonth( uint aYear , uint aMonth );
 
         u16 year;       ///< 年。 CalendarPOD::YearMin <= val <= CalendarPOD::YearMax 。0は西暦1年を示す。
@@ -105,7 +89,7 @@ namespace XBase {
     /// CalendarPOD のクラス版。
     typedef PODInheritClass< CalendarPOD > Calendar;
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

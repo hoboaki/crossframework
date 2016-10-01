@@ -1,13 +1,9 @@
-/**
- * @file
- * @brief TypeTraits型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_TYPETRAITS_HPP)
 #else
 #define XBASE_INCLUDED_TYPETRAITS_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/Compiler.hpp>
 
 // type_traitsのインクルード
@@ -15,7 +11,7 @@
     #include <type_traits>
 #endif
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-Types
 //@{
@@ -37,7 +33,7 @@ namespace XBase {
 #endif
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

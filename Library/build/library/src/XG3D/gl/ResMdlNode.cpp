@@ -1,47 +1,43 @@
-/**
- * @file
- * @brief ResMdlNode.hppの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include <XG3D/ResMdlNode.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/RuntimeAssert.hpp>
 #include <XG3D/ResConstant.hpp>
 #include "ResMdlNodeImpl.hpp"
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 ResMdlNode::ResMdlNode()
 {
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 ResMdlNode::ResMdlNode( const ResMdlNodeImpl& aImpl )
 : mPtr( aImpl )
 {
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 bool ResMdlNode::isValid()const
 {
     return mPtr.isValid();
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 bool ResMdlNode::equals( const ResMdlNode& aRHS )const
 {
     return mPtr == aRHS.mPtr;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 bool ResMdlNode::operator==( const ResMdlNode& aRHS )const
 {
     return equals( aRHS );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const char* ResMdlNode::name()const
 {
     // チェック
@@ -52,7 +48,7 @@ const char* ResMdlNode::name()const
     return mPtr->xdata.ref< ::XData::String >( mPtr->binPtr->name )->toCStr();
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 uint ResMdlNode::index()const
 {
     // チェック
@@ -63,7 +59,7 @@ uint ResMdlNode::index()const
     return mPtr->binPtr->index;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 uint ResMdlNode::parentNodeIndex()const
 {
     // チェック
@@ -74,7 +70,7 @@ uint ResMdlNode::parentNodeIndex()const
     return mPtr->binPtr->parentNodeIdx;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 uint ResMdlNode::firstChildNodeIndex()const
 {
     // チェック
@@ -85,7 +81,7 @@ uint ResMdlNode::firstChildNodeIndex()const
     return mPtr->binPtr->firstChildNodeIdx;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 uint ResMdlNode::nextSiblingNodeIndex()const
 {
     // チェック
@@ -96,7 +92,7 @@ uint ResMdlNode::nextSiblingNodeIndex()const
     return mPtr->binPtr->nextSiblingNodeIdx;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 ::XBase::Mtx34 ResMdlNode::rtMtx()const
 {
     // チェック
@@ -107,7 +103,7 @@ uint ResMdlNode::nextSiblingNodeIndex()const
     return mPtr->binPtr->rtMtx;;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 ::XBase::Vec3 ResMdlNode::scale()const
 {
     // チェック
@@ -118,7 +114,7 @@ uint ResMdlNode::nextSiblingNodeIndex()const
     return mPtr->binPtr->scale;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const ::XBase::Mtx34* ResMdlNode::bindPoseMtxPtr()const
 {
     // チェック
@@ -129,7 +125,7 @@ const ::XBase::Mtx34* ResMdlNode::bindPoseMtxPtr()const
     return mPtr->xdata.safeRef< ::XBase::Mtx34 >( mPtr->binPtr->bindPoseMtxRef );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 bool ResMdlNode::checkInvalid()const
 {
     // 正しければ何もしない
@@ -143,7 +139,5 @@ bool ResMdlNode::checkInvalid()const
     return true;
 }
 
-//------------------------------------------------------------
-}
-//------------------------------------------------------------
+} // namespace
 // EOF

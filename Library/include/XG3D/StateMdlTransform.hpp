@@ -1,42 +1,34 @@
-/**
- * @file
- * @brief StateMdlTransform型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_STATEMDLTRANSFORM_HPP)
 #else
 #define XG3D_INCLUDED_STATEMDLTRANSFORM_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/Matrix34.hpp>
 #include <XBase/NonCopyable.hpp>
 #include <XBase/RuntimeArray.hpp>
 #include <XG3D/ResMdl.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
     struct MdlLocalMtx;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
 /// @addtogroup XG3D-State
 //@{
-    /**
-     * @brief モデルのTransformに関するState。
-     * @details
-     * 各関数の引数 aNodeIndex はインスタンス元モデルの node のインデックス値に対応します。
-     */
+    /// @brief モデルのTransformに関するState。
+    /// @details
+    /// 各関数の引数 aNodeIndex はインスタンス元モデルの node のインデックス値に対応します。
     class StateMdlTransform : public ::XBase::NonCopyable
     {
     public:
         /// @name コンストラクタとデストラクタ
         //@{
-        /**
-         * @brief コンストラクタ。
-         * @param aResMdl インスタンス化するモデル。
-         * @param aAllocator ワーク領域を確保するためのアロケータ。
-         */
+        /// @brief コンストラクタ。
+        /// @param aResMdl インスタンス化するモデル。
+        /// @param aAllocator ワーク領域を確保するためのアロケータ。
         StateMdlTransform(
             const ResMdl& aResMdl
             , ::XBase::IAllocator& aAllocator = ::XBase::IAllocator::Default()
@@ -64,7 +56,7 @@ namespace XG3D {
         void resetLocalMtx();
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

@@ -1,28 +1,22 @@
-/**
- * @file
- * @brief Math型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_MATH_HPP)
 #else
 #define XBASE_INCLUDED_MATH_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/BuiltInTypes.hpp>
 #include <XBase/RuntimeAssert.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
     class Angle;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-Math
 //@{
-    /**
-     * @brief 数学系関数を集めた空間。
-     */
+    /// @brief 数学系関数を集めた空間。
     //@{
     struct Math
     {
@@ -64,19 +58,15 @@ namespace XBase {
         //============================================================
         /// @name 範囲
         //@{
-        /**
-         * @brief クランプする。
-         * @return aMin <= result <= aMax
-         * @param aMin 最小値。
-         * @param aMax 最大値。
-         * @param aValue 対象となる値。
-         */
+        /// @brief クランプする。
+        /// @return aMin <= result <= aMax
+        /// @param aMin 最小値。
+        /// @param aMax 最大値。
+        /// @param aValue 対象となる値。
         static f32 ClampF32( f32 aMin , f32 aValue , f32 aMax );
 
-        /**
-         * @brief 範囲内の値か。
-         * @return aMin <= aValue <= aMax ならtrue。
-         */
+        /// @brief 範囲内の値か。
+        /// @return aMin <= aValue <= aMax ならtrue。
         static bool IsInRangeF32( f32 aMin , f32 aValue , f32 aMax );
         //@}
 
@@ -117,12 +107,10 @@ namespace XBase {
         /// @name 補間。
         //@{
 
-        /**
-         * @brief ２つの値を指定のレートで補間する。
-         * @param aVal1 aRate == 0.0f のときに100%で返される値。
-         * @param aVal2 aRate == 1.0f のときに100%で返される値。
-         * @param aRate レート値。0.0f <= aRate <= 1.0f。
-         */
+        /// @brief ２つの値を指定のレートで補間する。
+        /// @param aVal1 aRate == 0.0f のときに100%で返される値。
+        /// @param aVal2 aRate == 1.0f のときに100%で返される値。
+        /// @param aRate レート値。0.0f <= aRate <= 1.0f。
         template< typename T >
         static const T Interpolation( const T& aVal1 , const T& aVal2 , const f32 aRate )
         {
@@ -133,7 +121,7 @@ namespace XBase {
     };
     //@}
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

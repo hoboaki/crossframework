@@ -1,16 +1,12 @@
-﻿/**
- * @file
- * @brief MemBlock型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_MEMBLOCK_HPP)
 #else
 #define XBASE_INCLUDED_MEMBLOCK_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/BuiltInTypes.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-Memory
 //@{
@@ -40,7 +36,7 @@ namespace XBase {
         pword_t mSize;
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

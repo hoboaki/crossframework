@@ -1,13 +1,9 @@
-/**
- * @file
- * @brief RuntimeTexContext.hppの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include <XG3D/RuntimeTexContext.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const RuntimeTexContext RuntimeTexContext::Create(
     const ResTexFormat aFormat
     , const uint aWidth
@@ -17,25 +13,25 @@ const RuntimeTexContext RuntimeTexContext::Create(
     return RuntimeTexContext( aFormat , aWidth , aHeight );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 ResTexFormat RuntimeTexContext::format()const
 {
     return mFormat;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 u16 RuntimeTexContext::width()const
 {
     return mWidth;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 u16 RuntimeTexContext::height()const
 {
     return mHeight;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 RuntimeTexContext::RuntimeTexContext(
     const ResTexFormat aFormat
     , const uint aWidth
@@ -47,7 +43,5 @@ RuntimeTexContext::RuntimeTexContext(
 {
 }
 
-//------------------------------------------------------------
-}
-//------------------------------------------------------------
+} // namespace
 // EOF

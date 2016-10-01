@@ -1,19 +1,15 @@
-/**
- * @file
- * @brief BinResMdlNode型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_BINRESMDLNODE_HPP)
 #else
 #define XG3D_INCLUDED_BINRESMDLNODE_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/Matrix34.hpp>
 #include <XBase/Vector3.hpp>
 #include <XData/XData.hpp>
 #include <XG3D/BuiltInTypes.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
     // バイナリデータ：モデルノード。
     struct BinResMdlNode
@@ -29,7 +25,7 @@ namespace XG3D {
         ::XBase::Vec3       scale;
         ::XData::Reference  bindPoseMtxRef; // バインドポーズ行列が必要なときのみMtx34への参照
     };
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

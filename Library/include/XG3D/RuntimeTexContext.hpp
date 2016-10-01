@@ -1,19 +1,15 @@
-/**
- * @file
- * @brief RuntimeTexContext型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_RUNTIMETEXCONTEXT_HPP)
 #else
 #define XG3D_INCLUDED_RUNTIMETEXCONTEXT_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/Enum.hpp>
 #include <XBase/NonCopyable.hpp>
 #include <XG3D/BuiltInTypes.hpp>
 #include <XG3D/ResTexFormat.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
 /// @addtogroup XG3D-Util
 //@{
@@ -35,13 +31,13 @@ namespace XG3D {
 
     private:
         RuntimeTexContext( ResTexFormat , uint aWidth , uint aHeight );
-        //------------------------------------------------------------
+        //------------------------------------------------------------------------------
         ::XBase::Enum32< ResTexFormat > mFormat;
         u16 mWidth; 
         u16 mHeight;
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

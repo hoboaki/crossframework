@@ -1,11 +1,7 @@
-/**
- * @file
- * @brief Matrix44.hppの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include <XBase/Matrix44.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/Angle.hpp>
 #include <XBase/Console.hpp>
 #include <XBase/Math.hpp>
@@ -14,9 +10,9 @@
 #include <XBase/Vector3.hpp>
 #include <XBase/Vector4.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Matrix44POD Matrix44POD::Identity()
 {
     // よく使うことになるのでstaticデータとして使い初期化は１回だけにする。
@@ -27,7 +23,7 @@ const Matrix44POD Matrix44POD::Identity()
     return obj;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Matrix44POD Matrix44POD::Translate(
     const f32 aX
     , const f32 aY
@@ -42,7 +38,7 @@ const Matrix44POD Matrix44POD::Translate(
         );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Matrix44POD Matrix44POD::Translate(
     const Vector3POD& aVec
     )
@@ -50,7 +46,7 @@ const Matrix44POD Matrix44POD::Translate(
     return Translate( aVec.x , aVec.y , aVec.z );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Matrix44POD Matrix44POD::Scale(
     const f32 aX
     , const f32 aY
@@ -65,7 +61,7 @@ const Matrix44POD Matrix44POD::Scale(
         );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Matrix44POD Matrix44POD::Scale(
     const Vector3POD& aVec
     )
@@ -73,7 +69,7 @@ const Matrix44POD Matrix44POD::Scale(
     return Scale( aVec.x , aVec.y , aVec.z );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Matrix44POD Matrix44POD::Rotate(
     const Angle& aAngle
     , const f32 aAxisX
@@ -102,7 +98,7 @@ const Matrix44POD Matrix44POD::Rotate(
         );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Matrix44POD Matrix44POD::Rotate(
     const Angle& aAngle
     , const Vector3POD& aAxisVec
@@ -111,7 +107,7 @@ const Matrix44POD Matrix44POD::Rotate(
     return Rotate( aAngle , aAxisVec.x , aAxisVec.y , aAxisVec.z );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Matrix44POD Matrix44POD::Ortho(
     const f32 aLeft
     , const f32 aTop
@@ -139,7 +135,7 @@ const Matrix44POD Matrix44POD::Ortho(
         );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Matrix44POD Matrix44POD::Frustum(
     const f32 aLeft
     , const f32 aRight
@@ -168,7 +164,7 @@ const Matrix44POD Matrix44POD::Frustum(
         );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Matrix44POD Matrix44POD::Perspective(
     const Angle& aFOVY
     , const f32 aAspect
@@ -189,7 +185,7 @@ const Matrix44POD Matrix44POD::Perspective(
         );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Matrix44POD Matrix44POD::LookAt(
     const Vector3POD& aEyePos
     , const Vector3POD& aTargetPos
@@ -199,7 +195,7 @@ const Matrix44POD Matrix44POD::LookAt(
     return Matrix34::LookAt( aEyePos , aTargetPos , aUpVec ).toMatrix44();
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Vector4POD Matrix44POD::x()const
 {
     return Vector4(
@@ -210,7 +206,7 @@ const Vector4POD Matrix44POD::x()const
         );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Vector4POD Matrix44POD::y()const
 {
     return Vector4(
@@ -221,7 +217,7 @@ const Vector4POD Matrix44POD::y()const
         );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Vector4POD Matrix44POD::z()const
 {
     return Vector4(
@@ -232,7 +228,7 @@ const Vector4POD Matrix44POD::z()const
         );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Vector4POD Matrix44POD::w()const
 {
     return Vector4(
@@ -243,7 +239,7 @@ const Vector4POD Matrix44POD::w()const
         );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Matrix44POD::setX( const Vector4POD& aVal )
 {
     v[IndexXX] = aVal.x;
@@ -252,7 +248,7 @@ void Matrix44POD::setX( const Vector4POD& aVal )
     v[IndexXW] = aVal.w;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Matrix44POD::setY( const Vector4POD& aVal )
 {
     v[IndexYX] = aVal.x;
@@ -261,7 +257,7 @@ void Matrix44POD::setY( const Vector4POD& aVal )
     v[IndexYW] = aVal.w;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Matrix44POD::setZ( const Vector4POD& aVal )
 {
     v[IndexZX] = aVal.x;
@@ -270,7 +266,7 @@ void Matrix44POD::setZ( const Vector4POD& aVal )
     v[IndexZW] = aVal.w;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Matrix44POD::setW( const Vector4POD& aVal )
 {
     v[IndexWX] = aVal.x;
@@ -279,7 +275,7 @@ void Matrix44POD::setW( const Vector4POD& aVal )
     v[IndexWW] = aVal.w;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Matrix44POD Matrix44POD::mul( const Matrix44POD& aRHS )const
 {
     Matrix44POD mtx;
@@ -375,27 +371,27 @@ const Matrix44POD Matrix44POD::mul( const Matrix44POD& aRHS )const
     return mtx;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Matrix44POD& Matrix44POD::mulAssign( const Matrix44POD& aRHS )
 {
     *this = mul( aRHS );
     return *this;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Matrix44POD Matrix44POD::operator*( const Matrix44POD& aRHS )const
 {
     return mul( aRHS );    
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Matrix44POD& Matrix44POD::operator*=( const Matrix44POD& aRHS )
 {
     mulAssign( aRHS );
     return *this;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Matrix44POD Matrix44POD::invert()const
 {
     const float c = 0.0f
@@ -484,7 +480,7 @@ const Matrix44POD Matrix44POD::invert()const
     return b;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Matrix44POD Matrix44POD::transpose()const
 {
     return Matrix44(
@@ -495,7 +491,7 @@ const Matrix44POD Matrix44POD::transpose()const
         );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Matrix44POD::dump()const
 {
     XBASE_COUTFMT( "Matrix44POD::dump %p\n" , this );
@@ -505,19 +501,19 @@ void Matrix44POD::dump()const
     XBASE_COUTFMT( "( %f , %f , %f , %f )\n" , v[Index30] , v[Index31] , v[Index32] , v[Index33] );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Matrix44::Matrix44()
 : Matrix44POD( Identity() )
 {
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Matrix44::Matrix44( const Matrix44POD& aObj )
 : Matrix44POD( aObj )
 {
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Matrix44::Matrix44(
     const f32 aR0C0 , const f32 aR0C1 , const f32 aR0C2 , const f32 aR0C3
     , const f32 aR1C0 , const f32 aR1C1 , const f32 aR1C2 , const f32 aR1C3
@@ -543,7 +539,7 @@ Matrix44::Matrix44(
     v[Index33] = aR3C3;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Matrix44::Matrix44( 
     const Vector4POD& aX
     , const Vector4POD& aY
@@ -556,7 +552,5 @@ Matrix44::Matrix44(
     setZ( aZ );
     setW( aW );
 }
-//------------------------------------------------------------
-}
-//------------------------------------------------------------
+} // namespace
 // EOF

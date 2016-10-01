@@ -1,13 +1,9 @@
-/**
- * @file
- * @brief Renderer型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_RENDERER_HPP)
 #else
 #define XG3D_INCLUDED_RENDERER_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/Color4.hpp>
 #include <XBase/Matrix34.hpp>
 #include <XBase/Matrix44.hpp>
@@ -20,7 +16,7 @@
     #include <XG3D/Renderer_GL.hpp>
 #endif
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
     class Display;
     class Screen;
@@ -35,13 +31,11 @@ namespace XG3D {
     class TexSetting;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
 /// @addtogroup XG3D-System
 //@{
-    /**
-     * @brief レンダリングを統括するクラス。
-     */
+    /// @brief レンダリングを統括するクラス。
     class Renderer : public ::XBase::NonCopyable
     {
     public:
@@ -107,7 +101,7 @@ namespace XG3D {
     };
 
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

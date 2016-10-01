@@ -1,13 +1,9 @@
-/**
- * @file
- * @brief ResBin型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_RESFILE_HPP)
 #else
 #define XG3D_INCLUDED_RESFILE_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/FunctionAttribute.hpp>
 #include <XBase/IAllocator.hpp>
 #include <XBase/NonCopyable.hpp>
@@ -20,7 +16,7 @@
 #include <XG3D/ResTex.hpp>
 #include <XData/XData.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
     class ResMatSetImpl;
     class ResMdlImpl;
@@ -28,7 +24,7 @@ namespace XG3D {
     struct BinResBin;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
 /// @addtogroup XG3D-Res
 //@{
@@ -80,17 +76,17 @@ namespace XG3D {
         typedef ::XBase::RuntimeAutoArray< ResMatSetImpl >  MatSetArray;
         typedef ::XBase::RuntimeAutoArray< ResMdlImpl >     MdlArray;
         typedef ::XBase::RuntimeAutoArray< ResTexImpl >     TexArray;
-        //------------------------------------------------------------
+        //------------------------------------------------------------------------------
         ::XData::XData mXData;
         ::XBase::Placement< MatSetArray >   mResMatSetImpls;
         ::XBase::Placement< MdlArray >      mResMdlImpls;
         ::XBase::Placement< TexArray >      mResTexImpls;
-        //------------------------------------------------------------
+        //------------------------------------------------------------------------------
         bool checkInvalid()const;
         const_ptr_t ref( ::XData::Reference val )const;
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

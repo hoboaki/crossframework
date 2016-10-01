@@ -1,13 +1,9 @@
-/**
- * @file
- * @brief KeyKind型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_KEYKIND_HPP)
 #else
 #define XBASE_INCLUDED_KEYKIND_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-HID
 //@{
@@ -102,7 +98,7 @@ namespace XBase {
         KeyKind_MAX = KeyKind_TERMINATE-1
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

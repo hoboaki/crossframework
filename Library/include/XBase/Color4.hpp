@@ -1,24 +1,20 @@
-/**
- * @file
- * @brief Color4,Color4POD型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_COLOR4_HPP)
 #else
 #define XBASE_INCLUDED_COLOR4_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/BuiltInTypes.hpp>
 #include <XBase/ShortString.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
     struct Color3POD;
     struct Color4bPOD;
     struct Vector4POD;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-Util
 //@{
@@ -134,7 +130,7 @@ namespace XBase {
         //@}
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

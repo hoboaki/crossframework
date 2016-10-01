@@ -1,13 +1,9 @@
-/**
- * @file
- * @brief TexAddress型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_TEXADDRESS_HPP)
 #else
 #define XG3D_INCLUDED_TEXADDRESS_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
 /// @addtogroup XG3D-Enum
 //@{
@@ -23,7 +19,7 @@ namespace XG3D {
         TexAddress_MAX = TexAddress_TERMINATE-1
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

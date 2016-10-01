@@ -1,49 +1,43 @@
-/**
- * @file
- * @brief ExplicitSingletonを記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_EXPLICITSINGLETON_HPP)
 #else
 #define XBASE_INCLUDED_EXPLICITSINGLETON_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/NonCopyable.hpp>
 #include <XBase/RuntimeAssert.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @name addtogroup XBase-Util
 //@{
-    /**
-     * @brief 明示的に生成・解放できるシングルトン。
-     * @details 
-     * 継承して使用します。@n
-     * 継承先のコンストラクタで SetInstance() を呼びデストラクタで UnsetInstance() を呼ぶようにしてください。 @n
-     * ２つ以上インスタンス化させるとエラーになります。 @n
-     *
-     * @code
-// 例
-class Manager : public ::XBase::ExplicitSingleton< Manager >
-{
-public:
-    Manager()
-    {
-        SetInstance( *this );
-    }
-    ~Manager()
-    {
-        UnsetInstance();
-    }
-    int value()const { return 1; }
-};
-void func()
-{
-    // Managerが作成済みならこのようにアクセスできる
-    return Manager::Instance().value();
-}
-     * @endcode
-     */
+    /// @brief 明示的に生成・解放できるシングルトン。
+    /// @details 
+    /// 継承して使用します。@n
+    /// 継承先のコンストラクタで SetInstance() を呼びデストラクタで UnsetInstance() を呼ぶようにしてください。 @n
+    /// ２つ以上インスタンス化させるとエラーになります。 @n
+    ///      *
+    /// @code
+    /// // 例
+    /// class Manager : public ::XBase::ExplicitSingleton< Manager >
+    /// {
+    /// public:
+    ///     Manager()
+    ///     {
+    ///         SetInstance( *this );
+    ///     }
+    ///     ~Manager()
+    ///     {
+    ///         UnsetInstance();
+    ///     }
+    ///     int value()const { return 1; }
+    /// };
+    /// void func()
+    /// {
+    ///     // Managerが作成済みならこのようにアクセスできる
+    ///     return Manager::Instance().value();
+    /// }
+    /// @endcode
     template< typename T >
     class ExplicitSingleton : public NonCopyable
     {
@@ -107,7 +101,7 @@ void func()
 
     template< typename T >
     T* ExplicitSingleton<T>::sPtr = 0;
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

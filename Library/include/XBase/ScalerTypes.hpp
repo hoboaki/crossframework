@@ -1,17 +1,13 @@
-/**
- * @file
- * @brief Scaler型の版、Class版のtypedefを記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XDATA_INCLUDED_TYPES_HPP)
 #else
 #define XDATA_INCLUDED_TYPES_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/BuiltInTypes.hpp>
 #include <XBase/ScalerClass.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase
 {   
 /// @addtogroup XBase-Types
@@ -78,7 +74,7 @@ namespace XBase
     typedef ScalerClass< const_anyptr_t > ConstAnyPtr; ///< any_ptr_tのconst版。
     //@}
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

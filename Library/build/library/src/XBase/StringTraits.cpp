@@ -1,11 +1,7 @@
-/**
- * @file
- * @brief StringTraits.hppの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include <XBase/StringTraits.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <cstdio>
 #include <cstring>
 #include <cwchar>
@@ -13,14 +9,14 @@
 #include <XBase/PointerCheck.hpp>
 #include <XBase/RuntimeAssert.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #if defined(XBASE_COMPILER_MSVC)
     #pragma warning(disable: 4996) // for vsnprintf
 #endif
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace {    
     // 関数実装用テンプレート構造体宣言。
     template< typename CharType >
@@ -139,7 +135,7 @@ namespace {
     };
 
 }
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace {
     // Lengthの実装。
     template < typename CharType >
@@ -170,7 +166,7 @@ pword_t StringTraits< wchar_t >::Length( const wchar_t* aStr )
     return tLength< wchar_t >( aStr );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace {
     // Equalsの実装。
     template < typename CharType >
@@ -203,7 +199,7 @@ bool StringTraits< wchar_t >::Equals( const wchar_t* aStrA , const wchar_t* aStr
     return tEquals< wchar_t >( aStrA , aStrB );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace {
     // NCopyStrictの実装。
     template< typename CharType >
@@ -260,7 +256,7 @@ const StringTraits< wchar_t >::WriteResult StringTraits< wchar_t >::NCopyStrict(
     return tNCopyStrict< wchar_t >( aBuffer , aBufferLength , aStr );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace {
     // NCopyの実装。
     template< typename CharType >
@@ -327,7 +323,7 @@ const StringTraits< wchar_t >::WriteResult StringTraits< wchar_t >::NCopy(
     return tNCopy< wchar_t >( aBuffer , aBufferLength , aStr );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace {
     // VSNPrintfStrictの実装。
     template< typename CharType >
@@ -387,7 +383,7 @@ const StringTraits< wchar_t >::WriteResult StringTraits< wchar_t >::VSNPrintfStr
     return tVSNPrintfStrict< wchar_t >( aBuffer , aBufferLength , aFormat , aArg );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 // 特殊化関数をSNPrintfより先に定義しないといけないので
 // VSNPrintfを先に定義。
 namespace {
@@ -459,7 +455,7 @@ const StringTraits< wchar_t >::WriteResult StringTraits< wchar_t >::VSNPrintf(
     return tVSNPrintf< wchar_t >( aBuffer , aBufferLength , aFormat , aArg );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 // SNPrintfStrictの実装(char版)。
 template <>
 const StringTraits< char >::WriteResult StringTraits< char >::SNPrintfStrict(
@@ -492,7 +488,7 @@ const StringTraits< wchar_t >::WriteResult StringTraits< wchar_t >::SNPrintfStri
     return result;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 // SNPrintfの実装(char版)。
 template <>
 const StringTraits< char >::WriteResult StringTraits< char >::SNPrintf(
@@ -525,7 +521,5 @@ const StringTraits< wchar_t >::WriteResult StringTraits< wchar_t >::SNPrintf(
     return result;
 }
 
-//------------------------------------------------------------
-}
-//------------------------------------------------------------
+} // namespace
 // EOF

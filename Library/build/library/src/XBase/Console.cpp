@@ -1,11 +1,7 @@
-/**
- * @file
- * @brief Console.hppの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include <XBase/Console.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/Calendar.hpp>
 #include <XBase/FunctionAttribute.hpp>
 #include <XBase/IConsoleCallback.hpp>
@@ -13,9 +9,9 @@
 #include <XBase/PointerCheck.hpp>
 #include <XBase/Time.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace {
     IConsoleCallback* tCallbackPtr = 0;
     ShortString tTimeFormatString;
@@ -42,14 +38,14 @@ namespace {
     }
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const char* const Console::DefaultTimeFormatString()
 {
     static const char* const formatString = "[%04lu/%02lu/%02lu %02lu:%02lu:%02lu(%03lu)]";
     return formatString;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Console::SetTimeFormatString( const char* aFormat )
 {
     if ( PointerCheck::InvalidCheck( aFormat ) )
@@ -60,7 +56,7 @@ void Console::SetTimeFormatString( const char* aFormat )
     tTimeFormatStringPtr = &tTimeFormatString;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 IConsoleCallback& Console::DefaultCallback()
 {
     // 実装
@@ -76,13 +72,13 @@ IConsoleCallback& Console::DefaultCallback()
     return obj;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Console::SetCallback( IConsoleCallback& aCallback )
 {
     tCallbackPtr = &aCallback;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Console::WriteF( const char* aFormat , ... )
 {
     va_list arg;
@@ -91,13 +87,13 @@ void Console::WriteF( const char* aFormat , ... )
     va_end( arg );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Console::WriteVF( const char* aFormat , va_list aArg )
 {
     tCallbackObj().onWrite( aFormat , aArg );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Console::WriteLineF( const char* aFormat , ... )
 {
     va_list arg;
@@ -106,14 +102,14 @@ void Console::WriteLineF( const char* aFormat , ... )
     va_end( arg );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Console::WriteLineVF( const char* aFormat , va_list aArg )
 {
     WriteVF( aFormat , aArg );
     WriteF( "%s" , XBASE_NEWLINE );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Console::WriteTime()
 {
     Calendar calendar = Time::LocalTime().toCalendar();
@@ -129,7 +125,7 @@ void Console::WriteTime()
         );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Console::TimeWriteLineF( const char* aFormat , ... )
 {
     va_list arg;
@@ -138,7 +134,7 @@ void Console::TimeWriteLineF( const char* aFormat , ... )
     va_end( arg );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Console::TimeWriteLineVF( const char* aFormat , va_list aArg )
 {
     // まず時間
@@ -148,7 +144,5 @@ void Console::TimeWriteLineVF( const char* aFormat , va_list aArg )
     WriteLineVF( aFormat , aArg );
 }
 
-//------------------------------------------------------------
-}
-//------------------------------------------------------------
+} // namespace
 // EOF

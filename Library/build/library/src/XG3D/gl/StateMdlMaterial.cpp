@@ -1,19 +1,15 @@
-/**
- * @file
- * @brief StateMdlMaterial.hppの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include <XG3D/StateMdlMaterial.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/Ref.hpp>
 #include <XG3D/ResMatSet.hpp>
 #include <XG3D/ResMdl.hpp>
 #include <XG3D/StateMaterial.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 StateMdlMaterial::StateMdlMaterial(
     const ResMdl& aResMdl 
     , const ResMatSet& aResMatSet
@@ -32,24 +28,22 @@ StateMdlMaterial::StateMdlMaterial(
     }    
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 StateMdlMaterial::~StateMdlMaterial()
 {
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 StateMaterial& StateMdlMaterial::material( const uint aMatIndex )
 {
     return mMaterials[ aMatIndex ];
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const StateMaterial& StateMdlMaterial::material( const uint aMatIndex )const
 {
     return mMaterials[ aMatIndex ];
 }
 
-//------------------------------------------------------------
-}
-//------------------------------------------------------------
+} // namespace
 // EOF

@@ -1,22 +1,16 @@
-/**
- * @file
- * @brief Enumに関するクラス群を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_ENUM_HPP)
 #else
 #define XBASE_INCLUDED_ENUM_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/BuiltInTypes.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-Types
 //@{
-    /**
-     * @brief EnumTmpl のPOD版。
-     */
+    /// @brief EnumTmpl のPOD版。
     template< typename ENUM_TYPE , typename DATA_TYPE >
     struct EnumPODTmpl
     {
@@ -35,40 +29,36 @@ namespace XBase {
 
         /// @name operator実装
         //@{
-        /**
-         * @brief enum値代入。
-         * @details
-         * これを定義することで下記のコードが実行できるようになります。
-         * @code
-enum Color
-{
-Color_Red,
-Color_Green,
-Color_Blue,
-// term
-Color_TERMINATE
-};
-EnumPodTmpl< Color , int > color;
-color = Color_Red; // 代入できる
-         * @endcode
-         */
+        /// @brief enum値代入。
+        /// @details
+        /// これを定義することで下記のコードが実行できるようになります。
+        /// @code
+        /// enum Color
+        /// {
+        /// Color_Red,
+        /// Color_Green,
+        /// Color_Blue,
+        /// // term
+        /// Color_TERMINATE
+        /// };
+        /// EnumPodTmpl< Color , int > color;
+        /// color = Color_Red; // 代入できる
+        /// @endcode
         EnumPODTmpl< ENUM_TYPE , DATA_TYPE >& operator=( const ENUM_TYPE aVal )
         {
             val_ = DataType( aVal );
             return *this;
         }
 
-        /**
-         * @brief enum値取得。
-         * @details
-         * これを定義することで下記のコードが実行できるようになります。
-         * @code
-void func( const EnumPodTmpl< Color , int >& aColor )
-{
-    Color var = aColor; // enumの値を取得できるのでこのように代入できる
-}
-         * @endcode
-         */
+        /// @brief enum値取得。
+        /// @details
+        /// これを定義することで下記のコードが実行できるようになります。
+        /// @code
+        /// void func( const EnumPodTmpl< Color , int >& aColor )
+        /// {
+        ///     Color var = aColor; // enumの値を取得できるのでこのように代入できる
+        /// }
+        /// @endcode
         operator ENUM_TYPE()const
         {
             return ENUM_TYPE( val_ );
@@ -76,14 +66,12 @@ void func( const EnumPodTmpl< Color , int >& aColor )
         //@}
     };
     
-    /**
-     * @brief 組み込み型を指定したenum値。
-     * @details
-     * enumの変数サイズは環境によって変わります。 @n
-     * それをを防ぎたいときにこのテンプレート構造体を使います。 @n
-     * DATA_TYPEに指定した組み込み型を指定します。@n
-     * データとしては0以外の値が入っていたらtrueと扱います。@n
-     */
+    /// @brief 組み込み型を指定したenum値。
+    /// @details
+    /// enumの変数サイズは環境によって変わります。 @n
+    /// それをを防ぎたいときにこのテンプレート構造体を使います。 @n
+    /// DATA_TYPEに指定した組み込み型を指定します。@n
+    /// データとしては0以外の値が入っていたらtrueと扱います。@n
     template< typename ENUM_TYPE , typename DATA_TYPE >
     class EnumTmpl : public EnumPODTmpl< ENUM_TYPE , DATA_TYPE >
     {
@@ -115,7 +103,7 @@ void func( const EnumPodTmpl< Color , int >& aColor )
     //@}
 
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

@@ -1,13 +1,9 @@
-/**
- * @file
- * @brief ResTexFormat型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_RESTEXFORMAT_HPP)
 #else
 #define XG3D_INCLUDED_RESTEXFORMAT_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
 /// @addtogroup XG3D-Res
 //@{
@@ -28,7 +24,7 @@ namespace XG3D {
         ResTexFormat_MAX = ResTexFormat_TERMINATE-1
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

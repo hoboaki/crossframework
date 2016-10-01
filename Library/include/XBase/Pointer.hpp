@@ -1,25 +1,19 @@
-/**
- * @file
- * @brief Pointer型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_POINTER_HPP)
 #else
 #define XBASE_INCLUDED_POINTER_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/RuntimeAssert.hpp>
 #include <XBase/Unused.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-Util
 //@{
-    /**
-     * @brief ポインタのラッパーテンプレートクラス。
-     * @details
-     * ヌルポインタアクセスを防いだり意図しない二回設定を防ぐために使います。
-     */
+    /// @brief ポインタのラッパーテンプレートクラス。
+    /// @details
+    /// ヌルポインタアクセスを防いだり意図しない二回設定を防ぐために使います。
     template< typename T >
     class Pointer
     {
@@ -44,10 +38,8 @@ namespace XBase {
             return mPtr != 0; 
         }
 
-        /**
-         * @brief ポインタの値をそのまま返す。 
-         * @details 設定されていないときは0を返します。
-         */
+        /// @brief ポインタの値をそのまま返す。 
+        /// @details 設定されていないときは0を返します。
         T*   get()const     
         {
             return mPtr;  
@@ -81,29 +73,23 @@ namespace XBase {
             mPtr = aPtr; 
         }
 
-        /**
-         * @brief 未設定な状態で指定された参照を設定する。
-         * @details 既に設定済みな状況で呼ぶとエラーになります。
-         */
+        /// @brief 未設定な状態で指定された参照を設定する。
+        /// @details 既に設定済みな状況で呼ぶとエラーになります。
         void set( T& aRef )
         {
             XBASE_ASSERT( isNull() );
             mPtr = &aRef;
         }
 
-        /**
-         * @brief 設定済みな状態で設定を解除する。
-         * @details 未設定な状況で呼ぶとエラーになります。
-         */
+        /// @brief 設定済みな状態で設定を解除する。
+        /// @details 未設定な状況で呼ぶとエラーになります。
         void unset()
         {
             unset( ref() );
         }
 
-        /**
-         * @brief 指定のオブジェクトが設定されている状態で設定を解除する。
-         * @details 未設定な状況で呼んだり指定のオブジェクト以外が設定されているとエラーになる。
-         */
+        /// @brief 指定のオブジェクトが設定されている状態で設定を解除する。
+        /// @details 未設定な状況で呼んだり指定のオブジェクト以外が設定されているとエラーになる。
         void unset( T& aRef )
         {
             XBASE_ASSERT( isValid() );
@@ -124,7 +110,7 @@ namespace XBase {
         T* mPtr;
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

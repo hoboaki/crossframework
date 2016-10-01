@@ -1,17 +1,13 @@
-/**
- * @file
- * @brief Argument.hppの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include <XBase/Argument.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/PointerCheck.hpp>
 #include <XBase/RuntimeAssert.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Argument::Argument( 
     const uint aArgCount
     , const char* const* aArgValues
@@ -25,13 +21,13 @@ Argument::Argument(
 {
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 uint Argument::argCount()const
 {
     return mArgCount;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const char* Argument::argValue( const uint aIndex )const
 {
     // 範囲外チェック
@@ -58,7 +54,7 @@ const char* Argument::argValue( const uint aIndex )const
     return value;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const char* Argument::exeFileName()const
 {
     if ( PointerCheck::InvalidCheck( mExeFileName ) )
@@ -68,7 +64,7 @@ const char* Argument::exeFileName()const
     return mExeFileName;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const char* Argument::exeDirPath()const
 {
     if ( PointerCheck::InvalidCheck( mExeDirPath ) )
@@ -78,7 +74,5 @@ const char* Argument::exeDirPath()const
     return mExeDirPath;
 }
 
-//------------------------------------------------------------
-}
-//------------------------------------------------------------
+} // namespace
 // EOF

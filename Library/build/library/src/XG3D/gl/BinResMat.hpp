@@ -1,17 +1,13 @@
-/**
- * @file
- * @brief BinResMat型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_BINRESMAT_HPP)
 #else
 #define XG3D_INCLUDED_BINRESMAT_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XData/XData.hpp>
 #include <XG3D/BuiltInTypes.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
     // バイナリデータ：マテリアル。
     struct BinResMat
@@ -24,7 +20,7 @@ namespace XG3D {
         ::XData::Reference vshSrcText; // 頂点シェーダーソースコード
         ::XData::Reference pshSrcText; // ピクセルシェーダーソースコード
     };
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

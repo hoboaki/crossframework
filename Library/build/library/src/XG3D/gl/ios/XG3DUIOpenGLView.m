@@ -1,11 +1,7 @@
-/**
- * @file
- * @brief XG3DUIOpenGLView.hの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include "XG3DUIOpenGLView.h"
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <UIKit/UIKit.h>
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
@@ -13,7 +9,7 @@
 #import <OpenGLES/EAGLDrawable.h>
 #import <QuartzCore/QuartzCore.h>
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 @interface XG3DOpenGLView : UIView 
 {
 @private
@@ -126,7 +122,7 @@
 }
 @end
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 struct XG3DUIOpenGLView* XG3DUIOpenGLView_Setup(
     struct XBaseUIWindow* aWindow                                              
     )
@@ -139,12 +135,12 @@ struct XG3DUIOpenGLView* XG3DUIOpenGLView_Setup(
     return (struct XG3DUIOpenGLView*)glView;
 }
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 void XG3DUIOpenGLView_FlushBuffer( struct XG3DUIOpenGLView* aView )
 {
     XG3DOpenGLView* glView = (XG3DOpenGLView*)aView;;
     [glView flushBuffer];
 }
                                                 
-//-----------------------------------------------------------　
+//------------------------------------------------------------------------------
 // EOF

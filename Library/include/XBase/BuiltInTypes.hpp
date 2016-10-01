@@ -1,15 +1,11 @@
-/**
- * @file
- * @brief 組み込み型のtypedefを記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_BUILTINTYPES_HPP)
 #else
 #define XBASE_INCLUDED_BUILTINTYPES_HPP
 
 #include <cstddef>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase
 {
 /// @addtogroup XBase-Types
@@ -75,7 +71,7 @@ namespace XBase
     typedef const void* const_anyptr_t; ///< any_ptr_tのconst版。
     //@}    
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

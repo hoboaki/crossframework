@@ -1,13 +1,9 @@
-﻿/**
- * @file
- * @brief Display型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_DISPLAY_HPP)
 #else
 #define XBASE_INCLUDED_DISPLAY_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/DisplayContext.hpp>
 #include <XBase/OS.hpp>
 #include <XBase/Screen.hpp>
@@ -21,22 +17,20 @@
 #else
     #include <XBase/Display_Default.hpp>
 #endif
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-System
 //@{
 
-    /**
-     * @class XBase::Display
-     * @brief ディスプレイ。
-     * @details 
-     * ここでいうディスプレイとはWindowsやMacOSX環境では１つのウィンドウのことを指します。@n
-     * ウィンドウという概念がない環境では仮想的なウィンドウが存在するとします。@n
-     * @n
-     * ディスプレイは1つ以上のスクリーンを所持します。 @n
-     * WindowsやMacOSX環境では１つのウィンドウが１つのスクリーンを所持すると考えます。@n
-     * Nintendo DSなど1つのハードに2つ以上の画面が存在するハードではスクリーンが画面の数だけ所持すると考えます。@n
-     */
+    /// @class XBase::Display
+    /// @brief ディスプレイ。
+    /// @details 
+    /// ここでいうディスプレイとはWindowsやMacOSX環境では１つのウィンドウのことを指します。@n
+    /// ウィンドウという概念がない環境では仮想的なウィンドウが存在するとします。@n
+    /// @n
+    /// ディスプレイは1つ以上のスクリーンを所持します。 @n
+    /// WindowsやMacOSX環境では１つのウィンドウが１つのスクリーンを所持すると考えます。@n
+    /// Nintendo DSなど1つのハードに2つ以上の画面が存在するハードではスクリーンが画面の数だけ所持すると考えます。@n
     class Display
     {
     public:
@@ -76,7 +70,7 @@ namespace XBase {
     };
 
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

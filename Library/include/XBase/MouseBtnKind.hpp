@@ -1,13 +1,9 @@
-﻿/**
- * @file
- * @brief MouseBtnKind型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_MOUSEBTNKIND_HPP)
 #else
 #define XBASE_INCLUDED_MOUSEBTNKIND_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-HID
 //@{
@@ -24,7 +20,7 @@ namespace XBase {
         MouseBtnKind_MAX = MouseBtnKind_TERMINATE-1
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

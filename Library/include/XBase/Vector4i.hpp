@@ -1,33 +1,27 @@
-/**
- * @file
- * @brief Vector4i,Vector4iPOD(Vec4i)型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_VECTOR4I_HPP)
 #else
 #define XBASE_INCLUDED_VECTOR4I_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/BuiltInTypes.hpp>
 #include <XBase/ShortString.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
     struct Vector2iPOD;
     struct Vector3iPOD;
     struct Vector4POD;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-Math
 //@{
-    /**
-     * @brief 整数型4次元ベクトル構造体。
-     * @details 
-     * 使用頻度のことを考えて Vec4i という名前でもアクセスできます。
-     * メモリ配置は32bit符号有り整数が先頭からx,y,z,wの順番に並んでいます。
-     */
+    /// @brief 整数型4次元ベクトル構造体。
+    /// @details 
+    /// 使用頻度のことを考えて Vec4i という名前でもアクセスできます。
+    /// メモリ配置は32bit符号有り整数が先頭からx,y,z,wの順番に並んでいます。
     struct Vector4iPOD
     {
         //============================================================
@@ -194,7 +188,7 @@ namespace XBase {
     /// Vector4iPOD のエイリアス。
     typedef Vector4iPOD Vec4i;
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

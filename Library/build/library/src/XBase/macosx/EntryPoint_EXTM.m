@@ -1,19 +1,15 @@
-/**
- * @file
- * @brief MacOSXのエントリーポイント関数の実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <assert.h>
 #include <string.h>
 #include <Cocoa/Cocoa.h>
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 // EntryPointC.cppに定義してある関数。
 extern int mainC( int aArgCount , const char* aArgValues[] , const char* aExeFileName , const char* aExeDirPath );
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 #define tExeFileNameLength (256)  // Unix のファイル名の最大長
 #define tExeDirPathLength  (1024) // Unix のパスの最大長
 static char tExeFileName[ tExeFileNameLength ];
@@ -33,7 +29,7 @@ static int tLastIndexOf( const char* aStr , const char aCh )
     return result;
 }
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 int main( const int aArgCount , const char* aArgValues[])
 {
     // メモリリーク対策
@@ -71,5 +67,5 @@ int main( const int aArgCount , const char* aArgValues[])
     return result;
 }
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 //EOF

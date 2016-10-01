@@ -1,11 +1,7 @@
-/**
- * @file
- * @brief Display.hppの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include <XBase/Display.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/Application.hpp>
 #include <XBase/KeyKind.hpp>
 #include <XBase/HID.hpp>
@@ -14,9 +10,9 @@
 #include <XBase/Unused.hpp>
 #include <XBase/SDKHeader.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace {
     Pointer< Display_EXT > tCurrentDisplay;
 
@@ -137,13 +133,13 @@ namespace {
     }
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 uint Display::screenCount()const
 {
     return 1;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Screen& Display::screenAtIndex( const uint aIndex )
 {
     XBASE_RANGE_ASSERT_MAX( aIndex , screenCount() );
@@ -151,13 +147,13 @@ Screen& Display::screenAtIndex( const uint aIndex )
     return mainScreen();
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Screen& Display::mainScreen()
 {
     return *mEXT.mainScreen;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Display::show()
 {
     mEXT.isClosed = false;
@@ -165,13 +161,13 @@ void Display::show()
 	UpdateWindow( mEXT.window );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 bool Display::isClosed()const
 {
     return mEXT.isClosed;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Display_EXT::Display_EXT( const DisplayContext& aContext )
 : window()
 , windowClass()
@@ -230,7 +226,7 @@ Display_EXT::Display_EXT( const DisplayContext& aContext )
     mainScreen.init( Ref( *this ) , aContext.width() , aContext.height() );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Display_EXT::pollEvent( Application& )
 {
     // pulseをクリア
@@ -272,13 +268,13 @@ void Display_EXT::pollEvent( Application& )
     }
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 LRESULT Display_EXT::WindowProcess( HWND aHWND , UINT aMsg , WPARAM aWParam , LPARAM aLParam )
 {
     return tCurrentDisplay->windowProcess( aHWND , aMsg , aWParam , aLParam );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 LRESULT Display_EXT::windowProcess( HWND aHWND , UINT aMsg , WPARAM aWParam , LPARAM aLParam )
 {
     switch ( aMsg ) 
@@ -370,7 +366,5 @@ LRESULT Display_EXT::windowProcess( HWND aHWND , UINT aMsg , WPARAM aWParam , LP
     return DefWindowProc( aHWND , aMsg , aWParam , aLParam );
 }
 
-//------------------------------------------------------------
-}
-//------------------------------------------------------------
+} // namespace
 // EOF

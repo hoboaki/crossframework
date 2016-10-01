@@ -1,24 +1,18 @@
-/**
- * @file
- * @brief PODInheritClass型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_PODINHERITCLASS_HPP)
 #else
 #define XBASE_INCLUDED_PODINHERITCLASS_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/StaticAssert.hpp>
 #include <XBase/TypeTraits.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-Types
 //@{
-    /**
-     * @brief POD型を継承するクラス用のテンプレートクラス。
-     * @details ゼロクリアコンストラクタとコピーコンストラクタを自動で作成します。
-     */
+    /// @brief POD型を継承するクラス用のテンプレートクラス。
+    /// @details ゼロクリアコンストラクタとコピーコンストラクタを自動で作成します。
     template< typename POD_TYPE >
     class PODInheritClass : public POD_TYPE
     {
@@ -44,7 +38,7 @@ namespace XBase {
     };
 
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

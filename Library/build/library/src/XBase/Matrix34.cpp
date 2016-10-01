@@ -1,11 +1,7 @@
-/**
- * @file
- * @brief Matrix34.hppの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include <XBase/Matrix34.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/Angle.hpp>
 #include <XBase/Console.hpp>
 #include <XBase/Math.hpp>
@@ -14,9 +10,9 @@
 #include <XBase/Vector3.hpp>
 #include <XBase/Matrix44.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Matrix34POD Matrix34POD::Identity()
 {
     // よく使うことになるのでstaticデータとして使い初期化は１回だけにする。
@@ -27,7 +23,7 @@ const Matrix34POD Matrix34POD::Identity()
     return obj;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Matrix34POD Matrix34POD::Translate(
     const f32 aX
     , const f32 aY
@@ -41,7 +37,7 @@ const Matrix34POD Matrix34POD::Translate(
         );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Matrix34POD Matrix34POD::Translate(
     const Vector3POD& aVec
     )
@@ -49,7 +45,7 @@ const Matrix34POD Matrix34POD::Translate(
     return Translate( aVec.x , aVec.y , aVec.z );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Matrix34POD Matrix34POD::Scale(
     const f32 aX
     , const f32 aY
@@ -63,7 +59,7 @@ const Matrix34POD Matrix34POD::Scale(
         );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Matrix34POD Matrix34POD::Scale(
     const Vector3POD& aVec
     )
@@ -71,7 +67,7 @@ const Matrix34POD Matrix34POD::Scale(
     return Scale( aVec.x , aVec.y , aVec.z );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Matrix34POD Matrix34POD::Rotate(
     const Angle& aAngle
     , const f32 aAxisX
@@ -99,7 +95,7 @@ const Matrix34POD Matrix34POD::Rotate(
         );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Matrix34POD Matrix34POD::Rotate(
     const Angle& aAngle
     , const Vector3POD& aAxisVec
@@ -108,7 +104,7 @@ const Matrix34POD Matrix34POD::Rotate(
     return Rotate( aAngle , aAxisVec.x , aAxisVec.y , aAxisVec.z );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Matrix34POD Matrix34POD::LookAt(
     const Vector3POD& aEyePos
     , const Vector3POD& aTargetPos
@@ -151,7 +147,7 @@ const Matrix34POD Matrix34POD::LookAt(
     return mtx;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Vector3POD Matrix34POD::x()const
 {
     return Vector3(
@@ -161,7 +157,7 @@ const Vector3POD Matrix34POD::x()const
         );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Vector3POD Matrix34POD::y()const
 {
     return Vector3(
@@ -171,7 +167,7 @@ const Vector3POD Matrix34POD::y()const
         );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Vector3POD Matrix34POD::z()const
 {
     return Vector3(
@@ -181,7 +177,7 @@ const Vector3POD Matrix34POD::z()const
         );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Vector3POD Matrix34POD::w()const
 {
     return Vector3(
@@ -191,7 +187,7 @@ const Vector3POD Matrix34POD::w()const
         );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Matrix34POD::setX( const Vector3POD& aVal )
 {
     v[IndexXX] = aVal.x;
@@ -199,7 +195,7 @@ void Matrix34POD::setX( const Vector3POD& aVal )
     v[IndexXZ] = aVal.z;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Matrix34POD::setY( const Vector3POD& aVal )
 {
     v[IndexYX] = aVal.x;
@@ -207,7 +203,7 @@ void Matrix34POD::setY( const Vector3POD& aVal )
     v[IndexYZ] = aVal.z;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Matrix34POD::setZ( const Vector3POD& aVal )
 {
     v[IndexZX] = aVal.x;
@@ -215,7 +211,7 @@ void Matrix34POD::setZ( const Vector3POD& aVal )
     v[IndexZZ] = aVal.z;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Matrix34POD::setW( const Vector3POD& aVal )
 {
     v[IndexWX] = aVal.x;
@@ -223,7 +219,7 @@ void Matrix34POD::setW( const Vector3POD& aVal )
     v[IndexWZ] = aVal.z;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Vector3POD Matrix34POD::mul( const Vector3POD& aVec )const
 {
     return Vector3(
@@ -233,7 +229,7 @@ const Vector3POD Matrix34POD::mul( const Vector3POD& aVec )const
         );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Matrix34POD Matrix34POD::mul( const Matrix34POD& aRHS )const
 {
     Matrix34POD mtx;
@@ -298,33 +294,33 @@ const Matrix34POD Matrix34POD::mul( const Matrix34POD& aRHS )const
     return mtx;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Matrix34POD& Matrix34POD::mulAssign( const Matrix34POD& aRHS )
 {
     *this = mul( aRHS );
     return *this;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Vector3POD Matrix34POD::operator*( const Vector3POD& aRHS )const
 {
     return mul( aRHS );    
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Matrix34POD Matrix34POD::operator*( const Matrix34POD& aRHS )const
 {
     return mul( aRHS );    
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Matrix34POD& Matrix34POD::operator*=( const Matrix34POD& aRHS )
 {
     mulAssign( aRHS );
     return *this;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Matrix34POD Matrix34POD::invert()const
 {
     const float c = 0.0f
@@ -395,7 +391,7 @@ const Matrix34POD Matrix34POD::invert()const
     return b;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Quaternion Matrix34POD::toQuaternion()const
 { 
     Quaternion q;
@@ -452,7 +448,7 @@ const Quaternion Matrix34POD::toQuaternion()const
     }
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Matrix44POD Matrix34POD::toMatrix44()const
 {
     return Matrix44(
@@ -463,7 +459,7 @@ const Matrix44POD Matrix34POD::toMatrix44()const
         );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Matrix34POD::dump()const
 {
     XBASE_COUTFMT( "Matrix34POD::dump %p\n" , this );
@@ -472,19 +468,19 @@ void Matrix34POD::dump()const
     XBASE_COUTFMT( "( %f , %f , %f , %f )\n" , v[Index20] , v[Index21] , v[Index22] , v[Index23] );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Matrix34::Matrix34()
 : Matrix34POD( Identity() )
 {
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Matrix34::Matrix34( const Matrix34POD& aObj )
 : Matrix34POD( aObj )
 {
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Matrix34::Matrix34(
     const f32 aR0C0 , const f32 aR0C1 , const f32 aR0C2 , const f32 aR0C3
     , const f32 aR1C0 , const f32 aR1C1 , const f32 aR1C2 , const f32 aR1C3
@@ -505,7 +501,7 @@ Matrix34::Matrix34(
     v[Index23] = aR2C3;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Matrix34::Matrix34( 
     const Vector3POD& aX
     , const Vector3POD& aY
@@ -519,7 +515,5 @@ Matrix34::Matrix34(
     setW( aW );
 }
 
-//------------------------------------------------------------
-}
-//------------------------------------------------------------
+} // namespace
 // EOF

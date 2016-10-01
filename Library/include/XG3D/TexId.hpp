@@ -1,13 +1,9 @@
-/**
- * @file
- * @brief TexId型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_TEXMAPID_HPP)
 #else
 #define XG3D_INCLUDED_TEXMAPID_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
 /// @addtogroup XG3D-Enum
 //@{
@@ -21,7 +17,7 @@ namespace XG3D {
         TexId_MAX = TexId_TERMINATE
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

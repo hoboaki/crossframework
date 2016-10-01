@@ -1,16 +1,12 @@
-/**
- * @file
- * @brief FrameCounter型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_FRAMECOUNTER_HPP)
 #else
 #define XBASE_INCLUDED_FRAMECOUNTER_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/BuiltInTypes.hpp>
     
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-Util
 //@{
@@ -32,21 +28,15 @@ namespace XBase {
 
         /// @name 更新
         //@{
-        /**
-         * @brief フレームを1進める。
-         * @details isEnd() 状態なら何もしません。
-         */
+        /// @brief フレームを1進める。
+        /// @details isEnd() 状態なら何もしません。
         void advance();
 
-        /**
-         * @brief フレームを1進める。
-         * @details isEnd() 状態で呼ぶとエラーになります。
-         */
+        /// @brief フレームを1進める。
+        /// @details isEnd() 状態で呼ぶとエラーになります。
         void advanceStrict();
 
-        /**
-         * @brief 最終フレームまで進める。
-         */
+        /// @brief 最終フレームまで進める。
         void toEnd();
         //@}
 
@@ -65,7 +55,7 @@ namespace XBase {
         uint mTotalFrame;
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

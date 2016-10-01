@@ -1,18 +1,14 @@
-/**
- * @file
- * @brief Display.hppの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include <XBase/Display.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/Application.hpp>
 #include <XBase/Ref.hpp>
 #include "XBaseNSWindow.h"
 #include <OpenGL/OpenGL.h>
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace {
     const int tNormalKeyCode[256]=
     {
@@ -551,39 +547,39 @@ namespace {
         }
     }
 }
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 uint Display::screenCount()const
 {
     return 1;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Screen& Display::screenAtIndex( const uint aIndex )
 {
     XBASE_RANGE_ASSERT_MAX( aIndex , screenCount() );
     return mainScreen();
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Screen& Display::mainScreen()
 {
     return *mEXT.mainScreen;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Display::show()
 {
     mEXT.isClosed = 0;    
     XBaseNSWindow_Show( mEXT.windowPtr );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 bool Display::isClosed()const
 {
     return mEXT.isClosed != 0;
 }
     
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 void Display_EXT::CBKeyEvent( void* aOwnerPtr , const int aUnicode , const int aIsDown )
 {
     // キー選択
@@ -609,7 +605,7 @@ void Display_EXT::CBKeyEvent( void* aOwnerPtr , const int aUnicode , const int a
     }
 }
     
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 void Display_EXT::CBModKeyEvent( void* aOwnerPtr , const int aIsShift , const int aIsCtrl , const int aIsAlt )
 {
     Display_EXT* owner = static_cast< Display_EXT* >( aOwnerPtr );
@@ -618,7 +614,7 @@ void Display_EXT::CBModKeyEvent( void* aOwnerPtr , const int aIsShift , const in
     tUpdateModKey( owner->keyboardUpdateData , KeyKind_Alt , aIsAlt );
 }
     
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 void Display_EXT::CBMouseEvent( void* aOwnerPtr , const int aPressedButton , const float aX , const float aY )
 {
     Display_EXT* owner = static_cast< Display_EXT* >( aOwnerPtr );
@@ -630,7 +626,7 @@ void Display_EXT::CBMouseEvent( void* aOwnerPtr , const int aPressedButton , con
     owner->mouseUpdateData.hold.set( MouseBtnKind_M , aPressedButton & 0x04 );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Display_EXT::Display_EXT( const DisplayContext& aContext )
 : windowPtr( 0 )
 , mainScreen()
@@ -656,7 +652,7 @@ Display_EXT::Display_EXT( const DisplayContext& aContext )
     mainScreen.init( Ref( *this ) , aContext.width() , aContext.height() );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Display_EXT::~Display_EXT()
 {    
     // メインスクリーンの削除
@@ -668,7 +664,5 @@ Display_EXT::~Display_EXT()
     XBaseNSWindow_Destroy( ptr );
 }
     
-//------------------------------------------------------------
-}
-//------------------------------------------------------------
+} // namespace
 // EOF

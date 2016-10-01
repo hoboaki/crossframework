@@ -1,16 +1,12 @@
-/**
- * @file
- * @brief Argument型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_ARGUMENT_HPP)
 #else
 #define XBASE_INCLUDED_ARGUMENT_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/BuiltInTypes.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-System
 //@{
@@ -39,20 +35,16 @@ namespace XBase {
 
         /// @name 実行ファイル情報
         //@{
-        /**
-         * @brief 実行ファイルのファイル名。
-         * @details 
-         * そういう概念がないOSでは長さ0の文字列を返します。 @n
-         */
+        /// @brief 実行ファイルのファイル名。
+        /// @details 
+        /// そういう概念がないOSでは長さ0の文字列を返します。 @n
         const char* exeFileName()const;
 
-        /**
-         * @brief 実行ファイルのディレクトリへのパス。
-         * @details 
-         * そういう概念がないOSでは長さ0の文字列を返します。@n 
-         * ディレクトリの区切り文字はWindows上でも'/'を使用します。@n
-         * c:\\dirname\\FileName.exe ならc:/dirname を返します。 @n
-         */
+        /// @brief 実行ファイルのディレクトリへのパス。
+        /// @details 
+        /// そういう概念がないOSでは長さ0の文字列を返します。@n 
+        /// ディレクトリの区切り文字はWindows上でも'/'を使用します。@n
+        /// c:\\dirname\\FileName.exe ならc:/dirname を返します。 @n
         const char* exeDirPath()const; 
         //@}
 
@@ -63,7 +55,7 @@ namespace XBase {
         const char*       mExeDirPath;
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

@@ -1,16 +1,12 @@
-/**
- * @file
- * @brief UIApplicationのデリゲートの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_UIAPPLICATIONDELEGATE_H)
 #else
 #define XBASE_INCLUDED_UIAPPLICATIONDELEGATE_H
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <UIKit/UIKit.h>
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 @interface XBaseUIApplicationDelegate : NSObject <UIApplicationDelegate> 
 {
 }
@@ -19,6 +15,6 @@
 - (void)onUpdate:(id)sender;
 @end
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 #endif
 // EOF

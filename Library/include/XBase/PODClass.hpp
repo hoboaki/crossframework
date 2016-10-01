@@ -1,26 +1,20 @@
-/**
- * @file
- * @brief PODClass型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_PODCLASS_HPP)
 #else
 #define XBASE_INCLUDED_PODCLASS_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/PODStruct.hpp>
 #include <XBase/StaticAssert.hpp>
 #include <XBase/TypeTraits.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-Types
 //@{    
-    /**
-     * @brief POD型のラッパーテンプレートクラス。
-     * @details
-     * boost::value_initializedのようにデフォルトコンストラクタで必ず初期化をすることで未初期化を防ぎます。
-     */
+    /// @brief POD型のラッパーテンプレートクラス。
+    /// @details
+    /// boost::value_initializedのようにデフォルトコンストラクタで必ず初期化をすることで未初期化を防ぎます。
     template< typename T >
     class PODClass : public PODStruct<T>
     {        
@@ -37,7 +31,7 @@ namespace XBase {
         XBASE_STATIC_ASSERT( sizeof(SuperClass) == sizeof( ValueType ) ); // サイズが同じであることを保証。
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

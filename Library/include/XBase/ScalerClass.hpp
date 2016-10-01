@@ -1,25 +1,19 @@
-/**
- * @file
- * @brief ScalerClass型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_SCALERCLASS_HPP)
 #else
 #define XBASE_INCLUDED_SCALERCLASS_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/StaticAssert.hpp>
 #include <XBase/ScalerStruct.hpp>
 #include <XBase/TypeTraits.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-Types
 //@{
-    /**
-     * @brief Scaler型のラッパーテンプレートクラス。
-     * @copydetails PODClass
-     */
+    /// @brief Scaler型のラッパーテンプレートクラス。
+    /// @copydetails PODClass
     template< typename T >
     class ScalerClass : public ScalerStruct<T>
     {
@@ -41,7 +35,7 @@ namespace XBase {
         XBASE_STATIC_ASSERT( sizeof( SuperClass ) == sizeof( ValueType ) ); // サイズが同じであることを保証。        
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

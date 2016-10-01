@@ -1,17 +1,13 @@
-/**
- * @file
- * @brief BinResMdlMesh型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_BINRESMDLMESH_HPP)
 #else
 #define XG3D_INCLUDED_BINRESMDLMESH_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XData/XData.hpp>
 #include <XG3D/BuiltInTypes.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
     // バイナリデータ：モデルメッシュ。
     struct BinResMdlMesh
@@ -23,7 +19,7 @@ namespace XG3D {
         ::XData::UInt16    padding;
         ::XData::Reference subMeshes;
     };
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

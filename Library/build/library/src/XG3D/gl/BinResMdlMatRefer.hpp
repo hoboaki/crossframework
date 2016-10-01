@@ -1,17 +1,13 @@
-/**
- * @file
- * @brief BinResMdlMatRefer型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_BINRESMDLMATREFER_HPP)
 #else
 #define XG3D_INCLUDED_BINRESMDLMATREFER_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XData/XData.hpp>
 #include <XG3D/BuiltInTypes.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
     // バイナリデータ：モデルマテリアル参照。
     struct BinResMdlMatRefer
@@ -20,7 +16,7 @@ namespace XG3D {
         ::XData::UInt16    flags;
         ::XData::Reference name;
     };
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

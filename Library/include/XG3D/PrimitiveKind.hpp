@@ -1,13 +1,9 @@
-/**
- * @file
- * @brief PrimitiveKind型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_PRIMITIVEKIND_HPP)
 #else
 #define XG3D_INCLUDED_PRIMITIVEKIND_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
 /// @addtogroup XG3D-Enum
 //@{
@@ -22,7 +18,7 @@ namespace XG3D {
         , PrimitiveKind_MAX = PrimitiveKind_TERMINATE-1
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

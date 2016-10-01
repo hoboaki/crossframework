@@ -1,13 +1,9 @@
-/**
- * @file
- * @brief HID型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_HID_HPP)
 #else
 #define XBASE_INCLUDED_HID_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/NonCopyable.hpp>
 #include <XBase/OS.hpp>
 
@@ -19,7 +15,7 @@
     #include <XBase/HID_iOS.hpp>
 #endif
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
     class Display;
     class Keyboard;
@@ -27,13 +23,11 @@ namespace XBase {
     class Touch;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-HID
 //@{
-    /**
-     * @brief HID(Human Interface Device)にアクセスするクラス。
-     */
+    /// @brief HID(Human Interface Device)にアクセスするクラス。
     class HID : public NonCopyable
     {
     public:
@@ -53,11 +47,9 @@ namespace XBase {
         /// 指定番目のキーボードを取得。
         const Keyboard keyboardAtIndex( uint aIndex )const;
         
-        /**
-         * @brief 存在する環境なら0番のキーボードを取得する。
-         * @details 
-         * 存在しなければ空のキーボードを返す。
-         */
+        /// @brief 存在する環境なら0番のキーボードを取得する。
+        /// @details 
+        /// 存在しなければ空のキーボードを返す。
         const Keyboard keyboard()const;
         //@}
         
@@ -69,21 +61,17 @@ namespace XBase {
         /// 指定番目のマウスを取得。
         const Mouse mouseAtIndex( uint aIndex )const;
         
-        /**
-         * @brief 存在する環境なら0番のマウスを取得する。
-         * @details 
-         * 存在しなければ空のマウスを返す。
-         */
+        /// @brief 存在する環境なら0番のマウスを取得する。
+        /// @details 
+        /// 存在しなければ空のマウスを返す。
         const Mouse mouse()const;
         //@}
 
         /// @name タッチデバイス
         //@{
-        /**
-         * @brief この機器でサポートされているタップ数を取得する。
-         * @details 
-         * シングルタッチしかサポートしない環境は1、マルチタッチをサポートする環境では2以上の値が返ります。@n
-         */
+        /// @brief この機器でサポートされているタップ数を取得する。
+        /// @details 
+        /// シングルタッチしかサポートしない環境は1、マルチタッチをサポートする環境では2以上の値が返ります。@n
         uint supportedTouchTapCount()const;
 
         /// タッチデバイスの総数。
@@ -92,11 +80,9 @@ namespace XBase {
         /// 指定番目のタッチデバイスの取得。
         const Touch touchAtIndex( uint aIndex )const;
         
-        /**
-         * @brief 存在する環境なら0番のタッチデバイスを取得する。
-         * @details 
-         * 存在しなければ空のタッチデバイスを返す。
-         */
+        /// @brief 存在する環境なら0番のタッチデバイスを取得する。
+        /// @details 
+        /// 存在しなければ空のタッチデバイスを返す。
         const Touch touch()const;
         //@}
 
@@ -109,7 +95,7 @@ namespace XBase {
         HID_EXT  mEXT;
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

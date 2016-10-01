@@ -1,18 +1,14 @@
-/**
- * @file
- * @brief SDKのヘッダファイルのインクルードをする。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_SDKHEADER_HPP)
 #else
 #define XG3D_INCLUDED_SDKHEADER_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/OS.hpp>
 #include <XBase/SDKHeader.hpp>
 #include <XG3D/Engine.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #if defined(XG3D_ENGINE_GLSERIES)
     #if defined(XBASE_OS_WINDOWS)
         #include <XG3D/GLee.h>
@@ -34,6 +30,6 @@
     #error "Not supported engine."
 #endif
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #endif
 // EOF

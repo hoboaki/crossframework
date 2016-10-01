@@ -1,11 +1,7 @@
-/**
- * @file
- * @brief Time.hppの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include <XBase/Time.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <ctime>
 #include <XBase/Calendar.hpp>
 #include <XBase/OS.hpp>
@@ -20,9 +16,9 @@
     #include <sys/time.h>
 #endif
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace {
     // 時間変換関数のポインタ。
     typedef std::tm* (*tTimeConverter)(const std::time_t*, std::tm*);
@@ -116,7 +112,7 @@ namespace {
     }
 
 }
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const TimePOD TimePOD::LocalTime()
 {
     struct Converter
@@ -134,7 +130,7 @@ const TimePOD TimePOD::LocalTime()
     return tCurrentTime( Converter::func );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const TimePOD TimePOD::UniversalTime()
 {
     struct Converter
@@ -152,7 +148,7 @@ const TimePOD TimePOD::UniversalTime()
     return tCurrentTime( Converter::func );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const TimePOD TimePOD::FromDate(
     const uint aYear
     , const uint aMonth
@@ -176,7 +172,7 @@ const TimePOD TimePOD::FromDate(
     return obj;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace
 {    
     // 1日の総チック数。
@@ -236,7 +232,7 @@ const CalendarPOD TimePOD::toCalendar()const
     return calendar;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const TimePOD TimePOD::add( const TimeSpanPOD& aTimeSpan )const
 {
     TimePOD obj = *this;
@@ -244,26 +240,26 @@ const TimePOD TimePOD::add( const TimeSpanPOD& aTimeSpan )const
     return obj;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const TimePOD TimePOD::operator+(const TimeSpanPOD& aTimeSpan )const
 {
     return add( aTimeSpan );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 TimePOD& TimePOD::addAssign( const TimeSpanPOD& aTimeSpan )
 {
     ticks_ += aTimeSpan.ticks();
     return *this;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 TimePOD& TimePOD::operator+=(const TimeSpanPOD& aTimeSpan )
 {
     return addAssign( aTimeSpan );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const TimePOD TimePOD::sub( const TimeSpanPOD& aTimeSpan )const
 {
     TimePOD obj = *this;
@@ -271,32 +267,30 @@ const TimePOD TimePOD::sub( const TimeSpanPOD& aTimeSpan )const
     return obj;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const TimePOD TimePOD::operator-(const TimeSpanPOD& aTimeSpan )const
 {
     return sub( aTimeSpan );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 TimePOD& TimePOD::subAssign( const TimeSpanPOD& aTimeSpan )
 {
     ticks_ -= aTimeSpan.ticks();
     return *this;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 TimePOD& TimePOD::operator-=(const TimeSpanPOD& aTimeSpan )
 {
     return subAssign( aTimeSpan );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 s64 TimePOD::ticks()const
 { 
     return ticks_;
 }
 
-//------------------------------------------------------------
-}
-//------------------------------------------------------------
+} // namespace
 // EOF

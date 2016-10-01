@@ -1,20 +1,16 @@
-﻿/**
- * @file
- * @brief ResMatVtxAttrImpl型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_RESMATVTXATTRIMPL_HPP)
 #else
 #define XG3D_INCLUDED_RESMATVTXATTRIMPL_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/IAllocator.hpp>
 #include <XBase/NonCopyable.hpp>
 #include <XG3D/SDKHeader.hpp>
 #include "BinResMatVtxAttr.hpp"
 #include "XDataPlus.hpp"
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
     // BinResMatVtxAttrとResMatVtxAttrの間にかますクラス。
     class ResMatVtxAttrImpl : public ::XBase::NonCopyable
@@ -28,7 +24,7 @@ namespace XG3D {
         ResMatVtxAttrImpl( const ::XData::XData& aXData , const BinResMatVtxAttr* aBinPtr , ::XBase::IAllocator& aAllocator );
         ~ResMatVtxAttrImpl();
     };
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

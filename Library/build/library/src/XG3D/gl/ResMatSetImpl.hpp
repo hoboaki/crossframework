@@ -1,13 +1,9 @@
-﻿/**
- * @file
- * @brief ResMatSetImpl型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_RESMATSETIMPL_HPP)
 #else
 #define XG3D_INCLUDED_RESMATSETIMPL_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/IAllocator.hpp>
 #include <XBase/NonCopyable.hpp>
 #include <XBase/Placement.hpp>
@@ -16,7 +12,7 @@
 #include "ResMatImpl.hpp"
 #include "XDataPlus.hpp"
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
     // BinResMatSetとResMatSetの間にかますクラス。
     class ResMatSetImpl : public ::XBase::NonCopyable
@@ -38,7 +34,7 @@ namespace XG3D {
         void setup();
         void release();
     };
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

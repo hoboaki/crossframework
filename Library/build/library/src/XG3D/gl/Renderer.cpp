@@ -1,11 +1,7 @@
-/**
- * @file
- * @brief Renderer.hppの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include <XG3D/Renderer.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/ArrayLength.hpp>
 #include <XBase/Console.hpp>
 #include <XBase/Display.hpp>
@@ -30,9 +26,9 @@
     #include <stdlib.h>
 #endif
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace {
     // TexAddressテーブル
     const GLenum tTexAddressTable[]=
@@ -244,13 +240,13 @@ namespace {
         return true;
     }
 }
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Renderer& Renderer::Instance()
 {
     return tInstance.ref();
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Renderer::Renderer( ::XBase::Display& aDisplay )
 : mDisplay( aDisplay )
 , mEXT()
@@ -283,7 +279,7 @@ Renderer::Renderer( ::XBase::Display& aDisplay )
     tInstance.set( *this );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Renderer::~Renderer()
 {
     // インスタンス設定解除
@@ -295,7 +291,7 @@ Renderer::~Renderer()
     mEXT.demoShaderProgram = GLuint();
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Renderer::reset()
 {    
     // viewport
@@ -320,7 +316,7 @@ void Renderer::reset()
     sdReset();
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Renderer::fbSetViewport( 
     const uint aBaseX 
     , const uint aBaseY
@@ -331,7 +327,7 @@ void Renderer::fbSetViewport(
     XG3D_GLCMD( glViewport( GLint( aBaseX ) , GLint( aBaseY ) , GLint( aWidth ) , GLint( aHeight ) ) );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Renderer::fbClear()
 {
     GLbitfield bits = 0;
@@ -346,13 +342,13 @@ void Renderer::fbClear()
     XG3D_GLCMD( glClear( bits ) );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Renderer::fbSetClearColor( const ::XBase::Color4POD& aColor )
 {
     XG3D_GLCMD( glClearColor( aColor.r , aColor.g , aColor.b , aColor.a ) );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Renderer::fbSetClearDepth( const float aDepth )
 {
 #if defined(XG3D_ENGINE_GLES)
@@ -362,7 +358,7 @@ void Renderer::fbSetClearDepth( const float aDepth )
 #endif
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Renderer::fbSetColorUpdate( const bool aIsEnable )
 {
     const GLboolean val = aIsEnable ? GL_TRUE : GL_FALSE;
@@ -370,14 +366,14 @@ void Renderer::fbSetColorUpdate( const bool aIsEnable )
     mEXT.colorUpdate = aIsEnable;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Renderer::fbSetDepthUpdate( const bool aIsEnable )
 {
     XG3D_GLCMD( glDepthMask( aIsEnable ? GL_TRUE : GL_FALSE ) );
     mEXT.depthUpdate = aIsEnable;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Renderer::sdReset()
 {
     // デモ確認用のマテリアルにリセット
@@ -399,7 +395,7 @@ void Renderer::sdReset()
     }
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Renderer::sdSetMaterialForDemo()
 {    
     XG3D_GLCMD( glUseProgram( mEXT.demoShaderProgram ) );
@@ -409,7 +405,7 @@ void Renderer::sdSetMaterialForDemo()
     mEXT.updateMtxWorld();
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Renderer::sdSetMaterial( const ResMat& aResMat )
 {   
     // 変更がなければ何もしない
@@ -433,28 +429,28 @@ void Renderer::sdSetMaterial( const ResMat& aResMat )
     mEXT.updateMtxWorld();
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Renderer::sdSetMtxProjection( const ::XBase::Mtx44& aMtx )
 {
     mEXT.mtxProj = aMtx;
     mEXT.updateMtxProj();
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Renderer::sdSetMtxView( const ::XBase::Mtx34& aMtx )
 {
     mEXT.mtxView = aMtx;
     mEXT.updateMtxView();
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Renderer::sdSetMtxWorld( const ::XBase::Mtx34& aMtx )
 {
     mEXT.mtxWorld = aMtx;
     mEXT.updateMtxWorld();
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Renderer::sdSetTex( const TexId aId , const TexSetting& aSetting )
 {
     // チェック
@@ -491,7 +487,7 @@ void Renderer::sdSetTex( const TexId aId , const TexSetting& aSetting )
     }
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Renderer::draw( 
     const ResMdlSubMesh& aSubMesh 
     , const StateMdlTransform& aMdlTransform 
@@ -512,7 +508,7 @@ void Renderer::draw(
     draw( aSubMesh.shape() , aMdlMaterial.material( aSubMesh.matReferIndex() ) );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Renderer::draw( 
     const ResMdlShape& aShape
     , const StateMaterial& aMaterial
@@ -558,19 +554,19 @@ void Renderer::draw(
     XG3D_GLCMD( glBindBuffer( GL_ARRAY_BUFFER , 0 ) );        
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Renderer::waitDrawDone()
 {    
     XG3D_GLCMD( glFinish() );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Renderer::copyToDisplay( ::XBase::Display& aDisplay )
 {
     copyToScreen( aDisplay.mainScreen() );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Renderer_EXT::Renderer_EXT()
 : demoShaderProgram( 0 )
 , demoUniformLocations()
@@ -584,7 +580,7 @@ Renderer_EXT::Renderer_EXT()
     XBASE_STATIC_ASSERT( UNIFORM_COUNT == ShaderConstant::Uniform_TERMINATE );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Renderer_EXT::updateMtxProj()
 {
     const GLint location = currentMaterial.isValid()
@@ -598,7 +594,7 @@ void Renderer_EXT::updateMtxProj()
         ));
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Renderer_EXT::updateMtxView()
 {
     const GLint location = currentMaterial.isValid()
@@ -612,7 +608,7 @@ void Renderer_EXT::updateMtxView()
         ));
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Renderer_EXT::updateMtxWorld()
 {
     const GLint location = currentMaterial.isValid()
@@ -626,7 +622,5 @@ void Renderer_EXT::updateMtxWorld()
         ));
 }
 
-//------------------------------------------------------------
-}
-//------------------------------------------------------------
+} // namespace
 // EOF

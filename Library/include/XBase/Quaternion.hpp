@@ -1,24 +1,20 @@
-/**
- * @file
- * @brief Quaternion型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_QUATERNION_HPP)
 #else
 #define XBASE_INCLUDED_QUATERNION_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/BuiltInTypes.hpp>
 #include <XBase/ShortString.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
     class  Angle;
     struct Matrix34POD;
     struct Vector3POD;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-Math
 //@{
@@ -71,7 +67,7 @@ namespace XBase {
         //@}
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

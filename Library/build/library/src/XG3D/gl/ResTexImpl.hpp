@@ -1,13 +1,9 @@
-/**
- * @file
- * @brief ResTexImpl型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_RESTEXIMPL_HPP)
 #else
 #define XG3D_INCLUDED_RESTEXIMPL_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/IAllocator.hpp>
 #include <XBase/NonCopyable.hpp>
 #include <XBase/Placement.hpp>
@@ -16,7 +12,7 @@
 #include "BinResTex.hpp"
 #include "XDataPlus.hpp"
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
     // BinResTexとResTexの間にかますクラス。
     class ResTexImpl : public ::XBase::NonCopyable
@@ -41,7 +37,7 @@ namespace XG3D {
     private:
         ::XBase::Placement< TexBuffer > mTexBuffer;
     };
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

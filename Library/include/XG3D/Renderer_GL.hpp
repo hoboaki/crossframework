@@ -1,25 +1,21 @@
-/**
- * @file
- * @brief Renderer_EXT型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_RENDERER_GL_HPP)
 #else
 #define XG3D_INCLUDED_RENDERER_GL_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/Bool.hpp>
 #include <XBase/Matrix34.hpp>
 #include <XBase/Matrix44.hpp>
 #include <XG3D/ResMat.hpp>
 #include <XG3D/SDKHeader.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
     class Display;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
     // Rendererの拡張。
     class Renderer_EXT
@@ -44,7 +40,7 @@ namespace XG3D {
         void updateMtxView();
         void updateMtxWorld();
     };
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

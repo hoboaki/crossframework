@@ -1,13 +1,9 @@
-﻿/**
- * @file
- * @brief Display_EXT型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_DISPLAY_WINDOWS_HPP)
 #else
 #define XBASE_INCLUDED_DISPLAY_WINDOWS_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/Bool.hpp>
 #include <XBase/DisplayContext.hpp>
 #include <XBase/KeyboardUpdateData.hpp>
@@ -17,13 +13,13 @@
 #include <XBase/Screen.hpp>
 #include <XBase/SDKHeader.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
     class Application;
     class HID;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-System
 //@{
@@ -55,7 +51,7 @@ namespace XBase {
         LRESULT windowProcess( HWND , UINT , WPARAM , LPARAM );
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

@@ -1,18 +1,12 @@
-/**
- * @file
- * @brief XData型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XDATA_INCLUDED_XDATA_HPP)
 #else
 #define XDATA_INCLUDED_XDATA_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 
-/**
- * @brief BigEndian環境かどうか指定するマクロオプション。
- * 指定されていなければ、__BIG_ENDIAN__が定義されているかどうかで判定。
- */
+/// @brief BigEndian環境かどうか指定するマクロオプション。
+/// 指定されていなければ、__BIG_ENDIAN__が定義されているかどうかで判定。
 #if defined(XDATA_OPTION_IS_BIG_ENDIAN)
 #else
 
@@ -29,7 +23,7 @@
 #endif
 
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 /// XDataのアクセサを定義する名前空間。
 namespace XData {
 /// @addtogroup XData
@@ -52,19 +46,15 @@ namespace XData {
         /// 文字列データのバイト数。終端文字数は含まない。
         UInt32 byteLength; 
 
-        /**
-         * @brief 文字列データの先頭ポインタを取得する。
-         * @return 先頭ポインタ。
-         */
+        /// @brief 文字列データの先頭ポインタを取得する。
+        /// @return 先頭ポインタ。
         const void* ptr()const
         {
             return &(&byteLength)[1];
         }
 
-        /**
-         * @brief const char* に変換されたポインタを取得する。
-         * @return const char*に変換されたポインタ。
-         */
+        /// @brief const char* に変換されたポインタを取得する。
+        /// @return const char*に変換されたポインタ。
         const char* toCStr()const
         {
             return reinterpret_cast< const char* >( ptr() );
@@ -113,22 +103,18 @@ namespace XData {
         {
         }
 
-        /**
-         * @brief 保持しているポインタを取得する。
-         * @return コンストラクタで渡したポインタ。渡していなければ0。
-         */
+        /// @brief 保持しているポインタを取得する。
+        /// @return コンストラクタで渡したポインタ。渡していなければ0。
         const void* ptr()const
         { 
             return mPtr; 
         }
 
-        /**
-         * @brief 正しいXDataか取得する。
-         * @return 正当なデータならtrue。
-         * @details 
-         * デフォルトコンストラクタで作成された場合、
-         * 渡されたデータが対応できないものだった場不正なものだった場合、falseを返します。
-         */
+        /// @brief 正しいXDataか取得する。
+        /// @return 正当なデータならtrue。
+        /// @details 
+        /// デフォルトコンストラクタで作成された場合、
+        /// 渡されたデータが対応できないものだった場不正なものだった場合、falseを返します。
         bool isValidData()const
         {
             return mPtr != 0
@@ -140,10 +126,8 @@ namespace XData {
                 ;
         };
 
-        /**
-         * @brief データ本体の先頭アドレスを取得する。
-         * @return 無効なデータなら0を返す。
-         */
+        /// @brief データ本体の先頭アドレスを取得する。
+        /// @return 無効なデータなら0を返す。
         const void* dataHeadAddress()const
         {
             if ( !isValidData() )
@@ -153,10 +137,8 @@ namespace XData {
             return &mPtr[1];
         }
 
-        /**
-         * @brief Referenceタグの値からLabelのアドレスを取得する。
-         * @return 無効なデータおよび無効な引数なら0を返す。
-         */
+        /// @brief Referenceタグの値からLabelのアドレスを取得する。
+        /// @return 無効なデータおよび無効な引数なら0を返す。
         const void* labelAddressWithReference( const Reference aReferenceValue )const
         {
             if ( !isValidData() )
@@ -177,7 +159,7 @@ namespace XData {
     };
 
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

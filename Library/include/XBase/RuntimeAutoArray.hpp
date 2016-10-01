@@ -1,18 +1,14 @@
-/**
- * @file
- * @brief RuntimeAutoArray型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_RUNTIMEAUTOARRAY_HPP)
 #else
 #define XBASE_INCLUDED_RUNTIMEAUTOARRAY_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/IAllocator.hpp>
 #include <XBase/NonCopyable.hpp>
 #include <XBase/RuntimeAssert.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-Collection
 //@{
@@ -29,13 +25,11 @@ namespace XBase {
         /// @name コンストラクタとデストラクタ
         //@{
 
-        /**
-         * @brief コンストラクタ。
-         * @param aCountMax 最大配列長。
-         * @param aAllocator 配列データを確保する際に使用するアロケータ。
-         * @details 
-         * 配列長が0の場合、アロケートは走りません。
-         */
+        /// @brief コンストラクタ。
+        /// @param aCountMax 最大配列長。
+        /// @param aAllocator 配列データを確保する際に使用するアロケータ。
+        /// @details 
+        /// 配列長が0の場合、アロケートは走りません。
         RuntimeAutoArray( uint aCountMax , IAllocator& aAllocator = IAllocator::Default() )
             : mAllocator( aAllocator )
             , mCountMax( aCountMax )
@@ -285,7 +279,7 @@ namespace XBase {
         ValueType*  mPtr;
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

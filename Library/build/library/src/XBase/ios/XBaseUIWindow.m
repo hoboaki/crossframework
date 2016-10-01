@@ -1,14 +1,10 @@
-/**
- * @file
- * @brief XBaseUIWindow.hの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include "XBaseUIWindow.h"
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 #import <UIKit/UIKit.h>
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 @interface XBaseUIWindowImpl : UIWindow
 {
 @private
@@ -18,7 +14,7 @@
 - (const XBaseUITouchSet*) pollTouch;
 @end
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 @implementation XBaseUIWindowImpl
 -(const XBaseUITouchSet*)pollTouch
 {
@@ -147,7 +143,7 @@
 }
 @end
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 struct XBaseUIWindow* XBaseUIWindow_Create()
 {   
     // Window作成
@@ -171,12 +167,12 @@ struct XBaseUIWindow* XBaseUIWindow_Create()
     return (struct XBaseUIWindow*)window;
 }
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 void XBaseUIWindow_Destroy( struct XBaseUIWindow* aWindow )
 {
 }
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 void XBaseUIWindow_Show( struct XBaseUIWindow* aWindow )
 {   
     UIWindow* window = (UIWindow*)aWindow;
@@ -184,12 +180,12 @@ void XBaseUIWindow_Show( struct XBaseUIWindow* aWindow )
     [window layoutSubviews];
 }
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 const XBaseUITouchSet* XBaseUIWindow_PollTouch( struct XBaseUIWindow* aWindow )
 {
     XBaseUIWindowImpl* window = (XBaseUIWindowImpl*)aWindow;
     return [window pollTouch];
 }
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 // EOF

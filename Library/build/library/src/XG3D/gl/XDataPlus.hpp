@@ -1,17 +1,13 @@
-/**
- * @file
- * @brief XDataPlus型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_XDATAPLUS_HPP)
 #else
 #define XG3D_INCLUDED_XDATAPLUS_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/RuntimeAssert.hpp>
 #include <XData/XData.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
     // 機能拡張したXDataクラス。
     class XDataPlus : public ::XData::XData
@@ -59,7 +55,7 @@ namespace XG3D {
             return reinterpret_cast< const T* >( ptr );
         }
     };
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

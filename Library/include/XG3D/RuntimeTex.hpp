@@ -1,13 +1,9 @@
-/**
- * @file
- * @brief RuntimeTex型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_RUNTIMETEX_HPP)
 #else
 #define XG3D_INCLUDED_RUNTIMETEX_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/AutoMemBlock.hpp>
 #include <XBase/Color4.hpp>
 #include <XBase/Color4b.hpp>
@@ -17,22 +13,20 @@
 #include <XG3D/RuntimeTexContext.hpp>
 #include <XG3D/TexResData.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
 /// @addtogroup XG3D-Util
 //@{
-    /**
-     * @brief 実行時にイメージをを生成するテクスチャ。
-     * @details
-     * 普通のテクスチャと同様に左下原点の座標系です。@n
-     * @n
-     * setPixel() で渡したカラーはフォーマットによって使用する値が異なります。@n
-     * ・RGBA系 : RGBA を RGBA に代入@n
-     * ・RGB系 : RGB を RGB に代入@n
-     * ・LA系 : RA を LA に代入@n
-     * ・L系 : R を L に代入@n
-     * ・A系 : A を A に代入@n
-     */
+    /// @brief 実行時にイメージをを生成するテクスチャ。
+    /// @details
+    /// 普通のテクスチャと同様に左下原点の座標系です。@n
+    /// @n
+    /// setPixel() で渡したカラーはフォーマットによって使用する値が異なります。@n
+    /// ・RGBA系 : RGBA を RGBA に代入@n
+    /// ・RGB系 : RGB を RGB に代入@n
+    /// ・LA系 : RA を LA に代入@n
+    /// ・L系 : R を L に代入@n
+    /// ・A系 : A を A に代入@n
     class RuntimeTex 
         : public ::XBase::NonCopyable
     {
@@ -45,11 +39,9 @@ namespace XG3D {
 
         /// @name コンストラクタとデストラクタ
         //@{
-        /**
-         * @brief コンストラクタ。
-         * @param aContext コンテキスト。
-         * @param aAllocator データ領域を確保するのに使うアロケータ。
-         */
+        /// @brief コンストラクタ。
+        /// @param aContext コンテキスト。
+        /// @param aAllocator データ領域を確保するのに使うアロケータ。
         RuntimeTex( 
             const RuntimeTexContext& aContext
             , ::XBase::IAllocator& aAllocator = ::XBase::IAllocator::Default()
@@ -79,7 +71,7 @@ namespace XG3D {
         ::XBase::AutoMemBlock mData;
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

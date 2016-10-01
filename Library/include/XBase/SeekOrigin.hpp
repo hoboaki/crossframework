@@ -1,13 +1,9 @@
-/**
- * @file
- * @brief SeekOrigin型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_SEEKORIGIN_HPP)
 #else
 #define XBASE_INCLUDED_SEEKORIGIN_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-IO
 //@{
@@ -23,7 +19,7 @@ namespace XBase {
         SeekOrigin_MAX = SeekOrigin_TERMINATE-1
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

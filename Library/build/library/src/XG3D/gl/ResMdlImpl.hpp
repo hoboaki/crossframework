@@ -1,13 +1,9 @@
-/**
- * @file
- * @brief ResMdlImpl型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_RESMDLIMPL_HPP)
 #else
 #define XG3D_INCLUDED_RESMDLIMPL_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/IAllocator.hpp>
 #include <XBase/NonCopyable.hpp>
 #include <XBase/Placement.hpp>
@@ -19,7 +15,7 @@
 #include "ResMdlShapeImpl.hpp"
 #include "XDataPlus.hpp"
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
     // BinResMdlとResMdlの間にかますクラス。
     class ResMdlImpl : public ::XBase::NonCopyable
@@ -47,7 +43,7 @@ namespace XG3D {
         void setup();
         void release();
     };
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

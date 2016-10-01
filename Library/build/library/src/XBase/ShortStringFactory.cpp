@@ -1,13 +1,9 @@
-/** 
- * @file
- * @brief ShortStringFactory.hppの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include <XBase/ShortStringFactory.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace {
     // ShortString作成用テンプレート関数。
     template< typename T >
@@ -21,73 +17,73 @@ namespace {
     }
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const ShortString ShortStringFactory::Create( const bool aVal )
 {
     return ShortString( aVal ? "true" : "false" );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const ShortString ShortStringFactory::Create( const int aVal )
 {
     return tToShortString( "%d" , aVal );
 }
     
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const ShortString ShortStringFactory::Create( const u32 aVal )
 {
     return tToShortString( "%u" , aVal );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const ShortString ShortStringFactory::Create( const f32 aVal )
 {
     return tToShortString( "%f" , aVal );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const ShortString ShortStringFactory::Create( const f64 aVal )
 {
     return tToShortString( "%f" , aVal );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const ShortString ShortStringFactory::Create( const s8 aVal )
 {
     return tToShortString( "%hhd" , aVal );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const ShortString ShortStringFactory::Create( const s16 aVal )
 {
     return tToShortString( "%hd" , aVal );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const ShortString ShortStringFactory::Create( const s64 aVal )
 {
     return tToShortString( "%lld" , aVal );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const ShortString ShortStringFactory::Create( const u8 aVal )
 {
     return tToShortString( "%hhu" , aVal );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const ShortString ShortStringFactory::Create( const u16 aVal )
 {
     return tToShortString( "%hu" , aVal );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const ShortString ShortStringFactory::Create( const u64 aVal )
 {
     return tToShortString( "%llu" , aVal );
 }
     
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #if !defined(XBASE_OS_WINDOWS)
 const ShortString ShortStringFactory::Create( pword_t aVal )
 {
@@ -102,37 +98,35 @@ const ShortString ShortStringFactory::Create( pword_t aVal )
 }
 #endif
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const ShortString ShortStringFactory::Create( ptr_t aPtr )
 {
     return tToShortString( "%p" , aPtr );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const ShortString ShortStringFactory::Create( const_ptr_t aPtr )
 {
     return tToShortString( "%p" , aPtr );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const ShortString ShortStringFactory::Create( anyptr_t aPtr )
 {
     return tToShortString( "%p" , aPtr );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const ShortString ShortStringFactory::Create( const_anyptr_t aPtr )
 {
     return tToShortString( "%p" , aPtr );
 }
     
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const ShortString ShortStringFactory::Create( const char* aPtr )
 {
     return tToShortString( "%s" , aPtr );
 }
 
-//------------------------------------------------------------
-}
-//------------------------------------------------------------
+} // namespace
 // EOF

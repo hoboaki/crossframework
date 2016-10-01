@@ -1,19 +1,15 @@
-/**
- * @file
- * @brief iOSのエントリーポイント関数の実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <assert.h>
 #include <string.h>
 #include <UIKit/UIKit.h>
 #include "EntryPoint_EXT.h"
 #include "XBaseUIApplicationDelegate.h"
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 // EntryPointC.cppに定義してある関数。
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 #define tExeFileNameLength (256)  // Unix のファイル名の最大長
 #define tExeDirPathLength  (1024) // Unix のパスの最大長
 static char tExeFileName[ tExeFileNameLength ];
@@ -33,7 +29,7 @@ static int tLastIndexOf( const char* aStr , const char aCh )
     return result;
 }
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 int main( const int aArgCount , char* aArgValues[] )
 {
     {// Exeのパスを解析
@@ -68,7 +64,7 @@ int main( const int aArgCount , char* aArgValues[] )
     return mainC( aArgCount , aArgValues , tExeFileName , tExeDirPath );
 }
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 int mainUI( int aArgCount , char* aArgValues[] )
 {
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
@@ -77,7 +73,7 @@ int mainUI( int aArgCount , char* aArgValues[] )
     return retVal;    
 }
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 void* xmainThreadEntryPoint( void* aArg )
 {
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
@@ -86,5 +82,5 @@ void* xmainThreadEntryPoint( void* aArg )
     return 0;    
 }
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 //EOF

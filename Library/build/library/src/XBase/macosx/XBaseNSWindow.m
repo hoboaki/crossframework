@@ -1,14 +1,10 @@
-/**
- * @file
- * @brief XBaseNSWindow.hの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include "XBaseNSWindow.h"
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 #import <Cocoa/Cocoa.h>
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 @interface XBaseOpenGLWindow : NSWindow
 {
 @private
@@ -25,7 +21,7 @@
 - (XBaseNSWindow_CBMouseEvent*) cbMouseEventPtr;
 @end
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 @implementation XBaseOpenGLWindow
 - (id) initWithContentRect: (NSRect)rect styleMask:(NSUInteger)wndStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)deferFlg
 {
@@ -185,7 +181,7 @@
     return &mCBMouseEvent;
 }
 @end
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 struct XBaseNSWindow* XBaseNSWindow_Create(
     const float aPosX
     , const float aPosY
@@ -225,12 +221,12 @@ struct XBaseNSWindow* XBaseNSWindow_Create(
     return (struct XBaseNSWindow*)window;
 }
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 void XBaseNSWindow_Destroy( struct XBaseNSWindow* aWindow )
 {
 }
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 void XBaseNSWindow_Show( struct XBaseNSWindow* aWindow )
 {   
     NSAutoreleasePool* pool=[[NSAutoreleasePool alloc] init];
@@ -246,5 +242,5 @@ void XBaseNSWindow_Show( struct XBaseNSWindow* aWindow )
     [pool release];
 }
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 // EOF

@@ -1,11 +1,7 @@
-/**
- * @file
- * @brief Quaternion.hppの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include <XBase/Quaternion.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/Angle.hpp>
 #include <XBase/Math.hpp>
 #include <XBase/Matrix34.hpp>
@@ -14,9 +10,9 @@
 #include <XBase/ScalerTypes.hpp>
 #include <XBase/Vector3.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Quaternion::Quaternion()
 : x( 0 )
 , y( 0 )
@@ -25,7 +21,7 @@ Quaternion::Quaternion()
 {
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Quaternion::Quaternion( const f32 aX , const f32 aY , const f32 aZ , const f32 aW )
 : x( aX )
 , y( aY )
@@ -34,7 +30,7 @@ Quaternion::Quaternion( const f32 aX , const f32 aY , const f32 aZ , const f32 a
 {
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Quaternion::Quaternion(
     const Vector3POD& aAxis
     , const Angle& aAngle
@@ -56,7 +52,7 @@ Quaternion::Quaternion(
     w = cosHalfAngle;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Quaternion Quaternion::mul( const Quaternion& aQuat )const
 {
     Quaternion quat(*this);
@@ -64,7 +60,7 @@ const Quaternion Quaternion::mul( const Quaternion& aQuat )const
     return quat;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Quaternion& Quaternion::mulAssign( const Quaternion& aRHS )
 {
     const Quaternion& lhs = *this;
@@ -78,7 +74,7 @@ Quaternion& Quaternion::mulAssign( const Quaternion& aRHS )
     return *this;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Matrix34POD Quaternion::toRotateMatrix()const
 { 
     const f32 lenSrc = Math::SqrtF32( w*w + x*x + y*y + z*z ) ;
@@ -112,20 +108,20 @@ const Matrix34POD Quaternion::toRotateMatrix()const
     return mtx;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Quaternion Quaternion::operator*( const Quaternion& aRHS )const
 {
     return mul( aRHS );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Quaternion& Quaternion::operator*=( const Quaternion& aRHS )
 {
     mulAssign( aRHS );
     return *this;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const ::XBase::ShortString Quaternion::toShortString()const
 {
     return ::XBase::ShortString::FromFormat(
@@ -137,7 +133,5 @@ const ::XBase::ShortString Quaternion::toShortString()const
         );
 }
 
-//------------------------------------------------------------
-}
-//------------------------------------------------------------
+} // namespace
 // EOF

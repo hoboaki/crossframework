@@ -1,22 +1,16 @@
-/**
- * @file
- * @brief TouchTap型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_TOUCHTAP_HPP)
 #else
 #define XBASE_INCLUDED_TOUCHTAP_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/TouchTapUpdateData.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-HID
 //@{
-    /**
-     * @brief タッチのタップ入力。
-     */
+    /// @brief タッチのタップ入力。
     class TouchTap
     {
     public:
@@ -37,18 +31,14 @@ namespace XBase {
 
         /// @name 状態取得
         //@{
-        /**
-         * @brief タップ数を返す。
-         * @details
-         * 押されていなければ0、シングルタップなら1、ダブルタップなら2を返します。@n
-         * 3以上のタップ数をサポートしている環境なら3以上の値を返します。@n
-         */
+        /// @brief タップ数を返す。
+        /// @details
+        /// 押されていなければ0、シングルタップなら1、ダブルタップなら2を返します。@n
+        /// 3以上のタップ数をサポートしている環境なら3以上の値を返します。@n
         uint tapCount()const;
 
-        /**
-         * @brief 押している位置。
-         * @details 離している状態なら最後に押していた位置を返します。
-         */
+        /// @brief 押している位置。
+        /// @details 離している状態なら最後に押していた位置を返します。
         const ScreenPosPOD pos()const;
 
         bool isHold()const;    ///< 押されているか。
@@ -61,7 +51,7 @@ namespace XBase {
         TouchTapUpdateData mPrevData;
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

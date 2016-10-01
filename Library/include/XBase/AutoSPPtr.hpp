@@ -1,17 +1,13 @@
-/**
- * @file
- * @brief AutoSPPtr型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_AUTOSPPTR_HPP)
 #else
 #define XBASE_INCLUDED_AUTOSPPTR_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/IAllocator.hpp>
 #include <XBase/Pointer.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-Memory
 //@{
@@ -145,10 +141,8 @@ namespace XBase {
             return *mPtr;
         }
 
-        /**
-         * @brief ポインタの値をそのまま取得する。
-         * @details 設定されていないときは0を返します。
-         */
+        /// @brief ポインタの値をそのまま取得する。
+        /// @details 設定されていないときは0を返します。
         T* get()const
         {
             return mPtr.get();
@@ -290,7 +284,7 @@ namespace XBase {
     private:
         mutable Pointer< T >          mPtr;
         mutable Pointer< IAllocator > mAllocatorPtr;
-        //------------------------------------------------------------
+        //------------------------------------------------------------------------------
         void prepareCtor( ::XBase::IAllocator& aAllocator )
         {
             reset();
@@ -298,7 +292,7 @@ namespace XBase {
         }
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

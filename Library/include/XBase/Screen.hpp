@@ -1,13 +1,9 @@
-/**
- * @file
- * @brief Screen型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_SCREEN_HPP)
 #else
 #define XBASE_INCLUDED_SCREEN_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/BuiltInTypes.hpp>
 #include <XBase/NonCopyable.hpp>
 #include <XBase/OS.hpp>
@@ -20,22 +16,20 @@
     #include <XBase/Screen_Default.hpp>
 #endif
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
     class Display_EXT;
     struct ScreenPosPOD;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @name addtogroup XBase-System
 //@{
-    /**
-     * @brief Displayが所持する描画領域。
-     * @details
-     * WindowsやMacOSXなどのWindowSystem環境では１つの Display に１つの Screen が存在します。 @n
-     * NintendoDSなど2枚の描画領域を持つ環境では１つの Display に２つの Screen が存在します。 @n
-     */
+    /// @brief Displayが所持する描画領域。
+    /// @details
+    /// WindowsやMacOSXなどのWindowSystem環境では１つの Display に１つの Screen が存在します。 @n
+    /// NintendoDSなど2枚の描画領域を持つ環境では１つの Display に２つの Screen が存在します。 @n
     class Screen : public ::XBase::NonCopyable
     {
     public:
@@ -50,10 +44,8 @@ namespace XBase {
         /// 縦ピクセル数。
         uint height()const;
 
-        /**
-         * @brief 指定の位置がスクリーン内かどうか判定する。
-         * @return 0 <= aPos.x < width() && 0 <= aPos.y < height()
-         */
+        /// @brief 指定の位置がスクリーン内かどうか判定する。
+        /// @return 0 <= aPos.x < width() && 0 <= aPos.y < height()
         bool isContains( const ScreenPosPOD& aPos )const;
         //@}
 
@@ -69,7 +61,7 @@ namespace XBase {
         uint mHeight;
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

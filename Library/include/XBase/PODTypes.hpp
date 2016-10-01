@@ -1,17 +1,13 @@
-/**
- * @file
- * @brief 組み込み型のラッパークラスたちのtypedefを記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XDATA_INCLUDED_PODTYPES_HPP)
 #else
 #define XDATA_INCLUDED_PODTYPES_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/BuiltInTypes.hpp>
 #include <XBase/ScalerClass.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase
 {
 /// @addtogroup XBase-Types
@@ -79,7 +75,7 @@ namespace XBase
     //@}
     
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

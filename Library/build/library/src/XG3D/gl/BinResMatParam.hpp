@@ -1,17 +1,13 @@
-/**
- * @file
- * @brief BinResMatParam型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_BINRESMATPARAM_HPP)
 #else
 #define XG3D_INCLUDED_BINRESMATPARAM_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XData/XData.hpp>
 #include <XG3D/BuiltInTypes.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
     // バイナリデータ：マテリアルパラメータ。
     struct BinResMatParam
@@ -23,7 +19,7 @@ namespace XG3D {
         ::XData::UInt32    type;
         ::XData::Reference valueRef;
     };
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

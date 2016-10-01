@@ -1,16 +1,12 @@
-/**
- * @file
- * @brief EntryPoint_Sync.hppの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include "EntryPoint_Sync.h"
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <pthread.h>
 #include <XBase/Placement.hpp>
 #include <XBase/RuntimeAssert.hpp>
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace {
     // condのラッパークラス。
     class tSynbObj
@@ -91,55 +87,55 @@ namespace {
     XBaseAppEvent tAppEvent = XBaseAppEvent_INVALID;
 }
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 void XBaseEntryPointSync_Initialize()
 {
     tSyncObjSetInstance.init();
 }
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 void XBaseEntryPointSync_Finalize()
 {
     tSyncObjSetInstance.reset();
 }
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 void XBaseEntryPointSync_XMainWait()
 {
     XBaseEntryPointSync_CATransactionFlush();
     tSyncObjSetInstance->syncXMain.wait();
 }
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 void XBaseEntryPointSync_XMainSignal()
 {
     tSyncObjSetInstance->syncXMain.signal();
 }
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 void XBaseEntryPointSync_UIMainWait()
 {
     XBaseEntryPointSync_CATransactionFlush();
     tSyncObjSetInstance->syncUIMain.wait();
 }
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 void XBaseEntryPointSync_UIMainSignal()
 {
     tSyncObjSetInstance->syncUIMain.signal();
 }
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 void XBaseEntryPointSync_SetAppEvent( const XBaseAppEvent aEvent )
 {
     tAppEvent = aEvent;
 }
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 XBaseAppEvent XBaseEntryPointSync_GetAppEvent()
 {
     return tAppEvent;
 }
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 // EOF

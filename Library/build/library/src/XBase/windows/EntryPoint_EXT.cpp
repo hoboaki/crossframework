@@ -1,11 +1,7 @@
-/**
- * @file
- * @brief Windowsのエントリーポイント関数の実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include <XBase/EntryPoint.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/Application.hpp>
 #include <XBase/Argument.hpp>
 #include <XBase/Config.hpp>
@@ -15,10 +11,10 @@
 #include <XBase/StringTraits.hpp>
 #include <XBase/Unused.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #pragma warning(disable: 4996)
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace {
     enum 
     {
@@ -28,7 +24,7 @@ namespace {
         tArgCharsLength    = 8192, // WindowsXP以降のコマンドライン引数の最長。
         tArgPtrsLength     = ::XBase::Argument::ArgCountMax
     };
-    //------------------------------------------------------------
+    //------------------------------------------------------------------------------
     bool  tIsConsole = false;
     char  tExeFilePath[ tExeFilePathLength ];
     char  tExeFileName[ tExeFileNameLength ];
@@ -36,7 +32,7 @@ namespace {
     ::XBase::uint tArgCount = 0;
     char  tArgChars[ tArgCharsLength ];
     char* tArgPtrs[ tArgPtrsLength ];
-    //------------------------------------------------------------
+    //------------------------------------------------------------------------------
     // 指定の文字の最後のindex値取得。
     int tLastIndexOf( const char aCh , const char* aStr )
     {
@@ -185,7 +181,7 @@ namespace {
 	    return ::xmain( app );
     }
 }
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 int WINAPI WinMain(
 		HINSTANCE aInstance
 		, HINSTANCE aPrevInstance
@@ -217,7 +213,7 @@ int WINAPI WinMain(
 	return tWinMainIN( aInstance , aCmdShow );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #if !defined(XBASE_FINAL)
 int main(
     const int aArgCount
@@ -257,5 +253,5 @@ int main(
     return tWinMainIN( (HINSTANCE)GetModuleHandle(NULL), SW_SHOWNORMAL );
 }
 #endif
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 // EOF

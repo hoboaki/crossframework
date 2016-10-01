@@ -1,13 +1,9 @@
-/**
- * @file
- * @brief Application型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_APPLICATION_HPP)
 #else
 #define XBASE_INCLUDED_APPLICATION_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/AppEvent.hpp>
 #include <XBase/Enum.hpp>
 #include <XBase/NonCopyable.hpp>
@@ -23,22 +19,20 @@
     #include <XBase/Application_Default.hpp>
 #endif
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
     class Argument;
     class Display;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-System
 //@{
-    /**
-     * @brief アプリケーションの全体を扱うクラス。
-     * @details
-     * このクラスのインスタンスはフレームワークによって生成されます。@n
-     * xmain 関数が呼ばれた時点でこのクラスは生成されているため Instance() を使ってアクセスできます。@n
-     */
+    /// @brief アプリケーションの全体を扱うクラス。
+    /// @details
+    /// このクラスのインスタンスはフレームワークによって生成されます。@n
+    /// xmain 関数が呼ばれた時点でこのクラスは生成されているため Instance() を使ってアクセスできます。@n
     class Application : public ::XBase::NonCopyable
     {
     public:
@@ -52,12 +46,10 @@ namespace XBase {
         /// コマンドライン引数を取得する。
         const Argument& argument()const;
 
-        /**
-         * @brief アプリケーションの終了を要求する。
-         * @details 
-         * 任意のタイミングでアプリケーションを終了したい場合にこの関数を呼びます。@n
-         * そうすると receiveEvent() は次の呼び出しで AppEvent_Quit を返します。 @n
-         */
+        /// @brief アプリケーションの終了を要求する。
+        /// @details 
+        /// 任意のタイミングでアプリケーションを終了したい場合にこの関数を呼びます。@n
+        /// そうすると receiveEvent() は次の呼び出しで AppEvent_Quit を返します。 @n
         void quit();
 
         /// @name  イベント
@@ -76,11 +68,11 @@ namespace XBase {
         Enum32< AppEvent > mLastEvent;
         Pointer< Display > mDisplayPtr;
         Application_EXT mEXT;
-        //------------------------------------------------------------
+        //------------------------------------------------------------------------------
         AppEvent receiveEventCore();
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

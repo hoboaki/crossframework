@@ -1,47 +1,43 @@
-/**
- * @file
- * @brief ResMdl.hppの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include <XG3D/ResMdl.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/RuntimeAssert.hpp>
 #include <XG3D/ResConstant.hpp>
 #include "ResMdlImpl.hpp"
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 ResMdl::ResMdl()
 {
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 ResMdl::ResMdl( const ResMdlImpl& aImpl )
 : mPtr( aImpl )
 {
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 bool ResMdl::isValid()const
 {
     return mPtr.isValid();
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 bool ResMdl::equals( const ResMdl& aRHS )const
 {
     return mPtr == aRHS.mPtr;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 bool ResMdl::operator==( const ResMdl& aRHS )const
 {
     return equals( aRHS );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 uint ResMdl::index()const
 {
     // チェック
@@ -52,7 +48,7 @@ uint ResMdl::index()const
     return mPtr->binPtr->index;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const char* ResMdl::name()const
 {
     // チェック
@@ -63,7 +59,7 @@ const char* ResMdl::name()const
     return mPtr->xdata.ref< ::XData::String >( mPtr->binPtr->name )->toCStr();
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 uint ResMdl::matReferCount()const
 {
     // チェック
@@ -74,7 +70,7 @@ uint ResMdl::matReferCount()const
     return mPtr->matReferImpls->count();
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 ResMdlMatRefer ResMdl::matRefer( const uint aIndex )const
 {
     // チェック
@@ -85,7 +81,7 @@ ResMdlMatRefer ResMdl::matRefer( const uint aIndex )const
     return ResMdlMatRefer( mPtr->matReferImpls->at( aIndex ) );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 uint ResMdl::meshCount()const
 {
     // チェック
@@ -96,7 +92,7 @@ uint ResMdl::meshCount()const
     return mPtr->meshImpls->count();
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 ResMdlMesh ResMdl::mesh( const uint aIndex )const
 {
     // チェック
@@ -107,7 +103,7 @@ ResMdlMesh ResMdl::mesh( const uint aIndex )const
     return ResMdlMesh( mPtr->meshImpls->at( aIndex ) );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 ResMdlMesh ResMdl::mesh( const char* aName )const
 {
     // チェック
@@ -128,7 +124,7 @@ ResMdlMesh ResMdl::mesh( const char* aName )const
     return ResMdlMesh();
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 uint ResMdl::nodeCount()const
 {
     // チェック
@@ -139,7 +135,7 @@ uint ResMdl::nodeCount()const
     return mPtr->nodeImpls->count();
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 ResMdlNode ResMdl::node( const uint aIndex )const
 {
     // チェック
@@ -150,7 +146,7 @@ ResMdlNode ResMdl::node( const uint aIndex )const
     return ResMdlNode( mPtr->nodeImpls->at( aIndex ) );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 ResMdlNode ResMdl::node( const char* aName )const
 {
     // チェック
@@ -171,7 +167,7 @@ ResMdlNode ResMdl::node( const char* aName )const
     return ResMdlNode();
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 uint ResMdl::shapeCount()const
 {
     // チェック
@@ -182,7 +178,7 @@ uint ResMdl::shapeCount()const
     return mPtr->shapeImpls->count();
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 ResMdlShape ResMdl::shape( const uint aIndex )const
 {
     // チェック
@@ -193,7 +189,7 @@ ResMdlShape ResMdl::shape( const uint aIndex )const
     return ResMdlShape( mPtr->shapeImpls->at( aIndex ) );
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 ResMdlShape ResMdl::shape( const char* aName )const
 {
     // チェック
@@ -214,7 +210,7 @@ ResMdlShape ResMdl::shape( const char* aName )const
     return ResMdlShape();
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 bool ResMdl::checkInvalid()const
 {
     // 正しければ何もしない
@@ -228,7 +224,5 @@ bool ResMdl::checkInvalid()const
     return true;
 }
 
-//------------------------------------------------------------
-}
-//------------------------------------------------------------
+} // namespace
 // EOF

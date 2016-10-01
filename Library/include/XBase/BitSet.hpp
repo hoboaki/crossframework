@@ -1,26 +1,20 @@
-/**
- * @file
- * @brief BitSet型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_BITSET_HPP)
 #else
 #define XBASE_INCLUDED_BITSET_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/BuiltInTypes.hpp>
 #include <XBase/RuntimeAssert.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-Collection
 //@{
-    /**
-     * @brief ビットを扱うコレクション(POD版)。
-     * @details
-     * BIT_COUNTには扱うビット数を指定してください。 @n
-     * ALIGNMENTには要求するアライメント値を指定してください。 @n
-     */
+    /// @brief ビットを扱うコレクション(POD版)。
+    /// @details
+    /// BIT_COUNTには扱うビット数を指定してください。 @n
+    /// ALIGNMENTには要求するアライメント値を指定してください。 @n
     template < uint BIT_COUNT , uint ALIGNMENT = 4 >
     struct BitSetPOD
     {
@@ -200,7 +194,7 @@ namespace XBase {
         //@}
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

@@ -1,17 +1,13 @@
-/**
- * @file
- * @brief BinResHeader型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_BINRESHEADER_HPP)
 #else
 #define XG3D_INCLUDED_BINRESHEADER_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XG3D/BuiltInTypes.hpp>
 #include <XData/XData.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
     /// バイナリデータ：ヘッダ。
     struct BinResHeader
@@ -30,7 +26,7 @@ namespace XG3D {
         bool isValid()const;
         bool checkInvalid()const; // Invalidならエラー処理をしてtrueを返す。
     };
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

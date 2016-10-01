@@ -1,22 +1,16 @@
-/**
- * @file
- * @brief Boolに関するクラス群を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_BOOL_HPP)
 #else
 #define XBASE_INCLUDED_BOOL_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/BuiltInTypes.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-Types
 //@{
-    /**
-     * @brief BoolTmpl のPOD版。
-     */
+    /// @brief BoolTmpl のPOD版。
     template< typename DATA_TYPE >
     struct BoolPODTmpl
     {
@@ -33,32 +27,28 @@ namespace XBase {
         
         /// @name operator実装
         //@{
-        /**
-         * @brief bool値代入。
-         * @details
-         * これを定義することで下記のコードが実行できるようになります。
-         * @code
-BoolPODTmpl< int > var;
-var = true; // 代入できる
-         * @endcode
-         */
+        /// @brief bool値代入。
+        /// @details
+        /// これを定義することで下記のコードが実行できるようになります。
+        /// @code
+        /// BoolPODTmpl< int > var;
+        /// var = true; // 代入できる
+        /// @endcode
         BoolPODTmpl< DataType >& operator=( const bool aVal )
         {
             val_ = DataType( aVal ? 1 : 0 );
             return *this;
         }
         
-        /**
-         * @brief bool値取得。
-         * @details
-         * これを定義することで下記のコードが実行できるようになります。
-         * @code
-void func( const BoolPodTmpl< int >& aVal )
-{
-    bool var = aVal; // boolの値を取得できるのでこのように代入できる
-}
-         * @endcode
-         */
+        /// @brief bool値取得。
+        /// @details
+        /// これを定義することで下記のコードが実行できるようになります。
+        /// @code
+        /// void func( const BoolPodTmpl< int >& aVal )
+        /// {
+        ///     bool var = aVal; // boolの値を取得できるのでこのように代入できる
+        /// }
+        /// @endcode
         operator bool()const
         {
             return val_ != 0;
@@ -66,14 +56,12 @@ void func( const BoolPodTmpl< int >& aVal )
         //@}
     };
     
-    /**
-     * @brief 組み込み型を指定したbool。
-     * @details
-     * bool変数のサイズは環境によって変わります。 @n
-     * それをを防ぎたいときにこのテンプレート構造体を使います。 @n
-     * DATA_TYPEに指定した組み込み型を指定します。@n
-     * データとしては0以外の値が入っていたらtrueと扱います。@n
-     */
+    /// @brief 組み込み型を指定したbool。
+    /// @details
+    /// bool変数のサイズは環境によって変わります。 @n
+    /// それをを防ぎたいときにこのテンプレート構造体を使います。 @n
+    /// DATA_TYPEに指定した組み込み型を指定します。@n
+    /// データとしては0以外の値が入っていたらtrueと扱います。@n
     template< typename DATA_TYPE >
     class BoolTmpl : public BoolPODTmpl< DATA_TYPE >
     {
@@ -109,7 +97,7 @@ void func( const BoolPodTmpl< int >& aVal )
     //@}
 
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

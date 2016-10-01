@@ -1,16 +1,12 @@
-/**
- * @file
- * @brief TouchUpdateData型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_TOUCHUPDATEDATA_HPP)
 #else
 #define XBASE_INCLUDED_TOUCHUPDATEDATA_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/TouchTapUpdateData.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-HID
 //@{
@@ -25,7 +21,7 @@ namespace XBase {
         TouchTapUpdateData taps[ TAP_COUNT_MAX ];
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

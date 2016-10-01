@@ -1,25 +1,21 @@
-/**
- * @file
- * @brief MainŠÖ”‚ÉŠÖ‚·‚éŠÖ”ŒS‚ğ‹Lq‚·‚éB
- * @author akino
- */
+// æ–‡å­—ã‚³ãƒ¼ãƒ‰ï¼šUTF-8
 #if defined(XBASE_INCLUDED_ENTRYPOINT_EXT_H)
 #else
 #define XBASE_INCLUDED_ENTRYPOINT_EXT_H
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 #ifdef __cplusplus
 extern "C" {
 #endif    
-    // mainŠÖ”ƒXƒŒƒbƒh
+    // mainï¿½Öï¿½ï¿½Xï¿½ï¿½ï¿½bï¿½h
     extern int mainUI( int aArgCount , char* aArgValues[] );
     extern int mainC( int aArgCount , char* aArgValues[] , const char* aExeFileName , const char* aExeDirPath );    
-    // xmainŠÖ”ƒXƒŒƒbƒh
+    // xmainï¿½Öï¿½ï¿½Xï¿½ï¿½ï¿½bï¿½h
     extern void* xmainThreadEntryPoint( void* );
     extern int xmainThreadEntryPointC( void* );
 #ifdef __cplusplus
 }
 #endif
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 #endif
 // EOF

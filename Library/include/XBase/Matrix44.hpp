@@ -1,42 +1,36 @@
-﻿/**
- * @file
- * @brief Matrix44,Matrix44POD(Mtx44)型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_MATRIX44_HPP)
 #else
 #define XBASE_INCLUDED_MATRIX44_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/BuiltInTypes.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
     class Angle;
     struct Vector3POD;
     struct Vector4POD;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-Math
 //@{
-    /**
-     * @brief 4x4の32bit浮動小数行列構造体。
-     * @details
-     * 使用頻度のことを考えて Mtx44 という名前でもアクセスできます。
-     * 配列の並びはOpenGL準拠にしてあります。
-     * @code
-     *    c0  c1   c2   c3
-     * r0 [0] [4]  [8] [12]
-     * r1 [1] [5]  [9] [13]
-     * r2 [2] [6] [10] [14]
-     * r3 [3] [7] [11] [15]
-     * @endcode
-     * 
-     * DirectXの並びは行ベースになりますが演算上はどちらでも変わりません。
-     * (例：Translateのx,y,z値はどちらも12,13,14番にくる。)
-     */
+    /// @brief 4x4の32bit浮動小数行列構造体。
+    /// @details
+    /// 使用頻度のことを考えて Mtx44 という名前でもアクセスできます。
+    /// 配列の並びはOpenGL準拠にしてあります。
+    /// @code
+    ///    c0  c1   c2   c3
+    /// r0 [0] [4]  [8] [12]
+    /// r1 [1] [5]  [9] [13]
+    /// r2 [2] [6] [10] [14]
+    /// r3 [3] [7] [11] [15]
+    /// @endcode
+    /// 
+    /// DirectXの並びは行ベースになりますが演算上はどちらでも変わりません。
+    /// (例：Translateのx,y,z値はどちらも12,13,14番にくる。)
     struct Matrix44POD
     {
         //============================================================
@@ -96,22 +90,18 @@ namespace XBase {
         /// 透視射影行列(Frustum)の作成。
         static const Matrix44POD Frustum( f32 aLeft ,f32 aRight ,f32 aBottom , f32 aTop , f32 aNear , f32 aFar );
         
-        /**
-         * @brief 透視射影行列(Perspective)の作成。
-         * @param aFOVY   Y方向の画角。0 < aFOVY。
-         * @param aAspect 横/縦のアスペクト比。4:3なら1.333。0 < aAspect。
-         * @param aNear   Near値。
-         * @param aFar    Far値。
-         */
+        /// @brief 透視射影行列(Perspective)の作成。
+        /// @param aFOVY   Y方向の画角。0 < aFOVY。
+        /// @param aAspect 横/縦のアスペクト比。4:3なら1.333。0 < aAspect。
+        /// @param aNear   Near値。
+        /// @param aFar    Far値。
         static const Matrix44POD Perspective( const Angle& aFOVY , f32 aAspect , f32 aNear , f32 aFar );
 
-        /**
-         * @brief 視野変換行列の作成。
-         * @param aEyePos 目の位置。
-         * @param aTargetPos 注視点。
-         * @param aUpVec 上方向のベクトル。isZeroなベクトルを渡してはいけない。
-         * @param aEyePos != aTargetPosである必要がある。
-         */
+        /// @brief 視野変換行列の作成。
+        /// @param aEyePos 目の位置。
+        /// @param aTargetPos 注視点。
+        /// @param aUpVec 上方向のベクトル。isZeroなベクトルを渡してはいけない。
+        /// @param aEyePos != aTargetPosである必要がある。
         static const Matrix44POD LookAt( const Vector3POD& aEyePos , const Vector3POD& aTargetPos , const Vector3POD& aUpVec );
         //@}
 
@@ -188,7 +178,7 @@ namespace XBase {
     /// Matrix44POD のエイリアス。
     typedef Matrix44POD Mtx44;
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

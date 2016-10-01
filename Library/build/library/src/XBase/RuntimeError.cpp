@@ -1,11 +1,7 @@
-/**
- * @file
- * @brief RuntimeError.hppの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include <XBase/RuntimeError.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <cassert>
 #include <XBase/Compiler.hpp>
 #include <XBase/Config.hpp>
@@ -18,9 +14,9 @@
     #include <crtdbg.h>
 #endif
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace {
     IRuntimeErrorCallback* tCallbackPtr = 0;
 #if defined(XBASE_CONFIG_ENABLE_RUNTIME_ERROR)
@@ -36,7 +32,7 @@ namespace {
 }
 
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 IRuntimeErrorCallback& RuntimeError::DefaultCallback()
 {
     // コールバックの実装。
@@ -62,13 +58,13 @@ IRuntimeErrorCallback& RuntimeError::DefaultCallback()
     return obj;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void RuntimeError::SetCallback( IRuntimeErrorCallback& aCallback )
 {
     tCallbackPtr = &aCallback;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void RuntimeError::OnError()
 {
 #if defined(XBASE_CONFIG_ENABLE_RUNTIME_ERROR)
@@ -76,7 +72,5 @@ void RuntimeError::OnError()
 #endif
 }
 
-//------------------------------------------------------------
-}
-//------------------------------------------------------------
+} // namespace
 // EOF

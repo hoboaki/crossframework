@@ -1,13 +1,9 @@
-/**
- * @file
- * @brief ScopedPtr型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_SCOPEDPTR_HPP)
 #else
 #define XBASE_INCLUDED_SCOPEDPTR_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-Memory
 //@{
@@ -46,10 +42,8 @@ namespace XBase {
             return *mPtr;
         }
 
-        /**
-         * @brief ポインタの値をそのまま取得する。
-         * @details 設定されていないときは0を返します。
-         */
+        /// @brief ポインタの値をそのまま取得する。
+        /// @details 設定されていないときは0を返します。
         T* get()const
         {
             return mPtr;
@@ -97,7 +91,7 @@ namespace XBase {
         mutable T* mPtr;
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

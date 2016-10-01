@@ -1,36 +1,30 @@
-/**
- * @file
- * @brief Vector2,Vector2POD(Vec2)型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_VECTOR2_HPP)
 #else
 #define XBASE_INCLUDED_VECTOR2_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/BuiltInTypes.hpp>
 #include <XBase/ShortString.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
     struct Vector2POD;
     struct Vector3POD;
     struct Vector4POD;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-Math
 //@{
     /// Vector2PODのエイリアス。
     typedef Vector2POD Vec2;
 
-    /**
-     * @brief 浮動小数型2次元ベクトル構造体。
-     * @details 
-     * 使用頻度のことを考えて Vec2 という名前でもアクセスできます。
-     * メモリ配置は32bit浮動小数が先頭からx,yの順番に並んでいます。
-     */
+    /// @brief 浮動小数型2次元ベクトル構造体。
+    /// @details 
+    /// 使用頻度のことを考えて Vec2 という名前でもアクセスできます。
+    /// メモリ配置は32bit浮動小数が先頭からx,yの順番に並んでいます。
     struct Vector2POD
     {
         //============================================================
@@ -195,7 +189,7 @@ namespace XBase {
     /// Vector2 のエイリアス。
     typedef Vector2 Vector2f;
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

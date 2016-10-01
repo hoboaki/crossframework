@@ -1,18 +1,14 @@
-/**
- * @file
- * @brief StateMdlTransform.hppの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include <XG3D/StateMdlTransform.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XG3D/MdlLocalMtx.hpp>
 #include <XG3D/ResConstant.hpp>
 #include <XG3D/ResMdl.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 StateMdlTransform::StateMdlTransform(
     const ResMdl& aResMdl 
     , ::XBase::IAllocator& aAllocator
@@ -24,12 +20,12 @@ StateMdlTransform::StateMdlTransform(
     resetLocalMtx();
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 StateMdlTransform::~StateMdlTransform()
 {
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void StateMdlTransform::updateWorldMtx( const ::XBase::Mtx34& aMdlMtx )
 {
     for ( uint i = 0; i < mLocalMtxs.count(); ++i )
@@ -55,13 +51,13 @@ void StateMdlTransform::updateWorldMtx( const ::XBase::Mtx34& aMdlMtx )
     }
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const ::XBase::Mtx34 StateMdlTransform::worldMtx( const uint aNodeIndex )const
 {
     return mWorldMtxs[ aNodeIndex ];
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void StateMdlTransform::resetLocalMtx()
 {
     for ( uint i = 0; i < mLocalMtxs.count(); ++i )
@@ -73,7 +69,5 @@ void StateMdlTransform::resetLocalMtx()
     }
 }
 
-//------------------------------------------------------------
-}
-//------------------------------------------------------------
+} // namespace
 // EOF

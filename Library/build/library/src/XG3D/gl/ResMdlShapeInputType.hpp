@@ -1,17 +1,13 @@
-/**
- * @file
- * @brief ResMdlShapeInputType型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_RESMDLSHAPEINPUTTYPE_HPP)
 #else
 #define XG3D_INCLUDED_RESMDLSHAPEINPUTTYPE_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XData/XData.hpp>
 #include <XG3D/BuiltInTypes.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
     // シェイプ入力データのデータ型。
     enum ResMdlShapeInputType
@@ -28,7 +24,7 @@ namespace XG3D {
         ResMdlShapeInputType_MIN = 0,
         ResMdlShapeInputType_MAX = ResMdlShapeInputType_TERMINATE-1
     };
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

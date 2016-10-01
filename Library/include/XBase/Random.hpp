@@ -1,24 +1,18 @@
-/**
- * @file
- * @brief Random型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_RANDOM_HPP)
 #else
 #define XBASE_INCLUDED_RANDOM_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/BuiltInTypes.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
 /// @addtogroup XBase-Math
 //@{
-    /**
-     * @brief 乱数。
-     * @details
-     * アルゴリズムはxorshiftを採用しています。
-     */
+    /// @brief 乱数。
+    /// @details
+    /// アルゴリズムはxorshiftを採用しています。
     class Random
     {
     public:
@@ -46,7 +40,7 @@ namespace XBase {
         u32 mW;
     };
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

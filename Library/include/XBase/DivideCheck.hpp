@@ -1,16 +1,12 @@
-﻿/**
- * @file
- * @brief DiviceCheck型と除算チェックマクロを記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_DIVIDECHECK_HPP)
 #else
 #define XBASE_INCLUDED_DIVIDECHECK_HPP
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/RuntimeAssert.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
     // 割り算チェックで使うモノたち用空間。
     struct DivideCheck
@@ -32,10 +28,8 @@ namespace XBase {
 /// @name 0除算チェック
 //@{
 
-/**
- * @brief lhs /= rhs, operator /=の0除算チェック。
- * @details 0除算しようとした場合はエラー。エラーが無効なときは除算をせずに続行する。
- */
+/// @brief lhs /= rhs, operator /=の0除算チェック。
+/// @details 0除算しようとした場合はエラー。エラーが無効なときは除算をせずに続行する。
 #define XBASE_DIV_ASSIGN( lhs , rhs ) \
     do \
     { \
@@ -49,14 +43,12 @@ namespace XBase {
         } \
     } while(0)
 
-/**
- * @brief lhs / rhsの0除算チェック。
- * @details 0除算しようとした場合はエラー。エラーが無効なときは除算をせずに左辺を返す。
- */
+/// @brief lhs / rhsの0除算チェック。
+/// @details 0除算しようとした場合はエラー。エラーが無効なときは除算をせずに左辺を返す。
 #define XBASE_DIV( aLHS , aRHS ) ( aRHS != 0 ? ( aLHS / aRHS ) : ::XBase::DivideCheck::Error( aLHS ) )
 
 //@}
 //@}
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #endif
 // EOF

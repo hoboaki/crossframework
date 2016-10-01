@@ -1,17 +1,13 @@
-/**
- * @file
- * @brief XG3DNSOpenGLView.hの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include "XG3DNSOpenGLView.h"
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <Cocoa/Cocoa.h>
 #include <OpenGL/gl.h>
 #include <OpenGL/OpenGL.h>
 #include <OpenCL/OpenCL.h>
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 @interface XG3DOpenGLView : NSOpenGLView 
 {
 }
@@ -21,7 +17,7 @@
 
 @end
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 struct XG3DNSOpenGLView* XG3DNSOpenGLView_Setup(
     struct XBaseNSWindow* aWindow
     , const float aWidth 
@@ -78,12 +74,12 @@ struct XG3DNSOpenGLView* XG3DNSOpenGLView_Setup(
     return (struct XG3DNSOpenGLView*)view;    
 }
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 void XG3DNSOpenGLView_FlushBuffer( struct XG3DNSOpenGLView* aView )
 {
     NSOpenGLView* view = (NSOpenGLView*)aView;
     [[view openGLContext] flushBuffer];
 }
                                                 
-//-----------------------------------------------------------　
+//------------------------------------------------------------------------------
 // EOF
