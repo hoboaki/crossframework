@@ -67,22 +67,22 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
-    <OutDir>$(ProjectDir)..\..\..\lib\windows_sdk70a_vc$(PlatformToolsetVersion)\$(Configuration)\</OutDir>
+    <OutDir>$(ProjectDir)..\..\..\lib\windows_vc$(PlatformToolsetVersion)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
     <IntDir>$(ProjectDir)build\$(TargetName)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
-    <TargetName>Lib$(ProjectName)_$(PROCESSOR_ARCHITECTURE)</TargetName>
+    <TargetName>Lib$(ProjectName)_$(Platform)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='develop|x64'">
-    <OutDir>$(ProjectDir)..\..\..\lib\windows_sdk70a_vc$(PlatformToolsetVersion)\$(Configuration)\</OutDir>
+    <OutDir>$(ProjectDir)..\..\..\lib\windows_vc$(PlatformToolsetVersion)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='semifinal|x64'">
-    <OutDir>$(ProjectDir)..\..\..\lib\windows_sdk70a_vc$(PlatformToolsetVersion)\$(Configuration)\</OutDir>
+    <OutDir>$(ProjectDir)..\..\..\lib\windows_vc$(PlatformToolsetVersion)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='final|x64'">
-    <OutDir>$(ProjectDir)..\..\..\lib\windows_sdk70a_vc$(PlatformToolsetVersion)\$(Configuration)\</OutDir>
+    <OutDir>$(ProjectDir)..\..\..\lib\windows_vc$(PlatformToolsetVersion)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='develop|x64'">
     <IntDir>$(ProjectDir)build\$(TargetName)\$(Configuration)\</IntDir>
@@ -94,13 +94,13 @@
     <IntDir>$(ProjectDir)build\$(TargetName)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='develop|x64'">
-    <TargetName>Lib$(ProjectName)_$(PROCESSOR_ARCHITECTURE)</TargetName>
+    <TargetName>Lib$(ProjectName)_$(Platform)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='semifinal|x64'">
-    <TargetName>Lib$(ProjectName)_$(PROCESSOR_ARCHITECTURE)</TargetName>
+    <TargetName>Lib$(ProjectName)_$(Platform)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='final|x64'">
-    <TargetName>Lib$(ProjectName)_$(PROCESSOR_ARCHITECTURE)</TargetName>
+    <TargetName>Lib$(ProjectName)_$(Platform)</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
     <ClCompile>
