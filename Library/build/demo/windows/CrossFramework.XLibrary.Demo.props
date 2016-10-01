@@ -92,6 +92,7 @@
       <PreprocessorDefinitions>WIN32;_CONSOLE;_DEBUG;XLIBRARY_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <TreatWarningAsError>true</TreatWarningAsError>
       <DisableSpecificWarnings>4127;4481;</DisableSpecificWarnings>
+      <AdditionalOptions>/utf-8  %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -108,6 +109,7 @@
       <PreprocessorDefinitions>XLIBRARY_DEVELOP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <TreatWarningAsError>true</TreatWarningAsError>
       <DisableSpecificWarnings>4127;4481;</DisableSpecificWarnings>
+      <AdditionalOptions>/utf-8  %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -126,6 +128,7 @@
       <PreprocessorDefinitions>XLIBRARY_FINAL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <TreatWarningAsError>true</TreatWarningAsError>
       <DisableSpecificWarnings>4127;4481;</DisableSpecificWarnings>
+      <AdditionalOptions>/utf-8  %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -144,6 +147,7 @@
       <PreprocessorDefinitions>XLIBRARY_SEMIFINAL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <TreatWarningAsError>true</TreatWarningAsError>
       <DisableSpecificWarnings>4127;4481;</DisableSpecificWarnings>
+      <AdditionalOptions>/utf-8  %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
