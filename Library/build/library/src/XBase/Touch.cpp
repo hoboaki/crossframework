@@ -6,11 +6,12 @@
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
 //------------------------------------------------------------------------------
 Touch::Touch(const uint aTapCount)
-    : mTapCount(aTapCount)
-    , mData()
-    , mTaps()
+: mTapCount(aTapCount)
+, mData()
+, mTaps()
 {
     if (TouchUpdateData::TAP_COUNT_MAX < mTapCount)
     {

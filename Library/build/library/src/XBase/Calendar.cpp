@@ -60,10 +60,10 @@ bool CalendarPOD::IsLeapYear(const uint aYear)
 
 //------------------------------------------------------------------------------
 uint CalendarPOD::DaysToDate(
-    const uint aYear
-    , const uint aMonth
-    , const uint aDayOfMonth
-)
+    const uint aYear,
+    const uint aMonth,
+    const uint aDayOfMonth
+    )
 {
     uint days = 0;
 
@@ -151,9 +151,9 @@ uint CalendarPOD::DaysInYear(const uint aYear)
 
 //------------------------------------------------------------------------------
 uint CalendarPOD::DaysInMonth(
-    const uint aYear
-    , const uint aMonth
-)
+    const uint aYear,
+    const uint aMonth
+    )
 {
     const uint month = tMonthCheck(aMonth);
     switch (month + 1) // 直感的になるように+1

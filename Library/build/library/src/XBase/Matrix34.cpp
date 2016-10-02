@@ -12,6 +12,7 @@
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
 //------------------------------------------------------------------------------
 const Matrix34POD Matrix34POD::Identity()
 {
@@ -25,55 +26,55 @@ const Matrix34POD Matrix34POD::Identity()
 
 //------------------------------------------------------------------------------
 const Matrix34POD Matrix34POD::Translate(
-    const f32 aX
-    , const f32 aY
-    , const f32 aZ
-)
+    const f32 aX,
+    const f32 aY,
+    const f32 aZ
+    )
 {
     return Matrix34(
-        1, 0, 0, aX
-        , 0, 1, 0, aY
-        , 0, 0, 1, aZ
-    );
+        1, 0, 0, aX,
+        0, 1, 0, aY,
+        0, 0, 1, aZ
+        );
 }
 
 //------------------------------------------------------------------------------
 const Matrix34POD Matrix34POD::Translate(
     const Vector3POD& aVec
-)
+    )
 {
     return Translate(aVec.x, aVec.y, aVec.z);
 }
 
 //------------------------------------------------------------------------------
 const Matrix34POD Matrix34POD::Scale(
-    const f32 aX
-    , const f32 aY
-    , const f32 aZ
-)
+    const f32 aX,
+    const f32 aY,
+    const f32 aZ
+    )
 {
     return Matrix34(
-        aX, 0, 0, 0
-        , 0, aY, 0, 0
-        , 0, 0, aZ, 0
-    );
+        aX, 0, 0, 0,
+        0, aY, 0, 0,
+        0, 0, aZ, 0
+        );
 }
 
 //------------------------------------------------------------------------------
 const Matrix34POD Matrix34POD::Scale(
     const Vector3POD& aVec
-)
+    )
 {
     return Scale(aVec.x, aVec.y, aVec.z);
 }
 
 //------------------------------------------------------------------------------
 const Matrix34POD Matrix34POD::Rotate(
-    const Angle& aAngle
-    , const f32 aAxisX
-    , const f32 aAxisY
-    , const f32 aAxisZ
-)
+    const Angle& aAngle,
+    const f32 aAxisX,
+    const f32 aAxisY,
+    const f32 aAxisZ
+    )
 {
     const f32 c = Math::CosF32(aAngle);
     const f32 s = Math::SinF32(aAngle);
@@ -89,27 +90,27 @@ const Matrix34POD Matrix34POD::Rotate(
     const f32 zs = z*s;
 
     return Matrix34(
-        x*x*inv_c + c, xy*inv_c - zs, xz*inv_c + ys, 0
-        , xy*inv_c + zs, y*y*inv_c + c, yz*inv_c - xs, 0
-        , xz*inv_c - ys, yz*inv_c + xs, z*z*inv_c + c, 0
-    );
+        x*x*inv_c + c, xy*inv_c - zs, xz*inv_c + ys, 0,
+        xy*inv_c + zs, y*y*inv_c + c, yz*inv_c - xs, 0,
+        xz*inv_c - ys, yz*inv_c + xs, z*z*inv_c + c, 0
+        );
 }
 
 //------------------------------------------------------------------------------
 const Matrix34POD Matrix34POD::Rotate(
-    const Angle& aAngle
-    , const Vector3POD& aAxisVec
-)
+    const Angle& aAngle,
+    const Vector3POD& aAxisVec
+    )
 {
     return Rotate(aAngle, aAxisVec.x, aAxisVec.y, aAxisVec.z);
 }
 
 //------------------------------------------------------------------------------
 const Matrix34POD Matrix34POD::LookAt(
-    const Vector3POD& aEyePos
-    , const Vector3POD& aTargetPos
-    , const Vector3POD& aUpVec
-)
+    const Vector3POD& aEyePos,
+    const Vector3POD& aTargetPos,
+    const Vector3POD& aUpVec
+    )
 {
     // toTargetUnit
     Vector3 toTarget = aTargetPos - aEyePos;
@@ -151,40 +152,40 @@ const Matrix34POD Matrix34POD::LookAt(
 const Vector3POD Matrix34POD::x()const
 {
     return Vector3(
-        v[IndexXX]
-        , v[IndexXY]
-        , v[IndexXZ]
-    );
+        v[IndexXX],
+        v[IndexXY],
+        v[IndexXZ]
+        );
 }
 
 //------------------------------------------------------------------------------
 const Vector3POD Matrix34POD::y()const
 {
     return Vector3(
-        v[IndexYX]
-        , v[IndexYY]
-        , v[IndexYZ]
-    );
+        v[IndexYX],
+        v[IndexYY],
+        v[IndexYZ]
+        );
 }
 
 //------------------------------------------------------------------------------
 const Vector3POD Matrix34POD::z()const
 {
     return Vector3(
-        v[IndexZX]
-        , v[IndexZY]
-        , v[IndexZZ]
-    );
+        v[IndexZX],
+        v[IndexZY],
+        v[IndexZZ]
+        );
 }
 
 //------------------------------------------------------------------------------
 const Vector3POD Matrix34POD::w()const
 {
     return Vector3(
-        v[IndexWX]
-        , v[IndexWY]
-        , v[IndexWZ]
-    );
+        v[IndexWX],
+        v[IndexWY],
+        v[IndexWZ]
+        );
 }
 
 //------------------------------------------------------------------------------
@@ -223,10 +224,10 @@ void Matrix34POD::setW(const Vector3POD& aVal)
 const Vector3POD Matrix34POD::mul(const Vector3POD& aVec)const
 {
     return Vector3(
-        aVec.x * v[IndexXX] + aVec.y * v[IndexYX] + aVec.z * v[IndexZX] + v[IndexWX]
-        , aVec.x * v[IndexXY] + aVec.y * v[IndexYY] + aVec.z * v[IndexZY] + v[IndexWY]
-        , aVec.x * v[IndexXZ] + aVec.y * v[IndexYZ] + aVec.z * v[IndexZZ] + v[IndexWZ]
-    );
+        aVec.x * v[IndexXX] + aVec.y * v[IndexYX] + aVec.z * v[IndexZX] + v[IndexWX],
+        aVec.x * v[IndexXY] + aVec.y * v[IndexYY] + aVec.z * v[IndexZY] + v[IndexWY],
+        aVec.x * v[IndexXZ] + aVec.y * v[IndexYZ] + aVec.z * v[IndexZZ] + v[IndexWZ]
+        );
 }
 
 //------------------------------------------------------------------------------
@@ -452,11 +453,11 @@ const Quaternion Matrix34POD::toQuaternion()const
 const Matrix44POD Matrix34POD::toMatrix44()const
 {
     return Matrix44(
-        v[Index00], v[Index01], v[Index02], v[Index03]
-        , v[Index10], v[Index11], v[Index12], v[Index13]
-        , v[Index20], v[Index21], v[Index22], v[Index23]
-        , 0, 0, 0, 1
-    );
+        v[Index00], v[Index01], v[Index02], v[Index03],
+        v[Index10], v[Index11], v[Index12], v[Index13],
+        v[Index20], v[Index21], v[Index22], v[Index23],
+        0, 0, 0, 1
+        );
 }
 
 //------------------------------------------------------------------------------
@@ -470,22 +471,22 @@ void Matrix34POD::dump()const
 
 //------------------------------------------------------------------------------
 Matrix34::Matrix34()
-    : Matrix34POD(Identity())
+: Matrix34POD(Identity())
 {
 }
 
 //------------------------------------------------------------------------------
 Matrix34::Matrix34(const Matrix34POD& aObj)
-    : Matrix34POD(aObj)
+: Matrix34POD(aObj)
 {
 }
 
 //------------------------------------------------------------------------------
 Matrix34::Matrix34(
-    const f32 aR0C0, const f32 aR0C1, const f32 aR0C2, const f32 aR0C3
-    , const f32 aR1C0, const f32 aR1C1, const f32 aR1C2, const f32 aR1C3
-    , const f32 aR2C0, const f32 aR2C1, const f32 aR2C2, const f32 aR2C3
-)
+    const f32 aR0C0, const f32 aR0C1, const f32 aR0C2, const f32 aR0C3,
+    const f32 aR1C0, const f32 aR1C1, const f32 aR1C2, const f32 aR1C3,
+    const f32 aR2C0, const f32 aR2C1, const f32 aR2C2, const f32 aR2C3
+    )
 {
     v[Index00] = aR0C0;
     v[Index10] = aR1C0;
@@ -503,11 +504,11 @@ Matrix34::Matrix34(
 
 //------------------------------------------------------------------------------
 Matrix34::Matrix34(
-    const Vector3POD& aX
-    , const Vector3POD& aY
-    , const Vector3POD& aZ
-    , const Vector3POD& aW
-)
+    const Vector3POD& aX,
+    const Vector3POD& aY,
+    const Vector3POD& aZ,
+    const Vector3POD& aW
+    )
 {
     setX(aX);
     setY(aY);

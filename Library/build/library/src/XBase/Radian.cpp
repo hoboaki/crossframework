@@ -10,6 +10,7 @@
 namespace XBase {
 //------------------------------------------------------------------------------
 namespace {
+
 const float tToDegreeRate = 180.0f / XBASE_PI;
 }
 //------------------------------------------------------------------------------
@@ -26,21 +27,21 @@ const DegreePOD RadianPOD::toDegree()const
 
 //------------------------------------------------------------------------------
 Radian::Radian()
-    : RadianPOD()
+: RadianPOD()
 {
     value = 0;
 }
 
 //------------------------------------------------------------------------------
 Radian::Radian(const float aRadian)
-    : RadianPOD()
+: RadianPOD()
 {
     value = aRadian;
 }
 
 //------------------------------------------------------------------------------
 Radian::Radian(const RadianPOD& aVal)
-    : RadianPOD(aVal)
+: RadianPOD(aVal)
 {
 }
 

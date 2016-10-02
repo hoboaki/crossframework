@@ -260,6 +260,158 @@ namespace CppCodeModifier
                     }
                     );
             }
+
+            // cpp
+            if (true)
+            {
+                textEditFunc(cppFiles.ToList(),
+                    (lines) =>
+                    {
+                        bool isModify = false;
+                        // 最後のnamespaceのindex
+                        int lastNamespaceIndex = lines.FindLastIndex(x => x.StartsWith("namespace "));
+                        int lastSeparatorIndex = lines.Count - 1;
+                        while (0 <= lastSeparatorIndex)
+                        {
+                            lastSeparatorIndex = lines.FindLastIndex(lastSeparatorIndex, x => x == "//------------------------------------------------------------------------------");
+                            if (lastSeparatorIndex < 0)
+                            {
+                                break;
+                            }
+
+                            if (lastSeparatorIndex + 1 == lastNamespaceIndex)
+                            {
+                                // namespace の後に空行があるかどうかチェック
+                                if (lines[lastNamespaceIndex + 1].Trim().Length != 0)
+                                {
+                                    lines.Insert(lastNamespaceIndex + 1, "");
+                                    isModify = true;
+                                }
+                            }
+                            else
+                            {
+                                isModify = true;
+                            }
+
+                            --lastSeparatorIndex;
+                        }
+
+                        // コメントのインデントをなおす
+                        for (int baseIdx = lines.Count - 1; 0 < baseIdx; --baseIdx)
+                        {
+                            string[] keywords = { "class", "enum", "struct", "typedef" };
+                            bool isTargetLine = false;
+                            foreach (var keyword in keywords)
+                            {
+                                if (lines[baseIdx].StartsWith(keyword))
+                                {
+                                    isTargetLine = true;
+                                    break;
+                                }
+                            }
+
+                            if (isTargetLine)
+                            {
+                                int idx = baseIdx - 1;
+                                while (lines[idx].StartsWith("    "))
+                                {
+                                    var newLine = lines[idx].Trim();
+                                    lines.RemoveAt(idx);
+                                    lines.Insert(idx, newLine);
+                                    isModify = true;
+                                }
+                            }
+                        }
+
+                        // コンストラクタのインデント位置をなおす
+                        bool inMemberInitilizer = false;
+                        for (int baseIdx = 0; baseIdx < lines.Count; ++baseIdx)
+                        {
+                            if (inMemberInitilizer)
+                            {
+                                if (!lines[baseIdx].StartsWith("    "))
+                                {
+                                    inMemberInitilizer = false;
+                                }
+                                else
+                                {
+                                    var line = lines[baseIdx].Substring(4);
+                                    lines.RemoveAt(baseIdx);
+                                    lines.Insert(baseIdx, line);
+                                }
+                            }
+                            else if (lines[baseIdx].StartsWith("    : "))
+                            {
+                                if (lines[baseIdx-1].IndexOf(" ") != 0 || lines[baseIdx-1].Trim() == ")")
+                                {
+                                    inMemberInitilizer = true;
+                                    var line = lines[baseIdx].Substring(4);
+                                    lines.RemoveAt(baseIdx);
+                                    lines.Insert(baseIdx, line);
+                                    isModify = true;
+                                }
+                            }
+                        }
+
+                        // 終端括弧位置をなおす
+                        for (int baseIdx = 0; baseIdx < lines.Count; ++baseIdx)
+                        {
+                            var line = lines[baseIdx];
+                            if (line.Trim() == ")" || line.Trim() == ");")
+                            {
+                                int len = lines[baseIdx - 1].Length - lines[baseIdx - 1].Trim().Length;
+                                string prefix = "";
+                                for (int i = 0; i < len; ++i)
+                                {
+                                    prefix += " ";
+                                }
+                                lines.RemoveAt(baseIdx);
+                                lines.Insert(baseIdx, prefix + line.Trim());
+                                isModify = true;
+                            }
+                        }
+
+                        // カンマ位置修正
+                        for (int baseIdx = 0; baseIdx < lines.Count; ++baseIdx)
+                        {
+                            var line = lines[baseIdx];
+                            if (line.StartsWith(" ") && line.Trim().StartsWith(", "))
+                            {
+                                int len = line.IndexOf(",");
+                                string prefix = "";
+                                for (int i = 0; i < len; ++i)
+                                {
+                                    prefix += " ";
+                                }
+                                {
+                                    int i = baseIdx;
+                                    while (lines[i].Trim().StartsWith(","))
+                                    {
+                                        var newLine = lines[i];
+                                        lines.RemoveAt(i);
+                                        lines.Insert(i, prefix + newLine.Trim().Substring(2));
+                                        --i;
+                                        newLine = lines[i];
+                                        if (newLine.Contains(" //"))
+                                        {
+                                            int cmtIdx = newLine.IndexOf(" //");
+                                            newLine = newLine.Substring(0, cmtIdx) + "," + newLine.Substring(cmtIdx);
+                                        }
+                                        else
+                                        {
+                                            newLine += ",";
+                                        }
+                                        lines.RemoveAt(i);
+                                        lines.Insert(i, newLine);
+                                    }
+                                }
+                            }
+                        }
+
+                        return isModify;
+                    }
+                    );
+            }
         }
     }
 }

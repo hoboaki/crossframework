@@ -205,25 +205,25 @@ Display_EXT::Display_EXT(const DisplayContext& aContext)
     // 矩形の計算
     RECT rect = {0, 0, LONG(aContext.width()), LONG(aContext.height())};
     AdjustWindowRect(
-        &rect
-        , style
-        , FALSE
-    );
+        &rect,
+        style,
+        FALSE
+        );
 
 // ウィンドウの作成
     window = CreateWindow(
-        L"Cross Framework Application"
-        , L"Window Title"
-        , style
-        , aContext.locationX()
-        , aContext.locationY()
-        , rect.right - rect.left
-        , rect.bottom - rect.top
-        , 0 // hWndParent
-        , 0 // hMenu
-        , hinstance
-        , 0 // lpParam
-    );
+        L"Cross Framework Application",
+        L"Window Title",
+        style,
+        aContext.locationX(),
+        aContext.locationY(),
+        rect.right - rect.left,
+        rect.bottom - rect.top,
+        0, // hWndParent
+        0, // hMenu
+        hinstance,
+        0 // lpParam
+        );
 
 // メインスクリーンの作成
     mainScreen.init(Ref(*this), aContext.width(), aContext.height());

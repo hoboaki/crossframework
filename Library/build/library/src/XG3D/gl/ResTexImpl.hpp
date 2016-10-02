@@ -14,7 +14,7 @@
 //------------------------------------------------------------------------------
 namespace XG3D {
 
-    // BinResTexとResTexの間にかますクラス。
+// BinResTexとResTexの間にかますクラス。
 class ResTexImpl : public ::XBase::NonCopyable
 {
 public:

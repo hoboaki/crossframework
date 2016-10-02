@@ -12,6 +12,7 @@
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
 //------------------------------------------------------------------------------
 const Matrix44POD Matrix44POD::Identity()
 {
@@ -25,57 +26,57 @@ const Matrix44POD Matrix44POD::Identity()
 
 //------------------------------------------------------------------------------
 const Matrix44POD Matrix44POD::Translate(
-    const f32 aX
-    , const f32 aY
-    , const f32 aZ
-)
+    const f32 aX,
+    const f32 aY,
+    const f32 aZ
+    )
 {
     return Matrix44(
-        1, 0, 0, aX
-        , 0, 1, 0, aY
-        , 0, 0, 1, aZ
-        , 0, 0, 0, 1
-    );
+        1, 0, 0, aX,
+        0, 1, 0, aY,
+        0, 0, 1, aZ,
+        0, 0, 0, 1
+        );
 }
 
 //------------------------------------------------------------------------------
 const Matrix44POD Matrix44POD::Translate(
     const Vector3POD& aVec
-)
+    )
 {
     return Translate(aVec.x, aVec.y, aVec.z);
 }
 
 //------------------------------------------------------------------------------
 const Matrix44POD Matrix44POD::Scale(
-    const f32 aX
-    , const f32 aY
-    , const f32 aZ
-)
+    const f32 aX,
+    const f32 aY,
+    const f32 aZ
+    )
 {
     return Matrix44(
-        aX, 0, 0, 0
-        , 0, aY, 0, 0
-        , 0, 0, aZ, 0
-        , 0, 0, 0, 1
-    );
+        aX, 0, 0, 0,
+        0, aY, 0, 0,
+        0, 0, aZ, 0,
+        0, 0, 0, 1
+        );
 }
 
 //------------------------------------------------------------------------------
 const Matrix44POD Matrix44POD::Scale(
     const Vector3POD& aVec
-)
+    )
 {
     return Scale(aVec.x, aVec.y, aVec.z);
 }
 
 //------------------------------------------------------------------------------
 const Matrix44POD Matrix44POD::Rotate(
-    const Angle& aAngle
-    , const f32 aAxisX
-    , const f32 aAxisY
-    , const f32 aAxisZ
-)
+    const Angle& aAngle,
+    const f32 aAxisX,
+    const f32 aAxisY,
+    const f32 aAxisZ
+    )
 {
     const f32 c = Math::CosF32(aAngle);
     const f32 s = Math::SinF32(aAngle);
@@ -91,31 +92,31 @@ const Matrix44POD Matrix44POD::Rotate(
     const f32 zs = z*s;
 
     return Matrix44(
-        x*x*inv_c + c, xy*inv_c - zs, xz*inv_c + ys, 0
-        , xy*inv_c + zs, y*y*inv_c + c, yz*inv_c - xs, 0
-        , xz*inv_c - ys, yz*inv_c + xs, z*z*inv_c + c, 0
-        , 0, 0, 0, 1
-    );
+        x*x*inv_c + c, xy*inv_c - zs, xz*inv_c + ys, 0,
+        xy*inv_c + zs, y*y*inv_c + c, yz*inv_c - xs, 0,
+        xz*inv_c - ys, yz*inv_c + xs, z*z*inv_c + c, 0,
+        0, 0, 0, 1
+        );
 }
 
 //------------------------------------------------------------------------------
 const Matrix44POD Matrix44POD::Rotate(
-    const Angle& aAngle
-    , const Vector3POD& aAxisVec
-)
+    const Angle& aAngle,
+    const Vector3POD& aAxisVec
+    )
 {
     return Rotate(aAngle, aAxisVec.x, aAxisVec.y, aAxisVec.z);
 }
 
 //------------------------------------------------------------------------------
 const Matrix44POD Matrix44POD::Ortho(
-    const f32 aLeft
-    , const f32 aTop
-    , const f32 aRight
-    , const f32 aBottom
-    , const f32 aNear
-    , const f32 aFar
-)
+    const f32 aLeft,
+    const f32 aTop,
+    const f32 aRight,
+    const f32 aBottom,
+    const f32 aNear,
+    const f32 aFar
+    )
 {
     XBASE_NOT_EQUALS_ASSERT(aLeft, aRight);
     XBASE_NOT_EQUALS_ASSERT(aTop, aBottom);
@@ -128,22 +129,22 @@ const Matrix44POD Matrix44POD::Ortho(
     const f32 f_sub_n = aFar - aNear;
     const f32 f_add_n = aFar + aNear;
     return Matrix44(
-        2 / r_sub_l, 0, 0, -r_add_l / r_sub_l
-        , 0, 2 / t_sub_b, 0, -t_add_b / t_sub_b
-        , 0, 0, -2 / f_sub_n, -f_add_n / f_sub_n
-        , 0, 0, 0, 1
-    );
+        2 / r_sub_l, 0, 0, -r_add_l / r_sub_l,
+        0, 2 / t_sub_b, 0, -t_add_b / t_sub_b,
+        0, 0, -2 / f_sub_n, -f_add_n / f_sub_n,
+        0, 0, 0, 1
+        );
 }
 
 //------------------------------------------------------------------------------
 const Matrix44POD Matrix44POD::Frustum(
-    const f32 aLeft
-    , const f32 aRight
-    , const f32 aBottom
-    , const f32 aTop
-    , const f32 aNear
-    , const f32 aFar
-)
+    const f32 aLeft,
+    const f32 aRight,
+    const f32 aBottom,
+    const f32 aTop,
+    const f32 aNear,
+    const f32 aFar
+    )
 {
     XBASE_NOT_EQUALS_ASSERT(aLeft, aRight);
     XBASE_NOT_EQUALS_ASSERT(aBottom, aTop);
@@ -157,20 +158,20 @@ const Matrix44POD Matrix44POD::Frustum(
     const f32 f = aFar;
     const f32 n2 = 2 * aNear;
     return Matrix44(
-        n2 / (r - l), 0, 0, (r + l) / (r - l)
-        , 0, n2 / (t - b), 0, (-t + b) / (t - b)
-        , 0, 0, -2 / (f - n), (f + n) / f - n
-        , 0, 0, 0, 1
-    );
+        n2 / (r - l), 0, 0, (r + l) / (r - l),
+        0, n2 / (t - b), 0, (-t + b) / (t - b),
+        0, 0, -2 / (f - n), (f + n) / f - n,
+        0, 0, 0, 1
+        );
 }
 
 //------------------------------------------------------------------------------
 const Matrix44POD Matrix44POD::Perspective(
-    const Angle& aFOVY
-    , const f32 aAspect
-    , const f32 aNear
-    , const f32 aFar
-)
+    const Angle& aFOVY,
+    const f32 aAspect,
+    const f32 aNear,
+    const f32 aFar
+    )
 {
     XBASE_RANGE_ASSERT_MIN(0, aFOVY.rad());
     XBASE_RANGE_ASSERT_MIN(0, aAspect);
@@ -178,19 +179,19 @@ const Matrix44POD Matrix44POD::Perspective(
 
     const f32 c = Math::CotF32(aFOVY);
     return Matrix44(
-        c / aAspect, 0, 0, 0
-        , 0, c, 0, 0
-        , 0, 0, (aNear + aFar) / (aNear - aFar), (2 * aNear * aFar) / (aNear - aFar)
-        , 0, 0, -1, 0
-    );
+        c / aAspect, 0, 0, 0,
+        0, c, 0, 0,
+        0, 0, (aNear + aFar) / (aNear - aFar), (2 * aNear * aFar) / (aNear - aFar),
+        0, 0, -1, 0
+        );
 }
 
 //------------------------------------------------------------------------------
 const Matrix44POD Matrix44POD::LookAt(
-    const Vector3POD& aEyePos
-    , const Vector3POD& aTargetPos
-    , const Vector3POD& aUpVec
-)
+    const Vector3POD& aEyePos,
+    const Vector3POD& aTargetPos,
+    const Vector3POD& aUpVec
+    )
 {
     return Matrix34::LookAt(aEyePos, aTargetPos, aUpVec).toMatrix44();
 }
@@ -199,44 +200,44 @@ const Matrix44POD Matrix44POD::LookAt(
 const Vector4POD Matrix44POD::x()const
 {
     return Vector4(
-        v[IndexXX]
-        , v[IndexXY]
-        , v[IndexXZ]
-        , v[IndexXW]
-    );
+        v[IndexXX],
+        v[IndexXY],
+        v[IndexXZ],
+        v[IndexXW]
+        );
 }
 
 //------------------------------------------------------------------------------
 const Vector4POD Matrix44POD::y()const
 {
     return Vector4(
-        v[IndexYX]
-        , v[IndexYY]
-        , v[IndexYZ]
-        , v[IndexYW]
-    );
+        v[IndexYX],
+        v[IndexYY],
+        v[IndexYZ],
+        v[IndexYW]
+        );
 }
 
 //------------------------------------------------------------------------------
 const Vector4POD Matrix44POD::z()const
 {
     return Vector4(
-        v[IndexZX]
-        , v[IndexZY]
-        , v[IndexZZ]
-        , v[IndexZW]
-    );
+        v[IndexZX],
+        v[IndexZY],
+        v[IndexZZ],
+        v[IndexZW]
+        );
 }
 
 //------------------------------------------------------------------------------
 const Vector4POD Matrix44POD::w()const
 {
     return Vector4(
-        v[IndexWX]
-        , v[IndexWY]
-        , v[IndexWZ]
-        , v[IndexWW]
-    );
+        v[IndexWX],
+        v[IndexWY],
+        v[IndexWZ],
+        v[IndexWW]
+        );
 }
 
 //------------------------------------------------------------------------------
@@ -484,11 +485,11 @@ const Matrix44POD Matrix44POD::invert()const
 const Matrix44POD Matrix44POD::transpose()const
 {
     return Matrix44(
-        v[Index00], v[Index10], v[Index20], v[Index30]
-        , v[Index01], v[Index11], v[Index21], v[Index31]
-        , v[Index02], v[Index12], v[Index22], v[Index32]
-        , v[Index03], v[Index13], v[Index23], v[Index33]
-    );
+        v[Index00], v[Index10], v[Index20], v[Index30],
+        v[Index01], v[Index11], v[Index21], v[Index31],
+        v[Index02], v[Index12], v[Index22], v[Index32],
+        v[Index03], v[Index13], v[Index23], v[Index33]
+        );
 }
 
 //------------------------------------------------------------------------------
@@ -503,23 +504,23 @@ void Matrix44POD::dump()const
 
 //------------------------------------------------------------------------------
 Matrix44::Matrix44()
-    : Matrix44POD(Identity())
+: Matrix44POD(Identity())
 {
 }
 
 //------------------------------------------------------------------------------
 Matrix44::Matrix44(const Matrix44POD& aObj)
-    : Matrix44POD(aObj)
+: Matrix44POD(aObj)
 {
 }
 
 //------------------------------------------------------------------------------
 Matrix44::Matrix44(
-    const f32 aR0C0, const f32 aR0C1, const f32 aR0C2, const f32 aR0C3
-    , const f32 aR1C0, const f32 aR1C1, const f32 aR1C2, const f32 aR1C3
-    , const f32 aR2C0, const f32 aR2C1, const f32 aR2C2, const f32 aR2C3
-    , const f32 aR3C0, const f32 aR3C1, const f32 aR3C2, const f32 aR3C3
-)
+    const f32 aR0C0, const f32 aR0C1, const f32 aR0C2, const f32 aR0C3,
+    const f32 aR1C0, const f32 aR1C1, const f32 aR1C2, const f32 aR1C3,
+    const f32 aR2C0, const f32 aR2C1, const f32 aR2C2, const f32 aR2C3,
+    const f32 aR3C0, const f32 aR3C1, const f32 aR3C2, const f32 aR3C3
+    )
 {
     v[Index00] = aR0C0;
     v[Index10] = aR1C0;
@@ -541,11 +542,11 @@ Matrix44::Matrix44(
 
 //------------------------------------------------------------------------------
 Matrix44::Matrix44(
-    const Vector4POD& aX
-    , const Vector4POD& aY
-    , const Vector4POD& aZ
-    , const Vector4POD& aW
-)
+    const Vector4POD& aX,
+    const Vector4POD& aY,
+    const Vector4POD& aZ,
+    const Vector4POD& aW
+    )
 {
     setX(aX);
     setY(aY);

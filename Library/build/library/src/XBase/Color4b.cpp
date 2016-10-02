@@ -10,6 +10,7 @@
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
 //------------------------------------------------------------------------------
 const Color4bPOD Color4bPOD::Zero()
 {
@@ -81,23 +82,23 @@ const Color4POD Color4bPOD::toRGBAf()const
 const ::XBase::ShortString Color4bPOD::toShortString()const
 {
     return ::XBase::ShortString::FromFormat(
-        "%s,%s,%s,%s"
-        , U8(r).toShortString().readPtr()
-        , U8(g).toShortString().readPtr()
-        , U8(b).toShortString().readPtr()
-        , U8(a).toShortString().readPtr()
-    );
+        "%s,%s,%s,%s",
+        U8(r).toShortString().readPtr(),
+        U8(g).toShortString().readPtr(),
+        U8(b).toShortString().readPtr(),
+        U8(a).toShortString().readPtr()
+        );
 }
 
 //------------------------------------------------------------------------------
 Color4b::Color4b()
-    : Color4bPOD(Zero())
+: Color4bPOD(Zero())
 {
 }
 
 //------------------------------------------------------------------------------
 Color4b::Color4b(const Color4bPOD& aCol)
-    : Color4bPOD(aCol)
+: Color4bPOD(aCol)
 {
 }
 

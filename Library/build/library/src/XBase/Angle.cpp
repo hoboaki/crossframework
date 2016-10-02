@@ -7,21 +7,22 @@
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
 //------------------------------------------------------------------------------
 Angle::Angle()
-    : mRad(0)
+: mRad(0)
 {
 }
 
 //------------------------------------------------------------------------------
 Angle::Angle(const DegreePOD& aDegree)
-    : mRad(aDegree.toRadian().value)
+: mRad(aDegree.toRadian().value)
 {
 }
 
 //------------------------------------------------------------------------------
 Angle::Angle(const RadianPOD& aRadian)
-    : mRad(aRadian.value)
+: mRad(aRadian.value)
 {
 }
 

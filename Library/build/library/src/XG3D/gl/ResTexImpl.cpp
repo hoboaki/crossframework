@@ -11,16 +11,17 @@
 
 //------------------------------------------------------------------------------
 namespace XG3D {
+
 //------------------------------------------------------------------------------
 ResTexImpl::ResTexImpl(
-    const ::XData::XData& aXData
-    , const BinResTex* aBinPtr
-    , ::XBase::IAllocator&
-)
-    : xdata(aXData.ptr())
-    , binPtr(aBinPtr)
-    , texBufferPtr(0)
-    , mTexBuffer()
+    const ::XData::XData& aXData,
+    const BinResTex* aBinPtr,
+    ::XBase::IAllocator&
+    )
+: xdata(aXData.ptr())
+, binPtr(aBinPtr)
+, texBufferPtr(0)
+, mTexBuffer()
 {
 }
 

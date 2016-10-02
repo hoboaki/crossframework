@@ -22,16 +22,16 @@ struct tEntryHeader
 
 //------------------------------------------------------------------------------
 ResMdlImpl::ResMdlImpl(
-    const ::XData::XData& aXData
-    , const BinResMdl* aBinPtr
-    , ::XBase::IAllocator& aAllocator
-)
-    : xdata(aXData.ptr())
-    , binPtr(aBinPtr)
-    , matReferImpls()
-    , shapeImpls()
-    , meshImpls()
-    , nodeImpls()
+    const ::XData::XData& aXData,
+    const BinResMdl* aBinPtr,
+    ::XBase::IAllocator& aAllocator
+    )
+: xdata(aXData.ptr())
+, binPtr(aBinPtr)
+, matReferImpls()
+, shapeImpls()
+, meshImpls()
+, nodeImpls()
 {
     // shape
     {
@@ -40,10 +40,10 @@ ResMdlImpl::ResMdlImpl(
         for (uint i = 0; i < header->count; ++i)
         {
             shapeImpls->add(
-                ::XBase::Ref(xdata)
-                , xdata.ref< BinResMdlShape >(header->entries[i])
-                , ::XBase::Ref(aAllocator)
-            );
+                ::XBase::Ref(xdata),
+                xdata.ref< BinResMdlShape >(header->entries[i]),
+                ::XBase::Ref(aAllocator)
+                );
         }
     }
 
@@ -54,10 +54,10 @@ ResMdlImpl::ResMdlImpl(
         for (uint i = 0; i < header->count; ++i)
         {
             matReferImpls->add(
-                ::XBase::Ref(xdata)
-                , xdata.ref< BinResMdlMatRefer >(header->entries[i])
-                , ::XBase::Ref(aAllocator)
-            );
+                ::XBase::Ref(xdata),
+                xdata.ref< BinResMdlMatRefer >(header->entries[i]),
+                ::XBase::Ref(aAllocator)
+                );
         }
     }
 
@@ -68,11 +68,11 @@ ResMdlImpl::ResMdlImpl(
         for (uint i = 0; i < header->count; ++i)
         {
             meshImpls->add(
-                ::XBase::Ref(xdata)
-                , xdata.ref< BinResMdlMesh >(header->entries[i])
-                , ::XBase::Ref(aAllocator)
-                , ResMdl(*this)
-            );
+                ::XBase::Ref(xdata),
+                xdata.ref< BinResMdlMesh >(header->entries[i]),
+                ::XBase::Ref(aAllocator),
+                ResMdl(*this)
+                );
         }
     }
 
@@ -83,10 +83,10 @@ ResMdlImpl::ResMdlImpl(
         for (uint i = 0; i < header->count; ++i)
         {
             nodeImpls->add(
-                ::XBase::Ref(xdata)
-                , xdata.ref< BinResMdlNode >(header->entries[i])
-                , ::XBase::Ref(aAllocator)
-            );
+                ::XBase::Ref(xdata),
+                xdata.ref< BinResMdlNode >(header->entries[i]),
+                ::XBase::Ref(aAllocator)
+                );
         }
     }
 }

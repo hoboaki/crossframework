@@ -11,14 +11,15 @@
 namespace XBase {
 //------------------------------------------------------------------------------
 namespace {
+
 const float tEPSILON = 0.000001f;
 }
 //------------------------------------------------------------------------------
 f32 Math::ClampF32(
-    const f32 aMin
-    , const f32 aValue
-    , const f32 aMax
-)
+    const f32 aMin,
+    const f32 aValue,
+    const f32 aMax
+    )
 {
     XBASE_RANGE_ASSERT_EMIN(aMin, aMax);
     if (aValue < aMin)
@@ -34,10 +35,10 @@ f32 Math::ClampF32(
 
 //------------------------------------------------------------------------------
 bool Math::IsInRangeF32(
-    const f32 aMin
-    , const f32 aValue
-    , const f32 aMax
-)
+    const f32 aMin,
+    const f32 aValue,
+    const f32 aMax
+    )
 {
     return (aMin - tEPSILON) <= aValue
         && aValue <= (aMax + tEPSILON);

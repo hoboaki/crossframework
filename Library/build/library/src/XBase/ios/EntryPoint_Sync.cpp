@@ -14,9 +14,9 @@ class tSynbObj
 {
 public:
     tSynbObj()
-        : mMutex()
-        , mCond()
-        , mValue(1)
+        : mMutex(),
+        mCond(),
+        mValue(1)
     {
         int result = int();
         result = pthread_mutex_init(&mMutex, 0);

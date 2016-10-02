@@ -8,6 +8,7 @@
 
 //------------------------------------------------------------------------------
 namespace XG3D {
+
 //------------------------------------------------------------------------------
 ResMdlMatRefer::ResMdlMatRefer()
 {
@@ -15,7 +16,7 @@ ResMdlMatRefer::ResMdlMatRefer()
 
 //------------------------------------------------------------------------------
 ResMdlMatRefer::ResMdlMatRefer(const ResMdlMatReferImpl& aImpl)
-    : mPtr(aImpl)
+: mPtr(aImpl)
 {
 }
 

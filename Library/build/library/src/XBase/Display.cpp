@@ -9,10 +9,11 @@
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
 //------------------------------------------------------------------------------
 Display::Display(const DisplayContext& aContext)
-    : mContext(aContext)
-    , mEXT(aContext)
+: mContext(aContext)
+, mEXT(aContext)
 {
     // 登録
     Application::Instance().registerDisplay_(*this);

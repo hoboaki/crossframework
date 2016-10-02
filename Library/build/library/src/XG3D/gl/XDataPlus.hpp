@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 namespace XG3D {
 
-    // 機能拡張したXDataクラス。
+// 機能拡張したXDataクラス。
 class XDataPlus : public ::XData::XData
 {
 public:

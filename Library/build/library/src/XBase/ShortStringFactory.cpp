@@ -13,9 +13,9 @@ const ShortString tToShortString(const char* aFormat, const T& aValue)
 {
     // note: ポインタチェックはFromtFormatでやっているので省略。
     return ShortString::FromFormat(
-        aFormat
-        , aValue
-    );
+        aFormat,
+        aValue
+        );
 }
 
 } // namespace

@@ -6,21 +6,22 @@
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
 //------------------------------------------------------------------------------
 AutoMemBlock::AutoMemBlock()
-    : mBlock()
-    , mAllocatorPtr()
+: mBlock()
+, mAllocatorPtr()
 {
 }
 
 //------------------------------------------------------------------------------
 AutoMemBlock::AutoMemBlock(
-    const pword_t aSize
-    , IAllocator& aAllocator
-    , const pword_t aAlignment
-)
-    : mBlock()
-    , mAllocatorPtr()
+    const pword_t aSize,
+    IAllocator& aAllocator,
+    const pword_t aAlignment
+    )
+: mBlock()
+, mAllocatorPtr()
 {
     // 確保
     ptr_t ptr = aAllocator.alloc(aSize, aAlignment);
@@ -36,15 +37,15 @@ AutoMemBlock::AutoMemBlock(
 
 //------------------------------------------------------------------------------
 AutoMemBlock::AutoMemBlock(const MemBlock& aBlock, IAllocator& aAllocator)
-    : mBlock(aBlock)
-    , mAllocatorPtr(aAllocator)
+: mBlock(aBlock)
+, mAllocatorPtr(aAllocator)
 {
 }
 
 //------------------------------------------------------------------------------
 AutoMemBlock::AutoMemBlock(const AutoMemBlock& aOther)
-    : mBlock()
-    , mAllocatorPtr()
+: mBlock()
+, mAllocatorPtr()
 {
     *this = aOther;
 }

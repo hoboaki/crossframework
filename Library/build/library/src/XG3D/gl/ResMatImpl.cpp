@@ -11,7 +11,8 @@
 namespace XG3D {
 //------------------------------------------------------------------------------
 namespace {
-    //------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
 struct tEntryHeader
 {
     ::XData::UInt32     count;
@@ -20,10 +21,10 @@ struct tEntryHeader
 
 //------------------------------------------------------------------------------
 bool tCreateShader(
-    GLuint* aShader
-    , const GLenum aShaderType
-    , const GLchar* aSource
-)
+    GLuint* aShader,
+    const GLenum aShaderType,
+    const GLchar* aSource
+    )
 {
     GLint status = GLint();
     XG3D_GLCMD(*aShader = glCreateShader(aShaderType));
@@ -86,16 +87,16 @@ bool tValidateProgram(GLuint aProgram)
 }
 //------------------------------------------------------------------------------
 ResMatImpl::ResMatImpl(
-    const ::XData::XData& aXData
-    , const BinResMat* aBinPtr
-    , ::XBase::IAllocator& aAllocator
-)
-    : xdata(aXData.ptr())
-    , binPtr(aBinPtr)
-    , shaderProgram(0)
-    , sysUniformLocations()
-    , paramImpls()
-    , vtxAttrs()
+    const ::XData::XData& aXData,
+    const BinResMat* aBinPtr,
+    ::XBase::IAllocator& aAllocator
+    )
+: xdata(aXData.ptr())
+, binPtr(aBinPtr)
+, shaderProgram(0)
+, sysUniformLocations()
+, paramImpls()
+, vtxAttrs()
 {
     // param
     {
@@ -104,10 +105,10 @@ ResMatImpl::ResMatImpl(
         for (uint i = 0; i < header->count; ++i)
         {
             paramImpls->add(
-                ::XBase::Ref(xdata)
-                , xdata.ref< BinResMatParam >(header->entries[i])
-                , ::XBase::Ref(aAllocator)
-            );
+                ::XBase::Ref(xdata),
+                xdata.ref< BinResMatParam >(header->entries[i]),
+                ::XBase::Ref(aAllocator)
+                );
         }
     }
 
@@ -118,10 +119,10 @@ ResMatImpl::ResMatImpl(
         for (uint i = 0; i < header->count; ++i)
         {
             vtxAttrs->add(
-                ::XBase::Ref(xdata)
-                , xdata.ref< BinResMatVtxAttr >(header->entries[i])
-                , ::XBase::Ref(aAllocator)
-            );
+                ::XBase::Ref(xdata),
+                xdata.ref< BinResMatVtxAttr >(header->entries[i]),
+                ::XBase::Ref(aAllocator)
+                );
         }
     }
 }
@@ -193,9 +194,9 @@ void ResMatImpl::setup()
     {
         const char* TABLE[] =
         {
-            "_prmMtxProj"
-            , "_prmMtxView"
-            , "_prmMtxWorld"
+            "_prmMtxProj",
+            "_prmMtxView",
+            "_prmMtxWorld"
         };
         XBASE_ARRAY_LENGTH_CHECK(TABLE, ShaderConstant::SysUniform_TERMINATE);
         for (uint i = 0; i < ShaderConstant::SysUniform_TERMINATE; ++i)

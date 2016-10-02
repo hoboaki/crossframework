@@ -17,19 +17,19 @@ namespace {
 
 enum
 {
-    tDefaultWidth = 960
-    , tDefaultHeight = 640
+    tDefaultWidth = 960,
+    tDefaultHeight = 640
 };
 
 }
 
 //------------------------------------------------------------------------------
 DisplayContext::DisplayContext()
-    : mLocationX(0)
-    , mLocationY(0)
-    , mWidth(tDefaultWidth)
-    , mHeight(tDefaultHeight)
-    , mIsScreenDoubleBuffer(true)
+: mLocationX(0)
+, mLocationY(0)
+, mWidth(tDefaultWidth)
+, mHeight(tDefaultHeight)
+, mIsScreenDoubleBuffer(true)
 {
     // センタリング
     setLocationToCenter();

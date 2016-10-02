@@ -30,20 +30,21 @@
 namespace XG3D {
 //------------------------------------------------------------------------------
 namespace {
+
     // TexAddressテーブル
 const GLenum tTexAddressTable[] =
 {
-    GL_REPEAT
-    , GL_MIRRORED_REPEAT
-    , GL_CLAMP_TO_EDGE
+    GL_REPEAT,
+    GL_MIRRORED_REPEAT,
+    GL_CLAMP_TO_EDGE
 };
 XBASE_ARRAY_LENGTH_CHECK(tTexAddressTable, TexAddress_TERMINATE);
 
 // TexFilterテーブル
 const GLenum tTexFilterTable[] =
 {
-    GL_NEAREST
-    , GL_LINEAR
+    GL_NEAREST,
+    GL_LINEAR
 };
 XBASE_ARRAY_LENGTH_CHECK(tTexFilterTable, TexFilter_TERMINATE);
 
@@ -122,10 +123,10 @@ const GLchar tSHADER_SOURCE_FSH[] =
 "    }"
 "}";
 bool tCreateShader(
-    GLuint* aShader
-    , const GLenum aShaderType
-    , const GLchar* aSource
-)
+    GLuint* aShader,
+    const GLenum aShaderType,
+    const GLchar* aSource
+    )
 {
     GLint status = GLint();
     XG3D_GLCMD(*aShader = glCreateShader(aShaderType));
@@ -248,8 +249,8 @@ Renderer& Renderer::Instance()
 
 //------------------------------------------------------------------------------
 Renderer::Renderer(::XBase::Display& aDisplay)
-    : mDisplay(aDisplay)
-    , mEXT()
+: mDisplay(aDisplay)
+, mEXT()
 {
     // セットアップ
     mEXT.setup(aDisplay);
@@ -318,11 +319,11 @@ void Renderer::reset()
 
 //------------------------------------------------------------------------------
 void Renderer::fbSetViewport(
-    const uint aBaseX
-    , const uint aBaseY
-    , const uint aWidth
-    , const uint aHeight
-)
+    const uint aBaseX,
+    const uint aBaseY,
+    const uint aWidth,
+    const uint aHeight
+    )
 {
     XG3D_GLCMD(glViewport(GLint(aBaseX), GLint(aBaseY), GLint(aWidth), GLint(aHeight)));
 }
@@ -489,10 +490,10 @@ void Renderer::sdSetTex(const TexId aId, const TexSetting& aSetting)
 
 //------------------------------------------------------------------------------
 void Renderer::draw(
-    const ResMdlSubMesh& aSubMesh
-    , const StateMdlTransform& aMdlTransform
-    , const StateMdlMaterial& aMdlMaterial
-)
+    const ResMdlSubMesh& aSubMesh,
+    const StateMdlTransform& aMdlTransform,
+    const StateMdlMaterial& aMdlMaterial
+    )
 {
     // 前チェック
     if (!aSubMesh.isValid())
@@ -510,9 +511,9 @@ void Renderer::draw(
 
 //------------------------------------------------------------------------------
 void Renderer::draw(
-    const ResMdlShape& aShape
-    , const StateMaterial& aMaterial
-)
+    const ResMdlShape& aShape,
+    const StateMaterial& aMaterial
+    )
 {
     // マテリアル設定
     sdSetMaterial(aMaterial.resMat());
@@ -527,22 +528,22 @@ void Renderer::draw(
         const ResMatVtxAttrImpl* attrBind = &matImpl->vtxAttrs->at(i);
         const ResMdlShapeImpl::VtxAttr* attr = &shapeImpl->vtxAttrs[attrBind->binPtr->bindInputKind];
         XG3D_GLCMD(glVertexAttribPointer(
-            i
-            , attr->info->elemCount
-            , attr->glDataType
-            , GLboolean(attr->glNormalize)
-            , shapeImpl->binPtr->vtxAttrDataStride
-            , reinterpret_cast<const void*>(attr->info->offset)
+            i,
+            attr->info->elemCount,
+            attr->glDataType,
+            GLboolean(attr->glNormalize),
+            shapeImpl->binPtr->vtxAttrDataStride,
+            reinterpret_cast<const void*>(attr->info->offset)
         ));
         XG3D_GLCMD(glEnableVertexAttribArray(i));
     }
 
     // 描画
     XG3D_GLCMD(glDrawElements(
-        GL_TRIANGLES
-        , shapeImpl->binPtr->indexArrayDataCount
-        , shapeImpl->idxGLDataType
-        , 0
+        GL_TRIANGLES,
+        shapeImpl->binPtr->indexArrayDataCount,
+        shapeImpl->idxGLDataType,
+        0
     ));
 
 // 頂点属性無効化
@@ -568,14 +569,14 @@ void Renderer::copyToDisplay(::XBase::Display& aDisplay)
 
 //------------------------------------------------------------------------------
 Renderer_EXT::Renderer_EXT()
-    : demoShaderProgram(0)
-    , demoUniformLocations()
-    , colorUpdate(false)
-    , depthUpdate(false)
-    , currentMaterial()
-    , mtxProj()
-    , mtxView()
-    , mtxWorld()
+: demoShaderProgram(0)
+, demoUniformLocations()
+, colorUpdate(false)
+, depthUpdate(false)
+, currentMaterial()
+, mtxProj()
+, mtxView()
+, mtxWorld()
 {
     XBASE_STATIC_ASSERT(UNIFORM_COUNT == ShaderConstant::Uniform_TERMINATE);
 }
@@ -587,10 +588,10 @@ void Renderer_EXT::updateMtxProj()
         ? currentMaterial.impl_()->sysUniformLocations[ShaderConstant::SysUniform_MtxProj]
         : demoUniformLocations[ShaderConstant::SysUniform_MtxProj];
     XG3D_GLCMD(glUniformMatrix4fv(
-        location
-        , 1
-        , GL_FALSE
-        , mtxProj.v
+        location,
+        1,
+        GL_FALSE,
+        mtxProj.v
     ));
 }
 
@@ -601,10 +602,10 @@ void Renderer_EXT::updateMtxView()
         ? currentMaterial.impl_()->sysUniformLocations[ShaderConstant::SysUniform_MtxView]
         : demoUniformLocations[ShaderConstant::SysUniform_MtxView];
     XG3D_GLCMD(glUniformMatrix4fv(
-        location
-        , 1
-        , GL_FALSE
-        , mtxView.toMatrix44().v
+        location,
+        1,
+        GL_FALSE,
+        mtxView.toMatrix44().v
     ));
 }
 
@@ -615,10 +616,10 @@ void Renderer_EXT::updateMtxWorld()
         ? currentMaterial.impl_()->sysUniformLocations[ShaderConstant::SysUniform_MtxWorld]
         : demoUniformLocations[ShaderConstant::SysUniform_MtxWorld];
     XG3D_GLCMD(glUniformMatrix4fv(
-        location
-        , 1
-        , GL_FALSE
-        , mtxWorld.toMatrix44().v
+        location,
+        1,
+        GL_FALSE,
+        mtxWorld.toMatrix44().v
     ));
 }
 

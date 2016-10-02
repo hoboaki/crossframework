@@ -9,22 +9,23 @@
 
 //------------------------------------------------------------------------------
 namespace XG3D {
+
 //------------------------------------------------------------------------------
 StateMdlMaterial::StateMdlMaterial(
-    const ResMdl& aResMdl
-    , const ResMatSet& aResMatSet
-    , ::XBase::IAllocator& aAllocator
-)
-    : mResMdl(aResMdl)
-    , mMaterials(aResMdl.matReferCount(), aAllocator)
+    const ResMdl& aResMdl,
+    const ResMatSet& aResMatSet,
+    ::XBase::IAllocator& aAllocator
+    )
+: mResMdl(aResMdl)
+, mMaterials(aResMdl.matReferCount(), aAllocator)
 {
     // 各マテリアルの作成
     for (uint i = 0; i < aResMdl.matReferCount(); ++i)
     {
         mMaterials.add(
-            aResMatSet.mat(aResMdl.matRefer(i).name())
-            , ::XBase::Ref(aAllocator)
-        );
+            aResMatSet.mat(aResMdl.matRefer(i).name()),
+            ::XBase::Ref(aAllocator)
+            );
     }
 }
 

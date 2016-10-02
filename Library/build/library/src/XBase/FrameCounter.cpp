@@ -7,17 +7,18 @@
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
 //------------------------------------------------------------------------------
 FrameCounter::FrameCounter()
-    : mFrame(0)
-    , mTotalFrame(0)
+: mFrame(0)
+, mTotalFrame(0)
 {
 }
 
 //------------------------------------------------------------------------------
 FrameCounter::FrameCounter(const uint aTotalFrame)
-    : mFrame(0)
-    , mTotalFrame(aTotalFrame)
+: mFrame(0)
+, mTotalFrame(aTotalFrame)
 {
 }
 

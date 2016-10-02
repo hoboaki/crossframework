@@ -32,21 +32,21 @@ int xmain( ::XBase::Application& aApp )
             if ( tap.isTrigger() )
             {
                 XBASE_COUTFMT_LINE_WITH_TIME( 
-                    "[%lu] trigger(%lu) : (%d,%d)" 
-                    , i 
-                    , tap.tapCount() 
-                    , int( tap.pos().x )
-                    , int( tap.pos().y )
+                    "[%lu] trigger(%lu) : (%d,%d)" ,
+                    i,
+                    tap.tapCount(),
+                    int( tap.pos().x ),
+                    int( tap.pos().y )
                     );
             }
             if ( tap.isRelease() )
             {
                 XBASE_COUTFMT_LINE_WITH_TIME( 
-                    "[%lu] release(%lu) : (%d,%d)" 
-                    , i 
-                    , tap.tapCount() 
-                    , int( tap.pos().x )
-                    , int( tap.pos().y )
+                    "[%lu] release(%lu) : (%d,%d)" ,
+                    i,
+                    tap.tapCount(),
+                    int( tap.pos().x ),
+                    int( tap.pos().y )
                     );
             }
         }

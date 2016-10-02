@@ -8,14 +8,15 @@
 
 //------------------------------------------------------------------------------
 namespace XG3D {
+
 //------------------------------------------------------------------------------
 TexSetting::TexSetting()
-    : mEXT()
-    , mIsActive(false)
-    , mMinFilter(TexFilter_Nearest)
-    , mMagFilter(TexFilter_Nearest)
-    , mAddressU(TexAddress_Wrap)
-    , mAddressV(TexAddress_Wrap)
+: mEXT()
+, mIsActive(false)
+, mMinFilter(TexFilter_Nearest)
+, mMagFilter(TexFilter_Nearest)
+, mAddressU(TexAddress_Wrap)
+, mAddressV(TexAddress_Wrap)
 {
 }
 
@@ -131,7 +132,7 @@ const TexSetting_EXT& TexSetting::ext_()const
 
 //------------------------------------------------------------------------------
 TexSetting_EXT::TexSetting_EXT()
-    : texId(0)
+: texId(0)
 {
 }
 

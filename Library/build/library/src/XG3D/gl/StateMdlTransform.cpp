@@ -8,14 +8,15 @@
 
 //------------------------------------------------------------------------------
 namespace XG3D {
+
 //------------------------------------------------------------------------------
 StateMdlTransform::StateMdlTransform(
-    const ResMdl& aResMdl
-    , ::XBase::IAllocator& aAllocator
-)
-    : mResMdl(aResMdl)
-    , mLocalMtxs(aResMdl.nodeCount(), aAllocator)
-    , mWorldMtxs(aResMdl.nodeCount(), aAllocator)
+    const ResMdl& aResMdl,
+    ::XBase::IAllocator& aAllocator
+    )
+: mResMdl(aResMdl)
+, mLocalMtxs(aResMdl.nodeCount(), aAllocator)
+, mWorldMtxs(aResMdl.nodeCount(), aAllocator)
 {
     resetLocalMtx();
 }

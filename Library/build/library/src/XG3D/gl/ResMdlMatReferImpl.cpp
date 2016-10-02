@@ -3,14 +3,15 @@
 
 //------------------------------------------------------------------------------
 namespace XG3D {
+
 //------------------------------------------------------------------------------
 ResMdlMatReferImpl::ResMdlMatReferImpl(
-    const ::XData::XData& aXData
-    , const BinResMdlMatRefer* aBinPtr
-    , ::XBase::IAllocator&
-)
-    : xdata(aXData.ptr())
-    , binPtr(aBinPtr)
+    const ::XData::XData& aXData,
+    const BinResMdlMatRefer* aBinPtr,
+    ::XBase::IAllocator&
+    )
+: xdata(aXData.ptr())
+, binPtr(aBinPtr)
 {
 }
 

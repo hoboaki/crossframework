@@ -12,6 +12,7 @@
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
 //------------------------------------------------------------------------------
 const Vector3iPOD Vector3iPOD::Zero()
 {
@@ -440,26 +441,26 @@ const Vector3iPOD Vector3iPOD::operator-()const
 const Vector3iPOD Vector3iPOD::min(const Vector3iPOD& aVal)const
 {
     return Vector3i(
-        Math::Min(x, aVal.x)
-        , Math::Min(y, aVal.y)
-        , Math::Min(z, aVal.z)
-    );
+        Math::Min(x, aVal.x),
+        Math::Min(y, aVal.y),
+        Math::Min(z, aVal.z)
+        );
 }
 
 //------------------------------------------------------------------------------
 const Vector3iPOD Vector3iPOD::max(const Vector3iPOD& aVal)const
 {
     return Vector3i(
-        Math::Max(x, aVal.x)
-        , Math::Max(y, aVal.y)
-        , Math::Max(z, aVal.z)
-    );
+        Math::Max(x, aVal.x),
+        Math::Max(y, aVal.y),
+        Math::Max(z, aVal.z)
+        );
 }
 
 //------------------------------------------------------------------------------
 const Vector3iPOD Vector3iPOD::clamp(
-    const Vector3iPOD& aMin
-    , const Vector3iPOD& aMax
+    const Vector3iPOD& aMin,
+    const Vector3iPOD& aMax
 )const
 {
     return max(aMin).min(aMax);
@@ -481,10 +482,10 @@ const Vector3iPOD Vector3iPOD::clampNegative()const
 const Vector3iPOD Vector3iPOD::abs()const
 {
     return Vector3i(
-        Math::AbsS32(x)
-        , Math::AbsS32(y)
-        , Math::AbsS32(z)
-    );
+        Math::AbsS32(x),
+        Math::AbsS32(y),
+        Math::AbsS32(z)
+        );
 }
 
 //------------------------------------------------------------------------------
@@ -513,22 +514,22 @@ bool Vector3iPOD::isZero()const
 const ::XBase::ShortString Vector3iPOD::toShortString()const
 {
     return ::XBase::ShortString::FromFormat(
-        "%s,%s,%s"
-        , S32(x).toShortString().readPtr()
-        , S32(y).toShortString().readPtr()
-        , S32(z).toShortString().readPtr()
-    );
+        "%s,%s,%s",
+        S32(x).toShortString().readPtr(),
+        S32(y).toShortString().readPtr(),
+        S32(z).toShortString().readPtr()
+        );
 }
 
 //------------------------------------------------------------------------------
 Vector3i::Vector3i()
-    : Vector3iPOD(Zero())
+: Vector3iPOD(Zero())
 {
 }
 
 //------------------------------------------------------------------------------
 Vector3i::Vector3i(const Vector3iPOD& aVec)
-    : Vector3iPOD(aVec)
+: Vector3iPOD(aVec)
 {
 }
 

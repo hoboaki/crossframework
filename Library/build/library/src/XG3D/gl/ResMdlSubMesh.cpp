@@ -8,6 +8,7 @@
 
 //------------------------------------------------------------------------------
 namespace XG3D {
+
 //------------------------------------------------------------------------------
 ResMdlSubMesh::ResMdlSubMesh()
 {
@@ -15,7 +16,7 @@ ResMdlSubMesh::ResMdlSubMesh()
 
 //------------------------------------------------------------------------------
 ResMdlSubMesh::ResMdlSubMesh(const ResMdlSubMeshImpl& aImpl)
-    : mPtr(aImpl)
+: mPtr(aImpl)
 {
 }
 

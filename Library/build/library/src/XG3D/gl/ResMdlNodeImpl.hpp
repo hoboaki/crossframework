@@ -11,7 +11,7 @@
 //------------------------------------------------------------------------------
 namespace XG3D {
 
-    // BinResMdlNodeとResMdlNodeの間にかますクラス。
+// BinResMdlNodeとResMdlNodeの間にかますクラス。
 class ResMdlNodeImpl : public ::XBase::NonCopyable
 {
 public:

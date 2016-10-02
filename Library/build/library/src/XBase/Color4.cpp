@@ -11,6 +11,7 @@
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
 //------------------------------------------------------------------------------
 const Color4POD Color4POD::Zero()
 {
@@ -76,11 +77,11 @@ const Color4bPOD Color4POD::toRGBAb()const
 {
     const Color4 tmp = toVector4().clamp(Vector4::Zero(), Vector4::One()) * 255.0f;
     return Color4b(
-        static_cast<u8>(tmp.r)
-        , static_cast<u8>(tmp.g)
-        , static_cast<u8>(tmp.b)
-        , static_cast<u8>(tmp.a)
-    );
+        static_cast<u8>(tmp.r),
+        static_cast<u8>(tmp.g),
+        static_cast<u8>(tmp.b),
+        static_cast<u8>(tmp.a)
+        );
 }
 
 //------------------------------------------------------------------------------
@@ -361,23 +362,23 @@ const Color4POD Color4POD::operator/(const Color4POD& aVal)const
 const ::XBase::ShortString Color4POD::toShortString()const
 {
     return ::XBase::ShortString::FromFormat(
-        "%s,%s,%s,%s"
-        , F32(r).toShortString().readPtr()
-        , F32(g).toShortString().readPtr()
-        , F32(b).toShortString().readPtr()
-        , F32(a).toShortString().readPtr()
-    );
+        "%s,%s,%s,%s",
+        F32(r).toShortString().readPtr(),
+        F32(g).toShortString().readPtr(),
+        F32(b).toShortString().readPtr(),
+        F32(a).toShortString().readPtr()
+        );
 }
 
 //------------------------------------------------------------------------------
 Color4::Color4()
-    : Color4POD(Zero())
+: Color4POD(Zero())
 {
 }
 
 //------------------------------------------------------------------------------
 Color4::Color4(const Color4POD& aCol)
-    : Color4POD(aCol)
+: Color4POD(aCol)
 {
 }
 

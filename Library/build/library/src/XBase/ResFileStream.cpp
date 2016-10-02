@@ -7,15 +7,16 @@
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
 //------------------------------------------------------------------------------
 ResFileStream::ResFileStream()
-    : mEXT()
+: mEXT()
 {
 }
 
 //------------------------------------------------------------------------------
 ResFileStream::ResFileStream(const char* aPath)
-    : mEXT()
+: mEXT()
 {
     const bool result = open(aPath);
     XBASE_UNUSED(result);

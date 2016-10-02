@@ -7,11 +7,12 @@
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
 //------------------------------------------------------------------------------
 const AutoMemBlock ResFile::Read(
-    const char* aPath
-    , IAllocator& aAllocator
-)
+    const char* aPath,
+    IAllocator& aAllocator
+    )
 {
     // オープン
     ResFileStream stream;

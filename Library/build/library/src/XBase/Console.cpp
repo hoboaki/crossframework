@@ -13,6 +13,7 @@
 namespace XBase {
 //------------------------------------------------------------------------------
 namespace {
+
 IConsoleCallback* tCallbackPtr = 0;
 ShortString tTimeFormatString;
 ShortString* tTimeFormatStringPtr = 0;
@@ -113,16 +114,16 @@ void Console::WriteLineVF(const char* aFormat, va_list aArg)
 void Console::WriteTime()
 {
     Calendar calendar = Time::LocalTime().toCalendar();
-    WriteF(tTimeFormat()
-        , uint(calendar.year + 1)
-        , uint(calendar.month + 1)
-        , uint(calendar.dayOfMonth + 1)
-        , uint(calendar.hour)
-        , uint(calendar.min)
-        , uint(calendar.sec)
-        , uint(calendar.msec)
-        , uint(calendar.usec)
-    );
+    WriteF(tTimeFormat(),
+        uint(calendar.year + 1),
+        uint(calendar.month + 1),
+        uint(calendar.dayOfMonth + 1),
+        uint(calendar.hour),
+        uint(calendar.min),
+        uint(calendar.sec),
+        uint(calendar.msec),
+        uint(calendar.usec)
+        );
 }
 
 //------------------------------------------------------------------------------

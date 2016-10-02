@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 namespace XG3D {
 
-    // シェイプ入力データの種類。
+// シェイプ入力データの種類。
 enum ResMdlShapeInputKind
 {
     ResMdlShapeInputKind_Position,

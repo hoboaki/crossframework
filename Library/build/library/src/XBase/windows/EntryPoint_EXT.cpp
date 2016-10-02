@@ -161,17 +161,17 @@ void tSetupArg()
 
 // main関数の共通部分。
 int tWinMainIN(
-    HINSTANCE aInstance
-    , int aCmdShow
-)
+    HINSTANCE aInstance,
+    int aCmdShow
+    )
 {
     // 引数の作成
     const ::XBase::Argument arg(
-        tArgCount
-        , tArgPtrs
-        , tExeFileName
-        , tExeDirPath
-    );
+        tArgCount,
+        tArgPtrs,
+        tExeFileName,
+        tExeDirPath
+        );
     XBASE_UNUSED(aInstance);
     XBASE_UNUSED(aCmdShow);
 
@@ -186,11 +186,11 @@ int tWinMainIN(
 
 //------------------------------------------------------------------------------
 int WINAPI WinMain(
-    HINSTANCE aInstance
-    , HINSTANCE aPrevInstance
-    , LPSTR aCmdLine
-    , int aCmdShow
-)
+    HINSTANCE aInstance,
+    HINSTANCE aPrevInstance,
+    LPSTR aCmdLine,
+    int aCmdShow
+    )
 {
     // 実行ファイルのパス
     GetModuleFileNameA(aInstance, tExeFilePath, tExeFilePathLength);
@@ -219,9 +219,9 @@ int WINAPI WinMain(
 //------------------------------------------------------------------------------
 #if !defined(XBASE_FINAL)
 int main(
-    const int aArgCount
-    , const char* aArgValues[]
-)
+    const int aArgCount,
+    const char* aArgValues[]
+    )
 {
     // フラグオン
     tIsConsole = true;

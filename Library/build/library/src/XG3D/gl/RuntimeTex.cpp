@@ -49,7 +49,7 @@ int tBytePerPixel(const ::XG3D::ResTexFormat aFormat)
 //------------------------------------------------------------------------------
 pword_t RuntimeTex::CalcDataSize(
     const RuntimeTexContext& aContext
-)
+    )
 {
     return tBytePerPixel(aContext.format()) * aContext.width() * aContext.height();
 }
@@ -62,11 +62,11 @@ pword_t RuntimeTex::RequireAlignment()
 
 //------------------------------------------------------------------------------
 RuntimeTex::RuntimeTex(
-    const RuntimeTexContext& aContext
-    , ::XBase::IAllocator& aAllocator
-)
-    : mContext(aContext)
-    , mData(CalcDataSize(aContext), aAllocator, RequireAlignment())
+    const RuntimeTexContext& aContext,
+    ::XBase::IAllocator& aAllocator
+    )
+: mContext(aContext)
+, mData(CalcDataSize(aContext), aAllocator, RequireAlignment())
 {
     // 0初期化
     for (uint i = 0; i < mData->size(); ++i)
@@ -118,20 +118,20 @@ void RuntimeTex::endEdit()
 
 //------------------------------------------------------------------------------
 void RuntimeTex::setPixel(
-    const uint aX
-    , const uint aY
-    , const ::XBase::Color4POD& aVal
-)
+    const uint aX,
+    const uint aY,
+    const ::XBase::Color4POD& aVal
+    )
 {
     setPixel(aX, aY, aVal.toRGBAb());
 }
 
 //------------------------------------------------------------------------------
 void RuntimeTex::setPixel(
-    const uint aX
-    , const uint aY
-    , const ::XBase::Color4bPOD& aVal
-)
+    const uint aX,
+    const uint aY,
+    const ::XBase::Color4bPOD& aVal
+    )
 {
     // アドレス計算
     XBASE_RANGE_ASSERT_MAX(aX, mContext.width());
@@ -159,7 +159,7 @@ void RuntimeTex::setPixel(
                 | (u16(aVal.g & 0xF8) << 3)
                 | (u16(aVal.b & 0xF8) >> 2)
                 | (u16(aVal.a & 0x80) >> 7)
-            );
+                );
             break;
 
         case ResTexFormat_RGBA4:
@@ -168,7 +168,7 @@ void RuntimeTex::setPixel(
                 | (u16(aVal.g & 0xF0) << 4)
                 | (u16(aVal.b & 0xF0))
                 | (u16(aVal.a & 0xF0) >> 4)
-            );
+                );
             break;
 
         case ResTexFormat_RGB565:
@@ -176,7 +176,7 @@ void RuntimeTex::setPixel(
                 (u16(aVal.r & 0xF0) << 8)
                 | (u16(aVal.g & 0xF0) << 3)
                 | (u16(aVal.b & 0xF0) >> 3)
-            );
+                );
             break;
 
         case ResTexFormat_LA8:

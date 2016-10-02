@@ -99,15 +99,15 @@ const TimePOD tCurrentTime(tTimeConverter aConverter)
 
         // 日時から作成
         obj = TimePOD::FromDate(
-            calendar.year
-            , calendar.month
-            , calendar.dayOfMonth
-            , calendar.hour
-            , calendar.min
-            , calendar.sec
-            , calendar.msec
-            , calendar.usec
-        );
+            calendar.year,
+            calendar.month,
+            calendar.dayOfMonth,
+            calendar.hour,
+            calendar.min,
+            calendar.sec,
+            calendar.msec,
+            calendar.usec
+            );
         obj.ticks_ += calendar.nsec / 100;
     }
 
@@ -154,15 +154,15 @@ const TimePOD TimePOD::UniversalTime()
 
 //------------------------------------------------------------------------------
 const TimePOD TimePOD::FromDate(
-    const uint aYear
-    , const uint aMonth
-    , const uint aDayOfMonth
-    , const uint aHour
-    , const uint aMin
-    , const uint aSec
-    , const uint aMsec
-    , const uint aUsec
-)
+    const uint aYear,
+    const uint aMonth,
+    const uint aDayOfMonth,
+    const uint aHour,
+    const uint aMin,
+    const uint aSec,
+    const uint aMsec,
+    const uint aUsec
+    )
 {
     const u64 days = Calendar::DaysToDate(aYear, aMonth, aDayOfMonth);
     Time obj;
@@ -178,6 +178,7 @@ const TimePOD TimePOD::FromDate(
 
 //------------------------------------------------------------------------------
 namespace {
+
     // 1日の総チック数。
 const u64 tUnitTickOfDay = (u64(24) * 60 * 60 * 1000 * 1000 * 10);
 }

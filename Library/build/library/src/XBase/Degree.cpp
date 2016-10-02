@@ -30,21 +30,21 @@ const RadianPOD DegreePOD::toRadian()const
 
 //------------------------------------------------------------------------------
 Degree::Degree()
-    : DegreePOD()
+: DegreePOD()
 {
     value = 0;
 }
 
 //------------------------------------------------------------------------------
 Degree::Degree(const float aDegree)
-    : DegreePOD()
+: DegreePOD()
 {
     value = aDegree;
 }
 
 //------------------------------------------------------------------------------
 Degree::Degree(const DegreePOD& aVal)
-    : DegreePOD(aVal)
+: DegreePOD(aVal)
 {
 }
 

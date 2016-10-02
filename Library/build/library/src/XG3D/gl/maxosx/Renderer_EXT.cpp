@@ -10,6 +10,7 @@
 
 //------------------------------------------------------------------------------
 namespace XG3D {
+
 //------------------------------------------------------------------------------
 void Renderer::copyToScreen(::XBase::Screen& aScreen)
 {
@@ -27,11 +28,11 @@ void Renderer_EXT::setup(::XBase::Display& aDisplay)
 {
     // View割り当て
     XG3DNSOpenGLView* view = XG3DNSOpenGLView_Setup(
-        aDisplay.ext_().windowPtr
-        , aDisplay.context_().width()
-        , aDisplay.context_().height()
-        , aDisplay.context_().isScreenDoubleBuffer() ? 1 : 0
-    );
+        aDisplay.ext_().windowPtr,
+        aDisplay.context_().width(),
+        aDisplay.context_().height(),
+        aDisplay.context_().isScreenDoubleBuffer() ? 1 : 0
+        );
     aDisplay.mainScreen().ext_().glView = view;
 }
 

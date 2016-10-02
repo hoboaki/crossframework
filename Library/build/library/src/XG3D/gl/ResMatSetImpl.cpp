@@ -9,7 +9,7 @@ namespace XG3D {
 //------------------------------------------------------------------------------
 namespace {
 
-    //------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 struct tEntryHeader
 {
     ::XData::UInt32     count;
@@ -20,13 +20,13 @@ struct tEntryHeader
 
 //------------------------------------------------------------------------------
 ResMatSetImpl::ResMatSetImpl(
-    const ::XData::XData& aXData
-    , const BinResMatSet* aBinPtr
-    , ::XBase::IAllocator& aAllocator
-)
-    : xdata(aXData.ptr())
-    , binPtr(aBinPtr)
-    , matImpls()
+    const ::XData::XData& aXData,
+    const BinResMatSet* aBinPtr,
+    ::XBase::IAllocator& aAllocator
+    )
+: xdata(aXData.ptr())
+, binPtr(aBinPtr)
+, matImpls()
 {
     // mat
     {
@@ -35,10 +35,10 @@ ResMatSetImpl::ResMatSetImpl(
         for (uint i = 0; i < header->count; ++i)
         {
             matImpls->add(
-                ::XBase::Ref(xdata)
-                , xdata.ref< BinResMat >(header->entries[i])
-                , ::XBase::Ref(aAllocator)
-            );
+                ::XBase::Ref(xdata),
+                xdata.ref< BinResMat >(header->entries[i]),
+                ::XBase::Ref(aAllocator)
+                );
         }
     }
 

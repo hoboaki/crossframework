@@ -12,6 +12,7 @@
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
 //------------------------------------------------------------------------------
 const Vector3POD Vector3POD::Zero()
 {
@@ -437,27 +438,27 @@ const Vector3POD Vector3POD::operator-()const
 const Vector3POD Vector3POD::min(const Vector3POD& aVal)const
 {
     return Vector3(
-        Math::Min(x, aVal.x)
-        , Math::Min(y, aVal.y)
-        , Math::Min(z, aVal.z)
-    );
+        Math::Min(x, aVal.x),
+        Math::Min(y, aVal.y),
+        Math::Min(z, aVal.z)
+        );
 }
 
 //------------------------------------------------------------------------------
 const Vector3POD Vector3POD::max(const Vector3POD& aVal)const
 {
     return Vector3(
-        Math::Max(x, aVal.x)
-        , Math::Max(y, aVal.y)
-        , Math::Max(z, aVal.z)
-    );
+        Math::Max(x, aVal.x),
+        Math::Max(y, aVal.y),
+        Math::Max(z, aVal.z)
+        );
 }
 
 
 //------------------------------------------------------------------------------
 const Vector3POD Vector3POD::clamp(
-    const Vector3POD& aMin
-    , const Vector3POD& aMax
+    const Vector3POD& aMin,
+    const Vector3POD& aMax
 )const
 {
     return max(aMin).min(aMax);
@@ -479,10 +480,10 @@ const Vector3POD Vector3POD::clampNegative()const
 const Vector3POD Vector3POD::abs()const
 {
     return Vector3(
-        Math::AbsF32(x)
-        , Math::AbsF32(y)
-        , Math::AbsF32(z)
-    );
+        Math::AbsF32(x),
+        Math::AbsF32(y),
+        Math::AbsF32(z)
+        );
 }
 
 //------------------------------------------------------------------------------
@@ -558,32 +559,32 @@ f32 Vector3POD::dot(const Vector3POD& aVec)const
 const Vector3POD Vector3POD::cross(const Vector3POD& aVec)const
 {
     return Vector3(
-        y * aVec.z - z * aVec.y
-        , z * aVec.x - x * aVec.z
-        , x * aVec.y - y * aVec.x
-    );
+        y * aVec.z - z * aVec.y,
+        z * aVec.x - x * aVec.z,
+        x * aVec.y - y * aVec.x
+        );
 }
 
 //------------------------------------------------------------------------------
 const ::XBase::ShortString Vector3POD::toShortString()const
 {
     return ::XBase::ShortString::FromFormat(
-        "%s,%s,%s"
-        , F32(x).toShortString().readPtr()
-        , F32(y).toShortString().readPtr()
-        , F32(z).toShortString().readPtr()
-    );
+        "%s,%s,%s",
+        F32(x).toShortString().readPtr(),
+        F32(y).toShortString().readPtr(),
+        F32(z).toShortString().readPtr()
+        );
 }
 
 //------------------------------------------------------------------------------
 Vector3::Vector3()
-    : Vector3POD(Zero())
+: Vector3POD(Zero())
 {
 }
 
 //------------------------------------------------------------------------------
 Vector3::Vector3(const Vector3POD& aVec)
-    : Vector3POD(aVec)
+: Vector3POD(aVec)
 {
 }
 

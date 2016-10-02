@@ -8,6 +8,7 @@
 namespace XBase {
 //------------------------------------------------------------------------------
 namespace {
+
 Pointer< Application > tPtr;
 }
 //------------------------------------------------------------------------------
@@ -18,10 +19,10 @@ Application& Application::Instance()
 
 //------------------------------------------------------------------------------
 XBase::Application::Application(const Argument& aArgument)
-    : mArgument(aArgument)
-    , mLastEvent(AppEvent_INVALID)
-    , mDisplayPtr()
-    , mEXT()
+: mArgument(aArgument)
+, mLastEvent(AppEvent_INVALID)
+, mDisplayPtr()
+, mEXT()
 {
     tPtr.set(*this);
 }

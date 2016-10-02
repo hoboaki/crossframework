@@ -14,15 +14,16 @@
 
 //------------------------------------------------------------------------------
 namespace XG3D {
+
 //------------------------------------------------------------------------------
 ResBin::ResBin(
-    const const_ptr_t aBin
-    , ::XBase::IAllocator& aAllocator
-)
-    : mXData()
-    , mResMatSetImpls()
-    , mResMdlImpls()
-    , mResTexImpls()
+    const const_ptr_t aBin,
+    ::XBase::IAllocator& aAllocator
+    )
+: mXData()
+, mResMatSetImpls()
+, mResMdlImpls()
+, mResTexImpls()
 {
     // XData作成
     ::XData::XData xdata(aBin);
@@ -53,10 +54,10 @@ ResBin::ResBin(
         for (uint i = 0; i < resMatSets->count; ++i)
         {
             mResMatSetImpls->add(
-                ::XBase::Ref(mXData)
-                , reinterpret_cast<const BinResMatSet*>(ref(resMatSets->refs[i]))
-                , ::XBase::Ref(aAllocator)
-            );
+                ::XBase::Ref(mXData),
+                reinterpret_cast<const BinResMatSet*>(ref(resMatSets->refs[i])),
+                ::XBase::Ref(aAllocator)
+                );
         }
     }
     {// mdl
@@ -65,10 +66,10 @@ ResBin::ResBin(
         for (uint i = 0; i < resMdls->count; ++i)
         {
             mResMdlImpls->add(
-                ::XBase::Ref(mXData)
-                , reinterpret_cast<const BinResMdl*>(ref(resMdls->refs[i]))
-                , ::XBase::Ref(aAllocator)
-            );
+                ::XBase::Ref(mXData),
+                reinterpret_cast<const BinResMdl*>(ref(resMdls->refs[i])),
+                ::XBase::Ref(aAllocator)
+                );
         }
     }
     {// tex
@@ -77,10 +78,10 @@ ResBin::ResBin(
         for (uint i = 0; i < resTexs->count; ++i)
         {
             mResTexImpls->add(
-                ::XBase::Ref(mXData)
-                , reinterpret_cast<const BinResTex*>(ref(resTexs->refs[i]))
-                , ::XBase::Ref(aAllocator)
-            );
+                ::XBase::Ref(mXData),
+                reinterpret_cast<const BinResTex*>(ref(resTexs->refs[i])),
+                ::XBase::Ref(aAllocator)
+                );
         }
     }
 }

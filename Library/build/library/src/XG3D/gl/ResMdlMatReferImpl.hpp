@@ -11,7 +11,7 @@
 //------------------------------------------------------------------------------
 namespace XG3D {
 
-    // BinResMdlMatReferとResMdlMatReferの間にかますクラス。
+// BinResMdlMatReferとResMdlMatReferの間にかますクラス。
 class ResMdlMatReferImpl : public ::XBase::NonCopyable
 {
 public:

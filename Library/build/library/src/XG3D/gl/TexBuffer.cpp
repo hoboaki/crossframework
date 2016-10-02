@@ -10,12 +10,13 @@
 
 //------------------------------------------------------------------------------
 namespace XG3D {
+
 //------------------------------------------------------------------------------
 TexBuffer::TexBuffer(
     const TexResData& aData
-)
-    : mEXT()
-    , mResData(aData)
+    )
+: mEXT()
+, mResData(aData)
 {
     // テクスチャ作成
     GLenum internalFormat = GLenum();
@@ -77,15 +78,15 @@ TexBuffer::TexBuffer(
     }
     XG3D_GLCMD(glBindTexture(GL_TEXTURE_2D, mEXT.texId));
     XG3D_GLCMD(glTexImage2D(
-        GL_TEXTURE_2D
-        , 0
-        , internalFormat
-        , mResData.width
-        , mResData.height
-        , 0
-        , format
-        , type
-        , mResData.pixels
+        GL_TEXTURE_2D,
+        0,
+        internalFormat,
+        mResData.width,
+        mResData.height,
+        0,
+        format,
+        type,
+        mResData.pixels
     ));
     XG3D_GLCMD(glBindTexture(GL_TEXTURE_2D, 0));
 }
@@ -121,7 +122,7 @@ const TexBuffer_EXT& TexBuffer::ext_()const
 
 //------------------------------------------------------------------------------
 TexBuffer_EXT::TexBuffer_EXT()
-    : texId()
+: texId()
 {
     XG3D_GLCMD(glGenTextures(1, &texId));
 }

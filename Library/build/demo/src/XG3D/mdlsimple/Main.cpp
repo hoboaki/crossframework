@@ -71,10 +71,10 @@ int xmain( ::XBase::Application& aApp )
                 // 回転行列設定
                 stateTransform.updateWorldMtx(
                     ::XBase::Matrix34::Rotate(
-                        ::XBase::Degree( 360.0f * rotateFrame.rateFrame() )
-                        , ::XBase::Vec3::UnitY()
+                        ::XBase::Degree( 360.0f * rotateFrame.rateFrame() ),
+                        ::XBase::Vec3::UnitY()
                         )
-                    );
+                        );
 
                 // フレームバッファのクリア
                 renderer.fbClear();
@@ -82,15 +82,15 @@ int xmain( ::XBase::Application& aApp )
                 // 行列設定
                 renderer.sdReset();
                 renderer.sdSetMtxProjection( ::XBase::Matrix44::Perspective(
-                    ::XBase::Degree( 10.0f ) // aFOVY
-                    , float( display.mainScreen().width() ) / float( display.mainScreen().height() )
-                    , 0.01f // aNear
-                    , 200.0f // aFar
+                    ::XBase::Degree( 10.0f ), // aFOVY
+                    float( display.mainScreen().width() ) / float( display.mainScreen().height() ),
+                    0.01f, // aNear
+                    200.0f // aFar
                     ));
                 renderer.sdSetMtxView( ::XBase::Matrix34::LookAt(
-                    ::XBase::Vector3( 0.0f , 30.0f , 50.0f )
-                    , ::XBase::Vector3::Zero()
-                    , ::XBase::Vector3::UnitY()
+                    ::XBase::Vector3( 0.0f , 30.0f , 50.0f ),
+                    ::XBase::Vector3::Zero(),
+                    ::XBase::Vector3::UnitY()
                     ));
 
                 // 各メッシュの描画

@@ -642,16 +642,16 @@ Display_EXT::Display_EXT(const DisplayContext& aContext)
 {
     // Window作成
     windowPtr = XBaseNSWindow_Create(
-        aContext.locationX()
-        , aContext.locationY()
-        , aContext.width()
-        , aContext.height()
-        , this
-        , &isClosed
-        , CBKeyEvent
-        , CBModKeyEvent
-        , CBMouseEvent
-    );
+        aContext.locationX(),
+        aContext.locationY(),
+        aContext.width(),
+        aContext.height(),
+        this,
+        &isClosed,
+        CBKeyEvent,
+        CBModKeyEvent,
+        CBMouseEvent
+        );
 
 // メインスクリーンの作成
     mainScreen.init(Ref(*this), aContext.width(), aContext.height());

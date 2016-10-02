@@ -12,33 +12,34 @@
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
 //------------------------------------------------------------------------------
 Quaternion::Quaternion()
-    : x(0)
-    , y(0)
-    , z(0)
-    , w(1.0f)
+: x(0)
+, y(0)
+, z(0)
+, w(1.0f)
 {
 }
 
 //------------------------------------------------------------------------------
 Quaternion::Quaternion(const f32 aX, const f32 aY, const f32 aZ, const f32 aW)
-    : x(aX)
-    , y(aY)
-    , z(aZ)
-    , w(aW)
+: x(aX)
+, y(aY)
+, z(aZ)
+, w(aW)
 {
 }
 
 //------------------------------------------------------------------------------
 Quaternion::Quaternion(
-    const Vector3POD& aAxis
-    , const Angle& aAngle
-)
-    : x()
-    , y()
-    , z()
-    , w()
+    const Vector3POD& aAxis,
+    const Angle& aAngle
+    )
+: x()
+, y()
+, z()
+, w()
 {
     const Vector3 normalizedAxis = aAxis.isZeroStrict()
         ? Vector3()
@@ -66,11 +67,11 @@ Quaternion& Quaternion::mulAssign(const Quaternion& aRHS)
     const Quaternion& lhs = *this;
     const Quaternion& rhs = aRHS;
     *this = Quaternion(
-        lhs.w*rhs.x + lhs.x*rhs.w + lhs.y*rhs.z - lhs.z*rhs.y
-        , lhs.w*rhs.y - lhs.x*rhs.z + lhs.y*rhs.w + lhs.z*rhs.x
-        , lhs.w*rhs.z + lhs.x*rhs.y - lhs.y*rhs.x + lhs.z*rhs.w
-        , lhs.w*rhs.w - lhs.x*rhs.x - lhs.y*rhs.y - lhs.z*rhs.z
-    );
+        lhs.w*rhs.x + lhs.x*rhs.w + lhs.y*rhs.z - lhs.z*rhs.y,
+        lhs.w*rhs.y - lhs.x*rhs.z + lhs.y*rhs.w + lhs.z*rhs.x,
+        lhs.w*rhs.z + lhs.x*rhs.y - lhs.y*rhs.x + lhs.z*rhs.w,
+        lhs.w*rhs.w - lhs.x*rhs.x - lhs.y*rhs.y - lhs.z*rhs.z
+        );
     return *this;
 }
 
@@ -125,12 +126,12 @@ Quaternion& Quaternion::operator*=(const Quaternion& aRHS)
 const ::XBase::ShortString Quaternion::toShortString()const
 {
     return ::XBase::ShortString::FromFormat(
-        "%s,%s,%s,%s"
-        , F32(x).toShortString().readPtr()
-        , F32(y).toShortString().readPtr()
-        , F32(z).toShortString().readPtr()
-        , F32(w).toShortString().readPtr()
-    );
+        "%s,%s,%s,%s",
+        F32(x).toShortString().readPtr(),
+        F32(y).toShortString().readPtr(),
+        F32(z).toShortString().readPtr(),
+        F32(w).toShortString().readPtr()
+        );
 }
 
 } // namespace

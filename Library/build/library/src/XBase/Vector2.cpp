@@ -12,6 +12,7 @@
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
 //------------------------------------------------------------------------------
 const Vector2POD Vector2POD::Zero()
 {
@@ -379,24 +380,24 @@ const Vector2POD Vector2POD::operator-()const
 const Vector2POD Vector2POD::min(const Vector2POD& aVal)const
 {
     return Vector2(
-        Math::Min(x, aVal.x)
-        , Math::Min(y, aVal.y)
-    );
+        Math::Min(x, aVal.x),
+        Math::Min(y, aVal.y)
+        );
 }
 
 //------------------------------------------------------------------------------
 const Vector2POD Vector2POD::max(const Vector2POD& aVal)const
 {
     return Vector2(
-        Math::Max(x, aVal.x)
-        , Math::Max(y, aVal.y)
-    );
+        Math::Max(x, aVal.x),
+        Math::Max(y, aVal.y)
+        );
 }
 
 //------------------------------------------------------------------------------
 const Vector2POD Vector2POD::clamp(
-    const Vector2POD& aMin
-    , const Vector2POD& aMax
+    const Vector2POD& aMin,
+    const Vector2POD& aMax
 )const
 {
     return max(aMin).min(aMax);
@@ -418,9 +419,9 @@ const Vector2POD Vector2POD::clampNegative()const
 const Vector2POD Vector2POD::abs()const
 {
     return Vector2(
-        Math::AbsF32(x)
-        , Math::AbsF32(y)
-    );
+        Math::AbsF32(x),
+        Math::AbsF32(y)
+        );
 }
 
 //------------------------------------------------------------------------------
@@ -502,21 +503,21 @@ f32 Vector2POD::cross(const Vector2POD& aVec)const
 const ::XBase::ShortString Vector2POD::toShortString()const
 {
     return ::XBase::ShortString::FromFormat(
-        "%s,%s"
-        , F32(x).toShortString().readPtr()
-        , F32(y).toShortString().readPtr()
-    );
+        "%s,%s",
+        F32(x).toShortString().readPtr(),
+        F32(y).toShortString().readPtr()
+        );
 }
 
 //------------------------------------------------------------------------------
 Vector2::Vector2()
-    : Vector2POD(Zero())
+: Vector2POD(Zero())
 {
 }
 
 //------------------------------------------------------------------------------
 Vector2::Vector2(const Vector2POD& aVec)
-    : Vector2POD(aVec)
+: Vector2POD(aVec)
 {
 }
 

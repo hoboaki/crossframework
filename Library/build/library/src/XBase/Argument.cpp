@@ -7,17 +7,18 @@
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
 //------------------------------------------------------------------------------
 Argument::Argument(
-    const uint aArgCount
-    , const char* const* aArgValues
-    , const char* aExeFileName
-    , const char* aExeDirPath
-)
-    : mArgCount(aArgCount)
-    , mArgValues(aArgValues)
-    , mExeFileName(aExeFileName)
-    , mExeDirPath(aExeDirPath)
+    const uint aArgCount,
+    const char* const* aArgValues,
+    const char* aExeFileName,
+    const char* aExeDirPath
+    )
+: mArgCount(aArgCount)
+, mArgValues(aArgValues)
+, mExeFileName(aExeFileName)
+, mExeDirPath(aExeDirPath)
 {
 }
 

@@ -3,13 +3,14 @@
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
 //------------------------------------------------------------------------------
 Keyboard::Keyboard()
-    : mData()
-    , mTrigger()
-    , mRepeat()
-    , mPulse()
-    , mRelease()
+: mData()
+, mTrigger()
+, mRepeat()
+, mPulse()
+, mRelease()
 {
 }
 

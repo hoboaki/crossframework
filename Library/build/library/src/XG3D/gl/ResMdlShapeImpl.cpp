@@ -10,6 +10,7 @@
 namespace XG3D {
 //------------------------------------------------------------------------------
 namespace {
+
 struct tInputTypeData
 {
     int  dataType;
@@ -17,28 +18,28 @@ struct tInputTypeData
 };
 const tInputTypeData tINPUT_TYPE_DATA_TABLE[] =
 {
-    {GL_FLOAT, sizeof(GLfloat)}
-    , {GL_BYTE, sizeof(GLbyte)}
-    , {GL_SHORT, sizeof(GLshort)}
-    , {GL_INT, sizeof(GLint)}
-    , {GL_UNSIGNED_BYTE, sizeof(GLubyte)}
-    , {GL_UNSIGNED_SHORT, sizeof(GLushort)}
-    , {GL_UNSIGNED_INT, sizeof(GLuint)}
+    {GL_FLOAT, sizeof(GLfloat)},
+    {GL_BYTE, sizeof(GLbyte)},
+    {GL_SHORT, sizeof(GLshort)},
+    {GL_INT, sizeof(GLint)},
+    {GL_UNSIGNED_BYTE, sizeof(GLubyte)},
+    {GL_UNSIGNED_SHORT, sizeof(GLushort)},
+    {GL_UNSIGNED_INT, sizeof(GLuint)}
 };
 XBASE_ARRAY_LENGTH_CHECK(tINPUT_TYPE_DATA_TABLE, ResMdlShapeInputType_TERMINATE);
 }
 //------------------------------------------------------------------------------
 ResMdlShapeImpl::ResMdlShapeImpl(
-    const ::XData::XData& aXData
-    , const BinResMdlShape* aBinPtr
-    , ::XBase::IAllocator&
-)
-    : xdata(aXData.ptr())
-    , binPtr(aBinPtr)
-    , vtxAttrs()
-    , idxBuffer(0)
-    , vtxAttrBuffer(0)
-    , idxGLDataType(tINPUT_TYPE_DATA_TABLE[aBinPtr->indexArrayDataType].dataType)
+    const ::XData::XData& aXData,
+    const BinResMdlShape* aBinPtr,
+    ::XBase::IAllocator&
+    )
+: xdata(aXData.ptr())
+, binPtr(aBinPtr)
+, vtxAttrs()
+, idxBuffer(0)
+, vtxAttrBuffer(0)
+, idxGLDataType(tINPUT_TYPE_DATA_TABLE[aBinPtr->indexArrayDataType].dataType)
 {
     // 初期化
     {

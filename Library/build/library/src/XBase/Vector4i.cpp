@@ -12,6 +12,7 @@
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
 //------------------------------------------------------------------------------
 const Vector4iPOD Vector4iPOD::Zero()
 {
@@ -529,28 +530,28 @@ const Vector4iPOD Vector4iPOD::operator-()const
 const Vector4iPOD Vector4iPOD::min(const Vector4iPOD& aVal)const
 {
     return Vector4i(
-        Math::Min(x, aVal.x)
-        , Math::Min(y, aVal.y)
-        , Math::Min(z, aVal.z)
-        , Math::Min(w, aVal.w)
-    );
+        Math::Min(x, aVal.x),
+        Math::Min(y, aVal.y),
+        Math::Min(z, aVal.z),
+        Math::Min(w, aVal.w)
+        );
 }
 
 //------------------------------------------------------------------------------
 const Vector4iPOD Vector4iPOD::max(const Vector4iPOD& aVal)const
 {
     return Vector4i(
-        Math::Max(x, aVal.x)
-        , Math::Max(y, aVal.y)
-        , Math::Max(z, aVal.z)
-        , Math::Max(w, aVal.w)
-    );
+        Math::Max(x, aVal.x),
+        Math::Max(y, aVal.y),
+        Math::Max(z, aVal.z),
+        Math::Max(w, aVal.w)
+        );
 }
 
 //------------------------------------------------------------------------------
 const Vector4iPOD Vector4iPOD::clamp(
-    const Vector4iPOD& aMin
-    , const Vector4iPOD& aMax
+    const Vector4iPOD& aMin,
+    const Vector4iPOD& aMax
 )const
 {
     return max(aMin).min(aMax);
@@ -572,11 +573,11 @@ const Vector4iPOD Vector4iPOD::clampNegative()const
 const Vector4iPOD Vector4iPOD::abs()const
 {
     return Vector4i(
-        Math::AbsS32(x)
-        , Math::AbsS32(y)
-        , Math::AbsS32(z)
-        , Math::AbsS32(2)
-    );
+        Math::AbsS32(x),
+        Math::AbsS32(y),
+        Math::AbsS32(z),
+        Math::AbsS32(2)
+        );
 }
 
 //------------------------------------------------------------------------------
@@ -606,23 +607,23 @@ bool Vector4iPOD::isZero()const
 const ::XBase::ShortString Vector4iPOD::toShortString()const
 {
     return ::XBase::ShortString::FromFormat(
-        "%s,%s,%s,%s"
-        , S32(x).toShortString().readPtr()
-        , S32(y).toShortString().readPtr()
-        , S32(z).toShortString().readPtr()
-        , S32(w).toShortString().readPtr()
-    );
+        "%s,%s,%s,%s",
+        S32(x).toShortString().readPtr(),
+        S32(y).toShortString().readPtr(),
+        S32(z).toShortString().readPtr(),
+        S32(w).toShortString().readPtr()
+        );
 }
 
 //------------------------------------------------------------------------------
 Vector4i::Vector4i()
-    : Vector4iPOD(Zero())
+: Vector4iPOD(Zero())
 {
 }
 
 //------------------------------------------------------------------------------
 Vector4i::Vector4i(const Vector4iPOD& aVec)
-    : Vector4iPOD(aVec)
+: Vector4iPOD(aVec)
 {
 }
 

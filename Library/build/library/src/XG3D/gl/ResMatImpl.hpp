@@ -17,7 +17,7 @@
 //------------------------------------------------------------------------------
 namespace XG3D {
 
-    // BinResMatとResMatの間にかますクラス。
+// BinResMatとResMatの間にかますクラス。
 class ResMatImpl : public ::XBase::NonCopyable
 {
 public:

@@ -12,7 +12,7 @@
 //------------------------------------------------------------------------------
 namespace XG3D {
 
-    // BinResMatVtxAttrとResMatVtxAttrの間にかますクラス。
+// BinResMatVtxAttrとResMatVtxAttrの間にかますクラス。
 class ResMatVtxAttrImpl : public ::XBase::NonCopyable
 {
 public:

@@ -12,7 +12,7 @@
 //------------------------------------------------------------------------------
 namespace XG3D {
 
-    // BinResMdlShapeとResMdlShapeの間にかますクラス。
+// BinResMdlShapeとResMdlShapeの間にかますクラス。
 class ResMdlShapeImpl : public ::XBase::NonCopyable
 {
 public:

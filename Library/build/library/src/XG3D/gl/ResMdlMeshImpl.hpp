@@ -18,7 +18,7 @@ class ResMdl;
 //------------------------------------------------------------------------------
 namespace XG3D {
 
-    // BinResMdlMeshとResMdlMeshの間にかますクラス。
+// BinResMdlMeshとResMdlMeshの間にかますクラス。
 class ResMdlMeshImpl : public ::XBase::NonCopyable
 {
 public:

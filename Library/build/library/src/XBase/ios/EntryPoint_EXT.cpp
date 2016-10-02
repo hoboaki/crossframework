@@ -12,7 +12,8 @@
 
 //------------------------------------------------------------------------------
 namespace {
-    // スレッドの引数
+
+// スレッドの引数
 struct tThreadArg
 {
     int result;
@@ -47,21 +48,21 @@ int xmainThreadEntryPointC(void* aArg)
 
 //------------------------------------------------------------------------------
 int mainC(
-    const int aArgCount
-    , char* aArgValues[]
-    , const char* aExeFileName
-    , const char* aExeDirPath
-)
+    const int aArgCount,
+    char* aArgValues[],
+    const char* aExeFileName,
+    const char* aExeDirPath
+    )
 {
     // 引数作成
     const int offset = 1; // Exeのパスは別で処理しているためパス。
     XBASE_RANGE_ASSERT_EMIN(offset, aArgCount);
     const ::XBase::Argument arg(
-        ::XBase::uint(aArgCount - offset)
-        , &aArgValues[offset]
-        , aExeFileName
-        , aExeDirPath
-    );
+        ::XBase::uint(aArgCount - offset),
+        &aArgValues[offset],
+        aExeFileName,
+        aExeDirPath
+        );
 
 // 同期オブジェクト作成
     XBaseEntryPointSync_Initialize();
@@ -72,11 +73,11 @@ int mainC(
     pthread_t threadXMain;
     {
         int result = pthread_create(
-            &threadXMain
-            , 0 // attr
-            , xmainThreadEntryPoint
-            , &threadArg
-        );
+            &threadXMain,
+            0, // attr
+            xmainThreadEntryPoint,
+            &threadArg
+            );
         XBASE_UNUSED(result);
         XBASE_EQUALS_ASSERT(result, 0);
     }

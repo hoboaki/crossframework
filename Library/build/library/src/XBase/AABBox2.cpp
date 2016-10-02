@@ -24,9 +24,9 @@ AABBox2::AABBox2(const Vector2POD& aPos)
 
 //------------------------------------------------------------------------------
 AABBox2::AABBox2(
-    const Vector2POD& aPos1
-    , const Vector2POD& aPos2
-)
+    const Vector2POD& aPos1,
+    const Vector2POD& aPos2
+    )
 : mMin(aPos1.min(aPos2))
 , mMax(aPos1.max(aPos2))
 {
@@ -321,18 +321,18 @@ AABBox2& AABBox2::operator*=(const float aScale)
 const AABBox2i AABBox2::toAABB2i()const
 {
     const Vector2i newMin(
-        int(Math::FloorF32(mMin.x))
-        , int(Math::FloorF32(mMin.y))
-    );
+        int(Math::FloorF32(mMin.x)),
+        int(Math::FloorF32(mMin.y))
+        );
     const Vector2i newTerm(
-        int(Math::CeilF32(mMax.x))
-        , int(Math::CeilF32(mMax.y))
-    );
+        int(Math::CeilF32(mMax.x)),
+        int(Math::CeilF32(mMax.y))
+        );
     return AABBox2i(
-        newMin
-        , uint(newTerm.x - newMin.x)
-        , uint(newTerm.y - newMin.y)
-    );
+        newMin,
+        uint(newTerm.x - newMin.x),
+        uint(newTerm.y - newMin.y)
+        );
 }
 
 } // namespace

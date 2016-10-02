@@ -6,16 +6,17 @@
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
 //------------------------------------------------------------------------------
 Screen::Screen(
-    Display_EXT& aOwner
-    , const uint aWidth
-    , const uint aHeight
-)
-    : mOwner(aOwner)
-    , mEXT()
-    , mWidth(aWidth)
-    , mHeight(aHeight)
+    Display_EXT& aOwner,
+    const uint aWidth,
+    const uint aHeight
+    )
+: mOwner(aOwner)
+, mEXT()
+, mWidth(aWidth)
+, mHeight(aHeight)
 {
 }
 

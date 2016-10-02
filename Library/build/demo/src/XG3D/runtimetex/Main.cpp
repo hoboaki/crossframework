@@ -39,9 +39,9 @@ int xmain( ::XBase::Application& aApp )
 
     // 実行時テクスチャのイメージを作成
     ::XG3D::RuntimeTex runtimeTex( ::XG3D::RuntimeTexContext::Create(
-        ::XG3D::ResTexFormat_RGBA8
-        , 256
-        , 256
+        ::XG3D::ResTexFormat_RGBA8,
+        256,
+        256
         ) );
     runtimeTex.beginEdit();
     {

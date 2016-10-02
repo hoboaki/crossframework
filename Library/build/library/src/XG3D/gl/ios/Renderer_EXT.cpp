@@ -10,6 +10,7 @@
 
 //------------------------------------------------------------------------------
 namespace XG3D {
+
 //------------------------------------------------------------------------------
 void Renderer::copyToScreen(::XBase::Screen& aScreen)
 {
@@ -27,7 +28,7 @@ void Renderer_EXT::setup(::XBase::Display& aDisplay)
 {
     XG3DUIOpenGLView* view = XG3DUIOpenGLView_Setup(
         aDisplay.ext_().windowPtr
-    );
+        );
     aDisplay.mainScreen().ext_().glView = view;
 }
 

@@ -12,7 +12,7 @@
 //------------------------------------------------------------------------------
 namespace XG3D {
 
-    // BinResMatParamとResMatParamの間にかますクラス。
+// BinResMatParamとResMatParamの間にかますクラス。
 class ResMatParamImpl : public ::XBase::NonCopyable
 {
 public:

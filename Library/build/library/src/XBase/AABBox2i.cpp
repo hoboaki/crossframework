@@ -7,6 +7,7 @@
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
 //------------------------------------------------------------------------------
 const AABBox2i AABBox2i::Largest()
 {
@@ -15,28 +16,28 @@ const AABBox2i AABBox2i::Largest()
 
 //------------------------------------------------------------------------------
 AABBox2i::AABBox2i()
-    : mMin(Vector2i::Zero())
-    , mTerm(mMin)
+: mMin(Vector2i::Zero())
+, mTerm(mMin)
 {
 }
 
 //------------------------------------------------------------------------------
 AABBox2i::AABBox2i(const Vector2iPOD& aBegin)
-    : mMin(aBegin)
-    , mTerm(mMin)
+: mMin(aBegin)
+, mTerm(mMin)
 {
 }
 
 //------------------------------------------------------------------------------
 AABBox2i::AABBox2i(
-    const Vector2iPOD& aBegin
-    , const uint aWidth
-    , const uint aHeight
-)
-    : mMin(aBegin)
-    , mTerm(
-        aBegin.x + reinterpret_cast<const int&>(aWidth)
-        , aBegin.y + reinterpret_cast<const int&>(aHeight)
+    const Vector2iPOD& aBegin,
+    const uint aWidth,
+    const uint aHeight
+    )
+: mMin(aBegin)
+, mTerm(
+    aBegin.x + reinterpret_cast<const int&>(aWidth),
+    aBegin.y + reinterpret_cast<const int&>(aHeight)
     )
 {
     XBASE_RANGE_ASSERT_EMAX(mMin.x, mTerm.x);
@@ -93,10 +94,10 @@ const AABBox2i AABBox2i::toPositive()const
     const Vector2i newTerm = mTerm.max(Vector2i::Zero());
     const Vector2i newSize = newTerm - newMin;
     return AABBox2i(
-        newMin
-        , uint(newSize.x)
-        , uint(newSize.y)
-    );
+        newMin,
+        uint(newSize.x),
+        uint(newSize.y)
+        );
 }
 
 //------------------------------------------------------------------------------
@@ -201,9 +202,9 @@ AABBox2i& AABBox2i::operator-=(const Vector2iPOD& aTrans)
 const AABBox2 AABBox2i::toAABB2f()const
 {
     return AABBox2(
-        min().toXYf(),
-        , term().toXYf()
-    );
+        min().toXYf(),,
+        term().toXYf()
+        );
 }
 
 } // namespace

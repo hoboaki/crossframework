@@ -10,22 +10,23 @@
 
 //------------------------------------------------------------------------------
 namespace XG3D {
+
 //------------------------------------------------------------------------------
 VtxBuffer::VtxBuffer(
-    const uint aMeshCountMax
-    , const uint aVertexCountMax
-    , ::XBase::IAllocator& aAllocator
-)
-    : mVertexArray(aVertexCountMax, aAllocator)
-    , mIndexArray((aVertexCountMax * 3) / 2, aAllocator) // 矩形描画をカバーできるようにindex数を1.5倍に。
-    , mMeshArray(aMeshCountMax, aAllocator)
-    , mEXT()
-    , mWorldMtx()
-    , mNormal()
-    , mTexCoord()
-    , mColor()
-    , mIsMeshActive(false)
-    , mIsFlushed(false)
+    const uint aMeshCountMax,
+    const uint aVertexCountMax,
+    ::XBase::IAllocator& aAllocator
+    )
+: mVertexArray(aVertexCountMax, aAllocator)
+, mIndexArray((aVertexCountMax * 3) / 2, aAllocator) // 矩形描画をカバーできるようにindex数を1.5倍に。
+, mMeshArray(aMeshCountMax, aAllocator)
+, mEXT()
+, mWorldMtx()
+, mNormal()
+, mTexCoord()
+, mColor()
+, mIsMeshActive(false)
+, mIsFlushed(false)
 {
     reset();
 }
@@ -376,8 +377,8 @@ void VtxBuffer::draw()
 
 //------------------------------------------------------------------------------
 VtxBuffer_EXT::VtxBuffer_EXT()
-    : vtxBuffer()
-    , idxBuffer()
+: vtxBuffer()
+, idxBuffer()
 {
     XG3D_GLCMD(glGenBuffers(1, &vtxBuffer));
     XG3D_GLCMD(glGenBuffers(1, &idxBuffer));

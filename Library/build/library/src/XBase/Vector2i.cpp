@@ -12,6 +12,7 @@
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
 //------------------------------------------------------------------------------
 const Vector2iPOD Vector2iPOD::Zero()
 {
@@ -380,24 +381,24 @@ const Vector2iPOD Vector2iPOD::operator-()const
 const Vector2iPOD Vector2iPOD::min(const Vector2iPOD& aVal)const
 {
     return Vector2i(
-        Math::Min(x, aVal.x)
-        , Math::Min(y, aVal.y)
-    );
+        Math::Min(x, aVal.x),
+        Math::Min(y, aVal.y)
+        );
 }
 
 //------------------------------------------------------------------------------
 const Vector2iPOD Vector2iPOD::max(const Vector2iPOD& aVal)const
 {
     return Vector2i(
-        Math::Max(x, aVal.x)
-        , Math::Max(y, aVal.y)
-    );
+        Math::Max(x, aVal.x),
+        Math::Max(y, aVal.y)
+        );
 }
 
 //------------------------------------------------------------------------------
 const Vector2iPOD Vector2iPOD::clamp(
-    const Vector2iPOD& aMin
-    , const Vector2iPOD& aMax
+    const Vector2iPOD& aMin,
+    const Vector2iPOD& aMax
 )const
 {
     return max(aMin).min(aMax);
@@ -419,9 +420,9 @@ const Vector2iPOD Vector2iPOD::clampNegative()const
 const Vector2iPOD Vector2iPOD::abs()const
 {
     return Vector2i(
-        Math::AbsS32(x)
-        , Math::AbsS32(y)
-    );
+        Math::AbsS32(x),
+        Math::AbsS32(y)
+        );
 }
 
 //------------------------------------------------------------------------------
@@ -449,21 +450,21 @@ bool Vector2iPOD::isZero()const
 const ::XBase::ShortString Vector2iPOD::toShortString()const
 {
     return ::XBase::ShortString::FromFormat(
-        "%s,%s"
-        , S32(x).toShortString().readPtr()
-        , S32(y).toShortString().readPtr()
-    );
+        "%s,%s",
+        S32(x).toShortString().readPtr(),
+        S32(y).toShortString().readPtr()
+        );
 }
 
 //------------------------------------------------------------------------------
 Vector2i::Vector2i()
-    : Vector2iPOD(Zero())
+: Vector2iPOD(Zero())
 {
 }
 
 //------------------------------------------------------------------------------
 Vector2i::Vector2i(const Vector2iPOD& aVec)
-    : Vector2iPOD(aVec)
+: Vector2iPOD(aVec)
 {
 }
 

@@ -9,6 +9,7 @@
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
 //------------------------------------------------------------------------------
 uint Display::screenCount()const
 {
@@ -43,9 +44,9 @@ bool Display::isClosed()const
 
 //------------------------------------------------------------------------------
 Display_EXT::Display_EXT(const DisplayContext& aContext)
-    : windowPtr(0)
-    , mainScreen()
-    , hidPtr()
+: windowPtr(0)
+, mainScreen()
+, hidPtr()
 {
     // Window作成
     windowPtr = XBaseUIWindow_Create();

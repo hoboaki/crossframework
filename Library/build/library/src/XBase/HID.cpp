@@ -9,10 +9,11 @@
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
 //------------------------------------------------------------------------------
 HID::HID(Display& aDisplay)
-    : mDisplay(aDisplay)
-    , mEXT()
+: mDisplay(aDisplay)
+, mEXT()
 {
     mDisplay.ext_().hidPtr.set(*this);
 }
