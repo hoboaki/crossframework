@@ -3,7 +3,6 @@
 #else
 #define XG3D_INCLUDED_RESMDLMATREFERIMPL_HPP
 
-//------------------------------------------------------------------------------
 #include <XBase/IAllocator.hpp>
 #include <XBase/NonCopyable.hpp>
 #include "BinResMdlMatRefer.hpp"
@@ -11,6 +10,7 @@
 
 //------------------------------------------------------------------------------
 namespace XG3D {
+
     // BinResMdlMatReferとResMdlMatReferの間にかますクラス。
     class ResMdlMatReferImpl : public ::XBase::NonCopyable
     {

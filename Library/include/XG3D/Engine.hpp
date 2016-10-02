@@ -3,10 +3,8 @@
 #else
 #define XG3D_INCLUDED_ENGINE_HPP
 
-//------------------------------------------------------------------------------
 #include <XBase/OS.hpp>
 
-//------------------------------------------------------------------------------
 /// @addtogroup XG3D-Env
 //@{
 
@@ -45,16 +43,17 @@
 //@}
 //------------------------------------------------------------------------------
 namespace XG3D {
+
     // エンジンの種類。
-    enum Engine
-    {
-        Engine_GL,
-        Engine_GLES,
-        // term
-        Engine_TERMINATE,
-        Engine_MIN = 0,
-        Engine_MAX = Engine_TERMINATE-1
-    };
+enum Engine
+{
+    Engine_GL,
+    Engine_GLES,
+    // term
+    Engine_TERMINATE,
+    Engine_MIN = 0,
+    Engine_MAX = Engine_TERMINATE - 1
+};
 
 } // namespace
 #endif

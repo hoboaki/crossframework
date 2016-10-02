@@ -3,7 +3,6 @@
 #else
 #define XG3D_INCLUDED_RESMDLNODEIMPL_HPP
 
-//------------------------------------------------------------------------------
 #include <XBase/IAllocator.hpp>
 #include <XBase/NonCopyable.hpp>
 #include "BinResMdlNode.hpp"
@@ -11,6 +10,7 @@
 
 //------------------------------------------------------------------------------
 namespace XG3D {
+
     // BinResMdlNodeとResMdlNodeの間にかますクラス。
     class ResMdlNodeImpl : public ::XBase::NonCopyable
     {

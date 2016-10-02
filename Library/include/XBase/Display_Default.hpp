@@ -3,18 +3,18 @@
 #else
 #define XBASE_INCLUDED_DISPLAY_DEFAULT_HPP
 
-//------------------------------------------------------------------------------
 #include <XBase/DisplayContext.hpp>
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
     // デフォルト環境でのDisplayの拡張。
-    class Display_EXT
-    {
-    public:    
-        //============================================================
-        Display_EXT( const DisplayContext& ) {}
-    };
+class Display_EXT
+{
+public:
+    //============================================================
+    Display_EXT(const DisplayContext&) {}
+};
 
 } // namespace
 #endif

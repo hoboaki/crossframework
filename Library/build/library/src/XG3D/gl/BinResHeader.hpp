@@ -3,12 +3,12 @@
 #else
 #define XG3D_INCLUDED_BINRESHEADER_HPP
 
-//------------------------------------------------------------------------------
 #include <XG3D/BuiltInTypes.hpp>
 #include <XData/XData.hpp>
 
 //------------------------------------------------------------------------------
 namespace XG3D {
+
     /// バイナリデータ：ヘッダ。
     struct BinResHeader
     {

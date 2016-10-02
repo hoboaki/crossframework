@@ -3,7 +3,6 @@
 #else
 #define XG3D_INCLUDED_RESMDLSHAPEIMPL_HPP
 
-//------------------------------------------------------------------------------
 #include <XBase/IAllocator.hpp>
 #include <XBase/NonCopyable.hpp>
 #include <XG3D/SDKHeader.hpp>
@@ -12,6 +11,7 @@
 
 //------------------------------------------------------------------------------
 namespace XG3D {
+
     // BinResMdlShapeとResMdlShapeの間にかますクラス。
     class ResMdlShapeImpl : public ::XBase::NonCopyable
     {

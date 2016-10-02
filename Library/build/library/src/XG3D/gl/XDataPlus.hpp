@@ -3,12 +3,12 @@
 #else
 #define XG3D_INCLUDED_XDATAPLUS_HPP
 
-//------------------------------------------------------------------------------
 #include <XBase/RuntimeAssert.hpp>
 #include <XData/XData.hpp>
 
 //------------------------------------------------------------------------------
 namespace XG3D {
+
     // 機能拡張したXDataクラス。
     class XDataPlus : public ::XData::XData
     {

@@ -3,20 +3,19 @@
 #else
 #define XG3D_INCLUDED_RESMDLSUBMESHIMPL_HPP
 
-//------------------------------------------------------------------------------
 #include <XBase/IAllocator.hpp>
 #include <XBase/NonCopyable.hpp>
 #include <XG3D/ResMdlShape.hpp>
 #include "BinResMdlSubMesh.hpp"
 #include "XDataPlus.hpp"
 
-//------------------------------------------------------------------------------
 namespace XG3D {
     class ResMdl;
 }
 
 //------------------------------------------------------------------------------
 namespace XG3D {
+
     // BinResMdlSubMeshとResMdlSubMeshの間にかますクラス。
     class ResMdlSubMeshImpl : public ::XBase::NonCopyable
     {

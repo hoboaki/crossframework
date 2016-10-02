@@ -5,17 +5,18 @@
 
 //------------------------------------------------------------------------------
 namespace XG3D {
+
 /// @addtogroup XG3D-Enum
 //@{
     /// テクスチャのID。
-    enum TexId
-    {
-        TexId_0, ///< 0番。
-        // term
-        TexId_TERMINATE,
-        TexId_MIN = 0,
-        TexId_MAX = TexId_TERMINATE
-    };
+enum TexId
+{
+    TexId_0, ///< 0番。
+    // term
+    TexId_TERMINATE,
+    TexId_MIN = 0,
+    TexId_MAX = TexId_TERMINATE
+};
 //@}
 
 } // namespace

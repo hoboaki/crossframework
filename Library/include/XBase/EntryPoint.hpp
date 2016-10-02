@@ -5,10 +5,10 @@
 
 //------------------------------------------------------------------------------
 namespace XBase {
-    class Application;
+
+class Application;
 }
 
-//------------------------------------------------------------------------------
 /// @addtogroup XBase-System
 //@{
 
@@ -23,9 +23,8 @@ namespace XBase {
 ///     return 0;
 /// }
 /// @endcode
-extern int xmain( ::XBase::Application& aApp );
+extern int xmain(::XBase::Application& aApp);
 
 //@}
-//------------------------------------------------------------------------------
 #endif
 // EOF

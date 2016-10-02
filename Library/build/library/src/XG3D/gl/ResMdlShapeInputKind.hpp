@@ -3,12 +3,12 @@
 #else
 #define XG3D_INCLUDED_RESMDLSHAPEINPUTKIND_HPP
 
-//------------------------------------------------------------------------------
 #include <XData/XData.hpp>
 #include <XG3D/BuiltInTypes.hpp>
 
 //------------------------------------------------------------------------------
 namespace XG3D {
+
     // シェイプ入力データの種類。
     enum ResMdlShapeInputKind
     {

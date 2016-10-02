@@ -3,19 +3,19 @@
 #else
 #define XBASE_INCLUDED_KEYBOARDUPDATEDATA_HPP
 
-//------------------------------------------------------------------------------
 #include <XBase/KeyBitSet.hpp>
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
 /// @addtogroup XBase-HID
 //@{
     /// キーボードの更新データ。
-    struct KeyboardUpdateData
-    {
-        KeyBitSet hold;
-        KeyBitSet pulse;
-    };
+struct KeyboardUpdateData
+{
+    KeyBitSet hold;
+    KeyBitSet pulse;
+};
 //@}
 
 } // namespace

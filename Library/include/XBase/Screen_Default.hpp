@@ -5,11 +5,12 @@
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
     //デフォルト環境でのScreenの拡張。
-    class Screen_EXT
-    {
-    public:
-    };
+class Screen_EXT
+{
+public:
+};
 
 } // namespace
 #endif

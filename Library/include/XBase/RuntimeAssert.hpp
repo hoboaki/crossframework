@@ -3,7 +3,6 @@
 #else
 #define XBASE_INCLUDED_RUNTIMEASSERT_HPP
 
-//------------------------------------------------------------------------------
 #include <XBase/BuiltInTypes.hpp>
 #include <XBase/Console.hpp>
 #include <XBase/PointerCheck.hpp>
@@ -14,16 +13,18 @@
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
     // 実行時Assertを扱う空間。
-    struct RuntimeAssert
-    {
-        static const char* const Separator;      // 分離する文字列。
-        static const char* const Header;         // ヘッダ。
-        static const char* const FileLineFmt;    // ファイルと行数。
-        static const char* const LabelCondition; // ラベル:Condition。
-        static const char* const LabelMessage;   // ラベル:Message。
-    };
-}
+struct RuntimeAssert
+{
+    static const char* const Separator;      // 分離する文字列。
+    static const char* const Header;         // ヘッダ。
+    static const char* const FileLineFmt;    // ファイルと行数。
+    static const char* const LabelCondition; // ラベル:Condition。
+    static const char* const LabelMessage;   // ラベル:Message。
+};
+
+} // namespace
 
 // 実行時Assertの本体。XBASE_CONFIG_ENABLE_RUNTIME_ERRORが定義されているときに動作。
 #if defined(XBASE_CONFIG_ENABLE_RUNTIME_ERROR)
@@ -50,7 +51,6 @@ namespace XBase {
 #endif
 //@}
 
-//------------------------------------------------------------------------------
 /// @addtogroup XBase-Debug
 //@{
 /// @name 実行時アサート
@@ -284,6 +284,5 @@ namespace XBase {
     , XBASE_TO_SHORT_STRING( aMinVal ).readPtr() \
     )
 
-//------------------------------------------------------------------------------
 #endif
 // EOF

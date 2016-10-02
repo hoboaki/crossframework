@@ -3,25 +3,25 @@
 #else
 #define XBASE_INCLUDED_DIVIDECHECK_HPP
 
-//------------------------------------------------------------------------------
 #include <XBase/RuntimeAssert.hpp>
 
 //------------------------------------------------------------------------------
 namespace XBase {
-    // 割り算チェックで使うモノたち用空間。
-    struct DivideCheck
-    {
-        // Assert用メッセージ文字列。
-        static const char* const AssertionMessage;
 
-        // アサートで止めつつ引数の値をそのまま返す。
-        template< typename T >
-        static T Error( const T& aRetVal )
-        {
-            XBASE_NOT_REACH_ASSERT_MSG(AssertionMessage);
-            return aRetVal;
-        }
-    };
+    // 割り算チェックで使うモノたち用空間。
+struct DivideCheck
+{
+    // Assert用メッセージ文字列。
+    static const char* const AssertionMessage;
+
+    // アサートで止めつつ引数の値をそのまま返す。
+    template< typename T >
+    static T Error(const T& aRetVal)
+    {
+        XBASE_NOT_REACH_ASSERT_MSG(AssertionMessage);
+        return aRetVal;
+    }
+};
 }
 /// @addtogroup XBase-Debug
 //@{
@@ -49,6 +49,5 @@ namespace XBase {
 
 //@}
 //@}
-//------------------------------------------------------------------------------
 #endif
 // EOF

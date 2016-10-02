@@ -3,12 +3,12 @@
 #else
 #define XBASE_INCLUDED_EXPLICITSINGLETON_HPP
 
-//------------------------------------------------------------------------------
 #include <XBase/NonCopyable.hpp>
 #include <XBase/RuntimeAssert.hpp>
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
 /// @name addtogroup XBase-Util
 //@{
     /// @brief 明示的に生成・解放できるシングルトン。
@@ -38,69 +38,69 @@ namespace XBase {
     ///     return Manager::Instance().value();
     /// }
     /// @endcode
-    template< typename T >
-    class ExplicitSingleton : public NonCopyable
+template< typename T >
+class ExplicitSingleton : public NonCopyable
+{
+public:
+    /// @name コンストラクタとデストラクタ
+    //@{
+    ExplicitSingleton()
     {
-    public:
-        /// @name コンストラクタとデストラクタ
-        //@{
-        ExplicitSingleton()
-        {
-            XBASE_ASSERT( !IsCreated() );
-        }
-        ~ExplicitSingleton()
-        {
-            XBASE_ASSERT( !IsCreated() );
-        }
-        //@}
+        XBASE_ASSERT(!IsCreated());
+    }
+    ~ExplicitSingleton()
+    {
+        XBASE_ASSERT(!IsCreated());
+    }
+    //@}
 
-        /// @name アクセス
-        //@{
-        static inline T& Instance(); ///< 作成済みのインスタンスにアクセス。 @details もし作成していない状態でこの関数を呼ぶとエラーになります。
-        static inline bool IsCreated(); ///< 作成済みならtrueを返す。
-        //@}
+    /// @name アクセス
+    //@{
+    static inline T& Instance(); ///< 作成済みのインスタンスにアクセス。 @details もし作成していない状態でこの関数を呼ぶとエラーになります。
+    static inline bool IsCreated(); ///< 作成済みならtrueを返す。
+    //@}
 
-    protected:
-        /// インスタンス化が終わったときに呼ぶ。
-        inline void SetInstance( T& );
+protected:
+    /// インスタンス化が終わったときに呼ぶ。
+    inline void SetInstance(T&);
 
-        /// インスタンス化を解除したいときに呼ぶ。
-        inline void UnsetInstance();
+    /// インスタンス化を解除したいときに呼ぶ。
+    inline void UnsetInstance();
 
-    private:
-        static T* sPtr;
-    };
+private:
+    static T* sPtr;
+};
 //@}
-    
-    template< typename T >
-    T& ExplicitSingleton<T>::Instance()
-    {
-        XBASE_ASSERT( IsCreated() );
-        return *sPtr;
-    }
 
-    template< typename T >
-    bool ExplicitSingleton<T>::IsCreated()
-    {
-        return sPtr != 0;
-    }
+template< typename T >
+T& ExplicitSingleton<T>::Instance()
+{
+    XBASE_ASSERT(IsCreated());
+    return *sPtr;
+}
 
-    template< typename T >
-    void ExplicitSingleton<T>::SetInstance( T& aRef )
-    {
-        XBASE_ASSERT( !IsCreated() );
-        sPtr = &aRef;
-    }
-    
-    template< typename T >
-    void ExplicitSingleton<T>::UnsetInstance()
-    {
-        XBASE_ASSERT( IsCreated() );
-        sPtr = 0;
-    }
+template< typename T >
+bool ExplicitSingleton<T>::IsCreated()
+{
+    return sPtr != 0;
+}
 
-    template< typename T >
-    T* ExplicitSingleton<T>::sPtr = 0;
+template< typename T >
+void ExplicitSingleton<T>::SetInstance(T& aRef)
+{
+    XBASE_ASSERT(!IsCreated());
+    sPtr = &aRef;
+}
+
+template< typename T >
+void ExplicitSingleton<T>::UnsetInstance()
+{
+    XBASE_ASSERT(IsCreated());
+    sPtr = 0;
+}
+
+template< typename T >
+T* ExplicitSingleton<T>::sPtr = 0;
 
 } // namespace
 #endif

@@ -3,33 +3,32 @@
 #else
 #define XBASE_INCLUDED_DISPLAY_IOS_HPP
 
-//------------------------------------------------------------------------------
 #include <XBase/DisplayContext.hpp>
 #include <XBase/Placement.hpp>
 #include <XBase/Pointer.hpp>
 #include <XBase/Screen.hpp>
 
-//------------------------------------------------------------------------------
 struct XBaseUIWindow;
 namespace XBase {
-    class HID;
+class HID;
 }
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
     // MacOSX環境でのDisplayの拡張。
-    class Display_EXT
-    {
-    public:        
-        //============================================================
-        XBaseUIWindow* windowPtr;
-        Placement< Screen > mainScreen;
-        Pointer< HID > hidPtr;
-        
-        //============================================================
-        Display_EXT( const DisplayContext& );
-        ~Display_EXT();
-    };
+class Display_EXT
+{
+public:
+    //============================================================
+    XBaseUIWindow* windowPtr;
+    Placement< Screen > mainScreen;
+    Pointer< HID > hidPtr;
+
+    //============================================================
+    Display_EXT(const DisplayContext&);
+    ~Display_EXT();
+};
 
 } // namespace
 #endif

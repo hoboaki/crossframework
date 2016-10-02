@@ -3,7 +3,6 @@
 #else
 #define XBASE_INCLUDED_XBASE_HPP
 
-//------------------------------------------------------------------------------
 /// @namespace XBase XLibraryの基本となるクラス・関数・マクロ群を定義する名前空間。
 
 /// @defgroup XBase-Collection XBase:コレクション
@@ -118,6 +117,5 @@
 #include <XBase/PODTypes.hpp>
 #include <XBase/ScalerClass.hpp>
 
-//------------------------------------------------------------------------------
 #endif
 // EOF

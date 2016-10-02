@@ -1,24 +1,19 @@
-/*
- * @file
- * @brief ResMat型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_RESMAT_HPP)
 #else
 #define XG3D_INCLUDED_RESMAT_HPP
 
-//------------------------------------------------------------------------------
 #include <XBase/Pointer.hpp>
 #include <XG3D/BuiltInTypes.hpp>
 #include <XG3D/ResMatParam.hpp>
 
-//------------------------------------------------------------------------------
 namespace XG3D {
     class ResMatImpl;
 }
 
 //------------------------------------------------------------------------------
 namespace XG3D {
+
 /// @addtogroup XG3D-Res
 //@{
     /// @brief XMATSET::matデータのアクセサ。

@@ -3,12 +3,12 @@
 #else
 #define XG3D_INCLUDED_BINRESMDLSUBMESH_HPP
 
-//------------------------------------------------------------------------------
 #include <XData/XData.hpp>
 #include <XG3D/BuiltInTypes.hpp>
 
 //------------------------------------------------------------------------------
 namespace XG3D {
+
     // バイナリデータ：モデルサブメッシュ。
     struct BinResMdlSubMesh
     {

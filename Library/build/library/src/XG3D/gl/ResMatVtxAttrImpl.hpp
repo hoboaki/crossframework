@@ -3,7 +3,6 @@
 #else
 #define XG3D_INCLUDED_RESMATVTXATTRIMPL_HPP
 
-//------------------------------------------------------------------------------
 #include <XBase/IAllocator.hpp>
 #include <XBase/NonCopyable.hpp>
 #include <XG3D/SDKHeader.hpp>
@@ -12,6 +11,7 @@
 
 //------------------------------------------------------------------------------
 namespace XG3D {
+
     // BinResMatVtxAttrとResMatVtxAttrの間にかますクラス。
     class ResMatVtxAttrImpl : public ::XBase::NonCopyable
     {

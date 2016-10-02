@@ -3,7 +3,6 @@
 #else
 #define XG3D_INCLUDED_RESMATIMPL_HPP
 
-//------------------------------------------------------------------------------
 #include <XBase/IAllocator.hpp>
 #include <XBase/NonCopyable.hpp>
 #include <XBase/Placement.hpp>
@@ -17,6 +16,7 @@
 
 //------------------------------------------------------------------------------
 namespace XG3D {
+
     // BinResMatとResMatの間にかますクラス。
     class ResMatImpl : public ::XBase::NonCopyable
     {

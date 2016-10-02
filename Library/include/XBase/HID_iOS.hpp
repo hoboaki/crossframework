@@ -3,21 +3,21 @@
 #else
 #define XBASE_INCLUDED_HID_IOS_HPP
 
-//------------------------------------------------------------------------------
 #include <XBase/NonCopyable.hpp>
 #include <XBase/Touch.hpp>
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
     // iOSのHID拡張。
-    class HID_EXT : public NonCopyable
-    {
-    public:
-        Touch touch;
-        
-        //------------------------------------------------------------------------------
-        HID_EXT();
-    };
+class HID_EXT : public NonCopyable
+{
+public:
+    Touch touch;
+
+    //------------------------------------------------------------------------------
+    HID_EXT();
+};
 
 } // namespace
 #endif

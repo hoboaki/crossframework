@@ -3,7 +3,6 @@
 #else
 #define XG3D_INCLUDED_BINRESMDLNODE_HPP
 
-//------------------------------------------------------------------------------
 #include <XBase/Matrix34.hpp>
 #include <XBase/Vector3.hpp>
 #include <XData/XData.hpp>
@@ -11,6 +10,7 @@
 
 //------------------------------------------------------------------------------
 namespace XG3D {
+
     // バイナリデータ：モデルノード。
     struct BinResMdlNode
     {

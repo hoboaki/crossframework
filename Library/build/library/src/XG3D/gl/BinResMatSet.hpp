@@ -3,12 +3,12 @@
 #else
 #define XG3D_INCLUDED_BINRESMATSET_HPP
 
-//------------------------------------------------------------------------------
 #include <XData/XData.hpp>
 #include <XG3D/BuiltInTypes.hpp>
 
 //------------------------------------------------------------------------------
 namespace XG3D {
+
     // バイナリデータ：マテリアルセット。
     struct BinResMatSet
     {

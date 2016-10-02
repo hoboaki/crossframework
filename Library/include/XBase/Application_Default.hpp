@@ -5,11 +5,12 @@
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
     // デフォルト環境でのApplicationの拡張。
-    class Application_EXT
-    {
-    public:        
-    };
+class Application_EXT
+{
+public:
+};
 //@}
 
 } // namespace
