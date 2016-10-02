@@ -8,39 +8,43 @@
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
 //------------------------------------------------------------------------------
 namespace {
-    const float tToRadianRate = XBASE_PI / 180.0f;
-}
+
+const float tToRadianRate = XBASE_PI / 180.0f;
+
+} // namespace
+
 //------------------------------------------------------------------------------
 const Angle DegreePOD::toAngle()const
 {
-    return Angle( *this );
+    return Angle(*this);
 }
 
 //------------------------------------------------------------------------------
 const RadianPOD DegreePOD::toRadian()const
 {
-    return Radian( value * tToRadianRate );
+    return Radian(value * tToRadianRate);
 }
 
 //------------------------------------------------------------------------------
-Degree::Degree() 
+Degree::Degree()
     : DegreePOD()
 {
     value = 0;
 }
 
 //------------------------------------------------------------------------------
-Degree::Degree( const float aDegree ) 
+Degree::Degree(const float aDegree)
     : DegreePOD()
 {
     value = aDegree;
 }
 
 //------------------------------------------------------------------------------
-Degree::Degree( const DegreePOD& aVal )
-    : DegreePOD( aVal )
+Degree::Degree(const DegreePOD& aVal)
+    : DegreePOD(aVal)
 {
 }
 

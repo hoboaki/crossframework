@@ -10,11 +10,11 @@
 namespace XG3D {
 
     // バイナリデータ：マテリアル頂点属性。
-    struct BinResMatVtxAttr
-    {    
-        ::XData::Reference symbolName; // Stringではなくchar配列の先頭アドレスなので注意。
-        ::XData::UInt32    bindInputKind; // ResMdlShapeInputKind
-    };
+struct BinResMatVtxAttr
+{
+    ::XData::Reference symbolName; // Stringではなくchar配列の先頭アドレスなので注意。
+    ::XData::UInt32    bindInputKind; // ResMdlShapeInputKind
+};
 
 } // namespace
 #endif

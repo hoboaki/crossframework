@@ -10,19 +10,24 @@
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
 //------------------------------------------------------------------------------
 namespace {
-    class tDefaultAllocatorObj
+
+class tDefaultAllocatorObj
+{
+public:
+    tDefaultAllocatorObj()
+        : ptr(IAllocator::OperatorNewDelete())
     {
-    public:
-        tDefaultAllocatorObj()
-            : ptr( IAllocator::OperatorNewDelete() )
-        {
-        }
-        Pointer< IAllocator > ptr;
-    };
-    tDefaultAllocatorObj tDefaultAllocator;
-}
+    }
+    Pointer< IAllocator > ptr;
+};
+
+tDefaultAllocatorObj tDefaultAllocator;
+
+} // namespace
+
 //------------------------------------------------------------------------------
 IAllocator::~IAllocator()
 {
@@ -35,9 +40,9 @@ IAllocator& IAllocator::Default()
 }
 
 //------------------------------------------------------------------------------
-void IAllocator::SetDefault( IAllocator& aAllocator )
+void IAllocator::SetDefault(IAllocator& aAllocator)
 {
-    tDefaultAllocator.ptr.reset( &aAllocator );
+    tDefaultAllocator.ptr.reset(&aAllocator);
 }
 
 //------------------------------------------------------------------------------
@@ -46,16 +51,16 @@ IAllocator& IAllocator::OperatorNewDelete()
     class OperatorNewDeleteAllocator : public IAllocator
     {
     public:
-        XBASE_OVERRIDE( ptr_t alloc( pword_t aSize , pword_t aAlignment ) )
+        XBASE_OVERRIDE(ptr_t alloc(pword_t aSize, pword_t aAlignment))
         {
-            XBASE_UNUSED( aAlignment );
-            void* ptr = ::operator new( aSize , std::nothrow_t() );
-            XBASE_EQUALS_ASSERT( pword_t( ptr ) % aAlignment , 0 );
-            return static_cast< ptr_t >( ptr );
+            XBASE_UNUSED(aAlignment);
+            void* ptr = ::operator new(aSize, std::nothrow_t());
+            XBASE_EQUALS_ASSERT(pword_t(ptr) % aAlignment, 0);
+            return static_cast<ptr_t>(ptr);
         }
-        XBASE_OVERRIDE( void free( ptr_t aPtr ) )
+        XBASE_OVERRIDE(void free(ptr_t aPtr))
         {
-            ::operator delete( aPtr , std::nothrow_t() );
+            ::operator delete(aPtr, std::nothrow_t());
         }
     };
     static OperatorNewDeleteAllocator obj;
@@ -65,28 +70,27 @@ IAllocator& IAllocator::OperatorNewDelete()
 //------------------------------------------------------------------------------
 }
 //------------------------------------------------------------------------------
-void* operator new( const std::size_t aSize , ::XBase::IAllocator& aAllocator )
+void* operator new(const std::size_t aSize, ::XBase::IAllocator& aAllocator)
 {
-    return aAllocator.alloc( aSize );
+    return aAllocator.alloc(aSize);
 }
 
 //------------------------------------------------------------------------------
-void* operator new[]( const std::size_t aSize , ::XBase::IAllocator& aAllocator )
+void* operator new[](const std::size_t aSize, ::XBase::IAllocator& aAllocator)
 {
-    return aAllocator.alloc( aSize );
+    return aAllocator.alloc(aSize);
 }
 
 //------------------------------------------------------------------------------
-void operator delete( void* aPtr , ::XBase::IAllocator& aAllocator )
+void operator delete(void* aPtr, ::XBase::IAllocator& aAllocator)
 {
-    aAllocator.free( ::XBase::ptr_t( aPtr ) );
+    aAllocator.free(::XBase::ptr_t(aPtr));
 }
 
 //------------------------------------------------------------------------------
-void operator delete[]( void* aPtr , ::XBase::IAllocator& aAllocator )
+void operator delete[](void* aPtr, ::XBase::IAllocator& aAllocator)
 {
-    aAllocator.free( ::XBase::ptr_t( aPtr ) );
+    aAllocator.free(::XBase::ptr_t(aPtr));
 }
 
-//------------------------------------------------------------------------------
 // EOF

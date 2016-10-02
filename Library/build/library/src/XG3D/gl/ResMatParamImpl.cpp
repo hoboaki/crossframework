@@ -7,10 +7,10 @@ namespace XG3D {
 ResMatParamImpl::ResMatParamImpl(
     const ::XData::XData& aXData
     , const BinResMatParam* aBinPtr
-    , ::XBase::IAllocator& 
-    )
-: xdata( aXData.ptr() )
-, binPtr( aBinPtr )
+    , ::XBase::IAllocator&
+)
+    : xdata(aXData.ptr())
+    , binPtr(aBinPtr)
 {
 }
 

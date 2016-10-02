@@ -13,17 +13,17 @@
 namespace XG3D {
 
     // BinResMatParamとResMatParamの間にかますクラス。
-    class ResMatParamImpl : public ::XBase::NonCopyable
-    {
-    public:
-        const XDataPlus  xdata;
-        const BinResMatParam* binPtr;
+class ResMatParamImpl : public ::XBase::NonCopyable
+{
+public:
+    const XDataPlus  xdata;
+    const BinResMatParam* binPtr;
 
-        //============================================================
-        // バイナリデータの先頭アドレスを指定して作成。
-        ResMatParamImpl( const ::XData::XData& aXData , const BinResMatParam* aBinPtr , ::XBase::IAllocator& aAllocator );
-        ~ResMatParamImpl();
-    };
+    //============================================================
+    // バイナリデータの先頭アドレスを指定して作成。
+    ResMatParamImpl(const ::XData::XData& aXData, const BinResMatParam* aBinPtr, ::XBase::IAllocator& aAllocator);
+    ~ResMatParamImpl();
+};
 
 } // namespace
 #endif

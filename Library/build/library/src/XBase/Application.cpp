@@ -8,7 +8,7 @@
 namespace XBase {
 //------------------------------------------------------------------------------
 namespace {
-    Pointer< Application > tPtr;
+Pointer< Application > tPtr;
 }
 //------------------------------------------------------------------------------
 Application& Application::Instance()
@@ -17,13 +17,13 @@ Application& Application::Instance()
 }
 
 //------------------------------------------------------------------------------
-XBase::Application::Application( const Argument& aArgument )
-: mArgument( aArgument )
-, mLastEvent( AppEvent_INVALID )
-, mDisplayPtr()
-, mEXT()
+XBase::Application::Application(const Argument& aArgument)
+    : mArgument(aArgument)
+    , mLastEvent(AppEvent_INVALID)
+    , mDisplayPtr()
+    , mEXT()
 {
-    tPtr.set( *this );
+    tPtr.set(*this);
 }
 
 //------------------------------------------------------------------------------
@@ -52,15 +52,15 @@ AppEvent Application::lastEvent()const
 }
 
 //------------------------------------------------------------------------------
-void Application::registerDisplay_( Display& aDisplay )
+void Application::registerDisplay_(Display& aDisplay)
 {
-    mDisplayPtr.set( aDisplay );
+    mDisplayPtr.set(aDisplay);
 }
 
 //------------------------------------------------------------------------------
-void Application::unregisterDisplay_( Display& aDisplay )
+void Application::unregisterDisplay_(Display& aDisplay)
 {
-    mDisplayPtr.unset( aDisplay );
+    mDisplayPtr.unset(aDisplay);
 }
 
 } // namespace

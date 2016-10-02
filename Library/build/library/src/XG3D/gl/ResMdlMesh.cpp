@@ -14,8 +14,8 @@ ResMdlMesh::ResMdlMesh()
 }
 
 //------------------------------------------------------------------------------
-ResMdlMesh::ResMdlMesh( const ResMdlMeshImpl& aImpl )
-: mPtr( aImpl )
+ResMdlMesh::ResMdlMesh(const ResMdlMeshImpl& aImpl)
+    : mPtr(aImpl)
 {
 }
 
@@ -26,22 +26,22 @@ bool ResMdlMesh::isValid()const
 }
 
 //------------------------------------------------------------------------------
-bool ResMdlMesh::equals( const ResMdlMesh& aRHS )const
+bool ResMdlMesh::equals(const ResMdlMesh& aRHS)const
 {
     return mPtr == aRHS.mPtr;
 }
 
 //------------------------------------------------------------------------------
-bool ResMdlMesh::operator==( const ResMdlMesh& aRHS )const
+bool ResMdlMesh::operator==(const ResMdlMesh& aRHS)const
 {
-    return equals( aRHS );
+    return equals(aRHS);
 }
 
 //------------------------------------------------------------------------------
 uint ResMdlMesh::index()const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return ResConstant::INVALID_MDL_MESH_INDEX;
     }
@@ -52,18 +52,18 @@ uint ResMdlMesh::index()const
 const char* ResMdlMesh::name()const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return "";
     }
-    return mPtr->xdata.ref< ::XData::String >( mPtr->binPtr->name )->toCStr();
+    return mPtr->xdata.ref< ::XData::String >(mPtr->binPtr->name)->toCStr();
 }
 
 //------------------------------------------------------------------------------
 uint ResMdlMesh::subMeshCount()const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return 0;
     }
@@ -71,21 +71,21 @@ uint ResMdlMesh::subMeshCount()const
 }
 
 //------------------------------------------------------------------------------
-ResMdlSubMesh ResMdlMesh::subMesh( const uint aIndex )const
+ResMdlSubMesh ResMdlMesh::subMesh(const uint aIndex)const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return ResMdlSubMesh();
     }
-    return ResMdlSubMesh( mPtr->subMeshImpls->at( aIndex ) );
+    return ResMdlSubMesh(mPtr->subMeshImpls->at(aIndex));
 }
 
 //------------------------------------------------------------------------------
 bool ResMdlMesh::checkInvalid()const
 {
     // 正しければ何もしない
-    if ( isValid() )
+    if (isValid())
     {
         return false;
     }

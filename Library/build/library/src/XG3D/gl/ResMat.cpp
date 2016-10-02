@@ -16,8 +16,8 @@ ResMat::ResMat()
 }
 
 //------------------------------------------------------------------------------
-ResMat::ResMat( const ResMatImpl& aImpl )
-: mPtr( aImpl )
+ResMat::ResMat(const ResMatImpl& aImpl)
+    : mPtr(aImpl)
 {
 }
 
@@ -28,22 +28,22 @@ bool ResMat::isValid()const
 }
 
 //------------------------------------------------------------------------------
-bool ResMat::equals( const ResMat& aRHS )const
+bool ResMat::equals(const ResMat& aRHS)const
 {
     return mPtr == aRHS.mPtr;
 }
 
 //------------------------------------------------------------------------------
-bool ResMat::operator==( const ResMat& aRHS )const
+bool ResMat::operator==(const ResMat& aRHS)const
 {
-    return equals( aRHS );
+    return equals(aRHS);
 }
 
 //------------------------------------------------------------------------------
 uint ResMat::index()const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return ResConstant::INVALID_MAT_INDEX;
     }
@@ -54,18 +54,18 @@ uint ResMat::index()const
 const char* ResMat::name()const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return "";
     }
-    return mPtr->xdata.ref< ::XData::String >( mPtr->binPtr->name )->toCStr();
+    return mPtr->xdata.ref< ::XData::String >(mPtr->binPtr->name)->toCStr();
 }
 
 //------------------------------------------------------------------------------
 uint ResMat::paramCount()const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return 0;
     }
@@ -73,32 +73,32 @@ uint ResMat::paramCount()const
 }
 
 //------------------------------------------------------------------------------
-ResMatParam ResMat::param( const uint aIndex )const
+ResMatParam ResMat::param(const uint aIndex)const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return ResMatParam();
     }
-    return ResMatParam( mPtr->paramImpls->at( aIndex ) );
+    return ResMatParam(mPtr->paramImpls->at(aIndex));
 }
 
 //------------------------------------------------------------------------------
-ResMatParam ResMat::param( const char* aName )const
+ResMatParam ResMat::param(const char* aName)const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return ResMatParam();
-    }    
+    }
 
     // 検索
-    for ( uint i = 0; i < mPtr->paramImpls->count(); ++i )
+    for (uint i = 0; i < mPtr->paramImpls->count(); ++i)
     {
         ResMatParamImpl& impl = mPtr->paramImpls->at(i);
-        if ( ::XBase::StringTraits< char >::Equals( ResMatParam( impl ).name() , aName ) )
+        if (::XBase::StringTraits< char >::Equals(ResMatParam(impl).name(), aName))
         {
-            return ResMatParam( impl );
+            return ResMatParam(impl);
         }
     }
     return ResMatParam();
@@ -114,7 +114,7 @@ const ResMatImpl* ResMat::impl_()const
 bool ResMat::checkInvalid()const
 {
     // 正しければ何もしない
-    if ( isValid() )
+    if (isValid())
     {
         return false;
     }

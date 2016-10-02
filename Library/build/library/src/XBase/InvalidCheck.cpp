@@ -7,17 +7,17 @@
 //------------------------------------------------------------------------------
 namespace XBase {
 //------------------------------------------------------------------------------
-bool PointerCheck::IsValid( const_anyptr_t aPtr )
+bool PointerCheck::IsValid(const_anyptr_t aPtr)
 {
     return aPtr != 0;
 }
 
 //------------------------------------------------------------------------------
-bool PointerCheck::InvalidCheck( const_anyptr_t aPtr )
+bool PointerCheck::InvalidCheck(const_anyptr_t aPtr)
 {
-    if ( !IsValid( aPtr ) )
+    if (!IsValid(aPtr))
     {
-        XBASE_INVALID_VALUE_ERROR( aPtr );
+        XBASE_INVALID_VALUE_ERROR(aPtr);
         return true;
     }
     return false;

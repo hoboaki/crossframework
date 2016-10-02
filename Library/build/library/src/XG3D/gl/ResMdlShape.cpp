@@ -14,8 +14,8 @@ ResMdlShape::ResMdlShape()
 }
 
 //------------------------------------------------------------------------------
-ResMdlShape::ResMdlShape( const ResMdlShapeImpl& aImpl )
-: mPtr( aImpl )
+ResMdlShape::ResMdlShape(const ResMdlShapeImpl& aImpl)
+    : mPtr(aImpl)
 {
 }
 
@@ -26,22 +26,22 @@ bool ResMdlShape::isValid()const
 }
 
 //------------------------------------------------------------------------------
-bool ResMdlShape::equals( const ResMdlShape& aRHS )const
+bool ResMdlShape::equals(const ResMdlShape& aRHS)const
 {
     return mPtr == aRHS.mPtr;
 }
 
 //------------------------------------------------------------------------------
-bool ResMdlShape::operator==( const ResMdlShape& aRHS )const
+bool ResMdlShape::operator==(const ResMdlShape& aRHS)const
 {
-    return equals( aRHS );
+    return equals(aRHS);
 }
 
 //------------------------------------------------------------------------------
 uint ResMdlShape::index()const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return ResConstant::INVALID_MDL_SHAPE_INDEX;
     }
@@ -52,18 +52,18 @@ uint ResMdlShape::index()const
 const char* ResMdlShape::name()const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return "";
     }
-    return mPtr->xdata.ref< ::XData::String >( mPtr->binPtr->name )->toCStr();
+    return mPtr->xdata.ref< ::XData::String >(mPtr->binPtr->name)->toCStr();
 }
 
 //------------------------------------------------------------------------------
 bool ResMdlShape::isSkinning()const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return false;
     }
@@ -80,7 +80,7 @@ const ResMdlShapeImpl* ResMdlShape::impl_()const
 bool ResMdlShape::checkInvalid()const
 {
     // 正しければ何もしない
-    if ( isValid() )
+    if (isValid())
     {
         return false;
     }

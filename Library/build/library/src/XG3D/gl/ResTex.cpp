@@ -16,8 +16,8 @@ ResTex::ResTex()
 }
 
 //------------------------------------------------------------------------------
-ResTex::ResTex( const ResTexImpl& aImpl )
-: mPtr( aImpl )
+ResTex::ResTex(const ResTexImpl& aImpl)
+    : mPtr(aImpl)
 {
 }
 
@@ -28,22 +28,22 @@ bool ResTex::isValid()const
 }
 
 //------------------------------------------------------------------------------
-bool ResTex::equals( const ResTex& aRHS )const
+bool ResTex::equals(const ResTex& aRHS)const
 {
     return mPtr == aRHS.mPtr;
 }
 
 //------------------------------------------------------------------------------
-bool ResTex::operator==( const ResTex& aRHS )const
+bool ResTex::operator==(const ResTex& aRHS)const
 {
-    return equals( aRHS );
+    return equals(aRHS);
 }
 
 //------------------------------------------------------------------------------
 uint ResTex::index()const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return ResConstant::INVALID_TEX_INDEX;
     }
@@ -54,18 +54,18 @@ uint ResTex::index()const
 const char* ResTex::name()const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return "";
     }
-    return mPtr->xdata.ref< ::XData::String >( mPtr->binPtr->name )->toCStr();
+    return mPtr->xdata.ref< ::XData::String >(mPtr->binPtr->name)->toCStr();
 }
 
 //------------------------------------------------------------------------------
 u16 ResTex::width()const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return u16();
     }
@@ -76,7 +76,7 @@ u16 ResTex::width()const
 u16 ResTex::height()const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return u16();
     }
@@ -87,7 +87,7 @@ u16 ResTex::height()const
 ResTexFormat ResTex::format()const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return ResTexFormat_MIN;
     }
@@ -98,7 +98,7 @@ ResTexFormat ResTex::format()const
 const byte_t* ResTex::pixels()const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return 0;
     }
@@ -109,7 +109,7 @@ const byte_t* ResTex::pixels()const
 const TexBuffer* ResTex::texBufferPtr()const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return 0;
     }
@@ -120,7 +120,7 @@ const TexBuffer* ResTex::texBufferPtr()const
 bool ResTex::checkInvalid()const
 {
     // 正しければ何もしない
-    if ( isValid() )
+    if (isValid())
     {
         return false;
     }

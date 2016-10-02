@@ -13,6 +13,5 @@ typedef enum XBaseAppEvent_
     , XBaseAppEvent_INVALID
 } XBaseAppEvent;
 
-//------------------------------------------------------------------------------
 #endif
 // EOF

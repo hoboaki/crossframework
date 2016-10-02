@@ -7,10 +7,10 @@ namespace XG3D {
 ResMatVtxAttrImpl::ResMatVtxAttrImpl(
     const ::XData::XData& aXData
     , const BinResMatVtxAttr* aBinPtr
-    , ::XBase::IAllocator& 
-    )
-: xdata( aXData.ptr() )
-, binPtr( aBinPtr )
+    , ::XBase::IAllocator&
+)
+    : xdata(aXData.ptr())
+    , binPtr(aBinPtr)
 {
 }
 

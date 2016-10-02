@@ -8,43 +8,43 @@
 namespace XBase {
 //------------------------------------------------------------------------------
 AutoMemBlock::AutoMemBlock()
-: mBlock()
-, mAllocatorPtr()
+    : mBlock()
+    , mAllocatorPtr()
 {
 }
 
 //------------------------------------------------------------------------------
-AutoMemBlock::AutoMemBlock( 
+AutoMemBlock::AutoMemBlock(
     const pword_t aSize
     , IAllocator& aAllocator
     , const pword_t aAlignment
-    )
-: mBlock()
-, mAllocatorPtr()
+)
+    : mBlock()
+    , mAllocatorPtr()
 {
     // 確保
-    ptr_t ptr = aAllocator.alloc( aSize , aAlignment );
-    if ( ptr == 0 )
+    ptr_t ptr = aAllocator.alloc(aSize, aAlignment);
+    if (ptr == 0)
     {// 失敗
         return;
     }
 
     // 設定
-    mBlock = MemBlock( ptr , aSize );
-    mAllocatorPtr.set( aAllocator );
+    mBlock = MemBlock(ptr, aSize);
+    mAllocatorPtr.set(aAllocator);
 }
 
 //------------------------------------------------------------------------------
-AutoMemBlock::AutoMemBlock( const MemBlock& aBlock , IAllocator& aAllocator )
-: mBlock( aBlock )
-, mAllocatorPtr( aAllocator )
+AutoMemBlock::AutoMemBlock(const MemBlock& aBlock, IAllocator& aAllocator)
+    : mBlock(aBlock)
+    , mAllocatorPtr(aAllocator)
 {
 }
 
 //------------------------------------------------------------------------------
-AutoMemBlock::AutoMemBlock( const AutoMemBlock& aOther )
-: mBlock()
-, mAllocatorPtr() 
+AutoMemBlock::AutoMemBlock(const AutoMemBlock& aOther)
+    : mBlock()
+    , mAllocatorPtr()
 {
     *this = aOther;
 }
@@ -64,11 +64,11 @@ bool AutoMemBlock::isEmpty()const
 //------------------------------------------------------------------------------
 void AutoMemBlock::clear()
 {
-    if ( isEmpty() )
+    if (isEmpty())
     {
         return;
     }
-    mAllocatorPtr->free( mBlock.head() );
+    mAllocatorPtr->free(mBlock.head());
     mAllocatorPtr.reset();
     mBlock = MemBlock();
 }
@@ -76,12 +76,12 @@ void AutoMemBlock::clear()
 //------------------------------------------------------------------------------
 const MemBlock& AutoMemBlock::ref()const
 {
-    XBASE_ASSERT( !isEmpty() );
+    XBASE_ASSERT(!isEmpty());
     return mBlock;
 }
 
 //------------------------------------------------------------------------------
-AutoMemBlock& AutoMemBlock::operator=( const AutoMemBlock& aRHS )
+AutoMemBlock& AutoMemBlock::operator=(const AutoMemBlock& aRHS)
 {
     // まずクリア
     clear();

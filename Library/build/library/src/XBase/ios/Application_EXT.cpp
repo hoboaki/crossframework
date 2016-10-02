@@ -14,48 +14,48 @@ void Application::quit()
 {
     // iOSにはquitするという概念がないので何もしない
 }
-    
+
 //------------------------------------------------------------------------------
 AppEvent Application::receiveEventCore()
 {
     // まずUIMainにシグナル送信して同期する
     XBaseEntryPointSync_UIMainSignal();
     XBaseEntryPointSync_XMainWait();
-    
+
     // 新しいイベントを取得
-    switch( XBaseEntryPointSync_GetAppEvent() )
+    switch (XBaseEntryPointSync_GetAppEvent())
     {
-    case XBaseAppEvent_Quit:
-        return AppEvent_Quit;
-        
-    case XBaseAppEvent_Update:
+        case XBaseAppEvent_Quit:
+            return AppEvent_Quit;
+
+        case XBaseAppEvent_Update:
         {// HIDの更新
-            if ( mDisplayPtr.isValid() )
+            if (mDisplayPtr.isValid())
             {// タッチ入力ポーリング
-                const XBaseUITouchSet* touchSet = XBaseUIWindow_PollTouch( mDisplayPtr->ext_().windowPtr );
-                if ( mDisplayPtr->ext_().hidPtr.isValid() )
+                const XBaseUITouchSet* touchSet = XBaseUIWindow_PollTouch(mDisplayPtr->ext_().windowPtr);
+                if (mDisplayPtr->ext_().hidPtr.isValid())
                 {
                     const uint screenHeight = mDisplayPtr->mainScreen().height();
                     TouchUpdateData data = {};
-                    for ( uint i = 0; i < XBASE_UITOUCHSET_TOUCH_COUNT_MAX; ++i )
+                    for (uint i = 0; i < XBASE_UITOUCHSET_TOUCH_COUNT_MAX; ++i)
                     {
                         const XBaseUITouch& src = touchSet->touches[i];
                         TouchTapUpdateData& dst = data.taps[i];
                         dst.tapCount = src.tapCount;
-                        dst.pos.x = s16( src.tapPosX );
-                        dst.pos.y = s16( screenHeight - 1 - src.tapPosY ); // 左下原点に変換
-                    }                    
-                    mDisplayPtr->ext_().hidPtr->ext_().touch.update( data );
-                }                
+                        dst.pos.x = s16(src.tapPosX);
+                        dst.pos.y = s16(screenHeight - 1 - src.tapPosY); // 左下原点に変換
+                    }
+                    mDisplayPtr->ext_().hidPtr->ext_().touch.update(data);
+                }
             }
         }
         return AppEvent_Update;
-        
-    default:
-        XBASE_NOT_REACH_ASSERT();
-        return AppEvent_MIN;
+
+        default:
+            XBASE_NOT_REACH_ASSERT();
+            return AppEvent_MIN;
     }
-}    
-    
+}
+
 } // namespace
 // EOF

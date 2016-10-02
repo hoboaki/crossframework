@@ -3,7 +3,6 @@
 #else
 #define XG3D_INCLUDED_XG3DNSOPENGLVIEW_H
 
-//------------------------------------------------------------------------------
 struct XBaseNSWindow;
 struct XG3DNSOpenGLView;
 
@@ -16,6 +15,6 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-//------------------------------------------------------------------------------
+
 #endif
 // EOF

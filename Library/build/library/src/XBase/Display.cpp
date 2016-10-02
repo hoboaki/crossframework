@@ -10,19 +10,19 @@
 //------------------------------------------------------------------------------
 namespace XBase {
 //------------------------------------------------------------------------------
-Display::Display( const DisplayContext& aContext )
-: mContext( aContext )
-, mEXT( aContext )
+Display::Display(const DisplayContext& aContext)
+    : mContext(aContext)
+    , mEXT(aContext)
 {
     // 登録
-    Application::Instance().registerDisplay_( *this );
+    Application::Instance().registerDisplay_(*this);
 }
 
 //------------------------------------------------------------------------------
 Display::~Display()
 {
     // 登録解除
-    Application::Instance().unregisterDisplay_( *this );
+    Application::Instance().unregisterDisplay_(*this);
 }
 
 //------------------------------------------------------------------------------

@@ -5,8 +5,8 @@
 namespace XBase {
 //------------------------------------------------------------------------------
 TouchTap::TouchTap()
-: mData()
-, mPrevData()
+    : mData()
+    , mPrevData()
 {
 }
 
@@ -16,10 +16,10 @@ TouchTap::~TouchTap()
 }
 
 //------------------------------------------------------------------------------
-void TouchTap::update( const TouchTapUpdateData& aData )
+void TouchTap::update(const TouchTapUpdateData& aData)
 {
     mPrevData = mData;
-    mData     = aData;
+    mData = aData;
 }
 
 //------------------------------------------------------------------------------

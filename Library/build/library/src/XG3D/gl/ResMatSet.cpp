@@ -16,8 +16,8 @@ ResMatSet::ResMatSet()
 }
 
 //------------------------------------------------------------------------------
-ResMatSet::ResMatSet( const ResMatSetImpl& aImpl )
-: mPtr( aImpl )
+ResMatSet::ResMatSet(const ResMatSetImpl& aImpl)
+    : mPtr(aImpl)
 {
 }
 
@@ -28,22 +28,22 @@ bool ResMatSet::isValid()const
 }
 
 //------------------------------------------------------------------------------
-bool ResMatSet::equals( const ResMatSet& aRHS )const
+bool ResMatSet::equals(const ResMatSet& aRHS)const
 {
     return mPtr == aRHS.mPtr;
 }
 
 //------------------------------------------------------------------------------
-bool ResMatSet::operator==( const ResMatSet& aRHS )const
+bool ResMatSet::operator==(const ResMatSet& aRHS)const
 {
-    return equals( aRHS );
+    return equals(aRHS);
 }
 
 //------------------------------------------------------------------------------
 uint ResMatSet::index()const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return ResConstant::INVALID_MAT_SET_INDEX;
     }
@@ -54,18 +54,18 @@ uint ResMatSet::index()const
 const char* ResMatSet::name()const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return "";
     }
-    return mPtr->xdata.ref< ::XData::String >( mPtr->binPtr->name )->toCStr();
+    return mPtr->xdata.ref< ::XData::String >(mPtr->binPtr->name)->toCStr();
 }
 
 //------------------------------------------------------------------------------
 uint ResMatSet::matCount()const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return 0;
     }
@@ -73,32 +73,32 @@ uint ResMatSet::matCount()const
 }
 
 //------------------------------------------------------------------------------
-ResMat ResMatSet::mat( const uint aIndex )const
+ResMat ResMatSet::mat(const uint aIndex)const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return ResMat();
     }
-    return ResMat( mPtr->matImpls->at( aIndex ) );
+    return ResMat(mPtr->matImpls->at(aIndex));
 }
 
 //------------------------------------------------------------------------------
-ResMat ResMatSet::mat( const char* aName )const
+ResMat ResMatSet::mat(const char* aName)const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return ResMat();
     }
 
     // 検索
-    for ( uint i = 0; i < mPtr->matImpls->count(); ++i )
+    for (uint i = 0; i < mPtr->matImpls->count(); ++i)
     {
         ResMatImpl& impl = mPtr->matImpls->at(i);
-        if ( ::XBase::StringTraits< char >::Equals( ResMat( impl ).name() , aName ) )
+        if (::XBase::StringTraits< char >::Equals(ResMat(impl).name(), aName))
         {
-            return ResMat( impl );
+            return ResMat(impl);
         }
     }
     return ResMat();
@@ -108,7 +108,7 @@ ResMat ResMatSet::mat( const char* aName )const
 bool ResMatSet::checkInvalid()const
 {
     // 正しければ何もしない
-    if ( isValid() )
+    if (isValid())
     {
         return false;
     }

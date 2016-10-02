@@ -8,9 +8,9 @@ const RuntimeTexContext RuntimeTexContext::Create(
     const ResTexFormat aFormat
     , const uint aWidth
     , const uint aHeight
-    )
+)
 {
-    return RuntimeTexContext( aFormat , aWidth , aHeight );
+    return RuntimeTexContext(aFormat, aWidth, aHeight);
 }
 
 //------------------------------------------------------------------------------
@@ -36,10 +36,10 @@ RuntimeTexContext::RuntimeTexContext(
     const ResTexFormat aFormat
     , const uint aWidth
     , const uint aHeight
-    )
-: mFormat( aFormat )
-, mWidth( u16( aWidth ) )
-, mHeight( u16( aHeight ) )
+)
+    : mFormat(aFormat)
+    , mWidth(u16(aWidth))
+    , mHeight(u16(aHeight))
 {
 }
 

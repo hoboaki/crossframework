@@ -5,15 +5,15 @@
 namespace XBase {
 //------------------------------------------------------------------------------
 MemBlock::MemBlock()
-: mAddr( 0 )
-, mSize( 0 )
+    : mAddr(0)
+    , mSize(0)
 {
 }
 
 //------------------------------------------------------------------------------
-MemBlock::MemBlock( const ptr_t aAddr , const pword_t aSize )
-: mAddr( aAddr )
-, mSize( aSize )
+MemBlock::MemBlock(const ptr_t aAddr, const pword_t aSize)
+    : mAddr(aAddr)
+    , mSize(aSize)
 {
 }
 

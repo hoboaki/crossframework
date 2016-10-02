@@ -7,14 +7,13 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-    extern void XBaseNSApp_Initialize();
-    extern void XBaseNSApp_Finalize();
-    extern void XBaseNSApp_PollEvent();
-    extern void XBaseNSApp_Terminate();
+extern void XBaseNSApp_Initialize();
+extern void XBaseNSApp_Finalize();
+extern void XBaseNSApp_PollEvent();
+extern void XBaseNSApp_Terminate();
 #ifdef __cplusplus
 }
 #endif
-//------------------------------------------------------------------------------
+
 #endif
-//------------------------------------------------------------------------------
 // EOF

@@ -8,23 +8,27 @@
 
 //------------------------------------------------------------------------------
 namespace XBase {
+
 //------------------------------------------------------------------------------
 namespace {
-    u64 tCurrentUSec()
+
+u64 tCurrentUSec()
+{
+    LARGE_INTEGER freq;
+    if (QueryPerformanceFrequency(&freq) == TRUE)
     {
-        LARGE_INTEGER freq;
-        if ( QueryPerformanceFrequency(&freq) == TRUE )
-        {
-            LARGE_INTEGER time;
-            QueryPerformanceCounter(&time);
-            return time.QuadPart / ( freq.QuadPart / (1000*1000) );
-        }
-        else
-        {
-            return Time::LocalTime().ticks() / 10;
-        }
+        LARGE_INTEGER time;
+        QueryPerformanceCounter(&time);
+        return time.QuadPart / (freq.QuadPart / (1000 * 1000));
+    }
+    else
+    {
+        return Time::LocalTime().ticks() / 10;
     }
 }
+
+} // namespace
+
 //------------------------------------------------------------------------------
 void Application::quit()
 {
@@ -35,28 +39,28 @@ void Application::quit()
 AppEvent Application::receiveEventCore()
 {
     // 終了要求があったらQuit
-    if ( mEXT.doQuit )
+    if (mEXT.doQuit)
     {
         return AppEvent_Quit;
     }
 
     // ディスプレイのイベントチェック
-    if ( mDisplayPtr.isValid() )
+    if (mDisplayPtr.isValid())
     {
-        mDisplayPtr->ext_().pollEvent( *this );
+        mDisplayPtr->ext_().pollEvent(*this);
     }
 
     // 60フレ同期
     {
         u64 currentUSec = u64();
-        while ( true )
+        while (true)
         {
             currentUSec = tCurrentUSec();
-            if ( mEXT.prevUSec <= currentUSec ) // オーバーフローしていることもあるので。
-            {            
-                if ( currentUSec - mEXT.prevUSec < 16666 )
+            if (mEXT.prevUSec <= currentUSec) // オーバーフローしていることもあるので。
+            {
+                if (currentUSec - mEXT.prevUSec < 16666)
                 {
-                    Thread::Sleep( TimeSpan::FromMilliseconds( 1 ) );
+                    Thread::Sleep(TimeSpan::FromMilliseconds(1));
                     continue;
                 }
             }
@@ -71,8 +75,8 @@ AppEvent Application::receiveEventCore()
 
 //------------------------------------------------------------------------------
 Application_EXT::Application_EXT()
-: prevUSec( tCurrentUSec() )
-, doQuit( false )
+: prevUSec(tCurrentUSec())
+, doQuit(false)
 {
 }
 

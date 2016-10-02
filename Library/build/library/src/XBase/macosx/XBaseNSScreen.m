@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include "XBaseNSScreen.h"
 
-//------------------------------------------------------------------------------
 #import <Cocoa/Cocoa.h>
 
 //------------------------------------------------------------------------------
@@ -24,5 +23,4 @@ void XBaseNSScreen_GetMainScreenVisibleFrame( struct XBaseNSRect* aRect )
     aRect->sizeH   = rect.size.height;
 }
 
-//------------------------------------------------------------------------------
 // EOF

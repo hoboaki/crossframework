@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include "XBaseUIWindow.h"
 
-//------------------------------------------------------------------------------
 #import <UIKit/UIKit.h>
 
 //------------------------------------------------------------------------------
@@ -187,5 +186,4 @@ const XBaseUITouchSet* XBaseUIWindow_PollTouch( struct XBaseUIWindow* aWindow )
     return [window pollTouch];
 }
 
-//------------------------------------------------------------------------------
 // EOF

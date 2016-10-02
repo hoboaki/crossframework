@@ -13,23 +13,23 @@ ResMdlMeshImpl::ResMdlMeshImpl(
     , const BinResMdlMesh* aBinPtr
     , ::XBase::IAllocator& aAllocator
     , const ResMdl& aResMdl
-    )
-: xdata( aXData.ptr() )
-, binPtr( aBinPtr )
-, subMeshImpls()
+)
+    : xdata(aXData.ptr())
+    , binPtr(aBinPtr)
+    , subMeshImpls()
 {
     // subMesh
     {
-        const BinResMdlSubMesh* binArray = xdata.ref< BinResMdlSubMesh >( binPtr->subMeshes );
-        subMeshImpls.init( binPtr->subMeshesCount , ::XBase::Ref( aAllocator ) );
-        for ( uint i = 0; i < binPtr->subMeshesCount; ++i )
+        const BinResMdlSubMesh* binArray = xdata.ref< BinResMdlSubMesh >(binPtr->subMeshes);
+        subMeshImpls.init(binPtr->subMeshesCount, ::XBase::Ref(aAllocator));
+        for (uint i = 0; i < binPtr->subMeshesCount; ++i)
         {
             subMeshImpls->add(
-                ::XBase::Ref( xdata )
+                ::XBase::Ref(xdata)
                 , &binArray[i]
-                , ::XBase::Ref( aAllocator )
-                , ::XBase::Ref( aResMdl )
-                );
+                , ::XBase::Ref(aAllocator)
+                , ::XBase::Ref(aResMdl)
+            );
         }
     }
 }

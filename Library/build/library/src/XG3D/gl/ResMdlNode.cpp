@@ -14,8 +14,8 @@ ResMdlNode::ResMdlNode()
 }
 
 //------------------------------------------------------------------------------
-ResMdlNode::ResMdlNode( const ResMdlNodeImpl& aImpl )
-: mPtr( aImpl )
+ResMdlNode::ResMdlNode(const ResMdlNodeImpl& aImpl)
+    : mPtr(aImpl)
 {
 }
 
@@ -26,33 +26,33 @@ bool ResMdlNode::isValid()const
 }
 
 //------------------------------------------------------------------------------
-bool ResMdlNode::equals( const ResMdlNode& aRHS )const
+bool ResMdlNode::equals(const ResMdlNode& aRHS)const
 {
     return mPtr == aRHS.mPtr;
 }
 
 //------------------------------------------------------------------------------
-bool ResMdlNode::operator==( const ResMdlNode& aRHS )const
+bool ResMdlNode::operator==(const ResMdlNode& aRHS)const
 {
-    return equals( aRHS );
+    return equals(aRHS);
 }
 
 //------------------------------------------------------------------------------
 const char* ResMdlNode::name()const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return "";
     }
-    return mPtr->xdata.ref< ::XData::String >( mPtr->binPtr->name )->toCStr();
+    return mPtr->xdata.ref< ::XData::String >(mPtr->binPtr->name)->toCStr();
 }
 
 //------------------------------------------------------------------------------
 uint ResMdlNode::index()const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return ResConstant::INVALID_MDL_NODE_INDEX;
     }
@@ -63,7 +63,7 @@ uint ResMdlNode::index()const
 uint ResMdlNode::parentNodeIndex()const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return ResConstant::INVALID_MDL_NODE_INDEX;
     }
@@ -74,7 +74,7 @@ uint ResMdlNode::parentNodeIndex()const
 uint ResMdlNode::firstChildNodeIndex()const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return ResConstant::INVALID_MDL_NODE_INDEX;
     }
@@ -85,7 +85,7 @@ uint ResMdlNode::firstChildNodeIndex()const
 uint ResMdlNode::nextSiblingNodeIndex()const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return ResConstant::INVALID_MDL_NODE_INDEX;
     }
@@ -96,7 +96,7 @@ uint ResMdlNode::nextSiblingNodeIndex()const
 ::XBase::Mtx34 ResMdlNode::rtMtx()const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return ::XBase::Mtx34::Identity();
     }
@@ -107,7 +107,7 @@ uint ResMdlNode::nextSiblingNodeIndex()const
 ::XBase::Vec3 ResMdlNode::scale()const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return ::XBase::Vec3::One();
     }
@@ -118,18 +118,18 @@ uint ResMdlNode::nextSiblingNodeIndex()const
 const ::XBase::Mtx34* ResMdlNode::bindPoseMtxPtr()const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return 0;
     }
-    return mPtr->xdata.safeRef< ::XBase::Mtx34 >( mPtr->binPtr->bindPoseMtxRef );
+    return mPtr->xdata.safeRef< ::XBase::Mtx34 >(mPtr->binPtr->bindPoseMtxRef);
 }
 
 //------------------------------------------------------------------------------
 bool ResMdlNode::checkInvalid()const
 {
     // 正しければ何もしない
-    if ( isValid() )
+    if (isValid())
     {
         return false;
     }

@@ -5,15 +5,15 @@
 namespace XBase {
 //------------------------------------------------------------------------------
 Mouse::Mouse()
-: mData()
-, mPos()
-, mTrigger()
-, mRelease()
+    : mData()
+    , mPos()
+    , mTrigger()
+    , mRelease()
 {
 }
 
 //------------------------------------------------------------------------------
-void Mouse::update( const MouseUpdateData& aData )
+void Mouse::update(const MouseUpdateData& aData)
 {
     // メモ
     const MouseUpdateData pre = mData;
@@ -21,12 +21,12 @@ void Mouse::update( const MouseUpdateData& aData )
     mData = aData;
 
     // 更新
-    if ( mData.posUpdated != 0 )
+    if (mData.posUpdated != 0)
     {
         mPos = mData.pos;
     }
     mTrigger = ~pre.hold &  cur.hold;
-    mRelease =  pre.hold & ~cur.hold;
+    mRelease = pre.hold & ~cur.hold;
 }
 
 //------------------------------------------------------------------------------
@@ -48,21 +48,21 @@ const ScreenPosPOD Mouse::pos()const
 }
 
 //------------------------------------------------------------------------------
-bool Mouse::isHold( const MouseBtnKind aKind )const
+bool Mouse::isHold(const MouseBtnKind aKind)const
 {
-    return mData.hold.get( aKind );
+    return mData.hold.get(aKind);
 }
 
 //------------------------------------------------------------------------------
-bool Mouse::isTrigger( const MouseBtnKind aKind )const
+bool Mouse::isTrigger(const MouseBtnKind aKind)const
 {
-    return mTrigger.get( aKind );
+    return mTrigger.get(aKind);
 }
 
 //------------------------------------------------------------------------------
-bool Mouse::isRelease( const MouseBtnKind aKind )const
+bool Mouse::isRelease(const MouseBtnKind aKind)const
 {
-    return mRelease.get( aKind );
+    return mRelease.get(aKind);
 }
 
 //------------------------------------------------------------------------------

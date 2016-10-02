@@ -13,17 +13,17 @@
 namespace XG3D {
 
     // BinResMatVtxAttrとResMatVtxAttrの間にかますクラス。
-    class ResMatVtxAttrImpl : public ::XBase::NonCopyable
-    {
-    public:
-        const XDataPlus  xdata;
-        const BinResMatVtxAttr* binPtr;
+class ResMatVtxAttrImpl : public ::XBase::NonCopyable
+{
+public:
+    const XDataPlus  xdata;
+    const BinResMatVtxAttr* binPtr;
 
-        //============================================================
-        // バイナリデータの先頭アドレスを指定して作成。
-        ResMatVtxAttrImpl( const ::XData::XData& aXData , const BinResMatVtxAttr* aBinPtr , ::XBase::IAllocator& aAllocator );
-        ~ResMatVtxAttrImpl();
-    };
+    //============================================================
+    // バイナリデータの先頭アドレスを指定して作成。
+    ResMatVtxAttrImpl(const ::XData::XData& aXData, const BinResMatVtxAttr* aBinPtr, ::XBase::IAllocator& aAllocator);
+    ~ResMatVtxAttrImpl();
+};
 
 } // namespace
 #endif

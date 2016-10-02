@@ -8,37 +8,40 @@
 namespace XG3D {
 //------------------------------------------------------------------------------
 namespace {
+
     //------------------------------------------------------------------------------
-    struct tEntryHeader
-    {
-        ::XData::UInt32     count;
-        ::XData::Reference  entries[1]; // 本当は無限長配列
-    };
-}
+struct tEntryHeader
+{
+    ::XData::UInt32     count;
+    ::XData::Reference  entries[1]; // 本当は無限長配列
+};
+
+} // namespace
+
 //------------------------------------------------------------------------------
 ResMatSetImpl::ResMatSetImpl(
     const ::XData::XData& aXData
     , const BinResMatSet* aBinPtr
     , ::XBase::IAllocator& aAllocator
-    )
-: xdata( aXData.ptr() )
-, binPtr( aBinPtr )
-, matImpls()
-{    
+)
+    : xdata(aXData.ptr())
+    , binPtr(aBinPtr)
+    , matImpls()
+{
     // mat
     {
-        const tEntryHeader* header = xdata.ref< tEntryHeader >( binPtr->mats );
-        matImpls.init( header->count , ::XBase::Ref( aAllocator ) );
-        for ( uint i = 0; i < header->count; ++i )
+        const tEntryHeader* header = xdata.ref< tEntryHeader >(binPtr->mats);
+        matImpls.init(header->count, ::XBase::Ref(aAllocator));
+        for (uint i = 0; i < header->count; ++i)
         {
             matImpls->add(
-                ::XBase::Ref( xdata )
-                , xdata.ref< BinResMat >( header->entries[i] )
-                , ::XBase::Ref( aAllocator )
-                );
+                ::XBase::Ref(xdata)
+                , xdata.ref< BinResMat >(header->entries[i])
+                , ::XBase::Ref(aAllocator)
+            );
         }
-    }    
-        
+    }
+
 }
 
 //------------------------------------------------------------------------------
@@ -50,7 +53,7 @@ ResMatSetImpl::~ResMatSetImpl()
 //------------------------------------------------------------------------------
 void ResMatSetImpl::setup()
 {
-    for ( uint i = 0; i < matImpls->count(); ++i )
+    for (uint i = 0; i < matImpls->count(); ++i)
     {
         matImpls->at(i).setup();
     }
@@ -60,9 +63,9 @@ void ResMatSetImpl::setup()
 void ResMatSetImpl::release()
 {
     // setupと逆順
-    for ( uint i = matImpls->count(); 0 < i; --i )
+    for (uint i = matImpls->count(); 0 < i; --i)
     {
-        matImpls->at(i-1).release();
+        matImpls->at(i - 1).release();
     }
 }
 

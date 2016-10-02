@@ -10,13 +10,13 @@
 namespace XG3D {
 
     // バイナリデータ：マテリアルセット。
-    struct BinResMatSet
-    {
-        ::XData::UInt16    index;
-        ::XData::UInt16    flags;
-        ::XData::Reference name;
-        ::XData::Reference mats;
-    };
+struct BinResMatSet
+{
+    ::XData::UInt16    index;
+    ::XData::UInt16    flags;
+    ::XData::Reference name;
+    ::XData::Reference mats;
+};
 
 } // namespace
 #endif

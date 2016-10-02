@@ -10,15 +10,15 @@
 namespace XG3D {
 
     // バイナリデータ：モデルサブメッシュ。
-    struct BinResMdlSubMesh
-    {
-        ::XData::UInt16 index;
-        ::XData::UInt16 flags;
-        ::XData::UInt16 nodeIdx;        // スキニングの場合はINVALID_NODE_INDEX
-        ::XData::UInt16 shapeIdx;
-        ::XData::UInt16 matReferIdx;
-        ::XData::UInt16 padding;
-    };
+struct BinResMdlSubMesh
+{
+    ::XData::UInt16 index;
+    ::XData::UInt16 flags;
+    ::XData::UInt16 nodeIdx;        // スキニングの場合はINVALID_NODE_INDEX
+    ::XData::UInt16 shapeIdx;
+    ::XData::UInt16 matReferIdx;
+    ::XData::UInt16 padding;
+};
 
 } // namespace
 #endif

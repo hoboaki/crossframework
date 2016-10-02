@@ -11,21 +11,21 @@
 namespace XG3D {
 //------------------------------------------------------------------------------
 StateMdlMaterial::StateMdlMaterial(
-    const ResMdl& aResMdl 
+    const ResMdl& aResMdl
     , const ResMatSet& aResMatSet
     , ::XBase::IAllocator& aAllocator
-    )
-: mResMdl( aResMdl )
-, mMaterials( aResMdl.matReferCount() , aAllocator )
+)
+    : mResMdl(aResMdl)
+    , mMaterials(aResMdl.matReferCount(), aAllocator)
 {
     // 各マテリアルの作成
-    for ( uint i = 0; i < aResMdl.matReferCount(); ++i )
+    for (uint i = 0; i < aResMdl.matReferCount(); ++i)
     {
         mMaterials.add(
-            aResMatSet.mat( aResMdl.matRefer( i ).name() )
-            , ::XBase::Ref( aAllocator )
-            );
-    }    
+            aResMatSet.mat(aResMdl.matRefer(i).name())
+            , ::XBase::Ref(aAllocator)
+        );
+    }
 }
 
 //------------------------------------------------------------------------------
@@ -34,15 +34,15 @@ StateMdlMaterial::~StateMdlMaterial()
 }
 
 //------------------------------------------------------------------------------
-StateMaterial& StateMdlMaterial::material( const uint aMatIndex )
+StateMaterial& StateMdlMaterial::material(const uint aMatIndex)
 {
-    return mMaterials[ aMatIndex ];
+    return mMaterials[aMatIndex];
 }
 
 //------------------------------------------------------------------------------
-const StateMaterial& StateMdlMaterial::material( const uint aMatIndex )const
+const StateMaterial& StateMdlMaterial::material(const uint aMatIndex)const
 {
-    return mMaterials[ aMatIndex ];
+    return mMaterials[aMatIndex];
 }
 
 } // namespace

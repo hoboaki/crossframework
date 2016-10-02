@@ -10,25 +10,25 @@
 #include "XDataPlus.hpp"
 
 namespace XG3D {
-    class ResMdl;
+class ResMdl;
 }
 
 //------------------------------------------------------------------------------
 namespace XG3D {
 
     // BinResMdlSubMeshとResMdlSubMeshの間にかますクラス。
-    class ResMdlSubMeshImpl : public ::XBase::NonCopyable
-    {
-    public:
-        const XDataPlus         xdata;
-        const BinResMdlSubMesh* binPtr;
-        ResMdlShape             resMdlShape;
-        
-        //============================================================
-        // バイナリデータの先頭アドレスを指定して作成。
-        ResMdlSubMeshImpl( const ::XData::XData& aXData , const BinResMdlSubMesh* aBinPtr , ::XBase::IAllocator& aAllocator , const ResMdl& aResMdl );
-        ~ResMdlSubMeshImpl();
-    };
+class ResMdlSubMeshImpl : public ::XBase::NonCopyable
+{
+public:
+    const XDataPlus         xdata;
+    const BinResMdlSubMesh* binPtr;
+    ResMdlShape             resMdlShape;
+
+    //============================================================
+    // バイナリデータの先頭アドレスを指定して作成。
+    ResMdlSubMeshImpl(const ::XData::XData& aXData, const BinResMdlSubMesh* aBinPtr, ::XBase::IAllocator& aAllocator, const ResMdl& aResMdl);
+    ~ResMdlSubMeshImpl();
+};
 
 } // namespace
 #endif

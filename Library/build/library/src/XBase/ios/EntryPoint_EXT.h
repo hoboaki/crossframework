@@ -7,14 +7,16 @@
 #ifdef __cplusplus
 extern "C" {
 #endif    
-    // main�֐��X���b�h
-    extern int mainUI( int aArgCount , char* aArgValues[] );
-    extern int mainC( int aArgCount , char* aArgValues[] , const char* aExeFileName , const char* aExeDirPath );    
-    // xmain�֐��X���b�h
-    extern void* xmainThreadEntryPoint( void* );
-    extern int xmainThreadEntryPointC( void* );
+
+// main関数スレッド
+extern int mainUI(int aArgCount, char* aArgValues[]);
+extern int mainC(int aArgCount, char* aArgValues[], const char* aExeFileName, const char* aExeDirPath);
+// xmain関数スレッド
+extern void* xmainThreadEntryPoint(void*);
+extern int xmainThreadEntryPointC(void*);
+
 #ifdef __cplusplus
-}
+} // extern "C"
 #endif
 //------------------------------------------------------------------------------
 #endif

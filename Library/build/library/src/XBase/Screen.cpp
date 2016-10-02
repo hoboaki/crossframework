@@ -7,15 +7,15 @@
 //------------------------------------------------------------------------------
 namespace XBase {
 //------------------------------------------------------------------------------
-Screen::Screen( 
-    Display_EXT& aOwner 
-    , const uint aWidth 
+Screen::Screen(
+    Display_EXT& aOwner
+    , const uint aWidth
     , const uint aHeight
-    )
-: mOwner( aOwner )
-, mEXT()
-, mWidth( aWidth )
-, mHeight( aHeight )
+)
+    : mOwner(aOwner)
+    , mEXT()
+    , mWidth(aWidth)
+    , mHeight(aHeight)
 {
 }
 
@@ -32,10 +32,10 @@ uint Screen::height()const
 }
 
 //------------------------------------------------------------------------------
-bool Screen::isContains( const ScreenPosPOD& aPos )const
+bool Screen::isContains(const ScreenPosPOD& aPos)const
 {
-    return 0 <= aPos.x && aPos.x < int( mWidth )
-        && 0 <= aPos.y && aPos.y < int( mHeight );
+    return 0 <= aPos.x && aPos.x < int(mWidth)
+        && 0 <= aPos.y && aPos.y < int(mHeight);
 }
 
 //------------------------------------------------------------------------------

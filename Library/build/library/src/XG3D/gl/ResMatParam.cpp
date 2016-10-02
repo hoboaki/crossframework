@@ -14,8 +14,8 @@ ResMatParam::ResMatParam()
 }
 
 //------------------------------------------------------------------------------
-ResMatParam::ResMatParam( const ResMatParamImpl& aImpl )
-: mPtr( aImpl )
+ResMatParam::ResMatParam(const ResMatParamImpl& aImpl)
+    : mPtr(aImpl)
 {
 }
 
@@ -26,22 +26,22 @@ bool ResMatParam::isValid()const
 }
 
 //------------------------------------------------------------------------------
-bool ResMatParam::equals( const ResMatParam& aRHS )const
+bool ResMatParam::equals(const ResMatParam& aRHS)const
 {
     return mPtr == aRHS.mPtr;
 }
 
 //------------------------------------------------------------------------------
-bool ResMatParam::operator==( const ResMatParam& aRHS )const
+bool ResMatParam::operator==(const ResMatParam& aRHS)const
 {
-    return equals( aRHS );
+    return equals(aRHS);
 }
 
 //------------------------------------------------------------------------------
 uint ResMatParam::index()const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return ResConstant::INVALID_MAT_PARAM_INDEX;
     }
@@ -52,18 +52,18 @@ uint ResMatParam::index()const
 const char* ResMatParam::name()const
 {
     // チェック
-    if ( checkInvalid() )
+    if (checkInvalid())
     {
         return "";
     }
-    return mPtr->xdata.ref< ::XData::String >( mPtr->binPtr->name )->toCStr();
+    return mPtr->xdata.ref< ::XData::String >(mPtr->binPtr->name)->toCStr();
 }
 
 //------------------------------------------------------------------------------
 bool ResMatParam::checkInvalid()const
 {
     // 正しければ何もしない
-    if ( isValid() )
+    if (isValid())
     {
         return false;
     }

@@ -7,14 +7,14 @@
 //------------------------------------------------------------------------------
 namespace XBase {
 //------------------------------------------------------------------------------
-Touch::Touch( const uint aTapCount )
-: mTapCount( aTapCount )
-, mData()
-, mTaps()
+Touch::Touch(const uint aTapCount)
+    : mTapCount(aTapCount)
+    , mData()
+    , mTaps()
 {
-    if ( TouchUpdateData::TAP_COUNT_MAX < mTapCount )
+    if (TouchUpdateData::TAP_COUNT_MAX < mTapCount)
     {
-        XBASE_INVALID_VALUE_ERROR( aTapCount );
+        XBASE_INVALID_VALUE_ERROR(aTapCount);
         mTapCount = TouchUpdateData::TAP_COUNT_MAX;
     }
 }
@@ -25,15 +25,15 @@ Touch::~Touch()
 }
 
 //------------------------------------------------------------------------------
-void Touch::update( const TouchUpdateData& aData )
+void Touch::update(const TouchUpdateData& aData)
 {
     // バックアップ
     mData = aData;
 
     // 更新
-    for ( uint i = 0; i < mTapCount; ++i )
+    for (uint i = 0; i < mTapCount; ++i)
     {
-        mTaps[i].update( aData.taps[i] );
+        mTaps[i].update(aData.taps[i]);
     }
 }
 
@@ -50,14 +50,14 @@ uint Touch::tapCount()const
 }
 
 //------------------------------------------------------------------------------
-const TouchTap Touch::tapAtIndex( const uint aIndex )const
+const TouchTap Touch::tapAtIndex(const uint aIndex)const
 {
-    if ( tapCount() <= aIndex )
+    if (tapCount() <= aIndex)
     {
-        XBASE_INVALID_VALUE_ERROR( aIndex );
+        XBASE_INVALID_VALUE_ERROR(aIndex);
         return TouchTap();
     }
-    return mTaps[ aIndex ];
+    return mTaps[aIndex];
 }
 
 } // namespace

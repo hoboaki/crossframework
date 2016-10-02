@@ -10,15 +10,15 @@
 namespace XG3D {
 
     // バイナリデータ：マテリアルパラメータ。
-    struct BinResMatParam
-    {   
-        ::XData::UInt16    index;
-        ::XData::UInt16    flags;
-        ::XData::Reference name;
-        ::XData::Reference symbolName; // Stringではなくcharの配列の先頭アドレスなので注意
-        ::XData::UInt32    type;
-        ::XData::Reference valueRef;
-    };
+struct BinResMatParam
+{
+    ::XData::UInt16    index;
+    ::XData::UInt16    flags;
+    ::XData::Reference name;
+    ::XData::Reference symbolName; // Stringではなくcharの配列の先頭アドレスなので注意
+    ::XData::UInt32    type;
+    ::XData::Reference valueRef;
+};
 
 } // namespace
 #endif

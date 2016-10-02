@@ -7,10 +7,10 @@ namespace XG3D {
 ResMdlMatReferImpl::ResMdlMatReferImpl(
     const ::XData::XData& aXData
     , const BinResMdlMatRefer* aBinPtr
-    , ::XBase::IAllocator& 
-    )
-: xdata( aXData.ptr() )
-, binPtr( aBinPtr )
+    , ::XBase::IAllocator&
+)
+    : xdata(aXData.ptr())
+    , binPtr(aBinPtr)
 {
 }
 

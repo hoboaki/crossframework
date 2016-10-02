@@ -12,10 +12,10 @@ ResMdlSubMeshImpl::ResMdlSubMeshImpl(
     , const BinResMdlSubMesh* aBinPtr
     , ::XBase::IAllocator&
     , const ResMdl& aResMdl
-    )
-: xdata( aXData.ptr() )
-, binPtr( aBinPtr )
-, resMdlShape( aResMdl.shape( binPtr->shapeIdx ) )
+)
+    : xdata(aXData.ptr())
+    , binPtr(aBinPtr)
+    , resMdlShape(aResMdl.shape(binPtr->shapeIdx))
 {
 }
 

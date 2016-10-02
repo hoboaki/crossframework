@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include "XG3DNSOpenGLView.h"
 
-//------------------------------------------------------------------------------
 #include <Cocoa/Cocoa.h>
 #include <OpenGL/gl.h>
 #include <OpenGL/OpenGL.h>
@@ -81,5 +80,4 @@ void XG3DNSOpenGLView_FlushBuffer( struct XG3DNSOpenGLView* aView )
     [[view openGLContext] flushBuffer];
 }
                                                 
-//------------------------------------------------------------------------------
 // EOF

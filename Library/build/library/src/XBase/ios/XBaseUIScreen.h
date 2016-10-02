@@ -16,11 +16,10 @@ struct XBaseUIRect
 #ifdef __cplusplus
 extern "C" {
 #endif
-    extern void XBaseUIScreen_GetMainScreenBounds( struct XBaseUIRect* );
+extern void XBaseUIScreen_GetMainScreenBounds(struct XBaseUIRect*);
 #ifdef __cplusplus
 }
 #endif
-//------------------------------------------------------------------------------
+
 #endif
-//------------------------------------------------------------------------------
 // EOF

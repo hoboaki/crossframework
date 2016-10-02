@@ -10,12 +10,12 @@
 namespace XG3D {
 //------------------------------------------------------------------------------
 TexSetting::TexSetting()
-: mEXT()
-, mIsActive( false )
-, mMinFilter( TexFilter_Nearest )
-, mMagFilter( TexFilter_Nearest )
-, mAddressU( TexAddress_Wrap )
-, mAddressV( TexAddress_Wrap )
+    : mEXT()
+    , mIsActive(false)
+    , mMinFilter(TexFilter_Nearest)
+    , mMagFilter(TexFilter_Nearest)
+    , mAddressU(TexAddress_Wrap)
+    , mAddressV(TexAddress_Wrap)
 {
 }
 
@@ -26,7 +26,7 @@ bool TexSetting::isActive()const
 }
 
 //------------------------------------------------------------------------------
-void TexSetting::setIsActive( const bool aIsActive )
+void TexSetting::setIsActive(const bool aIsActive)
 {
     mIsActive = aIsActive;
 }
@@ -38,7 +38,7 @@ bool TexSetting::isBoundBuffer()const
 }
 
 //------------------------------------------------------------------------------
-void TexSetting::bindBuffer( const TexBuffer& aBuffer )
+void TexSetting::bindBuffer(const TexBuffer& aBuffer)
 {
     mEXT.texId = aBuffer.ext_().texId;
 }
@@ -56,11 +56,11 @@ TexFilter TexSetting::minFilter()const
 }
 
 //------------------------------------------------------------------------------
-void TexSetting::setMinFilter( const TexFilter aFilter )
+void TexSetting::setMinFilter(const TexFilter aFilter)
 {
-    if ( XBASE_ENUM_IS_INVALID( TexFilter , aFilter ) )
+    if (XBASE_ENUM_IS_INVALID(TexFilter, aFilter))
     {
-        XBASE_INVALID_ENUM_ERROR( int( aFilter ) );
+        XBASE_INVALID_ENUM_ERROR(int(aFilter));
         return;
     }
     mMinFilter = aFilter;
@@ -73,11 +73,11 @@ TexFilter TexSetting::magFilter()const
 }
 
 //------------------------------------------------------------------------------
-void TexSetting::setMagFilter( const TexFilter aFilter )
+void TexSetting::setMagFilter(const TexFilter aFilter)
 {
-    if ( XBASE_ENUM_IS_INVALID( TexFilter , aFilter ) )
+    if (XBASE_ENUM_IS_INVALID(TexFilter, aFilter))
     {
-        XBASE_INVALID_ENUM_ERROR( int( aFilter ) );
+        XBASE_INVALID_ENUM_ERROR(int(aFilter));
         return;
     }
     mMagFilter = aFilter;
@@ -90,11 +90,11 @@ TexAddress TexSetting::addressU()const
 }
 
 //------------------------------------------------------------------------------
-void TexSetting::setAddressU( const TexAddress aAddress )
+void TexSetting::setAddressU(const TexAddress aAddress)
 {
-    if ( XBASE_ENUM_IS_INVALID( TexAddress , aAddress ) )
+    if (XBASE_ENUM_IS_INVALID(TexAddress, aAddress))
     {
-        XBASE_INVALID_ENUM_ERROR( int( aAddress ) );
+        XBASE_INVALID_ENUM_ERROR(int(aAddress));
         return;
     }
     mAddressU = aAddress;
@@ -107,11 +107,11 @@ TexAddress TexSetting::addressV()const
 }
 
 //------------------------------------------------------------------------------
-void TexSetting::setAddressV( const TexAddress aAddress )
+void TexSetting::setAddressV(const TexAddress aAddress)
 {
-    if ( XBASE_ENUM_IS_INVALID( TexAddress , aAddress ) )
+    if (XBASE_ENUM_IS_INVALID(TexAddress, aAddress))
     {
-        XBASE_INVALID_ENUM_ERROR( int( aAddress ) );
+        XBASE_INVALID_ENUM_ERROR(int(aAddress));
         return;
     }
     mAddressV = aAddress;
@@ -131,7 +131,7 @@ const TexSetting_EXT& TexSetting::ext_()const
 
 //------------------------------------------------------------------------------
 TexSetting_EXT::TexSetting_EXT()
-: texId( 0 )
+    : texId(0)
 {
 }
 

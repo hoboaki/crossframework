@@ -10,37 +10,37 @@
 namespace XBase {
 //------------------------------------------------------------------------------
 namespace {
-    const float tToDegreeRate = 180.0f / XBASE_PI;
+const float tToDegreeRate = 180.0f / XBASE_PI;
 }
 //------------------------------------------------------------------------------
 const Angle RadianPOD::toAngle()const
 {
-    return Angle( *this );
+    return Angle(*this);
 }
 
 //------------------------------------------------------------------------------
 const DegreePOD RadianPOD::toDegree()const
 {
-    return Degree( value * tToDegreeRate );
+    return Degree(value * tToDegreeRate);
 }
 
 //------------------------------------------------------------------------------
-Radian::Radian() 
+Radian::Radian()
     : RadianPOD()
 {
     value = 0;
 }
 
 //------------------------------------------------------------------------------
-Radian::Radian( const float aRadian ) 
+Radian::Radian(const float aRadian)
     : RadianPOD()
 {
     value = aRadian;
 }
 
 //------------------------------------------------------------------------------
-Radian::Radian( const RadianPOD& aVal )
-    : RadianPOD( aVal )
+Radian::Radian(const RadianPOD& aVal)
+    : RadianPOD(aVal)
 {
 }
 

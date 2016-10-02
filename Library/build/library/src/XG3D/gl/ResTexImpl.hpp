@@ -15,28 +15,28 @@
 namespace XG3D {
 
     // BinResTexとResTexの間にかますクラス。
-    class ResTexImpl : public ::XBase::NonCopyable
-    {
-    public:
-        const XDataPlus     xdata;
-        const BinResTex*    binPtr;
-        const TexBuffer*    texBufferPtr;
+class ResTexImpl : public ::XBase::NonCopyable
+{
+public:
+    const XDataPlus     xdata;
+    const BinResTex*    binPtr;
+    const TexBuffer*    texBufferPtr;
 
-        // ResTexはワーク領域不要
+    // ResTexはワーク領域不要
 
-        //============================================================
-        // バイナリデータの先頭アドレスを指定して作成。
-        ResTexImpl( const ::XData::XData& aXData , const BinResTex* aBinPtr , ::XBase::IAllocator& aAllocator );
-        ~ResTexImpl();
+    //============================================================
+    // バイナリデータの先頭アドレスを指定して作成。
+    ResTexImpl(const ::XData::XData& aXData, const BinResTex* aBinPtr, ::XBase::IAllocator& aAllocator);
+    ~ResTexImpl();
 
-        //============================================================
-        void setup();
-        ResTexFormat format()const;
-        const byte_t* pixels()const;
+    //============================================================
+    void setup();
+    ResTexFormat format()const;
+    const byte_t* pixels()const;
 
-    private:
-        ::XBase::Placement< TexBuffer > mTexBuffer;
-    };
+private:
+    ::XBase::Placement< TexBuffer > mTexBuffer;
+};
 
 } // namespace
 #endif

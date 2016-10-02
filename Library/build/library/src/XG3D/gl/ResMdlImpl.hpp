@@ -18,31 +18,31 @@
 namespace XG3D {
 
     // BinResMdlとResMdlの間にかますクラス。
-    class ResMdlImpl : public ::XBase::NonCopyable
-    {
-    public:
-        typedef ::XBase::RuntimeAutoArray< ResMdlMatReferImpl > MatReferArray;
-        typedef ::XBase::RuntimeAutoArray< ResMdlMeshImpl >     MeshArray;
-        typedef ::XBase::RuntimeAutoArray< ResMdlNodeImpl >     NodeArray;
-        typedef ::XBase::RuntimeAutoArray< ResMdlShapeImpl >    ShapeArray;
+class ResMdlImpl : public ::XBase::NonCopyable
+{
+public:
+    typedef ::XBase::RuntimeAutoArray< ResMdlMatReferImpl > MatReferArray;
+    typedef ::XBase::RuntimeAutoArray< ResMdlMeshImpl >     MeshArray;
+    typedef ::XBase::RuntimeAutoArray< ResMdlNodeImpl >     NodeArray;
+    typedef ::XBase::RuntimeAutoArray< ResMdlShapeImpl >    ShapeArray;
 
-        //============================================================
-        const XDataPlus  xdata;
-        const BinResMdl* binPtr;
-        ::XBase::Placement< ShapeArray >    shapeImpls; // Meshの参照解決で必要なため一番先に宣言
-        ::XBase::Placement< MatReferArray > matReferImpls;
-        ::XBase::Placement< MeshArray >     meshImpls;
-        ::XBase::Placement< NodeArray >     nodeImpls;
+    //============================================================
+    const XDataPlus  xdata;
+    const BinResMdl* binPtr;
+    ::XBase::Placement< ShapeArray >    shapeImpls; // Meshの参照解決で必要なため一番先に宣言
+    ::XBase::Placement< MatReferArray > matReferImpls;
+    ::XBase::Placement< MeshArray >     meshImpls;
+    ::XBase::Placement< NodeArray >     nodeImpls;
 
-        //============================================================
-        // バイナリデータの先頭アドレスを指定して作成。
-        ResMdlImpl( const ::XData::XData& aXData , const BinResMdl* aBinPtr , ::XBase::IAllocator& aAllocator );
-        ~ResMdlImpl();
+    //============================================================
+    // バイナリデータの先頭アドレスを指定して作成。
+    ResMdlImpl(const ::XData::XData& aXData, const BinResMdl* aBinPtr, ::XBase::IAllocator& aAllocator);
+    ~ResMdlImpl();
 
-        //============================================================
-        void setup();
-        void release();
-    };
+    //============================================================
+    void setup();
+    void release();
+};
 
 } // namespace
 #endif

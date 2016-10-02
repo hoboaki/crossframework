@@ -12,17 +12,17 @@
 namespace XG3D {
 
     // BinResMdlMatReferとResMdlMatReferの間にかますクラス。
-    class ResMdlMatReferImpl : public ::XBase::NonCopyable
-    {
-    public:
-        const XDataPlus             xdata;
-        const BinResMdlMatRefer*    binPtr;
-        
-        //============================================================
-        // バイナリデータの先頭アドレスを指定して作成。
-        ResMdlMatReferImpl( const ::XData::XData& aXData , const BinResMdlMatRefer* aBinPtr , ::XBase::IAllocator& aAllocator );
-        ~ResMdlMatReferImpl();
-    };
+class ResMdlMatReferImpl : public ::XBase::NonCopyable
+{
+public:
+    const XDataPlus             xdata;
+    const BinResMdlMatRefer*    binPtr;
+
+    //============================================================
+    // バイナリデータの先頭アドレスを指定して作成。
+    ResMdlMatReferImpl(const ::XData::XData& aXData, const BinResMdlMatRefer* aBinPtr, ::XBase::IAllocator& aAllocator);
+    ~ResMdlMatReferImpl();
+};
 
 } // namespace
 #endif

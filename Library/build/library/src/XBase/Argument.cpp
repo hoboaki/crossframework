@@ -8,16 +8,16 @@
 //------------------------------------------------------------------------------
 namespace XBase {
 //------------------------------------------------------------------------------
-Argument::Argument( 
+Argument::Argument(
     const uint aArgCount
     , const char* const* aArgValues
     , const char* aExeFileName
     , const char* aExeDirPath
-    )
-: mArgCount( aArgCount )
-, mArgValues( aArgValues )
-, mExeFileName( aExeFileName )
-, mExeDirPath( aExeDirPath )
+)
+    : mArgCount(aArgCount)
+    , mArgValues(aArgValues)
+    , mExeFileName(aExeFileName)
+    , mExeDirPath(aExeDirPath)
 {
 }
 
@@ -28,28 +28,28 @@ uint Argument::argCount()const
 }
 
 //------------------------------------------------------------------------------
-const char* Argument::argValue( const uint aIndex )const
+const char* Argument::argValue(const uint aIndex)const
 {
     // 範囲外チェック
-    if ( mArgCount <= aIndex )
+    if (mArgCount <= aIndex)
     {
-        XBASE_INVALID_VALUE_ERROR( aIndex );
+        XBASE_INVALID_VALUE_ERROR(aIndex);
         return "";
     }
 
     // 配列ポインタチェック
-    if ( PointerCheck::InvalidCheck( mArgValues ) )
+    if (PointerCheck::InvalidCheck(mArgValues))
     {
         return "";
     }
-    
+
     // 文字列ポインタチェック
-    const char* value = mArgValues[ aIndex ];
-    if ( PointerCheck::InvalidCheck( value ) )
+    const char* value = mArgValues[aIndex];
+    if (PointerCheck::InvalidCheck(value))
     {
         return "";
     }
-    
+
     // 結果を返す
     return value;
 }
@@ -57,7 +57,7 @@ const char* Argument::argValue( const uint aIndex )const
 //------------------------------------------------------------------------------
 const char* Argument::exeFileName()const
 {
-    if ( PointerCheck::InvalidCheck( mExeFileName ) )
+    if (PointerCheck::InvalidCheck(mExeFileName))
     {
         return "";
     }
@@ -67,7 +67,7 @@ const char* Argument::exeFileName()const
 //------------------------------------------------------------------------------
 const char* Argument::exeDirPath()const
 {
-    if ( PointerCheck::InvalidCheck( mExeDirPath ) )
+    if (PointerCheck::InvalidCheck(mExeDirPath))
     {
         return "";
     }

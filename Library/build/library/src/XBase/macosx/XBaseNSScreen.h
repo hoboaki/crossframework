@@ -16,12 +16,11 @@ struct XBaseNSRect
 #ifdef __cplusplus
 extern "C" {
 #endif
-    extern void XBaseNSScreen_GetMainScreenFrame( struct XBaseNSRect* );
-    extern void XBaseNSScreen_GetMainScreenVisibleFrame( struct XBaseNSRect* );
+extern void XBaseNSScreen_GetMainScreenFrame( struct XBaseNSRect* );
+extern void XBaseNSScreen_GetMainScreenVisibleFrame( struct XBaseNSRect* );
 #ifdef __cplusplus
 }
 #endif
-//------------------------------------------------------------------------------
+
 #endif
-//------------------------------------------------------------------------------
 // EOF

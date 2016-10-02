@@ -9,11 +9,11 @@
 namespace XG3D {
 //------------------------------------------------------------------------------
 StateMaterial::StateMaterial(
-    const ResMat& aResMat 
+    const ResMat& aResMat
     , ::XBase::IAllocator& aAllocator
-    )
-: mResMat( aResMat )
-, mParams( aResMat.paramCount() , aAllocator )
+)
+    : mResMat(aResMat)
+    , mParams(aResMat.paramCount(), aAllocator)
 {
 }
 

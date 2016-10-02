@@ -10,7 +10,7 @@ namespace XG3D {
 //------------------------------------------------------------------------------
 bool BinResHeader::isValid()const
 {
-    if ( versionMajor != VersionMajor
+    if (versionMajor != VersionMajor
         || versionMinor != VersionMinor
         || targetEngine != XG3D_TARGET_ENGINE
         )
@@ -23,7 +23,7 @@ bool BinResHeader::isValid()const
 //------------------------------------------------------------------------------
 bool BinResHeader::checkInvalid()const
 {
-    if ( !isValid() )
+    if (!isValid())
     {
         XBASE_NOT_REACH_ASSERT();
         return true;

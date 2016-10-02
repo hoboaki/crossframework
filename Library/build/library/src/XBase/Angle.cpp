@@ -9,19 +9,19 @@
 namespace XBase {
 //------------------------------------------------------------------------------
 Angle::Angle()
-: mRad( 0 )
+    : mRad(0)
 {
 }
 
 //------------------------------------------------------------------------------
-Angle::Angle( const DegreePOD& aDegree )
-: mRad( aDegree.toRadian().value )
+Angle::Angle(const DegreePOD& aDegree)
+    : mRad(aDegree.toRadian().value)
 {
 }
 
 //------------------------------------------------------------------------------
-Angle::Angle( const RadianPOD& aRadian )
-: mRad( aRadian.value )
+Angle::Angle(const RadianPOD& aRadian)
+    : mRad(aRadian.value)
 {
 }
 
@@ -34,7 +34,7 @@ f32 Angle::rad()const
 //------------------------------------------------------------------------------
 f32 Angle::deg()const
 {
-    return Radian( mRad ).toDegree().value;
+    return Radian(mRad).toDegree().value;
 }
 
 } // namespace

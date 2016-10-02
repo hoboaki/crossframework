@@ -16,12 +16,12 @@ uint HID::keyboardCount()const
 }
 
 //------------------------------------------------------------------------------
-const Keyboard HID::keyboardAtIndex( const uint )const
+const Keyboard HID::keyboardAtIndex(const uint)const
 {
     XBASE_NOT_REACH_ASSERT();
     return Keyboard();
 }
-    
+
 //------------------------------------------------------------------------------
 uint HID::mouseCount()const
 {
@@ -29,7 +29,7 @@ uint HID::mouseCount()const
 }
 
 //------------------------------------------------------------------------------
-const Mouse HID::mouseAtIndex( const uint )const
+const Mouse HID::mouseAtIndex(const uint)const
 {
     XBASE_NOT_REACH_ASSERT();
     return Mouse();
@@ -46,23 +46,23 @@ uint HID::touchCount()const
 {
     return 1;
 }
-    
+
 //------------------------------------------------------------------------------
-const Touch HID::touchAtIndex( const uint aIndex )const
+const Touch HID::touchAtIndex(const uint aIndex)const
 {
-    if ( touchCount() <= aIndex )
+    if (touchCount() <= aIndex)
     {
-        XBASE_INVALID_VALUE_ERROR( aIndex );
-        return Touch( XBASE_UITOUCHSET_TOUCH_COUNT_MAX );
+        XBASE_INVALID_VALUE_ERROR(aIndex);
+        return Touch(XBASE_UITOUCHSET_TOUCH_COUNT_MAX);
     }
     return mEXT.touch;
 }
- 
+
 //------------------------------------------------------------------------------
 HID_EXT::HID_EXT()
-: touch( XBASE_UITOUCHSET_TOUCH_COUNT_MAX )
+: touch(XBASE_UITOUCHSET_TOUCH_COUNT_MAX)
 {
 }
-    
+
 } // namespace
 // EOF

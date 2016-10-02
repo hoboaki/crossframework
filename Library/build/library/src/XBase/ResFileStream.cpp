@@ -9,17 +9,17 @@
 namespace XBase {
 //------------------------------------------------------------------------------
 ResFileStream::ResFileStream()
-: mEXT()
+    : mEXT()
 {
 }
 
 //------------------------------------------------------------------------------
-ResFileStream::ResFileStream( const char* aPath )
-: mEXT()
+ResFileStream::ResFileStream(const char* aPath)
+    : mEXT()
 {
-    const bool result = open( aPath );
-    XBASE_UNUSED( result );
-    XBASE_ASSERT_MSGFMT( result , "Can't open resource file '%s'." , aPath );
+    const bool result = open(aPath);
+    XBASE_UNUSED(result);
+    XBASE_ASSERT_MSGFMT(result, "Can't open resource file '%s'.", aPath);
 }
 
 //------------------------------------------------------------------------------
@@ -29,9 +29,9 @@ pword_t ResFileStream::requireReadBufferAlignment()const
 }
 
 //------------------------------------------------------------------------------
-pword_t ResFileStream::calcReadBufferSize( const pword_t aSize )const
+pword_t ResFileStream::calcReadBufferSize(const pword_t aSize)const
 {
-    return CalcReadBufferSize( aSize );
+    return CalcReadBufferSize(aSize);
 }
 
 } // namespace

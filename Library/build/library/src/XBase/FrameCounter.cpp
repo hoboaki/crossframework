@@ -9,15 +9,15 @@
 namespace XBase {
 //------------------------------------------------------------------------------
 FrameCounter::FrameCounter()
-: mFrame( 0 )
-, mTotalFrame( 0 )
+    : mFrame(0)
+    , mTotalFrame(0)
 {
 }
 
 //------------------------------------------------------------------------------
-FrameCounter::FrameCounter( const uint aTotalFrame )
-: mFrame( 0 )
-, mTotalFrame( aTotalFrame )
+FrameCounter::FrameCounter(const uint aTotalFrame)
+    : mFrame(0)
+    , mTotalFrame(aTotalFrame)
 {
 }
 
@@ -28,16 +28,16 @@ void FrameCounter::reset()
 }
 
 //------------------------------------------------------------------------------
-void FrameCounter::reset( const uint aTotalFrame )
+void FrameCounter::reset(const uint aTotalFrame)
 {
     mFrame = 0;
     mTotalFrame = aTotalFrame;
 }
 
 //------------------------------------------------------------------------------
-void FrameCounter::advance() 
+void FrameCounter::advance()
 {
-    if ( isCounting() )
+    if (isCounting())
     {
         advanceStrict();
     }
@@ -46,7 +46,7 @@ void FrameCounter::advance()
 //------------------------------------------------------------------------------
 void FrameCounter::advanceStrict()
 {
-    if ( isEnd() )
+    if (isEnd())
     {
         XBASE_NOT_REACH_ASSERT();
         return;
@@ -88,13 +88,13 @@ bool FrameCounter::isCounting()const
 //------------------------------------------------------------------------------
 float FrameCounter::rateFrame()const
 {
-    if ( isEnd() )
+    if (isEnd())
     {
         return 1.0f;
     }
     else
     {
-        return XBASE_DIV( float( mFrame ) , mTotalFrame );
+        return XBASE_DIV(float(mFrame), mTotalFrame);
     }
 }
 

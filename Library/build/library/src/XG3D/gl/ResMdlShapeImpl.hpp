@@ -13,32 +13,32 @@
 namespace XG3D {
 
     // BinResMdlShapeとResMdlShapeの間にかますクラス。
-    class ResMdlShapeImpl : public ::XBase::NonCopyable
+class ResMdlShapeImpl : public ::XBase::NonCopyable
+{
+public:
+    struct VtxAttr
     {
-    public:
-        struct VtxAttr
-        {
-            u16   glDataType;
-            u16   glNormalize;
-            const BinResMdlShape::VtxAttrInfo* info;
-        };
-        //============================================================
-        const XDataPlus         xdata;
-        const BinResMdlShape*   binPtr;
-        VtxAttr vtxAttrs[ ResMdlShapeInputKind_TERMINATE ];
-        GLuint idxBuffer;
-        GLuint vtxAttrBuffer;
-        GLuint idxGLDataType;
-
-        //============================================================
-        // バイナリデータの先頭アドレスを指定して作成。
-        ResMdlShapeImpl( const ::XData::XData& aXData , const BinResMdlShape* aBinPtr , ::XBase::IAllocator& aAllocator );
-        ~ResMdlShapeImpl();
-        
-        //============================================================
-        void setup();
-        void release();
+        u16   glDataType;
+        u16   glNormalize;
+        const BinResMdlShape::VtxAttrInfo* info;
     };
+    //============================================================
+    const XDataPlus         xdata;
+    const BinResMdlShape*   binPtr;
+    VtxAttr vtxAttrs[ResMdlShapeInputKind_TERMINATE];
+    GLuint idxBuffer;
+    GLuint vtxAttrBuffer;
+    GLuint idxGLDataType;
+
+    //============================================================
+    // バイナリデータの先頭アドレスを指定して作成。
+    ResMdlShapeImpl(const ::XData::XData& aXData, const BinResMdlShape* aBinPtr, ::XBase::IAllocator& aAllocator);
+    ~ResMdlShapeImpl();
+
+    //============================================================
+    void setup();
+    void release();
+};
 
 } // namespace
 #endif

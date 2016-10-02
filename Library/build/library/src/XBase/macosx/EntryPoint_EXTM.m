@@ -1,6 +1,5 @@
 // 文字コード：UTF-8
 
-//------------------------------------------------------------------------------
 #include <assert.h>
 #include <string.h>
 #include <Cocoa/Cocoa.h>
@@ -67,5 +66,4 @@ int main( const int aArgCount , const char* aArgValues[])
     return result;
 }
 
-//------------------------------------------------------------------------------
 //EOF
