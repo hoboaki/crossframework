@@ -190,6 +190,48 @@ namespace CppCodeModifier
                     }
                     );
             }
+
+            // hpp
+            if (true)
+            {
+                textEditFunc(hppFiles.ToList(),
+                    (lines) =>
+                    {
+                        bool isModify = false;
+                        // 最後のnamespaceのindex
+                        int lastNamespaceIndex = lines.FindLastIndex(x => x.StartsWith("namespace "));
+
+                        int lastSeparatorIndex = lines.Count - 1;
+                        while (0 <= lastSeparatorIndex)
+                        {
+                            lastSeparatorIndex = lines.FindLastIndex(lastSeparatorIndex, x => x == "//------------------------------------------------------------------------------");
+                            if (lastSeparatorIndex < 0)
+                            {
+                                break;
+                            }
+
+                            if (lastSeparatorIndex + 1 == lastNamespaceIndex)
+                            {
+                                // namespace の後に空行があるかどうかチェック
+                                if (lines[lastNamespaceIndex + 1].Trim().Length != 0)
+                                {
+                                    lines.Insert(lastNamespaceIndex + 1, "");
+                                    isModify = true;
+                                }
+                            }
+                            else
+                            {
+                                lines.RemoveAt(lastSeparatorIndex);
+                                isModify = true;
+                            }
+
+                            --lastSeparatorIndex;
+                        }
+
+                        return isModify;
+                    }
+                    );
+            }
         }
     }
 }
