@@ -71,8 +71,8 @@ int xmain(::XBase::Application& aApp)
                     ::XBase::Matrix34::Rotate(
                         ::XBase::Degree(360.0f * rotateFrame.rateFrame()),
                         ::XBase::Vec3::UnitY()
-                    )
-                );
+                        )
+                    );
 
                 // フレームバッファのクリア
                 renderer.fbClear();

@@ -43,7 +43,7 @@ namespace CppCodeModifier
             });
 
             // 先頭のコメントを変更
-            if (true)
+            if (false)
             {
                 textEditFunc(filePaths,
                     (lines) =>
@@ -62,7 +62,7 @@ namespace CppCodeModifier
             }
 
             // ブロックコメントをラインコメントに
-            if (true)
+            if (false)
             {
                 textEditFunc(filePaths,
                     (lines) =>
@@ -120,7 +120,7 @@ namespace CppCodeModifier
             }
 
             // 末尾
-            if (true)
+            if (false)
             {
                 textEditFunc(cppFileList,
                     (lines) =>
@@ -169,7 +169,7 @@ namespace CppCodeModifier
             }
 
             // 80セパレータ
-            if (true)
+            if (false)
             {
                 textEditFunc(filePaths,
                     (lines) =>
@@ -192,7 +192,7 @@ namespace CppCodeModifier
             }
 
             // hpp
-            if (true)
+            if (false)
             {
                 textEditFunc(hppFiles.ToList(),
                     (lines) =>
@@ -262,7 +262,7 @@ namespace CppCodeModifier
             }
 
             // cpp
-            if (true)
+            if (false)
             {
                 textEditFunc(cppFiles.ToList(),
                     (lines) =>
@@ -408,6 +408,34 @@ namespace CppCodeModifier
                             }
                         }
 
+                        return isModify;
+                    }
+                    );
+            }
+
+            // 括弧位置警告
+            if (true)
+            {
+                Console.WriteLine("KakkoCheck: ");
+                textEditFunc(cppFiles.ToList(),
+                    (lines) =>
+                    {
+                        bool isModify = false;
+                        for (int i = 1; i < lines.Count; ++i)
+                        {
+                            var prevLine = lines[i - 1];
+                            var line = lines[i];
+                            if (0 <= line.LastIndexOf(")") &&
+                                line.LastIndexOf(")") == prevLine.LastIndexOf(")")
+                                )
+                            {
+                                if (!prevLine.Contains(";") && line.Trim().Length <= 2)
+                                {
+                                    Console.WriteLine("Line: " + i);
+                                    isModify = true;
+                                }
+                            }
+                        }
                         return isModify;
                     }
                     );
