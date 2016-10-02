@@ -17,7 +17,7 @@ int HID::keyboardCount()const
 }
 
 //------------------------------------------------------------------------------
-const Keyboard HID::keyboardAtIndex(const uint)const
+const Keyboard HID::keyboardAtIndex(const int)const
 {
     XBASE_NOT_REACH_ASSERT();
     return Keyboard();
@@ -30,7 +30,7 @@ int HID::mouseCount()const
 }
 
 //------------------------------------------------------------------------------
-const Mouse HID::mouseAtIndex(const uint)const
+const Mouse HID::mouseAtIndex(const int)const
 {
     XBASE_NOT_REACH_ASSERT();
     return Mouse();
