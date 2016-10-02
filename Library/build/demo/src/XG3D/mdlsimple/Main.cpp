@@ -22,7 +22,7 @@ int xmain(::XBase::Application& aApp)
 
 
     // インスタンス化
-    const ::XG3D::uint mdlIndex = 0; // 先頭のモデルをインスタンス化
+    const int mdlIndex = 0; // 先頭のモデルをインスタンス化
     ::XG3D::ResMdl resMdl = resBin.mdl(mdlIndex);
     ::XG3D::StateMdlTransform stateTransform(resMdl);
     ::XG3D::StateMdlMaterial  stateMaterial(resMdl, resBin.matSet(resMdl.name())); // モデルと同じ名前のMaterialSetを使ってマテリアルをインスタンス化
@@ -88,9 +88,9 @@ int xmain(::XBase::Application& aApp)
                     ));
 
                 // 各メッシュの描画
-                for (::XG3D::uint meshIdx = 0; meshIdx < resMdl.meshCount(); ++meshIdx) {
+                for (int meshIdx = 0; meshIdx < resMdl.meshCount(); ++meshIdx) {
                     ::XG3D::ResMdlMesh mesh = resMdl.mesh(meshIdx);
-                    for (::XG3D::uint subMeshIdx = 0; subMeshIdx < mesh.subMeshCount(); ++subMeshIdx) {
+                    for (int subMeshIdx = 0; subMeshIdx < mesh.subMeshCount(); ++subMeshIdx) {
                         ::XG3D::ResMdlSubMesh subMesh = mesh.subMesh(subMeshIdx);
                         renderer.draw(subMesh, stateTransform, stateMaterial);
                     }

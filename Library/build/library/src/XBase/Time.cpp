@@ -151,14 +151,14 @@ const TimePOD TimePOD::UniversalTime()
 
 //------------------------------------------------------------------------------
 const TimePOD TimePOD::FromDate(
-    const uint aYear,
-    const uint aMonth,
-    const uint aDayOfMonth,
-    const uint aHour,
-    const uint aMin,
-    const uint aSec,
-    const uint aMsec,
-    const uint aUsec
+    const int aYear,
+    const int aMonth,
+    const int aDayOfMonth,
+    const int aHour,
+    const int aMin,
+    const int aSec,
+    const int aMsec,
+    const int aUsec
     )
 {
     const u64 days = Calendar::DaysToDate(aYear, aMonth, aDayOfMonth);
@@ -215,7 +215,7 @@ const CalendarPOD TimePOD::toCalendar()const
 
     {// 日付
         // 西暦1年からの日数に変換
-        const uint days = u32(ticks_ / tUnitTickOfDay);
+        const int days = u32(ticks_ / tUnitTickOfDay);
 
         // その日の0時のカレンダーを取得
         const Calendar theDay = Calendar::FromDays(days);

@@ -11,8 +11,8 @@ namespace XBase {
 
 /// @addtogroup XBase-HID
 //@{
-    /// @brief キーボードのキーのビットセット。
-    /// @details
+/// @brief キーボードのキーのビットセット。
+/// @details
 /// ビットのインデックスは KeyKind を使用しています。
 typedef BitSet< KeyKind_TERMINATE > KeyBitSet;
 //@}

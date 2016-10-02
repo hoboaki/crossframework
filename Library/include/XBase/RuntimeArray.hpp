@@ -31,7 +31,7 @@ public:
     /// @param aAllocator 配列データを確保する際に使用するアロケータ。
     /// @details 
     /// 配列長が0の場合、アロケートは走りません。
-    RuntimeArray(uint aCount, IAllocator& aAllocator = IAllocator::Default())
+    RuntimeArray(int aCount, IAllocator& aAllocator = IAllocator::Default())
         : mAllocator(aAllocator)
         , mCount(aCount)
         , mPtr(0)
@@ -40,7 +40,7 @@ public:
         {
             mPtr = reinterpret_cast<ValueType*>(mAllocator.alloc(sizeof(ValueType) * mCount));
 
-            for (uint i = 0; i < aCount; ++i)
+            for (int i = 0; i < aCount; ++i)
             {
             #if defined(XBASE_COMPILER_MSVC)
             #pragma warning(push)
@@ -60,7 +60,7 @@ public:
         if (mPtr != 0)
         {
             // 逆順でデストラクタを呼び出す
-            for (uint i = mCount; 0 < i; --i)
+            for (int i = mCount; 0 < i; --i)
             {
                 at(i - 1).~ValueType();
             }
@@ -76,13 +76,13 @@ public:
     /// @name アクセス
     //@{
     /// 配列長。
-    uint count()const
+    int count()const
     {
         return mCount;
     }
 
     /// 指定番目の要素にアクセス。
-    ValueType& at(const uint aIndex)
+    ValueType& at(const int aIndex)
     {
         if (mCount <= aIndex)
         {
@@ -93,7 +93,7 @@ public:
     }
 
     /// 指定番目の要素にアクセス。
-    const ValueType& at(const uint aIndex)const
+    const ValueType& at(const int aIndex)const
     {
         if (mCount <= aIndex)
         {
@@ -107,13 +107,13 @@ public:
 
     /// @name 演算子オーバーロード
     //@{
-    ValueType& operator[](const uint aIndex) { return at(aIndex); } ///< at() のエイリアス。
-    const ValueType& operator[](const uint aIndex)const { return at(aIndex); } ///< at()const のエイリアス。
+    ValueType& operator[](const int aIndex) { return at(aIndex); } ///< at() のエイリアス。
+    const ValueType& operator[](const int aIndex)const { return at(aIndex); } ///< at()const のエイリアス。
     //@}
 
 private:
     IAllocator& mAllocator;
-    const uint  mCount;
+    const int  mCount;
     ValueType*  mPtr;
 };
 //@}

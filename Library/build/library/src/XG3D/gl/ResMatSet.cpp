@@ -41,7 +41,7 @@ bool ResMatSet::operator==(const ResMatSet& aRHS)const
 }
 
 //------------------------------------------------------------------------------
-uint ResMatSet::index()const
+int ResMatSet::index()const
 {
     // チェック
     if (checkInvalid()) {
@@ -61,7 +61,7 @@ const char* ResMatSet::name()const
 }
 
 //------------------------------------------------------------------------------
-uint ResMatSet::matCount()const
+int ResMatSet::matCount()const
 {
     // チェック
     if (checkInvalid()) {
@@ -71,7 +71,7 @@ uint ResMatSet::matCount()const
 }
 
 //------------------------------------------------------------------------------
-ResMat ResMatSet::mat(const uint aIndex)const
+ResMat ResMatSet::mat(const int aIndex)const
 {
     // チェック
     if (checkInvalid()) {
@@ -89,7 +89,7 @@ ResMat ResMatSet::mat(const char* aName)const
     }
 
     // 検索
-    for (uint i = 0; i < mPtr->matImpls->count(); ++i) {
+    for (int i = 0; i < mPtr->matImpls->count(); ++i) {
         ResMatImpl& impl = mPtr->matImpls->at(i);
         if (::XBase::StringTraits< char >::Equals(ResMat(impl).name(), aName)) {
             return ResMat(impl);

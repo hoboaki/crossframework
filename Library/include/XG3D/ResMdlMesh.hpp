@@ -40,10 +40,10 @@ public:
 
     /// @name プロパティの取得( isValid() なときしかアクセスできません)
     //@{
-    uint            index()const;                   ///< 自身のインデックス番号。
+    int            index()const;                   ///< 自身のインデックス番号。
     const char*     name()const;                    ///< 名前。
-    uint            subMeshCount()const;            ///< サブメッシュリソースの総数。
-    ResMdlSubMesh   subMesh(uint aIndex)const;    ///< 指定番目のサブメッシュリソースの取得。
+    int            subMeshCount()const;            ///< サブメッシュリソースの総数。
+    ResMdlSubMesh   subMesh(int aIndex)const;    ///< 指定番目のサブメッシュリソースの取得。
     //@}
 
 private:

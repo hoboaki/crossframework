@@ -39,7 +39,7 @@ bool ResMatParam::operator==(const ResMatParam& aRHS)const
 }
 
 //------------------------------------------------------------------------------
-uint ResMatParam::index()const
+int ResMatParam::index()const
 {
     // チェック
     if (checkInvalid()) {

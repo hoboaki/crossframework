@@ -136,13 +136,13 @@ void tUpdateMouseBtn(MouseUpdateData& aData, WPARAM aWParam)
 } // namespace
 
 //------------------------------------------------------------------------------
-uint Display::screenCount()const
+int Display::screenCount()const
 {
     return 1;
 }
 
 //------------------------------------------------------------------------------
-Screen& Display::screenAtIndex(const uint aIndex)
+Screen& Display::screenAtIndex(const int aIndex)
 {
     XBASE_RANGE_ASSERT_MAX(aIndex, screenCount());
     XBASE_UNUSED(aIndex);
@@ -199,7 +199,7 @@ Display_EXT::Display_EXT(const DisplayContext& aContext)
     RegisterClassEx(&windowClass);
 
     // 変数準備
-    const uint style = WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX;
+    const int style = WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX;
 
     // 矩形の計算
     RECT rect = {0, 0, LONG(aContext.width()), LONG(aContext.height())};

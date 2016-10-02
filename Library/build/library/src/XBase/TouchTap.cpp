@@ -30,7 +30,7 @@ const TouchTapUpdateData TouchTap::lastUpdateData()const
 }
 
 //------------------------------------------------------------------------------
-uint TouchTap::tapCount()const
+int TouchTap::tapCount()const
 {
     return mData.tapCount;
 }

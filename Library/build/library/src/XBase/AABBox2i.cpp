@@ -31,8 +31,8 @@ AABBox2i::AABBox2i(const Vector2iPOD& aBegin)
 //------------------------------------------------------------------------------
 AABBox2i::AABBox2i(
     const Vector2iPOD& aBegin,
-    const uint aWidth,
-    const uint aHeight
+    const int aWidth,
+    const int aHeight
     )
 : mMin(aBegin)
 , mTerm(
@@ -69,15 +69,15 @@ const Vector2iPOD AABBox2i::term()const
 }
 
 //------------------------------------------------------------------------------
-uint AABBox2i::width()const
+int AABBox2i::width()const
 {
-    return uint(mTerm.x - mMin.x);
+    return int(mTerm.x - mMin.x);
 }
 
 //------------------------------------------------------------------------------
-uint AABBox2i::height()const
+int AABBox2i::height()const
 {
-    return uint(mTerm.y - mMin.y);
+    return int(mTerm.y - mMin.y);
 }
 
 //------------------------------------------------------------------------------

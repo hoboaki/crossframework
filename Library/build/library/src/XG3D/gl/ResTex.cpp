@@ -41,7 +41,7 @@ bool ResTex::operator==(const ResTex& aRHS)const
 }
 
 //------------------------------------------------------------------------------
-uint ResTex::index()const
+int ResTex::index()const
 {
     // チェック
     if (checkInvalid()) {

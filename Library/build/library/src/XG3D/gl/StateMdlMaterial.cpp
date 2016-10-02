@@ -20,7 +20,7 @@ StateMdlMaterial::StateMdlMaterial(
 , mMaterials(aResMdl.matReferCount(), aAllocator)
 {
     // 各マテリアルの作成
-    for (uint i = 0; i < aResMdl.matReferCount(); ++i) {
+    for (int i = 0; i < aResMdl.matReferCount(); ++i) {
         mMaterials.add(
             aResMatSet.mat(aResMdl.matRefer(i).name()),
             ::XBase::Ref(aAllocator)
@@ -34,13 +34,13 @@ StateMdlMaterial::~StateMdlMaterial()
 }
 
 //------------------------------------------------------------------------------
-StateMaterial& StateMdlMaterial::material(const uint aMatIndex)
+StateMaterial& StateMdlMaterial::material(const int aMatIndex)
 {
     return mMaterials[aMatIndex];
 }
 
 //------------------------------------------------------------------------------
-const StateMaterial& StateMdlMaterial::material(const uint aMatIndex)const
+const StateMaterial& StateMdlMaterial::material(const int aMatIndex)const
 {
     return mMaterials[aMatIndex];
 }

@@ -41,11 +41,11 @@ public:
 
     /// @name プロパティの取得( isValid() なときしかアクセスできません)
     //@{
-    uint index()const;                  ///< 自身のインデックス番号。
+    int index()const;                  ///< 自身のインデックス番号。
     const char* name()const;            ///< 名前。
-    uint parentNodeIndex()const;        ///< @brief 親ノードのノードインデックス番号。 @return 親がなければ ResConstant::INVALID_MDL_NODE_INDEX を返す。
-    uint firstChildNodeIndex()const;    ///< @brief 長男ノードのノードインデックス番号。 @return 子がなければ ResConstant::INVALID_MDL_NODE_INDEX を返す。
-    uint nextSiblingNodeIndex()const;   ///< @brief 次の兄弟ノードのノードインデックス番号。 @return 兄弟がなければ ResConstant::INVALID_MDL_NODE_INDEX を返す。
+    int parentNodeIndex()const;        ///< @brief 親ノードのノードインデックス番号。 @return 親がなければ ResConstant::INVALID_MDL_NODE_INDEX を返す。
+    int firstChildNodeIndex()const;    ///< @brief 長男ノードのノードインデックス番号。 @return 子がなければ ResConstant::INVALID_MDL_NODE_INDEX を返す。
+    int nextSiblingNodeIndex()const;   ///< @brief 次の兄弟ノードのノードインデックス番号。 @return 兄弟がなければ ResConstant::INVALID_MDL_NODE_INDEX を返す。
     ::XBase::Mtx34 rtMtx()const;        ///< RotateTrans行列の初期値。
     ::XBase::Vec3  scale()const;        ///< Scale値の初期値。
     const ::XBase::Mtx34* bindPoseMtxPtr()const; ///< @brief バインドポーズ行列のポインタ。 @return ResMdlレベルでバインドポーズ行列が不要な場合は0を返す。

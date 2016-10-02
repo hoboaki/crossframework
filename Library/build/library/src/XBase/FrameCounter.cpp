@@ -16,7 +16,7 @@ FrameCounter::FrameCounter()
 }
 
 //------------------------------------------------------------------------------
-FrameCounter::FrameCounter(const uint aTotalFrame)
+FrameCounter::FrameCounter(const int aTotalFrame)
 : mFrame(0)
 , mTotalFrame(aTotalFrame)
 {
@@ -29,7 +29,7 @@ void FrameCounter::reset()
 }
 
 //------------------------------------------------------------------------------
-void FrameCounter::reset(const uint aTotalFrame)
+void FrameCounter::reset(const int aTotalFrame)
 {
     mFrame = 0;
     mTotalFrame = aTotalFrame;
@@ -60,14 +60,14 @@ void FrameCounter::toEnd()
 }
 
 //------------------------------------------------------------------------------
-uint FrameCounter::frame()const
+int FrameCounter::frame()const
 {
     return mFrame;
 
 }
 
 //------------------------------------------------------------------------------
-uint FrameCounter::totalFrame()const
+int FrameCounter::totalFrame()const
 {
     return mTotalFrame;
 }

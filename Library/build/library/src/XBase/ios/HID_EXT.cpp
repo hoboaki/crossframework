@@ -11,7 +11,7 @@
 namespace XBase {
 
 //------------------------------------------------------------------------------
-uint HID::keyboardCount()const
+int HID::keyboardCount()const
 {
     return 0;
 }
@@ -24,7 +24,7 @@ const Keyboard HID::keyboardAtIndex(const uint)const
 }
 
 //------------------------------------------------------------------------------
-uint HID::mouseCount()const
+int HID::mouseCount()const
 {
     return 0;
 }
@@ -37,19 +37,19 @@ const Mouse HID::mouseAtIndex(const uint)const
 }
 
 //------------------------------------------------------------------------------
-uint HID::supportedTouchTapCount()const
+int HID::supportedTouchTapCount()const
 {
     return XBASE_UITOUCHSET_TOUCH_COUNT_MAX;
 }
 
 //------------------------------------------------------------------------------
-uint HID::touchCount()const
+int HID::touchCount()const
 {
     return 1;
 }
 
 //------------------------------------------------------------------------------
-const Touch HID::touchAtIndex(const uint aIndex)const
+const Touch HID::touchAtIndex(const int aIndex)const
 {
     if (touchCount() <= aIndex) {
         XBASE_INVALID_VALUE_ERROR(aIndex);

@@ -7,8 +7,8 @@ namespace XG3D {
 //------------------------------------------------------------------------------
 const RuntimeTexContext RuntimeTexContext::Create(
     const ResTexFormat aFormat,
-    const uint aWidth,
-    const uint aHeight
+    const int aWidth,
+    const int aHeight
     )
 {
     return RuntimeTexContext(aFormat, aWidth, aHeight);
@@ -35,8 +35,8 @@ u16 RuntimeTexContext::height()const
 //------------------------------------------------------------------------------
 RuntimeTexContext::RuntimeTexContext(
     const ResTexFormat aFormat,
-    const uint aWidth,
-    const uint aHeight
+    const int aWidth,
+    const int aHeight
     )
 : mFormat(aFormat)
 , mWidth(u16(aWidth))

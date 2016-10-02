@@ -44,7 +44,7 @@ public:
 
     /// @name 行列アクセス
     //@{
-    const ::XBase::Mtx34 worldMtx(uint aNodeIndex)const; ///< 指定番目のノードのワールド行列を取得する。
+    const ::XBase::Mtx34 worldMtx(int aNodeIndex)const; ///< 指定番目のノードのワールド行列を取得する。
     //@}
 
 private:

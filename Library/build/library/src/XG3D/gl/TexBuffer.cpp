@@ -96,13 +96,13 @@ TexBuffer::~TexBuffer()
 }
 
 //------------------------------------------------------------------------------
-uint TexBuffer::imageWidth()const
+int TexBuffer::imageWidth()const
 {
     return mResData.width;
 }
 
 //------------------------------------------------------------------------------
-uint TexBuffer::imageHeight()const
+int TexBuffer::imageHeight()const
 {
     return mResData.height;
 }

@@ -24,7 +24,7 @@ public:
     /// @details
     /// aTapCountはシングルタップなら1、マルチタップなら2以上を指定してください。@n
     /// 最大でも TouchUpdateData::TAP_COUNT_MAX までしか指定できません。@n
-    Touch(uint aTapCount);
+    Touch(int aTapCount);
 
     /// デストラクタ。
     ~Touch();
@@ -42,18 +42,18 @@ public:
     /// @name 入力取得
     //@{
     /// @brief タップ入力の総数を取得。
-    uint tapCount()const;
+    int tapCount()const;
 
     /// @brief 指定番目の入力を取得します。
     /// @details
     /// 0番がタッチ -> 1番がタッチ -> 0番がリリースされたとき
     /// 配列的には穴が空いてしまう状態になりますが
     /// 次のフレームでも1番のタッチ位置は取得できます。
-    const TouchTap tapAtIndex(uint aIndex)const;
+    const TouchTap tapAtIndex(int aIndex)const;
     //@}
 
 private:
-    uint mTapCount;
+    int mTapCount;
     TouchUpdateData mData;
     TouchTap mTaps[TouchUpdateData::TAP_COUNT_MAX];
 };

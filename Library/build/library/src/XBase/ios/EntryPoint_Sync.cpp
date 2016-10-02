@@ -71,7 +71,7 @@ public:
 private:
     pthread_mutex_t mMutex;
     pthread_cond_t  mCond;
-    volatile ::XBase::uint mValue;
+    volatile ::XBase::int mValue;
 };
 
 // 複数のCondをまとめたもの。

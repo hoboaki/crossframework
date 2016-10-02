@@ -14,7 +14,7 @@ namespace {
 struct tInputTypeData
 {
     int  dataType;
-    uint size;
+    int size;
 };
 const tInputTypeData tINPUT_TYPE_DATA_TABLE[] =
 {
@@ -44,14 +44,14 @@ ResMdlShapeImpl::ResMdlShapeImpl(
     // 初期化
     {
         VtxAttr obj = {};
-        for (uint i = 0; i < ResMdlShapeInputKind_TERMINATE; ++i) {
+        for (int i = 0; i < ResMdlShapeInputKind_TERMINATE; ++i) {
             vtxAttrs[i] = obj;
         }
     }
 
     if (0 < binPtr->vtxAttrInfoCount) {
         const BinResMdlShape::VtxAttrInfo* infos = xdata.ref< BinResMdlShape::VtxAttrInfo>(binPtr->vtxAttrInfosRef);
-        for (uint i = 0; i < binPtr->vtxAttrInfoCount; ++i) {
+        for (int i = 0; i < binPtr->vtxAttrInfoCount; ++i) {
             VtxAttr& dst = vtxAttrs[infos[i].inputKind];
             dst.glDataType = u16(tINPUT_TYPE_DATA_TABLE[infos[i].dataType].dataType);
             dst.glNormalize = GL_FALSE;

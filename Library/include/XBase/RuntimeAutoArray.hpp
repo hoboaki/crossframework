@@ -30,7 +30,7 @@ public:
     /// @param aAllocator 配列データを確保する際に使用するアロケータ。
     /// @details 
     /// 配列長が0の場合、アロケートは走りません。
-    RuntimeAutoArray(uint aCountMax, IAllocator& aAllocator = IAllocator::Default())
+    RuntimeAutoArray(int aCountMax, IAllocator& aAllocator = IAllocator::Default())
         : mAllocator(aAllocator)
         , mCountMax(aCountMax)
         , mCount(0)
@@ -73,19 +73,19 @@ public:
     }
 
     /// 現在の要素数。
-    uint count()const
+    int count()const
     {
         return mCount;
     }
 
     /// 最大の要素数。
-    uint countMax()const
+    int countMax()const
     {
         return mCountMax;
     }
 
     /// 指定番目の要素にアクセス。
-    ValueType& at(const uint aIndex)
+    ValueType& at(const int aIndex)
     {
         if (mCount <= aIndex)
         {
@@ -96,7 +96,7 @@ public:
     }
 
     /// 指定番目の要素にアクセス。
-    const ValueType& at(const uint aIndex)const
+    const ValueType& at(const int aIndex)const
     {
         if (mCount <= aIndex)
         {
@@ -130,9 +130,9 @@ public:
         }
 
         // 逆順でデストラクタを呼び出す
-        for (uint i = mCount; 0 < i; --i)
+        for (int i = mCount; 0 < i; --i)
         {
-            const uint idx = i - 1;
+            const int idx = i - 1;
             at(idx).~ValueType();
         }
         mCount = 0;
@@ -268,14 +268,14 @@ public:
 
     /// @name 演算子オーバーロード
     //@{
-    ValueType& operator[](const uint aIndex) { return at(aIndex); } ///< at() のエイリアス。
-    const ValueType& operator[](const uint aIndex)const { return at(aIndex); } ///< at()const のエイリアス。
+    ValueType& operator[](const int aIndex) { return at(aIndex); } ///< at() のエイリアス。
+    const ValueType& operator[](const int aIndex)const { return at(aIndex); } ///< at()const のエイリアス。
     //@}
 
 private:
     IAllocator& mAllocator;
-    const uint  mCountMax;
-    uint        mCount;
+    const int  mCountMax;
+    int        mCount;
     ValueType*  mPtr;
 };
 //@}

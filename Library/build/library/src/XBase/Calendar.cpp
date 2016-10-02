@@ -11,7 +11,7 @@ namespace XBase {
 namespace {
 
     // 範囲チェックをしつつ範囲外なら最小値を返す。
-uint tYearCheck(const uint aYear)
+int tYearCheck(const int aYear)
 {
     if (aYear < Calendar::YearMin
         || Calendar::YearMax < aYear
@@ -22,7 +22,7 @@ uint tYearCheck(const uint aYear)
     }
     return aYear;
 }
-uint tMonthCheck(const uint aMonth)
+int tMonthCheck(const int aMonth)
 {
     if (aMonth < Calendar::MonthMin
         || Calendar::MonthMax < aMonth
@@ -37,7 +37,7 @@ uint tMonthCheck(const uint aMonth)
 } // namespace
 
 //------------------------------------------------------------------------------
-bool CalendarPOD::IsLeapYear(const uint aYear)
+bool CalendarPOD::IsLeapYear(const int aYear)
 {
     // 閏年の定義
     // 1. 西暦年が4で割り切れる年は閏年
@@ -45,7 +45,7 @@ bool CalendarPOD::IsLeapYear(const uint aYear)
     // 3. ただし、西暦年が400で割り切れる年は閏年
     // 西暦4年は閏年と扱わなかったらしいという話もあるが
     // .Net4.0 の実装では西暦4年が閏年となっていたためそれに合わせる。
-    const uint year = 1 + tYearCheck(aYear);
+    const int year = 1 + tYearCheck(aYear);
 
     if ((year % 4) != 0 // 4で割り切れないので平年
         || ((year % 100) == 0 && (year % 400) != 0) // 100 で割り切れ 400 で割り切れない年は平年
@@ -59,13 +59,13 @@ bool CalendarPOD::IsLeapYear(const uint aYear)
 }
 
 //------------------------------------------------------------------------------
-uint CalendarPOD::DaysToDate(
-    const uint aYear,
-    const uint aMonth,
-    const uint aDayOfMonth
+int CalendarPOD::DaysToDate(
+    const int aYear,
+    const int aMonth,
+    const int aDayOfMonth
     )
 {
-    uint days = 0;
+    int days = 0;
 
     // 年
     {
@@ -73,14 +73,14 @@ uint CalendarPOD::DaysToDate(
         days += aYear * 365;
 
         // 閏年補正
-        uint addDays = aYear / 4;
+        int addDays = aYear / 4;
         addDays -= aYear / 100;
         addDays += aYear / 400;
         days += addDays;
     }
 
     // 月
-    for (uint i = 0; i < aMonth; ++i) {
+    for (int i = 0; i < aMonth; ++i) {
         days += DaysInMonth(aYear, i);
     }
 
@@ -91,15 +91,15 @@ uint CalendarPOD::DaysToDate(
 }
 
 //------------------------------------------------------------------------------
-const CalendarPOD CalendarPOD::FromDays(const uint aDays)
+const CalendarPOD CalendarPOD::FromDays(const int aDays)
 {
     Calendar calendar;
-    uint days = aDays;
+    int days = aDays;
     {// 年
-        uint year = 0;
+        int year = 0;
         while (true) {
             // その年の総日数を取得
-            const uint totalDayOfYear = Calendar::DaysInYear(year);
+            const int totalDayOfYear = Calendar::DaysInYear(year);
 
             // 年を越すか計算
             if (days < totalDayOfYear) {
@@ -116,10 +116,10 @@ const CalendarPOD CalendarPOD::FromDays(const uint aDays)
     }
 
     {// 月・曜日・日
-        uint month = 0;
+        int month = 0;
         while (true) {
             // その月の総日数を取得
-            const uint totalDayOfMonth = Calendar::DaysInMonth(calendar.year, month);
+            const int totalDayOfMonth = Calendar::DaysInMonth(calendar.year, month);
 
             // 月を越すか計算
             if (days < totalDayOfMonth) {
@@ -140,19 +140,19 @@ const CalendarPOD CalendarPOD::FromDays(const uint aDays)
 }
 
 //------------------------------------------------------------------------------
-uint CalendarPOD::DaysInYear(const uint aYear)
+int CalendarPOD::DaysInYear(const int aYear)
 {
-    const uint year = tYearCheck(aYear);
+    const int year = tYearCheck(aYear);
     return uint(IsLeapYear(year) ? 366 : 365);
 }
 
 //------------------------------------------------------------------------------
-uint CalendarPOD::DaysInMonth(
-    const uint aYear,
-    const uint aMonth
+int CalendarPOD::DaysInMonth(
+    const int aYear,
+    const int aMonth
     )
 {
-    const uint month = tMonthCheck(aMonth);
+    const int month = tMonthCheck(aMonth);
     switch (month + 1) {// 直感的になるように+1
         case 1:
         case 3:

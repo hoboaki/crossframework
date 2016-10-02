@@ -11,11 +11,11 @@ namespace XBase {
 
 /// @addtogroup XBase-Collection
 //@{
-    /// @brief ビットを扱うコレクション(POD版)。
-    /// @details
-    /// BIT_COUNTには扱うビット数を指定してください。 @n
-    /// ALIGNMENTには要求するアライメント値を指定してください。 @n
-template < uint BIT_COUNT, uint ALIGNMENT = 4 >
+/// @brief ビットを扱うコレクション(POD版)。
+/// @details
+/// BIT_COUNTには扱うビット数を指定してください。 @n
+/// ALIGNMENTには要求するアライメント値を指定してください。 @n
+template < int BIT_COUNT, int ALIGNMENT = 4 >
 struct BitSetPOD
 {
     //============================================================
@@ -41,7 +41,7 @@ struct BitSetPOD
     /// 全ビットをfalseにする。
     void clear()
     {
-        for (uint i = 0; i < MyType::ByteSize_; ++i)
+        for (int i = 0; i < MyType::ByteSize_; ++i)
         {
             bits_[i] = 0;
         }
@@ -51,7 +51,7 @@ struct BitSetPOD
     /// @name 各ビットの設定・取得
     //@{
     /// 指定番目のビットの値を設定する。
-    void set(uint aIndex, bool aFlag)
+    void set(int aIndex, bool aFlag)
     {
         // チェック
         if (BitCount <= aIndex)
@@ -67,19 +67,19 @@ struct BitSetPOD
     }
 
     /// 指定番目のビットをたてる。
-    void on(uint aIndex)
+    void on(int aIndex)
     {
         set(aIndex, true);
     }
 
     /// 指定番目のビットをおろす。
-    void off(uint aIndex)
+    void off(int aIndex)
     {
         set(aIndex, false);
     }
 
     /// 指定番目のビットの値を取得する。
-    bool get(uint aIndex)const
+    bool get(int aIndex)const
     {
         // チェック
         if (BitCount <= aIndex)
@@ -96,7 +96,7 @@ struct BitSetPOD
     /// 1つ以上のビットがたっているか。
     bool isAnyOn()const
     {
-        for (uint i = 0; i < ByteSize_; ++i)
+        for (int i = 0; i < ByteSize_; ++i)
         {
             if (bits_[i] != 0)
             {
@@ -113,7 +113,7 @@ struct BitSetPOD
     /// 全てのビットがたっている状態か。
     bool isAllOn()const
     {
-        for (uint i = 0; i < BitCount; ++i)
+        for (int i = 0; i < BitCount; ++i)
         {
             if (!get(i))
             {
@@ -130,7 +130,7 @@ struct BitSetPOD
     const MyType operator ~()const
     {
         MyType obj = *this;
-        for (uint i = 0; i < ByteSize_; ++i)
+        for (int i = 0; i < ByteSize_; ++i)
         {
             obj.bits_[i] = ~obj.bits_[i];
         }
@@ -141,7 +141,7 @@ struct BitSetPOD
     const MyType operator &(const MyType& aRHS)const
     {
         MyType obj = *this;
-        for (uint i = 0; i < ByteSize_; ++i)
+        for (int i = 0; i < ByteSize_; ++i)
         {
             obj.bits_[i] = bits_[i] & aRHS.bits_[i];
         }
@@ -152,7 +152,7 @@ struct BitSetPOD
     const MyType operator |(const MyType& aRHS)const
     {
         MyType obj = *this;
-        for (uint i = 0; i < ByteSize_; ++i)
+        for (int i = 0; i < ByteSize_; ++i)
         {
             obj.bits_[i] = bits_[i] | aRHS.bits_[i];
         }
@@ -163,7 +163,7 @@ struct BitSetPOD
     const MyType operator ^(const MyType& aRHS)const
     {
         MyType obj = *this;
-        for (uint i = 0; i < ByteSize_; ++i)
+        for (int i = 0; i < ByteSize_; ++i)
         {
             obj.bits_[i] = bits_[i] ^ aRHS.bits_[i];
         }
@@ -173,7 +173,7 @@ struct BitSetPOD
 };
 
 /// BitSetPOD のクラス版。
-template < uint BIT_COUNT, uint ALIGNMENT = 4 >
+template < int BIT_COUNT, int ALIGNMENT = 4 >
 class BitSet : public BitSetPOD< BIT_COUNT, ALIGNMENT >
 {
 public:

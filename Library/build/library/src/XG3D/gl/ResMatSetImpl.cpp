@@ -12,7 +12,7 @@ namespace {
 //------------------------------------------------------------------------------
 struct tEntryHeader
 {
-    ::XData::UInt32     count;
+    ::XData::SInt32     count;
     ::XData::Reference  entries[1]; // 本当は無限長配列
 };
 
@@ -32,7 +32,7 @@ ResMatSetImpl::ResMatSetImpl(
     {
         const tEntryHeader* header = xdata.ref< tEntryHeader >(binPtr->mats);
         matImpls.init(header->count, ::XBase::Ref(aAllocator));
-        for (uint i = 0; i < header->count; ++i) {
+        for (int i = 0; i < header->count; ++i) {
             matImpls->add(
                 ::XBase::Ref(xdata),
                 xdata.ref< BinResMat >(header->entries[i]),
@@ -52,7 +52,7 @@ ResMatSetImpl::~ResMatSetImpl()
 //------------------------------------------------------------------------------
 void ResMatSetImpl::setup()
 {
-    for (uint i = 0; i < matImpls->count(); ++i) {
+    for (int i = 0; i < matImpls->count(); ++i) {
         matImpls->at(i).setup();
     }
 }
@@ -61,7 +61,7 @@ void ResMatSetImpl::setup()
 void ResMatSetImpl::release()
 {
     // setupと逆順
-    for (uint i = matImpls->count(); 0 < i; --i) {
+    for (int i = matImpls->count(); 0 < i; --i) {
         matImpls->at(i - 1).release();
     }
 }

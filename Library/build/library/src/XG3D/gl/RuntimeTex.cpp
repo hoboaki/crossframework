@@ -68,7 +68,7 @@ RuntimeTex::RuntimeTex(
 , mData(CalcDataSize(aContext), aAllocator, RequireAlignment())
 {
     // 0初期化
-    for (uint i = 0; i < mData->size(); ++i) {
+    for (int i = 0; i < mData->size(); ++i) {
         mData->head()[i] = 0;
     }
 }
@@ -116,8 +116,8 @@ void RuntimeTex::endEdit()
 
 //------------------------------------------------------------------------------
 void RuntimeTex::setPixel(
-    const uint aX,
-    const uint aY,
+    const int aX,
+    const int aY,
     const ::XBase::Color4POD& aVal
     )
 {
@@ -126,16 +126,16 @@ void RuntimeTex::setPixel(
 
 //------------------------------------------------------------------------------
 void RuntimeTex::setPixel(
-    const uint aX,
-    const uint aY,
+    const int aX,
+    const int aY,
     const ::XBase::Color4bPOD& aVal
     )
 {
     // アドレス計算
     XBASE_RANGE_ASSERT_MAX(aX, mContext.width());
     XBASE_RANGE_ASSERT_MAX(aY, mContext.height());
-    const uint pixelPos = aX + aY * mContext.width();
-    const uint bytePos = pixelPos * tBytePerPixel(mContext.format());
+    const int pixelPos = aX + aY * mContext.width();
+    const int bytePos = pixelPos * tBytePerPixel(mContext.format());
     byte_t* addr = &mData->head()[bytePos];
 
     // フォーマットごとに代入

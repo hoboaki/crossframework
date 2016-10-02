@@ -38,10 +38,10 @@ public:
     /// @param aVertexCountMax 最大頂点数。
     /// @param aAllocator 頂点・メッシュ情報を配置するためのアロケータ。
     VtxBuffer(
-        uint aMeshCountMax
-        , uint aVertexCountMax
-        , ::XBase::IAllocator& aAllocator = ::XBase::IAllocator::Default()
-    );
+        int aMeshCountMax,
+        int aVertexCountMax,
+        ::XBase::IAllocator& aAllocator = ::XBase::IAllocator::Default()
+        );
 
 /// デストラクタ。
     ~VtxBuffer();
@@ -114,8 +114,8 @@ private:
     struct Mesh
     {
         ::XBase::Matrix34 worldMtx;
-        uint beginIndex; // 頂点追加中は頂点の開始index。終了後はelementの開始index。
-        uint count; // 頂点追加中は頂点の個数。終了後はelementの個数。
+        int beginIndex; // 頂点追加中は頂点の開始index。終了後はelementの開始index。
+        int count; // 頂点追加中は頂点の個数。終了後はelementの個数。
         PrimitiveKind kind;
     };
     typedef u16 Index;

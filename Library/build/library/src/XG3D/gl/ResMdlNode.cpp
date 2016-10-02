@@ -49,7 +49,7 @@ const char* ResMdlNode::name()const
 }
 
 //------------------------------------------------------------------------------
-uint ResMdlNode::index()const
+int ResMdlNode::index()const
 {
     // チェック
     if (checkInvalid()) {
@@ -59,7 +59,7 @@ uint ResMdlNode::index()const
 }
 
 //------------------------------------------------------------------------------
-uint ResMdlNode::parentNodeIndex()const
+int ResMdlNode::parentNodeIndex()const
 {
     // チェック
     if (checkInvalid()) {
@@ -69,7 +69,7 @@ uint ResMdlNode::parentNodeIndex()const
 }
 
 //------------------------------------------------------------------------------
-uint ResMdlNode::firstChildNodeIndex()const
+int ResMdlNode::firstChildNodeIndex()const
 {
     // チェック
     if (checkInvalid()) {
@@ -79,7 +79,7 @@ uint ResMdlNode::firstChildNodeIndex()const
 }
 
 //------------------------------------------------------------------------------
-uint ResMdlNode::nextSiblingNodeIndex()const
+int ResMdlNode::nextSiblingNodeIndex()const
 {
     // チェック
     if (checkInvalid()) {

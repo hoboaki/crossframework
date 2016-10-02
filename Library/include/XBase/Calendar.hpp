@@ -48,30 +48,30 @@ struct CalendarPOD
     /// @brief 指定の年が閏年かどうか取得する。
     /// @return 閏年ならtrue。
     /// @param aYear 年。値の意味は CalendarPOD::year と同じ。
-    static bool IsLeapYear(uint aYear);
+    static bool IsLeapYear(int aYear);
 
     /// @brief 西暦1年1月1日から指定の年・月・日まで何日あるか取得する。
     /// @return 日数。
     /// @param aYear 年。値の意味は CalendarPOD::year と同じ。
     /// @param aMonth 月。値の意味は CalendarPOD::month と同じ。
     /// @param aDayOfMonth 日。値の意味は CalendarPOD::dayOfMonth と同じ。
-    static uint DaysToDate(uint aYear, uint aMonth, uint aDayOfMonth);
+    static int DaysToDate(int aYear, int aMonth, int aDayOfMonth);
 
     /// @brief 西暦1年1月1日から指定した日数が経過した日の0:0:0.0.0.0を取得する。
     /// @return カレンダー。
     /// @param aDays 日数。
-    static const CalendarPOD FromDays(uint aDays);
+    static const CalendarPOD FromDays(int aDays);
 
     /// @brief 指定の年の総日数を取得する。
     /// @return 総日数。
     /// @param aYear 年。値の意味は CalendarPOD::year と同じ。
-    static uint  DaysInYear(uint aYear);
+    static int  DaysInYear(int aYear);
 
     /// @brief 指定の年・月の総日数を取得する。
     /// @return 総日数。
     /// @param aYear 月が所属する年。値の意味は CalendarPOD::year と同じ。
     /// @param aMonth 月。値の意味は CalendarPOD::month と同じ。
-    static uint  DaysInMonth(uint aYear, uint aMonth);
+    static int  DaysInMonth(int aYear, int aMonth);
 
     u16 year;       ///< 年。 CalendarPOD::YearMin <= val <= CalendarPOD::YearMax 。0は西暦1年を示す。
     u16 month;      ///< 月。 CalendarPOD::MonthMin <= val <= CalendarPOD::MonthMax 。0は1月を示す。

@@ -10,7 +10,7 @@ namespace XBase {
 
 //------------------------------------------------------------------------------
 Argument::Argument(
-    const uint aArgCount,
+    const int aArgCount,
     const char* const* aArgValues,
     const char* aExeFileName,
     const char* aExeDirPath
@@ -23,13 +23,13 @@ Argument::Argument(
 }
 
 //------------------------------------------------------------------------------
-uint Argument::argCount()const
+int Argument::argCount()const
 {
     return mArgCount;
 }
 
 //------------------------------------------------------------------------------
-const char* Argument::argValue(const uint aIndex)const
+const char* Argument::argValue(const int aIndex)const
 {
     // 範囲外チェック
     if (mArgCount <= aIndex) {

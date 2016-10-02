@@ -40,9 +40,9 @@ public:
 
     /// @name プロパティの取得( isValid() なときしかアクセスできません)
     //@{
-    uint index()const;          ///< 自身のインデックス番号。
-    uint nodeIndex()const;      ///< @brief ぶらさがるノードのインデックス。 @details シンプルメッシュの場合はぶらさがるノードのインデックス番号を返し、スキニングメッシュの場合は ResConstant::INVALID_MDL_NODE_INDEX を返します。
-    uint matReferIndex()const;  ///< @brief 描画に使用するマテリアル参照のインデックス。 
+    int index()const;          ///< 自身のインデックス番号。
+    int nodeIndex()const;      ///< @brief ぶらさがるノードのインデックス。 @details シンプルメッシュの場合はぶらさがるノードのインデックス番号を返し、スキニングメッシュの場合は ResConstant::INVALID_MDL_NODE_INDEX を返します。
+    int matReferIndex()const;  ///< @brief 描画に使用するマテリアル参照のインデックス。 
     ResMdlShape shape()const;   ///< 描画に使用するシェイプ。
     //@}
 
