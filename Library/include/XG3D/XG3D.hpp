@@ -1,13 +1,8 @@
-/**
- * @file
- * @brief XG3Dの全てのヘッダをインクルードする。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_XG3D_HPP)
 #else
 #define XG3D_INCLUDED_XG3D_HPP
 
-//------------------------------------------------------------
 /// @namespace XG3D 3Dレンダリングに関わるクラス・関数を定義する名前空間。
 
 /// @defgroup XG3D-Enum XG3D:列挙値・定数
@@ -46,6 +41,5 @@
 #include <XG3D/TexSetting.hpp>
 #include <XG3D/VtxBuffer.hpp>
 
-//------------------------------------------------------------
 #endif
 // EOF

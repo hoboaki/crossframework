@@ -1,33 +1,24 @@
-/**
- * @file
- * @brief Main関数を記述する。
- * @author akino
- */
-
-//------------------------------------------------------------
+// 文字コード：UTF-8
 #include <XBase/XBase.hpp>
 
-//------------------------------------------------------------
-int xmain( ::XBase::Application& aApp )
+//------------------------------------------------------------------------------
+int xmain(::XBase::Application& aApp)
 {
     // ディスプレイの作成
-    ::XBase::Display display = ::XBase::Display( ::XBase::DisplayContext() );
+    ::XBase::Display display = ::XBase::Display(::XBase::DisplayContext());
 
     // ディスプレイの表示
     display.show();
 
     // メインループ
-    while ( aApp.receiveEvent() != ::XBase::AppEvent_Quit )
-    {
+    while (aApp.receiveEvent() != ::XBase::AppEvent_Quit) {
         // 更新以外は何もしない
-        if ( aApp.lastEvent() != ::XBase::AppEvent_Update )
-        {
+        if (aApp.lastEvent() != ::XBase::AppEvent_Update) {
             continue;
         }
 
         // ディスプレイが閉じられたら終了する
-        if ( display.isClosed() )
-        {
+        if (display.isClosed()) {
             aApp.quit();
         }
     }
@@ -36,5 +27,4 @@ int xmain( ::XBase::Application& aApp )
     return 0;
 }
 
-//------------------------------------------------------------
 // EOF

@@ -1,13 +1,8 @@
-/**
- * @file
- * @brief ResMatImpl型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_RESMATIMPL_HPP)
 #else
 #define XG3D_INCLUDED_RESMATIMPL_HPP
 
-//------------------------------------------------------------
 #include <XBase/IAllocator.hpp>
 #include <XBase/NonCopyable.hpp>
 #include <XBase/Placement.hpp>
@@ -19,33 +14,34 @@
 #include "ShaderConstant.hpp"
 #include "XDataPlus.hpp"
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
-    // BinResMatとResMatの間にかますクラス。
-    class ResMatImpl : public ::XBase::NonCopyable
-    {
-    public:
-        typedef ::XBase::RuntimeAutoArray< ResMatParamImpl >     ParamArray;
-        typedef ::XBase::RuntimeAutoArray< ResMatVtxAttrImpl > VtxAttrArray;
-        
-        //============================================================
-        const XDataPlus  xdata;
-        const BinResMat* binPtr;
-        GLuint shaderProgram;
-        GLint  sysUniformLocations[ ShaderConstant::SysUniform_TERMINATE ];
-        ::XBase::Placement< ParamArray >    paramImpls;
-        ::XBase::Placement< VtxAttrArray >  vtxAttrs;
 
-        //============================================================
-        // バイナリデータの先頭アドレスを指定して作成。
-        ResMatImpl( const ::XData::XData& aXData , const BinResMat* aBinPtr , ::XBase::IAllocator& aAllocator );
-        ~ResMatImpl();
+// BinResMatとResMatの間にかますクラス。
+class ResMatImpl : public ::XBase::NonCopyable
+{
+public:
+    typedef ::XBase::RuntimeAutoArray< ResMatParamImpl >     ParamArray;
+    typedef ::XBase::RuntimeAutoArray< ResMatVtxAttrImpl > VtxAttrArray;
 
-        //============================================================
-        void setup();
-        void release();
-    };
-}
-//------------------------------------------------------------
+    //============================================================
+    const XDataPlus  xdata;
+    const BinResMat* binPtr;
+    GLuint shaderProgram;
+    GLint  sysUniformLocations[ShaderConstant::SysUniform_TERMINATE];
+    ::XBase::Placement< ParamArray >    paramImpls;
+    ::XBase::Placement< VtxAttrArray >  vtxAttrs;
+
+    //============================================================
+    // バイナリデータの先頭アドレスを指定して作成。
+    ResMatImpl(const ::XData::XData& aXData, const BinResMat* aBinPtr, ::XBase::IAllocator& aAllocator);
+    ~ResMatImpl();
+
+    //============================================================
+    void setup();
+    void release();
+};
+
+} // namespace
 #endif
 // EOF

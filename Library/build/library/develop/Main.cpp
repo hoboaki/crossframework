@@ -1,14 +1,10 @@
-/**
- * @file
- * @brief Main関数を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/XBase.hpp>
 #include <XG3D/XG3D.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 int xmain( ::XBase::Application& aApp )
 {
     // ディスプレイ作成
@@ -28,8 +24,7 @@ int xmain( ::XBase::Application& aApp )
         ::XBase::AppEvent event = aApp.receiveEvent();
         
         // イベントによって分岐
-        switch ( event )
-        {
+        switch ( event ) {
         case ::XBase::AppEvent_Quit:
             doExit = true;
             break;
@@ -52,8 +47,7 @@ int xmain( ::XBase::Application& aApp )
         }
         
         // ディスプレイが閉じてたら終了
-        if ( display.isClosed() )
-        {
+        if ( display.isClosed() ) {
             aApp.quit();
             continue;
         }
@@ -62,5 +56,5 @@ int xmain( ::XBase::Application& aApp )
     return 0;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 // EOF

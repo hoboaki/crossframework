@@ -1,20 +1,17 @@
-/**
- * @file
- * @brief BinResHeader.hppの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include "BinResHeader.hpp"
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/RuntimeAssert.hpp>
 #include <XG3D/Engine.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
-//------------------------------------------------------------
+
+//------------------------------------------------------------------------------
 bool BinResHeader::isValid()const
 {
-    if ( versionMajor != VersionMajor
+    if (versionMajor != VersionMajor
         || versionMinor != VersionMinor
         || targetEngine != XG3D_TARGET_ENGINE
         )
@@ -24,18 +21,15 @@ bool BinResHeader::isValid()const
     return true;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 bool BinResHeader::checkInvalid()const
 {
-    if ( !isValid() )
-    {
+    if (!isValid()) {
         XBASE_NOT_REACH_ASSERT();
         return true;
     }
     return false;
 }
 
-//------------------------------------------------------------
-}
-//------------------------------------------------------------
+} // namespace
 // EOF

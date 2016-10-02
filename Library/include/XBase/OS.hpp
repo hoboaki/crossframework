@@ -1,13 +1,8 @@
-/**
- * @file
- * @brief 動作OSに関する定数を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_OS_HPP)
 #else
 #define XBASE_INCLUDED_OS_HPP
 
-//------------------------------------------------------------
 /// @addtogroup XBase-Env 
 //@{
 /// @name オペレーティングシステム 
@@ -52,6 +47,5 @@
 
 //@}
 //@}
-//------------------------------------------------------------
 #endif
 // EOF

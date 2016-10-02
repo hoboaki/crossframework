@@ -1,11 +1,7 @@
-/**
- * @file
- * @brief Quaternion.hppの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include <XBase/Quaternion.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/Angle.hpp>
 #include <XBase/Math.hpp>
 #include <XBase/Matrix34.hpp>
@@ -14,30 +10,31 @@
 #include <XBase/ScalerTypes.hpp>
 #include <XBase/Vector3.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
-//------------------------------------------------------------
+
+//------------------------------------------------------------------------------
 Quaternion::Quaternion()
-: x( 0 )
-, y( 0 )
-, z( 0 )
-, w( 1.0f )
+: x(0)
+, y(0)
+, z(0)
+, w(1.0f)
 {
 }
 
-//------------------------------------------------------------
-Quaternion::Quaternion( const f32 aX , const f32 aY , const f32 aZ , const f32 aW )
-: x( aX )
-, y( aY )
-, z( aZ )
-, w( aW )
+//------------------------------------------------------------------------------
+Quaternion::Quaternion(const f32 aX, const f32 aY, const f32 aZ, const f32 aW)
+: x(aX)
+, y(aY)
+, z(aZ)
+, w(aW)
 {
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Quaternion::Quaternion(
-    const Vector3POD& aAxis
-    , const Angle& aAngle
+    const Vector3POD& aAxis,
+    const Angle& aAngle
     )
 : x()
 , y()
@@ -48,42 +45,41 @@ Quaternion::Quaternion(
         ? Vector3()
         : aAxis.unit();
     const Radian halfAngle = aAngle.rad() * 0.5f;
-    const f32 cosHalfAngle = Math::CosF32( halfAngle );
-    const f32 sinHalfAngle = Math::SinF32( halfAngle );    
+    const f32 cosHalfAngle = Math::CosF32(halfAngle);
+    const f32 sinHalfAngle = Math::SinF32(halfAngle);
     x = normalizedAxis.x * sinHalfAngle;
     y = normalizedAxis.y * sinHalfAngle;
     z = normalizedAxis.z * sinHalfAngle;
     w = cosHalfAngle;
 }
 
-//------------------------------------------------------------
-const Quaternion Quaternion::mul( const Quaternion& aQuat )const
+//------------------------------------------------------------------------------
+const Quaternion Quaternion::mul(const Quaternion& aQuat)const
 {
     Quaternion quat(*this);
-    quat.mulAssign( aQuat );
+    quat.mulAssign(aQuat);
     return quat;
 }
 
-//------------------------------------------------------------
-Quaternion& Quaternion::mulAssign( const Quaternion& aRHS )
+//------------------------------------------------------------------------------
+Quaternion& Quaternion::mulAssign(const Quaternion& aRHS)
 {
     const Quaternion& lhs = *this;
     const Quaternion& rhs = aRHS;
     *this = Quaternion(
-        lhs.w*rhs.x + lhs.x*rhs.w + lhs.y*rhs.z - lhs.z*rhs.y
-        , lhs.w*rhs.y - lhs.x*rhs.z + lhs.y*rhs.w + lhs.z*rhs.x
-        , lhs.w*rhs.z + lhs.x*rhs.y - lhs.y*rhs.x + lhs.z*rhs.w
-        , lhs.w*rhs.w - lhs.x*rhs.x - lhs.y*rhs.y - lhs.z*rhs.z
+        lhs.w*rhs.x + lhs.x*rhs.w + lhs.y*rhs.z - lhs.z*rhs.y,
+        lhs.w*rhs.y - lhs.x*rhs.z + lhs.y*rhs.w + lhs.z*rhs.x,
+        lhs.w*rhs.z + lhs.x*rhs.y - lhs.y*rhs.x + lhs.z*rhs.w,
+        lhs.w*rhs.w - lhs.x*rhs.x - lhs.y*rhs.y - lhs.z*rhs.z
         );
     return *this;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const Matrix34POD Quaternion::toRotateMatrix()const
-{ 
-    const f32 lenSrc = Math::SqrtF32( w*w + x*x + y*y + z*z ) ;
-    if ( lenSrc == 0 )
-    {
+{
+    const f32 lenSrc = Math::SqrtF32(w*w + x*x + y*y + z*z);
+    if (lenSrc == 0) {
         XBASE_NOT_REACH_ASSERT();
         return Matrix34::Identity();
     }
@@ -98,46 +94,44 @@ const Matrix34POD Quaternion::toRotateMatrix()const
     const f32 xw = x * w * len;
     const f32 yw = y * w * len;
     const f32 zw = z * w * len;
-    
+
     Matrix34 mtx;
-    mtx.v[ Matrix34::Index00 ] = 1.0f - y2 - z2;
-    mtx.v[ Matrix34::Index10 ] = xy + zw;
-    mtx.v[ Matrix34::Index20 ] = zx - yw;
-    mtx.v[ Matrix34::Index01 ] = xy - zw;
-    mtx.v[ Matrix34::Index11 ] = 1.0f - z2 - x2;
-    mtx.v[ Matrix34::Index21 ] = yz + xw;
-    mtx.v[ Matrix34::Index02 ] = zx + yw;
-    mtx.v[ Matrix34::Index12 ] = yz - xw;
-    mtx.v[ Matrix34::Index22 ] = 1.0f - x2 - y2;
+    mtx.v[Matrix34::Index00] = 1.0f - y2 - z2;
+    mtx.v[Matrix34::Index10] = xy + zw;
+    mtx.v[Matrix34::Index20] = zx - yw;
+    mtx.v[Matrix34::Index01] = xy - zw;
+    mtx.v[Matrix34::Index11] = 1.0f - z2 - x2;
+    mtx.v[Matrix34::Index21] = yz + xw;
+    mtx.v[Matrix34::Index02] = zx + yw;
+    mtx.v[Matrix34::Index12] = yz - xw;
+    mtx.v[Matrix34::Index22] = 1.0f - x2 - y2;
     return mtx;
 }
 
-//------------------------------------------------------------
-const Quaternion Quaternion::operator*( const Quaternion& aRHS )const
+//------------------------------------------------------------------------------
+const Quaternion Quaternion::operator*(const Quaternion& aRHS)const
 {
-    return mul( aRHS );
+    return mul(aRHS);
 }
 
-//------------------------------------------------------------
-Quaternion& Quaternion::operator*=( const Quaternion& aRHS )
+//------------------------------------------------------------------------------
+Quaternion& Quaternion::operator*=(const Quaternion& aRHS)
 {
-    mulAssign( aRHS );
+    mulAssign(aRHS);
     return *this;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const ::XBase::ShortString Quaternion::toShortString()const
 {
     return ::XBase::ShortString::FromFormat(
-        "%s,%s,%s,%s"
-        , F32( x ).toShortString().readPtr()
-        , F32( y ).toShortString().readPtr()
-        , F32( z ).toShortString().readPtr()
-        , F32( w ).toShortString().readPtr()
+        "%s,%s,%s,%s",
+        F32(x).toShortString().readPtr(),
+        F32(y).toShortString().readPtr(),
+        F32(z).toShortString().readPtr(),
+        F32(w).toShortString().readPtr()
         );
 }
 
-//------------------------------------------------------------
-}
-//------------------------------------------------------------
+} // namespace
 // EOF

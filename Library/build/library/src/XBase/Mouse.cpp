@@ -1,13 +1,10 @@
-/**
- * @file
- * @brief Mouse.hppの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include <XBase/Mouse.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
-//------------------------------------------------------------
+
+//------------------------------------------------------------------------------
 Mouse::Mouse()
 : mData()
 , mPos()
@@ -16,8 +13,8 @@ Mouse::Mouse()
 {
 }
 
-//------------------------------------------------------------
-void Mouse::update( const MouseUpdateData& aData )
+//------------------------------------------------------------------------------
+void Mouse::update(const MouseUpdateData& aData)
 {
     // メモ
     const MouseUpdateData pre = mData;
@@ -25,69 +22,66 @@ void Mouse::update( const MouseUpdateData& aData )
     mData = aData;
 
     // 更新
-    if ( mData.posUpdated != 0 )
-    {
+    if (mData.posUpdated != 0) {
         mPos = mData.pos;
     }
     mTrigger = ~pre.hold &  cur.hold;
-    mRelease =  pre.hold & ~cur.hold;
+    mRelease = pre.hold & ~cur.hold;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const MouseUpdateData Mouse::lastUpdateData()const
 {
     return mData;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 bool Mouse::isPosUpdated()const
 {
     return mData.posUpdated != 0;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const ScreenPosPOD Mouse::pos()const
 {
     return mPos;
 }
 
-//------------------------------------------------------------
-bool Mouse::isHold( const MouseBtnKind aKind )const
+//------------------------------------------------------------------------------
+bool Mouse::isHold(const MouseBtnKind aKind)const
 {
-    return mData.hold.get( aKind );
+    return mData.hold.get(aKind);
 }
 
-//------------------------------------------------------------
-bool Mouse::isTrigger( const MouseBtnKind aKind )const
+//------------------------------------------------------------------------------
+bool Mouse::isTrigger(const MouseBtnKind aKind)const
 {
-    return mTrigger.get( aKind );
+    return mTrigger.get(aKind);
 }
 
-//------------------------------------------------------------
-bool Mouse::isRelease( const MouseBtnKind aKind )const
+//------------------------------------------------------------------------------
+bool Mouse::isRelease(const MouseBtnKind aKind)const
 {
-    return mRelease.get( aKind );
+    return mRelease.get(aKind);
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const MouseBtnBitSet Mouse::hold()const
 {
     return mData.hold;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const MouseBtnBitSet Mouse::trigger()const
 {
     return mTrigger;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const MouseBtnBitSet Mouse::release()const
 {
     return mRelease;
 }
 
-//------------------------------------------------------------
-}
-//------------------------------------------------------------
+} // namespace
 // EOF

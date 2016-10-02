@@ -1,17 +1,12 @@
-/**
- * @file
- * @brief NSOpenGLViewに関する関数を定義する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_XG3DNSOPENGLVIEW_H)
 #else
 #define XG3D_INCLUDED_XG3DNSOPENGLVIEW_H
 
-//-----------------------------------------------------------
 struct XBaseNSWindow;
 struct XG3DNSOpenGLView;
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -20,6 +15,6 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-//-----------------------------------------------------------
+
 #endif
 // EOF

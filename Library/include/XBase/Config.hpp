@@ -1,13 +1,8 @@
-﻿/**
- * @file
- * @brief XLibraryの構成を示すプリプロセッサ記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_CONFIG_HPP)
 #else
 #define XBASE_INCLUDED_CONFIG_HPP
 
-//------------------------------------------------------------
 /// @addtogroup XBase-Env
 //@{
 
@@ -78,6 +73,5 @@
 
 //@}
 //@}
-//------------------------------------------------------------
 #endif
 // EOF

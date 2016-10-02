@@ -1,16 +1,10 @@
-﻿/**
- * @file
- * @brief エンディアンに関するマクロを定義する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_ENDIAN_HPP)
 #else
 #define XBASE_INCLUDED_ENDIAN_HPP
 
-//------------------------------------------------------------
 #include <XBase/OS.hpp>
 
-//------------------------------------------------------------
 /// @addtogroup XBase-Env
 //@{
 /// @name エンディアン
@@ -31,20 +25,16 @@
     #define XBASE_LITTLE_ENDIAN
 #endif
 
-/**
- * @def XBASE_IS_BIG_ENDIAN
- * @brief BigEndianならtrue。LittleEndianならfalseが入る。
- */
+/// @def XBASE_IS_BIG_ENDIAN
+/// @brief BigEndianならtrue。LittleEndianならfalseが入る。
 #if defined(XBASE_BIG_ENDIAN)
     #define XBASE_IS_BIG_ENDIAN (true)
 #else
     #define XBASE_IS_BIG_ENDIAN (false)
 #endif
 
-/**
- * @def XBASE_IS_LITTLE_ENDIAN
- * @brief LittleEndianならtrue。BigEndianならfalseが入る。
- */
+/// @def XBASE_IS_LITTLE_ENDIAN
+/// @brief LittleEndianならtrue。BigEndianならfalseが入る。
 #if defined(XBASE_LITTLE_ENDIAN)
     #define XBASE_IS_LITTLE_ENDIAN (true)
 #else
@@ -53,6 +43,5 @@
 
 //@}
 //@}
-//------------------------------------------------------------
 #endif
 // EOF

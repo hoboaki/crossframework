@@ -1,16 +1,10 @@
-/**
- * @file
- * @brief OSの種類に関する定数を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_OSTYPE_HPP)
 #else
 #define XBASE_INCLUDED_OSTYPE_HPP
 
-//------------------------------------------------------------
 #include <XBase/OS.hpp>
 
-//------------------------------------------------------------
 /// @addtogroup XBase-Env 
 //@{
 
@@ -34,6 +28,5 @@
 
 //@}
 //@}
-//------------------------------------------------------------
 #endif
 // EOF

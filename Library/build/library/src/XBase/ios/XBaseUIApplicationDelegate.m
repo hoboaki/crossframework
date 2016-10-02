@@ -1,15 +1,10 @@
-/**
- * @file
- * @brief UIApplicationのデリゲートの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include "XBaseUIApplicationDelegate.h"
 
-//-----------------------------------------------------------
 #import <QuartzCore/QuartzCore.h>
 #include "EntryPoint_Sync.h"
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 @implementation XBaseUIApplicationDelegate
 @synthesize displayLink;
 
@@ -95,5 +90,4 @@
 
 
 @end
-//-----------------------------------------------------------
 // EOF

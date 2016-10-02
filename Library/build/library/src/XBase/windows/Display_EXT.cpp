@@ -1,11 +1,7 @@
-/**
- * @file
- * @brief Display.hppの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include <XBase/Display.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/Application.hpp>
 #include <XBase/KeyKind.hpp>
 #include <XBase/HID.hpp>
@@ -14,16 +10,17 @@
 #include <XBase/Unused.hpp>
 #include <XBase/SDKHeader.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
-//------------------------------------------------------------
-namespace {
-    Pointer< Display_EXT > tCurrentDisplay;
 
-    KeyKind tToKeyKind( WPARAM aKey )
-    {
-        switch( aKey )
-        {
+//------------------------------------------------------------------------------
+namespace {
+
+Pointer< Display_EXT > tCurrentDisplay;
+
+KeyKind tToKeyKind(WPARAM aKey)
+{
+    switch (aKey) {
         case VK_BACK:   return KeyKind_BackSpace;
         case VK_TAB:    return KeyKind_Tab;
         case VK_RETURN: return KeyKind_Return;
@@ -69,7 +66,7 @@ namespace {
         case 'Y': return KeyKind_Y;
         case 'Z': return KeyKind_Z;
 
-#if 0
+        #if 0
         case VK_NUMPAD0: return KeyKind_KP0;
         case VK_NUMPAD1: return KeyKind_KP1;
         case VK_NUMPAD2: return KeyKind_KP2;
@@ -87,7 +84,7 @@ namespace {
         case VK_ADD: return KeyKind_KPPlus;
         //case : return KeyKind_KPEnter;
         //case : return KeyKind_KPEquals;
-#endif
+        #endif
 
         case VK_UP: return KeyKind_Up;
         case VK_DOWN: return KeyKind_Down;
@@ -114,7 +111,7 @@ namespace {
         case VK_F13: return KeyKind_F13;
         case VK_F14: return KeyKind_F14;
         case VK_F15: return KeyKind_F15;
-            
+
         case VK_NUMLOCK: return KeyKind_NumLock;
         case VK_OEM_ATTN: return KeyKind_CapsLock;
         case VK_SCROLL: return KeyKind_ScrolLock;
@@ -126,59 +123,60 @@ namespace {
 
         default:
             return KeyKind_TERMINATE;
-        }
-    }
-
-    void tUpdateMouseBtn( MouseUpdateData& aData , WPARAM aWParam )
-    {
-        aData.hold.set( MouseBtnKind_L , ( aWParam & MK_LBUTTON ) != 0 );
-        aData.hold.set( MouseBtnKind_R , ( aWParam & MK_RBUTTON ) != 0 );
-        aData.hold.set( MouseBtnKind_M , ( aWParam & MK_MBUTTON ) != 0 );
     }
 }
 
-//------------------------------------------------------------
+void tUpdateMouseBtn(MouseUpdateData& aData, WPARAM aWParam)
+{
+    aData.hold.set(MouseBtnKind_L, (aWParam & MK_LBUTTON) != 0);
+    aData.hold.set(MouseBtnKind_R, (aWParam & MK_RBUTTON) != 0);
+    aData.hold.set(MouseBtnKind_M, (aWParam & MK_MBUTTON) != 0);
+}
+
+} // namespace
+
+//------------------------------------------------------------------------------
 uint Display::screenCount()const
 {
     return 1;
 }
 
-//------------------------------------------------------------
-Screen& Display::screenAtIndex( const uint aIndex )
+//------------------------------------------------------------------------------
+Screen& Display::screenAtIndex(const uint aIndex)
 {
-    XBASE_RANGE_ASSERT_MAX( aIndex , screenCount() );
-	XBASE_UNUSED(aIndex);
+    XBASE_RANGE_ASSERT_MAX(aIndex, screenCount());
+    XBASE_UNUSED(aIndex);
     return mainScreen();
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 Screen& Display::mainScreen()
 {
     return *mEXT.mainScreen;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void Display::show()
 {
     mEXT.isClosed = false;
-	ShowWindow( mEXT.window , SW_SHOWNORMAL );
-	UpdateWindow( mEXT.window );
+    ShowWindow(mEXT.window, SW_SHOWNORMAL);
+    UpdateWindow(mEXT.window);
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 bool Display::isClosed()const
 {
     return mEXT.isClosed;
 }
 
-//------------------------------------------------------------
-Display_EXT::Display_EXT( const DisplayContext& aContext )
+//------------------------------------------------------------------------------
+Display_EXT::Display_EXT(const DisplayContext& aContext)
 : window()
 , windowClass()
 , message()
 , mainScreen()
 , hidPtr()
-, isClosed( true )
+, isClosed(true)
 , keyboardUpdateData()
 , mouseUpdateData()
 {
@@ -186,52 +184,52 @@ Display_EXT::Display_EXT( const DisplayContext& aContext )
     HINSTANCE hinstance = (HINSTANCE)GetModuleHandle(0);
 
     // Windowクラスのセットアップ
-	windowClass.cbSize        = sizeof(windowClass);       
-	windowClass.style         = CS_HREDRAW | CS_VREDRAW;
-	windowClass.lpfnWndProc   = WindowProcess;
-	windowClass.cbClsExtra    = 0;
-	windowClass.cbWndExtra    = 0;
-	windowClass.hInstance     = hinstance;
-	windowClass.hIcon         = LoadIcon( NULL, IDI_APPLICATION );
-	windowClass.hCursor       = LoadCursor( NULL, IDC_ARROW );
-	windowClass.hbrBackground = (HBRUSH)GetStockObject( WHITE_BRUSH );
-	windowClass.lpszMenuName  = NULL;
-	windowClass.lpszClassName = L"Cross Framework Application";
-	windowClass.hIconSm       = LoadIcon ( NULL , IDI_APPLICATION );
-	RegisterClassEx( &windowClass );
+    windowClass.cbSize = sizeof(windowClass);
+    windowClass.style = CS_HREDRAW | CS_VREDRAW;
+    windowClass.lpfnWndProc = WindowProcess;
+    windowClass.cbClsExtra = 0;
+    windowClass.cbWndExtra = 0;
+    windowClass.hInstance = hinstance;
+    windowClass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
+    windowClass.hCursor = LoadCursor(NULL, IDC_ARROW);
+    windowClass.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);
+    windowClass.lpszMenuName = NULL;
+    windowClass.lpszClassName = L"Cross Framework Application";
+    windowClass.hIconSm = LoadIcon(NULL, IDI_APPLICATION);
+    RegisterClassEx(&windowClass);
 
     // 変数準備
     const uint style = WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX;
 
     // 矩形の計算
-    RECT rect = { 0 , 0 , LONG(aContext.width()) , LONG(aContext.height()) };
+    RECT rect = {0, 0, LONG(aContext.width()), LONG(aContext.height())};
     AdjustWindowRect(
-        &rect
-        , style
-        , FALSE
+        &rect,
+        style,
+        FALSE
         );
 
-    // ウィンドウの作成
-	window = CreateWindow(
-        L"Cross Framework Application"
-        , L"Window Title"
-        , style
-        , aContext.locationX()
-        , aContext.locationY()
-        , rect.right - rect.left
-        , rect.bottom - rect.top
-        , 0 // hWndParent
-        , 0 // hMenu
-        , hinstance
-        , 0 // lpParam
+// ウィンドウの作成
+    window = CreateWindow(
+        L"Cross Framework Application",
+        L"Window Title",
+        style,
+        aContext.locationX(),
+        aContext.locationY(),
+        rect.right - rect.left,
+        rect.bottom - rect.top,
+        0, // hWndParent
+        0, // hMenu
+        hinstance,
+        0 // lpParam
         );
 
-    // メインスクリーンの作成
-    mainScreen.init( Ref( *this ) , aContext.width() , aContext.height() );
+// メインスクリーンの作成
+    mainScreen.init(Ref(*this), aContext.width(), aContext.height());
 }
 
-//------------------------------------------------------------
-void Display_EXT::pollEvent( Application& )
+//------------------------------------------------------------------------------
+void Display_EXT::pollEvent(Application&)
 {
     // pulseをクリア
     keyboardUpdateData.pulse.clear();
@@ -240,137 +238,125 @@ void Display_EXT::pollEvent( Application& )
     mouseUpdateData.posUpdated = false;
 
     // 今のディスプレイを設定
-    tCurrentDisplay.set( *this );
+    tCurrentDisplay.set(*this);
 
     // メッセージ解析
-    while ( PeekMessage( &message , window , 0 , 0 , PM_REMOVE ) != 0 )
-    {
-	    TranslateMessage( &message );
-	    DispatchMessage( &message );
+    while (PeekMessage(&message, window, 0, 0, PM_REMOVE) != 0) {
+        TranslateMessage(&message);
+        DispatchMessage(&message);
     }
-  
+
     // 今のディスプレイを設定解除
-    tCurrentDisplay.unset( *this );
+    tCurrentDisplay.unset(*this);
 
     // マウスの座標変換
-    if ( mouseUpdateData.posUpdated )
-    {
-        mouseUpdateData.pos.y = s16( int( mainScreen->height() ) - 1 - mouseUpdateData.pos.y );
+    if (mouseUpdateData.posUpdated) {
+        mouseUpdateData.pos.y = s16(int(mainScreen->height()) - 1 - mouseUpdateData.pos.y);
     }
 
     // マウスのボタンが何か押されていたら強制的にposUpdatedを設定
-    if ( mouseUpdateData.hold.isAnyOn() )
-    {
+    if (mouseUpdateData.hold.isAnyOn()) {
         mouseUpdateData.posUpdated = true;
     }
 
     // HID更新
-    if ( hidPtr.isValid() )
-    {
-        hidPtr->ext_().keyboard.update( keyboardUpdateData );
-        hidPtr->ext_().mouse.update( mouseUpdateData );
+    if (hidPtr.isValid()) {
+        hidPtr->ext_().keyboard.update(keyboardUpdateData);
+        hidPtr->ext_().mouse.update(mouseUpdateData);
     }
 }
 
-//------------------------------------------------------------
-LRESULT Display_EXT::WindowProcess( HWND aHWND , UINT aMsg , WPARAM aWParam , LPARAM aLParam )
+//------------------------------------------------------------------------------
+LRESULT Display_EXT::WindowProcess(HWND aHWND, UINT aMsg, WPARAM aWParam, LPARAM aLParam)
 {
-    return tCurrentDisplay->windowProcess( aHWND , aMsg , aWParam , aLParam );
+    return tCurrentDisplay->windowProcess(aHWND, aMsg, aWParam, aLParam);
 }
 
-//------------------------------------------------------------
-LRESULT Display_EXT::windowProcess( HWND aHWND , UINT aMsg , WPARAM aWParam , LPARAM aLParam )
+//------------------------------------------------------------------------------
+LRESULT Display_EXT::windowProcess(HWND aHWND, UINT aMsg, WPARAM aWParam, LPARAM aLParam)
 {
-    switch ( aMsg ) 
-    {        
-    case WM_SYSKEYDOWN:
-        break;
-     
-    case WM_SYSKEYUP:
+    switch (aMsg) {
+        case WM_SYSKEYDOWN:
+            break;
+
+        case WM_SYSKEYUP:
+            break;
+
+        case WM_KEYDOWN:
+        {
+            KeyKind k = tToKeyKind(aWParam);
+            if (k < KeyKind_TERMINATE) {
+                keyboardUpdateData.hold.set(k, true);
+                keyboardUpdateData.pulse.set(k, true);
+            }
+        }
         break;
 
-    case WM_KEYDOWN:
+        case WM_KEYUP:
         {
-            KeyKind k = tToKeyKind( aWParam );
-            if ( k < KeyKind_TERMINATE )
-            {
-                keyboardUpdateData.hold.set(  k , true );
-                keyboardUpdateData.pulse.set(  k , true );
+            KeyKind k = tToKeyKind(aWParam);
+            if (k < KeyKind_TERMINATE) {
+                keyboardUpdateData.hold.set(k, false);
             }
         }
         break;
-        
-    case WM_KEYUP:
+
+        case WM_LBUTTONDOWN:
+        case WM_LBUTTONUP:
+        case WM_MBUTTONDOWN:
+        case WM_MBUTTONUP:
+        case WM_RBUTTONDOWN:
+        case WM_RBUTTONUP:
+        case WM_MOUSEMOVE:
         {
-            KeyKind k = tToKeyKind( aWParam );
-            if ( k < KeyKind_TERMINATE )
-            {                
-                keyboardUpdateData.hold.set(  k , false );
-            }
-        }
-        break;
-        
-	case WM_LBUTTONDOWN:
-	case WM_LBUTTONUP:
-	case WM_MBUTTONDOWN:
-	case WM_MBUTTONUP:
-	case WM_RBUTTONDOWN:
-	case WM_RBUTTONUP:
-	case WM_MOUSEMOVE:
-        {
-            switch( aMsg )
-            {
-            case WM_LBUTTONDOWN:
-            case WM_MBUTTONDOWN:
-            case WM_RBUTTONDOWN:
+            switch (aMsg) {
+                case WM_LBUTTONDOWN:
+                case WM_MBUTTONDOWN:
+                case WM_RBUTTONDOWN:
                 {// ボタンが押された
                     // 更新する前にキャプチャー設定
-                    if ( mouseUpdateData.hold.isAllOff() )
-                    {
+                    if (mouseUpdateData.hold.isAllOff()) {
                         SetCapture(aHWND);
                     }
 
                     // 更新
-                    tUpdateMouseBtn( mouseUpdateData , aWParam );
+                    tUpdateMouseBtn(mouseUpdateData, aWParam);
                 }
                 break;
-                
-            case WM_LBUTTONUP:
-            case WM_MBUTTONUP:
-            case WM_RBUTTONUP:
+
+                case WM_LBUTTONUP:
+                case WM_MBUTTONUP:
+                case WM_RBUTTONUP:
                 {// ボタンが離された
                     // 更新
-                    tUpdateMouseBtn( mouseUpdateData , aWParam );
+                    tUpdateMouseBtn(mouseUpdateData, aWParam);
 
                     // キャプチャー設定
-                    if ( mouseUpdateData.hold.isAllOff() )
-                    {
+                    if (mouseUpdateData.hold.isAllOff()) {
                         ReleaseCapture();
                     }
                 }
                 break;
-            default:
-                break;
+                default:
+                    break;
             }
 
             // 位置設定
-			const s16 mx=reinterpret_cast< const s16* >( &aLParam )[0];
-			const s16 my=reinterpret_cast< const s16* >( &aLParam )[1];
-            mouseUpdateData.pos = ScreenPos( mx , my );
+            const s16 mx = reinterpret_cast<const s16*>(&aLParam)[0];
+            const s16 my = reinterpret_cast<const s16*>(&aLParam)[1];
+            mouseUpdateData.pos = ScreenPos(mx, my);
             mouseUpdateData.posUpdated = true;
         }
         break;
 
-    case WM_DESTROY:
-        isClosed = true;
-        PostQuitMessage(0);
-        return 0;
+        case WM_DESTROY:
+            isClosed = true;
+            PostQuitMessage(0);
+            return 0;
     }
 
-    return DefWindowProc( aHWND , aMsg , aWParam , aLParam );
+    return DefWindowProc(aHWND, aMsg, aWParam, aLParam);
 }
 
-//------------------------------------------------------------
-}
-//------------------------------------------------------------
+} // namespace
 // EOF

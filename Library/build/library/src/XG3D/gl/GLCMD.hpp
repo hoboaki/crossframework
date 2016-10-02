@@ -1,18 +1,12 @@
-/**
- * @file
- * @brief GLCMDマクロを記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_GLCMD_HPP)
 #else
 #define XG3D_INCLUDED_GLCMD_HPP
 
-//------------------------------------------------------------
 #include <XBase/Config.hpp>
 #include <XBase/RuntimeAssert.hpp>
 #include <XG3D/SDKHeader.hpp>
 
-//------------------------------------------------------------
 
 // GLコマンドを実行しエラーがないかチェックする。
 #if defined(XBASE_CONFIG_ENABLE_RUNTIME_ERROR)
@@ -46,6 +40,5 @@
     #define XG3D_GLCMD( aCMD ) aCMD
 #endif
 
-//------------------------------------------------------------
 #endif
 // EOF

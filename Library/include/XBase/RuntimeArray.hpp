@@ -1,129 +1,123 @@
-/**
- * @file
- * @brief RuntimeArray型を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XBASE_INCLUDED_RUNTIMEARRAY_HPP)
 #else
 #define XBASE_INCLUDED_RUNTIMEARRAY_HPP
 
-//------------------------------------------------------------
 #include <XBase/Compiler.hpp>
 #include <XBase/IAllocator.hpp>
 #include <XBase/NonCopyable.hpp>
 #include <XBase/RuntimeAssert.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
+
 /// @addtogroup XBase-Collection
 //@{
     /// 実行時に確保する大きさが決まる配列。
-    template< typename T >
-    class RuntimeArray : public ::XBase::NonCopyable
+template< typename T >
+class RuntimeArray : public ::XBase::NonCopyable
+{
+public:
+    /// @name typedef
+    //@{
+    typedef T ValueType;
+    //@}
+
+    /// @name コンストラクタとデストラクタ
+    //@{
+
+    /// @brief コンストラクタ。
+    /// @param aCount 配列長。
+    /// @param aAllocator 配列データを確保する際に使用するアロケータ。
+    /// @details 
+    /// 配列長が0の場合、アロケートは走りません。
+    RuntimeArray(uint aCount, IAllocator& aAllocator = IAllocator::Default())
+        : mAllocator(aAllocator)
+        , mCount(aCount)
+        , mPtr(0)
     {
-    public:
-        /// @name typedef
-        //@{
-        typedef T ValueType;
-        //@}
-
-        /// @name コンストラクタとデストラクタ
-        //@{
-
-        /**
-         * @brief コンストラクタ。
-         * @param aCount 配列長。
-         * @param aAllocator 配列データを確保する際に使用するアロケータ。
-         * @details 
-         * 配列長が0の場合、アロケートは走りません。
-         */
-        RuntimeArray( uint aCount , IAllocator& aAllocator = IAllocator::Default() )
-            : mAllocator( aAllocator )
-            , mCount( aCount )
-            , mPtr( 0 )
+        if (0 < mCount)
         {
-            if ( 0 < mCount )
-            {
-                mPtr = reinterpret_cast< ValueType* >( mAllocator.alloc( sizeof( ValueType ) * mCount ) );
+            mPtr = reinterpret_cast<ValueType*>(mAllocator.alloc(sizeof(ValueType) * mCount));
 
-                for ( uint i = 0; i < aCount; ++i )
-                {
-#if defined(XBASE_COMPILER_MSVC)
-    #pragma warning(push)
-    #pragma warning(disable: 4345)
-#endif
-                    new ( &at(i) ) ValueType(); // 初期値で初期化                    
-#if defined(XBASE_COMPILER_MSVC)
-    #pragma warning(pop)
-#endif
-                }
+            for (uint i = 0; i < aCount; ++i)
+            {
+            #if defined(XBASE_COMPILER_MSVC)
+            #pragma warning(push)
+            #pragma warning(disable: 4345)
+            #endif
+                new (&at(i)) ValueType(); // 初期値で初期化                    
+            #if defined(XBASE_COMPILER_MSVC)
+            #pragma warning(pop)
+            #endif
             }
         }
+    }
 
-        /// デストラクタ。
-        ~RuntimeArray()
+    /// デストラクタ。
+    ~RuntimeArray()
+    {
+        if (mPtr != 0)
         {
-            if ( mPtr != 0 )
+            // 逆順でデストラクタを呼び出す
+            for (uint i = mCount; 0 < i; --i)
             {
-                // 逆順でデストラクタを呼び出す
-                for ( uint i = mCount; 0 < i; --i )
-                {
-                    at( i -1 ).~ValueType();
-                }
-
-                ValueType* ptr = mPtr;
-                mPtr = 0;
-                mAllocator.free( reinterpret_cast< ptr_t >( ptr ) );
+                at(i - 1).~ValueType();
             }
+
+            ValueType* ptr = mPtr;
+            mPtr = 0;
+            mAllocator.free(reinterpret_cast<ptr_t>(ptr));
         }
+    }
 
-        //@}
+    //@}
 
-        /// @name アクセス
-        //@{
-        /// 配列長。
-        uint count()const
+    /// @name アクセス
+    //@{
+    /// 配列長。
+    uint count()const
+    {
+        return mCount;
+    }
+
+    /// 指定番目の要素にアクセス。
+    ValueType& at(const uint aIndex)
+    {
+        if (mCount <= aIndex)
         {
-            return mCount;
+            XBASE_RANGE_ASSERT_MAX(aIndex, mCount);
+            return mPtr[0]; // fail safe code
         }
+        return mPtr[aIndex];
+    }
 
-        /// 指定番目の要素にアクセス。
-        ValueType& at( const uint aIndex )
+    /// 指定番目の要素にアクセス。
+    const ValueType& at(const uint aIndex)const
+    {
+        if (mCount <= aIndex)
         {
-            if ( mCount <= aIndex )
-            {
-                XBASE_RANGE_ASSERT_MAX( aIndex , mCount );
-                return mPtr[ 0 ]; // fail safe code
-            }
-            return mPtr[ aIndex ];
+            XBASE_RANGE_ASSERT_MAX(aIndex, mCount);
+            return mPtr[0]; // fail safe code
         }
-        
-        /// 指定番目の要素にアクセス。
-        const ValueType& at( const uint aIndex )const
-        {
-            if ( mCount <= aIndex )
-            {
-                XBASE_RANGE_ASSERT_MAX( aIndex , mCount );
-                return mPtr[ 0 ]; // fail safe code
-            }
-            return mPtr[ aIndex ];
-        }
+        return mPtr[aIndex];
+    }
 
-        //@}
+    //@}
 
-        /// @name 演算子オーバーロード
-        //@{
-        ValueType& operator[]( const uint aIndex ) { return at( aIndex ); } ///< at() のエイリアス。
-        const ValueType& operator[]( const uint aIndex )const { return at( aIndex ); } ///< at()const のエイリアス。
-        //@}
+    /// @name 演算子オーバーロード
+    //@{
+    ValueType& operator[](const uint aIndex) { return at(aIndex); } ///< at() のエイリアス。
+    const ValueType& operator[](const uint aIndex)const { return at(aIndex); } ///< at()const のエイリアス。
+    //@}
 
-    private:
-        IAllocator& mAllocator;
-        const uint  mCount;
-        ValueType*  mPtr;
-    };
+private:
+    IAllocator& mAllocator;
+    const uint  mCount;
+    ValueType*  mPtr;
+};
 //@}
-}
-//------------------------------------------------------------
+
+} // namespace
 #endif
 // EOF

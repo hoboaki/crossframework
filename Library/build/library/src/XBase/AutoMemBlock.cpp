@@ -1,91 +1,87 @@
-/**
- * @file
- * @brief AutoMemBlock.hppの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include <XBase/AutoMemBlock.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/IAllocator.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
-//------------------------------------------------------------
+
+//------------------------------------------------------------------------------
 AutoMemBlock::AutoMemBlock()
 : mBlock()
 , mAllocatorPtr()
 {
 }
 
-//------------------------------------------------------------
-AutoMemBlock::AutoMemBlock( 
-    const pword_t aSize
-    , IAllocator& aAllocator
-    , const pword_t aAlignment
+//------------------------------------------------------------------------------
+AutoMemBlock::AutoMemBlock(
+    const pword_t aSize,
+    IAllocator& aAllocator,
+    const pword_t aAlignment
     )
 : mBlock()
 , mAllocatorPtr()
 {
     // 確保
-    ptr_t ptr = aAllocator.alloc( aSize , aAlignment );
-    if ( ptr == 0 )
-    {// 失敗
+    ptr_t ptr = aAllocator.alloc(aSize, aAlignment);
+    if (ptr == 0) {
+        // 失敗
         return;
     }
 
     // 設定
-    mBlock = MemBlock( ptr , aSize );
-    mAllocatorPtr.set( aAllocator );
+    mBlock = MemBlock(ptr, aSize);
+    mAllocatorPtr.set(aAllocator);
 }
 
-//------------------------------------------------------------
-AutoMemBlock::AutoMemBlock( const MemBlock& aBlock , IAllocator& aAllocator )
-: mBlock( aBlock )
-, mAllocatorPtr( aAllocator )
+//------------------------------------------------------------------------------
+AutoMemBlock::AutoMemBlock(const MemBlock& aBlock, IAllocator& aAllocator)
+: mBlock(aBlock)
+, mAllocatorPtr(aAllocator)
 {
 }
 
-//------------------------------------------------------------
-AutoMemBlock::AutoMemBlock( const AutoMemBlock& aOther )
+//------------------------------------------------------------------------------
+AutoMemBlock::AutoMemBlock(const AutoMemBlock& aOther)
 : mBlock()
-, mAllocatorPtr() 
+, mAllocatorPtr()
 {
     *this = aOther;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 AutoMemBlock::~AutoMemBlock()
 {
     clear();
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 bool AutoMemBlock::isEmpty()const
 {
     return mAllocatorPtr.isNull();
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 void AutoMemBlock::clear()
 {
-    if ( isEmpty() )
-    {
+    if (isEmpty()) {
         return;
     }
-    mAllocatorPtr->free( mBlock.head() );
+    mAllocatorPtr->free(mBlock.head());
     mAllocatorPtr.reset();
     mBlock = MemBlock();
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const MemBlock& AutoMemBlock::ref()const
 {
-    XBASE_ASSERT( !isEmpty() );
+    XBASE_ASSERT(!isEmpty());
     return mBlock;
 }
 
-//------------------------------------------------------------
-AutoMemBlock& AutoMemBlock::operator=( const AutoMemBlock& aRHS )
+//------------------------------------------------------------------------------
+AutoMemBlock& AutoMemBlock::operator=(const AutoMemBlock& aRHS)
 {
     // まずクリア
     clear();
@@ -102,19 +98,17 @@ AutoMemBlock& AutoMemBlock::operator=( const AutoMemBlock& aRHS )
     return *this;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const MemBlock& AutoMemBlock::operator*()const
 {
     return ref();
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 const MemBlock* AutoMemBlock::operator->()const
 {
     return &ref();
 }
 
-//------------------------------------------------------------
-}
-//------------------------------------------------------------
+} // namespace
 // EOF

@@ -1,29 +1,24 @@
-/**
- * @file
- * @brief ResMatVtxAttrImpl.hppの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include "ResMatVtxAttrImpl.hpp"
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
-//------------------------------------------------------------
+
+//------------------------------------------------------------------------------
 ResMatVtxAttrImpl::ResMatVtxAttrImpl(
-    const ::XData::XData& aXData
-    , const BinResMatVtxAttr* aBinPtr
-    , ::XBase::IAllocator& 
+    const ::XData::XData& aXData,
+    const BinResMatVtxAttr* aBinPtr,
+    ::XBase::IAllocator&
     )
-: xdata( aXData.ptr() )
-, binPtr( aBinPtr )
+: xdata(aXData.ptr())
+, binPtr(aBinPtr)
 {
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 ResMatVtxAttrImpl::~ResMatVtxAttrImpl()
 {
 }
 
-//------------------------------------------------------------
-}
-//------------------------------------------------------------
+} // namespace
 // EOF

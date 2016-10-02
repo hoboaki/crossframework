@@ -1,14 +1,9 @@
-/**
- * @file
- * @brief XBaseNSScreen.hの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include "XBaseNSScreen.h"
 
-//-----------------------------------------------------------
 #import <Cocoa/Cocoa.h>
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 void XBaseNSScreen_GetMainScreenFrame( struct XBaseNSRect* aRect )
 { 
     NSRect rect = [[NSScreen mainScreen] frame];
@@ -18,7 +13,7 @@ void XBaseNSScreen_GetMainScreenFrame( struct XBaseNSRect* aRect )
     aRect->sizeH   = rect.size.height;
 }
 
-//-----------------------------------------------------------
+//------------------------------------------------------------------------------
 void XBaseNSScreen_GetMainScreenVisibleFrame( struct XBaseNSRect* aRect )
 { 
     NSRect rect = [[NSScreen mainScreen] visibleFrame];
@@ -28,5 +23,4 @@ void XBaseNSScreen_GetMainScreenVisibleFrame( struct XBaseNSRect* aRect )
     aRect->sizeH   = rect.size.height;
 }
 
-//-----------------------------------------------------------
 // EOF

@@ -1,65 +1,60 @@
-/**
- * @file
- * @brief HID.hppの実装を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #include <XBase/HID.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <XBase/Display.hpp>
 #include <XBase/Touch.hpp>
 #include <XBase/Unused.hpp>
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XBase {
-//------------------------------------------------------------
+
+//------------------------------------------------------------------------------
 uint HID::keyboardCount()const
 {
     return 1;
 }
 
-//------------------------------------------------------------
-const Keyboard HID::keyboardAtIndex( const uint aIndex )const
+//------------------------------------------------------------------------------
+const Keyboard HID::keyboardAtIndex(const uint aIndex)const
 {
-    XBASE_RANGE_ASSERT_MAX( aIndex , keyboardCount() );
-	XBASE_UNUSED(aIndex);
+    XBASE_RANGE_ASSERT_MAX(aIndex, keyboardCount());
+    XBASE_UNUSED(aIndex);
     return mEXT.keyboard;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 uint HID::mouseCount()const
 {
     return 1;
 }
 
-//------------------------------------------------------------
-const Mouse HID::mouseAtIndex( const uint aIndex )const
+//------------------------------------------------------------------------------
+const Mouse HID::mouseAtIndex(const uint aIndex)const
 {
-    XBASE_RANGE_ASSERT_MAX( aIndex , mouseCount() );
-	XBASE_UNUSED(aIndex);
+    XBASE_RANGE_ASSERT_MAX(aIndex, mouseCount());
+    XBASE_UNUSED(aIndex);
     return mEXT.mouse;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 uint HID::supportedTouchTapCount()const
 {
     return 0;
 }
 
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 uint HID::touchCount()const
 {
     return 0;
 }
 
-//------------------------------------------------------------
-const Touch HID::touchAtIndex( const uint )const
+//------------------------------------------------------------------------------
+const Touch HID::touchAtIndex(const uint)const
 {
     XBASE_NOT_REACH_ASSERT();
-    return Touch( 1 );
+    return Touch(1);
 }
 
-//------------------------------------------------------------
-}
-//------------------------------------------------------------
+} // namespace
 // EOF

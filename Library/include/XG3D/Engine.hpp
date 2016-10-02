@@ -1,16 +1,10 @@
-﻿/**
- * @file
- * @brief 使用するエンジンに関する定数を記述する。
- * @author akino
- */
+// 文字コード：UTF-8
 #if defined(XG3D_INCLUDED_ENGINE_HPP)
 #else
 #define XG3D_INCLUDED_ENGINE_HPP
 
-//------------------------------------------------------------
 #include <XBase/OS.hpp>
 
-//------------------------------------------------------------
 /// @addtogroup XG3D-Env
 //@{
 
@@ -47,19 +41,20 @@
 #endif
 
 //@}
-//------------------------------------------------------------
+//------------------------------------------------------------------------------
 namespace XG3D {
-    // エンジンの種類。
-    enum Engine
-    {
-        Engine_GL,
-        Engine_GLES,
-        // term
-        Engine_TERMINATE,
-        Engine_MIN = 0,
-        Engine_MAX = Engine_TERMINATE-1
-    };
-}
-//------------------------------------------------------------
+
+// エンジンの種類。
+enum Engine
+{
+    Engine_GL,
+    Engine_GLES,
+    // term
+    Engine_TERMINATE,
+    Engine_MIN = 0,
+    Engine_MAX = Engine_TERMINATE - 1
+};
+
+} // namespace
 #endif
 // EOF
