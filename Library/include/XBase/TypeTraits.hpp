@@ -15,7 +15,7 @@ namespace XBase {
 
 /// @addtogroup XBase-Types
 //@{
-    /// 型特性。
+/// 型特性。
 struct TypeTraits
 {
 #if defined(XBASE_COMPILER_MSVC)

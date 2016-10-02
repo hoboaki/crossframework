@@ -10,7 +10,7 @@ namespace XBase {
 
 /// @addtogroup XBase-Memory
 //@{
-    /// メモリブロック。
+/// メモリブロック。
 class MemBlock
 {
 public:

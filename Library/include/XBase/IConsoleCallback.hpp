@@ -10,7 +10,7 @@ namespace XBase {
 
 /// @addtogroup XBase-Debug
 //@{
-    /// コンソール用コールバックインターフェースクラス。
+/// コンソール用コールバックインターフェースクラス。
 class IConsoleCallback
 {
 public:

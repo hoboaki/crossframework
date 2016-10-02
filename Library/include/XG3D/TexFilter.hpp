@@ -8,7 +8,7 @@ namespace XG3D {
 
 /// @addtogroup XG3D-Enum
 //@{
-    /// テクスチャ補間の種類。
+/// テクスチャ補間の種類。
 enum TexFilter
 {
     TexFilter_Nearest, ///< 近い値。

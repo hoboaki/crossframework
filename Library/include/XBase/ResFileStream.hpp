@@ -25,7 +25,7 @@ namespace XBase {
     /// iOSだと ".app/" がルートになります。@n
     /// @n
     /// OSによっては想定しないファイルがリソースファイルと同じ場所に置かれることもあります。@n
-    /// そのため "data" や "resource" といった名前のフォルダを１つほりそれ以下に全てのリソースファイルを配置することをおすすめします。@n
+/// そのため "data" や "resource" といった名前のフォルダを１つほりそれ以下に全てのリソースファイルを配置することをおすすめします。@n
 class ResFileStream : public IReadStream
 {
 public:

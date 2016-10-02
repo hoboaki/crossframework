@@ -15,7 +15,7 @@ namespace XBase {
 
 /// @addtogroup XBase-Math
 //@{
-    /// ラジアンを扱う構造体。
+/// ラジアンを扱う構造体。
 struct RadianPOD
 {
     f32 value; ///< ラジアン。

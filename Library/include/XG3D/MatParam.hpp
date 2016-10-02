@@ -11,7 +11,7 @@ namespace XG3D {
 
 /// @addtogroup XG3D-State
 //@{
-    /// @brief StateMaterialが持つマテリアルパラメータ。
+/// @brief StateMaterialが持つマテリアルパラメータ。
 class MatParam
 {
 public:

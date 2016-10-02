@@ -10,7 +10,7 @@ namespace XG3D {
 
 /// @addtogroup XG3D-Res
 //@{
-    /// @brief リソースの定数群。
+/// @brief リソースの定数群。
 struct ResConstant
 {
     /// 無効なマテリアルインデックス番号。

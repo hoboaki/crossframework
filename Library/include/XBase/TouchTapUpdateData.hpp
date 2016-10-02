@@ -11,7 +11,7 @@ namespace XBase {
 
 /// @addtogroup XBase-HID
 //@{
-    /// タッチの1タップの更新データ。
+/// タッチの1タップの更新データ。
 struct TouchTapUpdateData
 {
     uint32       tapCount;

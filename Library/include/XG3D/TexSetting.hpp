@@ -22,7 +22,7 @@ namespace XG3D {
 
 /// @addtogroup XG3D-Util
 //@{
-    /// テクスチャの設定。
+/// テクスチャの設定。
 class TexSetting
 {
 public:

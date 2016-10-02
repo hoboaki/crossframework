@@ -15,7 +15,7 @@ namespace XBase {
 /// @addtogroup XBase-IO
 //@{
     /// @brief アプリケーションのリソースファイルにアクセスするクラス。
-    /// @see ResFileStream
+/// @see ResFileStream
 class ResFile
 {
 public:

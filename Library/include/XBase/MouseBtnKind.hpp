@@ -8,7 +8,7 @@ namespace XBase {
 
 /// @addtogroup XBase-HID
 //@{
-    /// マウスのボタンの種類。
+/// マウスのボタンの種類。
 enum MouseBtnKind
 {
     MouseBtnKind_L, ///< 左。

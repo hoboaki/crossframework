@@ -11,7 +11,7 @@ namespace XG3D {
 
 /// @addtogroup XG3D-State
 //@{
-    /// @brief StateMdlTransformが持つローカル行列。
+/// @brief StateMdlTransformが持つローカル行列。
 struct MdlLocalMtx
 {
     ::XBase::Mtx34 rtMtx; ///< RotateTrans行列。

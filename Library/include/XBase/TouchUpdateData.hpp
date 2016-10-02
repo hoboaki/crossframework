@@ -10,7 +10,7 @@ namespace XBase {
 
 /// @addtogroup XBase-HID
 //@{
-    /// タッチ入力の更新データ。
+/// タッチ入力の更新データ。
 struct TouchUpdateData
 {
     enum

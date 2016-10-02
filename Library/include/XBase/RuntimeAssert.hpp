@@ -14,7 +14,7 @@
 //------------------------------------------------------------------------------
 namespace XBase {
 
-    // 実行時Assertを扱う空間。
+// 実行時Assertを扱う空間。
 struct RuntimeAssert
 {
     static const char* const Separator;      // 分離する文字列。

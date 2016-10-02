@@ -12,7 +12,7 @@ namespace XBase {
 
 /// @addtogroup XBase-Thread
 //@{
-    /// スレッド。
+/// スレッド。
 class Thread
 {
 public:

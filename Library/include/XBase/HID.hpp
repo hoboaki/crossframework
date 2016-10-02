@@ -26,7 +26,7 @@ namespace XBase {
 
 /// @addtogroup XBase-HID
 //@{
-    /// @brief HID(Human Interface Device)にアクセスするクラス。
+/// @brief HID(Human Interface Device)にアクセスするクラス。
 class HID : public NonCopyable
 {
 public:

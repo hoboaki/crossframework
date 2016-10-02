@@ -19,7 +19,7 @@ namespace XG3D {
 //@{
     /// @brief モデルのTransformに関するState。
     /// @details
-    /// 各関数の引数 aNodeIndex はインスタンス元モデルの node のインデックス値に対応します。
+/// 各関数の引数 aNodeIndex はインスタンス元モデルの node のインデックス値に対応します。
 class StateMdlTransform : public ::XBase::NonCopyable
 {
 public:

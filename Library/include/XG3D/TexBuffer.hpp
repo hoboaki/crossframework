@@ -24,7 +24,7 @@ namespace XG3D {
 //@{
     /// @brief テクスチャバッファ。
     /// @details
-    /// テクスチャの描画用バッファの作成・保持をするクラスです。 @n
+/// テクスチャの描画用バッファの作成・保持をするクラスです。 @n
 class TexBuffer : public ::XBase::NonCopyable
 {
 public:

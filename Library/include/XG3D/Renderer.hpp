@@ -34,7 +34,7 @@ namespace XG3D {
 
 /// @addtogroup XG3D-System
 //@{
-    /// @brief レンダリングを統括するクラス。
+/// @brief レンダリングを統括するクラス。
 class Renderer : public ::XBase::NonCopyable
 {
 public:

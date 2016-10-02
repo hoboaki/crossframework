@@ -8,7 +8,7 @@ namespace XG3D {
 
 /// @addtogroup XG3D-Enum
 //@{
-    /// テクスチャのID。
+/// テクスチャのID。
 enum TexId
 {
     TexId_0, ///< 0番。

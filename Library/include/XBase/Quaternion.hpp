@@ -17,7 +17,7 @@ namespace XBase {
 
 /// @addtogroup XBase-Math
 //@{
-    /// @brief 32bit浮動小数のクォータニオンクラス。
+/// @brief 32bit浮動小数のクォータニオンクラス。
 class Quaternion
 {
 public:

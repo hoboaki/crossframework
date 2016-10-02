@@ -8,7 +8,7 @@ struct XG3DUIOpenGLView;
 //------------------------------------------------------------------------------
 namespace XBase {
 
-    // iOS環境でのScreenの拡張。
+// iOS環境でのScreenの拡張。
 class Screen_EXT
 {
 public:

@@ -8,7 +8,7 @@ namespace XG3D {
 
 /// @addtogroup XG3D-Res
 //@{
-    /// テクスチャのフォーマット。
+/// テクスチャのフォーマット。
 enum ResTexFormat
 {
     ResTexFormat_RGBA8,   ///< RGBA8。

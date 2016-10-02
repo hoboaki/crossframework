@@ -10,7 +10,7 @@
 //------------------------------------------------------------------------------
 namespace XBase {
 
-    // MacOSXのHID拡張。
+// MacOSXのHID拡張。
 class HID_EXT : public NonCopyable
 {
 public:

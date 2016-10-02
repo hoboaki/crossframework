@@ -8,7 +8,7 @@ struct XG3DNSOpenGLView;
 //------------------------------------------------------------------------------
 namespace XBase {
 
-    // MacOSX環境でのScreenの拡張。
+// MacOSX環境でのScreenの拡張。
 class Screen_EXT
 {
 public:

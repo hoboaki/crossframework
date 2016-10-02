@@ -11,7 +11,7 @@
 //------------------------------------------------------------------------------
 namespace XBase {
 
-    // ShortStringを作る関数群。
+// ShortStringを作る関数群。
 class ShortStringFactory
 {
 public:

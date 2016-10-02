@@ -10,7 +10,7 @@ namespace XBase {
 
 /// @addtogroup XBase-HID
 //@{
-    /// キーボードの更新データ。
+/// キーボードの更新データ。
 struct KeyboardUpdateData
 {
     KeyBitSet hold;

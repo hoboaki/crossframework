@@ -10,7 +10,7 @@ namespace XBase {
 
 /// @addtogroup XBase-Util
 //@{
-    /// フレームカウンター。
+/// フレームカウンター。
 class FrameCounter
 {
 public:

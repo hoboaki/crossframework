@@ -8,7 +8,7 @@ namespace XBase {
 
 /// @addtogroup XBase-HID
 //@{
-    /// キーボードのキーの種類。
+/// キーボードのキーの種類。
 enum KeyKind
 {
     KeyKind_BackSpace,

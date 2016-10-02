@@ -8,7 +8,7 @@ namespace XG3D {
 
 /// @addtogroup XG3D-Enum
 //@{
-    /// テクスチャのアドレッシングモードの種類。
+/// テクスチャのアドレッシングモードの種類。
 enum TexAddress
 {
     TexAddress_Wrap,   ///< 繰り返し。

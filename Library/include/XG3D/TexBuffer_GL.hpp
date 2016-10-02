@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 namespace XG3D {
 
-    // TexBufferの拡張。
+// TexBufferの拡張。
 class TexBuffer_EXT
 {
 public:

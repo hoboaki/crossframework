@@ -13,7 +13,7 @@ namespace XBase
 //@{
     //=================================================
     /// @name 符号無し整数型
-    //@{
+//@{
 typedef unsigned char           u8;     ///< 8bit符号無し整数型。
 typedef unsigned char           uint8;  ///< 8bit符号無し整数型。
 typedef unsigned short int      u16;    ///< 16bit符号無し整数型。

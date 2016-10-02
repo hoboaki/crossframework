@@ -200,7 +200,6 @@ namespace CppCodeModifier
                         bool isModify = false;
                         // 最後のnamespaceのindex
                         int lastNamespaceIndex = lines.FindLastIndex(x => x.StartsWith("namespace "));
-
                         int lastSeparatorIndex = lines.Count - 1;
                         while (0 <= lastSeparatorIndex)
                         {
@@ -226,6 +225,35 @@ namespace CppCodeModifier
                             }
 
                             --lastSeparatorIndex;
+                        }
+
+                        // コメントのインデントをなおす
+                        for (int baseIdx = lines.Count - 1; 0 < baseIdx; --baseIdx)
+                        {
+                            string[] keywords = { "class", "enum", "struct", "typedef" };
+                            bool isTargetLine = false;
+                            foreach (var keyword in keywords)
+                            {
+                                if (lines[baseIdx].StartsWith(keyword))
+                                {
+                                    isTargetLine = true;
+                                    break;
+                                }
+                            }
+
+                            if (isTargetLine)
+                            {
+                                int idx = baseIdx - 1;
+                                while (lines[idx].StartsWith("    "))
+                                {
+                                    var newLine = lines[idx].Trim();
+                                    lines.RemoveAt(idx);
+                                    lines.Insert(idx, newLine);
+                                    isModify = true;
+                                }
+                            }
+                         
+                             
                         }
 
                         return isModify;

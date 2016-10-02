@@ -26,7 +26,7 @@ namespace XG3D {
     /// ・RGB系 : RGB を RGB に代入@n
     /// ・LA系 : RA を LA に代入@n
     /// ・L系 : R を L に代入@n
-    /// ・A系 : A を A に代入@n
+/// ・A系 : A を A に代入@n
 class RuntimeTex
     : public ::XBase::NonCopyable
 {

@@ -17,7 +17,7 @@ namespace XBase {
 
 /// @addtogroup XBase-Math
 //@{
-    /// Vector2PODのエイリアス。
+/// Vector2PODのエイリアス。
 typedef Vector2POD Vec2;
 
 /// @brief 浮動小数型2次元ベクトル構造体。

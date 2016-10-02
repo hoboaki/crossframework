@@ -19,7 +19,7 @@ namespace XG3D {
 //@{
     /// @brief モデルが必要とする全Materialに関するState。
     /// @details
-    /// 各関数の引数 aMatIndex はインスタンス元モデルの matRefer のインデックス値に対応します。
+/// 各関数の引数 aMatIndex はインスタンス元モデルの matRefer のインデックス値に対応します。
 class StateMdlMaterial : public ::XBase::NonCopyable
 {
 public:

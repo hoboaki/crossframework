@@ -10,7 +10,7 @@ namespace XBase {
 
 /// @addtogroup XBase-Debug
 //@{
-    /// ポインタについて調べる処理を扱う空間。
+/// ポインタについて調べる処理を扱う空間。
 struct PointerCheck
 {
     /// @brief 有効なポインタか。

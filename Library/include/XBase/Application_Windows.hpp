@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 namespace XBase {
 
-    // Windows環境でのApplicationの拡張。
+// Windows環境でのApplicationの拡張。
 class Application_EXT
 {
 public:

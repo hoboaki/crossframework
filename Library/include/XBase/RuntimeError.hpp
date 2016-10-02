@@ -12,7 +12,7 @@ namespace XBase {
 
 /// @addtogroup XBase-Debug
 //@{
-    /// 実行時エラーを扱う空間。
+/// 実行時エラーを扱う空間。
 struct RuntimeError
 {
     /// @brief デフォルトで設定されているコールバックを取得する。

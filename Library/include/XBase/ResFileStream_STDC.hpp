@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 namespace XBase {
 
-    // C標準ライブラリ用のResFileStream拡張。
+// C標準ライブラリ用のResFileStream拡張。
 class ResFileStream_EXT
 {
 public:

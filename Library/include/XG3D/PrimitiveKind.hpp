@@ -8,7 +8,7 @@ namespace XG3D {
 
 /// @addtogroup XG3D-Enum
 //@{
-    /// プリミティブの種類。
+/// プリミティブの種類。
 enum PrimitiveKind
 {
     PrimitiveKind_Triangles ///< 連続した三角形。

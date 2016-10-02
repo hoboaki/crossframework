@@ -16,7 +16,7 @@ namespace XBase {
     /// };
     /// Hoge a;
     /// Hoge b = a; // コピーできないのでコンパイルエラー。
-    /// @endcode
+/// @endcode
 class NonCopyable
 {
 protected:

@@ -12,7 +12,7 @@ namespace XG3D {
 
 /// @addtogroup XG3D-Util
 //@{
-    /// テクスチャリソースのデータを返すインターフェースクラス。
+/// テクスチャリソースのデータを返すインターフェースクラス。
 class ITexRes
 {
 public:

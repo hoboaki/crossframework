@@ -19,7 +19,7 @@ namespace XBase {
     /// @brief MemBlockのオートポインタ。
     /// @details
     /// デストラクタで自分が抱えているMemBlockを解放します。 @n
-    /// std::auto_ptr と同じようにインスタンスをコピーしたら破棄責任も移動します。 @n
+/// std::auto_ptr と同じようにインスタンスをコピーしたら破棄責任も移動します。 @n
 class AutoMemBlock
 {
 public:

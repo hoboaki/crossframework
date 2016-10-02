@@ -6,7 +6,7 @@
 //------------------------------------------------------------------------------
 namespace XBase {
 
-    // デフォルト環境でのApplicationの拡張。
+// デフォルト環境でのApplicationの拡張。
 class Application_EXT
 {
 public:

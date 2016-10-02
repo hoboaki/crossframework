@@ -11,7 +11,7 @@ namespace XBase {
 
 /// @addtogroup XBase-Memory
 //@{
-    /// アロケータインターフェース。
+/// アロケータインターフェース。
 class IAllocator
 {
 public:

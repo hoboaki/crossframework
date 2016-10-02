@@ -8,7 +8,7 @@ namespace XBase {
 
 /// @addtogroup XBase-IO
 //@{
-    /// Seek関数の基準。
+/// Seek関数の基準。
 enum SeekOrigin
 {
     SeekOrigin_Begin,   ///< 先頭。

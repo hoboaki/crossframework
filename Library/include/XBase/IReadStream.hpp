@@ -11,7 +11,7 @@ namespace XBase {
 
 /// @addtogroup XBase-IO
 //@{
-    /// 読み込み専用ストリーム。
+/// 読み込み専用ストリーム。
 class IReadStream
 {
 public:

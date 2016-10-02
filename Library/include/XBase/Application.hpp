@@ -31,7 +31,7 @@ namespace XBase {
     /// @brief アプリケーションの全体を扱うクラス。
     /// @details
     /// このクラスのインスタンスはフレームワークによって生成されます。@n
-    /// xmain 関数が呼ばれた時点でこのクラスは生成されているため Instance() を使ってアクセスできます。@n
+/// xmain 関数が呼ばれた時点でこのクラスは生成されているため Instance() を使ってアクセスできます。@n
 class Application : public ::XBase::NonCopyable
 {
 public:

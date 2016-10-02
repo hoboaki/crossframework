@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 namespace XBase {
 
-    // MacOSX環境でのApplicationの拡張。
+// MacOSX環境でのApplicationの拡張。
 class Application_EXT
 {
 public:

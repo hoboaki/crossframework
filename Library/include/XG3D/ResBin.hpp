@@ -29,7 +29,7 @@ namespace XG3D {
 //@{
     /// @brief コンバートされたXG3Dデータを扱うクラス。
     /// @details
-    /// 各リソースを使って描画する前に setup() を前もって呼ぶようにしてください。
+/// 各リソースを使って描画する前に setup() を前もって呼ぶようにしてください。
 class ResBin : public ::XBase::NonCopyable
 {
 public:

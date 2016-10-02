@@ -28,7 +28,7 @@ namespace XBase {
     /// @brief Displayが所持する描画領域。
     /// @details
     /// WindowsやMacOSXなどのWindowSystem環境では１つの Display に１つの Screen が存在します。 @n
-    /// NintendoDSなど2枚の描画領域を持つ環境では１つの Display に２つの Screen が存在します。 @n
+/// NintendoDSなど2枚の描画領域を持つ環境では１つの Display に２つの Screen が存在します。 @n
 class Screen : public ::XBase::NonCopyable
 {
 public:

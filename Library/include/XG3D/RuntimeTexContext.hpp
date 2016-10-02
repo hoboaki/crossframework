@@ -13,7 +13,7 @@ namespace XG3D {
 
 /// @addtogroup XG3D-Util
 //@{
-    /// RuntimeTex用コンテキスト。
+/// RuntimeTex用コンテキスト。
 class RuntimeTexContext
 {
 public:

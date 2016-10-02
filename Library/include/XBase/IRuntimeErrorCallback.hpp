@@ -8,7 +8,7 @@ namespace XBase {
 
 /// @addtogroup XBase-Debug
 //@{
-    /// 実行時エラー用コールバックインターフェースクラス。
+/// 実行時エラー用コールバックインターフェースクラス。
 class IRuntimeErrorCallback
 {
 public:

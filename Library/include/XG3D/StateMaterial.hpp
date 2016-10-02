@@ -16,7 +16,7 @@ namespace XG3D {
 
 /// @addtogroup XG3D-State
 //@{
-    /// @brief マテリアルのState。
+/// @brief マテリアルのState。
 class StateMaterial : public ::XBase::NonCopyable
 {
 public:

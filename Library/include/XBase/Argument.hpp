@@ -10,7 +10,7 @@ namespace XBase {
 
 /// @addtogroup XBase-System
 //@{
-    /// エントリーポイントの引数。
+/// エントリーポイントの引数。
 class Argument
 {
 public:

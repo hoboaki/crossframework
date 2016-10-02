@@ -12,7 +12,7 @@ namespace XG3D {
 
 /// @addtogroup XG3D-Util
 //@{
-    /// テクスチャリソースのデータ。
+/// テクスチャリソースのデータ。
 struct TexResData
 {
     ::XBase::EnumPODTmpl< ResTexFormat, s32 > format; ///< フォーマット。

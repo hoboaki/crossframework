@@ -16,7 +16,7 @@ class Display;
 //------------------------------------------------------------------------------
 namespace XG3D {
 
-    // Rendererの拡張。
+// Rendererの拡張。
 class Renderer_EXT
 {
 public:

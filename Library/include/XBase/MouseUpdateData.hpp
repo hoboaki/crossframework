@@ -12,7 +12,7 @@ namespace XBase {
 
 /// @addtogroup XBase-HID
 //@{
-    /// マウスの更新データ。
+/// マウスの更新データ。
 struct MouseUpdateData
 {
     ScreenPos pos;

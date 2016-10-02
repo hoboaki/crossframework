@@ -10,7 +10,7 @@
 //------------------------------------------------------------------------------
 namespace XBase {
 
-    // WindowsのHID拡張。
+// WindowsのHID拡張。
 class HID_EXT : public NonCopyable
 {
 public:

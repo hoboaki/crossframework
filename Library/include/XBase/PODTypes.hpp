@@ -14,7 +14,7 @@ namespace XBase
 //@{
     //=================================================
     /// @name struct化された符号無し型
-    //@{
+//@{
 typedef PODStruct< u8 >   U8POD;     ///< 8bit符号有り整数型。
 typedef PODStruct< u8 >   UInt8POD;  ///< 8bit符号有り整数型。
 typedef PODStruct< u16 >  U16POD;    ///< 16bit符号有り整数型。

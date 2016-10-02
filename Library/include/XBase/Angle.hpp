@@ -14,7 +14,7 @@ namespace XBase {
 
 /// @addtogroup XBase-Math
 //@{
-    /// 角度を示すクラス。
+/// 角度を示すクラス。
 class Angle
 {
 public:

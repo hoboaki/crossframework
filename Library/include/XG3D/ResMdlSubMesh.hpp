@@ -18,7 +18,7 @@ namespace XG3D {
 //@{
     /// @brief XMDL::sub_meshデータのアクセサ。
     /// @details
-    /// ただのアクセサなのでコピーして使って構いません。メモリのアロケーションも走りません。
+/// ただのアクセサなのでコピーして使って構いません。メモリのアロケーションも走りません。
 class ResMdlSubMesh
 {
 public:

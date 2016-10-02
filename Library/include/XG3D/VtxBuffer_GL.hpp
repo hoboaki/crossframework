@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 namespace XG3D {
 
-    // VtxBufferの拡張。
+// VtxBufferの拡張。
 class VtxBuffer_EXT
 {
 public:

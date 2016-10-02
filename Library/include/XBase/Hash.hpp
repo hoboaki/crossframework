@@ -14,7 +14,7 @@ namespace XBase {
 
 /// @addtogroup XBase-Util
 //@{
-    /// ハッシュ値を求める関数群。
+/// ハッシュ値を求める関数群。
 struct Hash
 {
     /// CRC16の値を求める。

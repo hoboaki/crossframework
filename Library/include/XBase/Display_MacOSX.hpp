@@ -18,7 +18,7 @@ class HID;
 //------------------------------------------------------------------------------
 namespace XBase {
 
-    // MacOSX環境でのDisplayの拡張。
+// MacOSX環境でのDisplayの拡張。
 class Display_EXT
 {
 public:

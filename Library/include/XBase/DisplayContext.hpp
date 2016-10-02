@@ -12,7 +12,7 @@ namespace XBase {
 
 /// @addtogroup XBase-System
 //@{
-    /// Display クラスのコンテキスト。
+/// Display クラスのコンテキスト。
 class DisplayContext
 {
 public:

@@ -14,7 +14,7 @@ namespace XBase
 //@{
     //=================================================
     /// @name 必ず初期化される符号無し型
-    //@{
+//@{
 typedef ScalerClass< u8 >   U8;     ///< 8bit符号有り整数型。
 typedef ScalerClass< u8 >   UInt8;  ///< 8bit符号有り整数型。
 typedef ScalerClass< u16 >  U16;    ///< 16bit符号有り整数型。

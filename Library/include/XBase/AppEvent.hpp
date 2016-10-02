@@ -8,7 +8,7 @@ namespace XBase {
 
 /// @addtogroup XBase-System
 //@{
-    /// アプリケーションイベントの種類。
+/// アプリケーションイベントの種類。
 enum AppEvent
 {
     AppEvent_Quit     ///< 終了する。

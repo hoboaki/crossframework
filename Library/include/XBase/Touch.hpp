@@ -13,7 +13,7 @@ namespace XBase {
 //@{
     /// @brief タッチ入力。
     /// @details
-    /// マルチタッチをサポートします。@n
+/// マルチタッチをサポートします。@n
 class Touch
 {
 public:

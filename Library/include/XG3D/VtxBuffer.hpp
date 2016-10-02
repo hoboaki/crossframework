@@ -27,7 +27,7 @@ namespace XG3D {
     /// @brief 頂点バッファ。
     /// @details
     /// 頂点配列のバッファの作成・保持・描画をするクラスです。 @n
-    /// プログラムコードで何かを簡易に描画する用に作られています。 @n
+/// プログラムコードで何かを簡易に描画する用に作られています。 @n
 class VtxBuffer : public ::XBase::NonCopyable
 {
 public:

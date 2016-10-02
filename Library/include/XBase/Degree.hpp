@@ -15,7 +15,7 @@ namespace XBase {
 
 /// @addtogroup XBase-Math
 //@{
-    /// 度を扱う構造体。
+/// 度を扱う構造体。
 struct DegreePOD
 {
     f32 value; ///< 度の値。

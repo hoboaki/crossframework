@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 namespace XBase {
 
-    // iOSのHID拡張。
+// iOSのHID拡張。
 class HID_EXT : public NonCopyable
 {
 public:

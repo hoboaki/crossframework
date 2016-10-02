@@ -22,7 +22,7 @@ namespace XBase {
 
 /// @addtogroup XBase-System
 //@{
-    // Windows環境でのDisplayの拡張。
+// Windows環境でのDisplayの拡張。
 class Display_EXT
 {
 public:

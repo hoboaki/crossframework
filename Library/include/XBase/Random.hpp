@@ -12,7 +12,7 @@ namespace XBase {
 //@{
     /// @brief 乱数。
     /// @details
-    /// アルゴリズムはxorshiftを採用しています。
+/// アルゴリズムはxorshiftを採用しています。
 class Random
 {
 public:

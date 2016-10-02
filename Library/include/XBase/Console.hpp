@@ -16,7 +16,7 @@ namespace XBase {
 
 /// @addtogroup XBase-Debug
 //@{
-    /// コンソールに関する関数を定義する空間。
+/// コンソールに関する関数を定義する空間。
 struct Console
 {
     /// @brief デフォルトの時間フォーマット文字列を取得する。

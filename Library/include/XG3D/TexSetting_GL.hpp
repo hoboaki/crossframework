@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 namespace XG3D {
 
-    // TexSettingの拡張。
+// TexSettingの拡張。
 class TexSetting_EXT
 {
 public:
