@@ -79,8 +79,7 @@ Quaternion& Quaternion::mulAssign(const Quaternion& aRHS)
 const Matrix34POD Quaternion::toRotateMatrix()const
 {
     const f32 lenSrc = Math::SqrtF32(w*w + x*x + y*y + z*z);
-    if (lenSrc == 0)
-    {
+    if (lenSrc == 0) {
         XBASE_NOT_REACH_ASSERT();
         return Matrix34::Identity();
     }

@@ -40,8 +40,7 @@ VtxBuffer::~VtxBuffer()
 void VtxBuffer::reset()
 {
     // チェック
-    if (mIsMeshActive)
-    {
+    if (mIsMeshActive) {
         XBASE_NOT_REACH_ASSERT();
         return;
     }
@@ -57,8 +56,7 @@ void VtxBuffer::reset()
 void VtxBuffer::clear()
 {
     // チェック
-    if (mIsMeshActive)
-    {
+    if (mIsMeshActive) {
         XBASE_NOT_REACH_ASSERT();
         return;
     }
@@ -79,18 +77,15 @@ void VtxBuffer::worldMtx(const ::XBase::Matrix34POD& aMtx)
 void VtxBuffer::begin(const PrimitiveKind aKind)
 {
     // チェック
-    if (mIsFlushed)
-    {
+    if (mIsFlushed) {
         XBASE_NOT_REACH_ASSERT();
         return;
     }
-    if (mMeshArray.isFull())
-    {
+    if (mMeshArray.isFull()) {
         XBASE_NOT_REACH_ASSERT();
         return;
     }
-    if (XBASE_ENUM_IS_INVALID(PrimitiveKind, aKind))
-    {
+    if (XBASE_ENUM_IS_INVALID(PrimitiveKind, aKind)) {
         XBASE_NOT_REACH_ASSERT();
         return;
     }
@@ -111,8 +106,7 @@ void VtxBuffer::begin(const PrimitiveKind aKind)
 void VtxBuffer::end()
 {
     // チェック
-    if (!mIsMeshActive)
-    {
+    if (!mIsMeshActive) {
         XBASE_NOT_REACH_ASSERT();
         return;
     }
@@ -120,21 +114,18 @@ void VtxBuffer::end()
     // メッシュの種類ごとの処理
     Mesh& mesh = mMeshArray.last();
     XBASE_ENUM_ASSERT(PrimitiveKind, mesh.kind);
-    switch (mesh.kind)
-    {
+    switch (mesh.kind) {
         case PrimitiveKind_Triangles:
         {// 連続三角形
             // チェック
             const uint vertexCountPerPrimitive = 3;
-            if ((mesh.count % vertexCountPerPrimitive) != 0)
-            {
+            if ((mesh.count % vertexCountPerPrimitive) != 0) {
                 XBASE_INVALID_VALUE_ERROR(mesh.count);
                 return;
             }
             // index生成
             const uint elemBeginIndex = mIndexArray.count();
-            for (uint i = 0; i < mesh.count; ++i)
-            {
+            for (uint i = 0; i < mesh.count; ++i) {
                 mIndexArray.add(Index(mesh.beginIndex + i));
             }
             // 情報修正
@@ -146,8 +137,7 @@ void VtxBuffer::end()
         {// 連続矩形
             // チェック
             const uint vertexCountPerPrimitive = 4;
-            if ((mesh.count % vertexCountPerPrimitive) != 0)
-            {
+            if ((mesh.count % vertexCountPerPrimitive) != 0) {
                 XBASE_INVALID_VALUE_ERROR(mesh.count);
                 return;
             }
@@ -155,8 +145,7 @@ void VtxBuffer::end()
             const uint elemBeginIndex = mIndexArray.count();
             const uint vtxBeginIndex = mesh.beginIndex;
             const uint primitiveCount = mesh.count / vertexCountPerPrimitive;
-            for (uint i = 0; i < primitiveCount; ++i)
-            {
+            for (uint i = 0; i < primitiveCount; ++i) {
                 const uint vtxBaseIndex = vtxBeginIndex + i * vertexCountPerPrimitive;
 
                 // trianglesに変換
@@ -196,8 +185,7 @@ void VtxBuffer::normal(const f32 aX, const f32 aY, const f32 aZ)
 void VtxBuffer::normal(const ::XBase::Vector3POD& aXYZ)
 {
     // チェック
-    if (!mIsMeshActive)
-    {
+    if (!mIsMeshActive) {
         XBASE_NOT_REACH_ASSERT();
         return;
     }
@@ -214,8 +202,7 @@ void VtxBuffer::texCoord(const f32 aS, const f32 aT)
 void VtxBuffer::texCoord(const ::XBase::Vector2POD& aST)
 {
     // チェック
-    if (!mIsMeshActive)
-    {
+    if (!mIsMeshActive) {
         XBASE_NOT_REACH_ASSERT();
         return;
     }
@@ -238,8 +225,7 @@ void VtxBuffer::color(const f32 aR, const f32 aG, const f32 aB, const f32 aA)
 void VtxBuffer::color(const ::XBase::Color4POD& aRGBA)
 {
     // チェック
-    if (!mIsMeshActive)
-    {
+    if (!mIsMeshActive) {
         XBASE_NOT_REACH_ASSERT();
         return;
     }
@@ -268,13 +254,11 @@ void VtxBuffer::vertex(const ::XBase::Vector2POD& aXY)
 void VtxBuffer::vertex(const ::XBase::Vector3POD& aXYZ)
 {
     // チェック
-    if (!mIsMeshActive)
-    {
+    if (!mIsMeshActive) {
         XBASE_NOT_REACH_ASSERT();
         return;
     }
-    if (mVertexArray.isFull())
-    {
+    if (mVertexArray.isFull()) {
         XBASE_NOT_REACH_ASSERT();
         return;
     }
@@ -293,8 +277,7 @@ void VtxBuffer::vertex(const ::XBase::Vector3POD& aXYZ)
 void VtxBuffer::flush()
 {
     // チェック
-    if (mIsFlushed)
-    {
+    if (mIsFlushed) {
         XBASE_NOT_REACH_ASSERT();
         return;
     }
@@ -327,21 +310,18 @@ void VtxBuffer::flush()
 void VtxBuffer::draw()
 {
     // チェック
-    if (!mIsFlushed)
-    {
+    if (!mIsFlushed) {
         XBASE_NOT_REACH_ASSERT();
         return;
     }
 
     // メッシュがなければ何もしない
-    if (mMeshArray.isEmpty())
-    {
+    if (mMeshArray.isEmpty()) {
         return;
     }
 
     // 頂点がなければ何もしない
-    if (mVertexArray.isEmpty())
-    {
+    if (mVertexArray.isEmpty()) {
         return;
     }
 
@@ -358,8 +338,7 @@ void VtxBuffer::draw()
     XG3D_GLCMD(glEnableVertexAttribArray(ShaderConstant::Attribute_Color));
 
     // 各メッシュの描画
-    for (uint i = 0; i < mMeshArray.count(); ++i)
-    {
+    for (uint i = 0; i < mMeshArray.count(); ++i) {
         // 取得
         const Mesh& mesh = mMeshArray[i];
 

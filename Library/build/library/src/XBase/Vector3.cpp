@@ -284,8 +284,7 @@ void Vector3POD::mulAssign(const float aVal)
 //------------------------------------------------------------------------------
 void Vector3POD::divAssign(const float aVal)
 {
-    if (aVal == 0)
-    {
+    if (aVal == 0) {
         XBASE_NOT_REACH_ASSERT();
         return;
     }
@@ -541,8 +540,7 @@ const Vector3POD Vector3POD::unit()const
 //------------------------------------------------------------------------------
 void Vector3POD::unitAssign()
 {
-    if (isZeroStrict())
-    {
+    if (isZeroStrict()) {
         XBASE_NOT_REACH_ASSERT();
         return;
     }

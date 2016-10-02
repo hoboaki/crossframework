@@ -56,8 +56,7 @@ public:
         result = pthread_mutex_lock(&mMutex);
         XBASE_EQUALS_ASSERT(result, 0);
 
-        while (0 < mValue)
-        {
+        while (0 < mValue) {
             result = pthread_cond_wait(&mCond, &mMutex);
             XBASE_EQUALS_ASSERT(result, 0);
         }

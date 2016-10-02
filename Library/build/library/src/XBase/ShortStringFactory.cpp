@@ -90,8 +90,7 @@ const ShortString ShortStringFactory::Create(const u64 aVal)
 #if !defined(XBASE_OS_WINDOWS)
 const ShortString ShortStringFactory::Create(pword_t aVal)
 {
-    if (sizeof(pword_t) == 4)
-    {
+    if (sizeof(pword_t) == 4) {
         return Create(u32(aVal));
     }
     else

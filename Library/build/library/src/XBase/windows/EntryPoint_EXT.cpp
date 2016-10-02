@@ -39,10 +39,8 @@ int tLastIndexOf(const char aCh, const char* aStr)
 {
     XBASE_POINTER_ASSERT(aStr);
     int index = -1;
-    for (int i = 0; aStr[i] != '\0'; ++i)
-    {
-        if (aStr[i] == aCh)
-        {
+    for (int i = 0; aStr[i] != '\0'; ++i) {
+        if (aStr[i] == aCh) {
             index = i;
         }
     }
@@ -53,10 +51,8 @@ int tLastIndexOf(const char aCh, const char* aStr)
 void tReplaceChar(const char aTargetCh, const char aNewCh, char* aStr)
 {
     XBASE_POINTER_ASSERT(aStr);
-    for (int i = 0; aStr[i] != '\0'; ++i)
-    {
-        if (aStr[i] == aTargetCh)
-        {
+    for (int i = 0; aStr[i] != '\0'; ++i) {
+        if (aStr[i] == aTargetCh) {
             aStr[i] = aNewCh;
         }
     }
@@ -81,8 +77,7 @@ void tSetupExeInfo()
 // 空白文字か
 bool tIsWhiteCh(const char aCh)
 {
-    switch (aCh)
-    {
+    switch (aCh) {
         case ' ':
         case '\t':
         case '\r':
@@ -98,29 +93,25 @@ bool tIsWhiteCh(const char aCh)
 void tSetupArg()
 {
     ::XBase::uint index = 0;
-    while (tArgChars[index] != '\0')
-    {
+    while (tArgChars[index] != '\0') {
         // 空白文字をスキップする
-        while (tIsWhiteCh(tArgChars[index]))
-        {
+        while (tIsWhiteCh(tArgChars[index])) {
             ++index;
         }
 
         // 0なら何もせず終了
-        if (tArgChars[index] == '\0')
-        {
+        if (tArgChars[index] == '\0') {
             break;
         }
 
         // 最初の文字で分岐
-        if (tArgChars[index] == '\"')
-        {// ダブルコーテーション
+        if (tArgChars[index] == '\"') {
+            // ダブルコーテーション
             // 次の文字からスタート
             ++index;
 
             // 先頭が0なら何もせず終了
-            if (tArgChars[index] == '\0')
-            {
+            if (tArgChars[index] == '\0') {
                 break;
             }
 
@@ -146,8 +137,7 @@ void tSetupArg()
             tArgPtrs[tArgCount] = &tArgChars[index];
 
             // 空白文字が見つかるまで進める
-            while (!tIsWhiteCh(tArgChars[index]))
-            {
+            while (!tIsWhiteCh(tArgChars[index])) {
                 ++index;
             }
 
@@ -242,8 +232,7 @@ int main(
 
     {// 引数
         ::XBase::uint index = 0;
-        for (int i = 1; i < aArgCount && i < tArgPtrsLength; ++i)
-        {
+        for (int i = 1; i < aArgCount && i < tArgPtrsLength; ++i) {
             const ::XBase::StringTraits< char >::WriteResult result =
                 ::XBase::StringTraits< char >::NCopy(tArgChars, tArgCharsLength - index, aArgValues[i]);
             tArgPtrs[i] = &tArgChars[index];

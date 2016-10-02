@@ -42,8 +42,7 @@ bool ResMdlSubMesh::operator==(const ResMdlSubMesh& aRHS)const
 uint ResMdlSubMesh::index()const
 {
     // チェック
-    if (checkInvalid())
-    {
+    if (checkInvalid()) {
         return ResConstant::INVALID_MDL_SUB_MESH_INDEX;
     }
     return mPtr->binPtr->index;
@@ -53,8 +52,7 @@ uint ResMdlSubMesh::index()const
 uint ResMdlSubMesh::nodeIndex()const
 {
     // チェック
-    if (checkInvalid())
-    {
+    if (checkInvalid()) {
         return ResConstant::INVALID_MDL_NODE_INDEX;
     }
     return mPtr->binPtr->nodeIdx;
@@ -64,8 +62,7 @@ uint ResMdlSubMesh::nodeIndex()const
 uint ResMdlSubMesh::matReferIndex()const
 {
     // チェック
-    if (checkInvalid())
-    {
+    if (checkInvalid()) {
         return ResConstant::INVALID_MDL_MAT_REFER_INDEX;
     }
     return mPtr->binPtr->matReferIdx;
@@ -75,8 +72,7 @@ uint ResMdlSubMesh::matReferIndex()const
 ResMdlShape ResMdlSubMesh::shape()const
 {
     // チェック
-    if (checkInvalid())
-    {
+    if (checkInvalid()) {
         return ResMdlShape();
     }
     return mPtr->resMdlShape;
@@ -86,8 +82,7 @@ ResMdlShape ResMdlSubMesh::shape()const
 bool ResMdlSubMesh::checkInvalid()const
 {
     // 正しければ何もしない
-    if (isValid())
-    {
+    if (isValid()) {
         return false;
     }
 

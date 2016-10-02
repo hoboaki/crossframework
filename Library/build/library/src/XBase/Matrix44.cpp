@@ -405,8 +405,7 @@ const Matrix44POD Matrix44POD::invert()const
         - v[Index02] * v[Index10] * v[Index23] * v[Index31] - v[Index02] * v[Index11] * v[Index20] * v[Index33] - v[Index02] * v[Index13] * v[Index21] * v[Index30]
         - v[Index03] * v[Index10] * v[Index21] * v[Index32] - v[Index03] * v[Index11] * v[Index22] * v[Index30] - v[Index03] * v[Index12] * v[Index20] * v[Index31];
 
-    if (c == 0.0f)
-    {
+    if (c == 0.0f) {
         XBASE_NOT_REACH_ASSERT();
         return Identity();
     }

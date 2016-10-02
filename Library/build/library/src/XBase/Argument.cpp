@@ -32,22 +32,19 @@ uint Argument::argCount()const
 const char* Argument::argValue(const uint aIndex)const
 {
     // 範囲外チェック
-    if (mArgCount <= aIndex)
-    {
+    if (mArgCount <= aIndex) {
         XBASE_INVALID_VALUE_ERROR(aIndex);
         return "";
     }
 
     // 配列ポインタチェック
-    if (PointerCheck::InvalidCheck(mArgValues))
-    {
+    if (PointerCheck::InvalidCheck(mArgValues)) {
         return "";
     }
 
     // 文字列ポインタチェック
     const char* value = mArgValues[aIndex];
-    if (PointerCheck::InvalidCheck(value))
-    {
+    if (PointerCheck::InvalidCheck(value)) {
         return "";
     }
 
@@ -58,8 +55,7 @@ const char* Argument::argValue(const uint aIndex)const
 //------------------------------------------------------------------------------
 const char* Argument::exeFileName()const
 {
-    if (PointerCheck::InvalidCheck(mExeFileName))
-    {
+    if (PointerCheck::InvalidCheck(mExeFileName)) {
         return "";
     }
     return mExeFileName;
@@ -68,8 +64,7 @@ const char* Argument::exeFileName()const
 //------------------------------------------------------------------------------
 const char* Argument::exeDirPath()const
 {
-    if (PointerCheck::InvalidCheck(mExeDirPath))
-    {
+    if (PointerCheck::InvalidCheck(mExeDirPath)) {
         return "";
     }
     return mExeDirPath;

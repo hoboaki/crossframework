@@ -44,8 +44,7 @@ bool ResTex::operator==(const ResTex& aRHS)const
 uint ResTex::index()const
 {
     // チェック
-    if (checkInvalid())
-    {
+    if (checkInvalid()) {
         return ResConstant::INVALID_TEX_INDEX;
     }
     return mPtr->binPtr->index;
@@ -55,8 +54,7 @@ uint ResTex::index()const
 const char* ResTex::name()const
 {
     // チェック
-    if (checkInvalid())
-    {
+    if (checkInvalid()) {
         return "";
     }
     return mPtr->xdata.ref< ::XData::String >(mPtr->binPtr->name)->toCStr();
@@ -66,8 +64,7 @@ const char* ResTex::name()const
 u16 ResTex::width()const
 {
     // チェック
-    if (checkInvalid())
-    {
+    if (checkInvalid()) {
         return u16();
     }
     return mPtr->binPtr->width;
@@ -77,8 +74,7 @@ u16 ResTex::width()const
 u16 ResTex::height()const
 {
     // チェック
-    if (checkInvalid())
-    {
+    if (checkInvalid()) {
         return u16();
     }
     return mPtr->binPtr->height;
@@ -88,8 +84,7 @@ u16 ResTex::height()const
 ResTexFormat ResTex::format()const
 {
     // チェック
-    if (checkInvalid())
-    {
+    if (checkInvalid()) {
         return ResTexFormat_MIN;
     }
     return mPtr->format();
@@ -99,8 +94,7 @@ ResTexFormat ResTex::format()const
 const byte_t* ResTex::pixels()const
 {
     // チェック
-    if (checkInvalid())
-    {
+    if (checkInvalid()) {
         return 0;
     }
     return mPtr->pixels();
@@ -110,8 +104,7 @@ const byte_t* ResTex::pixels()const
 const TexBuffer* ResTex::texBufferPtr()const
 {
     // チェック
-    if (checkInvalid())
-    {
+    if (checkInvalid()) {
         return 0;
     }
     return mPtr->texBufferPtr;
@@ -121,8 +114,7 @@ const TexBuffer* ResTex::texBufferPtr()const
 bool ResTex::checkInvalid()const
 {
     // 正しければ何もしない
-    if (isValid())
-    {
+    if (isValid()) {
         return false;
     }
 

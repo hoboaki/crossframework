@@ -22,8 +22,7 @@ TexBuffer::TexBuffer(
     GLenum internalFormat = GLenum();
     GLenum format = GLenum();
     GLenum type = GLenum();
-    switch (mResData.format)
-    {
+    switch (mResData.format) {
         case ResTexFormat_RGBA8:
             internalFormat = GL_RGBA;
             format = GL_RGBA;

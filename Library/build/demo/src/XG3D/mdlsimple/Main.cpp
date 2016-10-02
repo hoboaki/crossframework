@@ -38,14 +38,12 @@ int xmain(::XBase::Application& aApp)
 
     // イベントループ
     bool doExit = false;
-    while (!doExit)
-    {
+    while (!doExit) {
         // イベントの取得
         ::XBase::AppEvent event = aApp.receiveEvent();
 
         // イベントによって分岐
-        switch (event)
-        {
+        switch (event) {
             case ::XBase::AppEvent_Quit:
                 doExit = true;
                 break;
@@ -53,16 +51,14 @@ int xmain(::XBase::Application& aApp)
             case ::XBase::AppEvent_Update:
             {
                 // ディスプレイが閉じてたら終了
-                if (display.isClosed())
-                {
+                if (display.isClosed()) {
                     aApp.quit();
                     continue;
                 }
 
                 // アニメーションを進める
                 rotateFrame.advance();
-                if (rotateFrame.isEnd())
-                {
+                if (rotateFrame.isEnd()) {
                     rotateFrame.reset();
                 }
 
@@ -92,11 +88,9 @@ int xmain(::XBase::Application& aApp)
                     ));
 
                 // 各メッシュの描画
-                for (::XG3D::uint meshIdx = 0; meshIdx < resMdl.meshCount(); ++meshIdx)
-                {
+                for (::XG3D::uint meshIdx = 0; meshIdx < resMdl.meshCount(); ++meshIdx) {
                     ::XG3D::ResMdlMesh mesh = resMdl.mesh(meshIdx);
-                    for (::XG3D::uint subMeshIdx = 0; subMeshIdx < mesh.subMeshCount(); ++subMeshIdx)
-                    {
+                    for (::XG3D::uint subMeshIdx = 0; subMeshIdx < mesh.subMeshCount(); ++subMeshIdx) {
                         ::XG3D::ResMdlSubMesh subMesh = mesh.subMesh(subMeshIdx);
                         renderer.draw(subMesh, stateTransform, stateMaterial);
                     }

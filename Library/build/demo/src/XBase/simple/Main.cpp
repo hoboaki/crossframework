@@ -9,18 +9,15 @@ int xmain(::XBase::Application& aApp)
 
     // 終了イベントがくるまでループ
     int count = 0;
-    while (aApp.receiveEvent() != ::XBase::AppEvent_Quit)
-    {
+    while (aApp.receiveEvent() != ::XBase::AppEvent_Quit) {
         // 更新以外は何もしない
-        if (aApp.lastEvent() != ::XBase::AppEvent_Update)
-        {
+        if (aApp.lastEvent() != ::XBase::AppEvent_Update) {
             continue;
         }
 
         // 60フレごとにprintf
         ++count;
-        if (count % 60 == 0)
-        {
+        if (count % 60 == 0) {
             XBASE_COUTFMT_LINE("count is %d.", count);
         }
     }

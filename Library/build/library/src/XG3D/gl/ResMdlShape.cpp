@@ -42,8 +42,7 @@ bool ResMdlShape::operator==(const ResMdlShape& aRHS)const
 uint ResMdlShape::index()const
 {
     // チェック
-    if (checkInvalid())
-    {
+    if (checkInvalid()) {
         return ResConstant::INVALID_MDL_SHAPE_INDEX;
     }
     return mPtr->binPtr->index;
@@ -53,8 +52,7 @@ uint ResMdlShape::index()const
 const char* ResMdlShape::name()const
 {
     // チェック
-    if (checkInvalid())
-    {
+    if (checkInvalid()) {
         return "";
     }
     return mPtr->xdata.ref< ::XData::String >(mPtr->binPtr->name)->toCStr();
@@ -64,8 +62,7 @@ const char* ResMdlShape::name()const
 bool ResMdlShape::isSkinning()const
 {
     // チェック
-    if (checkInvalid())
-    {
+    if (checkInvalid()) {
         return false;
     }
     return mPtr->binPtr->skinningTableIdx != ResConstant::INVALID_MDL_SKINNING_TABLE_INDEX;
@@ -81,8 +78,7 @@ const ResMdlShapeImpl* ResMdlShape::impl_()const
 bool ResMdlShape::checkInvalid()const
 {
     // 正しければ何もしない
-    if (isValid())
-    {
+    if (isValid()) {
         return false;
     }
 

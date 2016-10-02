@@ -537,15 +537,13 @@ void tUpdateModKey(KeyboardUpdateData& aData, KeyKind aKey, int aIsDown)
 {
     // 同じなら何もしない
     const bool isDown = aIsDown != 0;
-    if (aData.hold.get(aKey) == isDown)
-    {
+    if (aData.hold.get(aKey) == isDown) {
         return;
     }
 
     // 変更
     aData.hold.set(aKey, isDown);
-    if (isDown)
-    {
+    if (isDown) {
         aData.pulse.set(aKey, true);
     }
 }
@@ -589,22 +587,18 @@ void Display_EXT::CBKeyEvent(void* aOwnerPtr, const int aUnicode, const int aIsD
 {
     // キー選択
     int keyKind = -1;
-    if (0 <= aUnicode && aUnicode <= 0xFF)
-    {
+    if (0 <= aUnicode && aUnicode <= 0xFF) {
         keyKind = tNormalKeyCode[aUnicode];
     }
-    else if (0xF700 <= aUnicode &&  aUnicode <= 0xF7FF)
-    {
+    else if (0xF700 <= aUnicode &&  aUnicode <= 0xF7FF) {
         keyKind = tSpecialKeyCode[aUnicode - 0xF700];
     }
 
     // 有効なキーなら保存
-    if (0 <= keyKind)
-    {
+    if (0 <= keyKind) {
         Display_EXT* owner = static_cast<Display_EXT*>(aOwnerPtr);
         owner->keyboardUpdateData.hold.set(uint(keyKind), aIsDown != 0);
-        if (aIsDown)
-        {
+        if (aIsDown) {
             owner->keyboardUpdateData.pulse.set(uint(keyKind), true);
         }
     }

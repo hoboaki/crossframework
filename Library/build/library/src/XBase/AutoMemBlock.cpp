@@ -25,8 +25,8 @@ AutoMemBlock::AutoMemBlock(
 {
     // 確保
     ptr_t ptr = aAllocator.alloc(aSize, aAlignment);
-    if (ptr == 0)
-    {// 失敗
+    if (ptr == 0) {
+        // 失敗
         return;
     }
 
@@ -65,8 +65,7 @@ bool AutoMemBlock::isEmpty()const
 //------------------------------------------------------------------------------
 void AutoMemBlock::clear()
 {
-    if (isEmpty())
-    {
+    if (isEmpty()) {
         return;
     }
     mAllocatorPtr->free(mBlock.head());

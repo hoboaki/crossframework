@@ -12,8 +12,7 @@ int xmain(::XBase::Application& aApp)
 
     // 終端文字を入れるためのバッファを作成
     char* buffer = new char[data->size() + 1];
-    for (::XBase::pword_t i = 0; i < data->size(); ++i)
-    {
+    for (::XBase::pword_t i = 0; i < data->size(); ++i) {
         buffer[i] = reinterpret_cast<const char*>(data->head())[i];
     }
     buffer[data->size()] = '\0';
@@ -26,8 +25,7 @@ int xmain(::XBase::Application& aApp)
     buffer = 0;
 
     // 終了イベントがくるまでループ
-    while (aApp.receiveEvent() != ::XBase::AppEvent_Quit)
-    {
+    while (aApp.receiveEvent() != ::XBase::AppEvent_Quit) {
     }
 
     // 終了

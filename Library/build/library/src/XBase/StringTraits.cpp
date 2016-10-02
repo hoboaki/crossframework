@@ -143,8 +143,7 @@ template < typename CharType >
 pword_t tLength(const CharType* aStr)
 {
     // ポインタチェック。
-    if (PointerCheck::InvalidCheck(aStr))
-    {
+    if (PointerCheck::InvalidCheck(aStr)) {
         return 0;
     }
 
@@ -223,8 +222,8 @@ const typename StringTraits< CharType >::WriteResult tNCopyStrict(
 
     // 実行
     int ret = tImpl< CharType >::NCopy(aBuffer, aBufferLength, aStr);
-    if (ret < 0)
-    {// 失敗
+    if (ret < 0) {
+        // 失敗
         return result;
     }
 
@@ -272,8 +271,8 @@ const typename StringTraits< CharType >::WriteResult tNCopy(
     WriteResult result = {};
 
     // バッファ長チェック
-    if (aBufferLength < 1)
-    {// 不正な引数
+    if (aBufferLength < 1) {
+        // 不正な引数
         XBASE_INVALID_VALUE_ERROR(aBufferLength);
         return result;
     }
@@ -348,8 +347,8 @@ const typename StringTraits< CharType >::WriteResult tVSNPrintfStrict(
 
     // 実行
     int ret = tImpl< CharType >::VSNPrintf(aBuffer, aBufferLength, aFormat, aArg);
-    if (ret < 0)
-    {// 失敗
+    if (ret < 0) {
+        // 失敗
         return result;
     }
 
@@ -403,8 +402,8 @@ const typename StringTraits< CharType >::WriteResult tVSNPrintf(
     WriteResult result = {};
 
     // バッファ長チェック
-    if (aBufferLength < 1)
-    {// 不正な引数
+    if (aBufferLength < 1) {
+        // 不正な引数
         XBASE_INVALID_VALUE_ERROR(aBufferLength);
         return result;
     }

@@ -42,8 +42,7 @@ bool ResMdlMatRefer::operator==(const ResMdlMatRefer& aRHS)const
 uint ResMdlMatRefer::index()const
 {
     // チェック
-    if (checkInvalid())
-    {
+    if (checkInvalid()) {
         return ResConstant::INVALID_MDL_MAT_REFER_INDEX;
     }
     return mPtr->binPtr->index;
@@ -53,8 +52,7 @@ uint ResMdlMatRefer::index()const
 const char* ResMdlMatRefer::name()const
 {
     // チェック
-    if (checkInvalid())
-    {
+    if (checkInvalid()) {
         return "";
     }
     return mPtr->xdata.ref< ::XData::String >(mPtr->binPtr->name)->toCStr();
@@ -64,8 +62,7 @@ const char* ResMdlMatRefer::name()const
 bool ResMdlMatRefer::checkInvalid()const
 {
     // 正しければ何もしない
-    if (isValid())
-    {
+    if (isValid()) {
         return false;
     }
 

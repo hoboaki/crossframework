@@ -37,8 +37,7 @@ ResMdlImpl::ResMdlImpl(
     {
         const tEntryHeader* header = xdata.ref< tEntryHeader >(binPtr->shapes);
         shapeImpls.init(header->count, ::XBase::Ref(aAllocator));
-        for (uint i = 0; i < header->count; ++i)
-        {
+        for (uint i = 0; i < header->count; ++i) {
             shapeImpls->add(
                 ::XBase::Ref(xdata),
                 xdata.ref< BinResMdlShape >(header->entries[i]),
@@ -51,8 +50,7 @@ ResMdlImpl::ResMdlImpl(
     {
         const tEntryHeader* header = xdata.ref< tEntryHeader >(binPtr->matRefers);
         matReferImpls.init(header->count, ::XBase::Ref(aAllocator));
-        for (uint i = 0; i < header->count; ++i)
-        {
+        for (uint i = 0; i < header->count; ++i) {
             matReferImpls->add(
                 ::XBase::Ref(xdata),
                 xdata.ref< BinResMdlMatRefer >(header->entries[i]),
@@ -65,8 +63,7 @@ ResMdlImpl::ResMdlImpl(
     {
         const tEntryHeader* header = xdata.ref< tEntryHeader >(binPtr->meshes);
         meshImpls.init(header->count, ::XBase::Ref(aAllocator));
-        for (uint i = 0; i < header->count; ++i)
-        {
+        for (uint i = 0; i < header->count; ++i) {
             meshImpls->add(
                 ::XBase::Ref(xdata),
                 xdata.ref< BinResMdlMesh >(header->entries[i]),
@@ -80,8 +77,7 @@ ResMdlImpl::ResMdlImpl(
     {
         const tEntryHeader* header = xdata.ref< tEntryHeader >(binPtr->nodes);
         nodeImpls.init(header->count, ::XBase::Ref(aAllocator));
-        for (uint i = 0; i < header->count; ++i)
-        {
+        for (uint i = 0; i < header->count; ++i) {
             nodeImpls->add(
                 ::XBase::Ref(xdata),
                 xdata.ref< BinResMdlNode >(header->entries[i]),
@@ -100,8 +96,7 @@ ResMdlImpl::~ResMdlImpl()
 //------------------------------------------------------------------------------
 void ResMdlImpl::setup()
 {
-    for (uint i = 0; i < shapeImpls->count(); ++i)
-    {
+    for (uint i = 0; i < shapeImpls->count(); ++i) {
         shapeImpls->at(i).setup();
     }
 }
@@ -110,8 +105,7 @@ void ResMdlImpl::setup()
 void ResMdlImpl::release()
 {
     // setupと逆順
-    for (uint i = shapeImpls->count(); 0 < i; --i)
-    {
+    for (uint i = shapeImpls->count(); 0 < i; --i) {
         shapeImpls->at(i - 1).release();
     }
 }

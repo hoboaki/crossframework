@@ -22,12 +22,10 @@ f32 Math::ClampF32(
     )
 {
     XBASE_RANGE_ASSERT_EMIN(aMin, aMax);
-    if (aValue < aMin)
-    {
+    if (aValue < aMin) {
         return aMin;
     }
-    if (aMax < aValue)
-    {
+    if (aMax < aValue) {
         return aMax;
     }
     return aValue;

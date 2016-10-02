@@ -114,8 +114,7 @@ const Matrix34POD Matrix34POD::LookAt(
 {
     // toTargetUnit
     Vector3 toTarget = aTargetPos - aEyePos;
-    if (toTarget.isZeroStrict())
-    {
+    if (toTarget.isZeroStrict()) {
         XBASE_NOT_REACH_ASSERT();
         toTarget = Vector3POD::UnitZ(); // fail safe code
     }
@@ -123,8 +122,7 @@ const Matrix34POD Matrix34POD::LookAt(
 
     // upVecUnit
     Vector3POD upVecUnit;
-    if (aUpVec.isZeroStrict())
-    {
+    if (aUpVec.isZeroStrict()) {
         XBASE_INVALID_VALUE_ERROR(aUpVec);
         upVecUnit = Vector3::UnitY(); // fail safe code
     }
@@ -332,8 +330,7 @@ const Matrix34POD Matrix34POD::invert()const
         - v[Index01] * v[Index10] * v[Index22]
         - v[Index02] * v[Index11] * v[Index20];
 
-    if (c == 0.0f)
-    {
+    if (c == 0.0f) {
         XBASE_NOT_REACH_ASSERT();
         return Identity();
     }
@@ -399,8 +396,7 @@ const Quaternion Matrix34POD::toQuaternion()const
 
     {
         const float tr = v[Index00] + v[Index11] + v[Index22] + 1.0f;
-        if (1.0f <= tr)
-        {
+        if (1.0f <= tr) {
             float s = 0.5f / Math::SqrtF32(tr);
             q.w = 0.25f / s;
             q.x = (v[Index21] - v[Index12]) * s;
@@ -414,8 +410,7 @@ const Quaternion Matrix34POD::toQuaternion()const
         ? v[Index11]
         : v[Index22]
         ;
-    if (maxVal < v[Index00])
-    {
+    if (maxVal < v[Index00]) {
         float s = Math::SqrtF32(v[Index00] - (v[Index11] + v[Index22]) + 1.0f);
         const float x = s * 0.5f;
         s = 0.5f / s;
@@ -425,8 +420,7 @@ const Quaternion Matrix34POD::toQuaternion()const
         q.w = (v[Index21] - v[Index12]) * s;
         return q;
     }
-    else if (maxVal == v[Index11])
-    {
+    else if (maxVal == v[Index11]) {
         float s = Math::SqrtF32(v[Index11] - (v[Index22] + v[Index00]) + 1.0f);
         const float y = s * 0.5f;
         s = 0.5f / s;

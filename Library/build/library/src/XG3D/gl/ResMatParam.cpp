@@ -42,8 +42,7 @@ bool ResMatParam::operator==(const ResMatParam& aRHS)const
 uint ResMatParam::index()const
 {
     // チェック
-    if (checkInvalid())
-    {
+    if (checkInvalid()) {
         return ResConstant::INVALID_MAT_PARAM_INDEX;
     }
     return mPtr->binPtr->index;
@@ -53,8 +52,7 @@ uint ResMatParam::index()const
 const char* ResMatParam::name()const
 {
     // チェック
-    if (checkInvalid())
-    {
+    if (checkInvalid()) {
         return "";
     }
     return mPtr->xdata.ref< ::XData::String >(mPtr->binPtr->name)->toCStr();
@@ -64,8 +62,7 @@ const char* ResMatParam::name()const
 bool ResMatParam::checkInvalid()const
 {
     // 正しければ何もしない
-    if (isValid())
-    {
+    if (isValid()) {
         return false;
     }
 

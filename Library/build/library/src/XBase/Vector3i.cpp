@@ -285,8 +285,7 @@ void Vector3iPOD::mulAssign(const s32 aVal)
 //------------------------------------------------------------------------------
 void Vector3iPOD::divAssign(const s32 aVal)
 {
-    if (aVal == 0)
-    {
+    if (aVal == 0) {
         XBASE_NOT_REACH_ASSERT();
         return;
     }

@@ -35,8 +35,7 @@ bool tCreateShader(
     {
         GLint logLength;
         XG3D_GLCMD(glGetShaderiv(*aShader, GL_INFO_LOG_LENGTH, &logLength));
-        if (logLength > 0)
-        {
+        if (logLength > 0) {
             GLchar *log = (GLchar *)malloc(logLength);
             XG3D_GLCMD(glGetShaderInfoLog(*aShader, logLength, &logLength, log));
             XBASE_COUT_LINE(log);
@@ -46,8 +45,7 @@ bool tCreateShader(
 #endif
 
     XG3D_GLCMD(glGetShaderiv(*aShader, GL_COMPILE_STATUS, &status));
-    if (status == GL_FALSE)
-    {
+    if (status == GL_FALSE) {
         XG3D_GLCMD(glDeleteShader(*aShader));
         *aShader = GLuint();
         return false;
@@ -61,8 +59,7 @@ bool tLinkProgram(GLuint aProgram)
     GLint status = GLint();
     XG3D_GLCMD(glLinkProgram(aProgram));
     XG3D_GLCMD(glGetProgramiv(aProgram, GL_LINK_STATUS, &status));
-    if (status == 0)
-    {
+    if (status == 0) {
         return false;
     }
     return true;
@@ -78,8 +75,7 @@ bool tValidateProgram(GLuint aProgram)
     GLint status = GLint();
     XG3D_GLCMD(glValidateProgram(aProgram));
     XG3D_GLCMD(glGetProgramiv(aProgram, GL_VALIDATE_STATUS, &status));
-    if (status == 0)
-    {
+    if (status == 0) {
         return false;
     }
     return true;
@@ -102,8 +98,7 @@ ResMatImpl::ResMatImpl(
     {
         const tEntryHeader* header = xdata.ref< tEntryHeader >(binPtr->params);
         paramImpls.init(header->count, ::XBase::Ref(aAllocator));
-        for (uint i = 0; i < header->count; ++i)
-        {
+        for (uint i = 0; i < header->count; ++i) {
             paramImpls->add(
                 ::XBase::Ref(xdata),
                 xdata.ref< BinResMatParam >(header->entries[i]),
@@ -116,8 +111,7 @@ ResMatImpl::ResMatImpl(
     {
         const tEntryHeader* header = xdata.ref< tEntryHeader >(binPtr->vtxAttrs);
         vtxAttrs.init(header->count, ::XBase::Ref(aAllocator));
-        for (uint i = 0; i < header->count; ++i)
-        {
+        for (uint i = 0; i < header->count; ++i) {
             vtxAttrs->add(
                 ::XBase::Ref(xdata),
                 xdata.ref< BinResMatVtxAttr >(header->entries[i]),
@@ -137,8 +131,7 @@ ResMatImpl::~ResMatImpl()
 void ResMatImpl::setup()
 {
     // セットアップ済みなら何もしない
-    if (shaderProgram != 0)
-    {
+    if (shaderProgram != 0) {
         return;
     }
 
@@ -147,8 +140,7 @@ void ResMatImpl::setup()
 
     // シェーダーソースを作成
     GLuint srcVSH = GLuint();
-    if (!tCreateShader(&srcVSH, GL_VERTEX_SHADER, xdata.ref< GLchar >(binPtr->vshSrcText)))
-    {
+    if (!tCreateShader(&srcVSH, GL_VERTEX_SHADER, xdata.ref< GLchar >(binPtr->vshSrcText))) {
         XBASE_COUT(xdata.ref< GLchar >(binPtr->vshSrcText));
         XBASE_NOT_REACH_ASSERT_MSG("VSH compile failed.");
         XG3D_GLCMD(glDeleteProgram(shaderProgram));
@@ -156,8 +148,7 @@ void ResMatImpl::setup()
         return;
     }
     GLuint srcPSH = GLuint();
-    if (!tCreateShader(&srcPSH, GL_FRAGMENT_SHADER, xdata.ref< GLchar >(binPtr->pshSrcText)))
-    {
+    if (!tCreateShader(&srcPSH, GL_FRAGMENT_SHADER, xdata.ref< GLchar >(binPtr->pshSrcText))) {
         XBASE_COUT(xdata.ref< GLchar >(binPtr->pshSrcText));
         XBASE_NOT_REACH_ASSERT_MSG("PSH compile failed.");
         XG3D_GLCMD(glDeleteShader(srcVSH));
@@ -171,8 +162,7 @@ void ResMatImpl::setup()
     XG3D_GLCMD(glAttachShader(shaderProgram, srcPSH));
 
     // 属性バインド
-    for (uint i = 0; i < vtxAttrs->count(); ++i)
-    {
+    for (uint i = 0; i < vtxAttrs->count(); ++i) {
         const ResMatVtxAttrImpl* vtxAttr = &vtxAttrs->at(i);
         XG3D_GLCMD(glBindAttribLocation(shaderProgram, i, vtxAttr->xdata.ref< char >(vtxAttr->binPtr->symbolName)));
     }
@@ -199,8 +189,7 @@ void ResMatImpl::setup()
             "_prmMtxWorld"
         };
         XBASE_ARRAY_LENGTH_CHECK(TABLE, ShaderConstant::SysUniform_TERMINATE);
-        for (uint i = 0; i < ShaderConstant::SysUniform_TERMINATE; ++i)
-        {
+        for (uint i = 0; i < ShaderConstant::SysUniform_TERMINATE; ++i) {
             sysUniformLocations[i] = glGetUniformLocation(shaderProgram, TABLE[i]);
         }
     }
@@ -214,8 +203,7 @@ void ResMatImpl::setup()
 void ResMatImpl::release()
 {
     // セットアップしていなければ何もしない
-    if (shaderProgram == 0)
-    {
+    if (shaderProgram == 0) {
         return;
     }
 

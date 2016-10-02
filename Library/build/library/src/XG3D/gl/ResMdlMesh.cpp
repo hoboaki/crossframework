@@ -42,8 +42,7 @@ bool ResMdlMesh::operator==(const ResMdlMesh& aRHS)const
 uint ResMdlMesh::index()const
 {
     // チェック
-    if (checkInvalid())
-    {
+    if (checkInvalid()) {
         return ResConstant::INVALID_MDL_MESH_INDEX;
     }
     return mPtr->binPtr->index;
@@ -53,8 +52,7 @@ uint ResMdlMesh::index()const
 const char* ResMdlMesh::name()const
 {
     // チェック
-    if (checkInvalid())
-    {
+    if (checkInvalid()) {
         return "";
     }
     return mPtr->xdata.ref< ::XData::String >(mPtr->binPtr->name)->toCStr();
@@ -64,8 +62,7 @@ const char* ResMdlMesh::name()const
 uint ResMdlMesh::subMeshCount()const
 {
     // チェック
-    if (checkInvalid())
-    {
+    if (checkInvalid()) {
         return 0;
     }
     return mPtr->subMeshImpls->count();
@@ -75,8 +72,7 @@ uint ResMdlMesh::subMeshCount()const
 ResMdlSubMesh ResMdlMesh::subMesh(const uint aIndex)const
 {
     // チェック
-    if (checkInvalid())
-    {
+    if (checkInvalid()) {
         return ResMdlSubMesh();
     }
     return ResMdlSubMesh(mPtr->subMeshImpls->at(aIndex));
@@ -86,8 +82,7 @@ ResMdlSubMesh ResMdlMesh::subMesh(const uint aIndex)const
 bool ResMdlMesh::checkInvalid()const
 {
     // 正しければ何もしない
-    if (isValid())
-    {
+    if (isValid()) {
         return false;
     }
 

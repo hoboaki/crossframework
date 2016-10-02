@@ -32,22 +32,19 @@ void Renderer_EXT::setup(::XBase::Display& aDisplay)
     pfd.cColorBits = 32;
     pfd.cDepthBits = 32;
     pfd.iLayerType = PFD_MAIN_PLANE;
-    if (aDisplay.context_().isScreenDoubleBuffer())
-    {
+    if (aDisplay.context_().isScreenDoubleBuffer()) {
         pfd.dwFlags |= PFD_DOUBLEBUFFER;
     }
 
     // ピクセルフォーマット選択
     const int pixelFormat = ChoosePixelFormat(dc, &pfd);
-    if (pixelFormat == 0)
-    {
+    if (pixelFormat == 0) {
         return;
     }
 
     // ピクセルフォーマット設定
     BOOL result = SetPixelFormat(dc, pixelFormat, &pfd);
-    if (result == FALSE)
-    {
+    if (result == FALSE) {
         return;
     }
 
@@ -56,8 +53,7 @@ void Renderer_EXT::setup(::XBase::Display& aDisplay)
     wglMakeCurrent(dc, tempContext);
 
     // GLEE
-    if (GLeeInit() == GL_FALSE)
-    {
+    if (GLeeInit() == GL_FALSE) {
         XBASE_NOT_REACH_ASSERT();
         return;
     }

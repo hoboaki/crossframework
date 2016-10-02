@@ -24,22 +24,19 @@ AppEvent Application::receiveEventCore()
     XBaseEntryPointSync_XMainWait();
 
     // 新しいイベントを取得
-    switch (XBaseEntryPointSync_GetAppEvent())
-    {
+    switch (XBaseEntryPointSync_GetAppEvent()) {
         case XBaseAppEvent_Quit:
             return AppEvent_Quit;
 
         case XBaseAppEvent_Update:
         {// HIDの更新
-            if (mDisplayPtr.isValid())
-            {// タッチ入力ポーリング
+            if (mDisplayPtr.isValid()) {
+                // タッチ入力ポーリング
                 const XBaseUITouchSet* touchSet = XBaseUIWindow_PollTouch(mDisplayPtr->ext_().windowPtr);
-                if (mDisplayPtr->ext_().hidPtr.isValid())
-                {
+                if (mDisplayPtr->ext_().hidPtr.isValid()) {
                     const uint screenHeight = mDisplayPtr->mainScreen().height();
                     TouchUpdateData data = {};
-                    for (uint i = 0; i < XBASE_UITOUCHSET_TOUCH_COUNT_MAX; ++i)
-                    {
+                    for (uint i = 0; i < XBASE_UITOUCHSET_TOUCH_COUNT_MAX; ++i) {
                         const XBaseUITouch& src = touchSet->touches[i];
                         TouchTapUpdateData& dst = data.taps[i];
                         dst.tapCount = src.tapCount;

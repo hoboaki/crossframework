@@ -21,8 +21,7 @@ pword_t ResFileStream::CalcReadBufferSize(const pword_t aSize)
 //------------------------------------------------------------------------------
 ResFileStream::~ResFileStream()
 {
-    if (mEXT.fp != 0)
-    {
+    if (mEXT.fp != 0) {
         close();
     }
 }
@@ -47,8 +46,7 @@ pword_t ResFileStream::seek(const int aOffset, const SeekOrigin aOrigin)
 {
     // whence選択
     int whence = int();
-    switch (aOrigin)
-    {
+    switch (aOrigin) {
         case SeekOrigin_Begin:
             whence = SEEK_SET;
             break;
@@ -69,8 +67,7 @@ pword_t ResFileStream::seek(const int aOffset, const SeekOrigin aOrigin)
     // seek
     {
         const bool result = std::fseek(mEXT.fp, aOffset, whence) == 0;
-        if (!result)
-        {
+        if (!result) {
             XBASE_NOT_REACH_ASSERT();
             return 0; // fail safe code
         }
@@ -79,8 +76,7 @@ pword_t ResFileStream::seek(const int aOffset, const SeekOrigin aOrigin)
     // tell
     {
         long pos = ftell(mEXT.fp);
-        if (pos < 0)
-        {
+        if (pos < 0) {
             XBASE_NOT_REACH_ASSERT();
             return 0; // fail safe code
         }
@@ -97,8 +93,7 @@ pword_t ResFileStream::read(const ptr_t aBuffer, const pword_t aSize)
 //------------------------------------------------------------------------------
 void ResFileStream::close()
 {
-    if (mEXT.fp == 0)
-    {
+    if (mEXT.fp == 0) {
         XBASE_NOT_REACH_ASSERT();
         return;
     }

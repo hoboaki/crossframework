@@ -16,8 +16,7 @@ bool PointerCheck::IsValid(const_anyptr_t aPtr)
 //------------------------------------------------------------------------------
 bool PointerCheck::InvalidCheck(const_anyptr_t aPtr)
 {
-    if (!IsValid(aPtr))
-    {
+    if (!IsValid(aPtr)) {
         XBASE_INVALID_VALUE_ERROR(aPtr);
         return true;
     }

@@ -44,17 +44,14 @@ ResMdlShapeImpl::ResMdlShapeImpl(
     // 初期化
     {
         VtxAttr obj = {};
-        for (uint i = 0; i < ResMdlShapeInputKind_TERMINATE; ++i)
-        {
+        for (uint i = 0; i < ResMdlShapeInputKind_TERMINATE; ++i) {
             vtxAttrs[i] = obj;
         }
     }
 
-    if (0 < binPtr->vtxAttrInfoCount)
-    {
+    if (0 < binPtr->vtxAttrInfoCount) {
         const BinResMdlShape::VtxAttrInfo* infos = xdata.ref< BinResMdlShape::VtxAttrInfo>(binPtr->vtxAttrInfosRef);
-        for (uint i = 0; i < binPtr->vtxAttrInfoCount; ++i)
-        {
+        for (uint i = 0; i < binPtr->vtxAttrInfoCount; ++i) {
             VtxAttr& dst = vtxAttrs[infos[i].inputKind];
             dst.glDataType = u16(tINPUT_TYPE_DATA_TABLE[infos[i].dataType].dataType);
             dst.glNormalize = GL_FALSE;
@@ -73,8 +70,7 @@ ResMdlShapeImpl::~ResMdlShapeImpl()
 void ResMdlShapeImpl::setup()
 {
     // セットアップ済みなら何もしない
-    if (idxBuffer != 0)
-    {
+    if (idxBuffer != 0) {
         return;
     }
 
@@ -98,13 +94,11 @@ void ResMdlShapeImpl::setup()
 //------------------------------------------------------------------------------
 void ResMdlShapeImpl::release()
 {
-    if (vtxAttrBuffer != 0)
-    {
+    if (vtxAttrBuffer != 0) {
         XG3D_GLCMD(glDeleteBuffers(1, &vtxAttrBuffer));
         vtxAttrBuffer = 0;
     }
-    if (idxBuffer != 0)
-    {
+    if (idxBuffer != 0) {
         XG3D_GLCMD(glDeleteBuffers(1, &idxBuffer));
         idxBuffer = 0;
     }

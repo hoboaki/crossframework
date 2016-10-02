@@ -42,8 +42,7 @@ bool ResMdlNode::operator==(const ResMdlNode& aRHS)const
 const char* ResMdlNode::name()const
 {
     // チェック
-    if (checkInvalid())
-    {
+    if (checkInvalid()) {
         return "";
     }
     return mPtr->xdata.ref< ::XData::String >(mPtr->binPtr->name)->toCStr();
@@ -53,8 +52,7 @@ const char* ResMdlNode::name()const
 uint ResMdlNode::index()const
 {
     // チェック
-    if (checkInvalid())
-    {
+    if (checkInvalid()) {
         return ResConstant::INVALID_MDL_NODE_INDEX;
     }
     return mPtr->binPtr->index;
@@ -64,8 +62,7 @@ uint ResMdlNode::index()const
 uint ResMdlNode::parentNodeIndex()const
 {
     // チェック
-    if (checkInvalid())
-    {
+    if (checkInvalid()) {
         return ResConstant::INVALID_MDL_NODE_INDEX;
     }
     return mPtr->binPtr->parentNodeIdx;
@@ -75,8 +72,7 @@ uint ResMdlNode::parentNodeIndex()const
 uint ResMdlNode::firstChildNodeIndex()const
 {
     // チェック
-    if (checkInvalid())
-    {
+    if (checkInvalid()) {
         return ResConstant::INVALID_MDL_NODE_INDEX;
     }
     return mPtr->binPtr->firstChildNodeIdx;
@@ -86,8 +82,7 @@ uint ResMdlNode::firstChildNodeIndex()const
 uint ResMdlNode::nextSiblingNodeIndex()const
 {
     // チェック
-    if (checkInvalid())
-    {
+    if (checkInvalid()) {
         return ResConstant::INVALID_MDL_NODE_INDEX;
     }
     return mPtr->binPtr->nextSiblingNodeIdx;
@@ -97,8 +92,7 @@ uint ResMdlNode::nextSiblingNodeIndex()const
 ::XBase::Mtx34 ResMdlNode::rtMtx()const
 {
     // チェック
-    if (checkInvalid())
-    {
+    if (checkInvalid()) {
         return ::XBase::Mtx34::Identity();
     }
     return mPtr->binPtr->rtMtx;;
@@ -108,8 +102,7 @@ uint ResMdlNode::nextSiblingNodeIndex()const
 ::XBase::Vec3 ResMdlNode::scale()const
 {
     // チェック
-    if (checkInvalid())
-    {
+    if (checkInvalid()) {
         return ::XBase::Vec3::One();
     }
     return mPtr->binPtr->scale;
@@ -119,8 +112,7 @@ uint ResMdlNode::nextSiblingNodeIndex()const
 const ::XBase::Mtx34* ResMdlNode::bindPoseMtxPtr()const
 {
     // チェック
-    if (checkInvalid())
-    {
+    if (checkInvalid()) {
         return 0;
     }
     return mPtr->xdata.safeRef< ::XBase::Mtx34 >(mPtr->binPtr->bindPoseMtxRef);
@@ -130,8 +122,7 @@ const ::XBase::Mtx34* ResMdlNode::bindPoseMtxPtr()const
 bool ResMdlNode::checkInvalid()const
 {
     // 正しければ何もしない
-    if (isValid())
-    {
+    if (isValid()) {
         return false;
     }
 

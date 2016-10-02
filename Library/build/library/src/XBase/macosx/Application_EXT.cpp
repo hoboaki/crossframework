@@ -26,8 +26,7 @@ void Application::quit()
 AppEvent Application::receiveEventCore()
 {
     // HIDのフラグをおろしておく
-    if (mDisplayPtr.isValid())
-    {
+    if (mDisplayPtr.isValid()) {
         mDisplayPtr->ext_().keyboardUpdateData.pulse.clear();
         mDisplayPtr->ext_().mouseUpdateData.posUpdated = false;
     }
@@ -36,8 +35,7 @@ AppEvent Application::receiveEventCore()
     XBaseNSApp_PollEvent();
 
     // 終了要求が来たら終了
-    if (mEXT.doQuit)
-    {
+    if (mEXT.doQuit) {
         return AppEvent_Quit;
     }
 
@@ -47,8 +45,7 @@ AppEvent Application::receiveEventCore()
         )
     {
         // 更新の前の設定
-        if (mDisplayPtr->ext_().mouseUpdateData.hold.isAnyOn())
-        {
+        if (mDisplayPtr->ext_().mouseUpdateData.hold.isAnyOn()) {
             mDisplayPtr->ext_().mouseUpdateData.posUpdated = true;
         }
 
@@ -60,11 +57,9 @@ AppEvent Application::receiveEventCore()
 
     {// 60フレ同期
         s64 currentTicks = s64();
-        while (true)
-        {
+        while (true) {
             currentTicks = Time::LocalTime().ticks();
-            if ((currentTicks - mEXT.prevUpdateTicks) < 166666)
-            {
+            if ((currentTicks - mEXT.prevUpdateTicks) < 166666) {
                 Thread::Sleep(TimeSpan::FromMilliseconds(1));
                 continue;
             }

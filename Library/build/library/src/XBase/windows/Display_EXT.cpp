@@ -20,8 +20,7 @@ Pointer< Display_EXT > tCurrentDisplay;
 
 KeyKind tToKeyKind(WPARAM aKey)
 {
-    switch (aKey)
-    {
+    switch (aKey) {
         case VK_BACK:   return KeyKind_BackSpace;
         case VK_TAB:    return KeyKind_Tab;
         case VK_RETURN: return KeyKind_Return;
@@ -242,8 +241,7 @@ void Display_EXT::pollEvent(Application&)
     tCurrentDisplay.set(*this);
 
     // メッセージ解析
-    while (PeekMessage(&message, window, 0, 0, PM_REMOVE) != 0)
-    {
+    while (PeekMessage(&message, window, 0, 0, PM_REMOVE) != 0) {
         TranslateMessage(&message);
         DispatchMessage(&message);
     }
@@ -252,20 +250,17 @@ void Display_EXT::pollEvent(Application&)
     tCurrentDisplay.unset(*this);
 
     // マウスの座標変換
-    if (mouseUpdateData.posUpdated)
-    {
+    if (mouseUpdateData.posUpdated) {
         mouseUpdateData.pos.y = s16(int(mainScreen->height()) - 1 - mouseUpdateData.pos.y);
     }
 
     // マウスのボタンが何か押されていたら強制的にposUpdatedを設定
-    if (mouseUpdateData.hold.isAnyOn())
-    {
+    if (mouseUpdateData.hold.isAnyOn()) {
         mouseUpdateData.posUpdated = true;
     }
 
     // HID更新
-    if (hidPtr.isValid())
-    {
+    if (hidPtr.isValid()) {
         hidPtr->ext_().keyboard.update(keyboardUpdateData);
         hidPtr->ext_().mouse.update(mouseUpdateData);
     }
@@ -280,8 +275,7 @@ LRESULT Display_EXT::WindowProcess(HWND aHWND, UINT aMsg, WPARAM aWParam, LPARAM
 //------------------------------------------------------------------------------
 LRESULT Display_EXT::windowProcess(HWND aHWND, UINT aMsg, WPARAM aWParam, LPARAM aLParam)
 {
-    switch (aMsg)
-    {
+    switch (aMsg) {
         case WM_SYSKEYDOWN:
             break;
 
@@ -291,8 +285,7 @@ LRESULT Display_EXT::windowProcess(HWND aHWND, UINT aMsg, WPARAM aWParam, LPARAM
         case WM_KEYDOWN:
         {
             KeyKind k = tToKeyKind(aWParam);
-            if (k < KeyKind_TERMINATE)
-            {
+            if (k < KeyKind_TERMINATE) {
                 keyboardUpdateData.hold.set(k, true);
                 keyboardUpdateData.pulse.set(k, true);
             }
@@ -302,8 +295,7 @@ LRESULT Display_EXT::windowProcess(HWND aHWND, UINT aMsg, WPARAM aWParam, LPARAM
         case WM_KEYUP:
         {
             KeyKind k = tToKeyKind(aWParam);
-            if (k < KeyKind_TERMINATE)
-            {
+            if (k < KeyKind_TERMINATE) {
                 keyboardUpdateData.hold.set(k, false);
             }
         }
@@ -317,15 +309,13 @@ LRESULT Display_EXT::windowProcess(HWND aHWND, UINT aMsg, WPARAM aWParam, LPARAM
         case WM_RBUTTONUP:
         case WM_MOUSEMOVE:
         {
-            switch (aMsg)
-            {
+            switch (aMsg) {
                 case WM_LBUTTONDOWN:
                 case WM_MBUTTONDOWN:
                 case WM_RBUTTONDOWN:
                 {// ボタンが押された
                     // 更新する前にキャプチャー設定
-                    if (mouseUpdateData.hold.isAllOff())
-                    {
+                    if (mouseUpdateData.hold.isAllOff()) {
                         SetCapture(aHWND);
                     }
 
@@ -342,8 +332,7 @@ LRESULT Display_EXT::windowProcess(HWND aHWND, UINT aMsg, WPARAM aWParam, LPARAM
                     tUpdateMouseBtn(mouseUpdateData, aWParam);
 
                     // キャプチャー設定
-                    if (mouseUpdateData.hold.isAllOff())
-                    {
+                    if (mouseUpdateData.hold.isAllOff()) {
                         ReleaseCapture();
                     }
                 }

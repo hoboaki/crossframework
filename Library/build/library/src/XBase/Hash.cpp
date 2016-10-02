@@ -122,8 +122,7 @@ uint16 Hash::CRC16(const MemBlock& aBlock)
     uint16 crcVal = 0xFFFF;
     pword_t restSize = aBlock.size();
     const uint8* addr = aBlock.head();
-    while (0 < restSize)
-    {
+    while (0 < restSize) {
         crcVal = tCRC16_TABLE[(crcVal ^ *addr) & 0xFF] ^ (crcVal >> 8);
         ++addr;
         --restSize;
@@ -137,8 +136,7 @@ uint32 Hash::CRC32(const MemBlock& aBlock)
     uint32 crcVal = 0xFFFFFFFF;
     pword_t restSize = aBlock.size();
     const uint8* addr = aBlock.head();
-    while (0 < restSize)
-    {
+    while (0 < restSize) {
         crcVal = tCRC32C_TABLE[(crcVal ^ *addr) & 0xFF] ^ (crcVal >> 8);
         ++addr;
         --restSize;

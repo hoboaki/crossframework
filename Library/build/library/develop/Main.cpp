@@ -24,8 +24,7 @@ int xmain( ::XBase::Application& aApp )
         ::XBase::AppEvent event = aApp.receiveEvent();
         
         // イベントによって分岐
-        switch ( event )
-        {
+        switch ( event ) {
         case ::XBase::AppEvent_Quit:
             doExit = true;
             break;
@@ -48,8 +47,7 @@ int xmain( ::XBase::Application& aApp )
         }
         
         // ディスプレイが閉じてたら終了
-        if ( display.isClosed() )
-        {
+        if ( display.isClosed() ) {
             aApp.quit();
             continue;
         }

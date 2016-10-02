@@ -80,8 +80,7 @@ uint CalendarPOD::DaysToDate(
     }
 
     // 月
-    for (uint i = 0; i < aMonth; ++i)
-    {
+    for (uint i = 0; i < aMonth; ++i) {
         days += DaysInMonth(aYear, i);
     }
 
@@ -98,14 +97,13 @@ const CalendarPOD CalendarPOD::FromDays(const uint aDays)
     uint days = aDays;
     {// 年
         uint year = 0;
-        while (true)
-        {
+        while (true) {
             // その年の総日数を取得
             const uint totalDayOfYear = Calendar::DaysInYear(year);
 
             // 年を越すか計算
-            if (days < totalDayOfYear)
-            {// 年は越さないので終了
+            if (days < totalDayOfYear) {
+                // 年は越さないので終了
                 calendar.year = u16(year);
                 calendar.dayOfYear = u16(days);
                 break;
@@ -119,14 +117,13 @@ const CalendarPOD CalendarPOD::FromDays(const uint aDays)
 
     {// 月・曜日・日
         uint month = 0;
-        while (true)
-        {
+        while (true) {
             // その月の総日数を取得
             const uint totalDayOfMonth = Calendar::DaysInMonth(calendar.year, month);
 
             // 月を越すか計算
-            if (days < totalDayOfMonth)
-            {// 月は越さないので終了
+            if (days < totalDayOfMonth) {
+                // 月は越さないので終了
                 calendar.month = u16(month);
                 calendar.dayOfMonth = u16(days);
                 calendar.dayOfWeek = u16((FirstDayOfWeek + aDays) % (DayOfWeekMax + 1));
@@ -156,8 +153,7 @@ uint CalendarPOD::DaysInMonth(
     )
 {
     const uint month = tMonthCheck(aMonth);
-    switch (month + 1) // 直感的になるように+1
-    {
+    switch (month + 1) {// 直感的になるように+1
         case 1:
         case 3:
         case 5:

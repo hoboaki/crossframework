@@ -113,8 +113,7 @@ const GLchar tSHADER_SOURCE_FSH[] =
 ""
 "void main()"
 "{"
-"    if ( uTexActive != 0 )"
-"    {"
+"    if ( uTexActive != 0 )" "    {"
 "        gl_FragColor = vColor * texture2D( uTexSampler , vTexCoord.st );"
 "    }"
 "    else"
@@ -137,8 +136,7 @@ bool tCreateShader(
     {
         GLint logLength;
         XG3D_GLCMD(glGetShaderiv(*aShader, GL_INFO_LOG_LENGTH, &logLength));
-        if (logLength > 0)
-        {
+        if (logLength > 0) {
             GLchar *log = (GLchar *)malloc(logLength);
             XG3D_GLCMD(glGetShaderInfoLog(*aShader, logLength, &logLength, log));
             XBASE_COUT_LINE(log);
@@ -148,8 +146,7 @@ bool tCreateShader(
 #endif
 
     XG3D_GLCMD(glGetShaderiv(*aShader, GL_COMPILE_STATUS, &status));
-    if (status == GL_FALSE)
-    {
+    if (status == GL_FALSE) {
         XBASE_NOT_REACH_ASSERT();
         XG3D_GLCMD(glDeleteShader(*aShader));
         *aShader = GLuint();
@@ -163,8 +160,7 @@ bool tLinkProgram(GLuint aProgram)
     GLint status = GLint();
     XG3D_GLCMD(glLinkProgram(aProgram));
     XG3D_GLCMD(glGetProgramiv(aProgram, GL_LINK_STATUS, &status));
-    if (status == 0)
-    {
+    if (status == 0) {
         XBASE_NOT_REACH_ASSERT();
         return false;
     }
@@ -181,8 +177,7 @@ bool tValidateProgram(GLuint aProgram)
     GLint status = GLint();
     XG3D_GLCMD(glValidateProgram(aProgram));
     XG3D_GLCMD(glGetProgramiv(aProgram, GL_VALIDATE_STATUS, &status));
-    if (status == 0)
-    {
+    if (status == 0) {
         GLchar logBuffer[256];
         glGetProgramInfoLog(aProgram, sizeof(logBuffer), 0, logBuffer);
         XBASE_NOT_REACH_ASSERT_MSG(logBuffer);
@@ -198,15 +193,13 @@ bool tCreateShaderProgram(GLuint* aProgram)
 
     // シェーダーソースを作成
     GLuint srcVSH = GLuint();
-    if (!tCreateShader(&srcVSH, GL_VERTEX_SHADER, tSHADER_SOURCE_VSH))
-    {
+    if (!tCreateShader(&srcVSH, GL_VERTEX_SHADER, tSHADER_SOURCE_VSH)) {
         XBASE_NOT_REACH_ASSERT();
         XG3D_GLCMD(glDeleteProgram(*aProgram));
         return false;
     }
     GLuint srcFSH = GLuint();
-    if (!tCreateShader(&srcFSH, GL_FRAGMENT_SHADER, tSHADER_SOURCE_FSH))
-    {
+    if (!tCreateShader(&srcFSH, GL_FRAGMENT_SHADER, tSHADER_SOURCE_FSH)) {
         XBASE_NOT_REACH_ASSERT();
         XG3D_GLCMD(glDeleteShader(srcVSH));
         XG3D_GLCMD(glDeleteProgram(*aProgram));
@@ -256,8 +249,7 @@ Renderer::Renderer(::XBase::Display& aDisplay)
     mEXT.setup(aDisplay);
 
     // シェーダープログラムの作成
-    if (!tCreateShaderProgram(&mEXT.demoShaderProgram))
-    {
+    if (!tCreateShaderProgram(&mEXT.demoShaderProgram)) {
         XBASE_NOT_REACH_ASSERT();
         return;
     }
@@ -332,12 +324,10 @@ void Renderer::fbSetViewport(
 void Renderer::fbClear()
 {
     GLbitfield bits = 0;
-    if (mEXT.colorUpdate)
-    {
+    if (mEXT.colorUpdate) {
         bits |= GL_COLOR_BUFFER_BIT;
     }
-    if (mEXT.depthUpdate)
-    {
+    if (mEXT.depthUpdate) {
         bits |= GL_DEPTH_BUFFER_BIT;
     }
     XG3D_GLCMD(glClear(bits));
@@ -390,8 +380,7 @@ void Renderer::sdReset()
     sdSetMtxWorld(::XBase::Matrix34::Identity());
 
     // texMap
-    for (int i = 0; i < TexId_TERMINATE; ++i)
-    {
+    for (int i = 0; i < TexId_TERMINATE; ++i) {
         sdSetTex(TexId(i), TexSetting());
     }
 }
@@ -410,14 +399,12 @@ void Renderer::sdSetMaterialForDemo()
 void Renderer::sdSetMaterial(const ResMat& aResMat)
 {
     // 変更がなければ何もしない
-    if (mEXT.currentMaterial == aResMat)
-    {
+    if (mEXT.currentMaterial == aResMat) {
         return;
     }
 
     // 無効なマテリアルチェック
-    if (!aResMat.isValid())
-    {
+    if (!aResMat.isValid()) {
         XBASE_NOT_REACH_ASSERT();
         return;
     }
@@ -455,16 +442,14 @@ void Renderer::sdSetMtxWorld(const ::XBase::Mtx34& aMtx)
 void Renderer::sdSetTex(const TexId aId, const TexSetting& aSetting)
 {
     // チェック
-    if (XBASE_ENUM_IS_INVALID(TexId, aId))
-    {
+    if (XBASE_ENUM_IS_INVALID(TexId, aId)) {
         XBASE_INVALID_VALUE_ERROR(int(aId));
         return;
     }
     XBASE_UNUSED(aId); // マルチテクスチャに対応するタイミングで使用する。
 
     XG3D_GLCMD(glUseProgram(mEXT.demoShaderProgram));
-    if (aSetting.isActive())
-    {
+    if (aSetting.isActive()) {
         // 設定準備
         XG3D_GLCMD(glActiveTexture(GL_TEXTURE0));
         XG3D_GLCMD(glBindTexture(GL_TEXTURE_2D, aSetting.ext_().texId));
@@ -496,8 +481,7 @@ void Renderer::draw(
     )
 {
     // 前チェック
-    if (!aSubMesh.isValid())
-    {
+    if (!aSubMesh.isValid()) {
         XBASE_NOT_REACH_ASSERT();
         return;
     }
@@ -523,8 +507,7 @@ void Renderer::draw(
     const ResMatImpl* matImpl = aMaterial.resMat().impl_();
     XG3D_GLCMD(glBindBuffer(GL_ARRAY_BUFFER, shapeImpl->vtxAttrBuffer));
     XG3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, shapeImpl->idxBuffer));
-    for (uint i = 0; i < matImpl->vtxAttrs->count(); ++i)
-    {
+    for (uint i = 0; i < matImpl->vtxAttrs->count(); ++i) {
         const ResMatVtxAttrImpl* attrBind = &matImpl->vtxAttrs->at(i);
         const ResMdlShapeImpl::VtxAttr* attr = &shapeImpl->vtxAttrs[attrBind->binPtr->bindInputKind];
         XG3D_GLCMD(glVertexAttribPointer(
@@ -547,8 +530,7 @@ void Renderer::draw(
     ));
 
 // 頂点属性無効化
-    for (uint i = matImpl->vtxAttrs->count(); 0 < i; --i)
-    {
+    for (uint i = matImpl->vtxAttrs->count(); 0 < i; --i) {
         XG3D_GLCMD(glDisableVertexAttribArray(i - 1));
     }
     XG3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0));

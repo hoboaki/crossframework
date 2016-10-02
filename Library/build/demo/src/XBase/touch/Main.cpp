@@ -14,21 +14,17 @@ int xmain(::XBase::Application& aApp)
     display.show();
 
     // メインループ
-    while (aApp.receiveEvent() != ::XBase::AppEvent_Quit)
-    {
+    while (aApp.receiveEvent() != ::XBase::AppEvent_Quit) {
         // 更新以外は何もしない
-        if (aApp.lastEvent() != ::XBase::AppEvent_Update)
-        {
+        if (aApp.lastEvent() != ::XBase::AppEvent_Update) {
             continue;
         }
 
         // タッチの値を見てコンソールに出力
         const ::XBase::Touch touch = hid.touch();
-        for (::XBase::uint i = 0; i < touch.tapCount(); ++i)
-        {
+        for (::XBase::uint i = 0; i < touch.tapCount(); ++i) {
             const ::XBase::TouchTap tap = touch.tapAtIndex(i);
-            if (tap.isTrigger())
-            {
+            if (tap.isTrigger()) {
                 XBASE_COUTFMT_LINE_WITH_TIME(
                     "[%lu] trigger(%lu) : (%d,%d)",
                     i,
@@ -37,8 +33,7 @@ int xmain(::XBase::Application& aApp)
                     int(tap.pos().y)
                     );
             }
-            if (tap.isRelease())
-            {
+            if (tap.isRelease()) {
                 XBASE_COUTFMT_LINE_WITH_TIME(
                     "[%lu] release(%lu) : (%d,%d)",
                     i,
@@ -50,8 +45,7 @@ int xmain(::XBase::Application& aApp)
         }
 
         // ディスプレイが閉じられたら終了する
-        if (display.isClosed())
-        {
+        if (display.isClosed()) {
             aApp.quit();
         }
     }

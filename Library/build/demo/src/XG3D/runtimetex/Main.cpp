@@ -45,12 +45,10 @@ int xmain(::XBase::Application& aApp)
     {
         ::XBase::Color4b color;
         color.a = 0xFF;
-        for (::XBase::uint y = 0; y < runtimeTex.context().height(); ++y)
-        {
+        for (::XBase::uint y = 0; y < runtimeTex.context().height(); ++y) {
             // 縦方向にRのグラデーション
             color.r = ::XBase::u8(y);
-            for (::XBase::uint x = 0; x < runtimeTex.context().width(); ++x)
-            {
+            for (::XBase::uint x = 0; x < runtimeTex.context().width(); ++x) {
                 // 横方向にGのグラデーション
                 color.g = ::XBase::u8(x);
 
@@ -74,14 +72,12 @@ int xmain(::XBase::Application& aApp)
 
     // イベントループ
     bool doExit = false;
-    while (!doExit)
-    {
+    while (!doExit) {
         // イベントの取得
         ::XBase::AppEvent event = aApp.receiveEvent();
 
         // イベントによって分岐
-        switch (event)
-        {
+        switch (event) {
             case ::XBase::AppEvent_Quit:
                 doExit = true;
                 break;
@@ -89,8 +85,7 @@ int xmain(::XBase::Application& aApp)
             case ::XBase::AppEvent_Update:
             {
                 // ディスプレイが閉じてたら終了
-                if (display.isClosed())
-                {
+                if (display.isClosed()) {
                     aApp.quit();
                     continue;
                 }

@@ -16,14 +16,12 @@ int xmain(::XBase::Application& aApp)
 
     // イベントループ
     bool doExit = false;
-    while (!doExit)
-    {
+    while (!doExit) {
         // イベントの取得
         ::XBase::AppEvent event = aApp.receiveEvent();
 
         // イベントによって分岐
-        switch (event)
-        {
+        switch (event) {
             case ::XBase::AppEvent_Quit:
                 doExit = true;
                 break;
@@ -31,8 +29,7 @@ int xmain(::XBase::Application& aApp)
             case ::XBase::AppEvent_Update:
             {
                 // ディスプレイが閉じてたら終了
-                if (display.isClosed())
-                {
+                if (display.isClosed()) {
                     aApp.quit();
                     continue;
                 }
@@ -40,8 +37,7 @@ int xmain(::XBase::Application& aApp)
                 // クリアカラー
                 static float red = 0.0f;
                 red += 0.01f;
-                if (1 < red)
-                {
+                if (1 < red) {
                     red = 0;
                 }
 

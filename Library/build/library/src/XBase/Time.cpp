@@ -74,8 +74,7 @@ const TimePOD tCurrentTime(tTimeConverter aConverter)
         // 変換したtmを取得
     std::tm safeTM = {};
     const std::tm* tmPtr = aConverter(&secFrom1970, &safeTM);
-    if (PointerCheck::InvalidCheck(tmPtr))
-    {
+    if (PointerCheck::InvalidCheck(tmPtr)) {
         XBASE_NOT_REACH_ASSERT();
     }
     else
@@ -124,8 +123,7 @@ const TimePOD TimePOD::LocalTime()
         static std::tm* func(const std::time_t* aTime, std::tm* aSafePtr)
         {
             std::tm* result = std::localtime(aTime);
-            if (PointerCheck::InvalidCheck(result))
-            {
+            if (PointerCheck::InvalidCheck(result)) {
                 result = aSafePtr;
             }
             return result;
@@ -142,8 +140,7 @@ const TimePOD TimePOD::UniversalTime()
         static std::tm* func(const std::time_t* aTime, std::tm* aSafePtr)
         {
             std::tm* result = std::gmtime(aTime);
-            if (PointerCheck::InvalidCheck(result))
-            {
+            if (PointerCheck::InvalidCheck(result)) {
                 result = aSafePtr;
             }
             return result;
@@ -188,8 +185,7 @@ const CalendarPOD TimePOD::toCalendar()const
     Calendar calendar;
 
     // マイナスの値はサポートしない
-    if (ticks_ < 0)
-    {
+    if (ticks_ < 0) {
         XBASE_INVALID_VALUE_ERROR(ticks_);
         return calendar;
     }

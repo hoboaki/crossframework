@@ -47,12 +47,10 @@ void DisplayContext::setLocationToCenter()
     ReleaseDC(hwnd, hdc);
 
     // 位置設定
-    if (mWidth < uint(dispWidth))
-    {
+    if (mWidth < uint(dispWidth)) {
         mLocationX = (dispWidth - mWidth) / 2;
     }
-    if (mHeight < uint(dispHeight))
-    {
+    if (mHeight < uint(dispHeight)) {
         mLocationY = (dispHeight - mHeight) / 2;
     }
 #elif defined(XBASE_OS_MACOSX)
@@ -61,12 +59,10 @@ void DisplayContext::setLocationToCenter()
     XBaseNSScreen_GetMainScreenVisibleFrame(&rect);
 
     // 位置設定
-    if (mWidth < rect.sizeW)
-    {
+    if (mWidth < rect.sizeW) {
         mLocationX = uint(rect.originX + (rect.sizeW - mWidth) / 2);
     }
-    if (mHeight < rect.sizeH)
-    {
+    if (mHeight < rect.sizeH) {
         mLocationY = uint(rect.originY + (rect.sizeH - mHeight) / 2);
     }
 #endif

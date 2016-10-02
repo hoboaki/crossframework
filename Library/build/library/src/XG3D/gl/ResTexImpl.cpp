@@ -34,8 +34,7 @@ ResTexImpl::~ResTexImpl()
 void ResTexImpl::setup()
 {
     // セットアップ済みなら何もしない
-    if (texBufferPtr != 0)
-    {
+    if (texBufferPtr != 0) {
         return;
     }
 
@@ -55,8 +54,7 @@ void ResTexImpl::setup()
 ResTexFormat ResTexImpl::format()const
 {
     ResTexFormat fmt = ResTexFormat(binPtr->format);
-    if (XBASE_ENUM_IS_INVALID(ResTexFormat, fmt))
-    {
+    if (XBASE_ENUM_IS_INVALID(ResTexFormat, fmt)) {
         XBASE_NOT_REACH_ASSERT();
         return ResTexFormat_MIN;
     }

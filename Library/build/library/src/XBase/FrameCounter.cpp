@@ -38,8 +38,7 @@ void FrameCounter::reset(const uint aTotalFrame)
 //------------------------------------------------------------------------------
 void FrameCounter::advance()
 {
-    if (isCounting())
-    {
+    if (isCounting()) {
         advanceStrict();
     }
 }
@@ -47,8 +46,7 @@ void FrameCounter::advance()
 //------------------------------------------------------------------------------
 void FrameCounter::advanceStrict()
 {
-    if (isEnd())
-    {
+    if (isEnd()) {
         XBASE_NOT_REACH_ASSERT();
         return;
     }
@@ -89,8 +87,7 @@ bool FrameCounter::isCounting()const
 //------------------------------------------------------------------------------
 float FrameCounter::rateFrame()const
 {
-    if (isEnd())
-    {
+    if (isEnd()) {
         return 1.0f;
     }
     else

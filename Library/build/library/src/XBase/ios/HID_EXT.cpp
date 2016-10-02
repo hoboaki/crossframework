@@ -51,8 +51,7 @@ uint HID::touchCount()const
 //------------------------------------------------------------------------------
 const Touch HID::touchAtIndex(const uint aIndex)const
 {
-    if (touchCount() <= aIndex)
-    {
+    if (touchCount() <= aIndex) {
         XBASE_INVALID_VALUE_ERROR(aIndex);
         return Touch(XBASE_UITOUCHSET_TOUCH_COUNT_MAX);
     }

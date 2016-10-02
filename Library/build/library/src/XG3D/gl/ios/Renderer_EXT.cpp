@@ -15,8 +15,7 @@ namespace XG3D {
 void Renderer::copyToScreen(::XBase::Screen& aScreen)
 {
     XG3DUIOpenGLView* view = aScreen.ext_().glView;
-    if (view == 0)
-    {
+    if (view == 0) {
         XBASE_NOT_REACH_ASSERT();
         return;
     }

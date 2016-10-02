@@ -22,8 +22,7 @@ void Mouse::update(const MouseUpdateData& aData)
     mData = aData;
 
     // 更新
-    if (mData.posUpdated != 0)
-    {
+    if (mData.posUpdated != 0) {
         mPos = mData.pos;
     }
     mTrigger = ~pre.hold &  cur.hold;

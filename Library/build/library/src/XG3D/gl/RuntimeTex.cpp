@@ -15,8 +15,7 @@ namespace {
 int tBytePerPixel(const ::XG3D::ResTexFormat aFormat)
 {
     int bytePerPix = 0;
-    switch (aFormat)
-    {
+    switch (aFormat) {
         case ResTexFormat_RGBA8:
             bytePerPix = 4;
             break;
@@ -69,8 +68,7 @@ RuntimeTex::RuntimeTex(
 , mData(CalcDataSize(aContext), aAllocator, RequireAlignment())
 {
     // 0初期化
-    for (uint i = 0; i < mData->size(); ++i)
-    {
+    for (uint i = 0; i < mData->size(); ++i) {
         mData->head()[i] = 0;
     }
 }
@@ -141,8 +139,7 @@ void RuntimeTex::setPixel(
     byte_t* addr = &mData->head()[bytePos];
 
     // フォーマットごとに代入
-    switch (mContext.format())
-    {
+    switch (mContext.format()) {
         case ResTexFormat_RGBA8:
             *reinterpret_cast< ::XBase::Color4bPOD* >(addr) = aVal;
             break;

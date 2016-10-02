@@ -49,8 +49,7 @@ const char* const Console::DefaultTimeFormatString()
 //------------------------------------------------------------------------------
 void Console::SetTimeFormatString(const char* aFormat)
 {
-    if (PointerCheck::InvalidCheck(aFormat))
-    {
+    if (PointerCheck::InvalidCheck(aFormat)) {
         return;
     }
     tTimeFormatString = aFormat;

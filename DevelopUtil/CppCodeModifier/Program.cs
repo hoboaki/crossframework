@@ -440,6 +440,71 @@ namespace CppCodeModifier
                     }
                     );
             }
+
+            // 同行開始括弧位置警告
+            if (true)
+            {
+                Console.WriteLine("BeginKakkoCheck: ");
+                textEditFunc(cppFiles.ToList(),
+                    (lines) =>
+                    {
+                        bool isModify = false;
+                        for (int i = 0; i < lines.Count; ++i)
+                        {
+                            var line = lines[i];
+
+                            string[] keywords = { " if ", " for ", " while ", " switch" };
+                            bool isTargetLine = false;
+                            foreach (var keyword in keywords)
+                            {
+                                if (line.Contains(keyword))
+                                {
+                                    isTargetLine = true;
+                                    break;
+                                }
+                            }
+
+                            if (isTargetLine)
+                            {
+                                if (!line.Contains("{") && lines[i+1].Contains("{"))
+                                {
+                                    var nextLine = lines[i + 1];
+                                    var newLine = line;
+                                    if (nextLine.Contains("//"))
+                                    {
+                                        // コメントだけさらに次の行へ
+                                        int idx = nextLine.IndexOf("//");
+                                        string prefix = "";
+                                        for (int c = 0; c < nextLine.IndexOf("{"); ++c)
+                                        {
+                                            prefix += " ";
+                                        }
+                                        lines.Insert(i + 2, prefix + "    " + nextLine.Substring(idx));
+                                        lines.RemoveAt(i + 1);
+                                        lines.Insert(i + 1, nextLine.Substring(0, idx));
+                                        nextLine = lines[i + 1];
+                                    }
+
+                                    lines.RemoveAt(i);
+                                    if (!newLine.Contains("//"))
+                                    {
+                                        newLine += " " + nextLine.Trim();
+                                    }
+                                    else
+                                    {
+                                        int cmtIdx = newLine.IndexOf("//");
+                                        newLine = newLine.Substring(0, cmtIdx) + nextLine.Trim() + newLine.Substring(cmtIdx);
+                                    }
+                                    lines.Insert(i, newLine);
+                                    lines.RemoveAt(i + 1);
+                                    isModify = true;
+                                }
+                            }
+                        }
+                        return isModify;
+                    }
+                    );
+            }
         }
     }
 }

@@ -27,8 +27,7 @@ HID::~HID()
 //------------------------------------------------------------------------------
 const Keyboard HID::keyboard()const
 {
-    if (0 < keyboardCount())
-    {
+    if (0 < keyboardCount()) {
         return keyboardAtIndex(0);
     }
     return Keyboard();
@@ -37,8 +36,7 @@ const Keyboard HID::keyboard()const
 //------------------------------------------------------------------------------
 const Mouse HID::mouse()const
 {
-    if (0 < mouseCount())
-    {
+    if (0 < mouseCount()) {
         return mouseAtIndex(0);
     }
     return Mouse();
@@ -47,8 +45,7 @@ const Mouse HID::mouse()const
 //------------------------------------------------------------------------------
 const Touch HID::touch()const
 {
-    if (0 < touchCount())
-    {
+    if (0 < touchCount()) {
         return touchAtIndex(0);
     }
     return Touch(0);
