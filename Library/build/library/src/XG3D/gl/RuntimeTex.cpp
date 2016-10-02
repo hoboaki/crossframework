@@ -144,7 +144,7 @@ void RuntimeTex::setPixel(
     switch (mContext.format())
     {
         case ResTexFormat_RGBA8:
-            *reinterpret_cast<::XBase::Color4bPOD*>(addr) = aVal;
+            *reinterpret_cast< ::XBase::Color4bPOD* >(addr) = aVal;
             break;
 
         case ResTexFormat_RGB8:

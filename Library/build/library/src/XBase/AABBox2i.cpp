@@ -202,7 +202,7 @@ AABBox2i& AABBox2i::operator-=(const Vector2iPOD& aTrans)
 const AABBox2 AABBox2i::toAABB2f()const
 {
     return AABBox2(
-        min().toXYf(),,
+        min().toXYf(),
         term().toXYf()
         );
 }
