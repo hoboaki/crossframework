@@ -39,7 +39,7 @@ bool ResMdlSubMesh::operator==(const ResMdlSubMesh& aRHS)const
 }
 
 //------------------------------------------------------------------------------
-uint ResMdlSubMesh::index()const
+int ResMdlSubMesh::index()const
 {
     // チェック
     if (checkInvalid()) {
@@ -49,7 +49,7 @@ uint ResMdlSubMesh::index()const
 }
 
 //------------------------------------------------------------------------------
-uint ResMdlSubMesh::nodeIndex()const
+int ResMdlSubMesh::nodeIndex()const
 {
     // チェック
     if (checkInvalid()) {
@@ -59,7 +59,7 @@ uint ResMdlSubMesh::nodeIndex()const
 }
 
 //------------------------------------------------------------------------------
-uint ResMdlSubMesh::matReferIndex()const
+int ResMdlSubMesh::matReferIndex()const
 {
     // チェック
     if (checkInvalid()) {

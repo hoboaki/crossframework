@@ -311,10 +311,10 @@ void Renderer::reset()
 
 //------------------------------------------------------------------------------
 void Renderer::fbSetViewport(
-    const uint aBaseX,
-    const uint aBaseY,
-    const uint aWidth,
-    const uint aHeight
+    const int aBaseX,
+    const int aBaseY,
+    const int aWidth,
+    const int aHeight
     )
 {
     XG3D_GLCMD(glViewport(GLint(aBaseX), GLint(aBaseY), GLint(aWidth), GLint(aHeight)));
@@ -507,7 +507,7 @@ void Renderer::draw(
     const ResMatImpl* matImpl = aMaterial.resMat().impl_();
     XG3D_GLCMD(glBindBuffer(GL_ARRAY_BUFFER, shapeImpl->vtxAttrBuffer));
     XG3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, shapeImpl->idxBuffer));
-    for (uint i = 0; i < matImpl->vtxAttrs->count(); ++i) {
+    for (int i = 0; i < matImpl->vtxAttrs->count(); ++i) {
         const ResMatVtxAttrImpl* attrBind = &matImpl->vtxAttrs->at(i);
         const ResMdlShapeImpl::VtxAttr* attr = &shapeImpl->vtxAttrs[attrBind->binPtr->bindInputKind];
         XG3D_GLCMD(glVertexAttribPointer(
@@ -530,7 +530,7 @@ void Renderer::draw(
     ));
 
 // 頂点属性無効化
-    for (uint i = matImpl->vtxAttrs->count(); 0 < i; --i) {
+    for (int i = matImpl->vtxAttrs->count(); 0 < i; --i) {
         XG3D_GLCMD(glDisableVertexAttribArray(i - 1));
     }
     XG3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0));

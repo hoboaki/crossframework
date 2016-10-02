@@ -46,7 +46,7 @@ public:
     //@{
     AABBox2i(); ///< AABBox2i( Vector2i::Zero() ) で作成。
     AABBox2i(const Vector2iPOD& aBegin); ///< AABBox2i( aPos , 0 , 0 ) で作成。
-    AABBox2i(const Vector2iPOD& aBegin, uint aWidth, uint aHeight); ///< 基準となる点とサイズを指定してAABBを作成。
+    AABBox2i(const Vector2iPOD& aBegin, int aWidth, int aHeight); ///< 基準となる点とサイズを指定してAABBを作成。
     //@}
 
     //------------------------------------------------------------------------------
@@ -61,8 +61,8 @@ public:
     //------------------------------------------------------------------------------
     /// @name 大きさの取得
     //@{
-    uint width()const;  ///< xの幅を取得。
-    uint height()const; ///< yの幅を取得。
+    int width()const;  ///< xの幅を取得。
+    int height()const; ///< yの幅を取得。
     //@}
 
     //------------------------------------------------------------------------------

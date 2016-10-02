@@ -19,7 +19,7 @@ class RuntimeTexContext
 public:
     /// @name 作成関数
     //@{
-    static const RuntimeTexContext Create(ResTexFormat aFormat, uint aWidth, uint aHeight);
+    static const RuntimeTexContext Create(ResTexFormat aFormat, int aWidth, int aHeight);
     //@}
 
     /// @name 取得
@@ -30,7 +30,7 @@ public:
     //@}
 
 private:
-    RuntimeTexContext(ResTexFormat, uint aWidth, uint aHeight);
+    RuntimeTexContext(ResTexFormat, int aWidth, int aHeight);
     //------------------------------------------------------------------------------
     ::XBase::Enum32< ResTexFormat > mFormat;
     u16 mWidth;

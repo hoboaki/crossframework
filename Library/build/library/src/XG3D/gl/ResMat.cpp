@@ -41,7 +41,7 @@ bool ResMat::operator==(const ResMat& aRHS)const
 }
 
 //------------------------------------------------------------------------------
-uint ResMat::index()const
+int ResMat::index()const
 {
     // チェック
     if (checkInvalid()) {
@@ -61,7 +61,7 @@ const char* ResMat::name()const
 }
 
 //------------------------------------------------------------------------------
-uint ResMat::paramCount()const
+int ResMat::paramCount()const
 {
     // チェック
     if (checkInvalid()) {
@@ -71,7 +71,7 @@ uint ResMat::paramCount()const
 }
 
 //------------------------------------------------------------------------------
-ResMatParam ResMat::param(const uint aIndex)const
+ResMatParam ResMat::param(const int aIndex)const
 {
     // チェック
     if (checkInvalid()) {
@@ -89,7 +89,7 @@ ResMatParam ResMat::param(const char* aName)const
     }
 
     // 検索
-    for (uint i = 0; i < mPtr->paramImpls->count(); ++i) {
+    for (int i = 0; i < mPtr->paramImpls->count(); ++i) {
         ResMatParamImpl& impl = mPtr->paramImpls->at(i);
         if (::XBase::StringTraits< char >::Equals(ResMatParam(impl).name(), aName)) {
             return ResMatParam(impl);

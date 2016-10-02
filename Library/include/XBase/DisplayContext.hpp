@@ -23,20 +23,20 @@ public:
         /// @name WindowSystem環境でのカスタマイズ
         //@{
     void setLocationToCenter(); ///< 現在のwidthとheightの値を見て画面の中央にウィンドウがくるようにlocationX,Yを設定する。
-    uint locationX()const;
-    uint locationY()const;
-    uint width()const;
-    uint height()const;
+    int locationX()const;
+    int locationY()const;
+    int width()const;
+    int height()const;
     bool isScreenDoubleBuffer()const;
     //@}
 #endif
 
 private:
 #if defined(XBASE_OSTYPE_WINDOWSYSTEM)
-    uint mLocationX;
-    uint mLocationY;
-    uint mWidth;
-    uint mHeight;
+    int mLocationX;
+    int mLocationY;
+    int mWidth;
+    int mHeight;
     Bool32 mIsScreenDoubleBuffer;
 #endif
 };

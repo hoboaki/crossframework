@@ -40,7 +40,7 @@ public:
     /// @name プロパティの取得( isValid() なときしかアクセスできません)
     //@{
     const char* name()const; ///< 名前。
-    uint  index()const;      ///< 自身のインデックス番号。
+    int  index()const;      ///< 自身のインデックス番号。
     bool  isSkinning()const; ///< スキニングを使ったシェイプか。
     //@}
 

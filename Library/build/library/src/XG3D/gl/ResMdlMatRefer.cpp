@@ -39,7 +39,7 @@ bool ResMdlMatRefer::operator==(const ResMdlMatRefer& aRHS)const
 }
 
 //------------------------------------------------------------------------------
-uint ResMdlMatRefer::index()const
+int ResMdlMatRefer::index()const
 {
     // チェック
     if (checkInvalid()) {

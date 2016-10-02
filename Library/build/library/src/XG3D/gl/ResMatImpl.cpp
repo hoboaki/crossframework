@@ -15,7 +15,7 @@ namespace {
 //------------------------------------------------------------------------------
 struct tEntryHeader
 {
-    ::XData::UInt32     count;
+    ::XData::SInt32      count;
     ::XData::Reference  entries[1]; // 本当は無限長配列
 };
 
@@ -98,7 +98,7 @@ ResMatImpl::ResMatImpl(
     {
         const tEntryHeader* header = xdata.ref< tEntryHeader >(binPtr->params);
         paramImpls.init(header->count, ::XBase::Ref(aAllocator));
-        for (uint i = 0; i < header->count; ++i) {
+        for (int i = 0; i < header->count; ++i) {
             paramImpls->add(
                 ::XBase::Ref(xdata),
                 xdata.ref< BinResMatParam >(header->entries[i]),
@@ -111,7 +111,7 @@ ResMatImpl::ResMatImpl(
     {
         const tEntryHeader* header = xdata.ref< tEntryHeader >(binPtr->vtxAttrs);
         vtxAttrs.init(header->count, ::XBase::Ref(aAllocator));
-        for (uint i = 0; i < header->count; ++i) {
+        for (int i = 0; i < header->count; ++i) {
             vtxAttrs->add(
                 ::XBase::Ref(xdata),
                 xdata.ref< BinResMatVtxAttr >(header->entries[i]),
@@ -162,7 +162,7 @@ void ResMatImpl::setup()
     XG3D_GLCMD(glAttachShader(shaderProgram, srcPSH));
 
     // 属性バインド
-    for (uint i = 0; i < vtxAttrs->count(); ++i) {
+    for (int i = 0; i < vtxAttrs->count(); ++i) {
         const ResMatVtxAttrImpl* vtxAttr = &vtxAttrs->at(i);
         XG3D_GLCMD(glBindAttribLocation(shaderProgram, i, vtxAttr->xdata.ref< char >(vtxAttr->binPtr->symbolName)));
     }
@@ -189,7 +189,7 @@ void ResMatImpl::setup()
             "_prmMtxWorld"
         };
         XBASE_ARRAY_LENGTH_CHECK(TABLE, ShaderConstant::SysUniform_TERMINATE);
-        for (uint i = 0; i < ShaderConstant::SysUniform_TERMINATE; ++i) {
+        for (int i = 0; i < ShaderConstant::SysUniform_TERMINATE; ++i) {
             sysUniformLocations[i] = glGetUniformLocation(shaderProgram, TABLE[i]);
         }
     }

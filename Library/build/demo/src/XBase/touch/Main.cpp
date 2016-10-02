@@ -22,7 +22,7 @@ int xmain(::XBase::Application& aApp)
 
         // タッチの値を見てコンソールに出力
         const ::XBase::Touch touch = hid.touch();
-        for (::XBase::uint i = 0; i < touch.tapCount(); ++i) {
+        for (int i = 0; i < touch.tapCount(); ++i) {
             const ::XBase::TouchTap tap = touch.tapAtIndex(i);
             if (tap.isTrigger()) {
                 XBASE_COUTFMT_LINE_WITH_TIME(

@@ -551,13 +551,13 @@ void tUpdateModKey(KeyboardUpdateData& aData, KeyKind aKey, int aIsDown)
 } // namespace
 
 //------------------------------------------------------------------------------
-uint Display::screenCount()const
+int Display::screenCount()const
 {
     return 1;
 }
 
 //------------------------------------------------------------------------------
-Screen& Display::screenAtIndex(const uint aIndex)
+Screen& Display::screenAtIndex(const int aIndex)
 {
     XBASE_RANGE_ASSERT_MAX(aIndex, screenCount());
     return mainScreen();

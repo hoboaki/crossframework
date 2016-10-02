@@ -23,7 +23,7 @@ ResMdlMeshImpl::ResMdlMeshImpl(
     {
         const BinResMdlSubMesh* binArray = xdata.ref< BinResMdlSubMesh >(binPtr->subMeshes);
         subMeshImpls.init(binPtr->subMeshesCount, ::XBase::Ref(aAllocator));
-        for (uint i = 0; i < binPtr->subMeshesCount; ++i) {
+        for (int i = 0; i < binPtr->subMeshesCount; ++i) {
             subMeshImpls->add(
                 ::XBase::Ref(xdata),
                 &binArray[i],

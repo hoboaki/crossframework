@@ -60,14 +60,14 @@ public:
 
     /// @name 各リソースへのアクセス
     //@{
-    uint        matSetCount()const;                 ///< マテリアルセットリソースの総数。
-    ResMatSet   matSet(uint aIndex)const;         ///< 指定番目のマテリアルセットリソースの取得。
+    int        matSetCount()const;                 ///< マテリアルセットリソースの総数。
+    ResMatSet   matSet(int aIndex)const;         ///< 指定番目のマテリアルセットリソースの取得。
     ResMatSet   matSet(const char* aName)const;   ///< 指定の名前のマテリアルセットリソースの取得。
-    uint        mdlCount()const;                    ///< モデルリソースの総数。
-    ResMdl      mdl(uint aIndex)const;            ///< 指定番目のモデルリソースの取得。
+    int        mdlCount()const;                    ///< モデルリソースの総数。
+    ResMdl      mdl(int aIndex)const;            ///< 指定番目のモデルリソースの取得。
     ResMdl      mdl(const char* aName)const;      ///< 指定の名前のモデルリソースの取得。
-    uint        texCount()const;                    ///< テクスチャリソースの総数。
-    ResTex      tex(uint aIndex)const;            ///< 指定番目のテクスチャリソースの取得。
+    int        texCount()const;                    ///< テクスチャリソースの総数。
+    ResTex      tex(int aIndex)const;            ///< 指定番目のテクスチャリソースの取得。
     ResTex      tex(const char* aName)const;      ///< 指定の名前のテクスチャリソースの取得。
     //@}
 

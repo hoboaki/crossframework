@@ -8,7 +8,7 @@
 namespace XBase {
 
 //------------------------------------------------------------------------------
-Touch::Touch(const uint aTapCount)
+Touch::Touch(const int aTapCount)
 : mTapCount(aTapCount)
 , mData()
 , mTaps()
@@ -31,7 +31,7 @@ void Touch::update(const TouchUpdateData& aData)
     mData = aData;
 
     // 更新
-    for (uint i = 0; i < mTapCount; ++i) {
+    for (int i = 0; i < mTapCount; ++i) {
         mTaps[i].update(aData.taps[i]);
     }
 }
@@ -43,13 +43,13 @@ const TouchUpdateData Touch::lastUpdateData()const
 }
 
 //------------------------------------------------------------------------------
-uint Touch::tapCount()const
+int Touch::tapCount()const
 {
     return mTapCount;
 }
 
 //------------------------------------------------------------------------------
-const TouchTap Touch::tapAtIndex(const uint aIndex)const
+const TouchTap Touch::tapAtIndex(const int aIndex)const
 {
     if (tapCount() <= aIndex) {
         XBASE_INVALID_VALUE_ERROR(aIndex);

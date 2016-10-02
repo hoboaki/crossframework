@@ -40,10 +40,10 @@ public:
 
     /// @name プロパティの取得( isValid() なときしかアクセスできません)
     //@{
-    uint        index()const;   ///< 自身のインデックス番号。
+    int        index()const;   ///< 自身のインデックス番号。
     const char* name()const;     ///< 名前。
-    uint        matCount()const; ///< マテリアルの総数。
-    ResMat      mat(uint aIndex)const; ///< 指定番目のマテリアルを取得。
+    int        matCount()const; ///< マテリアルの総数。
+    ResMat      mat(int aIndex)const; ///< 指定番目のマテリアルを取得。
     ResMat      mat(const char* aName)const; ///< 指定の名前のマテリアルを取得。
     //@}
 

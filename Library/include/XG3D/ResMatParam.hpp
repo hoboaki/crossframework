@@ -43,7 +43,7 @@ public:
 
     /// @name プロパティの取得( isValid() なときしかアクセスできません)
     //@{
-    uint        index()const; ///< 自身のインデックス番号。
+    int        index()const; ///< 自身のインデックス番号。
     const char* name()const; ///< パラメータ名。
     //@}
 

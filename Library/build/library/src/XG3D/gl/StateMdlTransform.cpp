@@ -29,7 +29,7 @@ StateMdlTransform::~StateMdlTransform()
 //------------------------------------------------------------------------------
 void StateMdlTransform::updateWorldMtx(const ::XBase::Mtx34& aMdlMtx)
 {
-    for (uint i = 0; i < mLocalMtxs.count(); ++i) {
+    for (int i = 0; i < mLocalMtxs.count(); ++i) {
         ResMdlNode node = mResMdl.node(i);
         MdlLocalMtx& localMtx = mLocalMtxs[i];
 
@@ -52,7 +52,7 @@ void StateMdlTransform::updateWorldMtx(const ::XBase::Mtx34& aMdlMtx)
 }
 
 //------------------------------------------------------------------------------
-const ::XBase::Mtx34 StateMdlTransform::worldMtx(const uint aNodeIndex)const
+const ::XBase::Mtx34 StateMdlTransform::worldMtx(const int aNodeIndex)const
 {
     return mWorldMtxs[aNodeIndex];
 }
@@ -60,7 +60,7 @@ const ::XBase::Mtx34 StateMdlTransform::worldMtx(const uint aNodeIndex)const
 //------------------------------------------------------------------------------
 void StateMdlTransform::resetLocalMtx()
 {
-    for (uint i = 0; i < mLocalMtxs.count(); ++i) {
+    for (int i = 0; i < mLocalMtxs.count(); ++i) {
         ResMdlNode node = mResMdl.node(i);
         MdlLocalMtx& localMtx = mLocalMtxs[i];
         localMtx.rtMtx = node.rtMtx();

@@ -45,10 +45,10 @@ int xmain(::XBase::Application& aApp)
     {
         ::XBase::Color4b color;
         color.a = 0xFF;
-        for (::XBase::uint y = 0; y < runtimeTex.context().height(); ++y) {
+        for (int y = 0; y < runtimeTex.context().height(); ++y) {
             // 縦方向にRのグラデーション
             color.r = ::XBase::u8(y);
-            for (::XBase::uint x = 0; x < runtimeTex.context().width(); ++x) {
+            for (int x = 0; x < runtimeTex.context().width(); ++x) {
                 // 横方向にGのグラデーション
                 color.g = ::XBase::u8(x);
 

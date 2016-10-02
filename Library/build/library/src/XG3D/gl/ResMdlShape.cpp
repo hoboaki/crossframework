@@ -39,7 +39,7 @@ bool ResMdlShape::operator==(const ResMdlShape& aRHS)const
 }
 
 //------------------------------------------------------------------------------
-uint ResMdlShape::index()const
+int ResMdlShape::index()const
 {
     // チェック
     if (checkInvalid()) {

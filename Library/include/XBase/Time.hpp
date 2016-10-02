@@ -47,14 +47,14 @@ struct TimePOD
     /// @details
     /// ナノ秒以下は0として作成します。
     static const TimePOD FromDate(
-        uint aYear
-        , uint aMonth
-        , uint aDayOfMonth
-        , uint aHour
-        , uint aMin
-        , uint aSec
-        , uint aMsec
-        , uint aUsec
+        int aYear
+        , int aMonth
+        , int aDayOfMonth
+        , int aHour
+        , int aMin
+        , int aSec
+        , int aMsec
+        , int aUsec
     );
 
 /// カレンダー情報を作成する。

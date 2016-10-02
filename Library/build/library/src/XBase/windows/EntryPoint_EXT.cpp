@@ -30,7 +30,7 @@ bool  tIsConsole = false;
 char  tExeFilePath[tExeFilePathLength];
 char  tExeFileName[tExeFileNameLength];
 char  tExeDirPath[tExeDirPathLength];
-::XBase::uint tArgCount = 0;
+int tArgCount = 0;
 char  tArgChars[tArgCharsLength];
 char* tArgPtrs[tArgPtrsLength];
 
@@ -92,7 +92,7 @@ bool tIsWhiteCh(const char aCh)
 // tArgCharsからtArgCountとaArgPtrsを設定する。
 void tSetupArg()
 {
-    ::XBase::uint index = 0;
+    int index = 0;
     while (tArgChars[index] != '\0') {
         // 空白文字をスキップする
         while (tIsWhiteCh(tArgChars[index])) {
@@ -231,7 +231,7 @@ int main(
     }
 
     {// 引数
-        ::XBase::uint index = 0;
+        int index = 0;
         for (int i = 1; i < aArgCount && i < tArgPtrsLength; ++i) {
             const ::XBase::StringTraits< char >::WriteResult result =
                 ::XBase::StringTraits< char >::NCopy(tArgChars, tArgCharsLength - index, aArgValues[i]);

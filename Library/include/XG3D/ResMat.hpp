@@ -40,10 +40,10 @@ public:
 
     /// @name プロパティの取得( isValid() なときしかアクセスできません)
     //@{
-    uint        index()const;                       ///< 自身のインデックス番号。
+    int        index()const;                       ///< 自身のインデックス番号。
     const char* name()const;                        ///< 名前。
-    uint        paramCount()const;                  ///< パラメータリソースの総数。
-    ResMatParam param(uint aIndex)const;          ///< 指定番目のパラメータリソースの取得。
+    int        paramCount()const;                  ///< パラメータリソースの総数。
+    ResMatParam param(int aIndex)const;          ///< 指定番目のパラメータリソースの取得。
     ResMatParam param(const char* aName)const;    ///< 指定の名前のパラメータリソースの取得。
     //@}
 

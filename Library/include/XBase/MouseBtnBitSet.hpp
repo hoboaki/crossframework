@@ -11,8 +11,8 @@ namespace XBase {
 
 /// @addtogroup XBase-HID
 //@{
-    /// @brief マウスのボタンのビットセット。
-    /// @details
+/// @brief マウスのボタンのビットセット。
+/// @details
 /// ビットのインデックスは MouseBtnKind を使用しています。
 typedef BitSet< MouseBtnKind_TERMINATE > MouseBtnBitSet;
 //@}

@@ -13,8 +13,8 @@ namespace XG3D {
 
 //------------------------------------------------------------------------------
 VtxBuffer::VtxBuffer(
-    const uint aMeshCountMax,
-    const uint aVertexCountMax,
+    const int aMeshCountMax,
+    const int aVertexCountMax,
     ::XBase::IAllocator& aAllocator
     )
 : mVertexArray(aVertexCountMax, aAllocator)
@@ -118,14 +118,14 @@ void VtxBuffer::end()
         case PrimitiveKind_Triangles:
         {// 連続三角形
             // チェック
-            const uint vertexCountPerPrimitive = 3;
+            const int vertexCountPerPrimitive = 3;
             if ((mesh.count % vertexCountPerPrimitive) != 0) {
                 XBASE_INVALID_VALUE_ERROR(mesh.count);
                 return;
             }
             // index生成
-            const uint elemBeginIndex = mIndexArray.count();
-            for (uint i = 0; i < mesh.count; ++i) {
+            const int elemBeginIndex = mIndexArray.count();
+            for (int i = 0; i < mesh.count; ++i) {
                 mIndexArray.add(Index(mesh.beginIndex + i));
             }
             // 情報修正
@@ -136,17 +136,17 @@ void VtxBuffer::end()
         case PrimitiveKind_Quads:
         {// 連続矩形
             // チェック
-            const uint vertexCountPerPrimitive = 4;
+            const int vertexCountPerPrimitive = 4;
             if ((mesh.count % vertexCountPerPrimitive) != 0) {
                 XBASE_INVALID_VALUE_ERROR(mesh.count);
                 return;
             }
             // index生成
-            const uint elemBeginIndex = mIndexArray.count();
-            const uint vtxBeginIndex = mesh.beginIndex;
-            const uint primitiveCount = mesh.count / vertexCountPerPrimitive;
-            for (uint i = 0; i < primitiveCount; ++i) {
-                const uint vtxBaseIndex = vtxBeginIndex + i * vertexCountPerPrimitive;
+            const int elemBeginIndex = mIndexArray.count();
+            const int vtxBeginIndex = mesh.beginIndex;
+            const int primitiveCount = mesh.count / vertexCountPerPrimitive;
+            for (int i = 0; i < primitiveCount; ++i) {
+                const int vtxBaseIndex = vtxBeginIndex + i * vertexCountPerPrimitive;
 
                 // trianglesに変換
                 const Index lt = Index(vtxBaseIndex);
@@ -338,7 +338,7 @@ void VtxBuffer::draw()
     XG3D_GLCMD(glEnableVertexAttribArray(ShaderConstant::Attribute_Color));
 
     // 各メッシュの描画
-    for (uint i = 0; i < mMeshArray.count(); ++i) {
+    for (int i = 0; i < mMeshArray.count(); ++i) {
         // 取得
         const Mesh& mesh = mMeshArray[i];
 

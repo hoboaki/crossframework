@@ -39,8 +39,8 @@ public:
 
     /// @name 大きさ
     //@{
-    uint imageWidth()const;  ///< イメージの横ピクセル数。
-    uint imageHeight()const; ///< イメージの縦ピクセル数。
+    int imageWidth()const;  ///< イメージの横ピクセル数。
+    int imageHeight()const; ///< イメージの縦ピクセル数。
     //@}
 
     // 内部実装用関数群。

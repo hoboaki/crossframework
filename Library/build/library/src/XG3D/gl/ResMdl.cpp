@@ -39,7 +39,7 @@ bool ResMdl::operator==(const ResMdl& aRHS)const
 }
 
 //------------------------------------------------------------------------------
-uint ResMdl::index()const
+int ResMdl::index()const
 {
     // チェック
     if (checkInvalid()) {
@@ -59,7 +59,7 @@ const char* ResMdl::name()const
 }
 
 //------------------------------------------------------------------------------
-uint ResMdl::matReferCount()const
+int ResMdl::matReferCount()const
 {
     // チェック
     if (checkInvalid()) {
@@ -69,7 +69,7 @@ uint ResMdl::matReferCount()const
 }
 
 //------------------------------------------------------------------------------
-ResMdlMatRefer ResMdl::matRefer(const uint aIndex)const
+ResMdlMatRefer ResMdl::matRefer(const int aIndex)const
 {
     // チェック
     if (checkInvalid()) {
@@ -79,7 +79,7 @@ ResMdlMatRefer ResMdl::matRefer(const uint aIndex)const
 }
 
 //------------------------------------------------------------------------------
-uint ResMdl::meshCount()const
+int ResMdl::meshCount()const
 {
     // チェック
     if (checkInvalid()) {
@@ -89,7 +89,7 @@ uint ResMdl::meshCount()const
 }
 
 //------------------------------------------------------------------------------
-ResMdlMesh ResMdl::mesh(const uint aIndex)const
+ResMdlMesh ResMdl::mesh(const int aIndex)const
 {
     // チェック
     if (checkInvalid()) {
@@ -107,7 +107,7 @@ ResMdlMesh ResMdl::mesh(const char* aName)const
     }
 
     // 検索
-    for (uint i = 0; i < mPtr->meshImpls->count(); ++i) {
+    for (int i = 0; i < mPtr->meshImpls->count(); ++i) {
         ResMdlMeshImpl& impl = mPtr->meshImpls->at(i);
         if (::XBase::StringTraits< char >::Equals(ResMdlMesh(impl).name(), aName)) {
             return ResMdlMesh(impl);
@@ -117,7 +117,7 @@ ResMdlMesh ResMdl::mesh(const char* aName)const
 }
 
 //------------------------------------------------------------------------------
-uint ResMdl::nodeCount()const
+int ResMdl::nodeCount()const
 {
     // チェック
     if (checkInvalid()) {
@@ -127,7 +127,7 @@ uint ResMdl::nodeCount()const
 }
 
 //------------------------------------------------------------------------------
-ResMdlNode ResMdl::node(const uint aIndex)const
+ResMdlNode ResMdl::node(const int aIndex)const
 {
     // チェック
     if (checkInvalid()) {
@@ -145,7 +145,7 @@ ResMdlNode ResMdl::node(const char* aName)const
     }
 
     // 検索
-    for (uint i = 0; i < mPtr->nodeImpls->count(); ++i) {
+    for (int i = 0; i < mPtr->nodeImpls->count(); ++i) {
         ResMdlNodeImpl& impl = mPtr->nodeImpls->at(i);
         if (::XBase::StringTraits< char >::Equals(ResMdlNode(impl).name(), aName)) {
             return ResMdlNode(impl);
@@ -155,7 +155,7 @@ ResMdlNode ResMdl::node(const char* aName)const
 }
 
 //------------------------------------------------------------------------------
-uint ResMdl::shapeCount()const
+int ResMdl::shapeCount()const
 {
     // チェック
     if (checkInvalid()) {
@@ -165,7 +165,7 @@ uint ResMdl::shapeCount()const
 }
 
 //------------------------------------------------------------------------------
-ResMdlShape ResMdl::shape(const uint aIndex)const
+ResMdlShape ResMdl::shape(const int aIndex)const
 {
     // チェック
     if (checkInvalid()) {
@@ -183,7 +183,7 @@ ResMdlShape ResMdl::shape(const char* aName)const
     }
 
     // 検索
-    for (uint i = 0; i < mPtr->shapeImpls->count(); ++i) {
+    for (int i = 0; i < mPtr->shapeImpls->count(); ++i) {
         ResMdlShapeImpl& impl = mPtr->shapeImpls->at(i);
         if (::XBase::StringTraits< char >::Equals(ResMdlShape(impl).name(), aName)) {
             return ResMdlShape(impl);

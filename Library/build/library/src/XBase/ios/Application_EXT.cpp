@@ -34,9 +34,9 @@ AppEvent Application::receiveEventCore()
                 // タッチ入力ポーリング
                 const XBaseUITouchSet* touchSet = XBaseUIWindow_PollTouch(mDisplayPtr->ext_().windowPtr);
                 if (mDisplayPtr->ext_().hidPtr.isValid()) {
-                    const uint screenHeight = mDisplayPtr->mainScreen().height();
+                    const int screenHeight = mDisplayPtr->mainScreen().height();
                     TouchUpdateData data = {};
-                    for (uint i = 0; i < XBASE_UITOUCHSET_TOUCH_COUNT_MAX; ++i) {
+                    for (int i = 0; i < XBASE_UITOUCHSET_TOUCH_COUNT_MAX; ++i) {
                         const XBaseUITouch& src = touchSet->touches[i];
                         TouchTapUpdateData& dst = data.taps[i];
                         dst.tapCount = src.tapCount;

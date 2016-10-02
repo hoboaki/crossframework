@@ -33,15 +33,15 @@ class Screen : public ::XBase::NonCopyable
 {
 public:
     // コンストラクタ。システムが呼ぶ。
-    Screen(Display_EXT& aOwner, uint aWidth, uint aHeight);
+    Screen(Display_EXT& aOwner, int aWidth, int aHeight);
 
     /// @name 解像度
     //@{
     /// 横ピクセル数。
-    uint width()const;
+    int width()const;
 
     /// 縦ピクセル数。
-    uint height()const;
+    int height()const;
 
     /// @brief 指定の位置がスクリーン内かどうか判定する。
     /// @return 0 <= aPos.x < width() && 0 <= aPos.y < height()
@@ -56,8 +56,8 @@ public:
 private:
     Display_EXT& mOwner;
     Screen_EXT mEXT;
-    uint mWidth;
-    uint mHeight;
+    int mWidth;
+    int mHeight;
 };
 //@}
 

@@ -41,7 +41,7 @@ int xmain(::XBase::Application& aApp)
     resBin.setup(); // TextureBufferの準備
     ::XG3D::TexSetting texSetting;
     {// 設定を作成
-        const ::XG3D::uint texIndex = 0; // 先頭のテクスチャを使用
+        const int texIndex = 0; // 先頭のテクスチャを使用
         texSetting.setIsActive(true);
         texSetting.bindBuffer(*resBin.tex(texIndex).texBufferPtr());
     }

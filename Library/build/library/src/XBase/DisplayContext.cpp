@@ -47,10 +47,10 @@ void DisplayContext::setLocationToCenter()
     ReleaseDC(hwnd, hdc);
 
     // 位置設定
-    if (mWidth < uint(dispWidth)) {
+    if (mWidth < dispWidth) {
         mLocationX = (dispWidth - mWidth) / 2;
     }
-    if (mHeight < uint(dispHeight)) {
+    if (mHeight < dispHeight) {
         mLocationY = (dispHeight - mHeight) / 2;
     }
 #elif defined(XBASE_OS_MACOSX)
@@ -69,25 +69,25 @@ void DisplayContext::setLocationToCenter()
 }
 
 //------------------------------------------------------------------------------
-uint DisplayContext::locationX()const
+int DisplayContext::locationX()const
 {
     return mLocationX;
 }
 
 //------------------------------------------------------------------------------
-uint DisplayContext::locationY()const
+int DisplayContext::locationY()const
 {
     return mLocationY;
 }
 
 //------------------------------------------------------------------------------
-uint DisplayContext::width()const
+int DisplayContext::width()const
 {
     return mWidth;
 }
 
 //------------------------------------------------------------------------------
-uint DisplayContext::height()const
+int DisplayContext::height()const
 {
     return mHeight;
 }

@@ -10,8 +10,8 @@ namespace XBase {
 //------------------------------------------------------------------------------
 Screen::Screen(
     Display_EXT& aOwner,
-    const uint aWidth,
-    const uint aHeight
+    const int aWidth,
+    const int aHeight
     )
 : mOwner(aOwner)
 , mEXT()
@@ -21,13 +21,13 @@ Screen::Screen(
 }
 
 //------------------------------------------------------------------------------
-uint Screen::width()const
+int Screen::width()const
 {
     return mWidth;
 }
 
 //------------------------------------------------------------------------------
-uint Screen::height()const
+int Screen::height()const
 {
     return mHeight;
 }

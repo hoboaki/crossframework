@@ -41,8 +41,8 @@ public:
 
     /// @name マテリアルアクセス
     //@{
-    StateMaterial& material(uint aMatIndex);
-    const StateMaterial& material(uint aMatIndex)const;
+    StateMaterial& material(int aMatIndex);
+    const StateMaterial& material(int aMatIndex)const;
     //@}
 
 private:
