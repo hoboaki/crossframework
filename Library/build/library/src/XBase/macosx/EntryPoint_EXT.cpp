@@ -17,7 +17,7 @@ int mainC(
 {
     // 引数作成
     const int offset = 1; // Exeのパスは別で処理しているためパス。
-    XBASE_RANGE_ASSERT_EMIN(offset, aArgCount);
+    XBASE_ASSERT_LESS_EQUALS(offset, aArgCount);
     const ::XBase::Argument arg(
         ::XBase::uint(aArgCount - offset),
         &aArgValues[offset],

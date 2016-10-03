@@ -92,7 +92,7 @@ struct RuntimeAssert
 /// @details
 /// アサートに失敗したらエラーコールバックをコールします。@n
 /// エラーが無効なときは何もしません。
-#define XBASE_SHOULD_NULL_ASSERT( aVal ) \
+#define XBASE_ASSERT_SHOULD_NULL( aVal ) \
     XBASE_ASSERT_MSG( (aVal)==0 \
     , "Value is not Null (%s)\n" \
     , XBASE_TO_SHORT_STRING( aVal ).readPtr() \
@@ -105,7 +105,7 @@ struct RuntimeAssert
 /// @details
 /// アサートに失敗したらエラーコールバックをコールします。@n
 /// エラーが無効なときは何もしません。
-#define XBASE_NOT_NULL_ASSERT( aVal ) XBASE_ASSERT_MSG( (aVal)!=0 , "Value is Null\n" )
+#define XBASE_ASSERT_NOT_NULL( aVal ) XBASE_ASSERT_MSG( (aVal)!=0 , "Value is Null\n" )
 
 /// @briefポインタとして有効な値であることをチェックする。
 /// @param aVal チェックする値。
@@ -114,7 +114,7 @@ struct RuntimeAssert
 /// @details
 /// アサートに失敗したらエラーコールバックをコールします。@n
 /// エラーが無効なときは何もしません。
-#define XBASE_POINTER_ASSERT( aVal ) do { if ( !::XBase::PointerCheck::IsValid( aVal ) ) { XBASE_INVALID_VALUE_ERROR( reinterpret_cast< ::XBase::pword_t >( aVal ) ); } } while(false)
+#define XBASE_ASSERT_POINTER( aVal ) do { if ( !::XBase::PointerCheck::IsValid( aVal ) ) { XBASE_ERROR_INVALID_VALUE( reinterpret_cast< ::XBase::pword_t >( aVal ) ); } } while(false)
 
 /// @brief 到達したらエラーにする。
 /// @see XBase::RuntimeError
@@ -123,8 +123,8 @@ struct RuntimeAssert
 /// 第1引数以降にprintfの書式でメッセージを指定してください。@n
 /// アサートに失敗したらエラーコールバックをコールします。@n
 /// エラーが無効なときは何もしません。
-#define XBASE_NOT_REACH_ASSERT_MSGFMT( aFormat , ... ) XBASE_ASSERT_MSGFMT( false , aFormat , __VA_ARGS__ )
-#define XBASE_NOT_REACH_ASSERT_MSG( aMsg ) XBASE_ASSERT_MSG( false , aMsg )
+#define XBASE_ASSERT_NOT_REACHED_MSGFMT( aFormat , ... ) XBASE_ASSERT_MSGFMT( false , aFormat , __VA_ARGS__ )
+#define XBASE_ASSERT_NOT_REACHED_MSG( aMsg ) XBASE_ASSERT_MSG( false , aMsg )
 
 /// @brief 到達したらエラーにする。
 /// @see XBase::RuntimeError
@@ -132,7 +132,7 @@ struct RuntimeAssert
 /// @details
 /// アサートに失敗したらエラーコールバックをコールします。@n
 /// エラーが無効なときは何もしません。
-#define XBASE_NOT_REACH_ASSERT() XBASE_NOT_REACH_ASSERT_MSG( "Should nod reach here.\n" )
+#define XBASE_ASSERT_NOT_REACHED() XBASE_ASSERT_NOT_REACHED_MSG( "Should nod reach here.\n" )
  
 /// @brief 不正な値としてその値をコンソールにダンプしつつエラーにする。
 /// @see XBase::RuntimeError
@@ -140,16 +140,16 @@ struct RuntimeAssert
 /// @details
 /// アサートに失敗したらエラーコールバックをコールします。@n
 /// エラーが無効なときは何もしません。
-#define XBASE_INVALID_VALUE_ERROR( aVal ) \
-    XBASE_NOT_REACH_ASSERT_MSGFMT( \
+#define XBASE_ERROR_INVALID_VALUE( aVal ) \
+    XBASE_ASSERT_NOT_REACHED_MSGFMT( \
         "%s is invalid value(%s)\n" \
         , #aVal \
         , XBASE_TO_SHORT_STRING(aVal).readPtr() \
         )
 
-/// @brief XBASE_INVALID_VALUE_ERROR のenum版。
-/// @see XBASE_INVALID_VALUE_ERROR
-#define XBASE_INVALID_ENUM_ERROR( aVal ) XBASE_INVALID_VALUE_ERROR( int( aVal ) )
+/// @brief XBASE_ERROR_INVALID_VALUE のenum版。
+/// @see XBASE_ERROR_INVALID_VALUE
+#define XBASE_ERROR_INVALID_ENUM( aVal ) XBASE_ERROR_INVALID_VALUE( int( aVal ) )
 
 /// @brief ２つの値が等しいことをチェックする。
 /// @param aVal1 チェックする値。
@@ -159,7 +159,7 @@ struct RuntimeAssert
 /// @details
 /// アサートに失敗したらエラーコールバックをコールします。@n
 /// エラーが無効なときは何もしません。
-#define XBASE_EQUALS_ASSERT( aVal1 , aVal2 ) \
+#define XBASE_ASSERT_EQUALS( aVal1 , aVal2 ) \
     XBASE_ASSERT_MSGFMT( aVal1 == aVal2 \
     , "%s(%s) is not equals %s(%s).\n" \
     , #aVal1 , XBASE_TO_SHORT_STRING( aVal1 ).readPtr() \
@@ -174,7 +174,7 @@ struct RuntimeAssert
 /// @details
 /// アサートに失敗したらエラーコールバックをコールします。@n
 /// エラーが無効なときは何もしません。
-#define XBASE_NOT_EQUALS_ASSERT( aVal1 , aVal2 ) \
+#define XBASE_ASSERT_NOT_EQUALS( aVal1 , aVal2 ) \
     XBASE_ASSERT_MSGFMT( aVal1 != aVal2 \
     , "%s(%s) is quals %s(%s).\n" \
     , #aVal1 , XBASE_TO_SHORT_STRING( aVal1 ).readPtr() \
@@ -194,6 +194,14 @@ struct RuntimeAssert
     #define XBASE_TEST( aCond ) do{}while(false)
 #endif
 
+/// @brief aVal < aTermValであることをチェックする。
+/// @see XBase::RuntimeError
+/// @see XBASE_CONFIG_ENABLE_RUNTIME_ERROR
+/// @details
+/// アサートに失敗したらそれぞれの値をコンソールにダンプしエラーコールバックをコールします。@n
+/// エラーが無効なときは何もしません。
+#define XBASE_ASSERT_LESS(aVal, aTermVal) XBASE_ASSERT_RANGE_CORE2(XBASE_VALUE_IN_RANGE_LESS, aVal, aTermVal)
+
 /// @brief aVal <= aMaxValであることをチェックする。
 /// @see XBase::RuntimeError
 /// @see XBASE_CONFIG_ENABLE_RUNTIME_ERROR
@@ -201,15 +209,7 @@ struct RuntimeAssert
 /// @details
 /// アサートに失敗したらそれぞれの値をコンソールにダンプしエラーコールバックをコールします。@n
 /// エラーが無効なときは何もしません。
-#define XBASE_RANGE_ASSERT_EMAX( aVal , aMaxVal ) XBASE_RANGE_ASSERT_CORE_FVM( XBASE_IS_VALUE_IN_RANGE_EMAX , aVal , aMaxVal )
-
-/// @brief aVal <= aMaxValであることをチェックする。
-/// @see XBase::RuntimeError
-/// @see XBASE_CONFIG_ENABLE_RUNTIME_ERROR
-/// @details
-/// アサートに失敗したらそれぞれの値をコンソールにダンプしエラーコールバックをコールします。@n
-/// エラーが無効なときは何もしません。
-#define XBASE_RANGE_ASSERT_EMIN( aMinVal , aVal ) XBASE_RANGE_ASSERT_CORE_FMV( XBASE_IS_VALUE_IN_RANGE_EMIN , aMinVal , aVal )
+#define XBASE_ASSERT_LESS_EQUALS(aVal, aMaxVal) XBASE_ASSERT_RANGE_CORE2(XBASE_VALUE_IN_RANGE_LESS_EQUALS, aVal, aMaxVal)
 
 /// @brief aMinVal <= aVal <= aMaxValであることをチェックする。
 /// @see XBase::RuntimeError
@@ -217,71 +217,39 @@ struct RuntimeAssert
 /// @details
 /// アサートに失敗したらそれぞれの値をコンソールにダンプしエラーコールバックをコールします。@n
 /// エラーが無効なときは何もしません。
-#define XBASE_RANGE_ASSERT_EMIN_EMAX( aMinVal , aVal , aMaxVal ) XBASE_RANGE_ASSERT_CORE_FMVM( XBASE_IS_VALUE_IN_RANGE_EMIN_EMAX , aMinVal , aVal , aMaxVal )
+#define XBASE_ASSERT_MIN_MAX(aMinVal, aVal, aMaxVal) XBASE_ASSERT_RANGE_CORE3(XBASE_VALUE_IN_RANGE_MIN_MAX, aMinVal ,aVal ,aMaxVal)
 
-/// @brief aMinVal <= aVal < aMaxValであることをチェックする。
+/// @brief aMinVal <= aVal < aTermValであることをチェックする。
 /// @see XBase::RuntimeError
 /// @see XBASE_CONFIG_ENABLE_RUNTIME_ERROR
 /// @details
 /// アサートに失敗したらそれぞれの値をコンソールにダンプしエラーコールバックをコールします。@n
 /// エラーが無効なときは何もしません。
-#define XBASE_RANGE_ASSERT_EMIN_MAX( aMinVal , aVal , aMaxVal ) XBASE_RANGE_ASSERT_CORE_FMVM( XBASE_IS_VALUE_IN_RANGE_EMIN_MAX , aMinVal , aVal , aMaxVal )
+#define XBASE_ASSERT_MIN_TERM(aMinVal, aVal, aTermVal) XBASE_ASSERT_RANGE_CORE3(XBASE_VALUE_IN_RANGE_MIN_TERM, aMinVal, aVal, aTermVal)
 
-/// @brief aVal < aMaxValであることをチェックする。
-/// @see XBase::RuntimeError
-/// @see XBASE_CONFIG_ENABLE_RUNTIME_ERROR
-/// @details
-/// アサートに失敗したらそれぞれの値をコンソールにダンプしエラーコールバックをコールします。@n
-/// エラーが無効なときは何もしません。
-#define XBASE_RANGE_ASSERT_MAX( aVal , aMaxVal ) XBASE_RANGE_ASSERT_CORE_FVM( XBASE_IS_VALUE_IN_RANGE_MAX , aVal , aMaxVal )
-
-
-/// @brief aMinVal < aVal であることをチェックする。
-/// @see XBase::RuntimeError
-/// @see XBASE_CONFIG_ENABLE_RUNTIME_ERROR
-/// @details
-/// アサートに失敗したらそれぞれの値をコンソールにダンプしエラーコールバックをコールします。@n
-/// エラーが無効なときは何もしません。
-#define XBASE_RANGE_ASSERT_MIN( aMinVal , aVal ) XBASE_RANGE_ASSERT_CORE_FMV( XBASE_IS_VALUE_IN_RANGE_MIN , aMinVal , aVal )
-
-/// @brief aMinVal < aVal <= aMaxValであることをチェックする。
-/// @see XBase::RuntimeError
-/// @see XBASE_CONFIG_ENABLE_RUNTIME_ERROR
-/// @details
-/// アサートに失敗したらそれぞれの値をコンソールにダンプしエラーコールバックをコールします。@n
-/// エラーが無効なときは何もしません。
-#define XBASE_RANGE_ASSERT_MIN_EMAX( aMinVal , aVal , aMaxVal ) XBASE_RANGE_ASSERT_CORE_FMVM( XBASE_IS_VALUE_IN_RANGE_MIN_EMAX , aMinVal , aVal , aMaxVal )
- 
 /// @brief aEnumValueがMIN <= aEnumValue <= MAXであることをチェックする。
 /// @details
 /// 調査するEnumにMINとMAXが定義されている必要があります。
-#define XBASE_ENUM_ASSERT( aEnumType , aEnumValue ) XBASE_RANGE_ASSERT_EMIN_EMAX( int( aEnumType##_MIN ) , int( aEnumValue ) , int( aEnumType##_MAX ) )
+#define XBASE_ASSERT_ENUM(aEnumType , aEnumValue) XBASE_ASSERT_MIN_MAX(int(aEnumType##_MIN), int(aEnumValue), int(aEnumType##_MAX))
 
 //@}
 //@}
     
 // 範囲チェックアサートの実装。
-#define XBASE_RANGE_ASSERT_CORE_FVM( func , aVal , aMaxVal ) \
-    XBASE_ASSERT_MSGFMT( func( aVal , aMaxVal ) \
+#define XBASE_ASSERT_RANGE_CORE2(func, aVal1, aVal2) \
+    XBASE_ASSERT_MSGFMT(func(aVal1 , aVal2) \
     , "Value is not in range.\n" \
-      "aVal : %s \naMaxVal : %s\n" \
-    , XBASE_TO_SHORT_STRING( aVal ).readPtr() \
-    , XBASE_TO_SHORT_STRING( aMaxVal ).readPtr() \
+      "aVal1 : %s \naVal2 : %s\n" \
+    , XBASE_TO_SHORT_STRING(aVal1).readPtr() \
+    , XBASE_TO_SHORT_STRING(aVal2).readPtr() \
     )
-#define XBASE_RANGE_ASSERT_CORE_FMV( func , aMinVal , aVal ) \
-    XBASE_ASSERT_MSGFMT( func( aMinVal , aVal ) \
+#define XBASE_ASSERT_RANGE_CORE3(func, aVal1, aVal2, aVal3) \
+    XBASE_ASSERT_MSGFMT(func(aVal1, aVal2, aVal3)  \
     , "Value is not in range.\n" \
-      "aMinVal : %s \naVal : %s\n" \
-    , XBASE_TO_SHORT_STRING( aMinVal ).readPtr() \
-    , XBASE_TO_SHORT_STRING( aVal ).readPtr() \
-    )
-#define XBASE_RANGE_ASSERT_CORE_FMVM( func , aMinVal , aVal , aMaxVal ) \
-    XBASE_ASSERT_MSGFMT( func( aMinVal , aVal , aMaxVal )  \
-    , "Value is not in range.\n" \
-    "aMinVal : %s \naVal : %s \naMaxVal : %s\n" \
-    , XBASE_TO_SHORT_STRING( aVal ).readPtr() \
-    , XBASE_TO_SHORT_STRING( aMaxVal ).readPtr() \
-    , XBASE_TO_SHORT_STRING( aMinVal ).readPtr() \
+    "aVal1 : %s \naVal2 : %s \naVal3 : %s\n" \
+    , XBASE_TO_SHORT_STRING(aVal1).readPtr() \
+    , XBASE_TO_SHORT_STRING(aVal2).readPtr() \
+    , XBASE_TO_SHORT_STRING(aVal3).readPtr() \
     )
 
 #endif

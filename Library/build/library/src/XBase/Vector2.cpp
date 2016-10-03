@@ -231,7 +231,7 @@ void Vector2POD::mulAssign(const float aVal)
 void Vector2POD::divAssign(const float aVal)
 {
     if (aVal == 0) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         return;
     }
     mulAssign(1.0f / aVal);
@@ -479,7 +479,7 @@ const Vector2POD Vector2POD::unit()const
 void Vector2POD::unitAssign()
 {
     if (isZeroStrict()) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         return;
     }
     mulAssign(1.0f / length());

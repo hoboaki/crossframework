@@ -50,7 +50,7 @@ AppEvent Application::receiveEventCore()
         return AppEvent_Update;
 
         default:
-            XBASE_NOT_REACH_ASSERT();
+            XBASE_ASSERT_NOT_REACHED();
             return AppEvent_MIN;
     }
 }

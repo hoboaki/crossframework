@@ -80,7 +80,7 @@ const Matrix34POD Quaternion::toRotateMatrix()const
 {
     const f32 lenSrc = Math::SqrtF32(w*w + x*x + y*y + z*z);
     if (lenSrc == 0) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         return Matrix34::Identity();
     }
 

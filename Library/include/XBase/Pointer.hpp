@@ -48,7 +48,7 @@ public:
     /// ポインタが設定されているとして参照を返す。
     T&   ref()const
     {
-        XBASE_POINTER_ASSERT(mPtr);
+        XBASE_ASSERT_POINTER(mPtr);
         return *mPtr;
     }
 

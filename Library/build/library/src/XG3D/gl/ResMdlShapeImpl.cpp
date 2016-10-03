@@ -75,8 +75,8 @@ void ResMdlShapeImpl::setup()
     }
 
     // バッファ作成
-    XBASE_EQUALS_ASSERT(uint(idxBuffer), 0);
-    XBASE_EQUALS_ASSERT(uint(vtxAttrBuffer), 0);
+    XBASE_ASSERT_EQUALS(uint(idxBuffer), 0);
+    XBASE_ASSERT_EQUALS(uint(vtxAttrBuffer), 0);
     XG3D_GLCMD(glGenBuffers(1, &idxBuffer));
     XG3D_GLCMD(glGenBuffers(1, &vtxAttrBuffer));
 

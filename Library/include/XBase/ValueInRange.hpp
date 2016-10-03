@@ -8,33 +8,21 @@
 /// @name 値範囲チェック
 //@{
 
-/// @brief aMin < aVal < aMaxな値か調べる。
+/// @brief aVal < aTermVal な値か調べる。
 /// @return 条件に当てはまればtrueを返し、そうでなければfalseを返す。
-#define XBASE_IS_VALUE_IN_RANGE_MIN_MAX( aMinVal , aVal , aMaxVal ) ( aMinVal < aVal && aVal < aMaxVal )
+#define XBASE_VALUE_IN_RANGE_LESS(aVal, aTermVal) (aVal < aTermVal)
 
-/// @brief aMin <= aVal < aMaxな値か調べる。
+/// @brief aVal <= aMaxVal な値か調べる。
 /// @return 条件に当てはまればtrueを返し、そうでなければfalseを返す。
-#define XBASE_IS_VALUE_IN_RANGE_EMIN_MAX( aMinVal , aVal , aMaxVal ) ( aMinVal <= aVal && aVal < aMaxVal )
+#define XBASE_VALUE_IN_RANGE_LESS_EQUALS(aVal, aMaxVal) (aVal <= aMaxVal)
 
-/// @brief aMin <= aVal <= aMaxな値か調べる。
+/// @brief aMinVal <= aVal < aTermVal な値か調べる。
 /// @return 条件に当てはまればtrueを返し、そうでなければfalseを返す。
-#define XBASE_IS_VALUE_IN_RANGE_EMIN_EMAX( aMinVal , aVal , aMaxVal ) ( aMinVal <= aVal && aVal <= aMaxVal )
+#define XBASE_VALUE_IN_RANGE_MIN_TERM(aMinVal, aVal, aTermVal) (aMinVal <= aVal && aVal < aTermVal)
 
-/// @brief aVal < aMaxな値か調べる。
+/// @brief aMinVal <= aVal <= aMaxVal な値か調べる。
 /// @return 条件に当てはまればtrueを返し、そうでなければfalseを返す。
-#define XBASE_IS_VALUE_IN_RANGE_MAX( aVal , aMaxVal ) ( aVal < aMaxVal )
-
-/// @brief aVal <= aMaxな値か調べる。
-/// @return 条件に当てはまればtrueを返し、そうでなければfalseを返す。
-#define XBASE_IS_VALUE_IN_RANGE_EMAX( aVal , aMaxVal ) ( aVal <= aMaxVal )
-
-/// @brief aMin < aValな値か調べる。
-/// @return 条件に当てはまればtrueを返し、そうでなければfalseを返す。
-#define XBASE_IS_VALUE_IN_RANGE_MIN( aMinVal , aVal ) ( aMinVal < aVal )
-
-/// @brief aMin <= aValな値か調べる。
-/// @return 条件に当てはまればtrueを返し、そうでなければfalseを返す。
-#define XBASE_IS_VALUE_IN_RANGE_EMIN( aMinVal , aVal ) ( aMinVal <= aVal )
+#define XBASE_VALUE_IN_RANGE_MIN_MAX(aMinVal, aVal, aMaxVal) (aMinVal <= aVal && aVal <= aMaxVal)
 
 //@}
 //@}

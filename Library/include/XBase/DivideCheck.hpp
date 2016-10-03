@@ -18,7 +18,7 @@ struct DivideCheck
     template< typename T >
     static T Error(const T& aRetVal)
     {
-        XBASE_NOT_REACH_ASSERT_MSG(AssertionMessage);
+        XBASE_ASSERT_NOT_REACHED_MSG(AssertionMessage);
         return aRetVal;
     }
 };
@@ -35,7 +35,7 @@ struct DivideCheck
     { \
         if ( rhs == 0 ) \
         { \
-            XBASE_NOT_REACH_ASSERT_MSG( ::XBase::DivideCheck::AssertionMessage ); \
+            XBASE_ASSERT_NOT_REACHED_MSG( ::XBase::DivideCheck::AssertionMessage ); \
         } \
         else \
         { \

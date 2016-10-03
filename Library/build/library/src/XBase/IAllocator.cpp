@@ -55,7 +55,7 @@ IAllocator& IAllocator::OperatorNewDelete()
         {
             XBASE_UNUSED(aAlignment);
             void* ptr = ::operator new(aSize, std::nothrow_t());
-            XBASE_EQUALS_ASSERT(pword_t(ptr) % aAlignment, 0);
+            XBASE_ASSERT_EQUALS(pword_t(ptr) % aAlignment, 0);
             return static_cast<ptr_t>(ptr);
         }
         XBASE_OVERRIDE(void free(ptr_t aPtr))

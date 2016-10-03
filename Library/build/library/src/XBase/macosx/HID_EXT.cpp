@@ -17,7 +17,7 @@ int HID::keyboardCount()const
 //------------------------------------------------------------------------------
 const Keyboard HID::keyboardAtIndex( const int aIndex )const
 {
-    XBASE_RANGE_ASSERT_MAX( aIndex , keyboardCount() );
+    XBASE_ASSERT_LESS( aIndex , keyboardCount() );
     return mEXT.keyboard;
 }
     
@@ -30,7 +30,7 @@ int HID::mouseCount()const
 //------------------------------------------------------------------------------
 const Mouse HID::mouseAtIndex( const int aIndex )const
 {
-    XBASE_RANGE_ASSERT_MAX( aIndex , mouseCount() );
+    XBASE_ASSERT_LESS( aIndex , mouseCount() );
     return mEXT.mouse;
 }
     
@@ -49,7 +49,7 @@ int HID::touchCount()const
 //------------------------------------------------------------------------------
 const Touch HID::touchAtIndex( const int )const
 {
-    XBASE_NOT_REACH_ASSERT();
+    XBASE_ASSERT_NOT_REACHED();
     return Touch( 1 );
 }
 

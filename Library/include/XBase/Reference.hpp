@@ -24,7 +24,7 @@ public:
 
     operator T& ()const
     {
-        XBASE_POINTER_ASSERT(mPtr);
+        XBASE_ASSERT_POINTER(mPtr);
         return *mPtr;
     }
 

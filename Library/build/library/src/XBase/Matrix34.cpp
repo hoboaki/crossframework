@@ -115,7 +115,7 @@ const Matrix34POD Matrix34POD::LookAt(
     // toTargetUnit
     Vector3 toTarget = aTargetPos - aEyePos;
     if (toTarget.isZeroStrict()) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         toTarget = Vector3POD::UnitZ(); // fail safe code
     }
     const Vector3 toTargetUnit = toTarget.unit();
@@ -123,7 +123,7 @@ const Matrix34POD Matrix34POD::LookAt(
     // upVecUnit
     Vector3POD upVecUnit;
     if (aUpVec.isZeroStrict()) {
-        XBASE_INVALID_VALUE_ERROR(aUpVec);
+        XBASE_ERROR_INVALID_VALUE(aUpVec);
         upVecUnit = Vector3::UnitY(); // fail safe code
     }
     else
@@ -331,7 +331,7 @@ const Matrix34POD Matrix34POD::invert()const
         - v[Index02] * v[Index11] * v[Index20];
 
     if (c == 0.0f) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         return Identity();
     }
 

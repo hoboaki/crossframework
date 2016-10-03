@@ -60,7 +60,7 @@ TexFilter TexSetting::minFilter()const
 void TexSetting::setMinFilter(const TexFilter aFilter)
 {
     if (XBASE_ENUM_IS_INVALID(TexFilter, aFilter)) {
-        XBASE_INVALID_ENUM_ERROR(int(aFilter));
+        XBASE_ERROR_INVALID_ENUM(int(aFilter));
         return;
     }
     mMinFilter = aFilter;
@@ -76,7 +76,7 @@ TexFilter TexSetting::magFilter()const
 void TexSetting::setMagFilter(const TexFilter aFilter)
 {
     if (XBASE_ENUM_IS_INVALID(TexFilter, aFilter)) {
-        XBASE_INVALID_ENUM_ERROR(int(aFilter));
+        XBASE_ERROR_INVALID_ENUM(int(aFilter));
         return;
     }
     mMagFilter = aFilter;
@@ -92,7 +92,7 @@ TexAddress TexSetting::addressU()const
 void TexSetting::setAddressU(const TexAddress aAddress)
 {
     if (XBASE_ENUM_IS_INVALID(TexAddress, aAddress)) {
-        XBASE_INVALID_ENUM_ERROR(int(aAddress));
+        XBASE_ERROR_INVALID_ENUM(int(aAddress));
         return;
     }
     mAddressU = aAddress;
@@ -108,7 +108,7 @@ TexAddress TexSetting::addressV()const
 void TexSetting::setAddressV(const TexAddress aAddress)
 {
     if (XBASE_ENUM_IS_INVALID(TexAddress, aAddress)) {
-        XBASE_INVALID_ENUM_ERROR(int(aAddress));
+        XBASE_ERROR_INVALID_ENUM(int(aAddress));
         return;
     }
     mAddressV = aAddress;

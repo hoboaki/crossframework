@@ -33,7 +33,7 @@ const char* Argument::argValue(const int aIndex)const
 {
     // 範囲外チェック
     if (mArgCount <= aIndex) {
-        XBASE_INVALID_VALUE_ERROR(aIndex);
+        XBASE_ERROR_INVALID_VALUE(aIndex);
         return "";
     }
 

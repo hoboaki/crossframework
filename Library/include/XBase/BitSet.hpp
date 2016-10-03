@@ -56,7 +56,7 @@ struct BitSetPOD
         // チェック
         if (BitCount <= aIndex)
         {
-            XBASE_INVALID_VALUE_ERROR(aIndex);
+            XBASE_ERROR_INVALID_VALUE(aIndex);
             return;
         }
 
@@ -84,7 +84,7 @@ struct BitSetPOD
         // チェック
         if (BitCount <= aIndex)
         {
-            XBASE_INVALID_VALUE_ERROR(aIndex);
+            XBASE_ERROR_INVALID_VALUE(aIndex);
             return bool();
         }
 

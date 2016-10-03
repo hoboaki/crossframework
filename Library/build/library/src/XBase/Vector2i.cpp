@@ -231,7 +231,7 @@ void Vector2iPOD::mulAssign(const s32 aVal)
 void Vector2iPOD::divAssign(const s32 aVal)
 {
     if (aVal == 0) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         return;
     }
     x /= aVal;

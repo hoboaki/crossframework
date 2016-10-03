@@ -41,7 +41,7 @@ void VtxBuffer::reset()
 {
     // チェック
     if (mIsMeshActive) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         return;
     }
 
@@ -57,7 +57,7 @@ void VtxBuffer::clear()
 {
     // チェック
     if (mIsMeshActive) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         return;
     }
 
@@ -78,15 +78,15 @@ void VtxBuffer::begin(const PrimitiveKind aKind)
 {
     // チェック
     if (mIsFlushed) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         return;
     }
     if (mMeshArray.isFull()) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         return;
     }
     if (XBASE_ENUM_IS_INVALID(PrimitiveKind, aKind)) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         return;
     }
 
@@ -107,20 +107,20 @@ void VtxBuffer::end()
 {
     // チェック
     if (!mIsMeshActive) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         return;
     }
 
     // メッシュの種類ごとの処理
     Mesh& mesh = mMeshArray.last();
-    XBASE_ENUM_ASSERT(PrimitiveKind, mesh.kind);
+    XBASE_ASSERT_ENUM(PrimitiveKind, mesh.kind);
     switch (mesh.kind) {
         case PrimitiveKind_Triangles:
         {// 連続三角形
             // チェック
             const int vertexCountPerPrimitive = 3;
             if ((mesh.count % vertexCountPerPrimitive) != 0) {
-                XBASE_INVALID_VALUE_ERROR(mesh.count);
+                XBASE_ERROR_INVALID_VALUE(mesh.count);
                 return;
             }
             // index生成
@@ -138,7 +138,7 @@ void VtxBuffer::end()
             // チェック
             const int vertexCountPerPrimitive = 4;
             if ((mesh.count % vertexCountPerPrimitive) != 0) {
-                XBASE_INVALID_VALUE_ERROR(mesh.count);
+                XBASE_ERROR_INVALID_VALUE(mesh.count);
                 return;
             }
             // index生成
@@ -167,7 +167,7 @@ void VtxBuffer::end()
         break;
 
         default:
-            XBASE_INVALID_VALUE_ERROR(int(mesh.kind));
+            XBASE_ERROR_INVALID_VALUE(int(mesh.kind));
             return;
     }
 
@@ -186,7 +186,7 @@ void VtxBuffer::normal(const ::XBase::Vector3POD& aXYZ)
 {
     // チェック
     if (!mIsMeshActive) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         return;
     }
     mNormal = aXYZ;
@@ -203,7 +203,7 @@ void VtxBuffer::texCoord(const ::XBase::Vector2POD& aST)
 {
     // チェック
     if (!mIsMeshActive) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         return;
     }
     mTexCoord = aST;
@@ -226,7 +226,7 @@ void VtxBuffer::color(const ::XBase::Color4POD& aRGBA)
 {
     // チェック
     if (!mIsMeshActive) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         return;
     }
     mColor = aRGBA;
@@ -255,11 +255,11 @@ void VtxBuffer::vertex(const ::XBase::Vector3POD& aXYZ)
 {
     // チェック
     if (!mIsMeshActive) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         return;
     }
     if (mVertexArray.isFull()) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         return;
     }
 
@@ -278,7 +278,7 @@ void VtxBuffer::flush()
 {
     // チェック
     if (mIsFlushed) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         return;
     }
 
@@ -311,7 +311,7 @@ void VtxBuffer::draw()
 {
     // チェック
     if (!mIsFlushed) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         return;
     }
 

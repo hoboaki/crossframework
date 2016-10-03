@@ -118,9 +118,9 @@ const Matrix44POD Matrix44POD::Ortho(
     const f32 aFar
     )
 {
-    XBASE_NOT_EQUALS_ASSERT(aLeft, aRight);
-    XBASE_NOT_EQUALS_ASSERT(aTop, aBottom);
-    XBASE_NOT_EQUALS_ASSERT(aNear, aFar);
+    XBASE_ASSERT_NOT_EQUALS(aLeft, aRight);
+    XBASE_ASSERT_NOT_EQUALS(aTop, aBottom);
+    XBASE_ASSERT_NOT_EQUALS(aNear, aFar);
 
     const f32 r_sub_l = aRight - aLeft;
     const f32 r_add_l = aRight + aLeft;
@@ -146,9 +146,9 @@ const Matrix44POD Matrix44POD::Frustum(
     const f32 aFar
     )
 {
-    XBASE_NOT_EQUALS_ASSERT(aLeft, aRight);
-    XBASE_NOT_EQUALS_ASSERT(aBottom, aTop);
-    XBASE_NOT_EQUALS_ASSERT(aNear, aFar);
+    XBASE_ASSERT_NOT_EQUALS(aLeft, aRight);
+    XBASE_ASSERT_NOT_EQUALS(aBottom, aTop);
+    XBASE_ASSERT_NOT_EQUALS(aNear, aFar);
 
     const f32 l = aLeft;
     const f32 r = aRight;
@@ -173,9 +173,9 @@ const Matrix44POD Matrix44POD::Perspective(
     const f32 aFar
     )
 {
-    XBASE_RANGE_ASSERT_MIN(0, aFOVY.rad());
-    XBASE_RANGE_ASSERT_MIN(0, aAspect);
-    XBASE_NOT_EQUALS_ASSERT(aNear, aFar);
+    XBASE_ASSERT_LESS(0, aFOVY.rad());
+    XBASE_ASSERT_LESS(0, aAspect);
+    XBASE_ASSERT_NOT_EQUALS(aNear, aFar);
 
     const f32 c = Math::CotF32(aFOVY);
     return Matrix44(
@@ -406,7 +406,7 @@ const Matrix44POD Matrix44POD::invert()const
         - v[Index03] * v[Index10] * v[Index21] * v[Index32] - v[Index03] * v[Index11] * v[Index22] * v[Index30] - v[Index03] * v[Index12] * v[Index20] * v[Index31];
 
     if (c == 0.0f) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         return Identity();
     }
 

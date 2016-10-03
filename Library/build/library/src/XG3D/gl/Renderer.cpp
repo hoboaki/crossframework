@@ -147,7 +147,7 @@ bool tCreateShader(
 
     XG3D_GLCMD(glGetShaderiv(*aShader, GL_COMPILE_STATUS, &status));
     if (status == GL_FALSE) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         XG3D_GLCMD(glDeleteShader(*aShader));
         *aShader = GLuint();
         return false;
@@ -161,7 +161,7 @@ bool tLinkProgram(GLuint aProgram)
     XG3D_GLCMD(glLinkProgram(aProgram));
     XG3D_GLCMD(glGetProgramiv(aProgram, GL_LINK_STATUS, &status));
     if (status == 0) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         return false;
     }
     return true;
@@ -180,7 +180,7 @@ bool tValidateProgram(GLuint aProgram)
     if (status == 0) {
         GLchar logBuffer[256];
         glGetProgramInfoLog(aProgram, sizeof(logBuffer), 0, logBuffer);
-        XBASE_NOT_REACH_ASSERT_MSG(logBuffer);
+        XBASE_ASSERT_NOT_REACHED_MSG(logBuffer);
         return false;
     }
     return true;
@@ -194,13 +194,13 @@ bool tCreateShaderProgram(GLuint* aProgram)
     // シェーダーソースを作成
     GLuint srcVSH = GLuint();
     if (!tCreateShader(&srcVSH, GL_VERTEX_SHADER, tSHADER_SOURCE_VSH)) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         XG3D_GLCMD(glDeleteProgram(*aProgram));
         return false;
     }
     GLuint srcFSH = GLuint();
     if (!tCreateShader(&srcFSH, GL_FRAGMENT_SHADER, tSHADER_SOURCE_FSH)) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         XG3D_GLCMD(glDeleteShader(srcVSH));
         XG3D_GLCMD(glDeleteProgram(*aProgram));
         return false;
@@ -250,7 +250,7 @@ Renderer::Renderer(::XBase::Display& aDisplay)
 
     // シェーダープログラムの作成
     if (!tCreateShaderProgram(&mEXT.demoShaderProgram)) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         return;
     }
 
@@ -405,7 +405,7 @@ void Renderer::sdSetMaterial(const ResMat& aResMat)
 
     // 無効なマテリアルチェック
     if (!aResMat.isValid()) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         return;
     }
 
@@ -443,7 +443,7 @@ void Renderer::sdSetTex(const TexId aId, const TexSetting& aSetting)
 {
     // チェック
     if (XBASE_ENUM_IS_INVALID(TexId, aId)) {
-        XBASE_INVALID_VALUE_ERROR(int(aId));
+        XBASE_ERROR_INVALID_VALUE(int(aId));
         return;
     }
     XBASE_UNUSED(aId); // マルチテクスチャに対応するタイミングで使用する。
@@ -482,7 +482,7 @@ void Renderer::draw(
 {
     // 前チェック
     if (!aSubMesh.isValid()) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         return;
     }
 

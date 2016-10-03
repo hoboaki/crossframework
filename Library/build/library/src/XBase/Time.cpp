@@ -75,7 +75,7 @@ const TimePOD tCurrentTime(tTimeConverter aConverter)
     std::tm safeTM = {};
     const std::tm* tmPtr = aConverter(&secFrom1970, &safeTM);
     if (PointerCheck::InvalidCheck(tmPtr)) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
     }
     else
     {
@@ -186,7 +186,7 @@ const CalendarPOD TimePOD::toCalendar()const
 
     // マイナスの値はサポートしない
     if (ticks_ < 0) {
-        XBASE_INVALID_VALUE_ERROR(ticks_);
+        XBASE_ERROR_INVALID_VALUE(ticks_);
         return calendar;
     }
 

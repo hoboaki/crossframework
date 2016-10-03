@@ -16,7 +16,7 @@ void Renderer::copyToScreen(::XBase::Screen& aScreen)
 {
     XG3DUIOpenGLView* view = aScreen.ext_().glView;
     if (view == 0) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         return;
     }
     XG3DUIOpenGLView_FlushBuffer(view);
