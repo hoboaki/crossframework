@@ -46,7 +46,7 @@ u32 Random::rand()
 u32 Random::randU32(const u32 aTerm)
 {
     if (aTerm == 0) {
-        XBASE_INVALID_VALUE_ERROR(aTerm);
+        XBASE_ERROR_INVALID_VALUE(aTerm);
         return 0;
     }
     return rand() % aTerm;
@@ -56,7 +56,7 @@ u32 Random::randU32(const u32 aTerm)
 s32 Random::randS32(const s32 aTerm)
 {
     if (aTerm == 0) {
-        XBASE_INVALID_VALUE_ERROR(aTerm);
+        XBASE_ERROR_INVALID_VALUE(aTerm);
         return 0;
     }
     return rand() % aTerm;

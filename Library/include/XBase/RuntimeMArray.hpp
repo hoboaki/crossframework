@@ -93,7 +93,7 @@ public:
     {
         if (mCount <= aIndex)
         {
-            XBASE_RANGE_ASSERT_MAX(aIndex, mCount);
+            XBASE_ASSERT_LESS(aIndex, mCount);
             return mPtr[0]; // fail safe code
         }
         return mPtr[aIndex];
@@ -104,7 +104,7 @@ public:
     {
         if (mCount <= aIndex)
         {
-            XBASE_RANGE_ASSERT_MAX(aIndex, mCount);
+            XBASE_ASSERT_LESS(aIndex, mCount);
             return mPtr[0]; // fail safe code
         }
         return mPtr[aIndex];
@@ -136,7 +136,7 @@ public:
     {
         if (isFull())
         {
-            XBASE_NOT_REACH_ASSERT();
+            XBASE_ASSERT_NOT_REACHED();
             return;
         }
         mPtr[mCount] = aVal;

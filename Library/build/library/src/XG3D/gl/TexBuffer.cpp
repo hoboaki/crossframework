@@ -72,7 +72,7 @@ TexBuffer::TexBuffer(
             break;
 
         default:
-            XBASE_INVALID_VALUE_ERROR(int(mResData.format));
+            XBASE_ERROR_INVALID_VALUE(int(mResData.format));
             break;
     }
     XG3D_GLCMD(glBindTexture(GL_TEXTURE_2D, mEXT.texId));

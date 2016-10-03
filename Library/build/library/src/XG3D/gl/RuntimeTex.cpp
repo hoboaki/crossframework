@@ -37,7 +37,7 @@ int tBytePerPixel(const ::XG3D::ResTexFormat aFormat)
             break;
 
         default:
-            XBASE_INVALID_ENUM_ERROR(aFormat);
+            XBASE_ERROR_INVALID_ENUM(aFormat);
             break;
     }
     return bytePerPix;
@@ -132,8 +132,8 @@ void RuntimeTex::setPixel(
     )
 {
     // アドレス計算
-    XBASE_RANGE_ASSERT_MAX(aX, mContext.width());
-    XBASE_RANGE_ASSERT_MAX(aY, mContext.height());
+    XBASE_ASSERT_LESS(aX, mContext.width());
+    XBASE_ASSERT_LESS(aY, mContext.height());
     const int pixelPos = aX + aY * mContext.width();
     const int bytePos = pixelPos * tBytePerPixel(mContext.format());
     byte_t* addr = &mData->head()[bytePos];
@@ -190,7 +190,7 @@ void RuntimeTex::setPixel(
             break;
 
         default:
-            XBASE_INVALID_ENUM_ERROR(mContext.format());
+            XBASE_ERROR_INVALID_ENUM(mContext.format());
             break;
     }
 }

@@ -17,7 +17,7 @@ const AutoMemBlock ResFile::Read(
     // オープン
     ResFileStream stream;
     if (!stream.open(aPath)) {
-        XBASE_NOT_REACH_ASSERT_MSGFMT("ResFile named '%s' is failed to open.", aPath);
+        XBASE_ASSERT_NOT_REACHED_MSGFMT("ResFile named '%s' is failed to open.", aPath);
         return AutoMemBlock();
     }
 
@@ -26,7 +26,7 @@ const AutoMemBlock ResFile::Read(
     const pword_t bufferSize = stream.calcReadBufferSize(size);
     ptr_t ptr = aAllocator.alloc(bufferSize, stream.requireReadBufferAlignment());
     if (ptr == 0) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         return AutoMemBlock();
     }
 

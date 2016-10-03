@@ -37,7 +37,7 @@ char* tArgPtrs[tArgPtrsLength];
 // 指定の文字の最後のindex値取得。
 int tLastIndexOf(const char aCh, const char* aStr)
 {
-    XBASE_POINTER_ASSERT(aStr);
+    XBASE_ASSERT_POINTER(aStr);
     int index = -1;
     for (int i = 0; aStr[i] != '\0'; ++i) {
         if (aStr[i] == aCh) {
@@ -50,7 +50,7 @@ int tLastIndexOf(const char aCh, const char* aStr)
 // 文字置き換え。
 void tReplaceChar(const char aTargetCh, const char aNewCh, char* aStr)
 {
-    XBASE_POINTER_ASSERT(aStr);
+    XBASE_ASSERT_POINTER(aStr);
     for (int i = 0; aStr[i] != '\0'; ++i) {
         if (aStr[i] == aTargetCh) {
             aStr[i] = aNewCh;
@@ -63,7 +63,7 @@ void tSetupExeInfo()
 {
     // 最後の'\'の位置
     const int dirPathLength = tLastIndexOf('\\', tExeFilePath);
-    XBASE_RANGE_ASSERT_EMIN_MAX(0, dirPathLength, int(tExeDirPathLength));
+    XBASE_ASSERT_MIN_TERM(0, dirPathLength, int(tExeDirPathLength));
 
     // ディレクトリパス
     ::XBase::StringTraits< char >::NCopy(tExeDirPath, tExeDirPathLength, tExeFilePath);
@@ -220,7 +220,7 @@ int main(
     // C:\dirname\FileName.exe といった文字列が入っている。
     {
         // フルパス取得
-        XBASE_RANGE_ASSERT_EMIN(1, aArgCount);
+        XBASE_ASSERT_LESS_EQUALS(1, aArgCount);
         const char* fullPath = aArgValues[0];
 
         // フルパスを設定

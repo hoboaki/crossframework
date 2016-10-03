@@ -142,7 +142,7 @@ void ResMatImpl::setup()
     GLuint srcVSH = GLuint();
     if (!tCreateShader(&srcVSH, GL_VERTEX_SHADER, xdata.ref< GLchar >(binPtr->vshSrcText))) {
         XBASE_COUT(xdata.ref< GLchar >(binPtr->vshSrcText));
-        XBASE_NOT_REACH_ASSERT_MSG("VSH compile failed.");
+        XBASE_ASSERT_NOT_REACHED_MSG("VSH compile failed.");
         XG3D_GLCMD(glDeleteProgram(shaderProgram));
         shaderProgram = 0;
         return;
@@ -150,7 +150,7 @@ void ResMatImpl::setup()
     GLuint srcPSH = GLuint();
     if (!tCreateShader(&srcPSH, GL_FRAGMENT_SHADER, xdata.ref< GLchar >(binPtr->pshSrcText))) {
         XBASE_COUT(xdata.ref< GLchar >(binPtr->pshSrcText));
-        XBASE_NOT_REACH_ASSERT_MSG("PSH compile failed.");
+        XBASE_ASSERT_NOT_REACHED_MSG("PSH compile failed.");
         XG3D_GLCMD(glDeleteShader(srcVSH));
         XG3D_GLCMD(glDeleteProgram(shaderProgram));
         shaderProgram = 0;
@@ -172,7 +172,7 @@ void ResMatImpl::setup()
         || !tValidateProgram(shaderProgram)
         )
     {
-        XBASE_NOT_REACH_ASSERT_MSG("Shader link failed.");
+        XBASE_ASSERT_NOT_REACHED_MSG("Shader link failed.");
         XG3D_GLCMD(glDeleteShader(srcPSH));
         XG3D_GLCMD(glDeleteShader(srcVSH));
         XG3D_GLCMD(glDeleteProgram(shaderProgram));

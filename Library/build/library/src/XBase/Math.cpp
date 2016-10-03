@@ -21,7 +21,7 @@ f32 Math::ClampF32(
     const f32 aMax
     )
 {
-    XBASE_RANGE_ASSERT_EMIN(aMin, aMax);
+    XBASE_ASSERT_LESS_EQUALS(aMin, aMax);
     if (aValue < aMin) {
         return aMin;
     }

@@ -54,7 +54,7 @@ void Renderer_EXT::setup(::XBase::Display& aDisplay)
 
     // GLEE
     if (GLeeInit() == GL_FALSE) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         return;
     }
 }

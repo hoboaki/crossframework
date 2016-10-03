@@ -17,7 +17,7 @@ int tYearCheck(const int aYear)
         || Calendar::YearMax < aYear
         )
     {
-        XBASE_INVALID_VALUE_ERROR(aYear);
+        XBASE_ERROR_INVALID_VALUE(aYear);
         return Calendar::YearMin;
     }
     return aYear;
@@ -28,7 +28,7 @@ int tMonthCheck(const int aMonth)
         || Calendar::MonthMax < aMonth
         )
     {
-        XBASE_INVALID_VALUE_ERROR(aMonth);
+        XBASE_ERROR_INVALID_VALUE(aMonth);
         return Calendar::MonthMin;
     }
     return aMonth;
@@ -173,7 +173,7 @@ int CalendarPOD::DaysInMonth(
             return IsLeapYear(tYearCheck(aYear)) ? 29 : 28;
 
         default:
-            XBASE_INVALID_VALUE_ERROR(month);
+            XBASE_ERROR_INVALID_VALUE(month);
             return 28; // fail safe code
     }
 }

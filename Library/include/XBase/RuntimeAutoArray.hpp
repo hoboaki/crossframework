@@ -89,7 +89,7 @@ public:
     {
         if (mCount <= aIndex)
         {
-            XBASE_RANGE_ASSERT_MAX(aIndex, mCount);
+            XBASE_ASSERT_LESS(aIndex, mCount);
             return mPtr[0]; // fail safe code
         }
         return mPtr[aIndex];
@@ -100,7 +100,7 @@ public:
     {
         if (mCount <= aIndex)
         {
-            XBASE_RANGE_ASSERT_MAX(aIndex, mCount);
+            XBASE_ASSERT_LESS(aIndex, mCount);
             return mPtr[0]; // fail safe code
         }
         return mPtr[aIndex];
@@ -147,7 +147,7 @@ public:
     {
         if (isFull())
         {
-            XBASE_NOT_REACH_ASSERT();
+            XBASE_ASSERT_NOT_REACHED();
             return;
         }
         new (&mPtr[mCount]) ValueType();
@@ -158,7 +158,7 @@ public:
     {
         if (isFull())
         {
-            XBASE_NOT_REACH_ASSERT();
+            XBASE_ASSERT_NOT_REACHED();
             return;
         }
         new (&mPtr[mCount]) ValueType(a0);
@@ -169,7 +169,7 @@ public:
     {
         if (isFull())
         {
-            XBASE_NOT_REACH_ASSERT();
+            XBASE_ASSERT_NOT_REACHED();
             return;
         }
         new (&mPtr[mCount]) ValueType(a0, a1);
@@ -180,7 +180,7 @@ public:
     {
         if (isFull())
         {
-            XBASE_NOT_REACH_ASSERT();
+            XBASE_ASSERT_NOT_REACHED();
             return;
         }
         new (&mPtr[mCount]) ValueType(a0, a1, a2);
@@ -191,7 +191,7 @@ public:
     {
         if (isFull())
         {
-            XBASE_NOT_REACH_ASSERT();
+            XBASE_ASSERT_NOT_REACHED();
             return;
         }
         new (&mPtr[mCount]) ValueType(a0, a1, a2, a3);
@@ -202,7 +202,7 @@ public:
     {
         if (isFull())
         {
-            XBASE_NOT_REACH_ASSERT();
+            XBASE_ASSERT_NOT_REACHED();
             return;
         }
         new (&mPtr[mCount]) ValueType(a0, a1, a2, a3, a4);
@@ -213,7 +213,7 @@ public:
     {
         if (isFull())
         {
-            XBASE_NOT_REACH_ASSERT();
+            XBASE_ASSERT_NOT_REACHED();
             return;
         }
         new (&mPtr[mCount]) ValueType(a0, a1, a2, a3, a4, a5);
@@ -224,7 +224,7 @@ public:
     {
         if (isFull())
         {
-            XBASE_NOT_REACH_ASSERT();
+            XBASE_ASSERT_NOT_REACHED();
             return;
         }
         new (&mPtr[mCount]) ValueType(a0, a1, a2, a3, a4, a5, a6);
@@ -235,7 +235,7 @@ public:
     {
         if (isFull())
         {
-            XBASE_NOT_REACH_ASSERT();
+            XBASE_ASSERT_NOT_REACHED();
             return;
         }
         new (&mPtr[mCount]) ValueType(a0, a1, a2, a3, a4, a5, a6, a7);
@@ -246,7 +246,7 @@ public:
     {
         if (isFull())
         {
-            XBASE_NOT_REACH_ASSERT();
+            XBASE_ASSERT_NOT_REACHED();
             return;
         }
         new (&mPtr[mCount]) ValueType(a0, a1, a2, a3, a4, a5, a6, a7, a8);
@@ -257,7 +257,7 @@ public:
     {
         if (isFull())
         {
-            XBASE_NOT_REACH_ASSERT();
+            XBASE_ASSERT_NOT_REACHED();
             return;
         }
         new (&mPtr[mCount]) ValueType(a0, a1, a2, a3, a4, a5, a6.a7, a8, a9);

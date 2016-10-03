@@ -273,7 +273,7 @@ const typename StringTraits< CharType >::WriteResult tNCopy(
     // バッファ長チェック
     if (aBufferLength < 1) {
         // 不正な引数
-        XBASE_INVALID_VALUE_ERROR(aBufferLength);
+        XBASE_ERROR_INVALID_VALUE(aBufferLength);
         return result;
     }
 
@@ -286,7 +286,7 @@ const typename StringTraits< CharType >::WriteResult tNCopy(
         )
     {// 想定していないことが起きたときの処理
         // 本来あってはならない
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
 
         // result初期化
         const WriteResult tmpResult = {};
@@ -404,7 +404,7 @@ const typename StringTraits< CharType >::WriteResult tVSNPrintf(
     // バッファ長チェック
     if (aBufferLength < 1) {
         // 不正な引数
-        XBASE_INVALID_VALUE_ERROR(aBufferLength);
+        XBASE_ERROR_INVALID_VALUE(aBufferLength);
         return result;
     }
 
@@ -417,7 +417,7 @@ const typename StringTraits< CharType >::WriteResult tVSNPrintf(
         )
     {// 想定していないことが起きたときの処理
         // 本来あってはならない
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
 
         // result初期化
         const WriteResult tmpResult = {};

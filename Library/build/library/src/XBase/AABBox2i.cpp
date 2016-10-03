@@ -40,8 +40,8 @@ AABBox2i::AABBox2i(
     aBegin.y + reinterpret_cast<const int&>(aHeight)
     )
 {
-    XBASE_RANGE_ASSERT_EMAX(mMin.x, mTerm.x);
-    XBASE_RANGE_ASSERT_EMAX(mMin.y, mTerm.y);
+    XBASE_ASSERT_LESS_EQUALS(mMin.x, mTerm.x);
+    XBASE_ASSERT_LESS_EQUALS(mMin.y, mTerm.y);
 }
 
 //------------------------------------------------------------------------------

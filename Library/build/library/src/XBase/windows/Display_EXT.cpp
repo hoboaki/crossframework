@@ -144,7 +144,7 @@ int Display::screenCount()const
 //------------------------------------------------------------------------------
 Screen& Display::screenAtIndex(const int aIndex)
 {
-    XBASE_RANGE_ASSERT_MAX(aIndex, screenCount());
+    XBASE_ASSERT_LESS(aIndex, screenCount());
     XBASE_UNUSED(aIndex);
     return mainScreen();
 }

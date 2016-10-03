@@ -14,7 +14,7 @@ Touch::Touch(const int aTapCount)
 , mTaps()
 {
     if (TouchUpdateData::TAP_COUNT_MAX < mTapCount) {
-        XBASE_INVALID_VALUE_ERROR(aTapCount);
+        XBASE_ERROR_INVALID_VALUE(aTapCount);
         mTapCount = TouchUpdateData::TAP_COUNT_MAX;
     }
 }
@@ -52,7 +52,7 @@ int Touch::tapCount()const
 const TouchTap Touch::tapAtIndex(const int aIndex)const
 {
     if (tapCount() <= aIndex) {
-        XBASE_INVALID_VALUE_ERROR(aIndex);
+        XBASE_ERROR_INVALID_VALUE(aIndex);
         return TouchTap();
     }
     return mTaps[aIndex];

@@ -67,7 +67,7 @@ bool ResMdlMatRefer::checkInvalid()const
     }
 
     // 不正なのでエラー
-    XBASE_NOT_REACH_ASSERT();
+    XBASE_ASSERT_NOT_REACHED();
     return true;
 }
 

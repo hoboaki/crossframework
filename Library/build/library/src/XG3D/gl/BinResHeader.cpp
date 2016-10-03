@@ -25,7 +25,7 @@ bool BinResHeader::isValid()const
 bool BinResHeader::checkInvalid()const
 {
     if (!isValid()) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         return true;
     }
     return false;

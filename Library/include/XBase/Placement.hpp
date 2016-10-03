@@ -40,7 +40,7 @@ public:
     bool isValid()const { return mPtr != 0; }
 
     /// 生成済みのオブジェクトのポインタを取得する。
-    T*   ptr()const { XBASE_POINTER_ASSERT(mPtr); return mPtr; }
+    T*   ptr()const { XBASE_ASSERT_POINTER(mPtr); return mPtr; }
 
     /// 生成済みのオブジェクトの参照を取得する。
     T&   ref()const { return *ptr(); }

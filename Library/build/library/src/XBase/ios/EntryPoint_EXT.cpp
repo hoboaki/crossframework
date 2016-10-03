@@ -56,7 +56,7 @@ int mainC(
 {
     // 引数作成
     const int offset = 1; // Exeのパスは別で処理しているためパス。
-    XBASE_RANGE_ASSERT_EMIN(offset, aArgCount);
+    XBASE_ASSERT_LESS_EQUALS(offset, aArgCount);
     const ::XBase::Argument arg(
         ::XBase::uint(aArgCount - offset),
         &aArgValues[offset],
@@ -79,7 +79,7 @@ int mainC(
             &threadArg
             );
         XBASE_UNUSED(result);
-        XBASE_EQUALS_ASSERT(result, 0);
+        XBASE_ASSERT_EQUALS(result, 0);
     }
 
     // UIMain実行
@@ -89,7 +89,7 @@ int mainC(
     {
         int result = pthread_join(threadXMain, 0);
         XBASE_UNUSED(result);
-        XBASE_EQUALS_ASSERT(result, 0);
+        XBASE_ASSERT_EQUALS(result, 0);
     }
 
     // 同期オブジェクト後始末

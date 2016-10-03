@@ -20,53 +20,53 @@ public:
     {
         int result = int();
         result = pthread_mutex_init(&mMutex, 0);
-        XBASE_EQUALS_ASSERT(result, 0);
+        XBASE_ASSERT_EQUALS(result, 0);
         result = pthread_cond_init(&mCond, 0);
-        XBASE_EQUALS_ASSERT(result, 0);
+        XBASE_ASSERT_EQUALS(result, 0);
     }
 
     ~tSynbObj()
     {
         int result = int();
         result = pthread_cond_destroy(&mCond);
-        XBASE_EQUALS_ASSERT(result, 0);
+        XBASE_ASSERT_EQUALS(result, 0);
         result = pthread_mutex_destroy(&mMutex);
-        XBASE_EQUALS_ASSERT(result, 0);
+        XBASE_ASSERT_EQUALS(result, 0);
     }
 
     void signal()
     {
         int result = int();
         result = pthread_mutex_lock(&mMutex);
-        XBASE_EQUALS_ASSERT(result, 0);
+        XBASE_ASSERT_EQUALS(result, 0);
 
-        XBASE_EQUALS_ASSERT(mValue, 1);
+        XBASE_ASSERT_EQUALS(mValue, 1);
         mValue = 0;
 
         result = pthread_cond_broadcast(&mCond);
-        XBASE_EQUALS_ASSERT(result, 0);
+        XBASE_ASSERT_EQUALS(result, 0);
 
         result = pthread_mutex_unlock(&mMutex);
-        XBASE_EQUALS_ASSERT(result, 0);
+        XBASE_ASSERT_EQUALS(result, 0);
     }
 
     void wait()
     {
         int result = int();
         result = pthread_mutex_lock(&mMutex);
-        XBASE_EQUALS_ASSERT(result, 0);
+        XBASE_ASSERT_EQUALS(result, 0);
 
         while (0 < mValue) {
             result = pthread_cond_wait(&mCond, &mMutex);
-            XBASE_EQUALS_ASSERT(result, 0);
+            XBASE_ASSERT_EQUALS(result, 0);
         }
         mValue = 1;
 
         result = pthread_cond_broadcast(&mCond);
-        XBASE_EQUALS_ASSERT(result, 0);
+        XBASE_ASSERT_EQUALS(result, 0);
 
         result = pthread_mutex_unlock(&mMutex);
-        XBASE_EQUALS_ASSERT(result, 0);
+        XBASE_ASSERT_EQUALS(result, 0);
     }
 private:
     pthread_mutex_t mMutex;

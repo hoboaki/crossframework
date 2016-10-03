@@ -55,7 +55,7 @@ ResTexFormat ResTexImpl::format()const
 {
     ResTexFormat fmt = ResTexFormat(binPtr->format);
     if (XBASE_ENUM_IS_INVALID(ResTexFormat, fmt)) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         return ResTexFormat_MIN;
     }
     return ResTexFormat(fmt);

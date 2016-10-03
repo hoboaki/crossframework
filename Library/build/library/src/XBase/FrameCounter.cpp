@@ -47,7 +47,7 @@ void FrameCounter::advance()
 void FrameCounter::advanceStrict()
 {
     if (isEnd()) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         return;
     }
     ++mFrame;

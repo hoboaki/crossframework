@@ -60,7 +60,7 @@ pword_t ResFileStream::seek(const int aOffset, const SeekOrigin aOrigin)
             break;
 
         default:
-            XBASE_INVALID_VALUE_ERROR(int(aOrigin));
+            XBASE_ERROR_INVALID_VALUE(int(aOrigin));
             return 0; // fail safe code
     }
 
@@ -68,7 +68,7 @@ pword_t ResFileStream::seek(const int aOffset, const SeekOrigin aOrigin)
     {
         const bool result = std::fseek(mEXT.fp, aOffset, whence) == 0;
         if (!result) {
-            XBASE_NOT_REACH_ASSERT();
+            XBASE_ASSERT_NOT_REACHED();
             return 0; // fail safe code
         }
     }
@@ -77,7 +77,7 @@ pword_t ResFileStream::seek(const int aOffset, const SeekOrigin aOrigin)
     {
         long pos = ftell(mEXT.fp);
         if (pos < 0) {
-            XBASE_NOT_REACH_ASSERT();
+            XBASE_ASSERT_NOT_REACHED();
             return 0; // fail safe code
         }
         return pword_t(pos);
@@ -94,7 +94,7 @@ pword_t ResFileStream::read(const ptr_t aBuffer, const pword_t aSize)
 void ResFileStream::close()
 {
     if (mEXT.fp == 0) {
-        XBASE_NOT_REACH_ASSERT();
+        XBASE_ASSERT_NOT_REACHED();
         return;
     }
     const bool result = std::fclose(mEXT.fp) == 0;
