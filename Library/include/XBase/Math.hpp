@@ -113,7 +113,7 @@ struct Math
     template< typename T >
     static const T Interpolation(const T& aVal1, const T& aVal2, const f32 aRate)
     {
-        XBASE_ASSERT_LESS_MAX(0.0f, aRate, 1.0f);
+        XBASE_ASSERT_MIN_MAX(0.0f, aRate, 1.0f);
         return aVal1 + (aVal2 - aVal1) * aRate;
     }
     //@}
