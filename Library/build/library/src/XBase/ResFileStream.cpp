@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XBase/ResFileStream.hpp>
 
-//------------------------------------------------------------------------------
 #include <XBase/RuntimeAssert.hpp>
 #include <XBase/Unused.hpp>
 

@@ -252,8 +252,8 @@ namespace CppCodeModifier
                                     isModify = true;
                                 }
                             }
-                         
-                             
+
+
                         }
 
                         return isModify;
@@ -342,7 +342,7 @@ namespace CppCodeModifier
                             }
                             else if (lines[baseIdx].StartsWith("    : "))
                             {
-                                if (lines[baseIdx-1].IndexOf(" ") != 0 || lines[baseIdx-1].Trim() == ")")
+                                if (lines[baseIdx - 1].IndexOf(" ") != 0 || lines[baseIdx - 1].Trim() == ")")
                                 {
                                     inMemberInitilizer = true;
                                     var line = lines[baseIdx].Substring(4);
@@ -414,7 +414,7 @@ namespace CppCodeModifier
             }
 
             // 括弧位置警告
-            if (true)
+            if (false)
             {
                 Console.WriteLine("KakkoCheck: ");
                 textEditFunc(cppFiles.ToList(),
@@ -442,7 +442,7 @@ namespace CppCodeModifier
             }
 
             // 同行開始括弧位置警告
-            if (true)
+            if (false)
             {
                 Console.WriteLine("BeginKakkoCheck: ");
                 textEditFunc(cppFiles.ToList(),
@@ -466,7 +466,7 @@ namespace CppCodeModifier
 
                             if (isTargetLine)
                             {
-                                if (!line.Contains("{") && lines[i+1].Contains("{"))
+                                if (!line.Contains("{") && lines[i + 1].Contains("{"))
                                 {
                                     var nextLine = lines[i + 1];
                                     var newLine = line;
@@ -504,6 +504,28 @@ namespace CppCodeModifier
                         return isModify;
                     }
                     );
+            }
+
+            // include直前のセパレータ削除
+            if (true)
+            {
+                textEditFunc(cppFiles.ToList(),
+                    (lines) =>
+                    {
+                        bool isModify = false;
+                        for (int i = 1; i < lines.Count; ++i)
+                        {
+                            var line = lines[i];
+                            if (line.StartsWith("#include") && lines[i - 1].StartsWith("//-------"))
+                            {
+                                lines.RemoveAt(i - 1);
+                                isModify = true;
+                                break;
+                            }
+                        }
+                        return isModify;
+                    });
+
             }
         }
     }

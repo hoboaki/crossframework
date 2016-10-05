@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XG3D/TexBuffer.hpp>
 
-//------------------------------------------------------------------------------
 #include <XBase/RuntimeAssert.hpp>
 #include <XG3D/ITexRes.hpp>
 #include <XG3D/SdkHeader.hpp>

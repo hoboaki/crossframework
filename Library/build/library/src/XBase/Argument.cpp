@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XBase/Argument.hpp>
 
-//------------------------------------------------------------------------------
 #include <XBase/PointerCheck.hpp>
 #include <XBase/RuntimeAssert.hpp>
 

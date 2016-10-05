@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XBase/Time.hpp>
 
-//------------------------------------------------------------------------------
 #include <ctime>
 #include <XBase/Calendar.hpp>
 #include <XBase/Os.hpp>

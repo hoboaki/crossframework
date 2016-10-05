@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XBase/FrameCounter.hpp>
 
-//------------------------------------------------------------------------------
 #include <XBase/DivideCheck.hpp>
 #include <XBase/RuntimeAssert.hpp>
 

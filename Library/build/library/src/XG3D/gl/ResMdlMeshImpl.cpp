@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include "ResMdlMeshImpl.hpp"
 
-//------------------------------------------------------------------------------
 #include <XBase/Ref.hpp>
 #include <XG3D/ResMdl.hpp>
 

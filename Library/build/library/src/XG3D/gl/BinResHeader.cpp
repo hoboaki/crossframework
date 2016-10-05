@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include "BinResHeader.hpp"
 
-//------------------------------------------------------------------------------
 #include <XBase/RuntimeAssert.hpp>
 #include <XG3D/Engine.hpp>
 

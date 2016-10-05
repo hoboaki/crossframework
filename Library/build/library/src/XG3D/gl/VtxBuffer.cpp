@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XG3D/VtxBuffer.hpp>
 
-//------------------------------------------------------------------------------
 #include <XBase/EnumCheck.hpp>
 #include <XBase/RuntimeAssert.hpp>
 #include <XG3D/Renderer.hpp>

@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XBase/Application.hpp>
 
-//------------------------------------------------------------------------------
 #include <XBase/Display.hpp>
 #include <XBase/Hid.hpp>
 #include <XBase/Thread.hpp>

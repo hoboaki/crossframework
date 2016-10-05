@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XBase/Vector3i.hpp>
 
-//------------------------------------------------------------------------------
 #include <XBase/DivideCheck.hpp>
 #include <XBase/Math.hpp>
 #include <XBase/RuntimeAssert.hpp>

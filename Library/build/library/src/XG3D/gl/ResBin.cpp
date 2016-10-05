@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XG3D/ResBin.hpp>
 
-//------------------------------------------------------------------------------
 #include <XBase/EnumCheck.hpp>
 #include <XBase/Ref.hpp>
 #include <XBase/RuntimeAssert.hpp>

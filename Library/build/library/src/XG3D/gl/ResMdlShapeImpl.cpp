@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include "ResMdlShapeImpl.hpp"
 
-//------------------------------------------------------------------------------
 #include <XBase/ArrayLength.hpp>
 #include <XBase/Ref.hpp>
 #include "GlCmd.hpp"

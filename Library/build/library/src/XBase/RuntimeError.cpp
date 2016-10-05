@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XBase/RuntimeError.hpp>
 
-//------------------------------------------------------------------------------
 #include <cassert>
 #include <XBase/Compiler.hpp>
 #include <XBase/Config.hpp>

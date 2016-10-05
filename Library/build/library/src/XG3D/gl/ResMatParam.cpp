@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XG3D/ResMatParam.hpp>
 
-//------------------------------------------------------------------------------
 #include <XBase/RuntimeAssert.hpp>
 #include <XG3D/ResConstant.hpp>
 #include "ResMatParamImpl.hpp"

@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XG3D/Renderer.hpp>
 
-//------------------------------------------------------------------------------
 #include <XBase/Display.hpp>
 #include <XBase/RuntimeAssert.hpp>
 #include <XBase/Unused.hpp>

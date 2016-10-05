@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XBase/EntryPoint.hpp>
 
-//------------------------------------------------------------------------------
 #include <XBase/Application.hpp>
 #include <XBase/Argument.hpp>
 #include <XBase/Config.hpp>

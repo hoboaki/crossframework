@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XBase/ResFile.hpp>
 
-//------------------------------------------------------------------------------
 #include <XBase/AutoMemBlock.hpp>
 #include <XBase/ResFileStream.hpp>
 

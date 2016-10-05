@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XG3D/Renderer.hpp>
 
-//------------------------------------------------------------------------------
 #include <XBase/ArrayLength.hpp>
 #include <XBase/Console.hpp>
 #include <XBase/Display.hpp>

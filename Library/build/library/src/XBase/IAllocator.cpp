@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XBase/IAllocator.hpp>
 
-//------------------------------------------------------------------------------
 #include <memory>
 #include <XBase/FunctionAttribute.hpp>
 #include <XBase/Pointer.hpp>

@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XG3D/TexSetting.hpp>
 
-//------------------------------------------------------------------------------
 #include <XBase/EnumCheck.hpp>
 #include <XBase/RuntimeAssert.hpp>
 #include <XG3D/TexBuffer.hpp>

@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include "ResMatImpl.hpp"
 
-//------------------------------------------------------------------------------
 #include <cstdlib>
 #include <XBase/ArrayLength.hpp>
 #include <XBase/Ref.hpp>

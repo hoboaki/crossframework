@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XBase/Quaternion.hpp>
 
-//------------------------------------------------------------------------------
 #include <XBase/Angle.hpp>
 #include <XBase/Math.hpp>
 #include <XBase/Matrix34.hpp>
