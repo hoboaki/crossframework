@@ -34,7 +34,7 @@ void Application::quit()
 }
 
 //------------------------------------------------------------------------------
-AppEven::EnumType Application::receiveEventCore()
+AppEvent::EnumType Application::receiveEventCore()
 {
     // 終了要求があったらQuit
     if (mExt.doQuit) {

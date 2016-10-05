@@ -17,7 +17,7 @@ namespace {
 
 Pointer< Display_Ext > tCurrentDisplay;
 
-KeyKind tToKeyKind(WPARAM aKey)
+KeyKind::EnumType tToKeyKind(WPARAM aKey)
 {
     switch (aKey) {
         case VK_BACK:   return KeyKind::BackSpace;
@@ -28,16 +28,16 @@ KeyKind tToKeyKind(WPARAM aKey)
         case VK_SPACE:  return KeyKind::Space;
         case VK_DELETE: return KeyKind::Delete;
 
-        case '0': return KeyKind::0;
-        case '1': return KeyKind::1;
-        case '2': return KeyKind::2;
-        case '3': return KeyKind::3;
-        case '4': return KeyKind::4;
-        case '5': return KeyKind::5;
-        case '6': return KeyKind::6;
-        case '7': return KeyKind::7;
-        case '8': return KeyKind::8;
-        case '9': return KeyKind::9;
+        case '0': return KeyKind::Num0;
+        case '1': return KeyKind::Num1;
+        case '2': return KeyKind::Num2;
+        case '3': return KeyKind::Num3;
+        case '4': return KeyKind::Num4;
+        case '5': return KeyKind::Num5;
+        case '6': return KeyKind::Num6;
+        case '7': return KeyKind::Num7;
+        case '8': return KeyKind::Num8;
+        case '9': return KeyKind::Num9;
         case 'A': return KeyKind::A;
         case 'B': return KeyKind::B;
         case 'C': return KeyKind::C;
@@ -283,7 +283,7 @@ LRESULT Display_Ext::windowProcess(HWND aHWND, UINT aMsg, WPARAM aWParam, LPARAM
 
         case WM_KEYDOWN:
         {
-            KeyKind k = tToKeyKind(aWParam);
+            KeyKind::EnumType k = tToKeyKind(aWParam);
             if (k < KeyKind::TERM) {
                 keyboardUpdateData.hold.set(k, true);
                 keyboardUpdateData.pulse.set(k, true);
@@ -293,7 +293,7 @@ LRESULT Display_Ext::windowProcess(HWND aHWND, UINT aMsg, WPARAM aWParam, LPARAM
 
         case WM_KEYUP:
         {
-            KeyKind k = tToKeyKind(aWParam);
+            KeyKind::EnumType k = tToKeyKind(aWParam);
             if (k < KeyKind::TERM) {
                 keyboardUpdateData.hold.set(k, false);
             }

@@ -25,7 +25,7 @@ const tInputTypeData tINPUT_TYPE_DATA_TABLE[] =
     {GL_UNSIGNED_SHORT, sizeof(GLushort)},
     {GL_UNSIGNED_INT, sizeof(GLuint)}
 };
-XBASE_ARRAY_LENGTH_CHECK(tINPUT_TYPE_DATA_TABLE, ResMdlShapeInputType_TERM);
+XBASE_ARRAY_LENGTH_CHECK(tINPUT_TYPE_DATA_TABLE, ResMdlShapeInputType::TERM);
 }
 //------------------------------------------------------------------------------
 ResMdlShapeImpl::ResMdlShapeImpl(
