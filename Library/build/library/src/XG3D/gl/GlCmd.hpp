@@ -5,7 +5,7 @@
 
 #include <XBase/Config.hpp>
 #include <XBase/RuntimeAssert.hpp>
-#include <XG3D/SDKHeader.hpp>
+#include <XG3D/SdkHeader.hpp>
 
 
 // GLコマンドを実行しエラーがないかチェックする。

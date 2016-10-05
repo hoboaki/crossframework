@@ -6,7 +6,7 @@
 //------------------------------------------------------------------------------
 namespace XBase {
 
-/// @addtogroup XBase-HID
+/// @addtogroup XBase-Hid
 //@{
 /// マウスのボタンの種類。
 enum MouseBtnKind

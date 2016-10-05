@@ -5,7 +5,7 @@
 
 #include <XBase/Bool.hpp>
 #include <XBase/BuiltInTypes.hpp>
-#include <XBase/OSType.hpp>
+#include <XBase/OsType.hpp>
 
 //------------------------------------------------------------------------------
 namespace XBase {

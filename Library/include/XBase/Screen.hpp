@@ -5,18 +5,18 @@
 
 #include <XBase/BuiltInTypes.hpp>
 #include <XBase/NonCopyable.hpp>
-#include <XBase/OS.hpp>
+#include <XBase/Os.hpp>
 
 #if defined(XBASE_OS_MACOSX)
     #include <XBase/Screen_MacOSX.hpp>
 #elif defined(XBASE_OS_IOS)
-    #include <XBase/Screen_iOS.hpp>
+    #include <XBase/Screen_iOs.hpp>
 #else
     #include <XBase/Screen_Default.hpp>
 #endif
 
 namespace XBase {
-class Display_EXT;
+class Display_Ext;
 struct ScreenPosPod;
 }
 
@@ -33,7 +33,7 @@ class Screen : public ::XBase::NonCopyable
 {
 public:
     // コンストラクタ。システムが呼ぶ。
-    Screen(Display_EXT& aOwner, int aWidth, int aHeight);
+    Screen(Display_Ext& aOwner, int aWidth, int aHeight);
 
     /// @name 解像度
     //@{
@@ -50,12 +50,12 @@ public:
 
     //============================================================
     // 内部実装用関数群。
-    Display_EXT& display_();
-    Screen_EXT& ext_();
+    Display_Ext& display_();
+    Screen_Ext& ext_();
 
 private:
-    Display_EXT& mOwner;
-    Screen_EXT mEXT;
+    Display_Ext& mOwner;
+    Screen_Ext mExt;
     int mWidth;
     int mHeight;
 };

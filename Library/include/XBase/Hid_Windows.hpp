@@ -10,8 +10,8 @@
 //------------------------------------------------------------------------------
 namespace XBase {
 
-// WindowsのHID拡張。
-class HID_EXT : public NonCopyable
+// WindowsのHid拡張。
+class Hid_Ext : public NonCopyable
 {
 public:
     Keyboard keyboard;

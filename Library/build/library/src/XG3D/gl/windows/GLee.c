@@ -3838,10 +3838,10 @@ int __GLeeGLNumExtensions=322;
 /* GL_EXT_histogram */
 
 #ifdef __GLEE_GL_EXT_histogram
-#ifndef GLEE_C_DEFINED_glGetHistogramEXT
-#define GLEE_C_DEFINED_glGetHistogramEXT
-  void __stdcall GLee_Lazy_glGetHistogramEXT(GLenum target, GLboolean reset, GLenum format, GLenum type, GLvoid * values)  {if (GLeeInit()) glGetHistogramEXT(target, reset, format, type, values);}
-  GLEEPFNGLGETHISTOGRAMEXTPROC GLeeFuncPtr_glGetHistogramEXT=GLee_Lazy_glGetHistogramEXT;
+#ifndef GLEE_C_DEFINED_glGetHistogramExt
+#define GLEE_C_DEFINED_glGetHistogramExt
+  void __stdcall GLee_Lazy_glGetHistogramExt(GLenum target, GLboolean reset, GLenum format, GLenum type, GLvoid * values)  {if (GLeeInit()) glGetHistogramExt(target, reset, format, type, values);}
+  GLEEPFNGLGETHISTOGRAMEXTPROC GLeeFuncPtr_glGetHistogramExt=GLee_Lazy_glGetHistogramExt;
 #endif
 #ifndef GLEE_C_DEFINED_glGetHistogramParameterfvEXT
 #define GLEE_C_DEFINED_glGetHistogramParameterfvEXT
@@ -3868,20 +3868,20 @@ int __GLeeGLNumExtensions=322;
   void __stdcall GLee_Lazy_glGetMinmaxParameterivEXT(GLenum target, GLenum pname, GLint * params)  {if (GLeeInit()) glGetMinmaxParameterivEXT(target, pname, params);}
   GLEEPFNGLGETMINMAXPARAMETERIVEXTPROC GLeeFuncPtr_glGetMinmaxParameterivEXT=GLee_Lazy_glGetMinmaxParameterivEXT;
 #endif
-#ifndef GLEE_C_DEFINED_glHistogramEXT
-#define GLEE_C_DEFINED_glHistogramEXT
-  void __stdcall GLee_Lazy_glHistogramEXT(GLenum target, GLsizei width, GLenum internalformat, GLboolean sink)  {if (GLeeInit()) glHistogramEXT(target, width, internalformat, sink);}
-  GLEEPFNGLHISTOGRAMEXTPROC GLeeFuncPtr_glHistogramEXT=GLee_Lazy_glHistogramEXT;
+#ifndef GLEE_C_DEFINED_glHistogramExt
+#define GLEE_C_DEFINED_glHistogramExt
+  void __stdcall GLee_Lazy_glHistogramExt(GLenum target, GLsizei width, GLenum internalformat, GLboolean sink)  {if (GLeeInit()) glHistogramExt(target, width, internalformat, sink);}
+  GLEEPFNGLHISTOGRAMEXTPROC GLeeFuncPtr_glHistogramExt=GLee_Lazy_glHistogramExt;
 #endif
 #ifndef GLEE_C_DEFINED_glMinmaxEXT
 #define GLEE_C_DEFINED_glMinmaxEXT
   void __stdcall GLee_Lazy_glMinmaxEXT(GLenum target, GLenum internalformat, GLboolean sink)  {if (GLeeInit()) glMinmaxEXT(target, internalformat, sink);}
   GLEEPFNGLMINMAXEXTPROC GLeeFuncPtr_glMinmaxEXT=GLee_Lazy_glMinmaxEXT;
 #endif
-#ifndef GLEE_C_DEFINED_glResetHistogramEXT
-#define GLEE_C_DEFINED_glResetHistogramEXT
-  void __stdcall GLee_Lazy_glResetHistogramEXT(GLenum target)  {if (GLeeInit()) glResetHistogramEXT(target);}
-  GLEEPFNGLRESETHISTOGRAMEXTPROC GLeeFuncPtr_glResetHistogramEXT=GLee_Lazy_glResetHistogramEXT;
+#ifndef GLEE_C_DEFINED_glResetHistogramExt
+#define GLEE_C_DEFINED_glResetHistogramExt
+  void __stdcall GLee_Lazy_glResetHistogramExt(GLenum target)  {if (GLeeInit()) glResetHistogramExt(target);}
+  GLEEPFNGLRESETHISTOGRAMEXTPROC GLeeFuncPtr_glResetHistogramExt=GLee_Lazy_glResetHistogramExt;
 #endif
 #ifndef GLEE_C_DEFINED_glResetMinmaxEXT
 #define GLEE_C_DEFINED_glResetMinmaxEXT
@@ -8553,10 +8553,10 @@ int __GLeeGLNumExtensions=322;
   void __stdcall GLee_Lazy_glMatrixTranslatedEXT(GLenum mode, GLdouble x, GLdouble y, GLdouble z)  {if (GLeeInit()) glMatrixTranslatedEXT(mode, x, y, z);}
   GLEEPFNGLMATRIXTRANSLATEDEXTPROC GLeeFuncPtr_glMatrixTranslatedEXT=GLee_Lazy_glMatrixTranslatedEXT;
 #endif
-#ifndef GLEE_C_DEFINED_glMatrixFrustumEXT
-#define GLEE_C_DEFINED_glMatrixFrustumEXT
-  void __stdcall GLee_Lazy_glMatrixFrustumEXT(GLenum mode, GLdouble left, GLdouble right, GLdouble bottom, GLdouble top, GLdouble zNear, GLdouble zFar)  {if (GLeeInit()) glMatrixFrustumEXT(mode, left, right, bottom, top, zNear, zFar);}
-  GLEEPFNGLMATRIXFRUSTUMEXTPROC GLeeFuncPtr_glMatrixFrustumEXT=GLee_Lazy_glMatrixFrustumEXT;
+#ifndef GLEE_C_DEFINED_glMatrixFrustumExt
+#define GLEE_C_DEFINED_glMatrixFrustumExt
+  void __stdcall GLee_Lazy_glMatrixFrustumExt(GLenum mode, GLdouble left, GLdouble right, GLdouble bottom, GLdouble top, GLdouble zNear, GLdouble zFar)  {if (GLeeInit()) glMatrixFrustumExt(mode, left, right, bottom, top, zNear, zFar);}
+  GLEEPFNGLMATRIXFRUSTUMEXTPROC GLeeFuncPtr_glMatrixFrustumExt=GLee_Lazy_glMatrixFrustumExt;
 #endif
 #ifndef GLEE_C_DEFINED_glMatrixOrthoEXT
 #define GLEE_C_DEFINED_glMatrixOrthoEXT
@@ -12323,15 +12323,15 @@ GLuint __GLeeLink_GL_EXT_histogram(void)
 {
     GLint nLinked=0;
 #ifdef __GLEE_GL_EXT_histogram
-    if ((GLeeFuncPtr_glGetHistogramEXT = (GLEEPFNGLGETHISTOGRAMEXTPROC) __GLeeGetProcAddress("glGetHistogramEXT"))!=0) nLinked++;
+    if ((GLeeFuncPtr_glGetHistogramExt = (GLEEPFNGLGETHISTOGRAMEXTPROC) __GLeeGetProcAddress("glGetHistogramExt"))!=0) nLinked++;
     if ((GLeeFuncPtr_glGetHistogramParameterfvEXT = (GLEEPFNGLGETHISTOGRAMPARAMETERFVEXTPROC) __GLeeGetProcAddress("glGetHistogramParameterfvEXT"))!=0) nLinked++;
     if ((GLeeFuncPtr_glGetHistogramParameterivEXT = (GLEEPFNGLGETHISTOGRAMPARAMETERIVEXTPROC) __GLeeGetProcAddress("glGetHistogramParameterivEXT"))!=0) nLinked++;
     if ((GLeeFuncPtr_glGetMinmaxEXT = (GLEEPFNGLGETMINMAXEXTPROC) __GLeeGetProcAddress("glGetMinmaxEXT"))!=0) nLinked++;
     if ((GLeeFuncPtr_glGetMinmaxParameterfvEXT = (GLEEPFNGLGETMINMAXPARAMETERFVEXTPROC) __GLeeGetProcAddress("glGetMinmaxParameterfvEXT"))!=0) nLinked++;
     if ((GLeeFuncPtr_glGetMinmaxParameterivEXT = (GLEEPFNGLGETMINMAXPARAMETERIVEXTPROC) __GLeeGetProcAddress("glGetMinmaxParameterivEXT"))!=0) nLinked++;
-    if ((GLeeFuncPtr_glHistogramEXT = (GLEEPFNGLHISTOGRAMEXTPROC) __GLeeGetProcAddress("glHistogramEXT"))!=0) nLinked++;
+    if ((GLeeFuncPtr_glHistogramExt = (GLEEPFNGLHISTOGRAMEXTPROC) __GLeeGetProcAddress("glHistogramExt"))!=0) nLinked++;
     if ((GLeeFuncPtr_glMinmaxEXT = (GLEEPFNGLMINMAXEXTPROC) __GLeeGetProcAddress("glMinmaxEXT"))!=0) nLinked++;
-    if ((GLeeFuncPtr_glResetHistogramEXT = (GLEEPFNGLRESETHISTOGRAMEXTPROC) __GLeeGetProcAddress("glResetHistogramEXT"))!=0) nLinked++;
+    if ((GLeeFuncPtr_glResetHistogramExt = (GLEEPFNGLRESETHISTOGRAMEXTPROC) __GLeeGetProcAddress("glResetHistogramExt"))!=0) nLinked++;
     if ((GLeeFuncPtr_glResetMinmaxEXT = (GLEEPFNGLRESETMINMAXEXTPROC) __GLeeGetProcAddress("glResetMinmaxEXT"))!=0) nLinked++;
 #endif
     if (nLinked==10) return GLEE_LINK_COMPLETE;
@@ -14360,7 +14360,7 @@ GLuint __GLeeLink_GL_EXT_direct_state_access(void)
     if ((GLeeFuncPtr_glMatrixScaledEXT = (GLEEPFNGLMATRIXSCALEDEXTPROC) __GLeeGetProcAddress("glMatrixScaledEXT"))!=0) nLinked++;
     if ((GLeeFuncPtr_glMatrixTranslatefEXT = (GLEEPFNGLMATRIXTRANSLATEFEXTPROC) __GLeeGetProcAddress("glMatrixTranslatefEXT"))!=0) nLinked++;
     if ((GLeeFuncPtr_glMatrixTranslatedEXT = (GLEEPFNGLMATRIXTRANSLATEDEXTPROC) __GLeeGetProcAddress("glMatrixTranslatedEXT"))!=0) nLinked++;
-    if ((GLeeFuncPtr_glMatrixFrustumEXT = (GLEEPFNGLMATRIXFRUSTUMEXTPROC) __GLeeGetProcAddress("glMatrixFrustumEXT"))!=0) nLinked++;
+    if ((GLeeFuncPtr_glMatrixFrustumExt = (GLEEPFNGLMATRIXFRUSTUMEXTPROC) __GLeeGetProcAddress("glMatrixFrustumExt"))!=0) nLinked++;
     if ((GLeeFuncPtr_glMatrixOrthoEXT = (GLEEPFNGLMATRIXORTHOEXTPROC) __GLeeGetProcAddress("glMatrixOrthoEXT"))!=0) nLinked++;
     if ((GLeeFuncPtr_glMatrixPopEXT = (GLEEPFNGLMATRIXPOPEXTPROC) __GLeeGetProcAddress("glMatrixPopEXT"))!=0) nLinked++;
     if ((GLeeFuncPtr_glMatrixPushEXT = (GLEEPFNGLMATRIXPUSHEXTPROC) __GLeeGetProcAddress("glMatrixPushEXT"))!=0) nLinked++;

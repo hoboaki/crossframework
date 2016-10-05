@@ -6,7 +6,7 @@
 //------------------------------------------------------------------------------
 namespace XBase {
 
-/// @addtogroup XBase-HID
+/// @addtogroup XBase-Hid
 //@{
 /// キーボードのキーの種類。
 enum KeyKind

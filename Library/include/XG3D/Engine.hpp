@@ -3,7 +3,7 @@
 #else
 #define XG3D_INCLUDED_ENGINE_HPP
 
-#include <XBase/OS.hpp>
+#include <XBase/Os.hpp>
 
 /// @addtogroup XG3D-Env
 //@{

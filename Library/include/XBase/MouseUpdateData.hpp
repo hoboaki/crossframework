@@ -10,7 +10,7 @@
 //------------------------------------------------------------------------------
 namespace XBase {
 
-/// @addtogroup XBase-HID
+/// @addtogroup XBase-Hid
 //@{
 /// マウスの更新データ。
 struct MouseUpdateData

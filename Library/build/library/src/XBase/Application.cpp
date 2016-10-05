@@ -22,7 +22,7 @@ XBase::Application::Application(const Argument& aArgument)
 : mArgument(aArgument)
 , mLastEvent(AppEvent_INVALID)
 , mDisplayPtr()
-, mEXT()
+, mExt()
 {
     tPtr.set(*this);
 }

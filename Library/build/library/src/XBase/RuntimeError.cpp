@@ -7,7 +7,7 @@
 #include <XBase/Config.hpp>
 #include <XBase/FunctionAttribute.hpp>
 #include <XBase/IRuntimeErrorCallback.hpp>
-#include <XBase/OS.hpp>
+#include <XBase/Os.hpp>
 
 // for MessageBox
 #if (defined(XBASE_OS_WIN32) && defined(XBASE_COMPILER_MSVC))

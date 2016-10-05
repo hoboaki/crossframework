@@ -6,9 +6,9 @@
 #include <XBase/AppEvent.hpp>
 #include <XBase/Enum.hpp>
 #include <XBase/NonCopyable.hpp>
-#include <XBase/OS.hpp>
+#include <XBase/Os.hpp>
 #include <XBase/Pointer.hpp>
-#include <XBase/SDKHeader.hpp>
+#include <XBase/SdkHeader.hpp>
 
 #if defined(XBASE_OS_WINDOWS)
 #include <XBase/Application_Windows.hpp>
@@ -66,7 +66,7 @@ private:
     const Argument& mArgument;
     Enum32< AppEvent > mLastEvent;
     Pointer< Display > mDisplayPtr;
-    Application_EXT mEXT;
+    Applcation_Ext mExt;
     //------------------------------------------------------------------------------
     AppEvent receiveEventCore();
 };

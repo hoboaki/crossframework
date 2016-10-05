@@ -5,7 +5,7 @@
 #include <XBase/Display.hpp>
 #include <XBase/RuntimeAssert.hpp>
 #include <XBase/Unused.hpp>
-#include <XG3D/SDKHeader.hpp>
+#include <XG3D/SdkHeader.hpp>
 #include "XG3DUIOpenGLView.h"
 
 //------------------------------------------------------------------------------

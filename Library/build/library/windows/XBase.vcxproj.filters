@@ -42,7 +42,7 @@
     <ClInclude Include="..\..\..\include\XBase\Matrix44.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\PI.hpp">
+    <ClInclude Include="..\..\..\include\XBase\Pi.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\XBase\PodStruct.hpp">
@@ -72,7 +72,7 @@
     <ClInclude Include="..\..\..\include\XBase\FunctionAttribute.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\OS.hpp">
+    <ClInclude Include="..\..\..\include\XBase\Os.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\XBase\PodClass.hpp">
@@ -135,7 +135,7 @@
     <ClInclude Include="..\..\..\include\XBase\XBase.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\OSType.hpp">
+    <ClInclude Include="..\..\..\include\XBase\OsType.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\XBase\Hash.hpp">
@@ -227,10 +227,10 @@
     <ClCompile Include="..\src\XBase\DisplayContext.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\windows\Application_EXT.cpp">
+    <ClCompile Include="..\src\XBase\windows\Applcation_Ext.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\windows\Display_EXT.cpp">
+    <ClCompile Include="..\src\XBase\windows\Display_Ext.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="..\src\XBase\windows\EntryPoint_EXT.cpp">
@@ -278,7 +278,7 @@
     <ClCompile Include="..\src\XBase\Keyboard.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\windows\HID_EXT.cpp">
+    <ClCompile Include="..\src\XBase\windows\Hid_Ext.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="..\src\XBase\Touch.cpp">
@@ -293,7 +293,7 @@
     <ClCompile Include="..\src\XBase\Mouse.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\HID.cpp">
+    <ClCompile Include="..\src\XBase\Hid.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="..\src\XBase\FrameCounter.cpp">
@@ -302,10 +302,10 @@
     <ClCompile Include="..\src\XBase\Vector2i.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\AABBox2.cpp">
+    <ClCompile Include="..\src\XBase\Aabb2.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\AABBox2i.cpp">
+    <ClCompile Include="..\src\XBase\Aabb2i.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="..\src\XBase\Color4b.cpp">

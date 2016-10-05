@@ -3,7 +3,7 @@
 #else
 #define XG3D_INCLUDED_TEXSETTING_GL_HPP
 
-#include <XG3D/SDKHeader.hpp>
+#include <XG3D/SdkHeader.hpp>
 
 //------------------------------------------------------------------------------
 namespace XG3D {

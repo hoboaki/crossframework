@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 namespace XBase {
 
-/// @addtogroup XBase-HID
+/// @addtogroup XBase-Hid
 //@{
 /// @brief タッチのタップ入力。
 class TouchTap

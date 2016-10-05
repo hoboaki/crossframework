@@ -7,7 +7,7 @@
 #include <XBase/NonCopyable.hpp>
 #include <XBase/Placement.hpp>
 #include <XBase/RuntimeAutoArray.hpp>
-#include <XG3D/SDKHeader.hpp>
+#include <XG3D/SdkHeader.hpp>
 #include "BinResMat.hpp"
 #include "ResMatParamImpl.hpp"
 #include "ResMatVtxAttrImpl.hpp"

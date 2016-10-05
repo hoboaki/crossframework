@@ -81,7 +81,7 @@
     <ClInclude Include="..\..\..\include\XG3D\ResTexFormat.hpp" />
     <ClInclude Include="..\..\..\include\XG3D\RuntimeTex.hpp" />
     <ClInclude Include="..\..\..\include\XG3D\RuntimeTexContext.hpp" />
-    <ClInclude Include="..\..\..\include\XG3D\SDKHeader.hpp" />
+    <ClInclude Include="..\..\..\include\XG3D\SdkHeader.hpp" />
     <ClInclude Include="..\..\..\include\XG3D\StateMaterial.hpp" />
     <ClInclude Include="..\..\..\include\XG3D\StateMdlMaterial.hpp" />
     <ClInclude Include="..\..\..\include\XG3D\StateMdlTransform.hpp" />

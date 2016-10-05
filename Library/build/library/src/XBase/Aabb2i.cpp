@@ -1,35 +1,35 @@
 // 文字コード：UTF-8
-#include <XBase/AABBox2i.hpp>
+#include <XBase/Aabb2i.hpp>
 
 //------------------------------------------------------------------------------
-#include <XBase/AABBox2.hpp>
+#include <XBase/Aabb2.hpp>
 #include <XBase/RuntimeAssert.hpp>
 
 //------------------------------------------------------------------------------
 namespace XBase {
 
 //------------------------------------------------------------------------------
-const AABBox2i AABBox2i::Largest()
+const Aabb2i Aabb2i::Largest()
 {
-    return AABBox2i(Vector2iPod::Min(), 0xFFFFFFFF, 0xFFFFFFFF);
+    return Aabb2i(Vector2iPod::Min(), 0xFFFFFFFF, 0xFFFFFFFF);
 }
 
 //------------------------------------------------------------------------------
-AABBox2i::AABBox2i()
+Aabb2i::Aabb2i()
 : mMin(Vector2i::Zero())
 , mTerm(mMin)
 {
 }
 
 //------------------------------------------------------------------------------
-AABBox2i::AABBox2i(const Vector2iPod& aBegin)
+Aabb2i::Aabb2i(const Vector2iPod& aBegin)
 : mMin(aBegin)
 , mTerm(mMin)
 {
 }
 
 //------------------------------------------------------------------------------
-AABBox2i::AABBox2i(
+Aabb2i::Aabb2i(
     const Vector2iPod& aBegin,
     const int aWidth,
     const int aHeight
@@ -45,55 +45,55 @@ AABBox2i::AABBox2i(
 }
 
 //------------------------------------------------------------------------------
-const Vector2iPod AABBox2i::begin()const
+const Vector2iPod Aabb2i::begin()const
 {
     return mMin;
 }
 
 //------------------------------------------------------------------------------
-const Vector2iPod AABBox2i::end()const
+const Vector2iPod Aabb2i::end()const
 {
     return mTerm;
 }
 
 //------------------------------------------------------------------------------
-const Vector2iPod AABBox2i::min()const
+const Vector2iPod Aabb2i::min()const
 {
     return mMin;
 }
 
 //------------------------------------------------------------------------------
-const Vector2iPod AABBox2i::term()const
+const Vector2iPod Aabb2i::term()const
 {
     return mTerm;
 }
 
 //------------------------------------------------------------------------------
-int AABBox2i::width()const
+int Aabb2i::width()const
 {
     return int(mTerm.x - mMin.x);
 }
 
 //------------------------------------------------------------------------------
-int AABBox2i::height()const
+int Aabb2i::height()const
 {
     return int(mTerm.y - mMin.y);
 }
 
 //------------------------------------------------------------------------------
-bool AABBox2i::isPositive()const
+bool Aabb2i::isPositive()const
 {
     return 0 <= mMin.x
         && 0 <= mMin.y;
 }
 
 //------------------------------------------------------------------------------
-const AABBox2i AABBox2i::toPositive()const
+const Aabb2i Aabb2i::toPositive()const
 {
     const Vector2i newMin = mMin.max(Vector2i::Zero());
     const Vector2i newTerm = mTerm.max(Vector2i::Zero());
     const Vector2i newSize = newTerm - newMin;
-    return AABBox2i(
+    return Aabb2i(
         newMin,
         uint(newSize.x),
         uint(newSize.y)
@@ -101,22 +101,22 @@ const AABBox2i AABBox2i::toPositive()const
 }
 
 //------------------------------------------------------------------------------
-const AABBox2i AABBox2i::merge(const AABBox2i& aAABB)const
+const Aabb2i Aabb2i::merge(const Aabb2i& aAABB)const
 {
-    AABBox2i aabb(*this);
+    Aabb2i aabb(*this);
     aabb.mergeAssign(aAABB);
     return aabb;
 }
 
 //------------------------------------------------------------------------------
-void AABBox2i::mergeAssign(const AABBox2i& aAABB)
+void Aabb2i::mergeAssign(const Aabb2i& aAABB)
 {
     mMin = mMin.min(aAABB.mMin);
     mTerm = mTerm.max(aAABB.mTerm);
 }
 
 //------------------------------------------------------------------------------
-bool AABBox2i::isIntersects(const AABBox2i& aAABB)const
+bool Aabb2i::isIntersects(const Aabb2i& aAABB)const
 {
     return mMin.x < aAABB.mTerm.x
         && mMin.y < aAABB.mTerm.y
@@ -125,7 +125,7 @@ bool AABBox2i::isIntersects(const AABBox2i& aAABB)const
 }
 
 //------------------------------------------------------------------------------
-bool AABBox2i::isContains(const Vector2iPod& aPos)const
+bool Aabb2i::isContains(const Vector2iPod& aPos)const
 {
     return mMin.x <= aPos.x
         && mMin.y <= aPos.y
@@ -134,7 +134,7 @@ bool AABBox2i::isContains(const Vector2iPod& aPos)const
 }
 
 //------------------------------------------------------------------------------
-bool AABBox2i::isContains(const AABBox2i& aAABB)const
+bool Aabb2i::isContains(const Aabb2i& aAABB)const
 {
     return mMin.x <= aAABB.mMin.x
         && mMin.y <= aAABB.mMin.y
@@ -143,65 +143,65 @@ bool AABBox2i::isContains(const AABBox2i& aAABB)const
 }
 
 //------------------------------------------------------------------------------
-const AABBox2i AABBox2i::add(const Vector2iPod& aTrans)const
+const Aabb2i Aabb2i::add(const Vector2iPod& aTrans)const
 {
-    AABBox2i aabb = *this;
+    Aabb2i aabb = *this;
     aabb.addAssign(aTrans);
     return aabb;
 }
 
 //------------------------------------------------------------------------------
-const AABBox2i AABBox2i::sub(const Vector2iPod& aTrans)const
+const Aabb2i Aabb2i::sub(const Vector2iPod& aTrans)const
 {
-    AABBox2i aabb = *this;
+    Aabb2i aabb = *this;
     aabb.subAssign(aTrans);
     return aabb;
 }
 
 //------------------------------------------------------------------------------
-void AABBox2i::addAssign(const Vector2iPod& aTrans)
+void Aabb2i::addAssign(const Vector2iPod& aTrans)
 {
     mMin += aTrans;
     mTerm += aTrans;
 }
 
 //------------------------------------------------------------------------------
-void AABBox2i::subAssign(const Vector2iPod& aTrans)
+void Aabb2i::subAssign(const Vector2iPod& aTrans)
 {
     mMin -= aTrans;
     mTerm -= aTrans;
 }
 
 //------------------------------------------------------------------------------
-const AABBox2i AABBox2i::operator+(const Vector2iPod& aTrans)const
+const Aabb2i Aabb2i::operator+(const Vector2iPod& aTrans)const
 {
     return add(aTrans);
 }
 
 //------------------------------------------------------------------------------
-const AABBox2i AABBox2i::operator-(const Vector2iPod& aTrans)const
+const Aabb2i Aabb2i::operator-(const Vector2iPod& aTrans)const
 {
     return sub(aTrans);
 }
 
 //------------------------------------------------------------------------------
-AABBox2i& AABBox2i::operator+=(const Vector2iPod& aTrans)
+Aabb2i& Aabb2i::operator+=(const Vector2iPod& aTrans)
 {
     addAssign(aTrans);
     return *this;
 }
 
 //------------------------------------------------------------------------------
-AABBox2i& AABBox2i::operator-=(const Vector2iPod& aTrans)
+Aabb2i& Aabb2i::operator-=(const Vector2iPod& aTrans)
 {
     subAssign(aTrans);
     return *this;
 }
 
 //------------------------------------------------------------------------------
-const AABBox2 AABBox2i::toAABB2f()const
+const Aabb2 Aabb2i::toAABB2f()const
 {
-    return AABBox2(
+    return Aabb2(
         min().toXYf(),
         term().toXYf()
         );

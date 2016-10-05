@@ -1,5 +1,5 @@
 // 文字コード：UTF-8
-#include <XBase/HID.hpp>
+#include <XBase/Hid.hpp>
 
 //------------------------------------------------------------------------------
 #include <XBase/Display.hpp>
@@ -11,21 +11,21 @@
 namespace XBase {
 
 //------------------------------------------------------------------------------
-HID::HID(Display& aDisplay)
+Hid::Hid(Display& aDisplay)
 : mDisplay(aDisplay)
-, mEXT()
+, mExt()
 {
     mDisplay.ext_().hidPtr.set(*this);
 }
 
 //------------------------------------------------------------------------------
-HID::~HID()
+Hid::~Hid()
 {
     mDisplay.ext_().hidPtr.unset(*this);
 }
 
 //------------------------------------------------------------------------------
-const Keyboard HID::keyboard()const
+const Keyboard Hid::keyboard()const
 {
     if (0 < keyboardCount()) {
         return keyboardAtIndex(0);
@@ -34,7 +34,7 @@ const Keyboard HID::keyboard()const
 }
 
 //------------------------------------------------------------------------------
-const Mouse HID::mouse()const
+const Mouse Hid::mouse()const
 {
     if (0 < mouseCount()) {
         return mouseAtIndex(0);
@@ -43,7 +43,7 @@ const Mouse HID::mouse()const
 }
 
 //------------------------------------------------------------------------------
-const Touch HID::touch()const
+const Touch Hid::touch()const
 {
     if (0 < touchCount()) {
         return touchAtIndex(0);
@@ -52,9 +52,9 @@ const Touch HID::touch()const
 }
 
 //------------------------------------------------------------------------------
-HID_EXT& HID::ext_()
+Hid_Ext& Hid::ext_()
 {
-    return mEXT;
+    return mExt;
 }
 
 } // namespace

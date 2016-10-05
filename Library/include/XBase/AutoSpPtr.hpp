@@ -13,107 +13,107 @@ namespace XBase {
 //@{
     /// AutoPtrのAllocator指定版。
 template< typename T >
-class AutoSPPtr
+class AutoSpPtr
 {
 public:
     /// @name コンストラクタとデストラクタ
     //@{
     /// デフォルトで作成。
-    AutoSPPtr()
+    AutoSpPtr()
     {
     }
 
     /// 0引数 init() で作成。
-    AutoSPPtr(::XBase::IAllocator& aAllocator)
+    AutoSpPtr(::XBase::IAllocator& aAllocator)
     {
         init(aAllocator);
     }
 
     /// 1引数 init() で作成。
     template< typename A0 >
-    AutoSPPtr(::XBase::IAllocator& aAllocator, A0 a0)
+    AutoSpPtr(::XBase::IAllocator& aAllocator, A0 a0)
     {
         init(aAllocator, a0);
     }
 
     /// 2引数 init() で作成。
     template< typename A0, typename A1 >
-    AutoSPPtr(::XBase::IAllocator& aAllocator, A0 a0, A1 a1)
+    AutoSpPtr(::XBase::IAllocator& aAllocator, A0 a0, A1 a1)
     {
         init(aAllocator, a0, a1);
     }
 
     /// 3引数 init() で作成。
     template< typename A0, typename A1, typename A2 >
-    AutoSPPtr(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2)
+    AutoSpPtr(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2)
     {
         init(aAllocator, a0, a1, a2);
     }
 
     /// 4引数 init() で作成。
     template< typename A0, typename A1, typename A2, typename A3 >
-    AutoSPPtr(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3)
+    AutoSpPtr(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3)
     {
         init(aAllocator, a0, a1, a2, a3);
     }
 
     /// 5引数 init() で作成。
     template< typename A0, typename A1, typename A2, typename A3, typename A4 >
-    AutoSPPtr(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4)
+    AutoSpPtr(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4)
     {
         init(aAllocator, a0, a1, a2, a3, a4);
     }
 
     /// 6引数 init() で作成。
     template< typename A0, typename A1, typename A2, typename A3, typename A4, typename A5 >
-    AutoSPPtr(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5)
+    AutoSpPtr(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5)
     {
         init(aAllocator, a0, a1, a2, a3, a4, a5);
     }
 
     /// 7引数 init() で作成。
     template< typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6 >
-    AutoSPPtr(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6)
+    AutoSpPtr(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6)
     {
         init(aAllocator, a0, a1, a2, a3, a4, a5, a6);
     }
 
     /// 8引数 init() で作成。
     template< typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7 >
-    AutoSPPtr(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7)
+    AutoSpPtr(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7)
     {
         init(aAllocator, a0, a1, a2, a3, a4, a5, a6, a7);
     }
 
     /// 9引数 init() で作成。
     template< typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8 >
-    AutoSPPtr(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7, A8 a8)
+    AutoSpPtr(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7, A8 a8)
     {
         init(aAllocator, a0, a1, a2, a3, a4, a5, a6, a7, a8);
     }
 
     /// 10引数 init() で作成。
     template< typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8, typename A9 >
-    AutoSPPtr(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7, A8 a8, A9 a9)
+    AutoSpPtr(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7, A8 a8, A9 a9)
     {
         init(aAllocator, a0, a1, a2, a3, a4, a5, a6, a7, a8, a9);
     }
 
     /// 破棄責任を委譲して作成。
-    AutoSPPtr(const AutoSPPtr<T>& aPtr)
+    AutoSpPtr(const AutoSpPtr<T>& aPtr)
     {
         *this = aPtr;
     }
 
     /// 破棄責任を委譲して作成。
     template< typename OtherType >
-    AutoSPPtr(const AutoSPPtr<OtherType>& aPtr)
+    AutoSpPtr(const AutoSpPtr<OtherType>& aPtr)
     {
         *this = aPtr;
     }
 
     /// デストラクタ
-    ~AutoSPPtr()
+    ~AutoSpPtr()
     {
         reset();
     }
@@ -239,7 +239,7 @@ public:
     /// @name 演算子オーバーロード
     //@{
     /// 特別な代入演算子。
-    AutoSPPtr< T >& operator=(const AutoSPPtr< T >& aRHS)
+    AutoSpPtr< T >& operator=(const AutoSpPtr< T >& aRHS)
     {
         reset();
         if (aRHS.isValid())
@@ -254,7 +254,7 @@ public:
 
     /// 特別な代入演算子。
     template< typename OtherType >
-    AutoSPPtr< T >& operator=(const AutoSPPtr< OtherType >& aRHS)
+    AutoSpPtr< T >& operator=(const AutoSpPtr< OtherType >& aRHS)
     {
         reset();
         if (aRHS.isValid())

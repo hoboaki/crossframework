@@ -9,11 +9,11 @@
 namespace XBase {
 
 // デフォルト環境でのDisplayの拡張。
-class Display_EXT
+class Display_Ext
 {
 public:
     //============================================================
-    Display_EXT(const DisplayContext&) {}
+    Display_Ext(const DisplayContext&) {}
 };
 
 } // namespace

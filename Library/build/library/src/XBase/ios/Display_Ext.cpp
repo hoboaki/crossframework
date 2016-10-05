@@ -26,13 +26,13 @@ Screen& Display::screenAtIndex(const int aIndex)
 //------------------------------------------------------------------------------
 Screen& Display::mainScreen()
 {
-    return *mEXT.mainScreen;
+    return *mExt.mainScreen;
 }
 
 //------------------------------------------------------------------------------
 void Display::show()
 {
-    XBaseUIWindow_Show(mEXT.windowPtr);
+    XBaseUIWindow_Show(mExt.windowPtr);
 }
 
 //------------------------------------------------------------------------------
@@ -43,7 +43,7 @@ bool Display::isClosed()const
 }
 
 //------------------------------------------------------------------------------
-Display_EXT::Display_EXT(const DisplayContext& aContext)
+Display_Ext::Display_Ext(const DisplayContext& aContext)
 : windowPtr(0)
 , mainScreen()
 , hidPtr()
@@ -58,7 +58,7 @@ Display_EXT::Display_EXT(const DisplayContext& aContext)
 }
 
 //------------------------------------------------------------------------------
-Display_EXT::~Display_EXT()
+Display_Ext::~Display_Ext()
 {
     // メインスクリーンの削除
     mainScreen.reset();

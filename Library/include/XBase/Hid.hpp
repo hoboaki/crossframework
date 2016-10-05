@@ -4,14 +4,14 @@
 #define XBASE_INCLUDED_HID_HPP
 
 #include <XBase/NonCopyable.hpp>
-#include <XBase/OS.hpp>
+#include <XBase/Os.hpp>
 
 #if defined(XBASE_OS_WINDOWS)
-    #include <XBase/HID_Windows.hpp>
+    #include <XBase/Hid_Windows.hpp>
 #elif defined(XBASE_OS_MACOSX)
-    #include <XBase/HID_MacOSX.hpp>
+    #include <XBase/Hid_MacOSX.hpp>
 #elif defined(XBASE_OS_IOS)
-    #include <XBase/HID_iOS.hpp>
+    #include <XBase/Hid_iOs.hpp>
 #endif
 
 namespace XBase {
@@ -24,18 +24,18 @@ class Touch;
 //------------------------------------------------------------------------------
 namespace XBase {
 
-/// @addtogroup XBase-HID
+/// @addtogroup XBase-Hid
 //@{
-/// @brief HID(Human Interface Device)にアクセスするクラス。
-class HID : public NonCopyable
+/// @brief Hid(Human Interface Device)にアクセスするクラス。
+class Hid : public NonCopyable
 {
 public:
     /// @name コンストラクタとデストラクタ
     //@{
     /// コンストラクタ。
-    HID(Display&);
+    Hid(Display&);
     /// デストラクタ。
-    ~HID();
+    ~Hid();
     //@}
 
     /// @name キーボードデバイス
@@ -87,11 +87,11 @@ public:
 
     //============================================================
     // 内部実装用関数群。
-    HID_EXT& ext_(); // 拡張。
+    Hid_Ext& ext_(); // 拡張。
 
 private:
     Display& mDisplay;
-    HID_EXT  mEXT;
+    Hid_Ext  mExt;
 };
 //@}
 

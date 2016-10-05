@@ -78,7 +78,7 @@ public:
     XBASE_OVERRIDE(void close());
 
 private:
-    ResFileStream_EXT mEXT;
+    ResFileStream_EXT mExt;
 };
 
 //@}

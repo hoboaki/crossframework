@@ -9,7 +9,7 @@
 namespace XBase {
 
 // MacOSX環境でのApplicationの拡張。
-class Application_EXT
+class Applcation_Ext
 {
 public:
     //============================================================
@@ -17,8 +17,8 @@ public:
     Bool32 doQuit;
 
     //============================================================
-    Application_EXT();
-    ~Application_EXT();
+    Applcation_Ext();
+    ~Applcation_Ext();
 };
 //@}
 

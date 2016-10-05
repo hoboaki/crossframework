@@ -4,7 +4,7 @@
 #define XBASE_INCLUDED_SHORTSTRINGFACTORY
 
 #include <XBase/BuiltInTypes.hpp>
-#include <XBase/OS.hpp>
+#include <XBase/Os.hpp>
 #include <XBase/ShortString.hpp>
 #include <XBase/TypeTraits.hpp>
 

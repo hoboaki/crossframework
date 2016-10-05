@@ -4,11 +4,11 @@
 //------------------------------------------------------------------------------
 #include <XBase/Application.hpp>
 #include <XBase/KeyKind.hpp>
-#include <XBase/HID.hpp>
+#include <XBase/Hid.hpp>
 #include <XBase/Pointer.hpp>
 #include <XBase/Ref.hpp>
 #include <XBase/Unused.hpp>
-#include <XBase/SDKHeader.hpp>
+#include <XBase/SdkHeader.hpp>
 
 //------------------------------------------------------------------------------
 namespace XBase {
@@ -16,7 +16,7 @@ namespace XBase {
 //------------------------------------------------------------------------------
 namespace {
 
-Pointer< Display_EXT > tCurrentDisplay;
+Pointer< Display_Ext > tCurrentDisplay;
 
 KeyKind tToKeyKind(WPARAM aKey)
 {
@@ -152,25 +152,25 @@ Screen& Display::screenAtIndex(const int aIndex)
 //------------------------------------------------------------------------------
 Screen& Display::mainScreen()
 {
-    return *mEXT.mainScreen;
+    return *mExt.mainScreen;
 }
 
 //------------------------------------------------------------------------------
 void Display::show()
 {
-    mEXT.isClosed = false;
-    ShowWindow(mEXT.window, SW_SHOWNORMAL);
-    UpdateWindow(mEXT.window);
+    mExt.isClosed = false;
+    ShowWindow(mExt.window, SW_SHOWNORMAL);
+    UpdateWindow(mExt.window);
 }
 
 //------------------------------------------------------------------------------
 bool Display::isClosed()const
 {
-    return mEXT.isClosed;
+    return mExt.isClosed;
 }
 
 //------------------------------------------------------------------------------
-Display_EXT::Display_EXT(const DisplayContext& aContext)
+Display_Ext::Display_Ext(const DisplayContext& aContext)
 : window()
 , windowClass()
 , message()
@@ -229,7 +229,7 @@ Display_EXT::Display_EXT(const DisplayContext& aContext)
 }
 
 //------------------------------------------------------------------------------
-void Display_EXT::pollEvent(Application&)
+void Display_Ext::pollEvent(Application&)
 {
     // pulseをクリア
     keyboardUpdateData.pulse.clear();
@@ -259,7 +259,7 @@ void Display_EXT::pollEvent(Application&)
         mouseUpdateData.posUpdated = true;
     }
 
-    // HID更新
+    // Hid更新
     if (hidPtr.isValid()) {
         hidPtr->ext_().keyboard.update(keyboardUpdateData);
         hidPtr->ext_().mouse.update(mouseUpdateData);
@@ -267,13 +267,13 @@ void Display_EXT::pollEvent(Application&)
 }
 
 //------------------------------------------------------------------------------
-LRESULT Display_EXT::WindowProcess(HWND aHWND, UINT aMsg, WPARAM aWParam, LPARAM aLParam)
+LRESULT Display_Ext::WindowProcess(HWND aHWND, UINT aMsg, WPARAM aWParam, LPARAM aLParam)
 {
     return tCurrentDisplay->windowProcess(aHWND, aMsg, aWParam, aLParam);
 }
 
 //------------------------------------------------------------------------------
-LRESULT Display_EXT::windowProcess(HWND aHWND, UINT aMsg, WPARAM aWParam, LPARAM aLParam)
+LRESULT Display_Ext::windowProcess(HWND aHWND, UINT aMsg, WPARAM aWParam, LPARAM aLParam)
 {
     switch (aMsg) {
         case WM_SYSKEYDOWN:

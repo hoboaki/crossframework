@@ -3,7 +3,7 @@
 #else
 #define XBASE_INCLUDED_ENDIAN_HPP
 
-#include <XBase/OS.hpp>
+#include <XBase/Os.hpp>
 
 /// @addtogroup XBase-Env
 //@{

@@ -3,7 +3,7 @@
 
 //------------------------------------------------------------------------------
 #include <XBase/Display.hpp>
-#include <XBase/HID.hpp>
+#include <XBase/Hid.hpp>
 #include <XBase/Thread.hpp>
 #include <XBase/Time.hpp>
 #include <XBase/TimeSpan.hpp>
@@ -16,7 +16,7 @@ namespace XBase {
 void Application::quit()
 {
     // フラグを立てる
-    mEXT.doQuit = true;
+    mExt.doQuit = true;
 
     // 終了処理
     XBaseNSApp_Terminate();
@@ -25,7 +25,7 @@ void Application::quit()
 //------------------------------------------------------------------------------
 AppEvent Application::receiveEventCore()
 {
-    // HIDのフラグをおろしておく
+    // Hidのフラグをおろしておく
     if (mDisplayPtr.isValid()) {
         mDisplayPtr->ext_().keyboardUpdateData.pulse.clear();
         mDisplayPtr->ext_().mouseUpdateData.posUpdated = false;
@@ -35,11 +35,11 @@ AppEvent Application::receiveEventCore()
     XBaseNSApp_PollEvent();
 
     // 終了要求が来たら終了
-    if (mEXT.doQuit) {
+    if (mExt.doQuit) {
         return AppEvent_Quit;
     }
 
-    // HID更新
+    // Hid更新
     if (mDisplayPtr.isValid()
         && mDisplayPtr->ext_().hidPtr.isValid()
         )
@@ -50,7 +50,7 @@ AppEvent Application::receiveEventCore()
         }
 
         // 更新
-        HID_EXT& hidExt = mDisplayPtr->ext_().hidPtr->ext_();
+        Hid_Ext& hidExt = mDisplayPtr->ext_().hidPtr->ext_();
         hidExt.keyboard.update(mDisplayPtr->ext_().keyboardUpdateData);
         hidExt.mouse.update(mDisplayPtr->ext_().mouseUpdateData);
     }
@@ -59,13 +59,13 @@ AppEvent Application::receiveEventCore()
         s64 currentTicks = s64();
         while (true) {
             currentTicks = Time::LocalTime().ticks();
-            if ((currentTicks - mEXT.prevUpdateTicks) < 166666) {
+            if ((currentTicks - mExt.prevUpdateTicks) < 166666) {
                 Thread::Sleep(TimeSpan::FromMilliseconds(1));
                 continue;
             }
             break;
         }
-        mEXT.prevUpdateTicks = currentTicks;
+        mExt.prevUpdateTicks = currentTicks;
     }
 
     // 通常は更新
@@ -73,7 +73,7 @@ AppEvent Application::receiveEventCore()
 }
 
 //------------------------------------------------------------------------------
-Application_EXT::Application_EXT()
+Applcation_Ext::Applcation_Ext()
 : prevUpdateTicks(Time::LocalTime().ticks())
 , doQuit(false)
 {
@@ -81,7 +81,7 @@ Application_EXT::Application_EXT()
 }
 
 //------------------------------------------------------------------------------
-Application_EXT::~Application_EXT()
+Applcation_Ext::~Applcation_Ext()
 {
     XBaseNSApp_Finalize();
 }

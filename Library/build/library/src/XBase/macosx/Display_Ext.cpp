@@ -566,24 +566,24 @@ Screen& Display::screenAtIndex(const int aIndex)
 //------------------------------------------------------------------------------
 Screen& Display::mainScreen()
 {
-    return *mEXT.mainScreen;
+    return *mExt.mainScreen;
 }
 
 //------------------------------------------------------------------------------
 void Display::show()
 {
-    mEXT.isClosed = 0;
-    XBaseNSWindow_Show(mEXT.windowPtr);
+    mExt.isClosed = 0;
+    XBaseNSWindow_Show(mExt.windowPtr);
 }
 
 //------------------------------------------------------------------------------
 bool Display::isClosed()const
 {
-    return mEXT.isClosed != 0;
+    return mExt.isClosed != 0;
 }
 
 //------------------------------------------------------------------------------
-void Display_EXT::CBKeyEvent(void* aOwnerPtr, const int aUnicode, const int aIsDown)
+void Display_Ext::CBKeyEvent(void* aOwnerPtr, const int aUnicode, const int aIsDown)
 {
     // キー選択
     int keyKind = -1;
@@ -596,7 +596,7 @@ void Display_EXT::CBKeyEvent(void* aOwnerPtr, const int aUnicode, const int aIsD
 
     // 有効なキーなら保存
     if (0 <= keyKind) {
-        Display_EXT* owner = static_cast<Display_EXT*>(aOwnerPtr);
+        Display_Ext* owner = static_cast<Display_Ext*>(aOwnerPtr);
         owner->keyboardUpdateData.hold.set(uint(keyKind), aIsDown != 0);
         if (aIsDown) {
             owner->keyboardUpdateData.pulse.set(uint(keyKind), true);
@@ -605,18 +605,18 @@ void Display_EXT::CBKeyEvent(void* aOwnerPtr, const int aUnicode, const int aIsD
 }
 
 //------------------------------------------------------------------------------
-void Display_EXT::CBModKeyEvent(void* aOwnerPtr, const int aIsShift, const int aIsCtrl, const int aIsAlt)
+void Display_Ext::CBModKeyEvent(void* aOwnerPtr, const int aIsShift, const int aIsCtrl, const int aIsAlt)
 {
-    Display_EXT* owner = static_cast<Display_EXT*>(aOwnerPtr);
+    Display_Ext* owner = static_cast<Display_Ext*>(aOwnerPtr);
     tUpdateModKey(owner->keyboardUpdateData, KeyKind_Shift, aIsShift);
     tUpdateModKey(owner->keyboardUpdateData, KeyKind_Ctrl, aIsCtrl);
     tUpdateModKey(owner->keyboardUpdateData, KeyKind_Alt, aIsAlt);
 }
 
 //------------------------------------------------------------------------------
-void Display_EXT::CBMouseEvent(void* aOwnerPtr, const int aPressedButton, const float aX, const float aY)
+void Display_Ext::CBMouseEvent(void* aOwnerPtr, const int aPressedButton, const float aX, const float aY)
 {
-    Display_EXT* owner = static_cast<Display_EXT*>(aOwnerPtr);
+    Display_Ext* owner = static_cast<Display_Ext*>(aOwnerPtr);
     owner->mouseUpdateData.pos.x = s16(aX);
     owner->mouseUpdateData.pos.y = s16(aY);
     owner->mouseUpdateData.posUpdated = true;
@@ -626,7 +626,7 @@ void Display_EXT::CBMouseEvent(void* aOwnerPtr, const int aPressedButton, const 
 }
 
 //------------------------------------------------------------------------------
-Display_EXT::Display_EXT(const DisplayContext& aContext)
+Display_Ext::Display_Ext(const DisplayContext& aContext)
 : windowPtr(0)
 , mainScreen()
 , hidPtr()
@@ -652,7 +652,7 @@ Display_EXT::Display_EXT(const DisplayContext& aContext)
 }
 
 //------------------------------------------------------------------------------
-Display_EXT::~Display_EXT()
+Display_Ext::~Display_Ext()
 {
     // メインスクリーンの削除
     mainScreen.reset();

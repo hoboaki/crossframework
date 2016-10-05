@@ -3,8 +3,8 @@
 #else
 #define XG3D_INCLUDED_SDKHEADER_HPP
 
-#include <XBase/OS.hpp>
-#include <XBase/SDKHeader.hpp>
+#include <XBase/Os.hpp>
+#include <XBase/SdkHeader.hpp>
 #include <XG3D/Engine.hpp>
 
 #if defined(XG3D_ENGINE_GLSERIES)

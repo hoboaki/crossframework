@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 namespace XBase {
 
-/// @addtogroup XBase-HID
+/// @addtogroup XBase-Hid
 //@{
 /// タッチ入力の更新データ。
 struct TouchUpdateData

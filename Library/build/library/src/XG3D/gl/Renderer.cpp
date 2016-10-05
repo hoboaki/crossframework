@@ -17,7 +17,7 @@
 #include <XG3D/StateMdlMaterial.hpp>
 #include <XG3D/StateMdlTransform.hpp>
 #include <XG3D/TexSetting.hpp>
-#include "GLCMD.hpp"
+#include "GlCmd.hpp"
 #include "ResMatImpl.hpp"
 #include "ResMdlShapeImpl.hpp"
 #include "ShaderConstant.hpp"
@@ -243,23 +243,23 @@ Renderer& Renderer::Instance()
 //------------------------------------------------------------------------------
 Renderer::Renderer(::XBase::Display& aDisplay)
 : mDisplay(aDisplay)
-, mEXT()
+, mExt()
 {
     // セットアップ
-    mEXT.setup(aDisplay);
+    mExt.setup(aDisplay);
 
     // シェーダープログラムの作成
-    if (!tCreateShaderProgram(&mEXT.demoShaderProgram)) {
+    if (!tCreateShaderProgram(&mExt.demoShaderProgram)) {
         XBASE_ASSERT_NOT_REACHED();
         return;
     }
 
     // Uniform場所の取得
-    mEXT.demoUniformLocations[ShaderConstant::SysUniform_MtxProj] = glGetUniformLocation(mEXT.demoShaderProgram, "_prmMtxProj");
-    mEXT.demoUniformLocations[ShaderConstant::SysUniform_MtxView] = glGetUniformLocation(mEXT.demoShaderProgram, "_prmMtxView");
-    mEXT.demoUniformLocations[ShaderConstant::SysUniform_MtxWorld] = glGetUniformLocation(mEXT.demoShaderProgram, "_prmMtxWorld");
-    mEXT.demoUniformLocations[ShaderConstant::Uniform_TexActive] = glGetUniformLocation(mEXT.demoShaderProgram, "uTexActive");
-    mEXT.demoUniformLocations[ShaderConstant::Uniform_TexSampler] = glGetUniformLocation(mEXT.demoShaderProgram, "uTexSampler");
+    mExt.demoUniformLocations[ShaderConstant::SysUniform_MtxProj] = glGetUniformLocation(mExt.demoShaderProgram, "_prmMtxProj");
+    mExt.demoUniformLocations[ShaderConstant::SysUniform_MtxView] = glGetUniformLocation(mExt.demoShaderProgram, "_prmMtxView");
+    mExt.demoUniformLocations[ShaderConstant::SysUniform_MtxWorld] = glGetUniformLocation(mExt.demoShaderProgram, "_prmMtxWorld");
+    mExt.demoUniformLocations[ShaderConstant::Uniform_TexActive] = glGetUniformLocation(mExt.demoShaderProgram, "uTexActive");
+    mExt.demoUniformLocations[ShaderConstant::Uniform_TexSampler] = glGetUniformLocation(mExt.demoShaderProgram, "uTexSampler");
 
     // アルファブレンドは常に有効
     XG3D_GLCMD(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
@@ -280,8 +280,8 @@ Renderer::~Renderer()
 
     // シェーダープログラムの破棄
     XG3D_GLCMD(glUseProgram(0));
-    XG3D_GLCMD(glDeleteProgram(mEXT.demoShaderProgram));
-    mEXT.demoShaderProgram = GLuint();
+    XG3D_GLCMD(glDeleteProgram(mExt.demoShaderProgram));
+    mExt.demoShaderProgram = GLuint();
 }
 
 //------------------------------------------------------------------------------
@@ -324,10 +324,10 @@ void Renderer::fbSetViewport(
 void Renderer::fbClear()
 {
     GLbitfield bits = 0;
-    if (mEXT.colorUpdate) {
+    if (mExt.colorUpdate) {
         bits |= GL_COLOR_BUFFER_BIT;
     }
-    if (mEXT.depthUpdate) {
+    if (mExt.depthUpdate) {
         bits |= GL_DEPTH_BUFFER_BIT;
     }
     XG3D_GLCMD(glClear(bits));
@@ -354,14 +354,14 @@ void Renderer::fbSetColorUpdate(const bool aIsEnable)
 {
     const GLboolean val = aIsEnable ? GL_TRUE : GL_FALSE;
     XG3D_GLCMD(glColorMask(val, val, val, val));
-    mEXT.colorUpdate = aIsEnable;
+    mExt.colorUpdate = aIsEnable;
 }
 
 //------------------------------------------------------------------------------
 void Renderer::fbSetDepthUpdate(const bool aIsEnable)
 {
     XG3D_GLCMD(glDepthMask(aIsEnable ? GL_TRUE : GL_FALSE));
-    mEXT.depthUpdate = aIsEnable;
+    mExt.depthUpdate = aIsEnable;
 }
 
 //------------------------------------------------------------------------------
@@ -388,18 +388,18 @@ void Renderer::sdReset()
 //------------------------------------------------------------------------------
 void Renderer::sdSetMaterialForDemo()
 {
-    XG3D_GLCMD(glUseProgram(mEXT.demoShaderProgram));
-    mEXT.currentMaterial = ::XG3D::ResMat();
-    mEXT.updateMtxProj();
-    mEXT.updateMtxView();
-    mEXT.updateMtxWorld();
+    XG3D_GLCMD(glUseProgram(mExt.demoShaderProgram));
+    mExt.currentMaterial = ::XG3D::ResMat();
+    mExt.updateMtxProj();
+    mExt.updateMtxView();
+    mExt.updateMtxWorld();
 }
 
 //------------------------------------------------------------------------------
 void Renderer::sdSetMaterial(const ResMat& aResMat)
 {
     // 変更がなければ何もしない
-    if (mEXT.currentMaterial == aResMat) {
+    if (mExt.currentMaterial == aResMat) {
         return;
     }
 
@@ -410,32 +410,32 @@ void Renderer::sdSetMaterial(const ResMat& aResMat)
     }
 
     // 適用
-    mEXT.currentMaterial = aResMat;
+    mExt.currentMaterial = aResMat;
     XG3D_GLCMD(glUseProgram(aResMat.impl_()->shaderProgram));
-    mEXT.updateMtxProj();
-    mEXT.updateMtxView();
-    mEXT.updateMtxWorld();
+    mExt.updateMtxProj();
+    mExt.updateMtxView();
+    mExt.updateMtxWorld();
 }
 
 //------------------------------------------------------------------------------
 void Renderer::sdSetMtxProjection(const ::XBase::Mtx44& aMtx)
 {
-    mEXT.mtxProj = aMtx;
-    mEXT.updateMtxProj();
+    mExt.mtxProj = aMtx;
+    mExt.updateMtxProj();
 }
 
 //------------------------------------------------------------------------------
 void Renderer::sdSetMtxView(const ::XBase::Mtx34& aMtx)
 {
-    mEXT.mtxView = aMtx;
-    mEXT.updateMtxView();
+    mExt.mtxView = aMtx;
+    mExt.updateMtxView();
 }
 
 //------------------------------------------------------------------------------
 void Renderer::sdSetMtxWorld(const ::XBase::Mtx34& aMtx)
 {
-    mEXT.mtxWorld = aMtx;
-    mEXT.updateMtxWorld();
+    mExt.mtxWorld = aMtx;
+    mExt.updateMtxWorld();
 }
 
 //------------------------------------------------------------------------------
@@ -448,15 +448,15 @@ void Renderer::sdSetTex(const TexId aId, const TexSetting& aSetting)
     }
     XBASE_UNUSED(aId); // マルチテクスチャに対応するタイミングで使用する。
 
-    XG3D_GLCMD(glUseProgram(mEXT.demoShaderProgram));
+    XG3D_GLCMD(glUseProgram(mExt.demoShaderProgram));
     if (aSetting.isActive()) {
         // 設定準備
         XG3D_GLCMD(glActiveTexture(GL_TEXTURE0));
         XG3D_GLCMD(glBindTexture(GL_TEXTURE_2D, aSetting.ext_().texId));
 
         // テクスチャ有効
-        XG3D_GLCMD(glUniform1i(mEXT.demoUniformLocations[ShaderConstant::Uniform_TexActive], 1));
-        XG3D_GLCMD(glUniform1i(mEXT.demoUniformLocations[ShaderConstant::Uniform_TexSampler], 0));
+        XG3D_GLCMD(glUniform1i(mExt.demoUniformLocations[ShaderConstant::Uniform_TexActive], 1));
+        XG3D_GLCMD(glUniform1i(mExt.demoUniformLocations[ShaderConstant::Uniform_TexSampler], 0));
 
         // 補間フィルタ
         XG3D_GLCMD(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, tTexFilterTable[aSetting.minFilter()]));
@@ -469,7 +469,7 @@ void Renderer::sdSetTex(const TexId aId, const TexSetting& aSetting)
     else
     {
         // テクスチャ無効
-        XG3D_GLCMD(glUniform1i(mEXT.demoUniformLocations[ShaderConstant::Uniform_TexActive], 0));
+        XG3D_GLCMD(glUniform1i(mExt.demoUniformLocations[ShaderConstant::Uniform_TexActive], 0));
     }
 }
 

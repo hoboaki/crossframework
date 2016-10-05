@@ -4,7 +4,7 @@
 //------------------------------------------------------------------------------
 #include <XBase/ArrayLength.hpp>
 #include <XBase/Ref.hpp>
-#include "GLCMD.hpp"
+#include "GlCmd.hpp"
 
 //------------------------------------------------------------------------------
 namespace XG3D {

@@ -31,14 +31,14 @@ u64 tCurrentUSec()
 //------------------------------------------------------------------------------
 void Application::quit()
 {
-    mEXT.doQuit = true;
+    mExt.doQuit = true;
 }
 
 //------------------------------------------------------------------------------
 AppEvent Application::receiveEventCore()
 {
     // 終了要求があったらQuit
-    if (mEXT.doQuit) {
+    if (mExt.doQuit) {
         return AppEvent_Quit;
     }
 
@@ -52,15 +52,15 @@ AppEvent Application::receiveEventCore()
         u64 currentUSec = u64();
         while (true) {
             currentUSec = tCurrentUSec();
-            if (mEXT.prevUSec <= currentUSec) {// オーバーフローしていることもあるので。
-                if (currentUSec - mEXT.prevUSec < 16666) {
+            if (mExt.prevUSec <= currentUSec) {// オーバーフローしていることもあるので。
+                if (currentUSec - mExt.prevUSec < 16666) {
                     Thread::Sleep(TimeSpan::FromMilliseconds(1));
                     continue;
                 }
             }
             break;
         }
-        mEXT.prevUSec = currentUSec;
+        mExt.prevUSec = currentUSec;
     }
 
     // 常にUpdate
@@ -68,7 +68,7 @@ AppEvent Application::receiveEventCore()
 }
 
 //------------------------------------------------------------------------------
-Application_EXT::Application_EXT()
+Applcation_Ext::Applcation_Ext()
 : prevUSec(tCurrentUSec())
 , doQuit(false)
 {

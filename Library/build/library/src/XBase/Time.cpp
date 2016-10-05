@@ -4,14 +4,14 @@
 //------------------------------------------------------------------------------
 #include <ctime>
 #include <XBase/Calendar.hpp>
-#include <XBase/OS.hpp>
+#include <XBase/Os.hpp>
 #include <XBase/RuntimeAssert.hpp>
 #include <XBase/TimeSpan.hpp>
 
 // for LocalTime() UniversalTime()
 #if defined(XBASE_OS_WINDOWS)
 #pragma warning(disable: 4996) // for gmtime,localtime
-#include <XBase/SDKHeader.hpp>
+#include <XBase/SdkHeader.hpp>
 #elif defined(XBASE_OS_MACOSX)
 #include <sys/time.h>
 #endif

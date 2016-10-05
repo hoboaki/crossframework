@@ -7,7 +7,7 @@
 #include <XBase/Config.hpp>
 #include <XBase/Console.hpp>
 #include <XBase/RuntimeAssert.hpp>
-#include <XBase/SDKHeader.hpp>
+#include <XBase/SdkHeader.hpp>
 #include <XBase/StringTraits.hpp>
 #include <XBase/Unused.hpp>
 

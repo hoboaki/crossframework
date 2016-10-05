@@ -4,7 +4,7 @@
 #define XBASE_INCLUDED_DISPLAY_HPP
 
 #include <XBase/DisplayContext.hpp>
-#include <XBase/OS.hpp>
+#include <XBase/Os.hpp>
 #include <XBase/Screen.hpp>
 
 #if defined(XBASE_OS_WINDOWS)
@@ -12,7 +12,7 @@
 #elif defined(XBASE_OS_MACOSX)
 #include <XBase/Display_MacOSX.hpp>
 #elif defined(XBASE_OS_IOS)
-#include <XBase/Display_iOS.hpp>
+#include <XBase/Display_iOs.hpp>
 #else
 #include <XBase/Display_Default.hpp>
 #endif
@@ -62,11 +62,11 @@ public:
     //============================================================
     // 内部実装用関数群。
     const DisplayContext context_()const; // コンテキストの取得。
-    Display_EXT& ext_(); // 拡張。
+    Display_Ext& ext_(); // 拡張。
 
 private:
     DisplayContext mContext;
-    Display_EXT mEXT;
+    Display_Ext mExt;
 };
 
 //@}

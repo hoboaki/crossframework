@@ -9,14 +9,14 @@
 //------------------------------------------------------------------------------
 namespace XBase {
 
-// iOSのHID拡張。
-class HID_EXT : public NonCopyable
+// iOSのHid拡張。
+class Hid_Ext : public NonCopyable
 {
 public:
     Touch touch;
 
     //------------------------------------------------------------------------------
-    HID_EXT();
+    Hid_Ext();
 };
 
 } // namespace

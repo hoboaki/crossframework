@@ -123,7 +123,7 @@ private:
     ::XBase::RuntimeMArray< Vertex > mVertexArray;
     ::XBase::RuntimeMArray< Index >  mIndexArray;
     ::XBase::RuntimeMArray< Mesh >   mMeshArray;
-    VtxBuffer_EXT  mEXT;
+    VtxBuffer_EXT  mExt;
     ::XBase::Matrix34 mWorldMtx;
     ::XBase::Vector3  mNormal;
     ::XBase::Vector2  mTexCoord;

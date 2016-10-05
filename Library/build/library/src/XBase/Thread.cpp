@@ -3,11 +3,11 @@
 
 //------------------------------------------------------------------------------
 #include <XBase/Math.hpp>
-#include <XBase/OS.hpp>
+#include <XBase/Os.hpp>
 #include <XBase/TimeSpan.hpp>
 
 #if defined(XBASE_OS_WINDOWS)
-    #include <XBase/SDKHeader.hpp>
+    #include <XBase/SdkHeader.hpp>
 #else
     #include <unistd.h>
 #endif

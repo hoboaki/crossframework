@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 namespace XBase {
 
-/// @addtogroup XBase-HID
+/// @addtogroup XBase-Hid
 //@{
 /// キーボードの更新データ。
 struct KeyboardUpdateData

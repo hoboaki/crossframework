@@ -30,8 +30,8 @@
     <ClInclude Include="..\..\..\include\XBase\Math.hpp" />
     <ClInclude Include="..\..\..\include\XBase\Matrix34.hpp" />
     <ClInclude Include="..\..\..\include\XBase\Matrix44.hpp" />
-    <ClInclude Include="..\..\..\include\XBase\OSType.hpp" />
-    <ClInclude Include="..\..\..\include\XBase\PI.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\OsType.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\Pi.hpp" />
     <ClInclude Include="..\..\..\include\XBase\PodStruct.hpp" />
     <ClInclude Include="..\..\..\include\XBase\PointerCheck.hpp" />
     <ClInclude Include="..\..\..\include\XBase\Compiler.hpp" />
@@ -41,7 +41,7 @@
     <ClInclude Include="..\..\..\include\XBase\Endian.hpp" />
     <ClInclude Include="..\..\..\include\XBase\FixedString.hpp" />
     <ClInclude Include="..\..\..\include\XBase\FunctionAttribute.hpp" />
-    <ClInclude Include="..\..\..\include\XBase\OS.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\Os.hpp" />
     <ClInclude Include="..\..\..\include\XBase\PodClass.hpp" />
     <ClInclude Include="..\..\..\include\XBase\PodTypes.hpp" />
     <ClInclude Include="..\..\..\include\XBase\Quaternion.hpp" />
@@ -68,8 +68,8 @@
     <ClInclude Include="..\..\..\include\XBase\XBase.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\XBase\AABBox2.cpp" />
-    <ClCompile Include="..\src\XBase\AABBox2i.cpp" />
+    <ClCompile Include="..\src\XBase\Aabb2.cpp" />
+    <ClCompile Include="..\src\XBase\Aabb2i.cpp" />
     <ClCompile Include="..\src\XBase\Angle.cpp" />
     <ClCompile Include="..\src\XBase\Application.cpp" />
     <ClCompile Include="..\src\XBase\Argument.cpp" />
@@ -84,7 +84,7 @@
     <ClCompile Include="..\src\XBase\DivideCheck.cpp" />
     <ClCompile Include="..\src\XBase\FrameCounter.cpp" />
     <ClCompile Include="..\src\XBase\Hash.cpp" />
-    <ClCompile Include="..\src\XBase\HID.cpp" />
+    <ClCompile Include="..\src\XBase\Hid.cpp" />
     <ClCompile Include="..\src\XBase\IAllocator.cpp" />
     <ClCompile Include="..\src\XBase\IConsoleCallback.cpp" />
     <ClCompile Include="..\src\XBase\InvalidCheck.cpp" />
@@ -119,10 +119,10 @@
     <ClCompile Include="..\src\XBase\Vector3i.cpp" />
     <ClCompile Include="..\src\XBase\Vector4.cpp" />
     <ClCompile Include="..\src\XBase\Vector4i.cpp" />
-    <ClCompile Include="..\src\XBase\windows\Application_EXT.cpp" />
-    <ClCompile Include="..\src\XBase\windows\Display_EXT.cpp" />
+    <ClCompile Include="..\src\XBase\windows\Applcation_Ext.cpp" />
+    <ClCompile Include="..\src\XBase\windows\Display_Ext.cpp" />
     <ClCompile Include="..\src\XBase\windows\EntryPoint_EXT.cpp" />
-    <ClCompile Include="..\src\XBase\windows\HID_EXT.cpp" />
+    <ClCompile Include="..\src\XBase\windows\Hid_Ext.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{F7CCEEA1-49F4-475F-839A-4B75237368B6}</ProjectGuid>

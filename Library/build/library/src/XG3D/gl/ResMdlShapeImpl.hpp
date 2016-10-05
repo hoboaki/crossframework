@@ -5,7 +5,7 @@
 
 #include <XBase/IAllocator.hpp>
 #include <XBase/NonCopyable.hpp>
-#include <XG3D/SDKHeader.hpp>
+#include <XG3D/SdkHeader.hpp>
 #include "BinResMdlShape.hpp"
 #include "XDataPlus.hpp"
 

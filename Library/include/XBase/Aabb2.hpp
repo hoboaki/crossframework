@@ -6,7 +6,7 @@
 #include <XBase/Vector2.hpp>
 
 namespace XBase {
-class AABBox2i;
+class Aabb2i;
 }
 
 //------------------------------------------------------------------------------
@@ -17,15 +17,15 @@ namespace XBase {
 /// @brief 浮動小数型2次元AABB(Axis Aligned Bounding Box)。
 /// @details
 /// 四則演算のadd( AABB ),mul( scale )は２つのAABBの補間を実現するために実装しています。@n
-class AABBox2
+class Aabb2
 {
 public:
     //------------------------------------------------------------------------------
     /// @name コンストラクタ
     //@{
-    AABBox2(); ///< AABBox2( Vector2::Zero() ) で作成。
-    AABBox2(const Vector2Pod& aPos); ///< 1点を含むAABBを作成。
-    AABBox2(const Vector2Pod& aPos1, const Vector2Pod& aPos2); ///< 2点を含むAABBを作成。
+    Aabb2(); ///< Aabb2( Vector2::Zero() ) で作成。
+    Aabb2(const Vector2Pod& aPos); ///< 1点を含むAABBを作成。
+    Aabb2(const Vector2Pod& aPos1, const Vector2Pod& aPos2); ///< 2点を含むAABBを作成。
     //@}
 
     //------------------------------------------------------------------------------
@@ -56,10 +56,10 @@ public:
     //------------------------------------------------------------------------------
     /// @name 結合。
     //@{
-    const AABBox2 merge(const Vector2Pod& aPos)const; ///< 自分自身と指定の点を含むAABBを取得。
-    const AABBox2 merge(const AABBox2& aAABB)const; ///< 自分自身と指定のAABBを含むAABBを取得。
+    const Aabb2 merge(const Vector2Pod& aPos)const; ///< 自分自身と指定の点を含むAABBを取得。
+    const Aabb2 merge(const Aabb2& aAABB)const; ///< 自分自身と指定のAABBを含むAABBを取得。
     void mergeAssign(const Vector2Pod& aPos); ///< 自分自身と指定の点を含むAABBに設定する。
-    void mergeAssign(const AABBox2& aAABB); ///< 自分自身と指定のAABBを含むAABBに設定する。
+    void mergeAssign(const Aabb2& aAABB); ///< 自分自身と指定のAABBを含むAABBに設定する。
     //@}
 
     //------------------------------------------------------------------------------
@@ -68,7 +68,7 @@ public:
     /// @brief 指定のAABBが重なっているか。
     /// @details 
     /// 同線上は重なっているとして判定します。
-    bool isIntersects(const AABBox2& aAABB)const;
+    bool isIntersects(const Aabb2& aAABB)const;
 
     /// @brief 指定の点を含んでいるか。
     /// @details 
@@ -78,43 +78,43 @@ public:
     /// @brief 指定のAABBを含んでいるか。
     /// @details
     /// 同線上は含んでいると判定しています。
-    bool isContains(const AABBox2& aAABB)const;
+    bool isContains(const Aabb2& aAABB)const;
     //@}
 
     //------------------------------------------------------------------------------
     /// @name 四則演算
     //@{
-    const AABBox2 add(const Vector2Pod& aTrans)const; ///< min() max() に値を加算した結果を取得する。
-    const AABBox2 sub(const Vector2Pod& aTrans)const; ///< min() max() から値を減算した結果を取得する。
-    const AABBox2 add(const AABBox2& aAABB)const; ///< min() max() をそれぞれ加算した結果を取得する。
-    const AABBox2 sub(const AABBox2& aAABB)const; ///< min() max() をそれぞれ減算した結果を取得する。
-    const AABBox2 mul(f32 aScale)const; ///< min() max() に値を乗算した結果を取得する。
+    const Aabb2 add(const Vector2Pod& aTrans)const; ///< min() max() に値を加算した結果を取得する。
+    const Aabb2 sub(const Vector2Pod& aTrans)const; ///< min() max() から値を減算した結果を取得する。
+    const Aabb2 add(const Aabb2& aAABB)const; ///< min() max() をそれぞれ加算した結果を取得する。
+    const Aabb2 sub(const Aabb2& aAABB)const; ///< min() max() をそれぞれ減算した結果を取得する。
+    const Aabb2 mul(f32 aScale)const; ///< min() max() に値を乗算した結果を取得する。
     void addAssign(const Vector2Pod& aTrans); ///< min() max() に値を加算する。
     void subAssign(const Vector2Pod& aTrans); ///< min() max() から値を減算する。
-    void addAssign(const AABBox2& aAABB); ///< min() max() をそれぞれ加算する。
-    void subAssign(const AABBox2& aAABB); ///< min() max() をそれぞれ減算する。
+    void addAssign(const Aabb2& aAABB); ///< min() max() をそれぞれ加算する。
+    void subAssign(const Aabb2& aAABB); ///< min() max() をそれぞれ減算する。
     void mulAssign(f32 aScale); ///< min() max() に値を乗算する。
     //@}
 
     //------------------------------------------------------------------------------
     /// @name 演算子オーバーロード
     //@{
-    const AABBox2 operator+(const Vector2Pod&)const; ///< add() 。
-    const AABBox2 operator-(const Vector2Pod&)const; ///< sub() 。
-    const AABBox2 operator+(const AABBox2&)const; ///< add() 。
-    const AABBox2 operator-(const AABBox2&)const; ///< sub() 。
-    const AABBox2 operator*(f32)const; ///< mul() 。
-    AABBox2& operator+=(const Vector2Pod&); ///< addAssign() 。
-    AABBox2& operator-=(const Vector2Pod&); ///< subAssign() 。
-    AABBox2& operator+=(const AABBox2&); ///< addAssign() 。
-    AABBox2& operator-=(const AABBox2&); ///< subAssign() 。
-    AABBox2& operator*=(f32); ///< mulAssign() 。
+    const Aabb2 operator+(const Vector2Pod&)const; ///< add() 。
+    const Aabb2 operator-(const Vector2Pod&)const; ///< sub() 。
+    const Aabb2 operator+(const Aabb2&)const; ///< add() 。
+    const Aabb2 operator-(const Aabb2&)const; ///< sub() 。
+    const Aabb2 operator*(f32)const; ///< mul() 。
+    Aabb2& operator+=(const Vector2Pod&); ///< addAssign() 。
+    Aabb2& operator-=(const Vector2Pod&); ///< subAssign() 。
+    Aabb2& operator+=(const Aabb2&); ///< addAssign() 。
+    Aabb2& operator-=(const Aabb2&); ///< subAssign() 。
+    Aabb2& operator*=(f32); ///< mulAssign() 。
     //@}
 
     //------------------------------------------------------------------------------
     /// @name 変換
     //@{
-    const AABBox2i toAABB2i()const; ///< 切り捨てたmin()、切り上げたmax()の値を使って整数版AABBに変換。
+    const Aabb2i toAABB2i()const; ///< 切り捨てたmin()、切り上げたmax()の値を使って整数版AABBに変換。
     //@}
 private:
     Vector2 mMin;

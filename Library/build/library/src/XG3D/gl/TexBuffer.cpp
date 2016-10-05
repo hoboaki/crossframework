@@ -4,9 +4,9 @@
 //------------------------------------------------------------------------------
 #include <XBase/RuntimeAssert.hpp>
 #include <XG3D/ITexRes.hpp>
-#include <XG3D/SDKHeader.hpp>
+#include <XG3D/SdkHeader.hpp>
 #include <XG3D/TexSetting.hpp>
-#include "GLCMD.hpp"
+#include "GlCmd.hpp"
 
 //------------------------------------------------------------------------------
 namespace XG3D {
@@ -15,7 +15,7 @@ namespace XG3D {
 TexBuffer::TexBuffer(
     const TexResData& aData
     )
-: mEXT()
+: mExt()
 , mResData(aData)
 {
     // テクスチャ作成
@@ -75,7 +75,7 @@ TexBuffer::TexBuffer(
             XBASE_ERROR_INVALID_VALUE(int(mResData.format));
             break;
     }
-    XG3D_GLCMD(glBindTexture(GL_TEXTURE_2D, mEXT.texId));
+    XG3D_GLCMD(glBindTexture(GL_TEXTURE_2D, mExt.texId));
     XG3D_GLCMD(glTexImage2D(
         GL_TEXTURE_2D,
         0,
@@ -110,13 +110,13 @@ int TexBuffer::imageHeight()const
 //------------------------------------------------------------------------------
 TexBuffer_EXT& TexBuffer::ext_()
 {
-    return mEXT;
+    return mExt;
 }
 
 //------------------------------------------------------------------------------
 const TexBuffer_EXT& TexBuffer::ext_()const
 {
-    return mEXT;
+    return mExt;
 }
 
 //------------------------------------------------------------------------------

@@ -6,7 +6,7 @@
 #include <XBase/Vector2i.hpp>
 
 namespace XBase {
-class AABBox2;
+class Aabb2;
 }
 
 //------------------------------------------------------------------------------
@@ -24,7 +24,7 @@ namespace XBase {
 /// このようなルールを設けるため、AABB内の各セルの処理について次のようなfor分を書くことを想定しています。@n
 /// 経験上、整数版のAABBはこのほうが使い勝手がよいと作者は考えています。@n
 /// @code
-/// void func(const AABBox2i& aAABB)
+/// void func(const Aabb2i& aAABB)
 /// {
 ///     for (int y = aAABB.begin().y; t < aAABB.end().y; ++y) {
 ///         for (int x = aAABB.begin().x; t < aAABB.end().x; ++x) {
@@ -32,21 +32,21 @@ namespace XBase {
 ///     }
 /// }
 /// @endcode
-class AABBox2i
+class Aabb2i
 {
 public:
     //------------------------------------------------------------------------------
     /// @name 定数
     //@{
-    static const AABBox2i Largest(); ///< 全てを包むAABB。
+    static const Aabb2i Largest(); ///< 全てを包むAABB。
     //@}
 
     //------------------------------------------------------------------------------
     /// @name コンストラクタ
     //@{
-    AABBox2i(); ///< AABBox2i( Vector2i::Zero() ) で作成。
-    AABBox2i(const Vector2iPod& aBegin); ///< AABBox2i( aPos , 0 , 0 ) で作成。
-    AABBox2i(const Vector2iPod& aBegin, int aWidth, int aHeight); ///< 基準となる点とサイズを指定してAABBを作成。
+    Aabb2i(); ///< Aabb2i( Vector2i::Zero() ) で作成。
+    Aabb2i(const Vector2iPod& aBegin); ///< Aabb2i( aPos , 0 , 0 ) で作成。
+    Aabb2i(const Vector2iPod& aBegin, int aWidth, int aHeight); ///< 基準となる点とサイズを指定してAABBを作成。
     //@}
 
     //------------------------------------------------------------------------------
@@ -69,14 +69,14 @@ public:
     /// @name 正領域
     //@{
     bool isPositive()const; ///< begin() が (0,0) 以上か。
-    const AABBox2i toPositive()const; ///< begin() が (0,0) 未満なら (0,0) 以上になるようにしたAABBを取得する。
+    const Aabb2i toPositive()const; ///< begin() が (0,0) 未満なら (0,0) 以上になるようにしたAABBを取得する。
     //@}
 
     //------------------------------------------------------------------------------
     /// @name 結合
     //@{
-    const AABBox2i merge(const AABBox2i& aAABB)const; ///< 自分自身と指定のAABBを含むAABBを取得。
-    void mergeAssign(const AABBox2i& aAABB); ///< 自分自身と指定のAABBを含むAABBに設定する。
+    const Aabb2i merge(const Aabb2i& aAABB)const; ///< 自分自身と指定のAABBを含むAABBを取得。
+    void mergeAssign(const Aabb2i& aAABB); ///< 自分自身と指定のAABBを含むAABBに設定する。
     //@}
 
     //------------------------------------------------------------------------------
@@ -85,7 +85,7 @@ public:
     /// @brief 指定のAABBが重なっているか。
     /// @details 
     /// term() 線上は重なっていないとして判定します。
-    bool isIntersects(const AABBox2i& aAABB)const;
+    bool isIntersects(const Aabb2i& aAABB)const;
 
     /// @brief 指定の点を含んでいるか。
     /// @return begin() <= aPos && aPos() < end()
@@ -94,14 +94,14 @@ public:
     /// @brief 指定のAABBを含んでいるか。
     /// @details
     /// term() 線上は重なっていないとして判定します。
-    bool isContains(const AABBox2i& aAABB)const;
+    bool isContains(const Aabb2i& aAABB)const;
     //@}
 
     //------------------------------------------------------------------------------
     /// @name 四則演算
     //@{
-    const AABBox2i add(const Vector2iPod& aTrans)const; ///< min() term() に値を加算した結果を取得する。
-    const AABBox2i sub(const Vector2iPod& aTrans)const; ///< min() term() から値を減算した結果を取得する。
+    const Aabb2i add(const Vector2iPod& aTrans)const; ///< min() term() に値を加算した結果を取得する。
+    const Aabb2i sub(const Vector2iPod& aTrans)const; ///< min() term() から値を減算した結果を取得する。
     void addAssign(const Vector2iPod& aTrans); ///< min() term() に値を加算する。
     void subAssign(const Vector2iPod& aTrans); ///< min() term() から値を減算する。
     //@}
@@ -109,16 +109,16 @@ public:
     //------------------------------------------------------------------------------
     /// @name 演算子オーバーロード
     //@{
-    const AABBox2i operator+(const Vector2iPod&)const; ///< add() 。
-    const AABBox2i operator-(const Vector2iPod&)const; ///< sub() 。
-    AABBox2i& operator+=(const Vector2iPod&); ///< addAssign() 。
-    AABBox2i& operator-=(const Vector2iPod&); ///< subAssign() 。
+    const Aabb2i operator+(const Vector2iPod&)const; ///< add() 。
+    const Aabb2i operator-(const Vector2iPod&)const; ///< sub() 。
+    Aabb2i& operator+=(const Vector2iPod&); ///< addAssign() 。
+    Aabb2i& operator-=(const Vector2iPod&); ///< subAssign() 。
     //@}
 
     //------------------------------------------------------------------------------
     /// @name 変換
     //@{
-    const AABBox2 toAABB2f()const; ///< AABBox2( min() , term() ) に変換。
+    const Aabb2 toAABB2f()const; ///< Aabb2( min() , term() ) に変換。
     //@}
 
 private:

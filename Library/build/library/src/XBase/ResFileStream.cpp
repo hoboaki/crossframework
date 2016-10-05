@@ -10,13 +10,13 @@ namespace XBase {
 
 //------------------------------------------------------------------------------
 ResFileStream::ResFileStream()
-: mEXT()
+: mExt()
 {
 }
 
 //------------------------------------------------------------------------------
 ResFileStream::ResFileStream(const char* aPath)
-: mEXT()
+: mExt()
 {
     const bool result = open(aPath);
     XBASE_UNUSED(result);

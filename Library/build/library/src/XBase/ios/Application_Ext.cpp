@@ -3,7 +3,7 @@
 
 //------------------------------------------------------------------------------
 #include <XBase/Display.hpp>
-#include <XBase/HID.hpp>
+#include <XBase/Hid.hpp>
 #include "EntryPoint_Sync.h"
 #include "XBaseUIWindow.h"
 
@@ -29,7 +29,7 @@ AppEvent Application::receiveEventCore()
             return AppEvent_Quit;
 
         case XBaseAppEvent_Update:
-        {// HIDの更新
+        {// Hidの更新
             if (mDisplayPtr.isValid()) {
                 // タッチ入力ポーリング
                 const XBaseUITouchSet* touchSet = XBaseUIWindow_PollTouch(mDisplayPtr->ext_().windowPtr);

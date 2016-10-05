@@ -47,8 +47,8 @@
 		C55CF391146E7526002B2603 /* Vector3i.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C55CF38F146E7526002B2603 /* Vector3i.cpp */; };
 		C55CF392146E7526002B2603 /* Vector4i.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C55CF390146E7526002B2603 /* Vector4i.cpp */; };
 		C55CF394146E752F002B2603 /* Hash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C55CF393146E752F002B2603 /* Hash.cpp */; };
-		C5674358135F23130057A630 /* AABBox2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5674329135F23130057A630 /* AABBox2.cpp */; };
-		C5674359135F23130057A630 /* AABBox2i.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C567432A135F23130057A630 /* AABBox2i.cpp */; };
+		C5674358135F23130057A630 /* Aabb2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5674329135F23130057A630 /* Aabb2.cpp */; };
+		C5674359135F23130057A630 /* Aabb2i.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C567432A135F23130057A630 /* Aabb2i.cpp */; };
 		C567435A135F23130057A630 /* Angle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C567432B135F23130057A630 /* Angle.cpp */; };
 		C567435B135F23130057A630 /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C567432C135F23130057A630 /* Application.cpp */; };
 		C567435C135F23130057A630 /* Argument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C567432D135F23130057A630 /* Argument.cpp */; };
@@ -62,7 +62,7 @@
 		C5674364135F23130057A630 /* DisplayContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5674335135F23130057A630 /* DisplayContext.cpp */; };
 		C5674365135F23130057A630 /* DivideCheck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5674336135F23130057A630 /* DivideCheck.cpp */; };
 		C5674366135F23130057A630 /* FrameCounter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5674337135F23130057A630 /* FrameCounter.cpp */; };
-		C5674367135F23130057A630 /* HID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5674338135F23130057A630 /* HID.cpp */; };
+		C5674367135F23130057A630 /* Hid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5674338135F23130057A630 /* Hid.cpp */; };
 		C5674368135F23130057A630 /* IAllocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5674339135F23130057A630 /* IAllocator.cpp */; };
 		C5674369135F23130057A630 /* IConsoleCallback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C567433A135F23130057A630 /* IConsoleCallback.cpp */; };
 		C567436A135F23130057A630 /* InvalidCheck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C567433B135F23130057A630 /* InvalidCheck.cpp */; };
@@ -94,12 +94,12 @@
 		C5674384135F23130057A630 /* Vector2i.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5674355135F23130057A630 /* Vector2i.cpp */; };
 		C5674385135F23130057A630 /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5674356135F23130057A630 /* Vector3.cpp */; };
 		C5674386135F23130057A630 /* Vector4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5674357135F23130057A630 /* Vector4.cpp */; };
-		C5674393135F23180057A630 /* Application_EXT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5674387135F23180057A630 /* Application_EXT.cpp */; };
-		C5674394135F23180057A630 /* Display_EXT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5674388135F23180057A630 /* Display_EXT.cpp */; };
+		C5674393135F23180057A630 /* Applcation_Ext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5674387135F23180057A630 /* Applcation_Ext.cpp */; };
+		C5674394135F23180057A630 /* Display_Ext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5674388135F23180057A630 /* Display_Ext.cpp */; };
 		C5674395135F23180057A630 /* EntryPoint_EXT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5674389135F23180057A630 /* EntryPoint_EXT.cpp */; };
 		C5674396135F23180057A630 /* EntryPoint_EXTM.m in Sources */ = {isa = PBXBuildFile; fileRef = C567438A135F23180057A630 /* EntryPoint_EXTM.m */; };
-		C5674397135F23180057A630 /* HID_EXT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C567438B135F23180057A630 /* HID_EXT.cpp */; };
-		C5674398135F23180057A630 /* Screen_EXT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C567438C135F23180057A630 /* Screen_EXT.cpp */; };
+		C5674397135F23180057A630 /* Hid_Ext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C567438B135F23180057A630 /* Hid_Ext.cpp */; };
+		C5674398135F23180057A630 /* Screen_Ext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C567438C135F23180057A630 /* Screen_Ext.cpp */; };
 		C5674399135F23180057A630 /* XBaseNSApp.h in Headers */ = {isa = PBXBuildFile; fileRef = C567438D135F23180057A630 /* XBaseNSApp.h */; };
 		C567439A135F23180057A630 /* XBaseNSApp.m in Sources */ = {isa = PBXBuildFile; fileRef = C567438E135F23180057A630 /* XBaseNSApp.m */; };
 		C567439B135F23180057A630 /* XBaseNSScreen.h in Headers */ = {isa = PBXBuildFile; fileRef = C567438F135F23180057A630 /* XBaseNSScreen.h */; };
@@ -156,8 +156,8 @@
 		C55CF38F146E7526002B2603 /* Vector3i.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3i.cpp; sourceTree = "<group>"; };
 		C55CF390146E7526002B2603 /* Vector4i.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; path = Vector4i.cpp; sourceTree = "<group>"; };
 		C55CF393146E752F002B2603 /* Hash.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; path = Hash.cpp; sourceTree = "<group>"; };
-		C5674329135F23130057A630 /* AABBox2.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; path = AABBox2.cpp; sourceTree = "<group>"; };
-		C567432A135F23130057A630 /* AABBox2i.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; path = AABBox2i.cpp; sourceTree = "<group>"; };
+		C5674329135F23130057A630 /* Aabb2.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; path = Aabb2.cpp; sourceTree = "<group>"; };
+		C567432A135F23130057A630 /* Aabb2i.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; path = Aabb2i.cpp; sourceTree = "<group>"; };
 		C567432B135F23130057A630 /* Angle.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; path = Angle.cpp; sourceTree = "<group>"; };
 		C567432C135F23130057A630 /* Application.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; path = Application.cpp; sourceTree = "<group>"; };
 		C567432D135F23130057A630 /* Argument.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; path = Argument.cpp; sourceTree = "<group>"; };
@@ -171,7 +171,7 @@
 		C5674335135F23130057A630 /* DisplayContext.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; path = DisplayContext.cpp; sourceTree = "<group>"; };
 		C5674336135F23130057A630 /* DivideCheck.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; path = DivideCheck.cpp; sourceTree = "<group>"; };
 		C5674337135F23130057A630 /* FrameCounter.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; path = FrameCounter.cpp; sourceTree = "<group>"; };
-		C5674338135F23130057A630 /* HID.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; path = HID.cpp; sourceTree = "<group>"; };
+		C5674338135F23130057A630 /* Hid.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; path = Hid.cpp; sourceTree = "<group>"; };
 		C5674339135F23130057A630 /* IAllocator.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; path = IAllocator.cpp; sourceTree = "<group>"; };
 		C567433A135F23130057A630 /* IConsoleCallback.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; path = IConsoleCallback.cpp; sourceTree = "<group>"; };
 		C567433B135F23130057A630 /* InvalidCheck.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; path = InvalidCheck.cpp; sourceTree = "<group>"; };
@@ -203,12 +203,12 @@
 		C5674355135F23130057A630 /* Vector2i.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; path = Vector2i.cpp; sourceTree = "<group>"; };
 		C5674356135F23130057A630 /* Vector3.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3.cpp; sourceTree = "<group>"; };
 		C5674357135F23130057A630 /* Vector4.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; path = Vector4.cpp; sourceTree = "<group>"; };
-		C5674387135F23180057A630 /* Application_EXT.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = Application_EXT.cpp; path = macosx/Application_EXT.cpp; sourceTree = "<group>"; };
-		C5674388135F23180057A630 /* Display_EXT.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = Display_EXT.cpp; path = macosx/Display_EXT.cpp; sourceTree = "<group>"; };
+		C5674387135F23180057A630 /* Applcation_Ext.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = Applcation_Ext.cpp; path = macosx/Applcation_Ext.cpp; sourceTree = "<group>"; };
+		C5674388135F23180057A630 /* Display_Ext.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = Display_Ext.cpp; path = macosx/Display_Ext.cpp; sourceTree = "<group>"; };
 		C5674389135F23180057A630 /* EntryPoint_EXT.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = EntryPoint_EXT.cpp; path = macosx/EntryPoint_EXT.cpp; sourceTree = "<group>"; };
 		C567438A135F23180057A630 /* EntryPoint_EXTM.m */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.c.objc; name = EntryPoint_EXTM.m; path = macosx/EntryPoint_EXTM.m; sourceTree = "<group>"; };
-		C567438B135F23180057A630 /* HID_EXT.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = HID_EXT.cpp; path = macosx/HID_EXT.cpp; sourceTree = "<group>"; };
-		C567438C135F23180057A630 /* Screen_EXT.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = Screen_EXT.cpp; path = macosx/Screen_EXT.cpp; sourceTree = "<group>"; };
+		C567438B135F23180057A630 /* Hid_Ext.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = Hid_Ext.cpp; path = macosx/Hid_Ext.cpp; sourceTree = "<group>"; };
+		C567438C135F23180057A630 /* Screen_Ext.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = Screen_Ext.cpp; path = macosx/Screen_Ext.cpp; sourceTree = "<group>"; };
 		C567438D135F23180057A630 /* XBaseNSApp.h */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.c.h; name = XBaseNSApp.h; path = macosx/XBaseNSApp.h; sourceTree = "<group>"; };
 		C567438E135F23180057A630 /* XBaseNSApp.m */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.c.objc; name = XBaseNSApp.m; path = macosx/XBaseNSApp.m; sourceTree = "<group>"; };
 		C567438F135F23180057A630 /* XBaseNSScreen.h */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.c.h; name = XBaseNSScreen.h; path = macosx/XBaseNSScreen.h; sourceTree = "<group>"; };
@@ -311,20 +311,20 @@
 			isa = PBXGroup;
 			children = (
 				C567439F135F231C0057A630 /* ResFileStream_EXT.cpp */,
-				C5674387135F23180057A630 /* Application_EXT.cpp */,
-				C5674388135F23180057A630 /* Display_EXT.cpp */,
+				C5674387135F23180057A630 /* Applcation_Ext.cpp */,
+				C5674388135F23180057A630 /* Display_Ext.cpp */,
 				C5674389135F23180057A630 /* EntryPoint_EXT.cpp */,
 				C567438A135F23180057A630 /* EntryPoint_EXTM.m */,
-				C567438B135F23180057A630 /* HID_EXT.cpp */,
-				C567438C135F23180057A630 /* Screen_EXT.cpp */,
+				C567438B135F23180057A630 /* Hid_Ext.cpp */,
+				C567438C135F23180057A630 /* Screen_Ext.cpp */,
 				C567438D135F23180057A630 /* XBaseNSApp.h */,
 				C567438E135F23180057A630 /* XBaseNSApp.m */,
 				C567438F135F23180057A630 /* XBaseNSScreen.h */,
 				C5674390135F23180057A630 /* XBaseNSScreen.m */,
 				C5674391135F23180057A630 /* XBaseNSWindow.h */,
 				C5674392135F23180057A630 /* XBaseNSWindow.m */,
-				C5674329135F23130057A630 /* AABBox2.cpp */,
-				C567432A135F23130057A630 /* AABBox2i.cpp */,
+				C5674329135F23130057A630 /* Aabb2.cpp */,
+				C567432A135F23130057A630 /* Aabb2i.cpp */,
 				C567432B135F23130057A630 /* Angle.cpp */,
 				C567432C135F23130057A630 /* Application.cpp */,
 				C567432D135F23130057A630 /* Argument.cpp */,
@@ -338,7 +338,7 @@
 				C5674335135F23130057A630 /* DisplayContext.cpp */,
 				C5674336135F23130057A630 /* DivideCheck.cpp */,
 				C5674337135F23130057A630 /* FrameCounter.cpp */,
-				C5674338135F23130057A630 /* HID.cpp */,
+				C5674338135F23130057A630 /* Hid.cpp */,
 				C5674339135F23130057A630 /* IAllocator.cpp */,
 				C567433A135F23130057A630 /* IConsoleCallback.cpp */,
 				C567433B135F23130057A630 /* InvalidCheck.cpp */,
@@ -554,8 +554,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5674358135F23130057A630 /* AABBox2.cpp in Sources */,
-				C5674359135F23130057A630 /* AABBox2i.cpp in Sources */,
+				C5674358135F23130057A630 /* Aabb2.cpp in Sources */,
+				C5674359135F23130057A630 /* Aabb2i.cpp in Sources */,
 				C567435A135F23130057A630 /* Angle.cpp in Sources */,
 				C567435B135F23130057A630 /* Application.cpp in Sources */,
 				C567435C135F23130057A630 /* Argument.cpp in Sources */,
@@ -569,7 +569,7 @@
 				C5674364135F23130057A630 /* DisplayContext.cpp in Sources */,
 				C5674365135F23130057A630 /* DivideCheck.cpp in Sources */,
 				C5674366135F23130057A630 /* FrameCounter.cpp in Sources */,
-				C5674367135F23130057A630 /* HID.cpp in Sources */,
+				C5674367135F23130057A630 /* Hid.cpp in Sources */,
 				C5674368135F23130057A630 /* IAllocator.cpp in Sources */,
 				C5674369135F23130057A630 /* IConsoleCallback.cpp in Sources */,
 				C567436A135F23130057A630 /* InvalidCheck.cpp in Sources */,
@@ -601,12 +601,12 @@
 				C5674384135F23130057A630 /* Vector2i.cpp in Sources */,
 				C5674385135F23130057A630 /* Vector3.cpp in Sources */,
 				C5674386135F23130057A630 /* Vector4.cpp in Sources */,
-				C5674393135F23180057A630 /* Application_EXT.cpp in Sources */,
-				C5674394135F23180057A630 /* Display_EXT.cpp in Sources */,
+				C5674393135F23180057A630 /* Applcation_Ext.cpp in Sources */,
+				C5674394135F23180057A630 /* Display_Ext.cpp in Sources */,
 				C5674395135F23180057A630 /* EntryPoint_EXT.cpp in Sources */,
 				C5674396135F23180057A630 /* EntryPoint_EXTM.m in Sources */,
-				C5674397135F23180057A630 /* HID_EXT.cpp in Sources */,
-				C5674398135F23180057A630 /* Screen_EXT.cpp in Sources */,
+				C5674397135F23180057A630 /* Hid_Ext.cpp in Sources */,
+				C5674398135F23180057A630 /* Screen_Ext.cpp in Sources */,
 				C567439A135F23180057A630 /* XBaseNSApp.m in Sources */,
 				C567439C135F23180057A630 /* XBaseNSScreen.m in Sources */,
 				C567439E135F23180057A630 /* XBaseNSWindow.m in Sources */,

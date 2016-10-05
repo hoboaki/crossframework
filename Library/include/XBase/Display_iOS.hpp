@@ -10,24 +10,24 @@
 
 struct XBaseUIWindow;
 namespace XBase {
-class HID;
+class Hid;
 }
 
 //------------------------------------------------------------------------------
 namespace XBase {
 
 // MacOSX環境でのDisplayの拡張。
-class Display_EXT
+class Display_Ext
 {
 public:
     //============================================================
     XBaseUIWindow* windowPtr;
     Placement< Screen > mainScreen;
-    Pointer< HID > hidPtr;
+    Pointer< Hid > hidPtr;
 
     //============================================================
-    Display_EXT(const DisplayContext&);
-    ~Display_EXT();
+    Display_Ext(const DisplayContext&);
+    ~Display_Ext();
 };
 
 } // namespace

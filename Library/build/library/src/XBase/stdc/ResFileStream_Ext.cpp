@@ -4,7 +4,7 @@
 #include <XBase/Application.hpp>
 #include <XBase/Argument.hpp>
 #include <XBase/Compiler.hpp>
-#include <XBase/OS.hpp>
+#include <XBase/Os.hpp>
 #include <XBase/RuntimeAssert.hpp>
 #include <XBase/StringTraits.hpp>
 #include <XBase/Unused.hpp>
@@ -21,7 +21,7 @@ pword_t ResFileStream::CalcReadBufferSize(const pword_t aSize)
 //------------------------------------------------------------------------------
 ResFileStream::~ResFileStream()
 {
-    if (mEXT.fp != 0) {
+    if (mExt.fp != 0) {
         close();
     }
 }
@@ -31,14 +31,14 @@ bool ResFileStream::open(const char* aPath)
 {
 #if defined(XBASE_OS_WINDOWS)
     // 260は最大パス長
-    fopen_s(&mEXT.fp, ::XBase::FixedString< char, 260 >::FromFormat("%s/%s", Application::Instance().argument().exeDirPath(), aPath).readPtr(), "rb");
+    fopen_s(&mExt.fp, ::XBase::FixedString< char, 260 >::FromFormat("%s/%s", Application::Instance().argument().exeDirPath(), aPath).readPtr(), "rb");
 #elif defined(XBASE_OS_MACOSX)
     // 256は適当なパス長
-    mEXT.fp = std::fopen(::XBase::FixedString< char, 256 >::FromFormat("Contents/Resources/%s", aPath).readPtr(), "rb");
+    mExt.fp = std::fopen(::XBase::FixedString< char, 256 >::FromFormat("Contents/Resources/%s", aPath).readPtr(), "rb");
 #else
-    mEXT.fp = std::fopen(aPath, "rb");
+    mExt.fp = std::fopen(aPath, "rb");
 #endif
-    return mEXT.fp != 0;
+    return mExt.fp != 0;
 }
 
 //------------------------------------------------------------------------------
@@ -66,7 +66,7 @@ pword_t ResFileStream::seek(const int aOffset, const SeekOrigin aOrigin)
 
     // seek
     {
-        const bool result = std::fseek(mEXT.fp, aOffset, whence) == 0;
+        const bool result = std::fseek(mExt.fp, aOffset, whence) == 0;
         if (!result) {
             XBASE_ASSERT_NOT_REACHED();
             return 0; // fail safe code
@@ -75,7 +75,7 @@ pword_t ResFileStream::seek(const int aOffset, const SeekOrigin aOrigin)
 
     // tell
     {
-        long pos = ftell(mEXT.fp);
+        long pos = ftell(mExt.fp);
         if (pos < 0) {
             XBASE_ASSERT_NOT_REACHED();
             return 0; // fail safe code
@@ -87,20 +87,20 @@ pword_t ResFileStream::seek(const int aOffset, const SeekOrigin aOrigin)
 //------------------------------------------------------------------------------
 pword_t ResFileStream::read(const ptr_t aBuffer, const pword_t aSize)
 {
-    return std::fread(aBuffer, 1, aSize, mEXT.fp);
+    return std::fread(aBuffer, 1, aSize, mExt.fp);
 }
 
 //------------------------------------------------------------------------------
 void ResFileStream::close()
 {
-    if (mEXT.fp == 0) {
+    if (mExt.fp == 0) {
         XBASE_ASSERT_NOT_REACHED();
         return;
     }
-    const bool result = std::fclose(mEXT.fp) == 0;
+    const bool result = std::fclose(mExt.fp) == 0;
     XBASE_UNUSED(result);
     XBASE_ASSERT(result);
-    mEXT.fp = 0;
+    mExt.fp = 0;
 }
 
 //------------------------------------------------------------------------------

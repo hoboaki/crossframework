@@ -5,7 +5,7 @@
 namespace XBase {
 
 //------------------------------------------------------------------------------
-Screen_EXT::Screen_EXT()
+Screen_Ext::Screen_Ext()
 : glView(0)
 {
 }

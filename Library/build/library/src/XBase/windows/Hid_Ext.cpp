@@ -1,5 +1,5 @@
 // 文字コード：UTF-8
-#include <XBase/HID.hpp>
+#include <XBase/Hid.hpp>
 
 //------------------------------------------------------------------------------
 #include <XBase/Display.hpp>
@@ -10,47 +10,47 @@
 namespace XBase {
 
 //------------------------------------------------------------------------------
-int HID::keyboardCount()const
+int Hid::keyboardCount()const
 {
     return 1;
 }
 
 //------------------------------------------------------------------------------
-const Keyboard HID::keyboardAtIndex(const int aIndex)const
+const Keyboard Hid::keyboardAtIndex(const int aIndex)const
 {
     XBASE_ASSERT_LESS(aIndex, keyboardCount());
     XBASE_UNUSED(aIndex);
-    return mEXT.keyboard;
+    return mExt.keyboard;
 }
 
 //------------------------------------------------------------------------------
-int HID::mouseCount()const
+int Hid::mouseCount()const
 {
     return 1;
 }
 
 //------------------------------------------------------------------------------
-const Mouse HID::mouseAtIndex(const int aIndex)const
+const Mouse Hid::mouseAtIndex(const int aIndex)const
 {
     XBASE_ASSERT_LESS(aIndex, mouseCount());
     XBASE_UNUSED(aIndex);
-    return mEXT.mouse;
+    return mExt.mouse;
 }
 
 //------------------------------------------------------------------------------
-int HID::supportedTouchTapCount()const
+int Hid::supportedTouchTapCount()const
 {
     return 0;
 }
 
 //------------------------------------------------------------------------------
-int HID::touchCount()const
+int Hid::touchCount()const
 {
     return 0;
 }
 
 //------------------------------------------------------------------------------
-const Touch HID::touchAtIndex(const int)const
+const Touch Hid::touchAtIndex(const int)const
 {
     XBASE_ASSERT_NOT_REACHED();
     return Touch(1);

@@ -10,8 +10,8 @@
 //------------------------------------------------------------------------------
 namespace XBase {
 
-// MacOSXのHID拡張。
-class HID_EXT : public NonCopyable
+// MacOSXのHid拡張。
+class Hid_Ext : public NonCopyable
 {
 public:
     Keyboard keyboard;

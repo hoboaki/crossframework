@@ -3,7 +3,7 @@
 #else
 #define XBASE_INCLUDED_SDKHEADER_HPP
 
-#include <XBase/OS.hpp>
+#include <XBase/Os.hpp>
 
 #if defined(XBASE_OS_WINDOWS)
     #include <windows.h>

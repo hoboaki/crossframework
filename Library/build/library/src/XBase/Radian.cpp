@@ -4,7 +4,7 @@
 //------------------------------------------------------------------------------
 #include <XBase/Angle.hpp>
 #include <XBase/Degree.hpp>
-#include <XBase/PI.hpp>
+#include <XBase/Pi.hpp>
 
 //------------------------------------------------------------------------------
 namespace XBase {

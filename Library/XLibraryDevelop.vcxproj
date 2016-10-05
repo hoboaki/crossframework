@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="build\library\src\XBase\AABBox2.cpp" />
-    <ClCompile Include="build\library\src\XBase\AABBox2i.cpp" />
+    <ClCompile Include="build\library\src\XBase\Aabb2.cpp" />
+    <ClCompile Include="build\library\src\XBase\Aabb2i.cpp" />
     <ClCompile Include="build\library\src\XBase\Angle.cpp" />
     <ClCompile Include="build\library\src\XBase\Application.cpp" />
     <ClCompile Include="build\library\src\XBase\Argument.cpp" />
@@ -32,7 +32,7 @@
     <ClCompile Include="build\library\src\XBase\Degree.cpp" />
     <ClCompile Include="build\library\src\XBase\Display.cpp" />
     <ClCompile Include="build\library\src\XBase\Hash.cpp" />
-    <ClCompile Include="build\library\src\XBase\HID.cpp" />
+    <ClCompile Include="build\library\src\XBase\Hid.cpp" />
     <ClCompile Include="build\library\src\XBase\IAllocator.cpp" />
     <ClCompile Include="build\library\src\XBase\IReadStream.cpp" />
     <ClCompile Include="build\library\src\XBase\Keyboard.cpp" />
@@ -69,10 +69,10 @@
     <ClCompile Include="build\library\src\XBase\Vector3i.cpp" />
     <ClCompile Include="build\library\src\XBase\Vector4.cpp" />
     <ClCompile Include="build\library\src\XBase\Vector4i.cpp" />
-    <ClCompile Include="build\library\src\XBase\windows\Application_EXT.cpp" />
-    <ClCompile Include="build\library\src\XBase\windows\Display_EXT.cpp" />
+    <ClCompile Include="build\library\src\XBase\windows\Applcation_Ext.cpp" />
+    <ClCompile Include="build\library\src\XBase\windows\Display_Ext.cpp" />
     <ClCompile Include="build\library\src\XBase\windows\EntryPoint_EXT.cpp" />
-    <ClCompile Include="build\library\src\XBase\windows\HID_EXT.cpp" />
+    <ClCompile Include="build\library\src\XBase\windows\Hid_Ext.cpp" />
     <ClCompile Include="build\library\src\XG3D\gl\BinResHeader.cpp" />
     <ClCompile Include="build\library\src\XG3D\gl\ITexRes.cpp" />
     <ClCompile Include="build\library\src\XG3D\gl\Renderer.cpp" />
@@ -136,10 +136,10 @@
     <ClInclude Include="build\library\src\XG3D\gl\ResMdlSubMeshImpl.hpp" />
     <ClInclude Include="build\library\src\XG3D\gl\ResTexImpl.hpp" />
     <ClInclude Include="build\library\src\XG3D\gl\XDataPlus.hpp" />
-    <ClInclude Include="include\XBase\AABBox2.hpp" />
-    <ClInclude Include="include\XBase\AABBox2i.hpp" />
+    <ClInclude Include="include\XBase\Aabb2.hpp" />
+    <ClInclude Include="include\XBase\Aabb2i.hpp" />
     <ClInclude Include="include\XBase\AutoMemBlock.hpp" />
-    <ClInclude Include="build\library\src\XG3D\gl\GLCMD.hpp" />
+    <ClInclude Include="build\library\src\XG3D\gl\GlCmd.hpp" />
     <ClInclude Include="build\library\src\XG3D\gl\ShaderConstant.hpp" />
     <ClInclude Include="include\XBase\Angle.hpp" />
     <ClInclude Include="include\XBase\AppEvent.hpp" />
@@ -148,7 +148,7 @@
     <ClInclude Include="include\XBase\Argument.hpp" />
     <ClInclude Include="include\XBase\ArrayLength.hpp" />
     <ClInclude Include="include\XBase\AutoPtr.hpp" />
-    <ClInclude Include="include\XBase\AutoSPPtr.hpp" />
+    <ClInclude Include="include\XBase\AutoSpPtr.hpp" />
     <ClInclude Include="include\XBase\BitSet.hpp" />
     <ClInclude Include="include\XBase\Bool.hpp" />
     <ClInclude Include="include\XBase\BuiltInTypes.hpp" />
@@ -162,8 +162,8 @@
     <ClInclude Include="include\XBase\EnumCheck.hpp" />
     <ClInclude Include="include\XBase\FrameCounter.hpp" />
     <ClInclude Include="include\XBase\Hash.hpp" />
-    <ClInclude Include="include\XBase\HID.hpp" />
-    <ClInclude Include="include\XBase\HID_Windows.hpp" />
+    <ClInclude Include="include\XBase\Hid.hpp" />
+    <ClInclude Include="include\XBase\Hid_Windows.hpp" />
     <ClInclude Include="include\XBase\Infinity.hpp" />
     <ClInclude Include="include\XBase\IReadStream.hpp" />
     <ClInclude Include="include\XBase\KeyBitSet.hpp" />
@@ -199,8 +199,8 @@
     <ClInclude Include="include\XBase\NonCopyable.hpp" />
     <ClInclude Include="include\XBase\OpenALCheck.hpp" />
     <ClInclude Include="include\XBase\OpenGLCheck.hpp" />
-    <ClInclude Include="include\XBase\OS.hpp" />
-    <ClInclude Include="include\XBase\OSType.hpp" />
+    <ClInclude Include="include\XBase\Os.hpp" />
+    <ClInclude Include="include\XBase\OsType.hpp" />
     <ClInclude Include="include\XBase\Placement.hpp" />
     <ClInclude Include="include\XBase\Pointer.hpp" />
     <ClInclude Include="include\XBase\Random.hpp" />
@@ -211,8 +211,8 @@
     <ClInclude Include="include\XBase\ScopedPtr.hpp" />
     <ClInclude Include="include\XBase\Screen.hpp" />
     <ClInclude Include="include\XBase\ScreenPos.hpp" />
-    <ClInclude Include="include\XBase\SDKHeader.hpp" />
-    <ClInclude Include="include\XBase\PI.hpp" />
+    <ClInclude Include="include\XBase\SdkHeader.hpp" />
+    <ClInclude Include="include\XBase\Pi.hpp" />
     <ClInclude Include="include\XBase\PodClass.hpp" />
     <ClInclude Include="include\XBase\PodInheritClass.hpp" />
     <ClInclude Include="include\XBase\PodStruct.hpp" />
@@ -275,7 +275,7 @@
     <ClInclude Include="include\XG3D\ResTex.hpp" />
     <ClInclude Include="include\XG3D\ResTexFormat.hpp" />
     <ClInclude Include="include\XG3D\RuntimeTexContext.hpp" />
-    <ClInclude Include="include\XG3D\SDKHeader.hpp" />
+    <ClInclude Include="include\XG3D\SdkHeader.hpp" />
     <ClInclude Include="include\XG3D\Renderer.hpp" />
     <ClInclude Include="include\XG3D\TexAddress.hpp" />
     <ClInclude Include="include\XG3D\RuntimeTex.hpp" />
