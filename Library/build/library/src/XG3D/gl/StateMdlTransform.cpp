@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XG3D/StateMdlTransform.hpp>
 
-//------------------------------------------------------------------------------
 #include <XG3D/MdlLocalMtx.hpp>
 #include <XG3D/ResConstant.hpp>
 #include <XG3D/ResMdl.hpp>

@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XG3D/RuntimeTex.hpp>
 
-//------------------------------------------------------------------------------
 #include <XBase/RuntimeAssert.hpp>
 #include <XBase/Unused.hpp>
 #include <XG3D/TexResData.hpp>

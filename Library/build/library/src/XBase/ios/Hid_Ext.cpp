@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XBase/Hid.hpp>
 
-//------------------------------------------------------------------------------
 #include <XBase/Display.hpp>
 #include <XBase/Keyboard.hpp>
 #include <XBase/Mouse.hpp>

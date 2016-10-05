@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include "ResTexImpl.hpp"
 
-//------------------------------------------------------------------------------
 #include <XBase/EnumCheck.hpp>
 #include <XBase/FunctionAttribute.hpp>
 #include <XBase/Ref.hpp>

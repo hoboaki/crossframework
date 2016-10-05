@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XBase/DisplayContext.hpp>
 
-//------------------------------------------------------------------------------
 #include <XBase/SdkHeader.hpp>
 
 #if defined(XBASE_OS_MACOSX)

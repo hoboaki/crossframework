@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XG3D/ResMatSet.hpp>
 
-//------------------------------------------------------------------------------
 #include <XBase/EnumCheck.hpp>
 #include <XBase/RuntimeAssert.hpp>
 #include <XBase/StringTraits.hpp>

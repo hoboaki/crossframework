@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XBase/Matrix44.hpp>
 
-//------------------------------------------------------------------------------
 #include <XBase/Angle.hpp>
 #include <XBase/Console.hpp>
 #include <XBase/Math.hpp>

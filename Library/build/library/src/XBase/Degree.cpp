@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XBase/Degree.hpp>
 
-//------------------------------------------------------------------------------
 #include <XBase/Angle.hpp>
 #include <XBase/Pi.hpp>
 #include <XBase/Radian.hpp>

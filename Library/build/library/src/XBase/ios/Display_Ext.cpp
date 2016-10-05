@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XBase/Display.hpp>
 
-//------------------------------------------------------------------------------
 #include <XBase/Application.hpp>
 #include <XBase/Ref.hpp>
 #include "XBaseUIScreen.h"

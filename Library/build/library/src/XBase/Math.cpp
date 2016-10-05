@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XBase/Math.hpp>
 
-//------------------------------------------------------------------------------
 #include <cmath>
 #include <XBase/Angle.hpp>
 #include <XBase/DivideCheck.hpp>

@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XG3D/StateMaterial.hpp>
 
-//------------------------------------------------------------------------------
 #include <XG3D/MatParam.hpp>
 #include <XG3D/ResMat.hpp>
 

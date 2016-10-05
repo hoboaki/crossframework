@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XBase/Thread.hpp>
 
-//------------------------------------------------------------------------------
 #include <XBase/Math.hpp>
 #include <XBase/Os.hpp>
 #include <XBase/TimeSpan.hpp>

@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XBase/Console.hpp>
 
-//------------------------------------------------------------------------------
 #include <XBase/Calendar.hpp>
 #include <XBase/FunctionAttribute.hpp>
 #include <XBase/IConsoleCallback.hpp>

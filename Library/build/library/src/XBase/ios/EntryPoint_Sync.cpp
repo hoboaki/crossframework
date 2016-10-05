@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include "EntryPoint_Sync.h"
 
-//------------------------------------------------------------------------------
 #include <pthread.h>
 #include <XBase/Placement.hpp>
 #include <XBase/RuntimeAssert.hpp>

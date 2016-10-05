@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XG3D/ResMdl.hpp>
 
-//------------------------------------------------------------------------------
 #include <XBase/RuntimeAssert.hpp>
 #include <XG3D/ResConstant.hpp>
 #include "ResMdlImpl.hpp"

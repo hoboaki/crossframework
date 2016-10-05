@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XBase/StringTraits.hpp>
 
-//------------------------------------------------------------------------------
 #include <cstdio>
 #include <cstring>
 #include <cwchar>

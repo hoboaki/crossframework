@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XBase/Aabb2i.hpp>
 
-//------------------------------------------------------------------------------
 #include <XBase/Aabb2.hpp>
 #include <XBase/RuntimeAssert.hpp>
 

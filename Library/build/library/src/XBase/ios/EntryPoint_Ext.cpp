@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XBase/EntryPoint.hpp>
 
-//------------------------------------------------------------------------------
 #include <pthread.h>
 #include <XBase/Application.hpp>
 #include <XBase/Argument.hpp>

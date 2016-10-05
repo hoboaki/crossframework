@@ -1,7 +1,6 @@
 // 文字コード：UTF-8
 #include <XBase/Color4.hpp>
 
-//------------------------------------------------------------------------------
 #include <XBase/Color4b.hpp>
 #include <XBase/DivideCheck.hpp>
 #include <XBase/Math.hpp>
