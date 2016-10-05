@@ -4,7 +4,7 @@
 #define XBASE_INCLUDED_CALENDAR_HPP
 
 #include <XBase/BuiltInTypes.hpp>
-#include <XBase/PODInheritClass.hpp>
+#include <XBase/PodInheritClass.hpp>
 
 //------------------------------------------------------------------------------
 namespace XBase {
@@ -13,7 +13,7 @@ namespace XBase {
 //@{
     /// @brief カレンダー情報を扱う構造体。
 /// @details グレゴリアン歴を使っています。
-struct CalendarPOD
+struct CalendarPod
 {
     /// @name 定数
     //@{
@@ -47,47 +47,47 @@ struct CalendarPOD
 
     /// @brief 指定の年が閏年かどうか取得する。
     /// @return 閏年ならtrue。
-    /// @param aYear 年。値の意味は CalendarPOD::year と同じ。
+    /// @param aYear 年。値の意味は CalendarPod::year と同じ。
     static bool IsLeapYear(int aYear);
 
     /// @brief 西暦1年1月1日から指定の年・月・日まで何日あるか取得する。
     /// @return 日数。
-    /// @param aYear 年。値の意味は CalendarPOD::year と同じ。
-    /// @param aMonth 月。値の意味は CalendarPOD::month と同じ。
-    /// @param aDayOfMonth 日。値の意味は CalendarPOD::dayOfMonth と同じ。
+    /// @param aYear 年。値の意味は CalendarPod::year と同じ。
+    /// @param aMonth 月。値の意味は CalendarPod::month と同じ。
+    /// @param aDayOfMonth 日。値の意味は CalendarPod::dayOfMonth と同じ。
     static int DaysToDate(int aYear, int aMonth, int aDayOfMonth);
 
     /// @brief 西暦1年1月1日から指定した日数が経過した日の0:0:0.0.0.0を取得する。
     /// @return カレンダー。
     /// @param aDays 日数。
-    static const CalendarPOD FromDays(int aDays);
+    static const CalendarPod FromDays(int aDays);
 
     /// @brief 指定の年の総日数を取得する。
     /// @return 総日数。
-    /// @param aYear 年。値の意味は CalendarPOD::year と同じ。
+    /// @param aYear 年。値の意味は CalendarPod::year と同じ。
     static int  DaysInYear(int aYear);
 
     /// @brief 指定の年・月の総日数を取得する。
     /// @return 総日数。
-    /// @param aYear 月が所属する年。値の意味は CalendarPOD::year と同じ。
-    /// @param aMonth 月。値の意味は CalendarPOD::month と同じ。
+    /// @param aYear 月が所属する年。値の意味は CalendarPod::year と同じ。
+    /// @param aMonth 月。値の意味は CalendarPod::month と同じ。
     static int  DaysInMonth(int aYear, int aMonth);
 
-    u16 year;       ///< 年。 CalendarPOD::YearMin <= val <= CalendarPOD::YearMax 。0は西暦1年を示す。
-    u16 month;      ///< 月。 CalendarPOD::MonthMin <= val <= CalendarPOD::MonthMax 。0は1月を示す。
-    u16 dayOfYear;  ///< 日。 CalendarPOD::DayOfYearMin <= val <= CalendarPOD::DayOfYearMax 。0は1月1日を示す。
-    u16 dayOfMonth; ///< 月の中の日。 CalendarPOD::DayOfMonthMin <= val <= CalendarPOD::DayOfMonthMax 。0は1日を示す。
-    u16 dayOfWeek;  ///< 週の中の日。 CalendarPOD::DayOfWeekMin <= val <= CalendarPOD::DayOfWeekMax 。0は日曜日を示す。
-    u16 hour;       ///< 時。 CalendarPOD::HourMin <= val <= CalendarPOD::HourMax 。
-    u16 min;        ///< 分。 CalendarPOD::MinuteMin <= val <= CalendarPOD::MinuteMax 。
-    u16 sec;        ///< 秒。 CalendarPOD::SecondMin <= val <= CalendarPOD::SecondMax 。
-    u16 msec;       ///< ミリ秒。 CalendarPOD::MillisecondMin <= val <= CalendarPOD::MillisecondMax 。
-    u16 usec;       ///< マイクロ秒。 CalendarPOD::MicrosecondMin <= val <= CalendarPOD::MicrosecondMax 。
-    u16 nsec;       ///< ナノ秒。 CalendarPOD::NanosecondsMin <= val <= CalendarPOD::NanosecondsMax 。
+    u16 year;       ///< 年。 CalendarPod::YearMin <= val <= CalendarPod::YearMax 。0は西暦1年を示す。
+    u16 month;      ///< 月。 CalendarPod::MonthMin <= val <= CalendarPod::MonthMax 。0は1月を示す。
+    u16 dayOfYear;  ///< 日。 CalendarPod::DayOfYearMin <= val <= CalendarPod::DayOfYearMax 。0は1月1日を示す。
+    u16 dayOfMonth; ///< 月の中の日。 CalendarPod::DayOfMonthMin <= val <= CalendarPod::DayOfMonthMax 。0は1日を示す。
+    u16 dayOfWeek;  ///< 週の中の日。 CalendarPod::DayOfWeekMin <= val <= CalendarPod::DayOfWeekMax 。0は日曜日を示す。
+    u16 hour;       ///< 時。 CalendarPod::HourMin <= val <= CalendarPod::HourMax 。
+    u16 min;        ///< 分。 CalendarPod::MinuteMin <= val <= CalendarPod::MinuteMax 。
+    u16 sec;        ///< 秒。 CalendarPod::SecondMin <= val <= CalendarPod::SecondMax 。
+    u16 msec;       ///< ミリ秒。 CalendarPod::MillisecondMin <= val <= CalendarPod::MillisecondMax 。
+    u16 usec;       ///< マイクロ秒。 CalendarPod::MicrosecondMin <= val <= CalendarPod::MicrosecondMax 。
+    u16 nsec;       ///< ナノ秒。 CalendarPod::NanosecondsMin <= val <= CalendarPod::NanosecondsMax 。
 };
 
-/// CalendarPOD のクラス版。
-typedef PODInheritClass< CalendarPOD > Calendar;
+/// CalendarPod のクラス版。
+typedef PodInheritClass< CalendarPod > Calendar;
 //@}
 
 } // namespace

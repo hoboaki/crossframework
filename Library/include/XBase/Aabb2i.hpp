@@ -45,17 +45,17 @@ public:
     /// @name コンストラクタ
     //@{
     AABBox2i(); ///< AABBox2i( Vector2i::Zero() ) で作成。
-    AABBox2i(const Vector2iPOD& aBegin); ///< AABBox2i( aPos , 0 , 0 ) で作成。
-    AABBox2i(const Vector2iPOD& aBegin, int aWidth, int aHeight); ///< 基準となる点とサイズを指定してAABBを作成。
+    AABBox2i(const Vector2iPod& aBegin); ///< AABBox2i( aPos , 0 , 0 ) で作成。
+    AABBox2i(const Vector2iPod& aBegin, int aWidth, int aHeight); ///< 基準となる点とサイズを指定してAABBを作成。
     //@}
 
     //------------------------------------------------------------------------------
     /// @name 点の取得
     //@{
-    const Vector2iPOD begin()const; ///< AABBの基準点を取得。
-    const Vector2iPOD end()const;   ///< AABBの端点を取得。
-    const Vector2iPOD min()const;  ///< begin() のエイリアス。
-    const Vector2iPOD term()const; ///< end() のエイリアス。
+    const Vector2iPod begin()const; ///< AABBの基準点を取得。
+    const Vector2iPod end()const;   ///< AABBの端点を取得。
+    const Vector2iPod min()const;  ///< begin() のエイリアス。
+    const Vector2iPod term()const; ///< end() のエイリアス。
     //@}
 
     //------------------------------------------------------------------------------
@@ -89,7 +89,7 @@ public:
 
     /// @brief 指定の点を含んでいるか。
     /// @return begin() <= aPos && aPos() < end()
-    bool isContains(const Vector2iPOD& aPos)const;
+    bool isContains(const Vector2iPod& aPos)const;
 
     /// @brief 指定のAABBを含んでいるか。
     /// @details
@@ -100,19 +100,19 @@ public:
     //------------------------------------------------------------------------------
     /// @name 四則演算
     //@{
-    const AABBox2i add(const Vector2iPOD& aTrans)const; ///< min() term() に値を加算した結果を取得する。
-    const AABBox2i sub(const Vector2iPOD& aTrans)const; ///< min() term() から値を減算した結果を取得する。
-    void addAssign(const Vector2iPOD& aTrans); ///< min() term() に値を加算する。
-    void subAssign(const Vector2iPOD& aTrans); ///< min() term() から値を減算する。
+    const AABBox2i add(const Vector2iPod& aTrans)const; ///< min() term() に値を加算した結果を取得する。
+    const AABBox2i sub(const Vector2iPod& aTrans)const; ///< min() term() から値を減算した結果を取得する。
+    void addAssign(const Vector2iPod& aTrans); ///< min() term() に値を加算する。
+    void subAssign(const Vector2iPod& aTrans); ///< min() term() から値を減算する。
     //@}
 
     //------------------------------------------------------------------------------
     /// @name 演算子オーバーロード
     //@{
-    const AABBox2i operator+(const Vector2iPOD&)const; ///< add() 。
-    const AABBox2i operator-(const Vector2iPOD&)const; ///< sub() 。
-    AABBox2i& operator+=(const Vector2iPOD&); ///< addAssign() 。
-    AABBox2i& operator-=(const Vector2iPOD&); ///< subAssign() 。
+    const AABBox2i operator+(const Vector2iPod&)const; ///< add() 。
+    const AABBox2i operator-(const Vector2iPod&)const; ///< sub() 。
+    AABBox2i& operator+=(const Vector2iPod&); ///< addAssign() 。
+    AABBox2i& operator-=(const Vector2iPod&); ///< subAssign() 。
     //@}
 
     //------------------------------------------------------------------------------

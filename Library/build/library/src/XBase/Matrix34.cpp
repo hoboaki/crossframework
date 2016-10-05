@@ -14,10 +14,10 @@
 namespace XBase {
 
 //------------------------------------------------------------------------------
-const Matrix34POD Matrix34POD::Identity()
+const Matrix34Pod Matrix34Pod::Identity()
 {
     // よく使うことになるのでstaticデータとして使い初期化は１回だけにする。
-    static Matrix34POD obj =
+    static Matrix34Pod obj =
     {
         1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0
     };
@@ -25,7 +25,7 @@ const Matrix34POD Matrix34POD::Identity()
 }
 
 //------------------------------------------------------------------------------
-const Matrix34POD Matrix34POD::Translate(
+const Matrix34Pod Matrix34Pod::Translate(
     const f32 aX,
     const f32 aY,
     const f32 aZ
@@ -39,15 +39,15 @@ const Matrix34POD Matrix34POD::Translate(
 }
 
 //------------------------------------------------------------------------------
-const Matrix34POD Matrix34POD::Translate(
-    const Vector3POD& aVec
+const Matrix34Pod Matrix34Pod::Translate(
+    const Vector3Pod& aVec
     )
 {
     return Translate(aVec.x, aVec.y, aVec.z);
 }
 
 //------------------------------------------------------------------------------
-const Matrix34POD Matrix34POD::Scale(
+const Matrix34Pod Matrix34Pod::Scale(
     const f32 aX,
     const f32 aY,
     const f32 aZ
@@ -61,15 +61,15 @@ const Matrix34POD Matrix34POD::Scale(
 }
 
 //------------------------------------------------------------------------------
-const Matrix34POD Matrix34POD::Scale(
-    const Vector3POD& aVec
+const Matrix34Pod Matrix34Pod::Scale(
+    const Vector3Pod& aVec
     )
 {
     return Scale(aVec.x, aVec.y, aVec.z);
 }
 
 //------------------------------------------------------------------------------
-const Matrix34POD Matrix34POD::Rotate(
+const Matrix34Pod Matrix34Pod::Rotate(
     const Angle& aAngle,
     const f32 aAxisX,
     const f32 aAxisY,
@@ -97,31 +97,31 @@ const Matrix34POD Matrix34POD::Rotate(
 }
 
 //------------------------------------------------------------------------------
-const Matrix34POD Matrix34POD::Rotate(
+const Matrix34Pod Matrix34Pod::Rotate(
     const Angle& aAngle,
-    const Vector3POD& aAxisVec
+    const Vector3Pod& aAxisVec
     )
 {
     return Rotate(aAngle, aAxisVec.x, aAxisVec.y, aAxisVec.z);
 }
 
 //------------------------------------------------------------------------------
-const Matrix34POD Matrix34POD::LookAt(
-    const Vector3POD& aEyePos,
-    const Vector3POD& aTargetPos,
-    const Vector3POD& aUpVec
+const Matrix34Pod Matrix34Pod::LookAt(
+    const Vector3Pod& aEyePos,
+    const Vector3Pod& aTargetPos,
+    const Vector3Pod& aUpVec
     )
 {
     // toTargetUnit
     Vector3 toTarget = aTargetPos - aEyePos;
     if (toTarget.isZeroStrict()) {
         XBASE_ASSERT_NOT_REACHED();
-        toTarget = Vector3POD::UnitZ(); // fail safe code
+        toTarget = Vector3Pod::UnitZ(); // fail safe code
     }
     const Vector3 toTargetUnit = toTarget.unit();
 
     // upVecUnit
-    Vector3POD upVecUnit;
+    Vector3Pod upVecUnit;
     if (aUpVec.isZeroStrict()) {
         XBASE_ERROR_INVALID_VALUE(aUpVec);
         upVecUnit = Vector3::UnitY(); // fail safe code
@@ -132,12 +132,12 @@ const Matrix34POD Matrix34POD::LookAt(
     }
 
     // toTarget以外の軸を再作成
-    const Vector3POD s = toTargetUnit.cross(upVecUnit).unit();
-    const Vector3POD u = s.cross(toTargetUnit).unit();
-    Matrix34 mtx(s, u, -toTargetUnit, Vector3POD::Zero());
+    const Vector3Pod s = toTargetUnit.cross(upVecUnit).unit();
+    const Vector3Pod u = s.cross(toTargetUnit).unit();
+    Matrix34 mtx(s, u, -toTargetUnit, Vector3Pod::Zero());
 
     // 平行移動
-    const Vector3POD invEyePos = -aEyePos;
+    const Vector3Pod invEyePos = -aEyePos;
     mtx.v[IndexWX] = invEyePos.dot(mtx.x());
     mtx.v[IndexWY] = invEyePos.dot(mtx.y());
     mtx.v[IndexWZ] = invEyePos.dot(mtx.z());
@@ -147,7 +147,7 @@ const Matrix34POD Matrix34POD::LookAt(
 }
 
 //------------------------------------------------------------------------------
-const Vector3POD Matrix34POD::x()const
+const Vector3Pod Matrix34Pod::x()const
 {
     return Vector3(
         v[IndexXX],
@@ -157,7 +157,7 @@ const Vector3POD Matrix34POD::x()const
 }
 
 //------------------------------------------------------------------------------
-const Vector3POD Matrix34POD::y()const
+const Vector3Pod Matrix34Pod::y()const
 {
     return Vector3(
         v[IndexYX],
@@ -167,7 +167,7 @@ const Vector3POD Matrix34POD::y()const
 }
 
 //------------------------------------------------------------------------------
-const Vector3POD Matrix34POD::z()const
+const Vector3Pod Matrix34Pod::z()const
 {
     return Vector3(
         v[IndexZX],
@@ -177,7 +177,7 @@ const Vector3POD Matrix34POD::z()const
 }
 
 //------------------------------------------------------------------------------
-const Vector3POD Matrix34POD::w()const
+const Vector3Pod Matrix34Pod::w()const
 {
     return Vector3(
         v[IndexWX],
@@ -187,7 +187,7 @@ const Vector3POD Matrix34POD::w()const
 }
 
 //------------------------------------------------------------------------------
-void Matrix34POD::setX(const Vector3POD& aVal)
+void Matrix34Pod::setX(const Vector3Pod& aVal)
 {
     v[IndexXX] = aVal.x;
     v[IndexXY] = aVal.y;
@@ -195,7 +195,7 @@ void Matrix34POD::setX(const Vector3POD& aVal)
 }
 
 //------------------------------------------------------------------------------
-void Matrix34POD::setY(const Vector3POD& aVal)
+void Matrix34Pod::setY(const Vector3Pod& aVal)
 {
     v[IndexYX] = aVal.x;
     v[IndexYY] = aVal.y;
@@ -203,7 +203,7 @@ void Matrix34POD::setY(const Vector3POD& aVal)
 }
 
 //------------------------------------------------------------------------------
-void Matrix34POD::setZ(const Vector3POD& aVal)
+void Matrix34Pod::setZ(const Vector3Pod& aVal)
 {
     v[IndexZX] = aVal.x;
     v[IndexZY] = aVal.y;
@@ -211,7 +211,7 @@ void Matrix34POD::setZ(const Vector3POD& aVal)
 }
 
 //------------------------------------------------------------------------------
-void Matrix34POD::setW(const Vector3POD& aVal)
+void Matrix34Pod::setW(const Vector3Pod& aVal)
 {
     v[IndexWX] = aVal.x;
     v[IndexWY] = aVal.y;
@@ -219,7 +219,7 @@ void Matrix34POD::setW(const Vector3POD& aVal)
 }
 
 //------------------------------------------------------------------------------
-const Vector3POD Matrix34POD::mul(const Vector3POD& aVec)const
+const Vector3Pod Matrix34Pod::mul(const Vector3Pod& aVec)const
 {
     return Vector3(
         aVec.x * v[IndexXX] + aVec.y * v[IndexYX] + aVec.z * v[IndexZX] + v[IndexWX],
@@ -229,9 +229,9 @@ const Vector3POD Matrix34POD::mul(const Vector3POD& aVec)const
 }
 
 //------------------------------------------------------------------------------
-const Matrix34POD Matrix34POD::mul(const Matrix34POD& aRHS)const
+const Matrix34Pod Matrix34Pod::mul(const Matrix34Pod& aRHS)const
 {
-    Matrix34POD mtx;
+    Matrix34Pod mtx;
 
     // c0
     mtx.v[Index00] =

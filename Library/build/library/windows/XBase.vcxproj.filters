@@ -45,7 +45,7 @@
     <ClInclude Include="..\..\..\include\XBase\PI.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\PODStruct.hpp">
+    <ClInclude Include="..\..\..\include\XBase\PodStruct.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\XBase\PointerCheck.hpp">
@@ -75,10 +75,10 @@
     <ClInclude Include="..\..\..\include\XBase\OS.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\PODClass.hpp">
+    <ClInclude Include="..\..\..\include\XBase\PodClass.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\PODTypes.hpp">
+    <ClInclude Include="..\..\..\include\XBase\PodTypes.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\XBase\Quaternion.hpp">

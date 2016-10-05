@@ -13,7 +13,7 @@ namespace XBase {
 /// @addtogroup XBase-Types
 //@{
     /// @brief Scaler型のラッパーテンプレートクラス。
-    /// @copydetails PODClass
+    /// @copydetails PodClass
 template< typename T >
 class ScalerClass : public ScalerStruct<T>
 {

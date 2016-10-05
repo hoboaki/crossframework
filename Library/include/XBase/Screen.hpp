@@ -17,7 +17,7 @@
 
 namespace XBase {
 class Display_EXT;
-struct ScreenPosPOD;
+struct ScreenPosPod;
 }
 
 //------------------------------------------------------------------------------
@@ -45,7 +45,7 @@ public:
 
     /// @brief 指定の位置がスクリーン内かどうか判定する。
     /// @return 0 <= aPos.x < width() && 0 <= aPos.y < height()
-    bool isContains(const ScreenPosPOD& aPos)const;
+    bool isContains(const ScreenPosPod& aPos)const;
     //@}
 
     //============================================================

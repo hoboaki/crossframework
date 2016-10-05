@@ -15,7 +15,7 @@ namespace XBase {
 struct TouchTapUpdateData
 {
     uint32       tapCount;
-    ScreenPosPOD pos;
+    ScreenPosPod pos;
 };
 //@}
 

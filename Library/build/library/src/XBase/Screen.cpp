@@ -33,7 +33,7 @@ int Screen::height()const
 }
 
 //------------------------------------------------------------------------------
-bool Screen::isContains(const ScreenPosPOD& aPos)const
+bool Screen::isContains(const ScreenPosPod& aPos)const
 {
     return 0 <= aPos.x && aPos.x < int(mWidth)
         && 0 <= aPos.y && aPos.y < int(mHeight);

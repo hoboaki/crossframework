@@ -1,7 +1,7 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_PODSTRUCT_HPP)
+#if defined(XBASE_INCLUDED_PodSTRUCT_HPP)
 #else
-#define XBASE_INCLUDED_PODSTRUCT_HPP
+#define XBASE_INCLUDED_PodSTRUCT_HPP
 
 #include <XBase/StaticAssert.hpp>
 #include <XBase/TypeTraits.hpp>
@@ -11,10 +11,10 @@ namespace XBase {
 
 /// @addtogroup XBase-Types
 //@{
-    /// @brief PODClassの既定クラスとなる構造体。
+    /// @brief PodClassの既定クラスとなる構造体。
     /// @details バイナリデータの定義で使うことを想定しています。
 template< typename T >
-struct PODStruct
+struct PodStruct
 {
     /// 値の型名。
     typedef T ValueType;
@@ -51,7 +51,7 @@ struct PODStruct
     ValueType value_;
 
 private:
-    XBASE_STATIC_ASSERT(TypeTraits::IsPOD< typename ValueType >::Value);         // POD型のチェック。
+    XBASE_STATIC_ASSERT(TypeTraits::IsPod< typename ValueType >::Value);         // Pod型のチェック。
 };
 //@}
 

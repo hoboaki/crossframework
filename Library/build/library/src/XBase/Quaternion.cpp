@@ -33,7 +33,7 @@ Quaternion::Quaternion(const f32 aX, const f32 aY, const f32 aZ, const f32 aW)
 
 //------------------------------------------------------------------------------
 Quaternion::Quaternion(
-    const Vector3POD& aAxis,
+    const Vector3Pod& aAxis,
     const Angle& aAngle
     )
 : x()
@@ -76,7 +76,7 @@ Quaternion& Quaternion::mulAssign(const Quaternion& aRHS)
 }
 
 //------------------------------------------------------------------------------
-const Matrix34POD Quaternion::toRotateMatrix()const
+const Matrix34Pod Quaternion::toRotateMatrix()const
 {
     const f32 lenSrc = Math::SqrtF32(w*w + x*x + y*y + z*z);
     if (lenSrc == 0) {

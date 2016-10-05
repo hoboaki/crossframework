@@ -12,74 +12,74 @@
 namespace XBase {
 
 //------------------------------------------------------------------------------
-const Color4bPOD Color4bPOD::Zero()
+const Color4bPod Color4bPod::Zero()
 {
     return Color4b(0, 0, 0, 0);
 }
 
 //------------------------------------------------------------------------------
-const Color4bPOD Color4bPOD::One()
+const Color4bPod Color4bPod::One()
 {
     return Color4b(0xFF, 0xFF, 0xFF, 0xFF);
 }
 
 //------------------------------------------------------------------------------
-const Color4bPOD Color4bPOD::UnitR()
+const Color4bPod Color4bPod::UnitR()
 {
     return Color4b(0xFF, 0, 0, 0);
 }
 
 //------------------------------------------------------------------------------
-const Color4bPOD Color4bPOD::UnitG()
+const Color4bPod Color4bPod::UnitG()
 {
     return Color4b(0, 0xFF, 0, 0);
 }
 
 //------------------------------------------------------------------------------
-const Color4bPOD Color4bPOD::UnitB()
+const Color4bPod Color4bPod::UnitB()
 {
     return Color4b(0, 0, 0xFF, 0);
 }
 
 //------------------------------------------------------------------------------
-const Color4bPOD Color4bPOD::UnitA()
+const Color4bPod Color4bPod::UnitA()
 {
     return Color4b(0, 0, 0, 0xFF);
 }
 
 //------------------------------------------------------------------------------
-const Color4bPOD Color4bPOD::toRRRR()const
+const Color4bPod Color4bPod::toRRRR()const
 {
     return Color4b(r, r, r, r);
 }
 
 //------------------------------------------------------------------------------
-const Color4bPOD Color4bPOD::toGGGG()const
+const Color4bPod Color4bPod::toGGGG()const
 {
     return Color4b(g, g, g, g);
 }
 
 //------------------------------------------------------------------------------
-const Color4bPOD Color4bPOD::toBBBB()const
+const Color4bPod Color4bPod::toBBBB()const
 {
     return Color4b(b, b, b, b);
 }
 
 //------------------------------------------------------------------------------
-const Color4bPOD Color4bPOD::toAAAA()const
+const Color4bPod Color4bPod::toAAAA()const
 {
     return Color4b(a, a, a, a);
 }
 
 //------------------------------------------------------------------------------
-const Color4POD Color4bPOD::toRGBAf()const
+const Color4Pod Color4bPod::toRGBAf()const
 {
     const float rate = 1.0f / 255.0f;
     return Color4(r * rate, g * rate, b * rate, a * rate);
 }
 
 //------------------------------------------------------------------------------
-const ::XBase::ShortString Color4bPOD::toShortString()const
+const ::XBase::ShortString Color4bPod::toShortString()const
 {
     return ::XBase::ShortString::FromFormat(
         "%s,%s,%s,%s",
@@ -92,13 +92,13 @@ const ::XBase::ShortString Color4bPOD::toShortString()const
 
 //------------------------------------------------------------------------------
 Color4b::Color4b()
-: Color4bPOD(Zero())
+: Color4bPod(Zero())
 {
 }
 
 //------------------------------------------------------------------------------
-Color4b::Color4b(const Color4bPOD& aCol)
-: Color4bPOD(aCol)
+Color4b::Color4b(const Color4bPod& aCol)
+: Color4bPod(aCol)
 {
 }
 

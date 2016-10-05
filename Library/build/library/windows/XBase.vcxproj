@@ -32,7 +32,7 @@
     <ClInclude Include="..\..\..\include\XBase\Matrix44.hpp" />
     <ClInclude Include="..\..\..\include\XBase\OSType.hpp" />
     <ClInclude Include="..\..\..\include\XBase\PI.hpp" />
-    <ClInclude Include="..\..\..\include\XBase\PODStruct.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\PodStruct.hpp" />
     <ClInclude Include="..\..\..\include\XBase\PointerCheck.hpp" />
     <ClInclude Include="..\..\..\include\XBase\Compiler.hpp" />
     <ClInclude Include="..\..\..\include\XBase\Config.hpp" />
@@ -42,8 +42,8 @@
     <ClInclude Include="..\..\..\include\XBase\FixedString.hpp" />
     <ClInclude Include="..\..\..\include\XBase\FunctionAttribute.hpp" />
     <ClInclude Include="..\..\..\include\XBase\OS.hpp" />
-    <ClInclude Include="..\..\..\include\XBase\PODClass.hpp" />
-    <ClInclude Include="..\..\..\include\XBase\PODTypes.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\PodClass.hpp" />
+    <ClInclude Include="..\..\..\include\XBase\PodTypes.hpp" />
     <ClInclude Include="..\..\..\include\XBase\Quaternion.hpp" />
     <ClInclude Include="..\..\..\include\XBase\Radian.hpp" />
     <ClInclude Include="..\..\..\include\XBase\RuntimeArray.hpp" />

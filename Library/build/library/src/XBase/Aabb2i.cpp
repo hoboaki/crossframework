@@ -11,7 +11,7 @@ namespace XBase {
 //------------------------------------------------------------------------------
 const AABBox2i AABBox2i::Largest()
 {
-    return AABBox2i(Vector2iPOD::Min(), 0xFFFFFFFF, 0xFFFFFFFF);
+    return AABBox2i(Vector2iPod::Min(), 0xFFFFFFFF, 0xFFFFFFFF);
 }
 
 //------------------------------------------------------------------------------
@@ -22,7 +22,7 @@ AABBox2i::AABBox2i()
 }
 
 //------------------------------------------------------------------------------
-AABBox2i::AABBox2i(const Vector2iPOD& aBegin)
+AABBox2i::AABBox2i(const Vector2iPod& aBegin)
 : mMin(aBegin)
 , mTerm(mMin)
 {
@@ -30,7 +30,7 @@ AABBox2i::AABBox2i(const Vector2iPOD& aBegin)
 
 //------------------------------------------------------------------------------
 AABBox2i::AABBox2i(
-    const Vector2iPOD& aBegin,
+    const Vector2iPod& aBegin,
     const int aWidth,
     const int aHeight
     )
@@ -45,25 +45,25 @@ AABBox2i::AABBox2i(
 }
 
 //------------------------------------------------------------------------------
-const Vector2iPOD AABBox2i::begin()const
+const Vector2iPod AABBox2i::begin()const
 {
     return mMin;
 }
 
 //------------------------------------------------------------------------------
-const Vector2iPOD AABBox2i::end()const
+const Vector2iPod AABBox2i::end()const
 {
     return mTerm;
 }
 
 //------------------------------------------------------------------------------
-const Vector2iPOD AABBox2i::min()const
+const Vector2iPod AABBox2i::min()const
 {
     return mMin;
 }
 
 //------------------------------------------------------------------------------
-const Vector2iPOD AABBox2i::term()const
+const Vector2iPod AABBox2i::term()const
 {
     return mTerm;
 }
@@ -125,7 +125,7 @@ bool AABBox2i::isIntersects(const AABBox2i& aAABB)const
 }
 
 //------------------------------------------------------------------------------
-bool AABBox2i::isContains(const Vector2iPOD& aPos)const
+bool AABBox2i::isContains(const Vector2iPod& aPos)const
 {
     return mMin.x <= aPos.x
         && mMin.y <= aPos.y
@@ -143,7 +143,7 @@ bool AABBox2i::isContains(const AABBox2i& aAABB)const
 }
 
 //------------------------------------------------------------------------------
-const AABBox2i AABBox2i::add(const Vector2iPOD& aTrans)const
+const AABBox2i AABBox2i::add(const Vector2iPod& aTrans)const
 {
     AABBox2i aabb = *this;
     aabb.addAssign(aTrans);
@@ -151,7 +151,7 @@ const AABBox2i AABBox2i::add(const Vector2iPOD& aTrans)const
 }
 
 //------------------------------------------------------------------------------
-const AABBox2i AABBox2i::sub(const Vector2iPOD& aTrans)const
+const AABBox2i AABBox2i::sub(const Vector2iPod& aTrans)const
 {
     AABBox2i aabb = *this;
     aabb.subAssign(aTrans);
@@ -159,40 +159,40 @@ const AABBox2i AABBox2i::sub(const Vector2iPOD& aTrans)const
 }
 
 //------------------------------------------------------------------------------
-void AABBox2i::addAssign(const Vector2iPOD& aTrans)
+void AABBox2i::addAssign(const Vector2iPod& aTrans)
 {
     mMin += aTrans;
     mTerm += aTrans;
 }
 
 //------------------------------------------------------------------------------
-void AABBox2i::subAssign(const Vector2iPOD& aTrans)
+void AABBox2i::subAssign(const Vector2iPod& aTrans)
 {
     mMin -= aTrans;
     mTerm -= aTrans;
 }
 
 //------------------------------------------------------------------------------
-const AABBox2i AABBox2i::operator+(const Vector2iPOD& aTrans)const
+const AABBox2i AABBox2i::operator+(const Vector2iPod& aTrans)const
 {
     return add(aTrans);
 }
 
 //------------------------------------------------------------------------------
-const AABBox2i AABBox2i::operator-(const Vector2iPOD& aTrans)const
+const AABBox2i AABBox2i::operator-(const Vector2iPod& aTrans)const
 {
     return sub(aTrans);
 }
 
 //------------------------------------------------------------------------------
-AABBox2i& AABBox2i::operator+=(const Vector2iPOD& aTrans)
+AABBox2i& AABBox2i::operator+=(const Vector2iPod& aTrans)
 {
     addAssign(aTrans);
     return *this;
 }
 
 //------------------------------------------------------------------------------
-AABBox2i& AABBox2i::operator-=(const Vector2iPOD& aTrans)
+AABBox2i& AABBox2i::operator-=(const Vector2iPod& aTrans)
 {
     subAssign(aTrans);
     return *this;

@@ -8,8 +8,8 @@
 
 namespace XBase {
 class  Angle;
-struct Matrix34POD;
-struct Vector3POD;
+struct Matrix34Pod;
+struct Vector3Pod;
 }
 
 //------------------------------------------------------------------------------
@@ -35,7 +35,7 @@ public:
     //@{
     Quaternion(); ///< 単位クォータニオンの作成。
     Quaternion(f32 aX, f32 aY, f32 aZ, f32 aW); ///< 各要素の値を指定して作成。
-    Quaternion(const Vector3POD& aAxis, const Angle& aAngle); ///< 任意軸回転用クォータニオンの作成。
+    Quaternion(const Vector3Pod& aAxis, const Angle& aAngle); ///< 任意軸回転用クォータニオンの作成。
     //@}
 
     //============================================================
@@ -48,7 +48,7 @@ public:
     //============================================================
     /// @name 変換
     //@{
-    const Matrix34POD toRotateMatrix()const; ///< 回転行列に変換。
+    const Matrix34Pod toRotateMatrix()const; ///< 回転行列に変換。
     //@}
 
     //============================================================

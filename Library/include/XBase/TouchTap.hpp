@@ -39,7 +39,7 @@ public:
 
     /// @brief 押している位置。
     /// @details 離している状態なら最後に押していた位置を返します。
-    const ScreenPosPOD pos()const;
+    const ScreenPosPod pos()const;
 
     bool isHold()const;    ///< 押されているか。
     bool isTrigger()const; ///< 押された瞬間か。

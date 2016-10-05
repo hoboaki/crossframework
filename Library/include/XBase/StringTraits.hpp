@@ -25,7 +25,7 @@ struct StringTraits
     /// Write系の結果。
     struct WriteResult
     {
-        BoolPOD32 isSuccess; ///< 成功したか。
+        BoolPod32 isSuccess; ///< 成功したか。
         pword_t   length;    ///< 書き込んだ文字数。終端文字は含めない。
     };
 

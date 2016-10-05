@@ -14,259 +14,259 @@
 namespace XBase {
 
 //------------------------------------------------------------------------------
-const Vector4iPOD Vector4iPOD::Zero()
+const Vector4iPod Vector4iPod::Zero()
 {
-    Vector4iPOD obj = {};
+    Vector4iPod obj = {};
     return obj;
 }
 
 //------------------------------------------------------------------------------
-const Vector4iPOD Vector4iPOD::One()
+const Vector4iPod Vector4iPod::One()
 {
-    Vector4iPOD obj = {1, 1, 1, 1};
+    Vector4iPod obj = {1, 1, 1, 1};
     return obj;
 }
 
 //------------------------------------------------------------------------------
-const Vector4iPOD Vector4iPOD::Min()
+const Vector4iPod Vector4iPod::Min()
 {
-    Vector4iPOD obj = {std::numeric_limits< int >::min(), std::numeric_limits< int >::min(), std::numeric_limits< int >::min(), std::numeric_limits< int >::min()};
+    Vector4iPod obj = {std::numeric_limits< int >::min(), std::numeric_limits< int >::min(), std::numeric_limits< int >::min(), std::numeric_limits< int >::min()};
     return obj;
 }
 
 //------------------------------------------------------------------------------
-const Vector4iPOD Vector4iPOD::Max()
+const Vector4iPod Vector4iPod::Max()
 {
-    Vector4iPOD obj = {std::numeric_limits< int >::max(), std::numeric_limits< int >::max(), std::numeric_limits< int >::max(), std::numeric_limits< int >::max()};
+    Vector4iPod obj = {std::numeric_limits< int >::max(), std::numeric_limits< int >::max(), std::numeric_limits< int >::max(), std::numeric_limits< int >::max()};
     return obj;
 }
 
 //------------------------------------------------------------------------------
-const Vector4iPOD Vector4iPOD::UnitX()
+const Vector4iPod Vector4iPod::UnitX()
 {
-    Vector4iPOD obj = {1, 0, 0, 0};
+    Vector4iPod obj = {1, 0, 0, 0};
     return obj;
 }
 
 //------------------------------------------------------------------------------
-const Vector4iPOD Vector4iPOD::UnitY()
+const Vector4iPod Vector4iPod::UnitY()
 {
-    Vector4iPOD obj = {0, 1, 0, 0};
+    Vector4iPod obj = {0, 1, 0, 0};
     return obj;
 }
 
 //------------------------------------------------------------------------------
-const Vector4iPOD Vector4iPOD::UnitZ()
+const Vector4iPod Vector4iPod::UnitZ()
 {
-    Vector4iPOD obj = {0, 0, 1, 0};
+    Vector4iPod obj = {0, 0, 1, 0};
     return obj;
 }
 
 //------------------------------------------------------------------------------
-const Vector4iPOD Vector4iPOD::UnitW()
+const Vector4iPod Vector4iPod::UnitW()
 {
-    Vector4iPOD obj = {0, 0, 0, 1};
+    Vector4iPod obj = {0, 0, 0, 1};
     return obj;
 }
 
 //------------------------------------------------------------------------------
-const Vector4iPOD Vector4iPOD::NegUnitX()
+const Vector4iPod Vector4iPod::NegUnitX()
 {
-    Vector4iPOD obj = {-1, 0, 0, 0};
+    Vector4iPod obj = {-1, 0, 0, 0};
     return obj;
 }
 
 //------------------------------------------------------------------------------
-const Vector4iPOD Vector4iPOD::NegUnitY()
+const Vector4iPod Vector4iPod::NegUnitY()
 {
-    Vector4iPOD obj = {0, -1, 0, 0};
+    Vector4iPod obj = {0, -1, 0, 0};
     return obj;
 }
 
 //------------------------------------------------------------------------------
-const Vector4iPOD Vector4iPOD::NegUnitZ()
+const Vector4iPod Vector4iPod::NegUnitZ()
 {
-    Vector4iPOD obj = {0, 0, -1, 0};
+    Vector4iPod obj = {0, 0, -1, 0};
     return obj;
 }
 
 //------------------------------------------------------------------------------
-const Vector4iPOD Vector4iPOD::NegUnitW()
+const Vector4iPod Vector4iPod::NegUnitW()
 {
-    Vector4iPOD obj = {0, 0, 0, -1};
+    Vector4iPod obj = {0, 0, 0, -1};
     return obj;
 }
 
 //------------------------------------------------------------------------------
-const Vector2iPOD Vector4iPOD::toXY()const
+const Vector2iPod Vector4iPod::toXY()const
 {
     return Vector2i(x, y);
 }
 
 //------------------------------------------------------------------------------
-const Vector2iPOD Vector4iPOD::toXX()const
+const Vector2iPod Vector4iPod::toXX()const
 {
     return Vector2i(x, x);
 }
 
 //------------------------------------------------------------------------------
-const Vector2iPOD Vector4iPOD::toYY()const
+const Vector2iPod Vector4iPod::toYY()const
 {
     return Vector2i(y, y);
 }
 
 //------------------------------------------------------------------------------
-const Vector2iPOD Vector4iPOD::toZZ()const
+const Vector2iPod Vector4iPod::toZZ()const
 {
     return Vector2i(z, z);
 }
 
 //------------------------------------------------------------------------------
-const Vector2iPOD Vector4iPOD::toWW()const
+const Vector2iPod Vector4iPod::toWW()const
 {
     return Vector2i(w, w);
 }
 
 //------------------------------------------------------------------------------
-const Vector3iPOD Vector4iPOD::toXYZ()const
+const Vector3iPod Vector4iPod::toXYZ()const
 {
     return Vector3i(x, y, z);
 }
 
 //------------------------------------------------------------------------------
-const Vector3iPOD Vector4iPOD::toXXX()const
+const Vector3iPod Vector4iPod::toXXX()const
 {
     return Vector3i(x, x, x);
 }
 
 //------------------------------------------------------------------------------
-const Vector3iPOD Vector4iPOD::toYYY()const
+const Vector3iPod Vector4iPod::toYYY()const
 {
     return Vector3i(y, y, y);
 }
 
 //------------------------------------------------------------------------------
-const Vector3iPOD Vector4iPOD::toZZZ()const
+const Vector3iPod Vector4iPod::toZZZ()const
 {
     return Vector3i(z, z, z);
 }
 
 //------------------------------------------------------------------------------
-const Vector3iPOD Vector4iPOD::toWWW()const
+const Vector3iPod Vector4iPod::toWWW()const
 {
     return Vector3i(w, w, w);
 }
 
 //------------------------------------------------------------------------------
-const Vector4iPOD Vector4iPOD::toXYZ0()const
+const Vector4iPod Vector4iPod::toXYZ0()const
 {
     return Vector4i(x, y, z, 0);
 }
 
 //------------------------------------------------------------------------------
-const Vector4iPOD Vector4iPOD::toXY0W()const
+const Vector4iPod Vector4iPod::toXY0W()const
 {
     return Vector4i(x, y, 0, w);
 }
 
 //------------------------------------------------------------------------------
-const Vector4iPOD Vector4iPOD::toXY00()const
+const Vector4iPod Vector4iPod::toXY00()const
 {
     return Vector4i(x, y, 0, 0);
 }
 
 //------------------------------------------------------------------------------
-const Vector4iPOD Vector4iPOD::toX0ZW()const
+const Vector4iPod Vector4iPod::toX0ZW()const
 {
     return Vector4i(x, 0, z, w);
 }
 
 //------------------------------------------------------------------------------
-const Vector4iPOD Vector4iPOD::toX0Z0()const
+const Vector4iPod Vector4iPod::toX0Z0()const
 {
     return Vector4i(x, 0, z, 0);
 }
 
 //------------------------------------------------------------------------------
-const Vector4iPOD Vector4iPOD::toX00W()const
+const Vector4iPod Vector4iPod::toX00W()const
 {
     return Vector4i(x, 0, 0, w);
 }
 
 //------------------------------------------------------------------------------
-const Vector4iPOD Vector4iPOD::toX000()const
+const Vector4iPod Vector4iPod::toX000()const
 {
     return Vector4i(x, 0, 0, 0);
 }
 
 //------------------------------------------------------------------------------
-const Vector4iPOD Vector4iPOD::to0YZ0()const
+const Vector4iPod Vector4iPod::to0YZ0()const
 {
     return Vector4i(0, y, z, 0);
 }
 
 //------------------------------------------------------------------------------
-const Vector4iPOD Vector4iPOD::to0Y0W()const
+const Vector4iPod Vector4iPod::to0Y0W()const
 {
     return Vector4i(0, y, 0, w);
 }
 
 //------------------------------------------------------------------------------
-const Vector4iPOD Vector4iPOD::to0Y00()const
+const Vector4iPod Vector4iPod::to0Y00()const
 {
     return Vector4i(0, y, 0, 0);
 }
 
 //------------------------------------------------------------------------------
-const Vector4iPOD Vector4iPOD::to00ZW()const
+const Vector4iPod Vector4iPod::to00ZW()const
 {
     return Vector4i(0, 0, z, w);
 }
 
 //------------------------------------------------------------------------------
-const Vector4iPOD Vector4iPOD::to00Z0()const
+const Vector4iPod Vector4iPod::to00Z0()const
 {
     return Vector4i(0, 0, z, 0);
 }
 
 //------------------------------------------------------------------------------
-const Vector4iPOD Vector4iPOD::to000W()const
+const Vector4iPod Vector4iPod::to000W()const
 {
     return Vector4i(0, 0, 0, w);
 }
 
 //------------------------------------------------------------------------------
-const Vector4iPOD Vector4iPOD::toXXXX()const
+const Vector4iPod Vector4iPod::toXXXX()const
 {
     return Vector4i(x, x, x, x);
 }
 
 //------------------------------------------------------------------------------
-const Vector4iPOD Vector4iPOD::toYYYY()const
+const Vector4iPod Vector4iPod::toYYYY()const
 {
     return Vector4i(y, y, y, y);
 }
 
 //------------------------------------------------------------------------------
-const Vector4iPOD Vector4iPOD::toZZZZ()const
+const Vector4iPod Vector4iPod::toZZZZ()const
 {
     return Vector4i(z, z, z, z);
 }
 
 //------------------------------------------------------------------------------
-const Vector4iPOD Vector4iPOD::toWWWW()const
+const Vector4iPod Vector4iPod::toWWWW()const
 {
     return Vector4i(w, w, w, w);
 }
 
 //------------------------------------------------------------------------------
-const Vector4POD Vector4iPOD::toXYZWf()const
+const Vector4Pod Vector4iPod::toXYZWf()const
 {
     return Vector4(f32(x), f32(y), f32(z), f32(w));
 }
 
 //------------------------------------------------------------------------------
-bool Vector4iPOD::equals(const Vector4iPOD& aVec)const
+bool Vector4iPod::equals(const Vector4iPod& aVec)const
 {
     return x == aVec.x
         && y == aVec.y
@@ -276,7 +276,7 @@ bool Vector4iPOD::equals(const Vector4iPOD& aVec)const
 }
 
 //------------------------------------------------------------------------------
-const Vector4iPOD Vector4iPOD::add(const s32 aVal)const
+const Vector4iPod Vector4iPod::add(const s32 aVal)const
 {
     Vector4i vec(*this);
     vec.addAssign(aVal);

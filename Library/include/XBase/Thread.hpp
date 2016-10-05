@@ -4,7 +4,7 @@
 #define XBASE_INCLUDED_THREAD_HPP
 
 namespace XBase {
-struct TimeSpanPOD;
+struct TimeSpanPod;
 }
 
 //------------------------------------------------------------------------------
@@ -17,7 +17,7 @@ class Thread
 {
 public:
     /// 指定時間スリープする。
-    static void Sleep(const TimeSpanPOD&);
+    static void Sleep(const TimeSpanPod&);
 };
 //@}
 

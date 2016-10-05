@@ -113,8 +113,8 @@
 #include <XBase/Bool.hpp>
 #include <XBase/BuiltInTypes.hpp>
 #include <XBase/Enum.hpp>
-#include <XBase/PODClass.hpp>
-#include <XBase/PODTypes.hpp>
+#include <XBase/PodClass.hpp>
+#include <XBase/PodTypes.hpp>
 #include <XBase/ScalerClass.hpp>
 
 #endif

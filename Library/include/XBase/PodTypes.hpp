@@ -1,7 +1,7 @@
 // 文字コード：UTF-8
-#if defined(XDATA_INCLUDED_PODTYPES_HPP)
+#if defined(XDATA_INCLUDED_PodTYPES_HPP)
 #else
-#define XDATA_INCLUDED_PODTYPES_HPP
+#define XDATA_INCLUDED_PodTYPES_HPP
 
 #include <XBase/BuiltInTypes.hpp>
 #include <XBase/ScalerClass.hpp>
@@ -15,63 +15,63 @@ namespace XBase
     //=================================================
     /// @name struct化された符号無し型
 //@{
-typedef PODStruct< u8 >   U8POD;     ///< 8bit符号有り整数型。
-typedef PODStruct< u8 >   UInt8POD;  ///< 8bit符号有り整数型。
-typedef PODStruct< u16 >  U16POD;    ///< 16bit符号有り整数型。
-typedef PODStruct< u16 >  UInt16POD; ///< 16bit符号有り整数型。
-typedef PODStruct< u32 >  U32POD;    ///< 32bit符号有り整数型。
-typedef PODStruct< u32 >  UIntPOD;   ///< 32bit符号有り整数型。
-typedef PODStruct< u32 >  UInt32POD; ///< 32bit符号有り整数型。
-typedef PODStruct< u64 >  U64POD;    ///< 64bit符号有り整数型。
-typedef PODStruct< u64 >  UInt64POD; ///< 64bit符号有り整数型。
+typedef PodStruct< u8 >   U8Pod;     ///< 8bit符号有り整数型。
+typedef PodStruct< u8 >   UInt8Pod;  ///< 8bit符号有り整数型。
+typedef PodStruct< u16 >  U16Pod;    ///< 16bit符号有り整数型。
+typedef PodStruct< u16 >  UInt16Pod; ///< 16bit符号有り整数型。
+typedef PodStruct< u32 >  U32Pod;    ///< 32bit符号有り整数型。
+typedef PodStruct< u32 >  UIntPod;   ///< 32bit符号有り整数型。
+typedef PodStruct< u32 >  UInt32Pod; ///< 32bit符号有り整数型。
+typedef PodStruct< u64 >  U64Pod;    ///< 64bit符号有り整数型。
+typedef PodStruct< u64 >  UInt64Pod; ///< 64bit符号有り整数型。
 //@}
 
 //=================================================
 /// @name struct化された符号有り型
 //@{
-typedef PODStruct< s8 >   Int8POD;   ///< 8bit符号有り整数型。
-typedef PODStruct< s8 >   S8POD;     ///< 8bit符号有り整数型。
-typedef PODStruct< s8 >   SInt8POD;  ///< 8bit符号有り整数型。
-typedef PODStruct< s16 >  Int16POD;  ///< 16bit符号有り整数型。
-typedef PODStruct< s16 >  S16POD;    ///< 16bit符号有り整数型。
-typedef PODStruct< s16 >  SInt16POD; ///< 16bit符号有り整数型。
-typedef PODStruct< s32 >  Int32POD;  ///< 32bit符号有り整数型。
-typedef PODStruct< s32 >  S32POD;    ///< 32bit符号有り整数型。
-typedef PODStruct< s32 >  SIntPOD;   ///< 32bit符号有り整数型。
-typedef PODStruct< s32 >  SInt32POD; ///< 32bit符号有り整数型。
-typedef PODStruct< s64 >  Int64POD;  ///< 64bit符号有り整数型。
-typedef PODStruct< s64 >  S64POD;    ///< 64bit符号有り整数型。
-typedef PODStruct< s64 >  SInt64POD; ///< 64bit符号有り整数型。
+typedef PodStruct< s8 >   Int8Pod;   ///< 8bit符号有り整数型。
+typedef PodStruct< s8 >   S8Pod;     ///< 8bit符号有り整数型。
+typedef PodStruct< s8 >   SInt8Pod;  ///< 8bit符号有り整数型。
+typedef PodStruct< s16 >  Int16Pod;  ///< 16bit符号有り整数型。
+typedef PodStruct< s16 >  S16Pod;    ///< 16bit符号有り整数型。
+typedef PodStruct< s16 >  SInt16Pod; ///< 16bit符号有り整数型。
+typedef PodStruct< s32 >  Int32Pod;  ///< 32bit符号有り整数型。
+typedef PodStruct< s32 >  S32Pod;    ///< 32bit符号有り整数型。
+typedef PodStruct< s32 >  SIntPod;   ///< 32bit符号有り整数型。
+typedef PodStruct< s32 >  SInt32Pod; ///< 32bit符号有り整数型。
+typedef PodStruct< s64 >  Int64Pod;  ///< 64bit符号有り整数型。
+typedef PodStruct< s64 >  S64Pod;    ///< 64bit符号有り整数型。
+typedef PodStruct< s64 >  SInt64Pod; ///< 64bit符号有り整数型。
 //@}
 
 //=================================================
 /// @name struct化された浮動小数型
 //@{
-typedef PODStruct< f32 > F32POD;     ///< 32bit浮動小数型。
-typedef PODStruct< f32 > Float32POD; ///< 32bit浮動小数型。
-typedef PODStruct< f32 > SinglePOD;  ///< 32bit浮動小数型。
-typedef PODStruct< f64 > F64POD;     ///< 64bit浮動小数型。
-typedef PODStruct< f64 > Float64POD; ///< 64bit浮動小数型。
+typedef PodStruct< f32 > F32Pod;     ///< 32bit浮動小数型。
+typedef PodStruct< f32 > Float32Pod; ///< 32bit浮動小数型。
+typedef PodStruct< f32 > SinglePod;  ///< 32bit浮動小数型。
+typedef PodStruct< f64 > F64Pod;     ///< 64bit浮動小数型。
+typedef PodStruct< f64 > Float64Pod; ///< 64bit浮動小数型。
 //@}
 
 //============================================================
 /// @name struct化されたデータ型
 //@{
-typedef PODStruct<  byte_t > BytePOD;  ///< 1バイトデータ型。
-typedef PODStruct<  word_t > WordPOD;  ///< 2バイトデータ型。
-typedef PODStruct< dword_t > DWordPOD; ///< 4バイトデータ型。
-typedef PODStruct< qword_t > QWordPOD; ///< 8バイトデータ型。
-typedef PODStruct< pword_t > PWordPOD; ///< アドレスサイズを表すデータ型。
-typedef PODStruct<  size_t>  SizePOD;  ///< アドレスサイズを表すデータ型。
+typedef PodStruct<  byte_t > BytePod;  ///< 1バイトデータ型。
+typedef PodStruct<  word_t > WordPod;  ///< 2バイトデータ型。
+typedef PodStruct< dword_t > DWordPod; ///< 4バイトデータ型。
+typedef PodStruct< qword_t > QWordPod; ///< 8バイトデータ型。
+typedef PodStruct< pword_t > PWordPod; ///< アドレスサイズを表すデータ型。
+typedef PodStruct<  size_t>  SizePod;  ///< アドレスサイズを表すデータ型。
 //@}
 
 //============================================================
 /// @name struct化されたアドレス型
 //@{
-typedef PODStruct< ptr_t >          PtrPOD;         ///< ポインタ型。void** -> void*に変換できてしまう事故を防ぐため基本はこちらを使用。
-typedef PODStruct< const_ptr_t >    ConstPtrPOD;    ///< ptr_tのconst版。
-typedef PODStruct< anyptr_t >       AnyPtrPOD;      ///< 何でもいけるポインタ型。
-typedef PODStruct< const_anyptr_t > ConstAnyPtrPOD; ///< any_ptr_tのconst版。
+typedef PodStruct< ptr_t >          PtrPod;         ///< ポインタ型。void** -> void*に変換できてしまう事故を防ぐため基本はこちらを使用。
+typedef PodStruct< const_ptr_t >    ConstPtrPod;    ///< ptr_tのconst版。
+typedef PodStruct< anyptr_t >       AnyPtrPod;      ///< 何でもいけるポインタ型。
+typedef PodStruct< const_anyptr_t > ConstAnyPtrPod; ///< any_ptr_tのconst版。
 //@}
 
 //@}

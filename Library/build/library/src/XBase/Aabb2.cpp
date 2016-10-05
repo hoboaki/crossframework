@@ -16,7 +16,7 @@ AABBox2::AABBox2()
 }
 
 //------------------------------------------------------------------------------
-AABBox2::AABBox2(const Vector2POD& aPos)
+AABBox2::AABBox2(const Vector2Pod& aPos)
 : mMin(aPos)
 , mMax(aPos)
 {
@@ -24,8 +24,8 @@ AABBox2::AABBox2(const Vector2POD& aPos)
 
 //------------------------------------------------------------------------------
 AABBox2::AABBox2(
-    const Vector2POD& aPos1,
-    const Vector2POD& aPos2
+    const Vector2Pod& aPos1,
+    const Vector2Pod& aPos2
     )
 : mMin(aPos1.min(aPos2))
 , mMax(aPos1.max(aPos2))
@@ -33,43 +33,43 @@ AABBox2::AABBox2(
 }
 
 //------------------------------------------------------------------------------
-const Vector2POD AABBox2::min()const
+const Vector2Pod AABBox2::min()const
 {
     return mMin;
 }
 
 //------------------------------------------------------------------------------
-const Vector2POD AABBox2::max()const
+const Vector2Pod AABBox2::max()const
 {
     return mMax;
 }
 
 //------------------------------------------------------------------------------
-const Vector2POD AABBox2::center()const
+const Vector2Pod AABBox2::center()const
 {
     return (mMin + mMax) * 0.5f;
 }
 
 //------------------------------------------------------------------------------
-const Vector2POD AABBox2::posLB()const
+const Vector2Pod AABBox2::posLB()const
 {
     return Vector2(mMin.x, mMin.y);
 }
 
 //------------------------------------------------------------------------------
-const Vector2POD AABBox2::posRB()const
+const Vector2Pod AABBox2::posRB()const
 {
     return Vector2(mMax.x, mMin.y);
 }
 
 //------------------------------------------------------------------------------
-const Vector2POD AABBox2::posLT()const
+const Vector2Pod AABBox2::posLT()const
 {
     return Vector2(mMin.x, mMax.y);
 }
 
 //------------------------------------------------------------------------------
-const Vector2POD AABBox2::posRT()const
+const Vector2Pod AABBox2::posRT()const
 {
     return Vector2(mMax.x, mMax.y);
 }
@@ -111,19 +111,19 @@ float AABBox2::height()const
 }
 
 //------------------------------------------------------------------------------
-const Vector2POD AABBox2::size()const
+const Vector2Pod AABBox2::size()const
 {
     return Vector2(width(), height());
 }
 
 //------------------------------------------------------------------------------
-const Vector2POD AABBox2::halfSize()const
+const Vector2Pod AABBox2::halfSize()const
 {
     return size() * 0.5f;
 }
 
 //------------------------------------------------------------------------------
-const AABBox2 AABBox2::merge(const Vector2POD& aPos)const
+const AABBox2 AABBox2::merge(const Vector2Pod& aPos)const
 {
     AABBox2 aabb = *this;
     aabb.mergeAssign(aPos);
@@ -139,7 +139,7 @@ const AABBox2 AABBox2::merge(const AABBox2& aAABB)const
 }
 
 //------------------------------------------------------------------------------
-void AABBox2::mergeAssign(const Vector2POD& aPos)
+void AABBox2::mergeAssign(const Vector2Pod& aPos)
 {
     mMin = mMin.min(aPos);
     mMax = mMax.max(aPos);
@@ -162,7 +162,7 @@ bool AABBox2::isIntersects(const AABBox2& aAABB)const
 }
 
 //------------------------------------------------------------------------------
-bool AABBox2::isContains(const Vector2POD& aPos)const
+bool AABBox2::isContains(const Vector2Pod& aPos)const
 {
     return mMin.x <= aPos.x
         && mMin.y <= aPos.y
@@ -178,7 +178,7 @@ bool AABBox2::isContains(const AABBox2& aAABB)const
 }
 
 //------------------------------------------------------------------------------
-const AABBox2 AABBox2::add(const Vector2POD& aTrans)const
+const AABBox2 AABBox2::add(const Vector2Pod& aTrans)const
 {
     AABBox2 aabb = *this;
     aabb += aTrans;
@@ -186,7 +186,7 @@ const AABBox2 AABBox2::add(const Vector2POD& aTrans)const
 }
 
 //------------------------------------------------------------------------------
-const AABBox2 AABBox2::sub(const Vector2POD& aTrans)const
+const AABBox2 AABBox2::sub(const Vector2Pod& aTrans)const
 {
     AABBox2 aabb = *this;
     aabb -= aTrans;
@@ -218,14 +218,14 @@ const AABBox2 AABBox2::mul(const float aScale)const
 }
 
 //------------------------------------------------------------------------------
-void AABBox2::addAssign(const Vector2POD& aTrans)
+void AABBox2::addAssign(const Vector2Pod& aTrans)
 {
     mMin += aTrans;
     mMax += aTrans;
 }
 
 //------------------------------------------------------------------------------
-void AABBox2::subAssign(const Vector2POD& aTrans)
+void AABBox2::subAssign(const Vector2Pod& aTrans)
 {
     mMin -= aTrans;
     mMax -= aTrans;
@@ -253,13 +253,13 @@ void AABBox2::mulAssign(const float aScale)
 }
 
 //------------------------------------------------------------------------------
-const AABBox2 AABBox2::operator+(const Vector2POD& aTrans)const
+const AABBox2 AABBox2::operator+(const Vector2Pod& aTrans)const
 {
     return add(aTrans);
 }
 
 //------------------------------------------------------------------------------
-const AABBox2 AABBox2::operator-(const Vector2POD& aTrans)const
+const AABBox2 AABBox2::operator-(const Vector2Pod& aTrans)const
 {
     return sub(aTrans);
 }
@@ -283,14 +283,14 @@ const AABBox2 AABBox2::operator*(const float aScale)const
 }
 
 //------------------------------------------------------------------------------
-AABBox2& AABBox2::operator+=(const Vector2POD& aTrans)
+AABBox2& AABBox2::operator+=(const Vector2Pod& aTrans)
 {
     addAssign(aTrans);
     return *this;
 }
 
 //------------------------------------------------------------------------------
-AABBox2& AABBox2::operator-=(const Vector2POD& aTrans)
+AABBox2& AABBox2::operator-=(const Vector2Pod& aTrans)
 {
     subAssign(aTrans);
     return *this;

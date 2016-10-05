@@ -47,7 +47,7 @@ public:
     /// @see isPosUpdated()
     /// @details
     /// 初期値は(0,0)を返します。
-    const ScreenPosPOD pos()const;
+    const ScreenPosPod pos()const;
     //@}
 
     /// @name ボタンの状態取得

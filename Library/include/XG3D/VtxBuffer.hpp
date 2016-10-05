@@ -56,12 +56,12 @@ public:
     /// @name メッシュの構築準備
     //@{
     /// @brief 次回のメッシュ構築の際に使用するワールド行列を指定する。
-    /// @param aMtx XBase::Matrix34POD::Translate() などで作られたワールド行列。
+    /// @param aMtx XBase::Matrix34Pod::Translate() などで作られたワールド行列。
     /// @details
     /// 初期値は単位行列です。@n
     /// 引数の行列の値はコピーされます。 @n
     /// beginの前に呼ぶようにしてください。
-    void worldMtx(const ::XBase::Matrix34POD& aMtx);
+    void worldMtx(const ::XBase::Matrix34Pod& aMtx);
     //@}
 
     /// @name メッシュの構築の開始と終わり
@@ -76,16 +76,16 @@ public:
     /// @name メッシュの頂点構築
     //@{
     void normal(f32 aX, f32 aY, f32 aZ);        ///< 次に追加する頂点の法線を指定する。
-    void normal(const ::XBase::Vector3POD& aXYZ); ///< @copydoc normal()
+    void normal(const ::XBase::Vector3Pod& aXYZ); ///< @copydoc normal()
     void texCoord(f32 aS, f32 aT);                   ///< 次に追加する頂点のテクスチャ座標を指定する。
-    void texCoord(const ::XBase::Vector2POD& aST);    ///< @copydoc texCoord()
+    void texCoord(const ::XBase::Vector2Pod& aST);    ///< @copydoc texCoord()
     void color(f32 aR, f32 aG, f32 aB);             ///< 次に追加する頂点の色を指定する。
     void color(f32 aR, f32 aG, f32 aB, f32 aA);    ///< @copydoc color()
-    void color(const ::XBase::Color4POD& aRGBA);      ///< @copydoc color()
+    void color(const ::XBase::Color4Pod& aRGBA);      ///< @copydoc color()
     void vertex(f32 aX, f32 aY);                 ///< 頂点の位置を決定し今回の頂点を頂点バッファに追加する。
     void vertex(f32 aX, f32 aY, f32 aZ);        ///< @copydoc vertex()
-    void vertex(const ::XBase::Vector2POD& aXY);  ///< @copydoc vertex()
-    void vertex(const ::XBase::Vector3POD& aXYZ); ///< @copydoc vertex()
+    void vertex(const ::XBase::Vector2Pod& aXY);  ///< @copydoc vertex()
+    void vertex(const ::XBase::Vector3Pod& aXYZ); ///< @copydoc vertex()
     //@}
 
     /// @name バッファの構築と描画
@@ -106,10 +106,10 @@ public:
 private:
     struct Vertex
     {
-        ::XBase::Vector3POD position;
-        ::XBase::Vector3POD normal;
-        ::XBase::Vector2POD texCoord;
-        ::XBase::Color4POD  color;
+        ::XBase::Vector3Pod position;
+        ::XBase::Vector3Pod normal;
+        ::XBase::Vector2Pod texCoord;
+        ::XBase::Color4Pod  color;
     };
     struct Mesh
     {

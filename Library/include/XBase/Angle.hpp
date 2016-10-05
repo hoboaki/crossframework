@@ -6,8 +6,8 @@
 #include <XBase/BuiltinTypes.hpp>
 
 namespace XBase {
-struct DegreePOD;
-struct RadianPOD;
+struct DegreePod;
+struct RadianPod;
 }
 //------------------------------------------------------------------------------
 namespace XBase {
@@ -21,8 +21,8 @@ public:
     /// @name コンストラクタ
     //@{
     Angle(); ///< 0度で作成。
-    Angle(const DegreePOD&); ///< Degreeで作成。
-    Angle(const RadianPOD&); ///< Radianで作成。
+    Angle(const DegreePod&); ///< Degreeで作成。
+    Angle(const RadianPod&); ///< Radianで作成。
     //@}
 
     /// @name 角度の取得

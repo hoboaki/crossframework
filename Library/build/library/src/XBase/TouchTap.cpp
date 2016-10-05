@@ -36,7 +36,7 @@ int TouchTap::tapCount()const
 }
 
 //------------------------------------------------------------------------------
-const ScreenPosPOD TouchTap::pos()const
+const ScreenPosPod TouchTap::pos()const
 {
     return mData.pos;
 }

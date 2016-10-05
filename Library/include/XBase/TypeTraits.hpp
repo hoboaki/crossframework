@@ -20,14 +20,14 @@ struct TypeTraits
 {
 #if defined(XBASE_COMPILER_MSVC)
     template< typename T >
-    struct IsPOD { enum { Value = ::std::tr1::is_pod< T >::value }; };
+    struct IsPod { enum { Value = ::std::tr1::is_pod< T >::value }; };
 
     template< typename T >
     struct IsScaler { enum { Value = ::std::tr1::is_scaler< T >::value }; };
 #else
         // サポートしていないコンパイラでは常にtrueを返す。
-        /// POD型。
-    template< typename T > struct IsPOD { enum { Value = true }; };
+        /// Pod型。
+    template< typename T > struct IsPod { enum { Value = true }; };
     /// スカラー型か。
     template< typename T > struct IsScaler { enum { Value = true }; };
 #endif

@@ -17,7 +17,7 @@ struct MouseUpdateData
 {
     ScreenPos pos;
     MouseBtnBitSet hold;
-    BoolPOD32 posUpdated; // trueならposは最新の値が入っている。falseならウィンドウ外でキャプチャに失敗している可能性がある。
+    BoolPod32 posUpdated; // trueならposは最新の値が入っている。falseならウィンドウ外でキャプチャに失敗している可能性がある。
 };
 //@}
 

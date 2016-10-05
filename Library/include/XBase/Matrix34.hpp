@@ -8,9 +8,9 @@
 namespace XBase {
 class Angle;
 class Quaternion;
-struct Matrix44POD;
-struct Vector3POD;
-struct Vector4POD;
+struct Matrix44Pod;
+struct Vector3Pod;
+struct Vector4Pod;
 }
 
 //------------------------------------------------------------------------------
@@ -28,7 +28,7 @@ namespace XBase {
     /// r1 [1] [4]  [7] [10]
     /// r2 [2] [5]  [8] [11]
 /// @endcode
-struct Matrix34POD
+struct Matrix34Pod
 {
     //============================================================
     /// @name インデックス値
@@ -65,20 +65,20 @@ struct Matrix34POD
     //============================================================
     /// @name 行列の作成
     //@{
-    static const Matrix34POD Identity(); ///< 単位行列の作成。
-    static const Matrix34POD Translate(f32 aX, f32 aY, f32 aZ);   ///< 平行移動行列の作成。
-    static const Matrix34POD Translate(const Vector3POD& aVec);     ///< 平行移動行列の作成。
-    static const Matrix34POD Scale(f32 aX, f32 aY, f32 aZ);   ///< 拡大縮小行列の作成。
-    static const Matrix34POD Scale(const Vector3POD& aVec);     ///< 拡大縮小行列の作成。
-    static const Matrix34POD Rotate(const Angle&, f32 aAxisX, f32 aAxisY, f32 aAxisZ);   ///< 回転行列の作成。
-    static const Matrix34POD Rotate(const Angle&, const Vector3POD& aAxis);                 ///< 回転行列の作成。
+    static const Matrix34Pod Identity(); ///< 単位行列の作成。
+    static const Matrix34Pod Translate(f32 aX, f32 aY, f32 aZ);   ///< 平行移動行列の作成。
+    static const Matrix34Pod Translate(const Vector3Pod& aVec);     ///< 平行移動行列の作成。
+    static const Matrix34Pod Scale(f32 aX, f32 aY, f32 aZ);   ///< 拡大縮小行列の作成。
+    static const Matrix34Pod Scale(const Vector3Pod& aVec);     ///< 拡大縮小行列の作成。
+    static const Matrix34Pod Rotate(const Angle&, f32 aAxisX, f32 aAxisY, f32 aAxisZ);   ///< 回転行列の作成。
+    static const Matrix34Pod Rotate(const Angle&, const Vector3Pod& aAxis);                 ///< 回転行列の作成。
 
     /// @brief 視野変換行列の作成。
     /// @param aEyePos 目の位置。
     /// @param aTargetPos 注視点。
     /// @param aUpVec 上方向のベクトル。isZeroなベクトルを渡してはいけない。
     /// @details aEyePos != aTargetPosである必要があります。
-    static const Matrix34POD LookAt(const Vector3POD& aEyePos, const Vector3POD& aTargetPos, const Vector3POD& aUpVec);
+    static const Matrix34Pod LookAt(const Vector3Pod& aEyePos, const Vector3Pod& aTargetPos, const Vector3Pod& aUpVec);
     //@}
 
     //============================================================
@@ -93,38 +93,38 @@ struct Matrix34POD
     //============================================================
     /// @name XYZWアクセス（1列ごとにX,Y,Z,Wが割り当てられているとする）
     //@{
-    const Vector3POD x()const;
-    const Vector3POD y()const;
-    const Vector3POD z()const;
-    const Vector3POD w()const;
-    void setX(const Vector3POD&);
-    void setY(const Vector3POD&);
-    void setZ(const Vector3POD&);
-    void setW(const Vector3POD&);
+    const Vector3Pod x()const;
+    const Vector3Pod y()const;
+    const Vector3Pod z()const;
+    const Vector3Pod w()const;
+    void setX(const Vector3Pod&);
+    void setY(const Vector3Pod&);
+    void setZ(const Vector3Pod&);
+    void setW(const Vector3Pod&);
     //@}
 
     //============================================================
     /// @name 乗算（引数が同じオブジェクトでも問題無し）
     //@{
-    const Vector3POD mul(const Vector3POD&)const;   ///< @brief 乗算した結果を得る。 @details 4行目は0,0,0,1として計算する。
-    const Matrix34POD mul(const Matrix34POD&)const; ///< @brief 乗算した結果を得る。 @details this x rhs。4行目は0,0,0,1として計算する。
-    Matrix34POD& mulAssign(const Matrix34POD&);     ///< @brief 乗算し結果を代入する。@details  this = this x rhs。4行目は0,0,0,1として計算する。
+    const Vector3Pod mul(const Vector3Pod&)const;   ///< @brief 乗算した結果を得る。 @details 4行目は0,0,0,1として計算する。
+    const Matrix34Pod mul(const Matrix34Pod&)const; ///< @brief 乗算した結果を得る。 @details this x rhs。4行目は0,0,0,1として計算する。
+    Matrix34Pod& mulAssign(const Matrix34Pod&);     ///< @brief 乗算し結果を代入する。@details  this = this x rhs。4行目は0,0,0,1として計算する。
     //@}
 
     //============================================================
     /// @name 演算子オーバーロード
     //@{
-    const Vector3POD   operator*(const Vector3POD&)const; ///< mul() のエイリアス。
-    const Matrix34POD  operator*(const Matrix34POD&)const; ///< mul() のエイリアス。
-    Matrix34POD&       operator*=(const Matrix34POD&);    ///< mulAssign() のエイリアス。
+    const Vector3Pod   operator*(const Vector3Pod&)const; ///< mul() のエイリアス。
+    const Matrix34Pod  operator*(const Matrix34Pod&)const; ///< mul() のエイリアス。
+    Matrix34Pod&       operator*=(const Matrix34Pod&);    ///< mulAssign() のエイリアス。
     //@}
 
     //============================================================
     /// @name 変換
     //@{
-    const Matrix34POD invert()const; ///< 逆行列を取得する。4行目は0,0,0,1として作成する。
+    const Matrix34Pod invert()const; ///< 逆行列を取得する。4行目は0,0,0,1として作成する。
     const Quaternion  toQuaternion()const; ///< 3x3の部分をクォータニオンに変換する。
-    const Matrix44POD toMatrix44()const; ///< 4x4に変換する。4行目は0,0,0,1として作成する。
+    const Matrix44Pod toMatrix44()const; ///< 4x4に変換する。4行目は0,0,0,1として作成する。
     //@}
 
     //============================================================
@@ -134,8 +134,8 @@ struct Matrix34POD
     //@}
 };
 
-/// Matrix34POD のクラス版。
-class Matrix34 : public Matrix34POD
+/// Matrix34Pod のクラス版。
+class Matrix34 : public Matrix34Pod
 {
 public:
     //============================================================
@@ -147,13 +147,13 @@ public:
         , f32 r1c0, f32 r1c1, f32 r1c2, f32 r1c3
         , f32 r2c0, f32 r2c1, f32 r2c2, f32 r2c3
     );
-    Matrix34(const Vector3POD& aX, const Vector3POD& aY, const Vector3POD& aZ, const Vector3POD& aW); ///< X,Y,Z,Wを指定して作成。
-    Matrix34(const Matrix34POD&); ///< コピーして作成。
+    Matrix34(const Vector3Pod& aX, const Vector3Pod& aY, const Vector3Pod& aZ, const Vector3Pod& aW); ///< X,Y,Z,Wを指定して作成。
+    Matrix34(const Matrix34Pod&); ///< コピーして作成。
     //@}
 };
 
-/// Matrix34POD のエイリアス。
-typedef Matrix34POD Mtx34;
+/// Matrix34Pod のエイリアス。
+typedef Matrix34Pod Mtx34;
 //@}
 
 } // namespace

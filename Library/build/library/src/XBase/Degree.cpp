@@ -17,34 +17,34 @@ const float tToRadianRate = XBASE_PI / 180.0f;
 } // namespace
 
 //------------------------------------------------------------------------------
-const Angle DegreePOD::toAngle()const
+const Angle DegreePod::toAngle()const
 {
     return Angle(*this);
 }
 
 //------------------------------------------------------------------------------
-const RadianPOD DegreePOD::toRadian()const
+const RadianPod DegreePod::toRadian()const
 {
     return Radian(value * tToRadianRate);
 }
 
 //------------------------------------------------------------------------------
 Degree::Degree()
-: DegreePOD()
+: DegreePod()
 {
     value = 0;
 }
 
 //------------------------------------------------------------------------------
 Degree::Degree(const float aDegree)
-: DegreePOD()
+: DegreePod()
 {
     value = aDegree;
 }
 
 //------------------------------------------------------------------------------
-Degree::Degree(const DegreePOD& aVal)
-: DegreePOD(aVal)
+Degree::Degree(const DegreePod& aVal)
+: DegreePod(aVal)
 {
 }
 

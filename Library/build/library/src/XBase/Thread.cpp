@@ -16,7 +16,7 @@
 namespace XBase {
 
 //------------------------------------------------------------------------------
-void Thread::Sleep(const TimeSpanPOD& aTimeSpan)
+void Thread::Sleep(const TimeSpanPod& aTimeSpan)
 {
 #if defined(XBASE_OS_WINDOWS)
     ::Sleep(DWORD(::XBase::Math::Max(s64(1), aTimeSpan.milliseconds())));

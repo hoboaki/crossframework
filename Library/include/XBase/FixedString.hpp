@@ -20,13 +20,13 @@ namespace XBase {
     /// CHAR_TYPE には char もしくは wchar_t を設定してください。@n
     /// BUFFER_LENGTH には配列長(notバイト長)を指定してください。@n
 template< typename CHAR_TYPE, size_t BUFFER_LENGTH >
-struct FixedStringPOD
+struct FixedStringPod
 {
     /// 文字の型。
     typedef CHAR_TYPE CharType;
 
-    /// POD型。
-    typedef FixedStringPOD< CHAR_TYPE, BUFFER_LENGTH > PODType;
+    /// Pod型。
+    typedef FixedStringPod< CHAR_TYPE, BUFFER_LENGTH > PodType;
 
     /// バッファの容量(配列長でありバイト長ではない)。
     static const size_t BufferLength = BUFFER_LENGTH;
@@ -36,9 +36,9 @@ struct FixedStringPOD
     /// @param aFormat フォーマット文字列。
     /// @details
     /// バッファ長が不足したときはAssertに失敗し長さ0の文字列を返します。
-    static const PODType FromFormat(const CharType* aFormat, ...)
+    static const PodType FromFormat(const CharType* aFormat, ...)
     {
-        PODType str;
+        PodType str;
         va_list arg;
         va_start(arg, aFormat);
         StringTraits< CharType >::VSNPrintf(str.buffer_, BufferLength, aFormat, arg);
@@ -72,9 +72,9 @@ struct FixedStringPOD
     CharType buffer_[BufferLength];
 };
 
-/// FixedStringPOD にコンストラクタを加えたもの。
+/// FixedStringPod にコンストラクタを加えたもの。
 template< typename CHAR_TYPE, size_t BUFFER_LENGTH >
-class FixedString : public FixedStringPOD< CHAR_TYPE, BUFFER_LENGTH >
+class FixedString : public FixedStringPod< CHAR_TYPE, BUFFER_LENGTH >
 {
 public:
     /// 長さ0の文字列を作成。
@@ -93,16 +93,16 @@ public:
 
     /// コピーして作成。
     FixedString(
-        const FixedStringPOD< CHAR_TYPE, BUFFER_LENGTH >& aObj
+        const FixedStringPod< CHAR_TYPE, BUFFER_LENGTH >& aObj
     )
-        : SuperType::PODType()
+        : SuperType::PodType()
     {
         static_cast<SuperType&>(*this) = aObj;
     }
 
 private:
-    typedef FixedStringPOD< CHAR_TYPE, BUFFER_LENGTH > SuperType;
-    XBASE_STATIC_ASSERT(TypeTraits::IsPOD< PODType >::Value);
+    typedef FixedStringPod< CHAR_TYPE, BUFFER_LENGTH > SuperType;
+    XBASE_STATIC_ASSERT(TypeTraits::IsPod< PodType >::Value);
 };
 //@}
 
