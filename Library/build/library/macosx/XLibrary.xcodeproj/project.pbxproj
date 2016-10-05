@@ -96,8 +96,8 @@
 		C5674386135F23130057A630 /* Vector4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5674357135F23130057A630 /* Vector4.cpp */; };
 		C5674393135F23180057A630 /* Application_Ext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5674387135F23180057A630 /* Application_Ext.cpp */; };
 		C5674394135F23180057A630 /* Display_Ext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5674388135F23180057A630 /* Display_Ext.cpp */; };
-		C5674395135F23180057A630 /* EntryPoint_EXT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5674389135F23180057A630 /* EntryPoint_EXT.cpp */; };
-		C5674396135F23180057A630 /* EntryPoint_EXTM.m in Sources */ = {isa = PBXBuildFile; fileRef = C567438A135F23180057A630 /* EntryPoint_EXTM.m */; };
+		C5674395135F23180057A630 /* EntryPoint_Ext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5674389135F23180057A630 /* EntryPoint_Ext.cpp */; };
+		C5674396135F23180057A630 /* EntryPoint_ExtM.m in Sources */ = {isa = PBXBuildFile; fileRef = C567438A135F23180057A630 /* EntryPoint_ExtM.m */; };
 		C5674397135F23180057A630 /* Hid_Ext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C567438B135F23180057A630 /* Hid_Ext.cpp */; };
 		C5674398135F23180057A630 /* Screen_Ext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C567438C135F23180057A630 /* Screen_Ext.cpp */; };
 		C5674399135F23180057A630 /* XBaseNSApp.h in Headers */ = {isa = PBXBuildFile; fileRef = C567438D135F23180057A630 /* XBaseNSApp.h */; };
@@ -205,8 +205,8 @@
 		C5674357135F23130057A630 /* Vector4.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; path = Vector4.cpp; sourceTree = "<group>"; };
 		C5674387135F23180057A630 /* Application_Ext.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = Application_Ext.cpp; path = macosx/Application_Ext.cpp; sourceTree = "<group>"; };
 		C5674388135F23180057A630 /* Display_Ext.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = Display_Ext.cpp; path = macosx/Display_Ext.cpp; sourceTree = "<group>"; };
-		C5674389135F23180057A630 /* EntryPoint_EXT.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = EntryPoint_EXT.cpp; path = macosx/EntryPoint_EXT.cpp; sourceTree = "<group>"; };
-		C567438A135F23180057A630 /* EntryPoint_EXTM.m */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.c.objc; name = EntryPoint_EXTM.m; path = macosx/EntryPoint_EXTM.m; sourceTree = "<group>"; };
+		C5674389135F23180057A630 /* EntryPoint_Ext.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = EntryPoint_Ext.cpp; path = macosx/EntryPoint_Ext.cpp; sourceTree = "<group>"; };
+		C567438A135F23180057A630 /* EntryPoint_ExtM.m */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.c.objc; name = EntryPoint_ExtM.m; path = macosx/EntryPoint_ExtM.m; sourceTree = "<group>"; };
 		C567438B135F23180057A630 /* Hid_Ext.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = Hid_Ext.cpp; path = macosx/Hid_Ext.cpp; sourceTree = "<group>"; };
 		C567438C135F23180057A630 /* Screen_Ext.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = Screen_Ext.cpp; path = macosx/Screen_Ext.cpp; sourceTree = "<group>"; };
 		C567438D135F23180057A630 /* XBaseNSApp.h */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.c.h; name = XBaseNSApp.h; path = macosx/XBaseNSApp.h; sourceTree = "<group>"; };
@@ -313,8 +313,8 @@
 				C567439F135F231C0057A630 /* ResFileStream_EXT.cpp */,
 				C5674387135F23180057A630 /* Application_Ext.cpp */,
 				C5674388135F23180057A630 /* Display_Ext.cpp */,
-				C5674389135F23180057A630 /* EntryPoint_EXT.cpp */,
-				C567438A135F23180057A630 /* EntryPoint_EXTM.m */,
+				C5674389135F23180057A630 /* EntryPoint_Ext.cpp */,
+				C567438A135F23180057A630 /* EntryPoint_ExtM.m */,
 				C567438B135F23180057A630 /* Hid_Ext.cpp */,
 				C567438C135F23180057A630 /* Screen_Ext.cpp */,
 				C567438D135F23180057A630 /* XBaseNSApp.h */,
@@ -603,8 +603,8 @@
 				C5674386135F23130057A630 /* Vector4.cpp in Sources */,
 				C5674393135F23180057A630 /* Application_Ext.cpp in Sources */,
 				C5674394135F23180057A630 /* Display_Ext.cpp in Sources */,
-				C5674395135F23180057A630 /* EntryPoint_EXT.cpp in Sources */,
-				C5674396135F23180057A630 /* EntryPoint_EXTM.m in Sources */,
+				C5674395135F23180057A630 /* EntryPoint_Ext.cpp in Sources */,
+				C5674396135F23180057A630 /* EntryPoint_ExtM.m in Sources */,
 				C5674397135F23180057A630 /* Hid_Ext.cpp in Sources */,
 				C5674398135F23180057A630 /* Screen_Ext.cpp in Sources */,
 				C567439A135F23180057A630 /* XBaseNSApp.m in Sources */,

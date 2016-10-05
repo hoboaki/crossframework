@@ -7,7 +7,7 @@
 #include <XBase/Argument.hpp>
 #include <XBase/RuntimeAssert.hpp>
 #include <XBase/Unused.hpp>
-#include "EntryPoint_EXT.h"
+#include "EntryPoint_Ext.h"
 #include "EntryPoint_Sync.h"
 
 //------------------------------------------------------------------------------

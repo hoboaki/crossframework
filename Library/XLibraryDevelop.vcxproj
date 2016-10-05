@@ -71,7 +71,7 @@
     <ClCompile Include="build\library\src\XBase\Vector4i.cpp" />
     <ClCompile Include="build\library\src\XBase\windows\Application_Ext.cpp" />
     <ClCompile Include="build\library\src\XBase\windows\Display_Ext.cpp" />
-    <ClCompile Include="build\library\src\XBase\windows\EntryPoint_EXT.cpp" />
+    <ClCompile Include="build\library\src\XBase\windows\EntryPoint_Ext.cpp" />
     <ClCompile Include="build\library\src\XBase\windows\Hid_Ext.cpp" />
     <ClCompile Include="build\library\src\XG3D\gl\BinResHeader.cpp" />
     <ClCompile Include="build\library\src\XG3D\gl\ITexRes.cpp" />
