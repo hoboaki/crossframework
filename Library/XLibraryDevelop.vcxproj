@@ -69,7 +69,7 @@
     <ClCompile Include="build\library\src\XBase\Vector3i.cpp" />
     <ClCompile Include="build\library\src\XBase\Vector4.cpp" />
     <ClCompile Include="build\library\src\XBase\Vector4i.cpp" />
-    <ClCompile Include="build\library\src\XBase\windows\Applcation_Ext.cpp" />
+    <ClCompile Include="build\library\src\XBase\windows\Application_Ext.cpp" />
     <ClCompile Include="build\library\src\XBase\windows\Display_Ext.cpp" />
     <ClCompile Include="build\library\src\XBase\windows\EntryPoint_EXT.cpp" />
     <ClCompile Include="build\library\src\XBase\windows\Hid_Ext.cpp" />

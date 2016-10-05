@@ -68,7 +68,7 @@ void VtxBuffer::clear()
 }
 
 //------------------------------------------------------------------------------
-void VtxBuffer::worldMtx(const ::XBase::Matrix34POD& aMtx)
+void VtxBuffer::worldMtx(const ::XBase::Matrix34Pod& aMtx)
 {
     mWorldMtx = aMtx;
 }
@@ -182,7 +182,7 @@ void VtxBuffer::normal(const f32 aX, const f32 aY, const f32 aZ)
 }
 
 //------------------------------------------------------------------------------
-void VtxBuffer::normal(const ::XBase::Vector3POD& aXYZ)
+void VtxBuffer::normal(const ::XBase::Vector3Pod& aXYZ)
 {
     // チェック
     if (!mIsMeshActive) {
@@ -199,7 +199,7 @@ void VtxBuffer::texCoord(const f32 aS, const f32 aT)
 }
 
 //------------------------------------------------------------------------------
-void VtxBuffer::texCoord(const ::XBase::Vector2POD& aST)
+void VtxBuffer::texCoord(const ::XBase::Vector2Pod& aST)
 {
     // チェック
     if (!mIsMeshActive) {
@@ -222,7 +222,7 @@ void VtxBuffer::color(const f32 aR, const f32 aG, const f32 aB, const f32 aA)
 }
 
 //------------------------------------------------------------------------------
-void VtxBuffer::color(const ::XBase::Color4POD& aRGBA)
+void VtxBuffer::color(const ::XBase::Color4Pod& aRGBA)
 {
     // チェック
     if (!mIsMeshActive) {
@@ -245,13 +245,13 @@ void VtxBuffer::vertex(const f32 aX, const f32 aY, const f32 aZ)
 }
 
 //------------------------------------------------------------------------------
-void VtxBuffer::vertex(const ::XBase::Vector2POD& aXY)
+void VtxBuffer::vertex(const ::XBase::Vector2Pod& aXY)
 {
     vertex(aXY.toXY0());
 }
 
 //------------------------------------------------------------------------------
-void VtxBuffer::vertex(const ::XBase::Vector3POD& aXYZ)
+void VtxBuffer::vertex(const ::XBase::Vector3Pod& aXYZ)
 {
     // チェック
     if (!mIsMeshActive) {

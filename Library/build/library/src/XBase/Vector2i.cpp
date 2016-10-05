@@ -295,89 +295,89 @@ Vector2iPod& Vector2iPod::operator/=(const s32 aVal)
 }
 
 //------------------------------------------------------------------------------
-Vector2iPOD& Vector2iPOD::operator+=(const Vector2iPOD& aVal)
+Vector2iPod& Vector2iPod::operator+=(const Vector2iPod& aVal)
 {
     addAssign(aVal);
     return *this;
 }
 
 //------------------------------------------------------------------------------
-Vector2iPOD& Vector2iPOD::operator-=(const Vector2iPOD& aVal)
+Vector2iPod& Vector2iPod::operator-=(const Vector2iPod& aVal)
 {
     subAssign(aVal);
     return *this;
 }
 
 //------------------------------------------------------------------------------
-Vector2iPOD& Vector2iPOD::operator*=(const Vector2iPOD& aVal)
+Vector2iPod& Vector2iPod::operator*=(const Vector2iPod& aVal)
 {
     mulAssign(aVal);
     return *this;
 }
 
 //------------------------------------------------------------------------------
-Vector2iPOD& Vector2iPOD::operator/=(const Vector2iPOD& aVal)
+Vector2iPod& Vector2iPod::operator/=(const Vector2iPod& aVal)
 {
     divAssign(aVal);
     return *this;
 }
 
 //------------------------------------------------------------------------------
-const Vector2iPOD Vector2iPOD::operator+(const s32 aVal)const
+const Vector2iPod Vector2iPod::operator+(const s32 aVal)const
 {
     return add(aVal);
 }
 
 //------------------------------------------------------------------------------
-const Vector2iPOD Vector2iPOD::operator-(const s32 aVal)const
+const Vector2iPod Vector2iPod::operator-(const s32 aVal)const
 {
     return sub(aVal);
 }
 
 //------------------------------------------------------------------------------
-const Vector2iPOD Vector2iPOD::operator*(const s32 aVal)const
+const Vector2iPod Vector2iPod::operator*(const s32 aVal)const
 {
     return mul(aVal);
 }
 
 //------------------------------------------------------------------------------
-const Vector2iPOD Vector2iPOD::operator/(const s32 aVal)const
+const Vector2iPod Vector2iPod::operator/(const s32 aVal)const
 {
     return div(aVal);
 }
 
 //------------------------------------------------------------------------------
-const Vector2iPOD Vector2iPOD::operator+(const Vector2iPOD& aVal)const
+const Vector2iPod Vector2iPod::operator+(const Vector2iPod& aVal)const
 {
     return add(aVal);
 }
 
 //------------------------------------------------------------------------------
-const Vector2iPOD Vector2iPOD::operator-(const Vector2iPOD& aVal)const
+const Vector2iPod Vector2iPod::operator-(const Vector2iPod& aVal)const
 {
     return sub(aVal);
 }
 
 //------------------------------------------------------------------------------
-const Vector2iPOD Vector2iPOD::operator*(const Vector2iPOD& aVal)const
+const Vector2iPod Vector2iPod::operator*(const Vector2iPod& aVal)const
 {
     return mul(aVal);
 }
 
 //------------------------------------------------------------------------------
-const Vector2iPOD Vector2iPOD::operator/(const Vector2iPOD& aVal)const
+const Vector2iPod Vector2iPod::operator/(const Vector2iPod& aVal)const
 {
     return div(aVal);
 }
 
 //------------------------------------------------------------------------------
-const Vector2iPOD Vector2iPOD::operator-()const
+const Vector2iPod Vector2iPod::operator-()const
 {
     return neg();
 }
 
 //------------------------------------------------------------------------------
-const Vector2iPOD Vector2iPOD::min(const Vector2iPOD& aVal)const
+const Vector2iPod Vector2iPod::min(const Vector2iPod& aVal)const
 {
     return Vector2i(
         Math::Min(x, aVal.x),
@@ -386,7 +386,7 @@ const Vector2iPOD Vector2iPOD::min(const Vector2iPOD& aVal)const
 }
 
 //------------------------------------------------------------------------------
-const Vector2iPOD Vector2iPOD::max(const Vector2iPOD& aVal)const
+const Vector2iPod Vector2iPod::max(const Vector2iPod& aVal)const
 {
     return Vector2i(
         Math::Max(x, aVal.x),
@@ -395,28 +395,28 @@ const Vector2iPOD Vector2iPOD::max(const Vector2iPOD& aVal)const
 }
 
 //------------------------------------------------------------------------------
-const Vector2iPOD Vector2iPOD::clamp(
-    const Vector2iPOD& aMin,
-    const Vector2iPOD& aMax
+const Vector2iPod Vector2iPod::clamp(
+    const Vector2iPod& aMin,
+    const Vector2iPod& aMax
 )const
 {
     return max(aMin).min(aMax);
 }
 
 //------------------------------------------------------------------------------
-const Vector2iPOD Vector2iPOD::clampPositive()const
+const Vector2iPod Vector2iPod::clampPositive()const
 {
     return max(Zero());
 }
 
 //------------------------------------------------------------------------------
-const Vector2iPOD Vector2iPOD::clampNegative()const
+const Vector2iPod Vector2iPod::clampNegative()const
 {
     return min(Zero());
 }
 
 //------------------------------------------------------------------------------
-const Vector2iPOD Vector2iPOD::abs()const
+const Vector2iPod Vector2iPod::abs()const
 {
     return Vector2i(
         Math::AbsS32(x),
@@ -425,7 +425,7 @@ const Vector2iPOD Vector2iPOD::abs()const
 }
 
 //------------------------------------------------------------------------------
-const Vector2iPOD Vector2iPOD::neg()const
+const Vector2iPod Vector2iPod::neg()const
 {
     Vector2i vec(*this);
     vec.mulAssign(-1);
@@ -433,20 +433,20 @@ const Vector2iPOD Vector2iPOD::neg()const
 }
 
 //------------------------------------------------------------------------------
-bool Vector2iPOD::isPositive()const
+bool Vector2iPod::isPositive()const
 {
     return 0 <= x
         && 0 <= y;
 }
 
 //------------------------------------------------------------------------------
-bool Vector2iPOD::isZero()const
+bool Vector2iPod::isZero()const
 {
     return x == 0 && y == 0;
 }
 
 //------------------------------------------------------------------------------
-const ::XBase::ShortString Vector2iPOD::toShortString()const
+const ::XBase::ShortString Vector2iPod::toShortString()const
 {
     return ::XBase::ShortString::FromFormat(
         "%s,%s",
@@ -457,13 +457,13 @@ const ::XBase::ShortString Vector2iPOD::toShortString()const
 
 //------------------------------------------------------------------------------
 Vector2i::Vector2i()
-: Vector2iPOD(Zero())
+: Vector2iPod(Zero())
 {
 }
 
 //------------------------------------------------------------------------------
-Vector2i::Vector2i(const Vector2iPOD& aVec)
-: Vector2iPOD(aVec)
+Vector2i::Vector2i(const Vector2iPod& aVec)
+: Vector2iPod(aVec)
 {
 }
 

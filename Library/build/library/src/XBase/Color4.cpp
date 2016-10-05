@@ -322,43 +322,43 @@ const Color4Pod Color4Pod::operator-(const float aVal)const
 }
 
 //------------------------------------------------------------------------------
-const Color4Pod Color4POD::operator*(const float aVal)const
+const Color4Pod Color4Pod::operator*(const float aVal)const
 {
     return mul(aVal);
 }
 
 //------------------------------------------------------------------------------
-const Color4POD Color4POD::operator/(const float aVal)const
+const Color4Pod Color4Pod::operator/(const float aVal)const
 {
     return div(aVal);
 }
 
 //------------------------------------------------------------------------------
-const Color4POD Color4POD::operator+(const Color4POD& aVal)const
+const Color4Pod Color4Pod::operator+(const Color4Pod& aVal)const
 {
     return add(aVal);
 }
 
 //------------------------------------------------------------------------------
-const Color4POD Color4POD::operator-(const Color4POD& aVal)const
+const Color4Pod Color4Pod::operator-(const Color4Pod& aVal)const
 {
     return sub(aVal);
 }
 
 //------------------------------------------------------------------------------
-const Color4POD Color4POD::operator*(const Color4POD& aVal)const
+const Color4Pod Color4Pod::operator*(const Color4Pod& aVal)const
 {
     return mul(aVal);
 }
 
 //------------------------------------------------------------------------------
-const Color4POD Color4POD::operator/(const Color4POD& aVal)const
+const Color4Pod Color4Pod::operator/(const Color4Pod& aVal)const
 {
     return div(aVal);
 }
 
 //------------------------------------------------------------------------------
-const ::XBase::ShortString Color4POD::toShortString()const
+const ::XBase::ShortString Color4Pod::toShortString()const
 {
     return ::XBase::ShortString::FromFormat(
         "%s,%s,%s,%s",
@@ -371,13 +371,13 @@ const ::XBase::ShortString Color4POD::toShortString()const
 
 //------------------------------------------------------------------------------
 Color4::Color4()
-: Color4POD(Zero())
+: Color4Pod(Zero())
 {
 }
 
 //------------------------------------------------------------------------------
-Color4::Color4(const Color4POD& aCol)
-: Color4POD(aCol)
+Color4::Color4(const Color4Pod& aCol)
+: Color4Pod(aCol)
 {
 }
 
@@ -391,7 +391,7 @@ Color4::Color4(const float aR, const float aG, const float aB, const float aA)
 }
 
 //------------------------------------------------------------------------------
-Color4::Color4(const Vector4POD& aVec)
+Color4::Color4(const Vector4Pod& aVec)
 {
     r = aVec.x;
     g = aVec.y;

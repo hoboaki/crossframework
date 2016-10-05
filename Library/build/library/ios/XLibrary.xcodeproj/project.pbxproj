@@ -94,7 +94,7 @@
 		C56744CC135F249F0057A630 /* Vector2i.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C567449D135F249F0057A630 /* Vector2i.cpp */; };
 		C56744CD135F249F0057A630 /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C567449E135F249F0057A630 /* Vector3.cpp */; };
 		C56744CE135F249F0057A630 /* Vector4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C567449F135F249F0057A630 /* Vector4.cpp */; };
-		C56744E0135F24AB0057A630 /* Applcation_Ext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56744CF135F24AB0057A630 /* Applcation_Ext.cpp */; };
+		C56744E0135F24AB0057A630 /* Application_Ext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56744CF135F24AB0057A630 /* Application_Ext.cpp */; };
 		C56744E1135F24AB0057A630 /* Display_Ext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56744D0135F24AB0057A630 /* Display_Ext.cpp */; };
 		C56744E2135F24AB0057A630 /* EntryPoint_EXT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56744D1135F24AB0057A630 /* EntryPoint_EXT.cpp */; };
 		C56744E3135F24AB0057A630 /* EntryPoint_EXT.h in Headers */ = {isa = PBXBuildFile; fileRef = C56744D2135F24AB0057A630 /* EntryPoint_EXT.h */; };
@@ -204,7 +204,7 @@
 		C567449D135F249F0057A630 /* Vector2i.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = Vector2i.cpp; path = ../src/XBase/Vector2i.cpp; sourceTree = SOURCE_ROOT; };
 		C567449E135F249F0057A630 /* Vector3.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = Vector3.cpp; path = ../src/XBase/Vector3.cpp; sourceTree = SOURCE_ROOT; };
 		C567449F135F249F0057A630 /* Vector4.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = Vector4.cpp; path = ../src/XBase/Vector4.cpp; sourceTree = SOURCE_ROOT; };
-		C56744CF135F24AB0057A630 /* Applcation_Ext.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = Applcation_Ext.cpp; path = ../src/XBase/ios/Applcation_Ext.cpp; sourceTree = SOURCE_ROOT; };
+		C56744CF135F24AB0057A630 /* Application_Ext.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = Application_Ext.cpp; path = ../src/XBase/ios/Application_Ext.cpp; sourceTree = SOURCE_ROOT; };
 		C56744D0135F24AB0057A630 /* Display_Ext.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = Display_Ext.cpp; path = ../src/XBase/ios/Display_Ext.cpp; sourceTree = SOURCE_ROOT; };
 		C56744D1135F24AB0057A630 /* EntryPoint_EXT.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = EntryPoint_EXT.cpp; path = ../src/XBase/ios/EntryPoint_EXT.cpp; sourceTree = SOURCE_ROOT; };
 		C56744D2135F24AB0057A630 /* EntryPoint_EXT.h */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.c.h; name = EntryPoint_EXT.h; path = ../src/XBase/ios/EntryPoint_EXT.h; sourceTree = SOURCE_ROOT; };
@@ -303,7 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				C56744F1135F24B10057A630 /* ResFileStream_EXT.cpp */,
-				C56744CF135F24AB0057A630 /* Applcation_Ext.cpp */,
+				C56744CF135F24AB0057A630 /* Application_Ext.cpp */,
 				C56744D0135F24AB0057A630 /* Display_Ext.cpp */,
 				C56744D1135F24AB0057A630 /* EntryPoint_EXT.cpp */,
 				C56744D2135F24AB0057A630 /* EntryPoint_EXT.h */,
@@ -601,7 +601,7 @@
 				C56744CC135F249F0057A630 /* Vector2i.cpp in Sources */,
 				C56744CD135F249F0057A630 /* Vector3.cpp in Sources */,
 				C56744CE135F249F0057A630 /* Vector4.cpp in Sources */,
-				C56744E0135F24AB0057A630 /* Applcation_Ext.cpp in Sources */,
+				C56744E0135F24AB0057A630 /* Application_Ext.cpp in Sources */,
 				C56744E1135F24AB0057A630 /* Display_Ext.cpp in Sources */,
 				C56744E2135F24AB0057A630 /* EntryPoint_EXT.cpp in Sources */,
 				C56744E4135F24AB0057A630 /* EntryPoint_EXTM.m in Sources */,

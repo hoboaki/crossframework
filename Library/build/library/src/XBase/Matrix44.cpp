@@ -373,27 +373,27 @@ const Matrix44Pod Matrix44Pod::mul(const Matrix44Pod& aRHS)const
 }
 
 //------------------------------------------------------------------------------
-Matrix44POD& Matrix44POD::mulAssign(const Matrix44POD& aRHS)
+Matrix44Pod& Matrix44Pod::mulAssign(const Matrix44Pod& aRHS)
 {
     *this = mul(aRHS);
     return *this;
 }
 
 //------------------------------------------------------------------------------
-const Matrix44POD Matrix44POD::operator*(const Matrix44POD& aRHS)const
+const Matrix44Pod Matrix44Pod::operator*(const Matrix44Pod& aRHS)const
 {
     return mul(aRHS);
 }
 
 //------------------------------------------------------------------------------
-Matrix44POD& Matrix44POD::operator*=(const Matrix44POD& aRHS)
+Matrix44Pod& Matrix44Pod::operator*=(const Matrix44Pod& aRHS)
 {
     mulAssign(aRHS);
     return *this;
 }
 
 //------------------------------------------------------------------------------
-const Matrix44POD Matrix44POD::invert()const
+const Matrix44Pod Matrix44Pod::invert()const
 {
     const float c = 0.0f
         + v[Index00] * v[Index11] * v[Index22] * v[Index33] + v[Index00] * v[Index12] * v[Index23] * v[Index31] + v[Index00] * v[Index13] * v[Index21] * v[Index32]
@@ -410,7 +410,7 @@ const Matrix44POD Matrix44POD::invert()const
         return Identity();
     }
 
-    Matrix44POD b;
+    Matrix44Pod b;
     b.v[Index00]
         = v[Index11] * v[Index22] * v[Index33] + v[Index12] * v[Index23] * v[Index31] + v[Index13] * v[Index21] * v[Index32]
         - v[Index11] * v[Index23] * v[Index32] - v[Index12] * v[Index21] * v[Index33] - v[Index13] * v[Index22] * v[Index31];
@@ -481,7 +481,7 @@ const Matrix44POD Matrix44POD::invert()const
 }
 
 //------------------------------------------------------------------------------
-const Matrix44POD Matrix44POD::transpose()const
+const Matrix44Pod Matrix44Pod::transpose()const
 {
     return Matrix44(
         v[Index00], v[Index10], v[Index20], v[Index30],
@@ -492,9 +492,9 @@ const Matrix44POD Matrix44POD::transpose()const
 }
 
 //------------------------------------------------------------------------------
-void Matrix44POD::dump()const
+void Matrix44Pod::dump()const
 {
-    XBASE_COUTFMT("Matrix44POD::dump %p\n", this);
+    XBASE_COUTFMT("Matrix44Pod::dump %p\n", this);
     XBASE_COUTFMT("( %f , %f , %f , %f )\n", v[Index00], v[Index01], v[Index02], v[Index03]);
     XBASE_COUTFMT("( %f , %f , %f , %f )\n", v[Index10], v[Index11], v[Index12], v[Index13]);
     XBASE_COUTFMT("( %f , %f , %f , %f )\n", v[Index20], v[Index21], v[Index22], v[Index23]);
@@ -503,13 +503,13 @@ void Matrix44POD::dump()const
 
 //------------------------------------------------------------------------------
 Matrix44::Matrix44()
-: Matrix44POD(Identity())
+: Matrix44Pod(Identity())
 {
 }
 
 //------------------------------------------------------------------------------
-Matrix44::Matrix44(const Matrix44POD& aObj)
-: Matrix44POD(aObj)
+Matrix44::Matrix44(const Matrix44Pod& aObj)
+: Matrix44Pod(aObj)
 {
 }
 
@@ -541,10 +541,10 @@ Matrix44::Matrix44(
 
 //------------------------------------------------------------------------------
 Matrix44::Matrix44(
-    const Vector4POD& aX,
-    const Vector4POD& aY,
-    const Vector4POD& aZ,
-    const Vector4POD& aW
+    const Vector4Pod& aX,
+    const Vector4Pod& aY,
+    const Vector4Pod& aZ,
+    const Vector4Pod& aW
     )
 {
     setX(aX);

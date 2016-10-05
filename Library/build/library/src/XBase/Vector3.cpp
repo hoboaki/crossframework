@@ -300,7 +300,7 @@ void Vector3Pod::addAssign(const Vector3Pod& aVal)
 }
 
 //------------------------------------------------------------------------------
-void Vector3POD::subAssign(const Vector3POD& aVal)
+void Vector3Pod::subAssign(const Vector3Pod& aVal)
 {
     x -= aVal.x;
     y -= aVal.y;
@@ -308,7 +308,7 @@ void Vector3POD::subAssign(const Vector3POD& aVal)
 }
 
 //------------------------------------------------------------------------------
-void Vector3POD::mulAssign(const Vector3POD& aVal)
+void Vector3Pod::mulAssign(const Vector3Pod& aVal)
 {
     x *= aVal.x;
     y *= aVal.y;
@@ -316,7 +316,7 @@ void Vector3POD::mulAssign(const Vector3POD& aVal)
 }
 
 //------------------------------------------------------------------------------
-void Vector3POD::divAssign(const Vector3POD& aVal)
+void Vector3Pod::divAssign(const Vector3Pod& aVal)
 {
     XBASE_DIV_ASSIGN(x, aVal.x);
     XBASE_DIV_ASSIGN(y, aVal.y);
@@ -324,117 +324,117 @@ void Vector3POD::divAssign(const Vector3POD& aVal)
 }
 
 //------------------------------------------------------------------------------
-Vector3POD& Vector3POD::operator+=(const float aVal)
+Vector3Pod& Vector3Pod::operator+=(const float aVal)
 {
     addAssign(aVal);
     return *this;
 }
 
 //------------------------------------------------------------------------------
-Vector3POD& Vector3POD::operator-=(const float aVal)
+Vector3Pod& Vector3Pod::operator-=(const float aVal)
 {
     subAssign(aVal);
     return *this;
 }
 
 //------------------------------------------------------------------------------
-Vector3POD& Vector3POD::operator*=(const float aVal)
+Vector3Pod& Vector3Pod::operator*=(const float aVal)
 {
     mulAssign(aVal);
     return *this;
 }
 
 //------------------------------------------------------------------------------
-Vector3POD& Vector3POD::operator/=(const float aVal)
+Vector3Pod& Vector3Pod::operator/=(const float aVal)
 {
     divAssign(aVal);
     return *this;
 }
 
 //------------------------------------------------------------------------------
-Vector3POD& Vector3POD::operator+=(const Vector3POD& aVal)
+Vector3Pod& Vector3Pod::operator+=(const Vector3Pod& aVal)
 {
     addAssign(aVal);
     return *this;
 }
 
 //------------------------------------------------------------------------------
-Vector3POD& Vector3POD::operator-=(const Vector3POD& aVal)
+Vector3Pod& Vector3Pod::operator-=(const Vector3Pod& aVal)
 {
     subAssign(aVal);
     return *this;
 }
 
 //------------------------------------------------------------------------------
-Vector3POD& Vector3POD::operator*=(const Vector3POD& aVal)
+Vector3Pod& Vector3Pod::operator*=(const Vector3Pod& aVal)
 {
     mulAssign(aVal);
     return *this;
 }
 
 //------------------------------------------------------------------------------
-Vector3POD& Vector3POD::operator/=(const Vector3POD& aVal)
+Vector3Pod& Vector3Pod::operator/=(const Vector3Pod& aVal)
 {
     divAssign(aVal);
     return *this;
 }
 
 //------------------------------------------------------------------------------
-const Vector3POD Vector3POD::operator+(const float aVal)const
+const Vector3Pod Vector3Pod::operator+(const float aVal)const
 {
     return add(aVal);
 }
 
 //------------------------------------------------------------------------------
-const Vector3POD Vector3POD::operator-(const float aVal)const
+const Vector3Pod Vector3Pod::operator-(const float aVal)const
 {
     return sub(aVal);
 }
 
 //------------------------------------------------------------------------------
-const Vector3POD Vector3POD::operator*(const float aVal)const
+const Vector3Pod Vector3Pod::operator*(const float aVal)const
 {
     return mul(aVal);
 }
 
 //------------------------------------------------------------------------------
-const Vector3POD Vector3POD::operator/(const float aVal)const
+const Vector3Pod Vector3Pod::operator/(const float aVal)const
 {
     return div(aVal);
 }
 
 //------------------------------------------------------------------------------
-const Vector3POD Vector3POD::operator+(const Vector3POD& aVal)const
+const Vector3Pod Vector3Pod::operator+(const Vector3Pod& aVal)const
 {
     return add(aVal);
 }
 
 //------------------------------------------------------------------------------
-const Vector3POD Vector3POD::operator-(const Vector3POD& aVal)const
+const Vector3Pod Vector3Pod::operator-(const Vector3Pod& aVal)const
 {
     return sub(aVal);
 }
 
 //------------------------------------------------------------------------------
-const Vector3POD Vector3POD::operator*(const Vector3POD& aVal)const
+const Vector3Pod Vector3Pod::operator*(const Vector3Pod& aVal)const
 {
     return mul(aVal);
 }
 
 //------------------------------------------------------------------------------
-const Vector3POD Vector3POD::operator/(const Vector3POD& aVal)const
+const Vector3Pod Vector3Pod::operator/(const Vector3Pod& aVal)const
 {
     return div(aVal);
 }
 
 //------------------------------------------------------------------------------
-const Vector3POD Vector3POD::operator-()const
+const Vector3Pod Vector3Pod::operator-()const
 {
     return neg();
 }
 
 //------------------------------------------------------------------------------
-const Vector3POD Vector3POD::min(const Vector3POD& aVal)const
+const Vector3Pod Vector3Pod::min(const Vector3Pod& aVal)const
 {
     return Vector3(
         Math::Min(x, aVal.x),
@@ -444,7 +444,7 @@ const Vector3POD Vector3POD::min(const Vector3POD& aVal)const
 }
 
 //------------------------------------------------------------------------------
-const Vector3POD Vector3POD::max(const Vector3POD& aVal)const
+const Vector3Pod Vector3Pod::max(const Vector3Pod& aVal)const
 {
     return Vector3(
         Math::Max(x, aVal.x),
@@ -455,28 +455,28 @@ const Vector3POD Vector3POD::max(const Vector3POD& aVal)const
 
 
 //------------------------------------------------------------------------------
-const Vector3POD Vector3POD::clamp(
-    const Vector3POD& aMin,
-    const Vector3POD& aMax
+const Vector3Pod Vector3Pod::clamp(
+    const Vector3Pod& aMin,
+    const Vector3Pod& aMax
 )const
 {
     return max(aMin).min(aMax);
 }
 
 //------------------------------------------------------------------------------
-const Vector3POD Vector3POD::clampPositive()const
+const Vector3Pod Vector3Pod::clampPositive()const
 {
     return max(Zero());
 }
 
 //------------------------------------------------------------------------------
-const Vector3POD Vector3POD::clampNegative()const
+const Vector3Pod Vector3Pod::clampNegative()const
 {
     return min(Zero());
 }
 
 //------------------------------------------------------------------------------
-const Vector3POD Vector3POD::abs()const
+const Vector3Pod Vector3Pod::abs()const
 {
     return Vector3(
         Math::AbsF32(x),
@@ -486,7 +486,7 @@ const Vector3POD Vector3POD::abs()const
 }
 
 //------------------------------------------------------------------------------
-const Vector3POD Vector3POD::neg()const
+const Vector3Pod Vector3Pod::neg()const
 {
     Vector3 vec(*this);
     vec.mulAssign(-1.0f);
@@ -494,43 +494,43 @@ const Vector3POD Vector3POD::neg()const
 }
 
 //------------------------------------------------------------------------------
-f32 Vector3POD::squareLength()const
+f32 Vector3Pod::squareLength()const
 {
     return x * x + y * y + z * z;
 }
 
 //------------------------------------------------------------------------------
-f32 Vector3POD::length()const
+f32 Vector3Pod::length()const
 {
     return Math::SqrtF32(squareLength());
 }
 
 //------------------------------------------------------------------------------
-f32 Vector3POD::distance(const Vector3POD& aVal)const
+f32 Vector3Pod::distance(const Vector3Pod& aVal)const
 {
     return sub(aVal).length();
 }
 
 //------------------------------------------------------------------------------
-bool Vector3POD::isZero()const
+bool Vector3Pod::isZero()const
 {
     return Math::IsZeroF32(length());
 }
 
 //------------------------------------------------------------------------------
-bool Vector3POD::isZeroStrict()const
+bool Vector3Pod::isZeroStrict()const
 {
     return x == 0 && y == 0 && z == 0;
 }
 
 //------------------------------------------------------------------------------
-bool Vector3POD::isUnit()const
+bool Vector3Pod::isUnit()const
 {
     return Math::IsEqualsF32(length(), 1.0f);
 }
 
 //------------------------------------------------------------------------------
-const Vector3POD Vector3POD::unit()const
+const Vector3Pod Vector3Pod::unit()const
 {
     Vector3 vec(*this);
     vec.unitAssign();
@@ -538,7 +538,7 @@ const Vector3POD Vector3POD::unit()const
 }
 
 //------------------------------------------------------------------------------
-void Vector3POD::unitAssign()
+void Vector3Pod::unitAssign()
 {
     if (isZeroStrict()) {
         XBASE_ASSERT_NOT_REACHED();
@@ -548,13 +548,13 @@ void Vector3POD::unitAssign()
 }
 
 //------------------------------------------------------------------------------
-f32 Vector3POD::dot(const Vector3POD& aVec)const
+f32 Vector3Pod::dot(const Vector3Pod& aVec)const
 {
     return x * aVec.x + y * aVec.y + z * aVec.z;
 }
 
 //------------------------------------------------------------------------------
-const Vector3POD Vector3POD::cross(const Vector3POD& aVec)const
+const Vector3Pod Vector3Pod::cross(const Vector3Pod& aVec)const
 {
     return Vector3(
         y * aVec.z - z * aVec.y,
@@ -564,7 +564,7 @@ const Vector3POD Vector3POD::cross(const Vector3POD& aVec)const
 }
 
 //------------------------------------------------------------------------------
-const ::XBase::ShortString Vector3POD::toShortString()const
+const ::XBase::ShortString Vector3Pod::toShortString()const
 {
     return ::XBase::ShortString::FromFormat(
         "%s,%s,%s",
@@ -576,13 +576,13 @@ const ::XBase::ShortString Vector3POD::toShortString()const
 
 //------------------------------------------------------------------------------
 Vector3::Vector3()
-: Vector3POD(Zero())
+: Vector3Pod(Zero())
 {
 }
 
 //------------------------------------------------------------------------------
-Vector3::Vector3(const Vector3POD& aVec)
-: Vector3POD(aVec)
+Vector3::Vector3(const Vector3Pod& aVec)
+: Vector3Pod(aVec)
 {
 }
 
@@ -595,7 +595,7 @@ Vector3::Vector3(const float aV)
 }
 
 //------------------------------------------------------------------------------
-Vector3::Vector3(const Vector2POD& aXY, const float aZ)
+Vector3::Vector3(const Vector2Pod& aXY, const float aZ)
 {
     x = aXY.x;
     y = aXY.y;

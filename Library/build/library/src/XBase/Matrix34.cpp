@@ -294,33 +294,33 @@ const Matrix34Pod Matrix34Pod::mul(const Matrix34Pod& aRHS)const
 }
 
 //------------------------------------------------------------------------------
-Matrix34POD& Matrix34POD::mulAssign(const Matrix34POD& aRHS)
+Matrix34Pod& Matrix34Pod::mulAssign(const Matrix34Pod& aRHS)
 {
     *this = mul(aRHS);
     return *this;
 }
 
 //------------------------------------------------------------------------------
-const Vector3POD Matrix34POD::operator*(const Vector3POD& aRHS)const
+const Vector3Pod Matrix34Pod::operator*(const Vector3Pod& aRHS)const
 {
     return mul(aRHS);
 }
 
 //------------------------------------------------------------------------------
-const Matrix34POD Matrix34POD::operator*(const Matrix34POD& aRHS)const
+const Matrix34Pod Matrix34Pod::operator*(const Matrix34Pod& aRHS)const
 {
     return mul(aRHS);
 }
 
 //------------------------------------------------------------------------------
-Matrix34POD& Matrix34POD::operator*=(const Matrix34POD& aRHS)
+Matrix34Pod& Matrix34Pod::operator*=(const Matrix34Pod& aRHS)
 {
     mulAssign(aRHS);
     return *this;
 }
 
 //------------------------------------------------------------------------------
-const Matrix34POD Matrix34POD::invert()const
+const Matrix34Pod Matrix34Pod::invert()const
 {
     const float c = 0.0f
         + v[Index00] * v[Index11] * v[Index22]
@@ -335,7 +335,7 @@ const Matrix34POD Matrix34POD::invert()const
         return Identity();
     }
 
-    Matrix34POD b;
+    Matrix34Pod b;
     b.v[Index00]
         = v[Index11] * v[Index22] + v[Index12] * v[Index23] * 0 + v[Index13] * v[Index21] * 0
         - v[Index11] * v[Index23] * 0 - v[Index12] * v[Index21] - v[Index13] * v[Index22] * 0;
@@ -390,7 +390,7 @@ const Matrix34POD Matrix34POD::invert()const
 }
 
 //------------------------------------------------------------------------------
-const Quaternion Matrix34POD::toQuaternion()const
+const Quaternion Matrix34Pod::toQuaternion()const
 {
     Quaternion q;
 
@@ -444,7 +444,7 @@ const Quaternion Matrix34POD::toQuaternion()const
 }
 
 //------------------------------------------------------------------------------
-const Matrix44POD Matrix34POD::toMatrix44()const
+const Matrix44Pod Matrix34Pod::toMatrix44()const
 {
     return Matrix44(
         v[Index00], v[Index01], v[Index02], v[Index03],
@@ -455,9 +455,9 @@ const Matrix44POD Matrix34POD::toMatrix44()const
 }
 
 //------------------------------------------------------------------------------
-void Matrix34POD::dump()const
+void Matrix34Pod::dump()const
 {
-    XBASE_COUTFMT("Matrix34POD::dump %p\n", this);
+    XBASE_COUTFMT("Matrix34Pod::dump %p\n", this);
     XBASE_COUTFMT("( %f , %f , %f , %f )\n", v[Index00], v[Index01], v[Index02], v[Index03]);
     XBASE_COUTFMT("( %f , %f , %f , %f )\n", v[Index10], v[Index11], v[Index12], v[Index13]);
     XBASE_COUTFMT("( %f , %f , %f , %f )\n", v[Index20], v[Index21], v[Index22], v[Index23]);
@@ -465,13 +465,13 @@ void Matrix34POD::dump()const
 
 //------------------------------------------------------------------------------
 Matrix34::Matrix34()
-: Matrix34POD(Identity())
+: Matrix34Pod(Identity())
 {
 }
 
 //------------------------------------------------------------------------------
-Matrix34::Matrix34(const Matrix34POD& aObj)
-: Matrix34POD(aObj)
+Matrix34::Matrix34(const Matrix34Pod& aObj)
+: Matrix34Pod(aObj)
 {
 }
 
@@ -498,10 +498,10 @@ Matrix34::Matrix34(
 
 //------------------------------------------------------------------------------
 Matrix34::Matrix34(
-    const Vector3POD& aX,
-    const Vector3POD& aY,
-    const Vector3POD& aZ,
-    const Vector3POD& aW
+    const Vector3Pod& aX,
+    const Vector3Pod& aY,
+    const Vector3Pod& aZ,
+    const Vector3Pod& aW
     )
 {
     setX(aX);

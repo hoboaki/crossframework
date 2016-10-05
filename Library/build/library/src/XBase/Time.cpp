@@ -281,13 +281,13 @@ TimePod& TimePod::subAssign(const TimeSpanPod& aTimeSpan)
 }
 
 //------------------------------------------------------------------------------
-TimePOD& TimePOD::operator-=(const TimeSpanPOD& aTimeSpan)
+TimePod& TimePod::operator-=(const TimeSpanPod& aTimeSpan)
 {
     return subAssign(aTimeSpan);
 }
 
 //------------------------------------------------------------------------------
-s64 TimePOD::ticks()const
+s64 TimePod::ticks()const
 {
     return ticks_;
 }

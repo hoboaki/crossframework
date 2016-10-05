@@ -68,7 +68,7 @@ AppEvent Application::receiveEventCore()
 }
 
 //------------------------------------------------------------------------------
-Applcation_Ext::Applcation_Ext()
+Application_Ext::Application_Ext()
 : prevUSec(tCurrentUSec())
 , doQuit(false)
 {

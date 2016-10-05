@@ -301,82 +301,82 @@ Vector2Pod& Vector2Pod::operator+=(const Vector2Pod& aVal)
 }
 
 //------------------------------------------------------------------------------
-Vector2POD& Vector2POD::operator-=(const Vector2POD& aVal)
+Vector2Pod& Vector2Pod::operator-=(const Vector2Pod& aVal)
 {
     subAssign(aVal);
     return *this;
 }
 
 //------------------------------------------------------------------------------
-Vector2POD& Vector2POD::operator*=(const Vector2POD& aVal)
+Vector2Pod& Vector2Pod::operator*=(const Vector2Pod& aVal)
 {
     mulAssign(aVal);
     return *this;
 }
 
 //------------------------------------------------------------------------------
-Vector2POD& Vector2POD::operator/=(const Vector2POD& aVal)
+Vector2Pod& Vector2Pod::operator/=(const Vector2Pod& aVal)
 {
     divAssign(aVal);
     return *this;
 }
 
 //------------------------------------------------------------------------------
-const Vector2POD Vector2POD::operator+(const float aVal)const
+const Vector2Pod Vector2Pod::operator+(const float aVal)const
 {
     return add(aVal);
 }
 
 //------------------------------------------------------------------------------
-const Vector2POD Vector2POD::operator-(const float aVal)const
+const Vector2Pod Vector2Pod::operator-(const float aVal)const
 {
     return sub(aVal);
 }
 
 //------------------------------------------------------------------------------
-const Vector2POD Vector2POD::operator*(const float aVal)const
+const Vector2Pod Vector2Pod::operator*(const float aVal)const
 {
     return mul(aVal);
 }
 
 //------------------------------------------------------------------------------
-const Vector2POD Vector2POD::operator/(const float aVal)const
+const Vector2Pod Vector2Pod::operator/(const float aVal)const
 {
     return div(aVal);
 }
 
 //------------------------------------------------------------------------------
-const Vector2POD Vector2POD::operator+(const Vector2POD& aVal)const
+const Vector2Pod Vector2Pod::operator+(const Vector2Pod& aVal)const
 {
     return add(aVal);
 }
 
 //------------------------------------------------------------------------------
-const Vector2POD Vector2POD::operator-(const Vector2POD& aVal)const
+const Vector2Pod Vector2Pod::operator-(const Vector2Pod& aVal)const
 {
     return sub(aVal);
 }
 
 //------------------------------------------------------------------------------
-const Vector2POD Vector2POD::operator*(const Vector2POD& aVal)const
+const Vector2Pod Vector2Pod::operator*(const Vector2Pod& aVal)const
 {
     return mul(aVal);
 }
 
 //------------------------------------------------------------------------------
-const Vector2POD Vector2POD::operator/(const Vector2POD& aVal)const
+const Vector2Pod Vector2Pod::operator/(const Vector2Pod& aVal)const
 {
     return div(aVal);
 }
 
 //------------------------------------------------------------------------------
-const Vector2POD Vector2POD::operator-()const
+const Vector2Pod Vector2Pod::operator-()const
 {
     return neg();
 }
 
 //------------------------------------------------------------------------------
-const Vector2POD Vector2POD::min(const Vector2POD& aVal)const
+const Vector2Pod Vector2Pod::min(const Vector2Pod& aVal)const
 {
     return Vector2(
         Math::Min(x, aVal.x),
@@ -385,7 +385,7 @@ const Vector2POD Vector2POD::min(const Vector2POD& aVal)const
 }
 
 //------------------------------------------------------------------------------
-const Vector2POD Vector2POD::max(const Vector2POD& aVal)const
+const Vector2Pod Vector2Pod::max(const Vector2Pod& aVal)const
 {
     return Vector2(
         Math::Max(x, aVal.x),
@@ -394,28 +394,28 @@ const Vector2POD Vector2POD::max(const Vector2POD& aVal)const
 }
 
 //------------------------------------------------------------------------------
-const Vector2POD Vector2POD::clamp(
-    const Vector2POD& aMin,
-    const Vector2POD& aMax
+const Vector2Pod Vector2Pod::clamp(
+    const Vector2Pod& aMin,
+    const Vector2Pod& aMax
 )const
 {
     return max(aMin).min(aMax);
 }
 
 //------------------------------------------------------------------------------
-const Vector2POD Vector2POD::clampPositive()const
+const Vector2Pod Vector2Pod::clampPositive()const
 {
     return max(Zero());
 }
 
 //------------------------------------------------------------------------------
-const Vector2POD Vector2POD::clampNegative()const
+const Vector2Pod Vector2Pod::clampNegative()const
 {
     return min(Zero());
 }
 
 //------------------------------------------------------------------------------
-const Vector2POD Vector2POD::abs()const
+const Vector2Pod Vector2Pod::abs()const
 {
     return Vector2(
         Math::AbsF32(x),
@@ -424,7 +424,7 @@ const Vector2POD Vector2POD::abs()const
 }
 
 //------------------------------------------------------------------------------
-const Vector2POD Vector2POD::neg()const
+const Vector2Pod Vector2Pod::neg()const
 {
     Vector2 vec(*this);
     vec.mulAssign(-1.0f);
@@ -432,43 +432,43 @@ const Vector2POD Vector2POD::neg()const
 }
 
 //------------------------------------------------------------------------------
-f32 Vector2POD::squareLength()const
+f32 Vector2Pod::squareLength()const
 {
     return x * x + y * y;
 }
 
 //------------------------------------------------------------------------------
-f32 Vector2POD::length()const
+f32 Vector2Pod::length()const
 {
     return Math::SqrtF32(squareLength());
 }
 
 //------------------------------------------------------------------------------
-f32 Vector2POD::distance(const Vector2POD& aVal)const
+f32 Vector2Pod::distance(const Vector2Pod& aVal)const
 {
     return sub(aVal).length();
 }
 
 //------------------------------------------------------------------------------
-bool Vector2POD::isZero()const
+bool Vector2Pod::isZero()const
 {
     return Math::IsZeroF32(length());
 }
 
 //------------------------------------------------------------------------------
-bool Vector2POD::isZeroStrict()const
+bool Vector2Pod::isZeroStrict()const
 {
     return x == 0 && y == 0;
 }
 
 //------------------------------------------------------------------------------
-bool Vector2POD::isUnit()const
+bool Vector2Pod::isUnit()const
 {
     return Math::IsEqualsF32(length(), 1.0f);
 }
 
 //------------------------------------------------------------------------------
-const Vector2POD Vector2POD::unit()const
+const Vector2Pod Vector2Pod::unit()const
 {
     Vector2 vec(*this);
     vec.unitAssign();
@@ -476,7 +476,7 @@ const Vector2POD Vector2POD::unit()const
 }
 
 //------------------------------------------------------------------------------
-void Vector2POD::unitAssign()
+void Vector2Pod::unitAssign()
 {
     if (isZeroStrict()) {
         XBASE_ASSERT_NOT_REACHED();
@@ -486,19 +486,19 @@ void Vector2POD::unitAssign()
 }
 
 //------------------------------------------------------------------------------
-f32 Vector2POD::dot(const Vector2POD& aVec)const
+f32 Vector2Pod::dot(const Vector2Pod& aVec)const
 {
     return x * aVec.x + y * aVec.y;
 }
 
 //------------------------------------------------------------------------------
-f32 Vector2POD::cross(const Vector2POD& aVec)const
+f32 Vector2Pod::cross(const Vector2Pod& aVec)const
 {
     return x * aVec.y - aVec.y * x;
 }
 
 //------------------------------------------------------------------------------
-const ::XBase::ShortString Vector2POD::toShortString()const
+const ::XBase::ShortString Vector2Pod::toShortString()const
 {
     return ::XBase::ShortString::FromFormat(
         "%s,%s",
@@ -509,13 +509,13 @@ const ::XBase::ShortString Vector2POD::toShortString()const
 
 //------------------------------------------------------------------------------
 Vector2::Vector2()
-: Vector2POD(Zero())
+: Vector2Pod(Zero())
 {
 }
 
 //------------------------------------------------------------------------------
-Vector2::Vector2(const Vector2POD& aVec)
-: Vector2POD(aVec)
+Vector2::Vector2(const Vector2Pod& aVec)
+: Vector2Pod(aVec)
 {
 }
 

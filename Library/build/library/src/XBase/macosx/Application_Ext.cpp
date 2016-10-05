@@ -73,7 +73,7 @@ AppEvent Application::receiveEventCore()
 }
 
 //------------------------------------------------------------------------------
-Applcation_Ext::Applcation_Ext()
+Application_Ext::Application_Ext()
 : prevUpdateTicks(Time::LocalTime().ticks())
 , doQuit(false)
 {
@@ -81,7 +81,7 @@ Applcation_Ext::Applcation_Ext()
 }
 
 //------------------------------------------------------------------------------
-Applcation_Ext::~Applcation_Ext()
+Application_Ext::~Application_Ext()
 {
     XBaseNSApp_Finalize();
 }

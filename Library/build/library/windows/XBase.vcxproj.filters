@@ -227,7 +227,7 @@
     <ClCompile Include="..\src\XBase\DisplayContext.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\windows\Applcation_Ext.cpp">
+    <ClCompile Include="..\src\XBase\windows\Application_Ext.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="..\src\XBase\windows\Display_Ext.cpp">

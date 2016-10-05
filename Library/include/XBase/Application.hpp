@@ -66,7 +66,7 @@ private:
     const Argument& mArgument;
     Enum32< AppEvent > mLastEvent;
     Pointer< Display > mDisplayPtr;
-    Applcation_Ext mExt;
+    Application_Ext mExt;
     //------------------------------------------------------------------------------
     AppEvent receiveEventCore();
 };

@@ -334,7 +334,7 @@ void Renderer::fbClear()
 }
 
 //------------------------------------------------------------------------------
-void Renderer::fbSetClearColor(const ::XBase::Color4POD& aColor)
+void Renderer::fbSetClearColor(const ::XBase::Color4Pod& aColor)
 {
     XG3D_GLCMD(glClearColor(aColor.r, aColor.g, aColor.b, aColor.a));
 }
