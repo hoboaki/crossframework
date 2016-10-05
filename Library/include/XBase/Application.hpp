@@ -48,13 +48,13 @@ public:
     /// @brief アプリケーションの終了を要求する。
     /// @details 
     /// 任意のタイミングでアプリケーションを終了したい場合にこの関数を呼びます。@n
-    /// そうすると receiveEvent() は次の呼び出しで AppEvent_Quit を返します。 @n
+    /// そうすると receiveEvent() は次の呼び出しで AppEvent::Quit を返します。 @n
     void quit();
 
     /// @name  イベント
     //@{
-    AppEvent receiveEvent();   ///< 新しいイベントを受け取る。
-    AppEvent lastEvent()const; ///< 最後に受け取ったイベントを取得する。
+    AppEvent::EnumType receiveEvent();   ///< 新しいイベントを受け取る。
+    AppEvent::EnumType lastEvent()const; ///< 最後に受け取ったイベントを取得する。
     //@}
 
     //============================================================
@@ -64,11 +64,11 @@ public:
 
 private:
     const Argument& mArgument;
-    Enum32< AppEvent > mLastEvent;
+    Enum32< AppEvent::EnumType > mLastEvent;
     Pointer< Display > mDisplayPtr;
     Application_Ext mExt;
     //------------------------------------------------------------------------------
-    AppEvent receiveEventCore();
+    AppEvent::EnumType receiveEventCore();
 };
 //@}
 

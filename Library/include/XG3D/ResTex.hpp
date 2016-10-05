@@ -45,7 +45,7 @@ public:
     const char* name()const;    ///< 名前。
     u16 width()const;           ///< 横ピクセル数。
     u16 height()const;          ///< 縦ピクセル数。
-    ResTexFormat format()const; ///< フォーマット。
+    ResTexFormat::EnumType format()const; ///< フォーマット。
     const byte_t* pixels()const;///< ピクセルデータの先頭アドレス。
     const TexBuffer* texBufferPtr()const; ///< @brief バッファ。 @details ResBin::setup() 呼び出し前は0を返します。
     //@}

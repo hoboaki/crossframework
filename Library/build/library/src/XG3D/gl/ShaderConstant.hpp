@@ -19,7 +19,7 @@ struct ShaderConstant
             MtxWorld,
 
             TERM,
-        }:
+        };
     };
 
     //============================================================
@@ -36,7 +36,7 @@ struct ShaderConstant
             
             // term
             TERM,
-        }:
+        };
     };
 
     // Uniform。
@@ -49,7 +49,7 @@ struct ShaderConstant
             TexSampler,
             
             // term
-            TERM.
+            TERM,
         };
     };
 };

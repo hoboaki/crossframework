@@ -74,7 +74,7 @@ public:
     void sdSetMtxProjection(const ::XBase::Mtx44&); ///< 射影行列の設定。初期値Ortho: l-r(-1,1) b-t(-1,1) n-f(0,1)。
     void sdSetMtxView(const ::XBase::Mtx34&);  ///< 視点座標系に変換する行列の設定。初期値は単位行列。
     void sdSetMtxWorld(const ::XBase::Mtx34&);  ///< ワールド座標系に変換する行列の設定。初期値は単位行列。
-    void sdSetTex(TexId, const TexSetting&); ///< テクスチャの設定。初期値は全テクスチャが非Activeなテクスチャ。
+    void sdSetTex(TexId::EnumType, const TexSetting&); ///< テクスチャの設定。初期値は全テクスチャが非Activeなテクスチャ。
     //@}
 
     /// @name 描画

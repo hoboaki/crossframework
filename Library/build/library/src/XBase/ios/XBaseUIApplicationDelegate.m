@@ -61,7 +61,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application 
 {
     // Quitイベント送信
-    XBaseEntryPointSync_SetAppEvent( XBaseAppEvent_Quit );
+    XBaseEntryPointSync_SetAppEvent( XBaseAppEvent::Quit );
     XBaseEntryPointSync_XMainSignal();
     XBaseEntryPointSync_UIMainWait();
 }
@@ -69,7 +69,7 @@
 - (void)onUpdate: (id)sender
 {
     // Updateイベント送信
-    XBaseEntryPointSync_SetAppEvent( XBaseAppEvent_Update );
+    XBaseEntryPointSync_SetAppEvent( XBaseAppEvent::Update );
     XBaseEntryPointSync_XMainSignal();
     XBaseEntryPointSync_UIMainWait();    
 }

@@ -42,20 +42,20 @@ bool ResFileStream::open(const char* aPath)
 }
 
 //------------------------------------------------------------------------------
-pword_t ResFileStream::seek(const int aOffset, const SeekOrigin aOrigin)
+pword_t ResFileStream::seek(const int aOffset, const SeekOrigin::EnumType aOrigin)
 {
     // whence選択
     int whence = int();
     switch (aOrigin) {
-        case SeekOrigin_Begin:
+        case SeekOrigin::Begin:
             whence = SEEK_SET;
             break;
 
-        case SeekOrigin_Current:
+        case SeekOrigin::Current:
             whence = SEEK_CUR;
             break;
 
-        case SeekOrigin_End:
+        case SeekOrigin::End:
             whence = SEEK_END;
             break;
 

@@ -230,7 +230,7 @@ struct RuntimeAssert
 /// @brief aEnumValueがMIN <= aEnumValue <= MAXであることをチェックする。
 /// @details
 /// 調査するEnumにMINとMAXが定義されている必要があります。
-#define XBASE_ASSERT_ENUM(aEnumType , aEnumValue) XBASE_ASSERT_MIN_MAX(int(aEnumType##_MIN), int(aEnumValue), int(aEnumType##_MAX))
+#define XBASE_ASSERT_ENUM(aEnumType , aEnumValue) XBASE_ASSERT_MIN_TERM(int(0), int(aEnumValue), int(aEnumType::TERM))
 
 //@}
 //@}

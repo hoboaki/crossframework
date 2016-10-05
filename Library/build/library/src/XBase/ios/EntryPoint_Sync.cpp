@@ -83,7 +83,7 @@ public:
 
 // 同期オブジェクトの変数。
 ::XBase::Placement< tSyncObjSet > tSyncObjSetInstance;
-XBaseAppEvent tAppEvent = XBaseAppEvent_INVALID;
+XBaseAppEvent::EnumType tAppEvent::EnumType = XBaseAppEvent::INVALID;
 
 } // namespace
 
@@ -126,13 +126,13 @@ void XBaseEntryPointSync_UIMainSignal()
 }
 
 //------------------------------------------------------------------------------
-void XBaseEntryPointSync_SetAppEvent(const XBaseAppEvent aEvent)
+void XBaseEntryPointSync_SetAppEvent(const XBaseAppEvent::EnumType aEvent)
 {
-    tAppEvent = aEvent;
+    tAppEvent::EnumType = aEvent;
 }
 
 //------------------------------------------------------------------------------
-XBaseAppEvent XBaseEntryPointSync_GetAppEvent()
+XBaseAppEvent::EnumType XBaseEntryPointSync_GetAppEvent()
 {
     return tAppEvent;
 }

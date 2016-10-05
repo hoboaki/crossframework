@@ -50,27 +50,27 @@ public:
 
     /// @brief 縮小補間方法の取得。
     /// @details
-    /// 初期値は TexIntpKind_Nearest です。@n
-    TexFilter minFilter()const;
-    void setMinFilter(TexFilter); ///< @brief 縮小補間方法の設定。 @see minFilter()
+    /// 初期値は TexIntpKind::Nearest です。@n
+    TexFilter::EnumType minFilter()const;
+    void setMinFilter(TexFilter::EnumType); ///< @brief 縮小補間方法の設定。 @see minFilter()
 
     /// @brief 拡大補間方法の取得。
     /// @details
-    /// 初期値は TexIntpKind_Nearest です。@n
-    TexFilter magFilter()const;
-    void setMagFilter(TexFilter); ///< @brief 拡大補間方法の設定。 @see magFilter()
+    /// 初期値は TexIntpKind::Nearest です。@n
+    TexFilter::EnumType magFilter()const;
+    void setMagFilter(TexFilter::EnumType); ///< @brief 拡大補間方法の設定。 @see magFilter()
 
     /// @brief U座標のアドレッシングモードの取得。
     /// @details
-    /// 初期値は TexAddress_Wrap です。@n
-    TexAddress addressU()const;
-    void setAddressU(TexAddress); ///< @brief U座標のアドレッシングモードの設定。 @see addressU()
+    /// 初期値は TexAddress::Wrap です。@n
+    TexAddress::EnumType addressU()const;
+    void setAddressU(TexAddress::EnumType); ///< @brief U座標のアドレッシングモードの設定。 @see addressU()
 
     /// @brief V座標のアドレッシングモードの取得。
     /// @details
-    /// 初期値は TexAddress_Wrap です。@n
-    TexAddress addressV()const;
-    void setAddressV(TexAddress); ///< @brief V座標のアドレッシングモードの設定。 @see addressV()
+    /// 初期値は TexAddress::Wrap です。@n
+    TexAddress::EnumType addressV()const;
+    void setAddressV(TexAddress::EnumType); ///< @brief V座標のアドレッシングモードの設定。 @see addressV()
     //@}
 
     // 内部実装用関数群。
@@ -80,10 +80,10 @@ public:
 private:
     TexSetting_EXT  mExt;
     ::XBase::Bool32 mIsActive;
-    ::XBase::Enum8< TexFilter > mMinFilter;
-    ::XBase::Enum8< TexFilter > mMagFilter;
-    ::XBase::Enum8< TexAddress > mAddressU;
-    ::XBase::Enum8< TexAddress > mAddressV;
+    ::XBase::Enum8< TexFilter::EnumType > mMinFilter;
+    ::XBase::Enum8< TexFilter::EnumType > mMagFilter;
+    ::XBase::Enum8< TexAddress::EnumType > mAddressU;
+    ::XBase::Enum8< TexAddress::EnumType > mAddressV;
 };
 //@}
 

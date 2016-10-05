@@ -31,7 +31,7 @@ public:
 
     //============================================================
     void setup();
-    ResTexFormat format()const;
+    ResTexFormat::EnumType format()const;
     const byte_t* pixels()const;
 
 private:

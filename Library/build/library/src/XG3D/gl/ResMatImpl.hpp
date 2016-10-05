@@ -28,7 +28,7 @@ public:
     const XDataPlus  xdata;
     const BinResMat* binPtr;
     GLuint shaderProgram;
-    GLint  sysUniformLocations[ShaderConstant::SysUniform_TERMINATE];
+    GLint  sysUniformLocations[ShaderConstant::SysUniform::TERM];
     ::XBase::Placement< ParamArray >    paramImpls;
     ::XBase::Placement< VtxAttrArray >  vtxAttrs;
 

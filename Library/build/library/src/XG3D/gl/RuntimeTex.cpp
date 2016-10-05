@@ -11,27 +11,27 @@ namespace XG3D {
 //------------------------------------------------------------------------------
 namespace {
 
-int tBytePerPixel(const ::XG3D::ResTexFormat aFormat)
+int tBytePerPixel(const ::XG3D::ResTexFormat::EnumType aFormat)
 {
     int bytePerPix = 0;
     switch (aFormat) {
-        case ResTexFormat_RGBA8:
+        case ResTexFormat::RGBA8:
             bytePerPix = 4;
             break;
 
-        case ResTexFormat_RGB8:
+        case ResTexFormat::RGB8:
             bytePerPix = 3;
             break;
 
-        case ResTexFormat_RGB5A1:
-        case ResTexFormat_RGBA4:
-        case ResTexFormat_RGB565:
-        case ResTexFormat_LA8:
+        case ResTexFormat::RGB5A1:
+        case ResTexFormat::RGBA4:
+        case ResTexFormat::RGB565:
+        case ResTexFormat::LA8:
             bytePerPix = 2;
             break;
 
-        case ResTexFormat_A8:
-        case ResTexFormat_L8:
+        case ResTexFormat::A8:
+        case ResTexFormat::L8:
             bytePerPix = 1;
             break;
 
@@ -139,17 +139,17 @@ void RuntimeTex::setPixel(
 
     // フォーマットごとに代入
     switch (mContext.format()) {
-        case ResTexFormat_RGBA8:
+        case ResTexFormat::RGBA8:
             *reinterpret_cast< ::XBase::Color4bPod* >(addr) = aVal;
             break;
 
-        case ResTexFormat_RGB8:
+        case ResTexFormat::RGB8:
             addr[0] = aVal.r;
             addr[1] = aVal.g;
             addr[2] = aVal.b;
             break;
 
-        case ResTexFormat_RGB5A1:
+        case ResTexFormat::RGB5A1:
             *reinterpret_cast<u16*>(addr) = u16(
                 (u16(aVal.r & 0xF8) << 8)
                 | (u16(aVal.g & 0xF8) << 3)
@@ -158,7 +158,7 @@ void RuntimeTex::setPixel(
                 );
             break;
 
-        case ResTexFormat_RGBA4:
+        case ResTexFormat::RGBA4:
             *reinterpret_cast<u16*>(addr) = u16(
                 (u16(aVal.r & 0xF0) << 8)
                 | (u16(aVal.g & 0xF0) << 4)
@@ -167,7 +167,7 @@ void RuntimeTex::setPixel(
                 );
             break;
 
-        case ResTexFormat_RGB565:
+        case ResTexFormat::RGB565:
             *reinterpret_cast<u16*>(addr) = u16(
                 (u16(aVal.r & 0xF0) << 8)
                 | (u16(aVal.g & 0xF0) << 3)
@@ -175,16 +175,16 @@ void RuntimeTex::setPixel(
                 );
             break;
 
-        case ResTexFormat_LA8:
+        case ResTexFormat::LA8:
             addr[0] = aVal.r;
             addr[1] = aVal.a;
             break;
 
-        case ResTexFormat_A8:
+        case ResTexFormat::A8:
             addr[0] = aVal.a;
             break;
 
-        case ResTexFormat_L8:
+        case ResTexFormat::L8:
             addr[0] = aVal.r;
             break;
 

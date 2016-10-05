@@ -19,20 +19,20 @@ class RuntimeTexContext
 public:
     /// @name 作成関数
     //@{
-    static const RuntimeTexContext Create(ResTexFormat aFormat, int aWidth, int aHeight);
+    static const RuntimeTexContext Create(ResTexFormat::EnumType aFormat, int aWidth, int aHeight);
     //@}
 
     /// @name 取得
     //@{
-    ResTexFormat format()const; ///< フォーマット。
+    ResTexFormat::EnumType format()const; ///< フォーマット。
     u16 width()const;  ///< 横ピクセル数。
     u16 height()const; ///< 縦ピクセル数。
     //@}
 
 private:
-    RuntimeTexContext(ResTexFormat, int aWidth, int aHeight);
+    RuntimeTexContext(ResTexFormat::EnumType, int aWidth, int aHeight);
     //------------------------------------------------------------------------------
-    ::XBase::Enum32< ResTexFormat > mFormat;
+    ::XBase::Enum32< ResTexFormat::EnumType > mFormat;
     u16 mWidth;
     u16 mHeight;
 };

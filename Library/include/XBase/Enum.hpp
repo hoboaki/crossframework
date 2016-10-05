@@ -11,20 +11,20 @@ namespace XBase {
 /// @addtogroup XBase-Types
 //@{
     /// @brief EnumTmpl のPod版。
-template< typename ENUM_TYPE, typename DATA_TYPE >
+template< typename TEnumType, typename TDataType >
 struct EnumPodTmpl
 {
     //============================================================
     // private
-    DATA_TYPE val_;
+    TDataType val_;
 
     //============================================================
     // public
 
     /// @name typedef
     //@{
-    typedef ENUM_TYPE EnumType;
-    typedef DATA_TYPE DataType;
+    typedef TEnumType EnumType;
+    typedef TDataType DataType;
     //@}
 
     /// @name operator実装
@@ -43,10 +43,10 @@ struct EnumPodTmpl
     ///         TERM,
     ///    };
     /// };
-    /// EnumPodTmpl< Color::EnumType , int > color;
+    /// EnumPodTmpl< Color::EnumType, int > color;
     /// color = Color::Red; // 代入できる
     /// @endcode
-    EnumPodTmpl< ENUM_TYPE, DATA_TYPE >& operator=(const ENUM_TYPE aVal)
+    EnumPodTmpl< TEnumType, TDataType >& operator=(const TEnumType aVal)
     {
         val_ = DataType(aVal);
         return *this;
@@ -61,9 +61,9 @@ struct EnumPodTmpl
     ///     Color var = aColor; // enumの値を取得できるのでこのように代入できる
     /// }
     /// @endcode
-    operator ENUM_TYPE()const
+    operator TEnumType()const
     {
-        return ENUM_TYPE(val_);
+        return TEnumType(val_);
     }
     //@}
 };
@@ -72,10 +72,10 @@ struct EnumPodTmpl
 /// @details
 /// enumの変数サイズは環境によって変わります。 @n
 /// それをを防ぎたいときにこのテンプレート構造体を使います。 @n
-/// DATA_TYPEに指定した組み込み型を指定します。@n
+/// TDataTypeに指定した組み込み型を指定します。@n
 /// データとしては0以外の値が入っていたらtrueと扱います。@n
-template< typename ENUM_TYPE, typename DATA_TYPE >
-class EnumTmpl : public EnumPodTmpl< ENUM_TYPE, DATA_TYPE >
+template< typename TEnumType, typename TDataType >
+class EnumTmpl : public EnumPodTmpl< TEnumType, TDataType >
 {
 public:
     /// @name コンストラクタ
@@ -83,25 +83,25 @@ public:
     /// 0として作成。
     EnumTmpl()
     {
-        EnumPodTmpl< ENUM_TYPE, DATA_TYPE >::val_ = 0;
+        EnumPodTmpl< TEnumType, TDataType >::val_ = 0;
     }
 
     /// 値を指定して作成。
-    EnumTmpl(const ENUM_TYPE aVal)
+    EnumTmpl(const TEnumType aVal)
     {
-        EnumPodTmpl< ENUM_TYPE, DATA_TYPE >::val_ = DataType(aVal);
+        EnumPodTmpl< TEnumType, TDataType >::val_ = DataType(aVal);
     }
     //@}
 };
 
 /// @name EnumTmpl EnumPodTmpl をラップする型。
 //@{
-template< typename ENUM_TYPE > class Enum8 : public EnumTmpl< ENUM_TYPE, s8  > { public: Enum8() {};  Enum8(const ENUM_TYPE aVal) { EnumTmpl< ENUM_TYPE, s8   >::val_ = s8(aVal); } };  ///< 8bitクラス版。
-template< typename ENUM_TYPE > class Enum16 : public EnumTmpl< ENUM_TYPE, s16 > { public: Enum16() {}; Enum16(const ENUM_TYPE aVal) { EnumTmpl< ENUM_TYPE, s16  >::val_ = s16(aVal); } };  ///< 16bitクラス版。
-template< typename ENUM_TYPE > class Enum32 : public EnumTmpl< ENUM_TYPE, s32 > { public: Enum32() {}; Enum32(const ENUM_TYPE aVal) { EnumTmpl< ENUM_TYPE, s32  >::val_ = s32(aVal); } }; ///< 32bitクラス版。
-template< typename ENUM_TYPE > class Enum64 : public EnumTmpl< ENUM_TYPE, s64 > { public: Enum64() {}; Enum64(const ENUM_TYPE aVal) { EnumTmpl< ENUM_TYPE, s64  >::val_ = s64(aVal); } }; ///< 64bitクラス版。
+template< typename TEnumType > class Enum8 : public EnumTmpl< TEnumType, s8  > { public: Enum8() {};  Enum8(const TEnumType aVal) { EnumTmpl< TEnumType, s8   >::val_ = s8(aVal); } };  ///< 8bitクラス版。
+template< typename TEnumType > class Enum16 : public EnumTmpl< TEnumType, s16 > { public: Enum16() {}; Enum16(const TEnumType aVal) { EnumTmpl< TEnumType, s16  >::val_ = s16(aVal); } };  ///< 16bitクラス版。
+template< typename TEnumType > class Enum32 : public EnumTmpl< TEnumType, s32 > { public: Enum32() {}; Enum32(const TEnumType aVal) { EnumTmpl< TEnumType, s32  >::val_ = s32(aVal); } }; ///< 32bitクラス版。
+template< typename TEnumType > class Enum64 : public EnumTmpl< TEnumType, s64 > { public: Enum64() {}; Enum64(const TEnumType aVal) { EnumTmpl< TEnumType, s64  >::val_ = s64(aVal); } }; ///< 64bitクラス版。
 
-template< typename ENUM_TYPE > class Enum : public Enum8< ENUM_TYPE > { public: Enum(const ENUM_TYPE aVal) { Enum8< ENUM_TYPE >::val_ = aVal; } }; ///< 標準のクラス版(8bit)。
+template< typename TEnumType > class Enum : public Enum8< TEnumType > { public: Enum(const TEnumType aVal) { Enum8< TEnumType >::val_ = aVal; } }; ///< 標準のクラス版(8bit)。
 //@}
 
 //@}

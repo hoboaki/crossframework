@@ -20,116 +20,116 @@ Pointer< Display_Ext > tCurrentDisplay;
 KeyKind tToKeyKind(WPARAM aKey)
 {
     switch (aKey) {
-        case VK_BACK:   return KeyKind_BackSpace;
-        case VK_TAB:    return KeyKind_Tab;
-        case VK_RETURN: return KeyKind_Return;
-        case VK_PAUSE:  return KeyKind_Pause;
-        case VK_ESCAPE: return KeyKind_Escape;
-        case VK_SPACE:  return KeyKind_Space;
-        case VK_DELETE: return KeyKind_Delete;
+        case VK_BACK:   return KeyKind::BackSpace;
+        case VK_TAB:    return KeyKind::Tab;
+        case VK_RETURN: return KeyKind::Return;
+        case VK_PAUSE:  return KeyKind::Pause;
+        case VK_ESCAPE: return KeyKind::Escape;
+        case VK_SPACE:  return KeyKind::Space;
+        case VK_DELETE: return KeyKind::Delete;
 
-        case '0': return KeyKind_0;
-        case '1': return KeyKind_1;
-        case '2': return KeyKind_2;
-        case '3': return KeyKind_3;
-        case '4': return KeyKind_4;
-        case '5': return KeyKind_5;
-        case '6': return KeyKind_6;
-        case '7': return KeyKind_7;
-        case '8': return KeyKind_8;
-        case '9': return KeyKind_9;
-        case 'A': return KeyKind_A;
-        case 'B': return KeyKind_B;
-        case 'C': return KeyKind_C;
-        case 'D': return KeyKind_D;
-        case 'E': return KeyKind_E;
-        case 'F': return KeyKind_F;
-        case 'G': return KeyKind_G;
-        case 'H': return KeyKind_H;
-        case 'I': return KeyKind_I;
-        case 'J': return KeyKind_J;
-        case 'K': return KeyKind_K;
-        case 'L': return KeyKind_L;
-        case 'M': return KeyKind_M;
-        case 'N': return KeyKind_N;
-        case 'O': return KeyKind_O;
-        case 'P': return KeyKind_P;
-        case 'Q': return KeyKind_Q;
-        case 'R': return KeyKind_R;
-        case 'S': return KeyKind_S;
-        case 'T': return KeyKind_T;
-        case 'U': return KeyKind_U;
-        case 'V': return KeyKind_V;
-        case 'W': return KeyKind_W;
-        case 'X': return KeyKind_X;
-        case 'Y': return KeyKind_Y;
-        case 'Z': return KeyKind_Z;
+        case '0': return KeyKind::0;
+        case '1': return KeyKind::1;
+        case '2': return KeyKind::2;
+        case '3': return KeyKind::3;
+        case '4': return KeyKind::4;
+        case '5': return KeyKind::5;
+        case '6': return KeyKind::6;
+        case '7': return KeyKind::7;
+        case '8': return KeyKind::8;
+        case '9': return KeyKind::9;
+        case 'A': return KeyKind::A;
+        case 'B': return KeyKind::B;
+        case 'C': return KeyKind::C;
+        case 'D': return KeyKind::D;
+        case 'E': return KeyKind::E;
+        case 'F': return KeyKind::F;
+        case 'G': return KeyKind::G;
+        case 'H': return KeyKind::H;
+        case 'I': return KeyKind::I;
+        case 'J': return KeyKind::J;
+        case 'K': return KeyKind::K;
+        case 'L': return KeyKind::L;
+        case 'M': return KeyKind::M;
+        case 'N': return KeyKind::N;
+        case 'O': return KeyKind::O;
+        case 'P': return KeyKind::P;
+        case 'Q': return KeyKind::Q;
+        case 'R': return KeyKind::R;
+        case 'S': return KeyKind::S;
+        case 'T': return KeyKind::T;
+        case 'U': return KeyKind::U;
+        case 'V': return KeyKind::V;
+        case 'W': return KeyKind::W;
+        case 'X': return KeyKind::X;
+        case 'Y': return KeyKind::Y;
+        case 'Z': return KeyKind::Z;
 
         #if 0
-        case VK_NUMPAD0: return KeyKind_KP0;
-        case VK_NUMPAD1: return KeyKind_KP1;
-        case VK_NUMPAD2: return KeyKind_KP2;
-        case VK_NUMPAD3: return KeyKind_KP3;
-        case VK_NUMPAD4: return KeyKind_KP4;
-        case VK_NUMPAD5: return KeyKind_KP5;
-        case VK_NUMPAD6: return KeyKind_KP6;
-        case VK_NUMPAD7: return KeyKind_KP7;
-        case VK_NUMPAD8: return KeyKind_KP8;
-        case VK_NUMPAD9: return KeyKind_KP9;
-        case VK_DECIMAL: return KeyKind_KPPeriod;
-        case VK_DIVIDE:   return KeyKind_KPDivide;
-        case VK_MULTIPLY: return KeyKind_KPMultiply;
-        case VK_SUBTRACT: return KeyKind_KPMinus;
-        case VK_ADD: return KeyKind_KPPlus;
-        //case : return KeyKind_KPEnter;
-        //case : return KeyKind_KPEquals;
+        case VK_NUMPAD0: return KeyKind::KP0;
+        case VK_NUMPAD1: return KeyKind::KP1;
+        case VK_NUMPAD2: return KeyKind::KP2;
+        case VK_NUMPAD3: return KeyKind::KP3;
+        case VK_NUMPAD4: return KeyKind::KP4;
+        case VK_NUMPAD5: return KeyKind::KP5;
+        case VK_NUMPAD6: return KeyKind::KP6;
+        case VK_NUMPAD7: return KeyKind::KP7;
+        case VK_NUMPAD8: return KeyKind::KP8;
+        case VK_NUMPAD9: return KeyKind::KP9;
+        case VK_DECIMAL: return KeyKind::KPPeriod;
+        case VK_DIVIDE:   return KeyKind::KPDivide;
+        case VK_MULTIPLY: return KeyKind::KPMultiply;
+        case VK_SUBTRACT: return KeyKind::KPMinus;
+        case VK_ADD: return KeyKind::KPPlus;
+        //case : return KeyKind::KPEnter;
+        //case : return KeyKind::KPEquals;
         #endif
 
-        case VK_UP: return KeyKind_Up;
-        case VK_DOWN: return KeyKind_Down;
-        case VK_RIGHT: return KeyKind_Right;
-        case VK_LEFT: return KeyKind_Left;
-        case VK_INSERT: return KeyKind_Insert;
-        case VK_HOME: return KeyKind_Home;
-        case VK_END: return KeyKind_End;
-        case VK_PRIOR: return KeyKind_PageUp;
-        case VK_NEXT: return KeyKind_PageDown;
+        case VK_UP: return KeyKind::Up;
+        case VK_DOWN: return KeyKind::Down;
+        case VK_RIGHT: return KeyKind::Right;
+        case VK_LEFT: return KeyKind::Left;
+        case VK_INSERT: return KeyKind::Insert;
+        case VK_HOME: return KeyKind::Home;
+        case VK_END: return KeyKind::End;
+        case VK_PRIOR: return KeyKind::PageUp;
+        case VK_NEXT: return KeyKind::PageDown;
 
-        case VK_F1: return KeyKind_F1;
-        case VK_F2: return KeyKind_F2;
-        case VK_F3: return KeyKind_F3;
-        case VK_F4: return KeyKind_F4;
-        case VK_F5: return KeyKind_F5;
-        case VK_F6: return KeyKind_F6;
-        case VK_F7: return KeyKind_F7;
-        case VK_F8: return KeyKind_F8;
-        case VK_F9: return KeyKind_F9;
-        case VK_F10: return KeyKind_F10;
-        case VK_F11: return KeyKind_F11;
-        case VK_F12: return KeyKind_F12;
-        case VK_F13: return KeyKind_F13;
-        case VK_F14: return KeyKind_F14;
-        case VK_F15: return KeyKind_F15;
+        case VK_F1: return KeyKind::F1;
+        case VK_F2: return KeyKind::F2;
+        case VK_F3: return KeyKind::F3;
+        case VK_F4: return KeyKind::F4;
+        case VK_F5: return KeyKind::F5;
+        case VK_F6: return KeyKind::F6;
+        case VK_F7: return KeyKind::F7;
+        case VK_F8: return KeyKind::F8;
+        case VK_F9: return KeyKind::F9;
+        case VK_F10: return KeyKind::F10;
+        case VK_F11: return KeyKind::F11;
+        case VK_F12: return KeyKind::F12;
+        case VK_F13: return KeyKind::F13;
+        case VK_F14: return KeyKind::F14;
+        case VK_F15: return KeyKind::F15;
 
-        case VK_NUMLOCK: return KeyKind_NumLock;
-        case VK_OEM_ATTN: return KeyKind_CapsLock;
-        case VK_SCROLL: return KeyKind_ScrolLock;
-        case VK_RSHIFT: return KeyKind_Shift;
-        case VK_LSHIFT: return KeyKind_Shift;
-        case VK_LCONTROL: return KeyKind_Ctrl;
-        case VK_RCONTROL: return KeyKind_Ctrl;
-        case VK_MENU: return KeyKind_Alt;
+        case VK_NUMLOCK: return KeyKind::NumLock;
+        case VK_OEM_ATTN: return KeyKind::CapsLock;
+        case VK_SCROLL: return KeyKind::ScrolLock;
+        case VK_RSHIFT: return KeyKind::Shift;
+        case VK_LSHIFT: return KeyKind::Shift;
+        case VK_LCONTROL: return KeyKind::Ctrl;
+        case VK_RCONTROL: return KeyKind::Ctrl;
+        case VK_MENU: return KeyKind::Alt;
 
         default:
-            return KeyKind_TERMINATE;
+            return KeyKind::TERM;
     }
 }
 
 void tUpdateMouseBtn(MouseUpdateData& aData, WPARAM aWParam)
 {
-    aData.hold.set(MouseBtnKind_L, (aWParam & MK_LBUTTON) != 0);
-    aData.hold.set(MouseBtnKind_R, (aWParam & MK_RBUTTON) != 0);
-    aData.hold.set(MouseBtnKind_M, (aWParam & MK_MBUTTON) != 0);
+    aData.hold.set(MouseBtnKind::L, (aWParam & MK_LBUTTON) != 0);
+    aData.hold.set(MouseBtnKind::R, (aWParam & MK_RBUTTON) != 0);
+    aData.hold.set(MouseBtnKind::M, (aWParam & MK_MBUTTON) != 0);
 }
 
 } // namespace
@@ -284,7 +284,7 @@ LRESULT Display_Ext::windowProcess(HWND aHWND, UINT aMsg, WPARAM aWParam, LPARAM
         case WM_KEYDOWN:
         {
             KeyKind k = tToKeyKind(aWParam);
-            if (k < KeyKind_TERMINATE) {
+            if (k < KeyKind::TERM) {
                 keyboardUpdateData.hold.set(k, true);
                 keyboardUpdateData.pulse.set(k, true);
             }
@@ -294,7 +294,7 @@ LRESULT Display_Ext::windowProcess(HWND aHWND, UINT aMsg, WPARAM aWParam, LPARAM
         case WM_KEYUP:
         {
             KeyKind k = tToKeyKind(aWParam);
-            if (k < KeyKind_TERMINATE) {
+            if (k < KeyKind::TERM) {
                 keyboardUpdateData.hold.set(k, false);
             }
         }

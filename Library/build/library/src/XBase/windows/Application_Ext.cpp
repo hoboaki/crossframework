@@ -34,13 +34,12 @@ void Application::quit()
 }
 
 //------------------------------------------------------------------------------
-AppEvent Application::receiveEventCore()
+AppEven::EnumType Application::receiveEventCore()
 {
     // 終了要求があったらQuit
     if (mExt.doQuit) {
-        return AppEvent_Quit;
+        return AppEvent::Quit;
     }
-
     // ディスプレイのイベントチェック
     if (mDisplayPtr.isValid()) {
         mDisplayPtr->ext_().pollEvent(*this);
@@ -63,7 +62,7 @@ AppEvent Application::receiveEventCore()
     }
 
     // 常にUpdate
-    return AppEvent_Update;
+    return AppEvent::Update;
 }
 
 //------------------------------------------------------------------------------

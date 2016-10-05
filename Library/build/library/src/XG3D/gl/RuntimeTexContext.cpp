@@ -6,7 +6,7 @@ namespace XG3D {
 
 //------------------------------------------------------------------------------
 const RuntimeTexContext RuntimeTexContext::Create(
-    const ResTexFormat aFormat,
+    const ResTexFormat::EnumType aFormat,
     const int aWidth,
     const int aHeight
     )
@@ -15,7 +15,7 @@ const RuntimeTexContext RuntimeTexContext::Create(
 }
 
 //------------------------------------------------------------------------------
-ResTexFormat RuntimeTexContext::format()const
+ResTexFormat::EnumType RuntimeTexContext::format()const
 {
     return mFormat;
 }
@@ -34,7 +34,7 @@ u16 RuntimeTexContext::height()const
 
 //------------------------------------------------------------------------------
 RuntimeTexContext::RuntimeTexContext(
-    const ResTexFormat aFormat,
+    const ResTexFormat::EnumType aFormat,
     const int aWidth,
     const int aHeight
     )

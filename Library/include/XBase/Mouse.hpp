@@ -52,9 +52,9 @@ public:
 
     /// @name ボタンの状態取得
     //@{
-    bool isHold(MouseBtnKind aKind)const;    ///< 押されているか。
-    bool isTrigger(MouseBtnKind aKind)const; ///< 押された瞬間か。
-    bool isRelease(MouseBtnKind aKind)const; ///< 離された瞬間か。
+    bool isHold(MouseBtnKind::EnumType aKind)const;    ///< 押されているか。
+    bool isTrigger(MouseBtnKind::EnumType aKind)const; ///< 押された瞬間か。
+    bool isRelease(MouseBtnKind::EnumType aKind)const; ///< 離された瞬間か。
     //@}
 
     /// @name ボタンのビットセット取得

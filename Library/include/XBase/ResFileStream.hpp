@@ -73,7 +73,7 @@ public:
     // IReadStreamの実装。
     XBASE_OVERRIDE(pword_t requireReadBufferAlignment()const);
     XBASE_OVERRIDE(pword_t calcReadBufferSize(pword_t aSize)const);
-    XBASE_OVERRIDE(pword_t seek(int aOffset, SeekOrigin aOrigin));
+    XBASE_OVERRIDE(pword_t seek(int aOffset, SeekOrigin::EnumType aOrigin));
     XBASE_OVERRIDE(pword_t read(ptr_t aBuffer, pword_t aSize));
     XBASE_OVERRIDE(void close());
 

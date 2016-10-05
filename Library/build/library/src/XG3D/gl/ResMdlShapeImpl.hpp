@@ -25,7 +25,7 @@ public:
     //============================================================
     const XDataPlus         xdata;
     const BinResMdlShape*   binPtr;
-    VtxAttr vtxAttrs[ResMdlShapeInputKind_TERMINATE];
+    VtxAttr vtxAttrs[ResMdlShapeInputKind::TERM];
     GLuint idxBuffer;
     GLuint vtxAttrBuffer;
     GLuint idxGLDataType;

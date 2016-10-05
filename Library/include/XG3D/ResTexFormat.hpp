@@ -22,7 +22,7 @@ struct ResTexFormat
         LA8,     ///< LA8。
         L8,      ///< L8。
 
-        TERM.
+        TERM,
     };
 };
 //@}
