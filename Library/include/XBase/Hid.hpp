@@ -11,7 +11,7 @@
 #elif defined(XBASE_OS_MACOSX)
     #include <XBase/Hid_MacOSX.hpp>
 #elif defined(XBASE_OS_IOS)
-    #include <XBase/Hid_iOs.hpp>
+    #include <XBase/Hid_iOS.hpp>
 #endif
 
 namespace XBase {

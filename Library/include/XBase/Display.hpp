@@ -12,7 +12,7 @@
 #elif defined(XBASE_OS_MACOSX)
 #include <XBase/Display_MacOSX.hpp>
 #elif defined(XBASE_OS_IOS)
-#include <XBase/Display_iOs.hpp>
+#include <XBase/Display_iOS.hpp>
 #else
 #include <XBase/Display_Default.hpp>
 #endif

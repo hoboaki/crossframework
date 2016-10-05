@@ -10,7 +10,7 @@
 #if defined(XBASE_OS_MACOSX)
     #include <XBase/Screen_MacOSX.hpp>
 #elif defined(XBASE_OS_IOS)
-    #include <XBase/Screen_iOs.hpp>
+    #include <XBase/Screen_iOS.hpp>
 #else
     #include <XBase/Screen_Default.hpp>
 #endif
