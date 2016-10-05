@@ -4,7 +4,7 @@
 #include <assert.h>
 #include <string.h>
 #include <UIKit/UIKit.h>
-#include "EntryPoint_EXT.h"
+#include "EntryPoint_Ext.h"
 #include "XBaseUIApplicationDelegate.h"
 
 //------------------------------------------------------------------------------

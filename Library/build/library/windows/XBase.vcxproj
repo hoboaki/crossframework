@@ -121,7 +121,7 @@
     <ClCompile Include="..\src\XBase\Vector4i.cpp" />
     <ClCompile Include="..\src\XBase\windows\Application_Ext.cpp" />
     <ClCompile Include="..\src\XBase\windows\Display_Ext.cpp" />
-    <ClCompile Include="..\src\XBase\windows\EntryPoint_EXT.cpp" />
+    <ClCompile Include="..\src\XBase\windows\EntryPoint_Ext.cpp" />
     <ClCompile Include="..\src\XBase\windows\Hid_Ext.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

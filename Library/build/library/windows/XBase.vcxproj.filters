@@ -233,7 +233,7 @@
     <ClCompile Include="..\src\XBase\windows\Display_Ext.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\windows\EntryPoint_EXT.cpp">
+    <ClCompile Include="..\src\XBase\windows\EntryPoint_Ext.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="..\src\XBase\Application.cpp">
