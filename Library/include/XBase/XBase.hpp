@@ -15,7 +15,7 @@
 #include <XBase/Compiler.hpp>
 #include <XBase/Config.hpp>
 #include <XBase/Endian.hpp>
-#include <XBase/OS.hpp>
+#include <XBase/Os.hpp>
 
 /// @defgroup XBase-DateTime XBase:日時
 #include <XBase/Calendar.hpp>
@@ -38,11 +38,11 @@
 #include <XBase/ResFileStream.hpp>
 #include <XBase/SeekOrigin.hpp>
 
-/// @defgroup XBase-HID XBase:HID
+/// @defgroup XBase-Hid XBase:Hid
 #include <XBase/KeyBitSet.hpp>
 #include <XBase/Keyboard.hpp>
 #include <XBase/KeyKind.hpp>
-#include <XBase/HID.hpp>
+#include <XBase/Hid.hpp>
 #include <XBase/Mouse.hpp>
 #include <XBase/MouseBtnBitSet.hpp>
 #include <XBase/MouseBtnKind.hpp>
@@ -50,15 +50,15 @@
 #include <XBase/TouchTap.hpp>
 
 /// @defgroup XBase-Math XBase:数学
-#include <XBase/AABBox2.hpp>
-#include <XBase/AABBox2i.hpp>
+#include <XBase/Aabb2.hpp>
+#include <XBase/Aabb2i.hpp>
 #include <XBase/Angle.hpp>
 #include <XBase/Degree.hpp>
 #include <XBase/Infinity.hpp>
 #include <XBase/Math.hpp>
 #include <XBase/Matrix34.hpp>
 #include <XBase/Matrix44.hpp>
-#include <XBase/PI.hpp>
+#include <XBase/Pi.hpp>
 #include <XBase/Quaternion.hpp>
 #include <XBase/Radian.hpp>
 #include <XBase/Random.hpp>
@@ -72,7 +72,7 @@
 /// @defgroup XBase-Memory XBase:メモリ
 #include <XBase/AutoMemBlock.hpp>
 #include <XBase/AutoPtr.hpp>
-#include <XBase/AutoSPPtr.hpp>
+#include <XBase/AutoSpPtr.hpp>
 #include <XBase/IAllocator.hpp>
 #include <XBase/MemBlock.hpp>
 #include <XBase/ScopedPtr.hpp>
@@ -113,8 +113,8 @@
 #include <XBase/Bool.hpp>
 #include <XBase/BuiltInTypes.hpp>
 #include <XBase/Enum.hpp>
-#include <XBase/PODClass.hpp>
-#include <XBase/PODTypes.hpp>
+#include <XBase/PodClass.hpp>
+#include <XBase/PodTypes.hpp>
 #include <XBase/ScalerClass.hpp>
 
 #endif

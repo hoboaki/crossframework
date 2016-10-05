@@ -11,14 +11,14 @@
 *.userprefs
 
 # Build results
-[Dd]ebug/
-[Dd]ebugPublic/
-[Rr]elease/
-[Rr]eleases/
-[Xx]64/
-[Xx]86/
-[Bb]uild/
-bld/
+#[Dd]ebug/
+#[Dd]ebugPublic/
+#[Rr]elease/
+#[Rr]eleases/
+#[Xx]64/
+#[Xx]86/
+#[Bb]uild/
+#bld/
 [Bb]in/
 [Oo]bj/
 
@@ -242,3 +242,6 @@ ModelManifest.xml
 .fake/
 /man
 /lib
+
+xcuserdata
+*.xcworkspacedata

@@ -118,7 +118,7 @@ void RuntimeTex::endEdit()
 void RuntimeTex::setPixel(
     const int aX,
     const int aY,
-    const ::XBase::Color4POD& aVal
+    const ::XBase::Color4Pod& aVal
     )
 {
     setPixel(aX, aY, aVal.toRGBAb());
@@ -128,7 +128,7 @@ void RuntimeTex::setPixel(
 void RuntimeTex::setPixel(
     const int aX,
     const int aY,
-    const ::XBase::Color4bPOD& aVal
+    const ::XBase::Color4bPod& aVal
     )
 {
     // アドレス計算
@@ -141,7 +141,7 @@ void RuntimeTex::setPixel(
     // フォーマットごとに代入
     switch (mContext.format()) {
         case ResTexFormat_RGBA8:
-            *reinterpret_cast< ::XBase::Color4bPOD* >(addr) = aVal;
+            *reinterpret_cast< ::XBase::Color4bPod* >(addr) = aVal;
             break;
 
         case ResTexFormat_RGB8:

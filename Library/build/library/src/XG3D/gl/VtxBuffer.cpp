@@ -5,7 +5,7 @@
 #include <XBase/EnumCheck.hpp>
 #include <XBase/RuntimeAssert.hpp>
 #include <XG3D/Renderer.hpp>
-#include "GLCMD.hpp"
+#include "GlCmd.hpp"
 #include "ShaderConstant.hpp"
 
 //------------------------------------------------------------------------------
@@ -20,7 +20,7 @@ VtxBuffer::VtxBuffer(
 : mVertexArray(aVertexCountMax, aAllocator)
 , mIndexArray((aVertexCountMax * 3) / 2, aAllocator) // 矩形描画をカバーできるようにindex数を1.5倍に。
 , mMeshArray(aMeshCountMax, aAllocator)
-, mEXT()
+, mExt()
 , mWorldMtx()
 , mNormal()
 , mTexCoord()
@@ -68,7 +68,7 @@ void VtxBuffer::clear()
 }
 
 //------------------------------------------------------------------------------
-void VtxBuffer::worldMtx(const ::XBase::Matrix34POD& aMtx)
+void VtxBuffer::worldMtx(const ::XBase::Matrix34Pod& aMtx)
 {
     mWorldMtx = aMtx;
 }
@@ -182,7 +182,7 @@ void VtxBuffer::normal(const f32 aX, const f32 aY, const f32 aZ)
 }
 
 //------------------------------------------------------------------------------
-void VtxBuffer::normal(const ::XBase::Vector3POD& aXYZ)
+void VtxBuffer::normal(const ::XBase::Vector3Pod& aXYZ)
 {
     // チェック
     if (!mIsMeshActive) {
@@ -199,7 +199,7 @@ void VtxBuffer::texCoord(const f32 aS, const f32 aT)
 }
 
 //------------------------------------------------------------------------------
-void VtxBuffer::texCoord(const ::XBase::Vector2POD& aST)
+void VtxBuffer::texCoord(const ::XBase::Vector2Pod& aST)
 {
     // チェック
     if (!mIsMeshActive) {
@@ -222,7 +222,7 @@ void VtxBuffer::color(const f32 aR, const f32 aG, const f32 aB, const f32 aA)
 }
 
 //------------------------------------------------------------------------------
-void VtxBuffer::color(const ::XBase::Color4POD& aRGBA)
+void VtxBuffer::color(const ::XBase::Color4Pod& aRGBA)
 {
     // チェック
     if (!mIsMeshActive) {
@@ -245,13 +245,13 @@ void VtxBuffer::vertex(const f32 aX, const f32 aY, const f32 aZ)
 }
 
 //------------------------------------------------------------------------------
-void VtxBuffer::vertex(const ::XBase::Vector2POD& aXY)
+void VtxBuffer::vertex(const ::XBase::Vector2Pod& aXY)
 {
     vertex(aXY.toXY0());
 }
 
 //------------------------------------------------------------------------------
-void VtxBuffer::vertex(const ::XBase::Vector3POD& aXYZ)
+void VtxBuffer::vertex(const ::XBase::Vector3Pod& aXYZ)
 {
     // チェック
     if (!mIsMeshActive) {
@@ -295,12 +295,12 @@ void VtxBuffer::flush()
 
     // バッファ作成
     {
-        XG3D_GLCMD(glBindBuffer(GL_ARRAY_BUFFER, mEXT.vtxBuffer));
+        XG3D_GLCMD(glBindBuffer(GL_ARRAY_BUFFER, mExt.vtxBuffer));
         XG3D_GLCMD(glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * mVertexArray.count(), &mVertexArray[0], GL_STATIC_DRAW));
         XG3D_GLCMD(glBindBuffer(GL_ARRAY_BUFFER, 0));
     }
     {
-        XG3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mEXT.idxBuffer));
+        XG3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mExt.idxBuffer));
         XG3D_GLCMD(glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Index) * mIndexArray.count(), &mIndexArray[0], GL_STATIC_DRAW));
         XG3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0));
     }
@@ -326,8 +326,8 @@ void VtxBuffer::draw()
     }
 
     // 頂点の設定
-    XG3D_GLCMD(glBindBuffer(GL_ARRAY_BUFFER, mEXT.vtxBuffer));
-    XG3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mEXT.idxBuffer));
+    XG3D_GLCMD(glBindBuffer(GL_ARRAY_BUFFER, mExt.vtxBuffer));
+    XG3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mExt.idxBuffer));
     XG3D_GLCMD(glVertexAttribPointer(ShaderConstant::Attribute_Position, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), reinterpret_cast<const void*>(offsetof(Vertex, position))));
     XG3D_GLCMD(glVertexAttribPointer(ShaderConstant::Attribute_Normal, 3, GL_FLOAT, GL_TRUE, sizeof(Vertex), reinterpret_cast<const void*>(offsetof(Vertex, normal))));
     XG3D_GLCMD(glVertexAttribPointer(ShaderConstant::Attribute_TexCoord, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), reinterpret_cast<const void*>(offsetof(Vertex, texCoord))));

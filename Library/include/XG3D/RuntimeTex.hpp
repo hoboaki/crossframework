@@ -62,8 +62,8 @@ public:
     //@{
     void beginEdit(); ///< 編集開始前に必ず呼ぶべき関数。
     void endEdit();   ///< 編集終了後に必ず呼ぶべき関数。
-    void setPixel(int aX, int aY, const ::XBase::Color4POD&);  ///< 指定の座標のピクセルを設定。
-    void setPixel(int aX, int aY, const ::XBase::Color4bPOD&); ///< 指定の座標のピクセルを設定。
+    void setPixel(int aX, int aY, const ::XBase::Color4Pod&);  ///< 指定の座標のピクセルを設定。
+    void setPixel(int aX, int aY, const ::XBase::Color4bPod&); ///< 指定の座標のピクセルを設定。
     //@}
 
 private:

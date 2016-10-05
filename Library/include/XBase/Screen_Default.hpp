@@ -7,7 +7,7 @@
 namespace XBase {
 
 //デフォルト環境でのScreenの拡張。
-class Screen_EXT
+class Screen_Ext
 {
 public:
 };

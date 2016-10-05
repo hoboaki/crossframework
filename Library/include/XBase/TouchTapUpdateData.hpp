@@ -9,13 +9,13 @@
 //------------------------------------------------------------------------------
 namespace XBase {
 
-/// @addtogroup XBase-HID
+/// @addtogroup XBase-Hid
 //@{
 /// タッチの1タップの更新データ。
 struct TouchTapUpdateData
 {
     uint32       tapCount;
-    ScreenPosPOD pos;
+    ScreenPosPod pos;
 };
 //@}
 

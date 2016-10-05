@@ -19,9 +19,9 @@ ScreenPos::ScreenPos(const sint16 aX, const sint16 aY)
 }
 
 //------------------------------------------------------------------------------
-ScreenPos::ScreenPos(const ScreenPosPOD& aObj)
+ScreenPos::ScreenPos(const ScreenPosPod& aObj)
 {
-    static_cast<ScreenPosPOD&>(*this) = aObj;
+    static_cast<ScreenPosPod&>(*this) = aObj;
 }
 
 } // namespace

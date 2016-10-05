@@ -11,7 +11,7 @@ namespace XG3D {
 
 //------------------------------------------------------------------------------
 TexSetting::TexSetting()
-: mEXT()
+: mExt()
 , mIsActive(false)
 , mMinFilter(TexFilter_Nearest)
 , mMagFilter(TexFilter_Nearest)
@@ -35,19 +35,19 @@ void TexSetting::setIsActive(const bool aIsActive)
 //------------------------------------------------------------------------------
 bool TexSetting::isBoundBuffer()const
 {
-    return mEXT.texId != 0;
+    return mExt.texId != 0;
 }
 
 //------------------------------------------------------------------------------
 void TexSetting::bindBuffer(const TexBuffer& aBuffer)
 {
-    mEXT.texId = aBuffer.ext_().texId;
+    mExt.texId = aBuffer.ext_().texId;
 }
 
 //------------------------------------------------------------------------------
 void TexSetting::unbindBuffer()
 {
-    mEXT.texId = 0;
+    mExt.texId = 0;
 }
 
 //------------------------------------------------------------------------------
@@ -117,13 +117,13 @@ void TexSetting::setAddressV(const TexAddress aAddress)
 //------------------------------------------------------------------------------
 TexSetting_EXT& TexSetting::ext_()
 {
-    return mEXT;
+    return mExt;
 }
 
 //------------------------------------------------------------------------------
 const TexSetting_EXT& TexSetting::ext_()const
 {
-    return mEXT;
+    return mExt;
 }
 
 //------------------------------------------------------------------------------

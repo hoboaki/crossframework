@@ -84,7 +84,7 @@ BRIEF_MEMBER_DESC      = YES
 
 # If the REPEAT_BRIEF tag is set to YES (the default) Doxygen will prepend 
 # the brief description of a member or function before the detailed description. 
-# Note: if both HIDE_UNDOC_MEMBERS and BRIEF_MEMBER_DESC are set to NO, the 
+# Note: if both HidE_UNDOC_MEMBERS and BRIEF_MEMBER_DESC are set to NO, the 
 # brief descriptions will be completely suppressed.
 
 REPEAT_BRIEF           = YES
@@ -286,7 +286,7 @@ DISTRIBUTE_GROUP_DOC   = NO
 
 SUBGROUPING            = YES
 
-# When TYPEDEF_HIDES_STRUCT is enabled, a typedef of a struct, union, or enum 
+# When TYPEDEF_HidES_STRUCT is enabled, a typedef of a struct, union, or enum 
 # is documented as struct, union, or enum with the name of the typedef. So 
 # typedef struct TypeS {} TypeT, will appear in the documentation as a struct 
 # with name TypeT. When disabled the typedef will appear as a member of a file, 
@@ -294,7 +294,7 @@ SUBGROUPING            = YES
 # be useful for C code in case the coding convention dictates that all compound 
 # types are typedef'ed and only the typedef is referenced, never the tag name.
 
-TYPEDEF_HIDES_STRUCT   = NO
+TYPEDEF_HidES_STRUCT   = NO
 
 # The SYMBOL_CACHE_SIZE determines the size of the internal cache use to 
 # determine which symbols to keep in memory and which to flush to disk. 
@@ -354,34 +354,34 @@ EXTRACT_LOCAL_METHODS  = NO
 
 EXTRACT_ANON_NSPACES   = NO
 
-# If the HIDE_UNDOC_MEMBERS tag is set to YES, Doxygen will hide all 
+# If the HidE_UNDOC_MEMBERS tag is set to YES, Doxygen will hide all 
 # undocumented members of documented classes, files or namespaces. 
 # If set to NO (the default) these members will be included in the 
 # various overviews, but no documentation section is generated. 
 # This option has no effect if EXTRACT_ALL is enabled.
 
-HIDE_UNDOC_MEMBERS     = YES
+HidE_UNDOC_MEMBERS     = YES
 
-# If the HIDE_UNDOC_CLASSES tag is set to YES, Doxygen will hide all 
+# If the HidE_UNDOC_CLASSES tag is set to YES, Doxygen will hide all 
 # undocumented classes that are normally visible in the class hierarchy. 
 # If set to NO (the default) these classes will be included in the various 
 # overviews. This option has no effect if EXTRACT_ALL is enabled.
 
-HIDE_UNDOC_CLASSES     = YES
+HidE_UNDOC_CLASSES     = YES
 
-# If the HIDE_FRIEND_COMPOUNDS tag is set to YES, Doxygen will hide all 
+# If the HidE_FRIEND_COMPOUNDS tag is set to YES, Doxygen will hide all 
 # friend (class|struct|union) declarations. 
 # If set to NO (the default) these declarations will be included in the 
 # documentation.
 
-HIDE_FRIEND_COMPOUNDS  = YES
+HidE_FRIEND_COMPOUNDS  = YES
 
-# If the HIDE_IN_BODY_DOCS tag is set to YES, Doxygen will hide any 
+# If the HidE_IN_BODY_DOCS tag is set to YES, Doxygen will hide any 
 # documentation blocks found inside the body of a function. 
 # If set to NO (the default) these blocks will be appended to the 
 # function's detailed documentation block.
 
-HIDE_IN_BODY_DOCS      = NO
+HidE_IN_BODY_DOCS      = NO
 
 # The INTERNAL_DOCS tag determines if documentation 
 # that is typed after a \internal command is included. If the tag is set 
@@ -398,11 +398,11 @@ INTERNAL_DOCS          = NO
 
 CASE_SENSE_NAMES       = NO
 
-# If the HIDE_SCOPE_NAMES tag is set to NO (the default) then Doxygen 
+# If the HidE_SCOPE_NAMES tag is set to NO (the default) then Doxygen 
 # will show members with their full class and namespace scopes in the 
 # documentation. If set to YES the scope will be hidden.
 
-HIDE_SCOPE_NAMES       = NO
+HidE_SCOPE_NAMES       = NO
 
 # If the SHOW_INCLUDE_FILES tag is set to YES (the default) then Doxygen 
 # will put a list of the files that are included by a file in the documentation 
@@ -455,7 +455,7 @@ SORT_GROUP_NAMES       = NO
 # sorted by fully-qualified names, including namespaces. If set to 
 # NO (the default), the class list will be sorted only by class name, 
 # not including the namespace part. 
-# Note: This option is not very useful if HIDE_SCOPE_NAMES is set to YES. 
+# Note: This option is not very useful if HidE_SCOPE_NAMES is set to YES. 
 # Note: This option applies only to the class list, not to the 
 # alphabetical list.
 
@@ -1243,11 +1243,11 @@ USE_PDFLATEX           = YES
 
 LATEX_BATCHMODE        = NO
 
-# If LATEX_HIDE_INDICES is set to YES then doxygen will not 
+# If LATEX_HidE_INDICES is set to YES then doxygen will not 
 # include the index chapters (such as File Index, Compound Index, etc.) 
 # in the output.
 
-LATEX_HIDE_INDICES     = NO
+LATEX_HidE_INDICES     = NO
 
 # If LATEX_SOURCE_CODE is set to YES then doxygen will include 
 # source code with syntax highlighting in the LaTeX output. 
@@ -1540,7 +1540,7 @@ MSCGEN_PATH            =
 # inheritance and usage relations if the target is undocumented 
 # or is not a class.
 
-HIDE_UNDOC_RELATIONS   = YES
+HidE_UNDOC_RELATIONS   = YES
 
 # If you set the HAVE_DOT tag to YES then doxygen will assume the dot tool is 
 # available from the path. This tool is part of Graphviz, a graph visualization 

@@ -2,7 +2,7 @@
 #include <XBase/DisplayContext.hpp>
 
 //------------------------------------------------------------------------------
-#include <XBase/SDKHeader.hpp>
+#include <XBase/SdkHeader.hpp>
 
 #if defined(XBASE_OS_MACOSX)
     #include "XBaseNSScreen.h"

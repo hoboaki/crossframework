@@ -5,7 +5,7 @@
 #include <XBase/Application.hpp>
 #include <XBase/Pointer.hpp>
 #include <XBase/Ref.hpp>
-#include <XBase/SDKHeader.hpp>
+#include <XBase/SdkHeader.hpp>
 
 //------------------------------------------------------------------------------
 namespace XBase {
@@ -13,7 +13,7 @@ namespace XBase {
 //------------------------------------------------------------------------------
 Display::Display(const DisplayContext& aContext)
 : mContext(aContext)
-, mEXT(aContext)
+, mExt(aContext)
 {
     // 登録
     Application::Instance().registerDisplay_(*this);
@@ -33,9 +33,9 @@ const DisplayContext Display::context_()const
 }
 
 //------------------------------------------------------------------------------
-Display_EXT& Display::ext_()
+Display_Ext& Display::ext_()
 {
-    return mEXT;
+    return mExt;
 }
 
 } // namespace

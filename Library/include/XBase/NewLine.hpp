@@ -3,7 +3,7 @@
 #else
 #define XBASE_INCLUDED_NEWLINE_HPP
 
-#include <XBase/OS.hpp>
+#include <XBase/Os.hpp>
 
 /// @addtogroup XBase-Env
 //@{

@@ -58,7 +58,7 @@ public:
     /// @name フレームバッファ
     //@{
     void fbClear(); ///< クリアする。
-    void fbSetClearColor(const ::XBase::Color4POD& aColor); ///< クリア時の色値を設定する。初期値RGBA(0,0,0,0)。
+    void fbSetClearColor(const ::XBase::Color4Pod& aColor); ///< クリア時の色値を設定する。初期値RGBA(0,0,0,0)。
     void fbSetClearDepth(float aDepth); ///< クリア時の深度値を設定する。初期値1.0f。
     void fbSetColorUpdate(bool aIsEnable); ///< 色バッファの更新フラグを設定する。初期値true。
     void fbSetDepthUpdate(bool aIsEnable); ///< 深度バッファの更新フラグを設定する。初期値true。
@@ -96,7 +96,7 @@ public:
 
 private:
     ::XBase::Display& mDisplay;
-    Renderer_EXT mEXT;
+    Renderer_EXT mExt;
 };
 
 //@}

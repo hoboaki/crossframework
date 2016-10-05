@@ -10,7 +10,7 @@
 namespace XBase {
 
 // Windows環境でのApplicationの拡張。
-class Application_EXT
+class Application_Ext
 {
 public:
     //============================================================
@@ -18,7 +18,7 @@ public:
     Bool32 doQuit;
 
     //============================================================
-    Application_EXT();
+    Application_Ext();
 };
 //@}
 

@@ -10,11 +10,11 @@
 #include <XBase/Placement.hpp>
 #include <XBase/Pointer.hpp>
 #include <XBase/Screen.hpp>
-#include <XBase/SDKHeader.hpp>
+#include <XBase/SdkHeader.hpp>
 
 namespace XBase {
 class Application;
-class HID;
+class Hid;
 }
 
 //------------------------------------------------------------------------------
@@ -23,7 +23,7 @@ namespace XBase {
 /// @addtogroup XBase-System
 //@{
 // Windows環境でのDisplayの拡張。
-class Display_EXT
+class Display_Ext
 {
 public:
     //============================================================
@@ -37,13 +37,13 @@ public:
     WNDCLASSEX windowClass;
     MSG  message;
     Placement< Screen > mainScreen;
-    Pointer< HID > hidPtr;
+    Pointer< Hid > hidPtr;
     Bool32 isClosed;
     KeyboardUpdateData keyboardUpdateData;
     MouseUpdateData mouseUpdateData;
 
     //============================================================
-    Display_EXT(const DisplayContext&);
+    Display_Ext(const DisplayContext&);
 
     //============================================================
     void    pollEvent(Application&);

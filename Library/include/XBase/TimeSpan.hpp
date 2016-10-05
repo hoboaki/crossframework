@@ -4,7 +4,7 @@
 #define XBASE_INCLUDED_TIMESPAN_HPP
 
 #include <XBase/BuiltInTypes.hpp>
-#include <XBase/PODInheritClass.hpp>
+#include <XBase/PodInheritClass.hpp>
 
 //------------------------------------------------------------------------------
 namespace XBase {
@@ -15,42 +15,42 @@ namespace XBase {
     /// @details
     /// 最小単位(1チック)は100ナノ秒です。@n
 /// 加算・減算に関してオーバーフロー対策は何もしていないためオーバーフローしてもエラーにはなりません。 @n
-struct TimeSpanPOD
+struct TimeSpanPod
 {
     /// @brief チック数から作成する。
     /// @return 作成された時間間隔。
     /// @param aTicks チック数。
-    static const TimeSpanPOD FromTicks(s64 aTicks);
+    static const TimeSpanPod FromTicks(s64 aTicks);
 
     /// @brief マイクロ秒数から作成する。
     /// @return 作成された時間間隔。
     /// @param aUsecs マイクロ秒数。
-    static const TimeSpanPOD FromMicroseconds(s64 aUsecs);
+    static const TimeSpanPod FromMicroseconds(s64 aUsecs);
 
     /// @brief ミリ秒数から作成する。
     /// @return 作成された時間間隔。
     /// @param aMsecs ミリ秒数。
-    static const TimeSpanPOD FromMilliseconds(s64 aMsecs);
+    static const TimeSpanPod FromMilliseconds(s64 aMsecs);
 
     /// @brief 秒数から作成する。
     /// @return 作成された時間間隔。
     /// @param aSecs 秒数。
-    static const TimeSpanPOD FromSeconds(s64 aSecs);
+    static const TimeSpanPod FromSeconds(s64 aSecs);
 
     /// @brief 分数から作成する。
     /// @return 作成された時間間隔。
     /// @param aMinutes 分数。
-    static const TimeSpanPOD FromMinnutes(s64 aMinutes);
+    static const TimeSpanPod FromMinnutes(s64 aMinutes);
 
     /// @brief 時数から作成する。
     /// @return 作成された時間間隔。
     /// @param aHours 時数。
-    static const TimeSpanPOD FromHours(s64 aHours);
+    static const TimeSpanPod FromHours(s64 aHours);
 
     /// @brief 日数から作成する。
     /// @return 作成された時間間隔。
     /// @param aDays 日数。
-    static const TimeSpanPOD FromDays(s64 aDays);
+    static const TimeSpanPod FromDays(s64 aDays);
 
     /// @brief チック数として取得する。
     /// @return チック数。
@@ -83,33 +83,33 @@ struct TimeSpanPOD
     /// @brief 加算された時間間隔を取得する。
     /// @param aTimeSpan 加算する時間間隔。
     /// @return 求められた時間間隔。
-    const TimeSpanPOD add(const TimeSpanPOD& aTimeSpan)const;
-    const TimeSpanPOD operator+(const TimeSpanPOD& aTimeSpan)const; ///< @copydoc add
+    const TimeSpanPod add(const TimeSpanPod& aTimeSpan)const;
+    const TimeSpanPod operator+(const TimeSpanPod& aTimeSpan)const; ///< @copydoc add
 
     /// @brief 時間間隔を加算する。
     /// @return 加算された自分自身の参照。
     /// @param aTimeSpan 加算する時間間隔。
-    TimeSpanPOD& addAssign(const TimeSpanPOD& aTimeSpan);
-    TimeSpanPOD& operator+=(const TimeSpanPOD& aTimeSpan); ///< @copydoc addAssign
+    TimeSpanPod& addAssign(const TimeSpanPod& aTimeSpan);
+    TimeSpanPod& operator+=(const TimeSpanPod& aTimeSpan); ///< @copydoc addAssign
 
     /// @brief 減算された時間間隔を取得する。
     /// @param aTimeSpan 減算する時間間隔。
     /// @return 求められた時間間隔。
-    const TimeSpanPOD sub(const TimeSpanPOD& aTimeSpan)const;
-    const TimeSpanPOD operator-(const TimeSpanPOD& aTimeSpan)const; ///< @copydoc sub
+    const TimeSpanPod sub(const TimeSpanPod& aTimeSpan)const;
+    const TimeSpanPod operator-(const TimeSpanPod& aTimeSpan)const; ///< @copydoc sub
 
     /// @brief 時間間隔を減算する。
     /// @return 減算された自分自身の参照。
     /// @param aTimeSpan 減算する時間間隔。
-    TimeSpanPOD& subAssign(const TimeSpanPOD& aTimeSpan);
-    TimeSpanPOD& operator-=(const TimeSpanPOD& aTimeSpan); ///< @copydoc subAssign
+    TimeSpanPod& subAssign(const TimeSpanPod& aTimeSpan);
+    TimeSpanPod& operator-=(const TimeSpanPod& aTimeSpan); ///< @copydoc subAssign
 
     // 値。直接アクセスすることは想定していない。
     s64 ticks_;
 };
 
-/// TimeSpanPOD のクラス版。
-typedef PODInheritClass< TimeSpanPOD > TimeSpan;
+/// TimeSpanPod のクラス版。
+typedef PodInheritClass< TimeSpanPod > TimeSpan;
 //@}
 
 } // namespace

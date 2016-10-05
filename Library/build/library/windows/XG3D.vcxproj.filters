@@ -218,7 +218,7 @@
     <ClInclude Include="..\..\..\include\XG3D\RuntimeTexContext.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\SDKHeader.hpp">
+    <ClInclude Include="..\..\..\include\XG3D\SdkHeader.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\XG3D\StateMaterial.hpp">

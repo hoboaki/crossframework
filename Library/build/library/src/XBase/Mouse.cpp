@@ -42,7 +42,7 @@ bool Mouse::isPosUpdated()const
 }
 
 //------------------------------------------------------------------------------
-const ScreenPosPOD Mouse::pos()const
+const ScreenPosPod Mouse::pos()const
 {
     return mPos;
 }

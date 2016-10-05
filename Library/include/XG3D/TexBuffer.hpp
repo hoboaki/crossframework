@@ -48,7 +48,7 @@ public:
     TexBuffer_EXT& ext_();
 
 private:
-    TexBuffer_EXT mEXT;
+    TexBuffer_EXT mExt;
     TexResData mResData;
 };
 //@}

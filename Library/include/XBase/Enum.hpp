@@ -10,9 +10,9 @@ namespace XBase {
 
 /// @addtogroup XBase-Types
 //@{
-    /// @brief EnumTmpl のPOD版。
+    /// @brief EnumTmpl のPod版。
 template< typename ENUM_TYPE, typename DATA_TYPE >
-struct EnumPODTmpl
+struct EnumPodTmpl
 {
     //============================================================
     // private
@@ -44,7 +44,7 @@ struct EnumPODTmpl
     /// EnumPodTmpl< Color , int > color;
     /// color = Color_Red; // 代入できる
     /// @endcode
-    EnumPODTmpl< ENUM_TYPE, DATA_TYPE >& operator=(const ENUM_TYPE aVal)
+    EnumPodTmpl< ENUM_TYPE, DATA_TYPE >& operator=(const ENUM_TYPE aVal)
     {
         val_ = DataType(aVal);
         return *this;
@@ -73,7 +73,7 @@ struct EnumPODTmpl
 /// DATA_TYPEに指定した組み込み型を指定します。@n
 /// データとしては0以外の値が入っていたらtrueと扱います。@n
 template< typename ENUM_TYPE, typename DATA_TYPE >
-class EnumTmpl : public EnumPODTmpl< ENUM_TYPE, DATA_TYPE >
+class EnumTmpl : public EnumPodTmpl< ENUM_TYPE, DATA_TYPE >
 {
 public:
     /// @name コンストラクタ
@@ -81,18 +81,18 @@ public:
     /// 0として作成。
     EnumTmpl()
     {
-        EnumPODTmpl< ENUM_TYPE, DATA_TYPE >::val_ = 0;
+        EnumPodTmpl< ENUM_TYPE, DATA_TYPE >::val_ = 0;
     }
 
     /// 値を指定して作成。
     EnumTmpl(const ENUM_TYPE aVal)
     {
-        EnumPODTmpl< ENUM_TYPE, DATA_TYPE >::val_ = DataType(aVal);
+        EnumPodTmpl< ENUM_TYPE, DATA_TYPE >::val_ = DataType(aVal);
     }
     //@}
 };
 
-/// @name EnumTmpl EnumPODTmpl をラップする型。
+/// @name EnumTmpl EnumPodTmpl をラップする型。
 //@{
 template< typename ENUM_TYPE > class Enum8 : public EnumTmpl< ENUM_TYPE, s8  > { public: Enum8() {};  Enum8(const ENUM_TYPE aVal) { EnumTmpl< ENUM_TYPE, s8   >::val_ = s8(aVal); } };  ///< 8bitクラス版。
 template< typename ENUM_TYPE > class Enum16 : public EnumTmpl< ENUM_TYPE, s16 > { public: Enum16() {}; Enum16(const ENUM_TYPE aVal) { EnumTmpl< ENUM_TYPE, s16  >::val_ = s16(aVal); } };  ///< 16bitクラス版。

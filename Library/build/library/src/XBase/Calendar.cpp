@@ -37,7 +37,7 @@ int tMonthCheck(const int aMonth)
 } // namespace
 
 //------------------------------------------------------------------------------
-bool CalendarPOD::IsLeapYear(const int aYear)
+bool CalendarPod::IsLeapYear(const int aYear)
 {
     // 閏年の定義
     // 1. 西暦年が4で割り切れる年は閏年
@@ -59,7 +59,7 @@ bool CalendarPOD::IsLeapYear(const int aYear)
 }
 
 //------------------------------------------------------------------------------
-int CalendarPOD::DaysToDate(
+int CalendarPod::DaysToDate(
     const int aYear,
     const int aMonth,
     const int aDayOfMonth
@@ -91,7 +91,7 @@ int CalendarPOD::DaysToDate(
 }
 
 //------------------------------------------------------------------------------
-const CalendarPOD CalendarPOD::FromDays(const int aDays)
+const CalendarPod CalendarPod::FromDays(const int aDays)
 {
     Calendar calendar;
     int days = aDays;
@@ -140,14 +140,14 @@ const CalendarPOD CalendarPOD::FromDays(const int aDays)
 }
 
 //------------------------------------------------------------------------------
-int CalendarPOD::DaysInYear(const int aYear)
+int CalendarPod::DaysInYear(const int aYear)
 {
     const int year = tYearCheck(aYear);
     return uint(IsLeapYear(year) ? 366 : 365);
 }
 
 //------------------------------------------------------------------------------
-int CalendarPOD::DaysInMonth(
+int CalendarPod::DaysInMonth(
     const int aYear,
     const int aMonth
     )

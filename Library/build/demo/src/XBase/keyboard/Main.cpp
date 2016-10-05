@@ -7,8 +7,8 @@ int xmain(::XBase::Application& aApp)
     // ディスプレイの作成
     ::XBase::Display display = ::XBase::Display(::XBase::DisplayContext());
 
-    // HIDの作成
-    ::XBase::HID hid(display);
+    // Hidの作成
+    ::XBase::Hid hid(display);
 
     // ディスプレイの表示
     display.show();

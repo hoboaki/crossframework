@@ -9,12 +9,12 @@ namespace XBase {
 
 //------------------------------------------------------------------------------
 Screen::Screen(
-    Display_EXT& aOwner,
+    Display_Ext& aOwner,
     const int aWidth,
     const int aHeight
     )
 : mOwner(aOwner)
-, mEXT()
+, mExt()
 , mWidth(aWidth)
 , mHeight(aHeight)
 {
@@ -33,22 +33,22 @@ int Screen::height()const
 }
 
 //------------------------------------------------------------------------------
-bool Screen::isContains(const ScreenPosPOD& aPos)const
+bool Screen::isContains(const ScreenPosPod& aPos)const
 {
     return 0 <= aPos.x && aPos.x < int(mWidth)
         && 0 <= aPos.y && aPos.y < int(mHeight);
 }
 
 //------------------------------------------------------------------------------
-Display_EXT& Screen::display_()
+Display_Ext& Screen::display_()
 {
     return mOwner;
 }
 
 //------------------------------------------------------------------------------
-Screen_EXT& Screen::ext_()
+Screen_Ext& Screen::ext_()
 {
-    return mEXT;
+    return mExt;
 }
 
 } // namespace

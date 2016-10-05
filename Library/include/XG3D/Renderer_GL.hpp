@@ -7,7 +7,7 @@
 #include <XBase/Matrix34.hpp>
 #include <XBase/Matrix44.hpp>
 #include <XG3D/ResMat.hpp>
-#include <XG3D/SDKHeader.hpp>
+#include <XG3D/SdkHeader.hpp>
 
 namespace XBase {
 class Display;

@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 namespace XBase {
 
-/// @addtogroup XBase-HID
+/// @addtogroup XBase-Hid
 //@{
 /// @brief マウスのボタンのビットセット。
 /// @details

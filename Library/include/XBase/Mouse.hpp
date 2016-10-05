@@ -8,11 +8,11 @@
 //------------------------------------------------------------------------------
 namespace XBase {
 
-/// @addtogroup XBase-HID
+/// @addtogroup XBase-Hid
 //@{
 /// @brief マウス。
 /// @details
-/// マスターとなるマウスは HID が所持しています。 @n
+/// マスターとなるマウスは Hid が所持しています。 @n
 /// @n
 /// マウスのコピーをアプリケーションが持つことによって
 /// 「ポーズ中はキー情報を更新しないマウス」といった
@@ -47,7 +47,7 @@ public:
     /// @see isPosUpdated()
     /// @details
     /// 初期値は(0,0)を返します。
-    const ScreenPosPOD pos()const;
+    const ScreenPosPod pos()const;
     //@}
 
     /// @name ボタンの状態取得

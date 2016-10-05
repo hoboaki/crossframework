@@ -11,12 +11,12 @@ namespace XBase {
 
 /// @addtogroup XBase-Collection
 //@{
-/// @brief ビットを扱うコレクション(POD版)。
+/// @brief ビットを扱うコレクション(Pod版)。
 /// @details
 /// BIT_COUNTには扱うビット数を指定してください。 @n
 /// ALIGNMENTには要求するアライメント値を指定してください。 @n
 template < int BIT_COUNT, int ALIGNMENT = 4 >
-struct BitSetPOD
+struct BitSetPod
 {
     //============================================================
     // private
@@ -33,7 +33,7 @@ struct BitSetPOD
     /// @name 型・定数
     //@{
     enum { BitCount = BIT_COUNT }; ///< ビット数。
-    typedef BitSetPOD< BitCount > MyType; ///< 自分自身の型。
+    typedef BitSetPod< BitCount > MyType; ///< 自分自身の型。
     //@}
 
     /// @name 全ビットの操作
@@ -172,9 +172,9 @@ struct BitSetPOD
     //@} 
 };
 
-/// BitSetPOD のクラス版。
+/// BitSetPod のクラス版。
 template < int BIT_COUNT, int ALIGNMENT = 4 >
-class BitSet : public BitSetPOD< BIT_COUNT, ALIGNMENT >
+class BitSet : public BitSetPod< BIT_COUNT, ALIGNMENT >
 {
 public:
     /// @name コンストラクタ
@@ -182,13 +182,13 @@ public:
     /// 全てoffの状態で作成。
     BitSet()
     {
-        BitSetPOD< BIT_COUNT, ALIGNMENT >::clear();
+        BitSetPod< BIT_COUNT, ALIGNMENT >::clear();
     }
 
     /// コピーして作成。
-    BitSet(const BitSetPOD< BIT_COUNT, ALIGNMENT >& aObj)
+    BitSet(const BitSetPod< BIT_COUNT, ALIGNMENT >& aObj)
     {
-        static_cast<BitSetPOD< BIT_COUNT, ALIGNMENT >&>(*this) = aObj;
+        static_cast<BitSetPod< BIT_COUNT, ALIGNMENT >&>(*this) = aObj;
     }
 
     //@}

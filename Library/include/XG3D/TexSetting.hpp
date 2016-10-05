@@ -78,7 +78,7 @@ public:
     TexSetting_EXT& ext_();
 
 private:
-    TexSetting_EXT  mEXT;
+    TexSetting_EXT  mExt;
     ::XBase::Bool32 mIsActive;
     ::XBase::Enum8< TexFilter > mMinFilter;
     ::XBase::Enum8< TexFilter > mMagFilter;

@@ -5,7 +5,7 @@
 
 #include <XBase/BuiltInTypes.hpp>
 #include <XBase/NonCopyable.hpp>
-#include <XBase/OS.hpp>
+#include <XBase/Os.hpp>
 
 #if defined(XBASE_OS_MACOSX)
     #include <XBase/Screen_MacOSX.hpp>
@@ -16,8 +16,8 @@
 #endif
 
 namespace XBase {
-class Display_EXT;
-struct ScreenPosPOD;
+class Display_Ext;
+struct ScreenPosPod;
 }
 
 //------------------------------------------------------------------------------
@@ -33,7 +33,7 @@ class Screen : public ::XBase::NonCopyable
 {
 public:
     // コンストラクタ。システムが呼ぶ。
-    Screen(Display_EXT& aOwner, int aWidth, int aHeight);
+    Screen(Display_Ext& aOwner, int aWidth, int aHeight);
 
     /// @name 解像度
     //@{
@@ -45,17 +45,17 @@ public:
 
     /// @brief 指定の位置がスクリーン内かどうか判定する。
     /// @return 0 <= aPos.x < width() && 0 <= aPos.y < height()
-    bool isContains(const ScreenPosPOD& aPos)const;
+    bool isContains(const ScreenPosPod& aPos)const;
     //@}
 
     //============================================================
     // 内部実装用関数群。
-    Display_EXT& display_();
-    Screen_EXT& ext_();
+    Display_Ext& display_();
+    Screen_Ext& ext_();
 
 private:
-    Display_EXT& mOwner;
-    Screen_EXT mEXT;
+    Display_Ext& mOwner;
+    Screen_Ext mExt;
     int mWidth;
     int mHeight;
 };

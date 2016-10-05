@@ -10,9 +10,9 @@ namespace XBase {
 
 /// @addtogroup XBase-Types
 //@{
-    /// @brief BoolTmpl のPOD版。
+    /// @brief BoolTmpl のPod版。
 template< typename DATA_TYPE >
-struct BoolPODTmpl
+struct BoolPodTmpl
 {
     //============================================================
     // private
@@ -31,10 +31,10 @@ struct BoolPODTmpl
     /// @details
     /// これを定義することで下記のコードが実行できるようになります。
     /// @code
-    /// BoolPODTmpl< int > var;
+    /// BoolPodTmpl< int > var;
     /// var = true; // 代入できる
     /// @endcode
-    BoolPODTmpl< DataType >& operator=(const bool aVal)
+    BoolPodTmpl< DataType >& operator=(const bool aVal)
     {
         val_ = DataType(aVal ? 1 : 0);
         return *this;
@@ -63,7 +63,7 @@ struct BoolPODTmpl
 /// DATA_TYPEに指定した組み込み型を指定します。@n
 /// データとしては0以外の値が入っていたらtrueと扱います。@n
 template< typename DATA_TYPE >
-class BoolTmpl : public BoolPODTmpl< DATA_TYPE >
+class BoolTmpl : public BoolPodTmpl< DATA_TYPE >
 {
 public:
     /// @name コンストラクタ
@@ -71,29 +71,29 @@ public:
     /// falseとして作成。
     BoolTmpl()
     {
-        BoolPODTmpl< DATA_TYPE >::val_ = false;
+        BoolPodTmpl< DATA_TYPE >::val_ = false;
     }
 
     /// 値を指定して作成。
     BoolTmpl(const bool aVal)
     {
-        BoolPODTmpl< DATA_TYPE >::val_ = aVal;
+        BoolPodTmpl< DATA_TYPE >::val_ = aVal;
     }
     //@}
 };
 
-/// @name BoolTmpl BoolPODTmpl のtypedef。
+/// @name BoolTmpl BoolPodTmpl のtypedef。
 //@{
-typedef BoolPODTmpl< u8  > BoolPOD8;  ///< 8bitPOD版。
-typedef BoolPODTmpl< u16 > BoolPOD16; ///< 16bitPOD版。
-typedef BoolPODTmpl< u32 > BoolPOD32; ///< 32bitPOD版。
-typedef BoolPODTmpl< u64 > BoolPOD64; ///< 64bitPOD版。
+typedef BoolPodTmpl< u8  > BoolPod8;  ///< 8bitPod版。
+typedef BoolPodTmpl< u16 > BoolPod16; ///< 16bitPod版。
+typedef BoolPodTmpl< u32 > BoolPod32; ///< 32bitPod版。
+typedef BoolPodTmpl< u64 > BoolPod64; ///< 64bitPod版。
 typedef BoolTmpl< u8  >    Bool8;  ///< 8bitクラス版。
 typedef BoolTmpl< u16 >    Bool16; ///< 16bitクラス版。
 typedef BoolTmpl< u32 >    Bool32; ///< 32bitクラス版。
 typedef BoolTmpl< u64 >    Bool64; ///< 64bitクラス版。
 typedef Bool8    Bool;    ///< 標準のクラス版(8bit)。
-typedef BoolPOD8 BoolPOD; ///< 標準のPOD版(8bit)。
+typedef BoolPod8 BoolPod; ///< 標準のPod版(8bit)。
 //@}
 
 //@}

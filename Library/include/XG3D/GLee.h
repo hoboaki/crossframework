@@ -5854,11 +5854,11 @@ GLEE_EXTERN GLboolean _GLEE_SGIX_texture_range;
 #define GL_MINMAX_FORMAT_EXT                               0x802F
 #define GL_MINMAX_SINK_EXT                                 0x8030
 #define GL_TABLE_TOO_LARGE_EXT                             0x8031
-#ifndef GLEE_H_DEFINED_glGetHistogramEXT
-#define GLEE_H_DEFINED_glGetHistogramEXT
+#ifndef GLEE_H_DEFINED_glGetHistogramExt
+#define GLEE_H_DEFINED_glGetHistogramExt
   typedef void (APIENTRYP GLEEPFNGLGETHISTOGRAMEXTPROC) (GLenum target, GLboolean reset, GLenum format, GLenum type, GLvoid * values);
-  GLEE_EXTERN GLEEPFNGLGETHISTOGRAMEXTPROC GLeeFuncPtr_glGetHistogramEXT;
-  #define glGetHistogramEXT GLeeFuncPtr_glGetHistogramEXT
+  GLEE_EXTERN GLEEPFNGLGETHISTOGRAMEXTPROC GLeeFuncPtr_glGetHistogramExt;
+  #define glGetHistogramExt GLeeFuncPtr_glGetHistogramExt
 #endif
 #ifndef GLEE_H_DEFINED_glGetHistogramParameterfvEXT
 #define GLEE_H_DEFINED_glGetHistogramParameterfvEXT
@@ -5890,11 +5890,11 @@ GLEE_EXTERN GLboolean _GLEE_SGIX_texture_range;
   GLEE_EXTERN GLEEPFNGLGETMINMAXPARAMETERIVEXTPROC GLeeFuncPtr_glGetMinmaxParameterivEXT;
   #define glGetMinmaxParameterivEXT GLeeFuncPtr_glGetMinmaxParameterivEXT
 #endif
-#ifndef GLEE_H_DEFINED_glHistogramEXT
-#define GLEE_H_DEFINED_glHistogramEXT
+#ifndef GLEE_H_DEFINED_glHistogramExt
+#define GLEE_H_DEFINED_glHistogramExt
   typedef void (APIENTRYP GLEEPFNGLHISTOGRAMEXTPROC) (GLenum target, GLsizei width, GLenum internalformat, GLboolean sink);
-  GLEE_EXTERN GLEEPFNGLHISTOGRAMEXTPROC GLeeFuncPtr_glHistogramEXT;
-  #define glHistogramEXT GLeeFuncPtr_glHistogramEXT
+  GLEE_EXTERN GLEEPFNGLHISTOGRAMEXTPROC GLeeFuncPtr_glHistogramExt;
+  #define glHistogramExt GLeeFuncPtr_glHistogramExt
 #endif
 #ifndef GLEE_H_DEFINED_glMinmaxEXT
 #define GLEE_H_DEFINED_glMinmaxEXT
@@ -5902,11 +5902,11 @@ GLEE_EXTERN GLboolean _GLEE_SGIX_texture_range;
   GLEE_EXTERN GLEEPFNGLMINMAXEXTPROC GLeeFuncPtr_glMinmaxEXT;
   #define glMinmaxEXT GLeeFuncPtr_glMinmaxEXT
 #endif
-#ifndef GLEE_H_DEFINED_glResetHistogramEXT
-#define GLEE_H_DEFINED_glResetHistogramEXT
+#ifndef GLEE_H_DEFINED_glResetHistogramExt
+#define GLEE_H_DEFINED_glResetHistogramExt
   typedef void (APIENTRYP GLEEPFNGLRESETHISTOGRAMEXTPROC) (GLenum target);
-  GLEE_EXTERN GLEEPFNGLRESETHISTOGRAMEXTPROC GLeeFuncPtr_glResetHistogramEXT;
-  #define glResetHistogramEXT GLeeFuncPtr_glResetHistogramEXT
+  GLEE_EXTERN GLEEPFNGLRESETHISTOGRAMEXTPROC GLeeFuncPtr_glResetHistogramExt;
+  #define glResetHistogramExt GLeeFuncPtr_glResetHistogramExt
 #endif
 #ifndef GLEE_H_DEFINED_glResetMinmaxEXT
 #define GLEE_H_DEFINED_glResetMinmaxEXT
@@ -13547,11 +13547,11 @@ GLEE_EXTERN GLboolean _GLEE_SGIX_texture_range;
   GLEE_EXTERN GLEEPFNGLMATRIXTRANSLATEDEXTPROC GLeeFuncPtr_glMatrixTranslatedEXT;
   #define glMatrixTranslatedEXT GLeeFuncPtr_glMatrixTranslatedEXT
 #endif
-#ifndef GLEE_H_DEFINED_glMatrixFrustumEXT
-#define GLEE_H_DEFINED_glMatrixFrustumEXT
+#ifndef GLEE_H_DEFINED_glMatrixFrustumExt
+#define GLEE_H_DEFINED_glMatrixFrustumExt
   typedef void (APIENTRYP GLEEPFNGLMATRIXFRUSTUMEXTPROC) (GLenum mode, GLdouble left, GLdouble right, GLdouble bottom, GLdouble top, GLdouble zNear, GLdouble zFar);
-  GLEE_EXTERN GLEEPFNGLMATRIXFRUSTUMEXTPROC GLeeFuncPtr_glMatrixFrustumEXT;
-  #define glMatrixFrustumEXT GLeeFuncPtr_glMatrixFrustumEXT
+  GLEE_EXTERN GLEEPFNGLMATRIXFRUSTUMEXTPROC GLeeFuncPtr_glMatrixFrustumExt;
+  #define glMatrixFrustumExt GLeeFuncPtr_glMatrixFrustumExt
 #endif
 #ifndef GLEE_H_DEFINED_glMatrixOrthoEXT
 #define GLEE_H_DEFINED_glMatrixOrthoEXT
