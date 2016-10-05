@@ -9,16 +9,18 @@ namespace XBase {
 /// @addtogroup XBase-System
 //@{
 /// アプリケーションイベントの種類。
-enum AppEvent
+struct AppEvent
 {
-    AppEvent_Quit     ///< 終了する。
-    , AppEvent_Update ///< 状態を更新する。
-    // term
-    , AppEvent_TERMINATE
-    , AppEvent_MIN = 0
-    , AppEvent_MAX = AppEvent_TERMINATE - 1
-    // alias
-    , AppEvent_INVALID = AppEvent_TERMINATE ///< 無効なイベント。
+    enum EnumType
+    {
+        Quit,     ///< 終了する。
+        Update, ///< 状態を更新する。
+        
+        TERM,
+
+        // alias
+        INVALID, ///< 無効なイベント。
+    };
 };
 //@}
 

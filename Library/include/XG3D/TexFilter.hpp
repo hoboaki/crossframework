@@ -9,18 +9,19 @@ namespace XG3D {
 /// @addtogroup XG3D-Enum
 //@{
 /// テクスチャ補間の種類。
-enum TexFilter
+struct TexFilter
 {
-    TexFilter_Nearest, ///< 近い値。
-    TexFilter_Linear,  ///< 線形補間。
-    // , TexFilter_NearestMipMapNearest ///< 近い値。MipMapは１つ使う。
-    // , TexFilter_NearestMipMapLinear ///< 近い値。MipMapで２つ使い線形補間。
-    // , TexFilter_LinearMipMapNearest ///< 線形補間。MipMapは１つ使う。
-    // , TexFilter_LinearMipMapLinear ///< 線形補間。MipMapは２つ使い線形補間。
-    // term
-    TexFilter_TERMINATE,
-    TexFilter_MIN = 0,
-    TexFilter_MAX = TexFilter_TERMINATE - 1
+    enum EnumType
+    {
+        Nearest, ///< 近い値。
+        Linear,  ///< 線形補間。
+        // , NearestMipMapNearest ///< 近い値。MipMapは１つ使う。
+        // , NearestMipMapLinear ///< 近い値。MipMapで２つ使い線形補間。
+        // , LinearMipMapNearest ///< 線形補間。MipMapは１つ使う。
+        // , LinearMipMapLinear ///< 線形補間。MipMapは２つ使い線形補間。
+        
+        TERM,
+    };
 };
 //@}
 

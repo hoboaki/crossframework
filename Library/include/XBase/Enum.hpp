@@ -33,16 +33,18 @@ struct EnumPodTmpl
     /// @details
     /// これを定義することで下記のコードが実行できるようになります。
     /// @code
-    /// enum Color
+    /// struct Color
     /// {
-    /// Color_Red,
-    /// Color_Green,
-    /// Color_Blue,
-    /// // term
-    /// Color_TERMINATE
+    ///    enum EnumType
+    ///    {}
+    ///         Red,
+    ///         Green,
+    ///         Blue,
+    ///         TERM,
+    ///    };
     /// };
-    /// EnumPodTmpl< Color , int > color;
-    /// color = Color_Red; // 代入できる
+    /// EnumPodTmpl< Color::EnumType , int > color;
+    /// color = Color::Red; // 代入できる
     /// @endcode
     EnumPodTmpl< ENUM_TYPE, DATA_TYPE >& operator=(const ENUM_TYPE aVal)
     {

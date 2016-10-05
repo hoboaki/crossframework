@@ -9,13 +9,14 @@ namespace XG3D {
 /// @addtogroup XG3D-Enum
 //@{
 /// テクスチャのID。
-enum TexId
+struct TexId
 {
-    TexId_0, ///< 0番。
-    // term
-    TexId_TERMINATE,
-    TexId_MIN = 0,
-    TexId_MAX = TexId_TERMINATE
+    enum EnumType
+    {
+        No0, ///< 0番。
+        
+        TERM,
+    };
 };
 //@}
 

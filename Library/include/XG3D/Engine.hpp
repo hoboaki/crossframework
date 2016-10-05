@@ -33,10 +33,10 @@
 
 // 選択後の定義
 #if defined(XG3D_ENGINE_GL)
-    #define XG3D_TARGET_ENGINE (::XG3D::Engine_GL)
+    #define XG3D_TARGET_ENGINE (::XG3D::GL)
     #define XG3D_ENGINE_GLSERIES
 #elif defined(XG3D_ENGINE_GLES)
-    #define XG3D_TARGET_ENGINE (::XG3D::Engine_GLES)
+    #define XG3D_TARGET_ENGINE (::XG3D::GLES)
     #define XG3D_ENGINE_GLSERIES
 #endif
 
@@ -45,14 +45,15 @@
 namespace XG3D {
 
 // エンジンの種類。
-enum Engine
+struct Engine
 {
-    Engine_GL,
-    Engine_GLES,
-    // term
-    Engine_TERMINATE,
-    Engine_MIN = 0,
-    Engine_MAX = Engine_TERMINATE - 1
+    enum EnumType
+    {
+        GL,
+        GLES,
+
+        TERM,
+    };
 };
 
 } // namespace
