@@ -795,20 +795,17 @@ namespace CrossFramework.XG3D
                 // ノード追加処理を関数化
                 Action<node, node> addNode = (aNode, aParent) =>
                 {
-                    // 行列のないノードは無視
-                    if (aNode.Items == null)
-                    {
-                        return;
-                    }
+                    // Transform解析
+                    Transform3 transform = new Transform3();
                     matrix mtx = (matrix)aNode.Items.FirstOrDefault((obj) => (obj as matrix) != null);
                     if (mtx == null)
                     {
-                        return;
+                        // 行列のないノードは単位行列
+                        transform.Rotate = Direction3.Identity.ToQuaternion();
+                        transform.Scale = new Vector3(1.0f);
                     }
-
-                    // Transform解析
-                    Transform3 transform = new Transform3();
-                    {                        
+                    else
+                    {                       
                         transform.Translate.X = (float)mtx.Values[3];
                         transform.Translate.Y = (float)mtx.Values[7];
                         transform.Translate.Z = (float)mtx.Values[11];

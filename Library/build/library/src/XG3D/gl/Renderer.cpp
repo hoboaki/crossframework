@@ -509,6 +509,7 @@ void Renderer::draw(
     for (int i = 0; i < matImpl->vtxAttrs->count(); ++i) {
         const ResMatVtxAttrImpl* attrBind = &matImpl->vtxAttrs->at(i);
         const ResMdlShapeImpl::VtxAttr* attr = &shapeImpl->vtxAttrs[attrBind->binPtr->bindInputKind];
+        XBASE_ASSERT_POINTER(attr->info);
         XG3D_GLCMD(glVertexAttribPointer(
             i,
             attr->info->elemCount,

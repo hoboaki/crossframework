@@ -7,7 +7,9 @@ all:
 .PHONY:all
 
 to_xml:
-	$(daeConv) ./VertexColorSample.dae -xmdl Model.xmdl
+	$(daeConv) ./SimpleShapes.dae -xmdl SimpleShapes.xmdl
+	$(daeConv) ./VertexColorSample.dae -xmdl VertexColorSample.xmdl
+	#$(daeConv) ./Dragon.dae -xmdl Dragon.xmdl
 .PHONY:to_xml
 
 xmdlFiles = $(wildcard *.xmdl)
@@ -20,9 +22,9 @@ to_bin: $(winFiles) $(macFiles) $(iosFiles)
 
 ../win/res/%.bin : %.xmdl
 	$(xg3dConv) $@ -platform WIN $<
-	
+
 ../mac/res/%.bin : %.xmdl
 	$(xg3dConv) $@ -platform MAC $<
-	
+
 ../ios/res/%.bin : %.xmdl
 	$(xg3dConv) $@ -platform IOS $<
