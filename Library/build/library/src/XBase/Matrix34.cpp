@@ -133,15 +133,23 @@ const Matrix34Pod Matrix34Pod::LookAt(
     // toTarget以外の軸を再作成
     const Vector3Pod s = toTargetUnit.cross(upVecUnit).unit();
     const Vector3Pod u = s.cross(toTargetUnit).unit();
-    Matrix34 mtx(s, u, -toTargetUnit, Vector3Pod::Zero());
+    const Vector3Pod v = -toTargetUnit;
 
     // 平行移動
     const Vector3Pod invEyePos = -aEyePos;
-    mtx.v[IndexWX] = invEyePos.dot(mtx.x());
-    mtx.v[IndexWY] = invEyePos.dot(mtx.y());
-    mtx.v[IndexWZ] = invEyePos.dot(mtx.z());
+    const Vector3Pod t = Vector3(
+        invEyePos.dot(s),
+        invEyePos.dot(u),
+        invEyePos.dot(v)
+        );
 
     // 結果を返す
+    Matrix34 mtx(
+        Vector3(s.x, u.x, v.x),
+        Vector3(s.y, u.y, v.y),
+        Vector3(s.z, u.z, v.z),
+        t
+    );
     return mtx;
 }
 
