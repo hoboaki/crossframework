@@ -302,7 +302,7 @@ void Renderer::reset()
     fbSetDepthUpdate(true);
 
     // depthCompare
-    // glDisable( GL_DEPTH_TEST );
+    fbSetDepthCompare(false);
 
     // シェーダー
     sdReset();
@@ -361,6 +361,18 @@ void Renderer::fbSetDepthUpdate(const bool aIsEnable)
 {
     XG3D_GLCMD(glDepthMask(aIsEnable ? GL_TRUE : GL_FALSE));
     mExt.depthUpdate = aIsEnable;
+}
+
+//------------------------------------------------------------------------------
+void Renderer::fbSetDepthCompare(const bool aIsEnabled)
+{
+    if (aIsEnabled) {
+        XG3D_GLCMD(glEnable(GL_DEPTH_TEST));
+        XG3D_GLCMD(glDepthFunc(aIsEnabled ? GL_LESS : GL_ALWAYS));
+    }
+    else {
+        XG3D_GLCMD(glDisable(GL_DEPTH_TEST));
+    }
 }
 
 //------------------------------------------------------------------------------

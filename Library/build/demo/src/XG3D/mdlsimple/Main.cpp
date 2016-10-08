@@ -77,6 +77,9 @@ int xmain(::XBase::Application& aApp)
                 // フレームバッファのクリア
                 renderer.fbClear();
 
+                // Z比較ON
+                renderer.fbSetDepthCompare(true);
+
                 // 行列設定
                 renderer.sdReset();
                 renderer.sdSetMtxProjection(::XBase::Matrix44::Perspective(
