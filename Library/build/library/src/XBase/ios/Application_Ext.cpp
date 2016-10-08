@@ -24,10 +24,10 @@ AppEvent::EnumType Application::receiveEventCore()
 
     // 新しいイベントを取得
     switch (XBaseEntryPointSync_GetAppEvent()) {
-        case XBaseAppEvent::Quit:
+        case XBaseAppEvent_Quit:
             return AppEvent::Quit;
 
-        case XBaseAppEvent::Update:
+        case XBaseAppEvent_Update:
         {// Hidの更新
             if (mDisplayPtr.isValid()) {
                 // タッチ入力ポーリング
@@ -50,7 +50,7 @@ AppEvent::EnumType Application::receiveEventCore()
 
         default:
             XBASE_ASSERT_NOT_REACHED();
-            return AppEvent::MIN;
+            return AppEvent::EnumType(0);
     }
 }
 

@@ -15,8 +15,8 @@ extern void XBaseEntryPointSync_XMainWait();
 extern void XBaseEntryPointSync_XMainSignal();
 extern void XBaseEntryPointSync_UIMainWait();
 extern void XBaseEntryPointSync_UIMainSignal();
-extern void XBaseEntryPointSync_SetAppEvent( XBaseAppEvent::EnumType );
-extern XBaseAppEvent::EnumType XBaseEntryPointSync_GetAppEvent();
+extern void XBaseEntryPointSync_SetAppEvent( XBaseAppEvent );
+extern XBaseAppEvent XBaseEntryPointSync_GetAppEvent();
 extern void XBaseEntryPointSync_CATransactionFlush();
 #ifdef __cplusplus
 }
