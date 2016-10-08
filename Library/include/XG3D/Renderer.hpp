@@ -63,6 +63,7 @@ public:
     void fbSetColorUpdate(bool aIsEnable); ///< 色バッファの更新フラグを設定する。初期値true。
     void fbSetDepthUpdate(bool aIsEnable); ///< 深度バッファの更新フラグを設定する。初期値true。
     // void fbSetDepthCompare( DepthCompare );  ///< 深度比較の式を設定する。初期値 DepthCompare_Always 。
+    void fbSetDepthCompare(bool aIsEnable); ///< 深度比較を設定する。初期値false。(将来的に引数はEnumになります）
     void fbSetViewport(int aBaseX, int aBaseY, int aWidth, int aHeight); ///< ビューポートを設定する。初期値 Display::mainScreen() の全体。
     //@}
 

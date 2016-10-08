@@ -302,7 +302,7 @@ void Renderer::reset()
     fbSetDepthUpdate(true);
 
     // depthCompare
-    // glDisable( GL_DEPTH_TEST );
+    fbSetDepthCompare(false);
 
     // シェーダー
     sdReset();
@@ -361,6 +361,18 @@ void Renderer::fbSetDepthUpdate(const bool aIsEnable)
 {
     XG3D_GLCMD(glDepthMask(aIsEnable ? GL_TRUE : GL_FALSE));
     mExt.depthUpdate = aIsEnable;
+}
+
+//------------------------------------------------------------------------------
+void Renderer::fbSetDepthCompare(const bool aIsEnabled)
+{
+    if (aIsEnabled) {
+        XG3D_GLCMD(glEnable(GL_DEPTH_TEST));
+        XG3D_GLCMD(glDepthFunc(aIsEnabled ? GL_LESS : GL_ALWAYS));
+    }
+    else {
+        XG3D_GLCMD(glDisable(GL_DEPTH_TEST));
+    }
 }
 
 //------------------------------------------------------------------------------
@@ -509,6 +521,7 @@ void Renderer::draw(
     for (int i = 0; i < matImpl->vtxAttrs->count(); ++i) {
         const ResMatVtxAttrImpl* attrBind = &matImpl->vtxAttrs->at(i);
         const ResMdlShapeImpl::VtxAttr* attr = &shapeImpl->vtxAttrs[attrBind->binPtr->bindInputKind];
+        XBASE_ASSERT_POINTER(attr->info);
         XG3D_GLCMD(glVertexAttribPointer(
             i,
             attr->info->elemCount,
