@@ -15,11 +15,15 @@ int xmain(::XBase::Application& aApp)
     renderer.fbSetClearColor(::XBase::Color4(0.5f, 0.5f, 0.5f, 0.5f));
 
     // リソースの準備
-    ::XBase::AutoMemBlock resData = XBase::ResFile::Read("res/Model.bin");
+    const char* fileName = "";
+    {// 表示したいファイルをここで指定
+        //fileName = "res/VertexColorSample.bin";
+        fileName = "res/SimpleShapes.bin";
+    }
+    ::XBase::AutoMemBlock resData = XBase::ResFile::Read(fileName);
     ::XG3D::ResBin resBin(resData->head());
     XBASE_ASSERT(resBin.isValid());
     resBin.setup();
-
 
     // インスタンス化
     const int mdlIndex = 0; // 先頭のモデルをインスタンス化

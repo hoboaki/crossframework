@@ -51,7 +51,7 @@ namespace CrossFramework.XG3D
                 {
                     foreach (var subMesh in mesh.SubMeshes)
                     {
-                        string matName = subMesh.MaterialName;
+                        string matName = ResMdl.SubMeshRawMaterialName(mResMdl, subMesh);
                         if (!materialNameList.Contains(matName))
                         {
                             materialNameList.Add(matName);
@@ -206,28 +206,40 @@ namespace CrossFramework.XG3D
             {
                 Name = aMatName;
                 Params = new Param[0];
+
+                // シェーダー生成前のメモ
+                bool hasNormal = false;
+                bool hasColor = false;
+                foreach (var mesh in aMdl.Meshes)
+                {
+                    var subMeshes = mesh.SubMeshes.Where(x => ResMdl.SubMeshRawMaterialName(aMdl, x) == aMatName);
+                    foreach (var subMesh in subMeshes)
+                    {
+                        if (aMdl.Shapes.First(x => x.Name == subMesh.ShapeName).Inputs.FirstOrDefault(x => x.Kind == ResMdl.Shape.InputKind.Normal) != null)
+                        {
+                            hasNormal = true;
+                        }
+                        if (aMdl.Shapes.First(x => x.Name == subMesh.ShapeName).Inputs.FirstOrDefault(x => x.Kind == ResMdl.Shape.InputKind.Color0) != null)
+                        {
+                            hasColor = true;
+                        }
+                    }
+                }
+
                 {// VtxAttrs
                     // いずれかのShapeが所持する頂点属性をこのマテリアルが使用する頂点属性とする
                     List<VtxAttr> vtxAttrs = new List<VtxAttr>();
-                    Dictionary<ResMdl.Shape.InputKind, bool> inputKindDict = new Dictionary<ResMdl.Shape.InputKind, bool>();
-                    foreach (var shape in aMdl.Shapes)
+                    vtxAttrs.Add(new VtxAttr(ResMdl.Shape.InputKind.Position)); // Positionは必須
+                    if (hasNormal)
                     {
-                        foreach (var input in shape.Inputs)
-                        {
-                            if (inputKindDict.ContainsKey(input.Kind))
-                            {
-                                continue;
-                            }
-                            inputKindDict.Add(input.Kind, true);
-                            vtxAttrs.Add(new VtxAttr(input.Kind)); // とりあえずPositionだけ。
-                        }
+                        vtxAttrs.Add(new VtxAttr(ResMdl.Shape.InputKind.Normal));
+                    }
+                    if (hasColor)
+                    {
+                        vtxAttrs.Add(new VtxAttr(ResMdl.Shape.InputKind.Color0));
                     }
                     VtxAttrs = vtxAttrs.ToArray();
                 }
-
-                // シェーダー生成前のメモ
-                bool hasNormal = aMdl.Shapes.ToList().Find((obj) => (obj.Inputs.ToList().Find((inp) => (inp.Kind == ResMdl.Shape.InputKind.Normal)) != null)) != null;
-                bool hasColor = aMdl.Shapes.ToList().Find((obj) => (obj.Inputs.ToList().Find((inp) => (inp.Kind == ResMdl.Shape.InputKind.Color0)) != null)) != null;
 
                 // VShSrcText
                 using (MemoryStream mem = new MemoryStream())

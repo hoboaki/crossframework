@@ -547,6 +547,21 @@ namespace CrossFramework.XG3D
             return FromXml(xml, fileInfo);
         }
 
+        /// <summary>
+        /// サブメッシュのシェーダーバリエーションを考慮したマテリアル名を取得する。
+        /// </summary>
+        /// <param name="aMdl">サブメッシュが所属するモデル。</param>
+        /// <param name="aSubMesh">対象となるサブメッシュ。</param>
+        /// <returns></returns>
+        static public string SubMeshRawMaterialName(ResMdl aMdl, SubMesh aSubMesh)
+        {
+            // 今はnormalとcolorしか対応しない
+            var shape = aMdl.Shapes.First(x => x.Name == aSubMesh.ShapeName);
+            bool hasNormal = shape.Inputs.FirstOrDefault(x => x.Kind == Shape.InputKind.Normal) != null;
+            bool hasColor = shape.Inputs.FirstOrDefault(x => x.Kind == Shape.InputKind.Color0) != null;
+            return String.Format("{0}__{1}{2}", aSubMesh.MaterialName, hasNormal ? "n" : "", hasColor ? "c" : "");
+        }
+
         //============================================================
 
         /// <summary>

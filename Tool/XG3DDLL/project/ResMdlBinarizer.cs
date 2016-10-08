@@ -71,7 +71,7 @@ namespace CrossFramework.XG3D
                 {
                     foreach (var subMesh in mesh.SubMeshes)
                     {
-                        string materialName = subMesh.MaterialName;
+                        string materialName = ResMdl.SubMeshRawMaterialName(res, subMesh);
                         if (!materialNameIdxTable.ContainsKey(materialName))
                         {
                             materialNameIdxTable.Add(materialName, (ushort)materialNameIdxTable.Count);
@@ -158,7 +158,7 @@ namespace CrossFramework.XG3D
                         binarizer.Add((ushort)0); // flags
                         binarizer.Add(subMesh.NodeName.Length == 0 ? INVALID_NODE_INDEX : nodeNameIdxTable[subMesh.NodeName]); // nodeIdx
                         binarizer.Add(shapeNameIdxTable[subMesh.ShapeName]); // shapeIdx
-                        binarizer.Add(materialNameIdxTable[subMesh.MaterialName]); // matReferIdx
+                        binarizer.Add(materialNameIdxTable[ResMdl.SubMeshRawMaterialName(res, subMesh)]); // matReferIdx
                         binarizer.Add((ushort)0); // padding
                     }
                 }
