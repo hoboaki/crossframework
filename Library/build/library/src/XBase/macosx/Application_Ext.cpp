@@ -22,7 +22,7 @@ void Application::quit()
 }
 
 //------------------------------------------------------------------------------
-AppEvent Application::receiveEventCore()
+AppEvent::EnumType Application::receiveEventCore()
 {
     // Hidのフラグをおろしておく
     if (mDisplayPtr.isValid()) {
@@ -35,7 +35,7 @@ AppEvent Application::receiveEventCore()
 
     // 終了要求が来たら終了
     if (mExt.doQuit) {
-        return AppEvent_Quit;
+        return AppEvent::Quit;
     }
 
     // Hid更新
@@ -68,7 +68,7 @@ AppEvent Application::receiveEventCore()
     }
 
     // 通常は更新
-    return AppEvent_Update;
+    return AppEvent::Update;
 }
 
 //------------------------------------------------------------------------------

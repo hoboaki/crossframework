@@ -5,12 +5,12 @@
 
 //------------------------------------------------------------------------------
 // C言語版AppEvent。
-typedef enum XBaseAppEvent_
+typedef enum XBaseAppEvent
 {
-    XBaseAppEvent_Quit
-    , XBaseAppEvent_Update
+    XBaseAppEvent_Quit,
+    XBaseAppEvent_Update,
     // term
-    , XBaseAppEvent_INVALID
+    XBaseAppEvent_INVALID
 } XBaseAppEvent;
 
 #endif

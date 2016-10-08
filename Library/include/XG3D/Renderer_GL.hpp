@@ -20,7 +20,7 @@ namespace XG3D {
 class Renderer_EXT
 {
 public:
-    enum { UNIFORM_COUNT = 5 };
+    enum { UNIFORM_COUNT = 6 };
     GLuint demoShaderProgram;
     GLint  demoUniformLocations[UNIFORM_COUNT];
     ::XBase::Bool32 colorUpdate;

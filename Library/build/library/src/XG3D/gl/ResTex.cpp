@@ -80,11 +80,11 @@ u16 ResTex::height()const
 }
 
 //------------------------------------------------------------------------------
-ResTexFormat ResTex::format()const
+ResTexFormat::EnumType ResTex::format()const
 {
     // チェック
     if (checkInvalid()) {
-        return ResTexFormat_MIN;
+        return ResTexFormat::EnumType(0);
     }
     return mPtr->format();
 }

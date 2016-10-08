@@ -36,31 +36,31 @@ const KeyboardUpdateData Keyboard::lastUpdateData()const
 }
 
 //------------------------------------------------------------------------------
-bool Keyboard::isHold(const KeyKind aKind)const
+bool Keyboard::isHold(const KeyKind::EnumType aKind)const
 {
     return mData.hold.get(aKind);
 }
 
 //------------------------------------------------------------------------------
-bool Keyboard::isTrigger(const KeyKind aKind)const
+bool Keyboard::isTrigger(const KeyKind::EnumType aKind)const
 {
     return mTrigger.get(aKind);
 }
 
 //------------------------------------------------------------------------------
-bool Keyboard::isRepeat(const KeyKind aKind)const
+bool Keyboard::isRepeat(const KeyKind::EnumType aKind)const
 {
     return mRepeat.get(aKind);
 }
 
 //------------------------------------------------------------------------------
-bool Keyboard::isPulse(const KeyKind aKind)const
+bool Keyboard::isPulse(const KeyKind::EnumType aKind)const
 {
     return mPulse.get(aKind);
 }
 
 //------------------------------------------------------------------------------
-bool Keyboard::isRelease(const KeyKind aKind)const
+bool Keyboard::isRelease(const KeyKind::EnumType aKind)const
 {
     return mRelease.get(aKind);
 }

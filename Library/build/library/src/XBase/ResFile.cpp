@@ -21,7 +21,7 @@ const AutoMemBlock ResFile::Read(
     }
 
     // メモリ準備
-    const pword_t size = stream.seek(0, ::XBase::SeekOrigin_End);
+    const pword_t size = stream.seek(0, ::XBase::SeekOrigin::End);
     const pword_t bufferSize = stream.calcReadBufferSize(size);
     ptr_t ptr = aAllocator.alloc(bufferSize, stream.requireReadBufferAlignment());
     if (ptr == 0) {
@@ -30,7 +30,7 @@ const AutoMemBlock ResFile::Read(
     }
 
     // 読み込み
-    stream.seek(0, ::XBase::SeekOrigin_Begin);
+    stream.seek(0, ::XBase::SeekOrigin::Begin);
     stream.read(ptr, size);
     stream.close();
 

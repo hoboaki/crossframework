@@ -48,19 +48,19 @@ const ScreenPosPod Mouse::pos()const
 }
 
 //------------------------------------------------------------------------------
-bool Mouse::isHold(const MouseBtnKind aKind)const
+bool Mouse::isHold(const MouseBtnKind::EnumType aKind)const
 {
     return mData.hold.get(aKind);
 }
 
 //------------------------------------------------------------------------------
-bool Mouse::isTrigger(const MouseBtnKind aKind)const
+bool Mouse::isTrigger(const MouseBtnKind::EnumType aKind)const
 {
     return mTrigger.get(aKind);
 }
 
 //------------------------------------------------------------------------------
-bool Mouse::isRelease(const MouseBtnKind aKind)const
+bool Mouse::isRelease(const MouseBtnKind::EnumType aKind)const
 {
     return mRelease.get(aKind);
 }

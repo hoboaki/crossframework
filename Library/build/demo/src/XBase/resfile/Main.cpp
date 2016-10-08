@@ -25,7 +25,7 @@ int xmain(::XBase::Application& aApp)
     buffer = 0;
 
     // 終了イベントがくるまでループ
-    while (aApp.receiveEvent() != ::XBase::AppEvent_Quit) {
+    while (aApp.receiveEvent() != ::XBase::AppEvent::Quit) {
     }
 
     // 終了

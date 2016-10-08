@@ -9,15 +9,16 @@ namespace XG3D {
 /// @addtogroup XG3D-Enum
 //@{
 /// テクスチャのアドレッシングモードの種類。
-enum TexAddress
+struct TexAddress
 {
-    TexAddress_Wrap,   ///< 繰り返し。
-    TexAddress_Mirror, ///< ミラー。
-    TexAddress_Clamp,  ///< クランプ。
-    // term
-    TexAddress_TERMINATE,
-    TexAddress_MIN = 0,
-    TexAddress_MAX = TexAddress_TERMINATE - 1
+    enum EnumType
+    {
+        Wrap,   ///< 繰り返し。
+        Mirror, ///< ミラー。
+        Clamp,  ///< クランプ。
+        
+        TERM,
+    };
 };
 //@}
 

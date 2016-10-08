@@ -25,7 +25,7 @@ const tInputTypeData tINPUT_TYPE_DATA_TABLE[] =
     {GL_UNSIGNED_SHORT, sizeof(GLushort)},
     {GL_UNSIGNED_INT, sizeof(GLuint)}
 };
-XBASE_ARRAY_LENGTH_CHECK(tINPUT_TYPE_DATA_TABLE, ResMdlShapeInputType_TERMINATE);
+XBASE_ARRAY_LENGTH_CHECK(tINPUT_TYPE_DATA_TABLE, ResMdlShapeInputType::TERM);
 }
 //------------------------------------------------------------------------------
 ResMdlShapeImpl::ResMdlShapeImpl(
@@ -43,7 +43,7 @@ ResMdlShapeImpl::ResMdlShapeImpl(
     // 初期化
     {
         VtxAttr obj = {};
-        for (int i = 0; i < ResMdlShapeInputKind_TERMINATE; ++i) {
+        for (int i = 0; i < ResMdlShapeInputKind::TERM; ++i) {
             vtxAttrs[i] = obj;
         }
     }

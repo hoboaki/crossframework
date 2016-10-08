@@ -19,7 +19,7 @@ Application& Application::Instance()
 //------------------------------------------------------------------------------
 XBase::Application::Application(const Argument& aArgument)
 : mArgument(aArgument)
-, mLastEvent(AppEvent_INVALID)
+, mLastEvent(AppEvent::INVALID)
 , mDisplayPtr()
 , mExt()
 {
@@ -39,14 +39,14 @@ const Argument& Application::argument()const
 }
 
 //------------------------------------------------------------------------------
-AppEvent Application::receiveEvent()
+AppEvent::EnumType Application::receiveEvent()
 {
     mLastEvent = receiveEventCore();
     return mLastEvent;
 }
 
 //------------------------------------------------------------------------------
-AppEvent Application::lastEvent()const
+AppEvent::EnumType Application::lastEvent()const
 {
     return mLastEvent;
 }

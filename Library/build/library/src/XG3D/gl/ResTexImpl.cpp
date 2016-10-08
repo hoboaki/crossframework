@@ -50,14 +50,14 @@ void ResTexImpl::setup()
 }
 
 //------------------------------------------------------------------------------
-ResTexFormat ResTexImpl::format()const
+ResTexFormat::EnumType ResTexImpl::format()const
 {
-    ResTexFormat fmt = ResTexFormat(binPtr->format);
+    ResTexFormat::EnumType fmt = ResTexFormat::EnumType(binPtr->format);
     if (XBASE_ENUM_IS_INVALID(ResTexFormat, fmt)) {
         XBASE_ASSERT_NOT_REACHED();
-        return ResTexFormat_MIN;
+        return ResTexFormat::EnumType(0);
     }
-    return ResTexFormat(fmt);
+    return ResTexFormat::EnumType(fmt);
 }
 
 //------------------------------------------------------------------------------

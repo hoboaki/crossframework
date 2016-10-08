@@ -37,7 +37,7 @@ const GLenum tTexAddressTable[] =
     GL_MIRRORED_REPEAT,
     GL_CLAMP_TO_EDGE
 };
-XBASE_ARRAY_LENGTH_CHECK(tTexAddressTable, TexAddress_TERMINATE);
+XBASE_ARRAY_LENGTH_CHECK(tTexAddressTable, TexAddress::TERM);
 
 // TexFilterテーブル
 const GLenum tTexFilterTable[] =
@@ -45,7 +45,7 @@ const GLenum tTexFilterTable[] =
     GL_NEAREST,
     GL_LINEAR
 };
-XBASE_ARRAY_LENGTH_CHECK(tTexFilterTable, TexFilter_TERMINATE);
+XBASE_ARRAY_LENGTH_CHECK(tTexFilterTable, TexFilter::TERM);
 
 // シングルトンインスタンス
 ::XBase::Pointer< Renderer > tInstance;
@@ -210,10 +210,10 @@ bool tCreateShaderProgram(GLuint* aProgram)
     XG3D_GLCMD(glAttachShader(*aProgram, srcFSH));
 
     // 属性バインド
-    XG3D_GLCMD(glBindAttribLocation(*aProgram, ShaderConstant::Attribute_Position, "iVtxPosition"));
-    XG3D_GLCMD(glBindAttribLocation(*aProgram, ShaderConstant::Attribute_Normal, "iVtxNormal"));
-    XG3D_GLCMD(glBindAttribLocation(*aProgram, ShaderConstant::Attribute_TexCoord, "iVtxTexCoord"));
-    XG3D_GLCMD(glBindAttribLocation(*aProgram, ShaderConstant::Attribute_Color, "iVtxColor"));
+    XG3D_GLCMD(glBindAttribLocation(*aProgram, ShaderConstant::Attribute::Position, "iVtxPosition"));
+    XG3D_GLCMD(glBindAttribLocation(*aProgram, ShaderConstant::Attribute::Normal, "iVtxNormal"));
+    XG3D_GLCMD(glBindAttribLocation(*aProgram, ShaderConstant::Attribute::TexCoord, "iVtxTexCoord"));
+    XG3D_GLCMD(glBindAttribLocation(*aProgram, ShaderConstant::Attribute::Color, "iVtxColor"));
 
     // リンク＆チェック
     if (!tLinkProgram(*aProgram)
@@ -254,11 +254,11 @@ Renderer::Renderer(::XBase::Display& aDisplay)
     }
 
     // Uniform場所の取得
-    mExt.demoUniformLocations[ShaderConstant::SysUniform_MtxProj] = glGetUniformLocation(mExt.demoShaderProgram, "_prmMtxProj");
-    mExt.demoUniformLocations[ShaderConstant::SysUniform_MtxView] = glGetUniformLocation(mExt.demoShaderProgram, "_prmMtxView");
-    mExt.demoUniformLocations[ShaderConstant::SysUniform_MtxWorld] = glGetUniformLocation(mExt.demoShaderProgram, "_prmMtxWorld");
-    mExt.demoUniformLocations[ShaderConstant::Uniform_TexActive] = glGetUniformLocation(mExt.demoShaderProgram, "uTexActive");
-    mExt.demoUniformLocations[ShaderConstant::Uniform_TexSampler] = glGetUniformLocation(mExt.demoShaderProgram, "uTexSampler");
+    mExt.demoUniformLocations[ShaderConstant::SysUniform::MtxProj] = glGetUniformLocation(mExt.demoShaderProgram, "_prmMtxProj");
+    mExt.demoUniformLocations[ShaderConstant::SysUniform::MtxView] = glGetUniformLocation(mExt.demoShaderProgram, "_prmMtxView");
+    mExt.demoUniformLocations[ShaderConstant::SysUniform::MtxWorld] = glGetUniformLocation(mExt.demoShaderProgram, "_prmMtxWorld");
+    mExt.demoUniformLocations[ShaderConstant::Uniform::TexActive] = glGetUniformLocation(mExt.demoShaderProgram, "uTexActive");
+    mExt.demoUniformLocations[ShaderConstant::Uniform::TexSampler] = glGetUniformLocation(mExt.demoShaderProgram, "uTexSampler");
 
     // アルファブレンドは常に有効
     XG3D_GLCMD(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
@@ -379,8 +379,8 @@ void Renderer::sdReset()
     sdSetMtxWorld(::XBase::Matrix34::Identity());
 
     // texMap
-    for (int i = 0; i < TexId_TERMINATE; ++i) {
-        sdSetTex(TexId(i), TexSetting());
+    for (int i = 0; i < TexId::TERM; ++i) {
+        sdSetTex(TexId::EnumType(i), TexSetting());
     }
 }
 
@@ -438,7 +438,7 @@ void Renderer::sdSetMtxWorld(const ::XBase::Mtx34& aMtx)
 }
 
 //------------------------------------------------------------------------------
-void Renderer::sdSetTex(const TexId aId, const TexSetting& aSetting)
+void Renderer::sdSetTex(const TexId::EnumType aId, const TexSetting& aSetting)
 {
     // チェック
     if (XBASE_ENUM_IS_INVALID(TexId, aId)) {
@@ -454,8 +454,8 @@ void Renderer::sdSetTex(const TexId aId, const TexSetting& aSetting)
         XG3D_GLCMD(glBindTexture(GL_TEXTURE_2D, aSetting.ext_().texId));
 
         // テクスチャ有効
-        XG3D_GLCMD(glUniform1i(mExt.demoUniformLocations[ShaderConstant::Uniform_TexActive], 1));
-        XG3D_GLCMD(glUniform1i(mExt.demoUniformLocations[ShaderConstant::Uniform_TexSampler], 0));
+        XG3D_GLCMD(glUniform1i(mExt.demoUniformLocations[ShaderConstant::Uniform::TexActive], 1));
+        XG3D_GLCMD(glUniform1i(mExt.demoUniformLocations[ShaderConstant::Uniform::TexSampler], 0));
 
         // 補間フィルタ
         XG3D_GLCMD(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, tTexFilterTable[aSetting.minFilter()]));
@@ -468,7 +468,7 @@ void Renderer::sdSetTex(const TexId aId, const TexSetting& aSetting)
     else
     {
         // テクスチャ無効
-        XG3D_GLCMD(glUniform1i(mExt.demoUniformLocations[ShaderConstant::Uniform_TexActive], 0));
+        XG3D_GLCMD(glUniform1i(mExt.demoUniformLocations[ShaderConstant::Uniform::TexActive], 0));
     }
 }
 
@@ -559,15 +559,15 @@ Renderer_EXT::Renderer_EXT()
 , mtxView()
 , mtxWorld()
 {
-    XBASE_STATIC_ASSERT(UNIFORM_COUNT == ShaderConstant::Uniform_TERMINATE);
+    XBASE_STATIC_ASSERT(UNIFORM_COUNT == ShaderConstant::Uniform::TERM);
 }
 
 //------------------------------------------------------------------------------
 void Renderer_EXT::updateMtxProj()
 {
     const GLint location = currentMaterial.isValid()
-        ? currentMaterial.impl_()->sysUniformLocations[ShaderConstant::SysUniform_MtxProj]
-        : demoUniformLocations[ShaderConstant::SysUniform_MtxProj];
+        ? currentMaterial.impl_()->sysUniformLocations[ShaderConstant::SysUniform::MtxProj]
+        : demoUniformLocations[ShaderConstant::SysUniform::MtxProj];
     XG3D_GLCMD(glUniformMatrix4fv(
         location,
         1,
@@ -580,8 +580,8 @@ void Renderer_EXT::updateMtxProj()
 void Renderer_EXT::updateMtxView()
 {
     const GLint location = currentMaterial.isValid()
-        ? currentMaterial.impl_()->sysUniformLocations[ShaderConstant::SysUniform_MtxView]
-        : demoUniformLocations[ShaderConstant::SysUniform_MtxView];
+        ? currentMaterial.impl_()->sysUniformLocations[ShaderConstant::SysUniform::MtxView]
+        : demoUniformLocations[ShaderConstant::SysUniform::MtxView];
     XG3D_GLCMD(glUniformMatrix4fv(
         location,
         1,
@@ -594,8 +594,8 @@ void Renderer_EXT::updateMtxView()
 void Renderer_EXT::updateMtxWorld()
 {
     const GLint location = currentMaterial.isValid()
-        ? currentMaterial.impl_()->sysUniformLocations[ShaderConstant::SysUniform_MtxWorld]
-        : demoUniformLocations[ShaderConstant::SysUniform_MtxWorld];
+        ? currentMaterial.impl_()->sysUniformLocations[ShaderConstant::SysUniform::MtxWorld]
+        : demoUniformLocations[ShaderConstant::SysUniform::MtxWorld];
     XG3D_GLCMD(glUniformMatrix4fv(
         location,
         1,

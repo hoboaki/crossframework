@@ -67,7 +67,7 @@ public:
     /// @name メッシュの構築の開始と終わり
     //@{
     /// メッシュの構築を始めるタイミングで呼ぶ。
-    void begin(PrimitiveKind aKind);
+    void begin(PrimitiveKind::EnumType aKind);
 
     /// １つのメッシュの構築が終わったタイミングで呼ぶ。
     void end();
@@ -116,7 +116,7 @@ private:
         ::XBase::Matrix34 worldMtx;
         int beginIndex; // 頂点追加中は頂点の開始index。終了後はelementの開始index。
         int count; // 頂点追加中は頂点の個数。終了後はelementの個数。
-        PrimitiveKind kind;
+        PrimitiveKind::EnumType kind;
     };
     typedef u16 Index;
     //------------------------------------------------------------------------------

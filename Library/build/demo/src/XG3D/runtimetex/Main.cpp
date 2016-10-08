@@ -17,7 +17,7 @@ int xmain(::XBase::Application& aApp)
     // 矩形の頂点バッファを準備
     ::XG3D::VtxBuffer vtx(1, 4);
     {// 頂点を作成
-        vtx.begin(::XG3D::PrimitiveKind_Quads);
+        vtx.begin(::XG3D::PrimitiveKind::Quads);
         {
             vtx.texCoord(1.0f, 1.0f);
             vtx.vertex(0.5f, 0.5f);
@@ -37,7 +37,7 @@ int xmain(::XBase::Application& aApp)
 
     // 実行時テクスチャのイメージを作成
     ::XG3D::RuntimeTex runtimeTex(::XG3D::RuntimeTexContext::Create(
-        ::XG3D::ResTexFormat_RGBA8,
+        ::XG3D::ResTexFormat::RGBA8,
         256,
         256
         ));
@@ -74,15 +74,15 @@ int xmain(::XBase::Application& aApp)
     bool doExit = false;
     while (!doExit) {
         // イベントの取得
-        ::XBase::AppEvent event = aApp.receiveEvent();
+        ::XBase::AppEvent::EnumType event = aApp.receiveEvent();
 
         // イベントによって分岐
         switch (event) {
-            case ::XBase::AppEvent_Quit:
+            case ::XBase::AppEvent::Quit:
                 doExit = true;
                 break;
 
-            case ::XBase::AppEvent_Update:
+            case ::XBase::AppEvent::Update:
             {
                 // ディスプレイが閉じてたら終了
                 if (display.isClosed()) {
@@ -95,7 +95,7 @@ int xmain(::XBase::Application& aApp)
 
                 // テクスチャを設定
                 renderer.sdReset();
-                renderer.sdSetTex(::XG3D::TexId_0, texSetting);
+                renderer.sdSetTex(::XG3D::TexId::No0, texSetting);
 
                 // 矩形を描画
                 vtx.draw();

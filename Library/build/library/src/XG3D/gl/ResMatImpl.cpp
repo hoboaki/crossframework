@@ -187,8 +187,8 @@ void ResMatImpl::setup()
             "_prmMtxView",
             "_prmMtxWorld"
         };
-        XBASE_ARRAY_LENGTH_CHECK(TABLE, ShaderConstant::SysUniform_TERMINATE);
-        for (int i = 0; i < ShaderConstant::SysUniform_TERMINATE; ++i) {
+        XBASE_ARRAY_LENGTH_CHECK(TABLE, ShaderConstant::SysUniform::TERM);
+        for (int i = 0; i < ShaderConstant::SysUniform::TERM; ++i) {
             sysUniformLocations[i] = glGetUniformLocation(shaderProgram, TABLE[i]);
         }
     }

@@ -16,7 +16,7 @@ void Application::quit()
 }
 
 //------------------------------------------------------------------------------
-AppEvent Application::receiveEventCore()
+AppEvent::EnumType Application::receiveEventCore()
 {
     // まずUIMainにシグナル送信して同期する
     XBaseEntryPointSync_UIMainSignal();
@@ -25,7 +25,7 @@ AppEvent Application::receiveEventCore()
     // 新しいイベントを取得
     switch (XBaseEntryPointSync_GetAppEvent()) {
         case XBaseAppEvent_Quit:
-            return AppEvent_Quit;
+            return AppEvent::Quit;
 
         case XBaseAppEvent_Update:
         {// Hidの更新
@@ -46,11 +46,11 @@ AppEvent Application::receiveEventCore()
                 }
             }
         }
-        return AppEvent_Update;
+        return AppEvent::Update;
 
         default:
             XBASE_ASSERT_NOT_REACHED();
-            return AppEvent_MIN;
+            return AppEvent::EnumType(0);
     }
 }
 

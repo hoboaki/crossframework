@@ -73,7 +73,7 @@ void VtxBuffer::worldMtx(const ::XBase::Matrix34Pod& aMtx)
 }
 
 //------------------------------------------------------------------------------
-void VtxBuffer::begin(const PrimitiveKind aKind)
+void VtxBuffer::begin(const PrimitiveKind::EnumType aKind)
 {
     // チェック
     if (mIsFlushed) {
@@ -114,7 +114,7 @@ void VtxBuffer::end()
     Mesh& mesh = mMeshArray.last();
     XBASE_ASSERT_ENUM(PrimitiveKind, mesh.kind);
     switch (mesh.kind) {
-        case PrimitiveKind_Triangles:
+        case PrimitiveKind::Triangles:
         {// 連続三角形
             // チェック
             const int vertexCountPerPrimitive = 3;
@@ -132,7 +132,7 @@ void VtxBuffer::end()
         }
         break;
 
-        case PrimitiveKind_Quads:
+        case PrimitiveKind::Quads:
         {// 連続矩形
             // チェック
             const int vertexCountPerPrimitive = 4;
@@ -327,14 +327,14 @@ void VtxBuffer::draw()
     // 頂点の設定
     XG3D_GLCMD(glBindBuffer(GL_ARRAY_BUFFER, mExt.vtxBuffer));
     XG3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mExt.idxBuffer));
-    XG3D_GLCMD(glVertexAttribPointer(ShaderConstant::Attribute_Position, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), reinterpret_cast<const void*>(offsetof(Vertex, position))));
-    XG3D_GLCMD(glVertexAttribPointer(ShaderConstant::Attribute_Normal, 3, GL_FLOAT, GL_TRUE, sizeof(Vertex), reinterpret_cast<const void*>(offsetof(Vertex, normal))));
-    XG3D_GLCMD(glVertexAttribPointer(ShaderConstant::Attribute_TexCoord, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), reinterpret_cast<const void*>(offsetof(Vertex, texCoord))));
-    XG3D_GLCMD(glVertexAttribPointer(ShaderConstant::Attribute_Color, 4, GL_FLOAT, GL_TRUE, sizeof(Vertex), reinterpret_cast<const void*>(offsetof(Vertex, color))));
-    XG3D_GLCMD(glEnableVertexAttribArray(ShaderConstant::Attribute_Position));
-    XG3D_GLCMD(glEnableVertexAttribArray(ShaderConstant::Attribute_Normal));
-    XG3D_GLCMD(glEnableVertexAttribArray(ShaderConstant::Attribute_TexCoord));
-    XG3D_GLCMD(glEnableVertexAttribArray(ShaderConstant::Attribute_Color));
+    XG3D_GLCMD(glVertexAttribPointer(ShaderConstant::Attribute::Position, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), reinterpret_cast<const void*>(offsetof(Vertex, position))));
+    XG3D_GLCMD(glVertexAttribPointer(ShaderConstant::Attribute::Normal, 3, GL_FLOAT, GL_TRUE, sizeof(Vertex), reinterpret_cast<const void*>(offsetof(Vertex, normal))));
+    XG3D_GLCMD(glVertexAttribPointer(ShaderConstant::Attribute::TexCoord, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), reinterpret_cast<const void*>(offsetof(Vertex, texCoord))));
+    XG3D_GLCMD(glVertexAttribPointer(ShaderConstant::Attribute::Color, 4, GL_FLOAT, GL_TRUE, sizeof(Vertex), reinterpret_cast<const void*>(offsetof(Vertex, color))));
+    XG3D_GLCMD(glEnableVertexAttribArray(ShaderConstant::Attribute::Position));
+    XG3D_GLCMD(glEnableVertexAttribArray(ShaderConstant::Attribute::Normal));
+    XG3D_GLCMD(glEnableVertexAttribArray(ShaderConstant::Attribute::TexCoord));
+    XG3D_GLCMD(glEnableVertexAttribArray(ShaderConstant::Attribute::Color));
 
     // 各メッシュの描画
     for (int i = 0; i < mMeshArray.count(); ++i) {

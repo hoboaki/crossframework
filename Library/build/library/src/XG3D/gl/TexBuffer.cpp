@@ -22,49 +22,49 @@ TexBuffer::TexBuffer(
     GLenum format = GLenum();
     GLenum type = GLenum();
     switch (mResData.format) {
-        case ResTexFormat_RGBA8:
+        case ResTexFormat::RGBA8:
             internalFormat = GL_RGBA;
             format = GL_RGBA;
             type = GL_UNSIGNED_BYTE;
             break;
 
-        case ResTexFormat_RGB8:
+        case ResTexFormat::RGB8:
             internalFormat = GL_RGB;
             format = GL_RGB;
             type = GL_UNSIGNED_BYTE;
             break;
 
-        case ResTexFormat_RGB5A1:
+        case ResTexFormat::RGB5A1:
             internalFormat = GL_RGBA;
             format = GL_RGBA;
             type = GL_UNSIGNED_SHORT_5_5_5_1;
             break;
 
-        case ResTexFormat_RGBA4:
+        case ResTexFormat::RGBA4:
             internalFormat = GL_RGBA;
             format = GL_RGBA;
             type = GL_UNSIGNED_SHORT_4_4_4_4;
             break;
 
-        case ResTexFormat_RGB565:
+        case ResTexFormat::RGB565:
             internalFormat = GL_RGB;
             format = GL_RGB;
             type = GL_UNSIGNED_SHORT_5_6_5;
             break;
 
-        case ResTexFormat_A8:
+        case ResTexFormat::A8:
             internalFormat = GL_ALPHA;
             format = GL_ALPHA;
             type = GL_UNSIGNED_BYTE;
             break;
 
-        case ResTexFormat_LA8:
+        case ResTexFormat::LA8:
             internalFormat = GL_LUMINANCE_ALPHA;
             format = GL_LUMINANCE_ALPHA;
             type = GL_UNSIGNED_BYTE;
             break;
 
-        case ResTexFormat_L8:
+        case ResTexFormat::L8:
             internalFormat = GL_LUMINANCE;
             format = GL_LUMINANCE;
             type = GL_UNSIGNED_BYTE;

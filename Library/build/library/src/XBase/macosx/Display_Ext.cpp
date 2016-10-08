@@ -23,11 +23,11 @@ const int tNormalKeyCode[256] =
     -1,                 // 6
     -1,                 // 7
     -1,                 // 8
-    KeyKind_Tab,       // 9
+    KeyKind::Tab,       // 9
     -1,                 // 10
     -1,                 // 11
     -1,                 // 12
-    KeyKind_Return,    // 13
+    KeyKind::Return,    // 13
     -1,                 // 14
     -1,                 // 15
     -1,                 // 16
@@ -41,107 +41,107 @@ const int tNormalKeyCode[256] =
     -1,                 // 24
     -1,                 // 25
     -1,                 // 26
-    KeyKind_Escape,    // 27
+    KeyKind::Escape,    // 27
     -1,                 // 28
     -1,                 // 29
     -1,                 // 30
     -1,                 // 31
-    KeyKind_Space,     // 32
+    KeyKind::Space,     // 32
     -1,                 // 33
     -1,                 // 34
     -1,                 // 35
     -1,                 // 36
     -1,                 // 37
     -1,                 // 38
-    -1,//KeyKind_SINGLEQUOTE, // 39
+    -1,//KeyKind::SINGLEQUOTE, // 39
     -1,                 // 40
     -1,                 // 41
     -1,                 // 42
-    -1,//KeyKind_PLUS,        // 43
-    -1,//KeyKind_COMMA,       // 44
-    -1,//KeyKind_MINUS,       // 45
-    -1,//KeyKind_DOT,         // 46
-    -1,//KeyKind_SLASH,       // 47
-    KeyKind_0,           // 48
-    KeyKind_1,           // 49
-    KeyKind_2,           // 50
-    KeyKind_3,           // 51
-    KeyKind_4,           // 52
-    KeyKind_5,           // 53
-    KeyKind_6,           // 54
-    KeyKind_7,           // 55
-    KeyKind_8,           // 56
-    KeyKind_9,           // 57
-    -1,//KeyKind_SEMICOLON,   // 58
+    -1,//KeyKind::PLUS,        // 43
+    -1,//KeyKind::COMMA,       // 44
+    -1,//KeyKind::MINUS,       // 45
+    -1,//KeyKind::DOT,         // 46
+    -1,//KeyKind::SLASH,       // 47
+    KeyKind::Num0,           // 48
+    KeyKind::Num1,           // 49
+    KeyKind::Num2,           // 50
+    KeyKind::Num3,           // 51
+    KeyKind::Num4,           // 52
+    KeyKind::Num5,           // 53
+    KeyKind::Num6,           // 54
+    KeyKind::Num7,           // 55
+    KeyKind::Num8,           // 56
+    KeyKind::Num9,           // 57
+    -1,//KeyKind::SEMICOLON,   // 58
     -1,                 // 59
     -1,                 // 60
     -1,                 // 61
     -1,                 // 62
     -1,                 // 63
     -1,                 // 64
-    KeyKind_A,           // 65
-    KeyKind_B,           // 66
-    KeyKind_C,           // 67
-    KeyKind_D,           // 68
-    KeyKind_E,           // 69
-    KeyKind_F,           // 70
-    KeyKind_G,           // 71
-    KeyKind_H,           // 72
-    KeyKind_I,           // 73
-    KeyKind_J,           // 74
-    KeyKind_K,           // 75
-    KeyKind_L,           // 76
-    KeyKind_M,           // 77
-    KeyKind_N,           // 78
-    KeyKind_O,           // 79
-    KeyKind_P,           // 80
-    KeyKind_Q,           // 81
-    KeyKind_R,           // 82
-    KeyKind_S,           // 83
-    KeyKind_T,           // 84
-    KeyKind_U,           // 85
-    KeyKind_V,           // 86
-    KeyKind_W,           // 87
-    KeyKind_X,           // 88
-    KeyKind_Y,           // 89
-    KeyKind_Z,           // 90
-    -1,//KeyKind_LBRACKET,    // 91
-    -1,//KeyKind_BACKSLASH,   // 92
-    -1,//KeyKind_RBRACKET,    // 93
+    KeyKind::A,           // 65
+    KeyKind::B,           // 66
+    KeyKind::C,           // 67
+    KeyKind::D,           // 68
+    KeyKind::E,           // 69
+    KeyKind::F,           // 70
+    KeyKind::G,           // 71
+    KeyKind::H,           // 72
+    KeyKind::I,           // 73
+    KeyKind::J,           // 74
+    KeyKind::K,           // 75
+    KeyKind::L,           // 76
+    KeyKind::M,           // 77
+    KeyKind::N,           // 78
+    KeyKind::O,           // 79
+    KeyKind::P,           // 80
+    KeyKind::Q,           // 81
+    KeyKind::R,           // 82
+    KeyKind::S,           // 83
+    KeyKind::T,           // 84
+    KeyKind::U,           // 85
+    KeyKind::V,           // 86
+    KeyKind::W,           // 87
+    KeyKind::X,           // 88
+    KeyKind::Y,           // 89
+    KeyKind::Z,           // 90
+    -1,//KeyKind::LBRACKET,    // 91
+    -1,//KeyKind::BACKSLASH,   // 92
+    -1,//KeyKind::RBRACKET,    // 93
     -1,                 // 94
     -1,                 // 95
     -1,                 // 96
-    KeyKind_A,           // 97
-    KeyKind_B,           // 98
-    KeyKind_C,           // 99
-    KeyKind_D,           // 100
-    KeyKind_E,           // 101
-    KeyKind_F,           // 102
-    KeyKind_G,           // 103
-    KeyKind_H,           // 104
-    KeyKind_I,           // 105
-    KeyKind_J,           // 106
-    KeyKind_K,           // 107
-    KeyKind_L,           // 108
-    KeyKind_M,           // 109
-    KeyKind_N,           // 110
-    KeyKind_O,           // 111
-    KeyKind_P,           // 112
-    KeyKind_Q,           // 113
-    KeyKind_R,           // 114
-    KeyKind_S,           // 115
-    KeyKind_T,           // 116
-    KeyKind_U,           // 117
-    KeyKind_V,           // 118
-    KeyKind_W,           // 119
-    KeyKind_X,           // 120
-    KeyKind_Y,           // 121
-    KeyKind_Z,           // 122
-    -1,//KeyKind_LBRACKET,    // 123
+    KeyKind::A,           // 97
+    KeyKind::B,           // 98
+    KeyKind::C,           // 99
+    KeyKind::D,           // 100
+    KeyKind::E,           // 101
+    KeyKind::F,           // 102
+    KeyKind::G,           // 103
+    KeyKind::H,           // 104
+    KeyKind::I,           // 105
+    KeyKind::J,           // 106
+    KeyKind::K,           // 107
+    KeyKind::L,           // 108
+    KeyKind::M,           // 109
+    KeyKind::N,           // 110
+    KeyKind::O,           // 111
+    KeyKind::P,           // 112
+    KeyKind::Q,           // 113
+    KeyKind::R,           // 114
+    KeyKind::S,           // 115
+    KeyKind::T,           // 116
+    KeyKind::U,           // 117
+    KeyKind::V,           // 118
+    KeyKind::W,           // 119
+    KeyKind::X,           // 120
+    KeyKind::Y,           // 121
+    KeyKind::Z,           // 122
+    -1,//KeyKind::LBRACKET,    // 123
     -1,                 // 124
-    -1,//KeyKind_RBRACKET,    // 125
-    -1,//KeyKind_TILDA,       // 126
-    KeyKind_BackSpace,          // 127
+    -1,//KeyKind::RBRACKET,    // 125
+    -1,//KeyKind::TILDA,       // 126
+    KeyKind::BackSpace,          // 127
     -1,                 // 128
     -1,                 // 129
     -1,                 // 130
@@ -274,71 +274,71 @@ const int tNormalKeyCode[256] =
 
 const int tSpecialKeyCode[256] =
 {
-    KeyKind_Up,           // 0
-    KeyKind_Down,         // 1
-    KeyKind_Left,         // 2
-    KeyKind_Right,        // 3
-    KeyKind_F1,           // 4
-    KeyKind_F2,           // 5
-    KeyKind_F3,           // 6
-    KeyKind_F4,           // 7
-    KeyKind_F5,           // 8
-    KeyKind_F6,           // 9
-    KeyKind_F7,           // 10
-    KeyKind_F8,           // 11
-    KeyKind_F9,           // 12
-    KeyKind_F10,          // 13
-    KeyKind_F11,          // 14
-    KeyKind_F12,          // 15
-    KeyKind_F1,           // 16 0x10
-    KeyKind_F2,           // 17
-    KeyKind_F3,           // 18
-    KeyKind_F4,           // 19
-    KeyKind_F5,           // 20
-    KeyKind_F6,           // 21
-    KeyKind_F7,           // 22
-    KeyKind_F8,           // 23
-    KeyKind_F9,           // 24
-    KeyKind_F10,          // 25
-    KeyKind_F11,          // 26
-    KeyKind_F12,          // 27
-    KeyKind_F1,           // 28
-    KeyKind_F2,           // 29
-    KeyKind_F3,           // 30
-    KeyKind_F4,           // 31
-    KeyKind_F5,           // 32 0x20
-    KeyKind_F6,           // 33
-    KeyKind_F7,           // 34
-    KeyKind_F8,           // 35
-    KeyKind_F9,           // 36
-    KeyKind_F10,          // 37
-    KeyKind_F11,          // 38
-    KeyKind_Insert,          // 39
-    KeyKind_Delete,          // 40
-    KeyKind_Home,         // 41
+    KeyKind::Up,           // 0
+    KeyKind::Down,         // 1
+    KeyKind::Left,         // 2
+    KeyKind::Right,        // 3
+    KeyKind::F1,           // 4
+    KeyKind::F2,           // 5
+    KeyKind::F3,           // 6
+    KeyKind::F4,           // 7
+    KeyKind::F5,           // 8
+    KeyKind::F6,           // 9
+    KeyKind::F7,           // 10
+    KeyKind::F8,           // 11
+    KeyKind::F9,           // 12
+    KeyKind::F10,          // 13
+    KeyKind::F11,          // 14
+    KeyKind::F12,          // 15
+    KeyKind::F1,           // 16 0x10
+    KeyKind::F2,           // 17
+    KeyKind::F3,           // 18
+    KeyKind::F4,           // 19
+    KeyKind::F5,           // 20
+    KeyKind::F6,           // 21
+    KeyKind::F7,           // 22
+    KeyKind::F8,           // 23
+    KeyKind::F9,           // 24
+    KeyKind::F10,          // 25
+    KeyKind::F11,          // 26
+    KeyKind::F12,          // 27
+    KeyKind::F1,           // 28
+    KeyKind::F2,           // 29
+    KeyKind::F3,           // 30
+    KeyKind::F4,           // 31
+    KeyKind::F5,           // 32 0x20
+    KeyKind::F6,           // 33
+    KeyKind::F7,           // 34
+    KeyKind::F8,           // 35
+    KeyKind::F9,           // 36
+    KeyKind::F10,          // 37
+    KeyKind::F11,          // 38
+    KeyKind::Insert,          // 39
+    KeyKind::Delete,          // 40
+    KeyKind::Home,         // 41
     -1,                  // 42 Begin
-    KeyKind_End,          // 43
-    KeyKind_PageUp,       // 44
-    KeyKind_PageDown,     // 45
-    -1,//KeyKind_PrintScreen,    // 46
-    KeyKind_ScrolLock,   // 47
-    -1,//KeyKind_PauseBreak,   // 48 0x30
+    KeyKind::End,          // 43
+    KeyKind::PageUp,       // 44
+    KeyKind::PageDown,     // 45
+    -1,//KeyKind::PrintScreen,    // 46
+    KeyKind::ScrolLock,   // 47
+    -1,//KeyKind::PauseBreak,   // 48 0x30
     -1,                  // 49
-    -1,//KeyKind_PauseBreak,   // 50
+    -1,//KeyKind::PauseBreak,   // 50
     -1,                  // 51 Reset
     -1,                  // 52 Stop
     -1,                  // 53 Menu
     -1,                  // 54 User
     -1,                  // 55 System
-    -1,//KeyKind_PRINTSCRN,    // 56
+    -1,//KeyKind::PRINTSCRN,    // 56
     -1,                  // 57 Clear line
     -1,                  // 58 Clear display
     -1,                  // 59 Insert line
     -1,                  // 60 Delete line
-    KeyKind_Insert,          // 61
-    KeyKind_Delete,          // 62
-    KeyKind_PageUp,       // 63
-    KeyKind_PageDown,     // 64
+    KeyKind::Insert,          // 61
+    KeyKind::Delete,          // 62
+    KeyKind::PageUp,       // 63
+    KeyKind::PageDown,     // 64
     -1,                  // 65 Select
     -1,                  // 66 Execute
     -1,                  // 67 Undo
@@ -532,7 +532,7 @@ const int tSpecialKeyCode[256] =
     -1                   // 255
 };
 
-void tUpdateModKey(KeyboardUpdateData& aData, KeyKind aKey, int aIsDown)
+    void tUpdateModKey(KeyboardUpdateData& aData, KeyKind::EnumType aKey, int aIsDown)
 {
     // 同じなら何もしない
     const bool isDown = aIsDown != 0;
@@ -607,9 +607,9 @@ void Display_Ext::CBKeyEvent(void* aOwnerPtr, const int aUnicode, const int aIsD
 void Display_Ext::CBModKeyEvent(void* aOwnerPtr, const int aIsShift, const int aIsCtrl, const int aIsAlt)
 {
     Display_Ext* owner = static_cast<Display_Ext*>(aOwnerPtr);
-    tUpdateModKey(owner->keyboardUpdateData, KeyKind_Shift, aIsShift);
-    tUpdateModKey(owner->keyboardUpdateData, KeyKind_Ctrl, aIsCtrl);
-    tUpdateModKey(owner->keyboardUpdateData, KeyKind_Alt, aIsAlt);
+    tUpdateModKey(owner->keyboardUpdateData, KeyKind::Shift, aIsShift);
+    tUpdateModKey(owner->keyboardUpdateData, KeyKind::Ctrl, aIsCtrl);
+    tUpdateModKey(owner->keyboardUpdateData, KeyKind::Alt, aIsAlt);
 }
 
 //------------------------------------------------------------------------------
@@ -619,9 +619,9 @@ void Display_Ext::CBMouseEvent(void* aOwnerPtr, const int aPressedButton, const 
     owner->mouseUpdateData.pos.x = s16(aX);
     owner->mouseUpdateData.pos.y = s16(aY);
     owner->mouseUpdateData.posUpdated = true;
-    owner->mouseUpdateData.hold.set(MouseBtnKind_L, aPressedButton & 0x01);
-    owner->mouseUpdateData.hold.set(MouseBtnKind_R, aPressedButton & 0x02);
-    owner->mouseUpdateData.hold.set(MouseBtnKind_M, aPressedButton & 0x04);
+    owner->mouseUpdateData.hold.set(MouseBtnKind::L, aPressedButton & 0x01);
+    owner->mouseUpdateData.hold.set(MouseBtnKind::R, aPressedButton & 0x02);
+    owner->mouseUpdateData.hold.set(MouseBtnKind::M, aPressedButton & 0x04);
 }
 
 //------------------------------------------------------------------------------

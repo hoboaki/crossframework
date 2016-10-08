@@ -14,7 +14,7 @@ namespace XBase {
 /// @brief マウスのボタンのビットセット。
 /// @details
 /// ビットのインデックスは MouseBtnKind を使用しています。
-typedef BitSet< MouseBtnKind_TERMINATE > MouseBtnBitSet;
+typedef BitSet< MouseBtnKind::TERM > MouseBtnBitSet;
 //@}
 
 } // namespace

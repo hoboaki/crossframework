@@ -9,20 +9,21 @@ namespace XG3D {
 /// @addtogroup XG3D-Res
 //@{
 /// テクスチャのフォーマット。
-enum ResTexFormat
+struct ResTexFormat
 {
-    ResTexFormat_RGBA8,   ///< RGBA8。
-    ResTexFormat_RGB8,    ///< RGB8。
-    ResTexFormat_RGB5A1,  ///< RGB5A1。
-    ResTexFormat_RGBA4,   ///< RGBA4。
-    ResTexFormat_RGB565,  ///< RGB565。
-    ResTexFormat_A8,      ///< A8。
-    ResTexFormat_LA8,     ///< LA8。
-    ResTexFormat_L8,      ///< L8。
-    // term
-    ResTexFormat_TERMINATE,
-    ResTexFormat_MIN = 0,
-    ResTexFormat_MAX = ResTexFormat_TERMINATE - 1
+    enum EnumType
+    {
+        RGBA8,   ///< RGBA8。
+        RGB8,    ///< RGB8。
+        RGB5A1,  ///< RGB5A1。
+        RGBA4,   ///< RGBA4。
+        RGB565,  ///< RGB565。
+        A8,      ///< A8。
+        LA8,     ///< LA8。
+        L8,      ///< L8。
+
+        TERM,
+    };
 };
 //@}
 

@@ -20,15 +20,15 @@ int xmain( ::XBase::Application& aApp )
     while( !doExit )
     {
         // イベントの取得
-        ::XBase::AppEvent event = aApp.receiveEvent();
+        ::XBase::AppEvent::EnumType event = aApp.receiveEvent();
         
         // イベントによって分岐
         switch ( event ) {
-        case ::XBase::AppEvent_Quit:
+        case ::XBase::AppEvent::Quit:
             doExit = true;
             break;
 
-        case ::XBase::AppEvent_Update:
+        case ::XBase::AppEvent::Update:
             {
                 // フレームバッファのクリア
                 renderer.fbClear();

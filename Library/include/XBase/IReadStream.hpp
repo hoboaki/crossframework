@@ -33,7 +33,7 @@ public:
     /// @return 変更後の位置。0は先頭を示す。
     /// @param aOffset aOriginを基準としたオフセット位置。
     /// @param aOrigin 変更の基準。
-    virtual pword_t seek(int aOffset, SeekOrigin aOrigin) = 0;
+    virtual pword_t seek(int aOffset, SeekOrigin::EnumType aOrigin) = 0;
 
     /// @brief データを読み込む。
     /// @return 実際に読み込んだバイト数。

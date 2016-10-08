@@ -37,11 +37,11 @@ public:
 
     /// @name 状態取得
     //@{
-    bool isHold(KeyKind aKind)const;    ///< 押されているか。
-    bool isTrigger(KeyKind aKind)const; ///< 押された瞬間か。
-    bool isRepeat(KeyKind aKind)const;  ///< 押しっぱなしの状態で入力が入ったか。
-    bool isPulse(KeyKind aKind)const;   ///< isTrigger() || isRepeat()。
-    bool isRelease(KeyKind aKind)const; ///< 離された瞬間か。
+    bool isHold(KeyKind::EnumType aKind)const;    ///< 押されているか。
+    bool isTrigger(KeyKind::EnumType aKind)const; ///< 押された瞬間か。
+    bool isRepeat(KeyKind::EnumType aKind)const;  ///< 押しっぱなしの状態で入力が入ったか。
+    bool isPulse(KeyKind::EnumType aKind)const;   ///< isTrigger() || isRepeat()。
+    bool isRelease(KeyKind::EnumType aKind)const; ///< 離された瞬間か。
     //@}
 
     /// @name ビットセット取得

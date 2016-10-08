@@ -15,7 +15,7 @@ namespace XG3D {
 /// テクスチャリソースのデータ。
 struct TexResData
 {
-    ::XBase::EnumPodTmpl< ResTexFormat, s32 > format; ///< フォーマット。
+    ::XBase::EnumPodTmpl< ResTexFormat::EnumType, s32 > format; ///< フォーマット。
     u16 width;  ///< 横ピクセル数。
     u16 height; ///< 縦ピクセル数。。
     const byte_t* pixels; ///< ピクセルデータの先頭アドレス。

@@ -9,16 +9,16 @@ namespace XBase {
 /// @addtogroup XBase-Debug
 //@{
 
-/// @brief Enumの値がMIN以上MAX以下であることをチェックするマクロ。
+/// @brief Enumの値が 0以上 TERM　未満であることをチェックするマクロ。
 /// @return bool値。範囲内ならtrue。
 /// @details
-/// 調査するEnumにMINとMAXが定義されている必要があります。
-#define XBASE_ENUM_IS_VALID( aEnumType , aEnumValue ) ( aEnumType##_MIN <= int( aEnumValue ) && int( aEnumValue ) <= aEnumType##_MAX )
+/// 調査するEnumにTERMが定義されている必要があります。
+#define XBASE_ENUM_IS_VALID( aEnumType , aEnumValue ) ( 0 <= int( aEnumValue ) && int( aEnumValue ) <= aEnumType::TERM )
 
-/// @brief Enumの値がMIN未満 or MAXより大きいことをチェックするマクロ。
+/// @brief Enumの値が 0以上 TERM　未満であることをチェックするマクロ。
 /// @return bool値。範囲外ならtrue。
 /// @details
-/// 調査するEnumにMINとMAXが定義されている必要があります。
+/// 調査するEnumにTERMが定義されている必要があります。
 #define XBASE_ENUM_IS_INVALID( aEnumType , aEnumValue ) ( XBASE_ENUM_IS_VALID( aEnumType , aEnumValue ) == false )
 //@}
 
