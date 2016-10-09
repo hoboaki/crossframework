@@ -1007,45 +1007,56 @@ namespace CrossFramework.XG3D
                             // 必要なソースの収集
                             SourceProxy[] targetSourceProxies;
                             {
+                                // 収集先を作成
                                 var targetSourceProxiesList = new List<SourceProxy>();
+
+                                // 追加関数を定義
+                                Action<string, SourceProxy> addTargetSourceProxy = (aSemantic, aTargetSource) =>
+                                {
+                                    Shape.InputKind inputKind;
+                                    switch (aSemantic)
+                                    {
+                                        case "POSITION":
+                                            inputKind = Shape.InputKind.Position;
+                                            break;
+                                        case "NORMAL":
+                                            inputKind = Shape.InputKind.Normal;
+                                            break;
+                                        case "COLOR":
+                                            inputKind = (Shape.InputKind)Enum.Parse(typeof(Shape.InputKind), "Color" + targetSourceProxiesList.Count((obj) => (obj.Semantic == "COLOR")));
+                                            break;
+                                        case "TEXCOORD":
+                                            inputKind = (Shape.InputKind)Enum.Parse(typeof(Shape.InputKind), "TexCoord" + targetSourceProxiesList.Count((obj) => (obj.Semantic == "TEXCOORD")));
+                                            break;
+                                        default:
+                                            throw new Exception("Unsupported semantic '" + aSemantic + "'.");
+                                    }
+
+                                    aTargetSource.Reset(aSemantic, inputKind);
+                                    targetSourceProxiesList.Add(aTargetSource);
+                                };
+
+                                // 追加していく
                                 foreach (InputLocalOffset input in triangles.input)
                                 {
                                     string semantic = input.semantic;
                                     SourceProxy targetSource = null;
                                     if (semantic == "VERTEX")
                                     {
-                                        // POSITION以外がVERTEXに含まれる例が見当たらないため、
-                                        // とりあえずPOSITIONしかないものといして現状は処理する。
-                                        string findSource = mesh.vertices.input.First((obj) => (obj.semantic == "POSITION")).source;
-                                        targetSource = sourceProxies.Find((obj) => (findSource == "#" + obj.Id));
+                                        // VERTEXは複数の要素を抱えていることがあるので１つずつ追加していく
+                                        foreach (var inputLocal in mesh.vertices.input)
+                                        {
+                                            targetSource = sourceProxies.Find((obj) => (inputLocal.source == "#" + obj.Id));
+                                            addTargetSourceProxy(inputLocal.semantic, targetSource);
+                                        }
                                     }
                                     else
                                     {
                                         targetSource = sourceProxies.Find((obj) => (input.source ==  "#" + obj.Id));
                                     }
-
-                                    Shape.InputKind inputKind;
-                                    switch (semantic)
-                                    {
-                                    case "VERTEX":
-                                        inputKind = Shape.InputKind.Position;
-                                        break;
-                                    case "NORMAL":
-                                        inputKind = Shape.InputKind.Normal;
-                                        break;
-                                    case "COLOR":
-                                        inputKind = (Shape.InputKind)Enum.Parse(typeof(Shape.InputKind), "Color" + targetSourceProxiesList.Count((obj) => (obj.Semantic == "COLOR")));
-                                        break;
-                                    case "TEXCOORD":
-                                        inputKind = (Shape.InputKind)Enum.Parse(typeof(Shape.InputKind), "TexCoord" + targetSourceProxiesList.Count((obj) => (obj.Semantic == "TEXCOORD")));
-                                        break;
-                                    default:
-                                        throw new Exception("Unsupported semantic '" + semantic + "'.");
-                                    }
-
-                                    targetSource.Reset(semantic, inputKind);
-                                    targetSourceProxiesList.Add(targetSource);
                                 }
+
+                                // 配列に変換して終了
                                 targetSourceProxies = targetSourceProxiesList.ToArray();
                             }
 
