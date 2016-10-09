@@ -672,6 +672,7 @@ namespace CrossFramework.XG3D
         {
             public string Id { get { return mId; } }
             public string Semantic { get { return mSemantic; } }
+            public int InputIndex { get { return mInputIndex; } }
 
             //============================================================
             public SourceProxy(source aSRC)
@@ -693,9 +694,10 @@ namespace CrossFramework.XG3D
             }
 
             //============================================================
-            public void Reset(string aSemantic, Shape.InputKind aShapeInputKind)
+            public void Reset(string aSemantic, Shape.InputKind aShapeInputKind, int aInputIndex)
             {
                 mSemantic = aSemantic;
+                mInputIndex = aInputIndex;
                 mShapeInputKind = aShapeInputKind;
                 mNextNewIndex = 0;
                 for(int i = 0; i < mToNewIndexTable.Length; ++i)
@@ -775,6 +777,7 @@ namespace CrossFramework.XG3D
             int[] mIntArray;
             double[] mFloatArray;
             string mSemantic;
+            int mInputIndex;
             Shape.InputKind mShapeInputKind;
             int mNextNewIndex;
             int[] mToNewIndexTable;
@@ -810,9 +813,15 @@ namespace CrossFramework.XG3D
                 // ノード追加処理を関数化
                 Action<node, node> addNode = (aNode, aParent) =>
                 {
+                    // Itemsのないノードはひとまずサポートしない
+                    if (aNode.Items == null)
+                    {
+                        return;
+                    }
+
                     // Transform解析
                     Transform3 transform = new Transform3();
-                    matrix mtx = (matrix)aNode.Items.FirstOrDefault((obj) => (obj as matrix) != null);
+                    matrix mtx = (matrix)aNode.Items.FirstOrDefault((obj) => (obj is matrix));
                     if (mtx == null)
                     {
                         // 行列のないノードは単位行列
@@ -1011,7 +1020,7 @@ namespace CrossFramework.XG3D
                                 var targetSourceProxiesList = new List<SourceProxy>();
 
                                 // 追加関数を定義
-                                Action<string, SourceProxy> addTargetSourceProxy = (aSemantic, aTargetSource) =>
+                                Action<string, SourceProxy, int> addTargetSourceProxy = (aSemantic, aTargetSource, aInputIndex) =>
                                 {
                                     Shape.InputKind inputKind;
                                     switch (aSemantic)
@@ -1032,11 +1041,12 @@ namespace CrossFramework.XG3D
                                             throw new Exception("Unsupported semantic '" + aSemantic + "'.");
                                     }
 
-                                    aTargetSource.Reset(aSemantic, inputKind);
+                                    aTargetSource.Reset(aSemantic, inputKind, aInputIndex);
                                     targetSourceProxiesList.Add(aTargetSource);
                                 };
 
                                 // 追加していく
+                                int inputIdx = 0;
                                 foreach (InputLocalOffset input in triangles.input)
                                 {
                                     string semantic = input.semantic;
@@ -1047,13 +1057,15 @@ namespace CrossFramework.XG3D
                                         foreach (var inputLocal in mesh.vertices.input)
                                         {
                                             targetSource = sourceProxies.Find((obj) => (inputLocal.source == "#" + obj.Id));
-                                            addTargetSourceProxy(inputLocal.semantic, targetSource);
+                                            addTargetSourceProxy(inputLocal.semantic, targetSource, inputIdx);
                                         }
                                     }
                                     else
                                     {
                                         targetSource = sourceProxies.Find((obj) => (input.source ==  "#" + obj.Id));
+                                        addTargetSourceProxy(semantic, targetSource, inputIdx);
                                     }
+                                    ++inputIdx;
                                 }
 
                                 // 配列に変換して終了
@@ -1065,10 +1077,11 @@ namespace CrossFramework.XG3D
                             int vertexCount = (int)triangles.count * 3;
                             for (int vertexIdx = 0; vertexIdx < vertexCount; ++vertexIdx)
                             {
-                                int inputIdxOffset = vertexIdx * targetSourceProxies.Length;
+                                int inputIdxOffset = vertexIdx * triangles.input.Length; ;
                                 for (int inputIdx = 0; inputIdx < targetSourceProxies.Length; ++inputIdx)
                                 {
-                                    targetSourceProxies[inputIdx].NextIndex(vertxIdxArray[inputIdxOffset + inputIdx]);
+                                    var source = targetSourceProxies[inputIdx];
+                                    source.NextIndex(vertxIdxArray[inputIdxOffset + source.InputIndex]);
                                 }
                             }
 
