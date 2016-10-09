@@ -19,7 +19,7 @@
     GLint backingHeight;
     
     // The OpenGL ES names for the framebuffer and renderbuffer used to render to this view
-    GLuint defaultFramebuffer, colorRenderbuffer;
+    GLuint defaultFramebuffer, colorRenderbuffer, depthStencilRenderBuffer;
 }
 - (void)resizeFromLayer:(CAEAGLLayer *)layer;
 - (void)flushBuffer;
@@ -56,6 +56,7 @@
         // Create default framebuffer object. The backing will be allocated for the current layer in -resizeFromLayer
         glGenFramebuffers(1, &defaultFramebuffer);
         glGenRenderbuffers(1, &colorRenderbuffer);
+        glGenRenderbuffers(1, &depthStencilRenderBuffer);
         glBindFramebuffer(GL_FRAMEBUFFER, defaultFramebuffer);
         glBindRenderbuffer(GL_RENDERBUFFER, colorRenderbuffer);
         glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, colorRenderbuffer);
@@ -81,6 +82,12 @@
     glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &backingWidth);
     glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &backingHeight);
     
+    // DepthStencil Setup
+    glBindRenderbuffer(GL_RENDERBUFFER, depthStencilRenderBuffer);
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8_OES, backingWidth, backingHeight);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthStencilRenderBuffer);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_STENCIL_ATTACHMENT, GL_RENDERBUFFER, depthStencilRenderBuffer);
+
     if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
     {
         return;
@@ -90,10 +97,10 @@
 - (void)dealloc
 {
     // Tear down GL
-    if (defaultFramebuffer)
+    if (depthStencilRenderBuffer)
     {
-        glDeleteFramebuffers(1, &defaultFramebuffer);
-        defaultFramebuffer = 0;
+        glDeleteRenderbuffers(1, &depthStencilRenderBuffer);
+        depthStencilRenderBuffer = 0;
     }
     
     if (colorRenderbuffer)
@@ -102,6 +109,12 @@
         colorRenderbuffer = 0;
     }
     
+    if (defaultFramebuffer)
+    {
+        glDeleteFramebuffers(1, &defaultFramebuffer);
+        defaultFramebuffer = 0;
+    }
+   
     // Tear down context
     if ([EAGLContext currentContext] == context)
     {
