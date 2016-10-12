@@ -80,9 +80,9 @@ LOCAL_VERSION_DIRECTIVE
 "";
 const GLchar tSHADER_SOURCE_FSH[] =
 LOCAL_VERSION_DIRECTIVE
-#if defined(XG3D_ENGINE_GLES)
-    "precision highp float;"
-#endif
+"#if GL_ES\r\n"
+"    precision highp float;\r\n"
+"#endif\r\n"
 "uniform int       uTexActive;"
 "uniform sampler2D uTexSampler;"
 ""
