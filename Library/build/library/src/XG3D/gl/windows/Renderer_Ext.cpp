@@ -58,7 +58,7 @@ void Renderer_EXT::setup(::XBase::Display& aDisplay)
     }
 
     // コアプロファイルの有効化
-    if (false) {
+    if (true) {
         // 使用する OpenGL のバージョンとプロファイルの指定
         static const int  att[] = {
             WGL_CONTEXT_MAJOR_VERSION_ARB, 3,
