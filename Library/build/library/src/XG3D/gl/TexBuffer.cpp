@@ -59,14 +59,14 @@ TexBuffer::TexBuffer(
             break;
 
         case ResTexFormat::LA8:
-            internalFormat = GL_LUMINANCE_ALPHA;
-            format = GL_LUMINANCE_ALPHA;
+            internalFormat = GL_RG;
+            format = GL_RG;
             type = GL_UNSIGNED_BYTE;
             break;
 
         case ResTexFormat::L8:
-            internalFormat = GL_LUMINANCE;
-            format = GL_LUMINANCE;
+            internalFormat = GL_RED;
+            format = GL_RED;
             type = GL_UNSIGNED_BYTE;
             break;
 

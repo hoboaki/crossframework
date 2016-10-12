@@ -19,8 +19,8 @@
         #pragma comment(lib,"glu32.lib")
     #elif defined(XBASE_OS_MACOSX)
         #include <OpenGL/OpenGL.h>
-        #include <OpenGL/gl.h>
-        #include <OpenGL/glu.h>
+        #include <OpenGL/gl3.h>
+        #include <OpenGL/gl3ext.h>
     #elif defined(XBASE_OS_IOS)
         #include <OpenGLES/ES2/gl.h>
         #include <OpenGLES/ES2/glext.h>

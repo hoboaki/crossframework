@@ -36,7 +36,7 @@ struct XG3DNSOpenGLView* XG3DNSOpenGLView_Setup(
         NSOpenGLPFAAlphaSize,	8,
         NSOpenGLPFADepthSize,	24,
         NSOpenGLPFAStencilSize,	8,
-        //NSOpenGLPFAOpenGLProfile, NSOpenGLProfileVersion3_2Core,
+        NSOpenGLPFAOpenGLProfile, NSOpenGLProfileVersion3_2Core,
 		0
 	};
     

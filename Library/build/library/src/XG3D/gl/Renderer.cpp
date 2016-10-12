@@ -85,15 +85,15 @@ LOCAL_VERSION_DIRECTIVE
 ""
 "in vec4 vColor;"
 "in vec4 vTexCoord;"
+"out vec4 oFragColor;"
 ""
 "void main()"
 "{"
-"    if ( uTexActive != 0 )" "    {"
-"        gl_FragColor = vColor * texture2D( uTexSampler , vTexCoord.st );"
+"    if (uTexActive != 0) {"
+"        oFragColor = vColor * texture(uTexSampler, vTexCoord.st);"
 "    }"
-"    else"
-"    {"
-"        gl_FragColor = vColor;"
+"    else {"
+"        oFragColor = vColor;"
 "    }"
 "}";
 bool tCreateShader(
@@ -144,6 +144,11 @@ bool tLinkProgram(GLuint aProgram)
 
 bool tValidateProgram(GLuint aProgram)
 {
+#if defined(XBASE_OS_MACOSX)
+    // macos 10.11 環境で動作しないため即リターン。
+    return true;
+#endif
+    
     GLint status = GLint();
     XG3D_GLCMD(glValidateProgram(aProgram));
     XG3D_GLCMD(glGetProgramiv(aProgram, GL_VALIDATE_STATUS, &status));
