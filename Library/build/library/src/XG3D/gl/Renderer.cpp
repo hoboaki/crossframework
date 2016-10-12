@@ -80,7 +80,7 @@ LOCAL_VERSION_DIRECTIVE
 "";
 const GLchar tSHADER_SOURCE_FSH[] =
 LOCAL_VERSION_DIRECTIVE
-"#if GL_ES\r\n"
+"#ifdef GL_ES\r\n"
 "    precision highp float;\r\n"
 "#endif\r\n"
 "uniform int       uTexActive;"
@@ -148,7 +148,10 @@ bool tLinkProgram(GLuint aProgram)
 bool tValidateProgram(GLuint aProgram)
 {
 #if defined(XBASE_OS_MACOSX)
-    // macos 10.11 環境で動作しないため即リターン。
+    // macos 10.11 環境では動作しないため即リターン。
+    // NSOpenGLView::prepareOpenGL が呼ばれた後なら動作するのだが
+    // Renderer.cpp のコンストラクタはそれよりも前に呼ばれてしまう。
+    // 少し気持ち悪いが return することで回避する。
     return true;
 #endif
     
