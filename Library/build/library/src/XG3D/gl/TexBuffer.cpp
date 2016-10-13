@@ -52,15 +52,15 @@ TexBuffer::TexBuffer(
             type = GL_UNSIGNED_SHORT_5_6_5;
             break;
 
-        case ResTexFormat::R8:
-            internalFormat = GL_RED;
-            format = GL_RED;
-            type = GL_UNSIGNED_BYTE;
-            break;
-
         case ResTexFormat::RG8:
             internalFormat = GL_RG;
             format = GL_RG;
+            type = GL_UNSIGNED_BYTE;
+            break;
+
+        case ResTexFormat::R8:
+            internalFormat = GL_RED;
+            format = GL_RED;
             type = GL_UNSIGNED_BYTE;
             break;
 
