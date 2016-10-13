@@ -241,6 +241,17 @@ namespace CrossFramework.XG3D
                     VtxAttrs = vtxAttrs.ToArray();
                 }
 
+                // バージョンディレクティブ
+                string versionHeader = "";
+                if (aIsGLES)
+                {
+                    versionHeader = @"#version 300 es";
+                }
+                else
+                {
+                    versionHeader = @"#version 330 core";
+                }
+
                 // VShSrcText
                 using (MemoryStream mem = new MemoryStream())
                 {
@@ -249,40 +260,23 @@ namespace CrossFramework.XG3D
                     writer.NewLine = "\r\n";
 
                     // ヘッダ
-                    if ( !aIsGLES )
-                    {
-                        writer.WriteLine(@"#version 120");
-                    }
-                    writer.WriteLine(@"#ifdef GL_ES");
-                    writer.WriteLine(@"    #define IN         attribute");
-                    writer.WriteLine(@"    #define OUT        varying");
-                    writer.WriteLine(@"    #define LOWP       lowp");
-                    writer.WriteLine(@"    #define MEDIUMP    mediump");
-                    writer.WriteLine(@"    precision MEDIUMP  float;");
-                    writer.WriteLine(@"    precision MEDIUMP  int;");
-                    writer.WriteLine(@"#else");
-                    writer.WriteLine(@"    #define IN         attribute");
-                    writer.WriteLine(@"    #define OUT        varying");
-                    writer.WriteLine(@"    #define LOWP       ");
-                    writer.WriteLine(@"    #define MEDIUMP    ");
-                    writer.WriteLine(@"#endif");
-                    
+                    writer.WriteLine(versionHeader);
+
                     // パラメータ
                     writer.WriteLine(@"uniform mat4 "+ UNIFORM_PROJECTION_MATRIX + ";");
                     writer.WriteLine(@"uniform mat4 "+ UNIFORM_VIEW_MATRIX + ";");
                     writer.WriteLine(@"uniform mat4 "+ UNIFORM_WORLD_MATRIX + ";");
-                    writer.WriteLine("IN vec3 " + VtxAttr.ToSymbolName(ResMdl.Shape.InputKind.Position) + ";");
+                    writer.WriteLine("in vec3 " + VtxAttr.ToSymbolName(ResMdl.Shape.InputKind.Position) + ";");
                     if (hasNormal)
                     {
-                        writer.WriteLine("IN vec3 " + VtxAttr.ToSymbolName(ResMdl.Shape.InputKind.Normal) + ";");
-                        writer.WriteLine("OUT vec3 " + VARYING_NORMAL + ";");
+                        writer.WriteLine("in vec3 " + VtxAttr.ToSymbolName(ResMdl.Shape.InputKind.Normal) + ";");
+                        writer.WriteLine("out vec3 " + VARYING_NORMAL + ";");
                     }
                     if (hasColor)
                     {
-                        writer.WriteLine("IN vec4 " + VtxAttr.ToSymbolName(ResMdl.Shape.InputKind.Color0) + ";");
-                        writer.WriteLine("OUT vec4 " + VARYING_COLOR0 + ";");
+                        writer.WriteLine("in vec4 " + VtxAttr.ToSymbolName(ResMdl.Shape.InputKind.Color0) + ";");
+                        writer.WriteLine("out vec4 " + VARYING_COLOR0 + ";");
                     }
-                    writer.WriteLine("invariant gl_Position;");
 
                     // メイン関数
                     writer.WriteLine(@"void main()");
@@ -312,47 +306,37 @@ namespace CrossFramework.XG3D
                     writer.NewLine = "\r\n";
 
                     // ヘッダ
-                    if ( !aIsGLES )
-                    {
-                        writer.WriteLine(@"#version 120");
-                    }
+                    writer.WriteLine(versionHeader);
                     writer.WriteLine(@"#ifdef GL_ES");
-                    writer.WriteLine(@"    #define IN         varying");
-                    writer.WriteLine(@"    #define LOWP       lowp");
-                    writer.WriteLine(@"    #define MEDIUMP    mediump");
-                    writer.WriteLine(@"    precision MEDIUMP  float;");
-                    writer.WriteLine(@"    precision MEDIUMP  int;");
-                    writer.WriteLine(@"#else");
-                    writer.WriteLine(@"    #define IN         varying");
-                    writer.WriteLine(@"    #define LOWP       ");
-                    writer.WriteLine(@"    #define MEDIUMP    ");
+                    writer.WriteLine(@"    precision highp float;");
                     writer.WriteLine(@"#endif");
 
                     // パラメータ
                     if (hasNormal)
                     {
-                        writer.WriteLine(@"IN vec3 " + VARYING_NORMAL + ";");
+                        writer.WriteLine(@"in vec3 " + VARYING_NORMAL + ";");
                     }
                     if (hasColor)
                     {
-                        writer.WriteLine(@"IN vec4 " + VARYING_COLOR0 + ";");
+                        writer.WriteLine(@"in vec4 " + VARYING_COLOR0 + ";");
                     }
+                    writer.WriteLine(@"out vec4 oFragColor;");
 
                     // メイン関数
                     writer.WriteLine(@"void main()");
                     writer.WriteLine(@"{");
                     if (hasColor)
                     {
-                        writer.WriteLine(@"    gl_FragColor = " + VARYING_COLOR0 + ";");
+                        writer.WriteLine(@"    oFragColor = " + VARYING_COLOR0 + ";");
                     }
                     else if (hasNormal)
                     {
-                        writer.WriteLine(@"    vec4 normalColor = vec4(" + VARYING_NORMAL + ", 1.0);");
-                        writer.WriteLine(@"    gl_FragColor = normalColor;");
+                        writer.WriteLine(@"    vec4 normalColor = vec4((" + VARYING_NORMAL + ".rgb + vec3(1.0)) * 0.5, 1.0);");
+                        writer.WriteLine(@"    oFragColor = normalColor;");
                     }
                     else
                     {
-                        writer.WriteLine(@"    gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);");
+                        writer.WriteLine(@"    oFragColor = vec4(1.0, 1.0, 1.0, 1.0);");
                     }
                     writer.WriteLine(@"}");
 
