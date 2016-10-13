@@ -46,7 +46,7 @@
         
         
         // コンテキスト作成
-        context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];        
+        context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES3];
         if (!context || ![EAGLContext setCurrentContext:context])
         {
             [self release];

@@ -22,8 +22,8 @@
         #include <OpenGL/gl3.h>
         #include <OpenGL/gl3ext.h>
     #elif defined(XBASE_OS_IOS)
-        #include <OpenGLES/ES2/gl.h>
-        #include <OpenGLES/ES2/glext.h>
+        #include <OpenGLES/ES3/gl.h>
+        #include <OpenGLES/ES3/glext.h>
     #endif
 #else
     #error "Not supported engine."
