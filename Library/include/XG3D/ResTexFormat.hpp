@@ -13,14 +13,16 @@ struct ResTexFormat
 {
     enum EnumType
     {
+        // ベーシックフォーマット
         RGBA8,   ///< RGBA8。
         RGB8,    ///< RGB8。
+
+        // テクニカルフォーマット
         RGB5A1,  ///< RGB5A1。
         RGBA4,   ///< RGBA4。
         RGB565,  ///< RGB565。
-        A8,      ///< A8。
-        LA8,     ///< LA8。
-        L8,      ///< L8。
+        RG8,     ///< RG8。
+        R8,      ///< R8。
 
         TERM,
     };

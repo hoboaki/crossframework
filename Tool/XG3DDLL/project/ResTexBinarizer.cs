@@ -109,18 +109,15 @@ namespace CrossFramework.XG3D
                                 ));
                             break;
 
-                        case ResTex.FormatType.A8:
-                            binarizer.Add((byte)pix.A);
-                            break;
-
-                        case ResTex.FormatType.LA8:
-                            binarizer.Add((byte)pix.R);
-                            binarizer.Add((byte)pix.A);
-                            break;
-
-                        case ResTex.FormatType.L8:
+                        case ResTex.FormatType.R8:
                             binarizer.Add((byte)pix.R);
                             break;
+
+                        case ResTex.FormatType.RG8:
+                            binarizer.Add((byte)pix.R);
+                            binarizer.Add((byte)pix.G);
+                            break;
+                                
                         default:
                             throw new Exception("Unsupported format type.");
                         }

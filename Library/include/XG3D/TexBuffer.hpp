@@ -22,8 +22,8 @@ namespace XG3D {
 
 /// @addtogroup XG3D-Util
 //@{
-    /// @brief テクスチャバッファ。
-    /// @details
+/// @brief テクスチャバッファ。
+/// @details
 /// テクスチャの描画用バッファの作成・保持をするクラスです。 @n
 class TexBuffer : public ::XBase::NonCopyable
 {
@@ -44,11 +44,11 @@ public:
     //@}
 
     // 内部実装用関数群。
-    const TexBuffer_EXT& ext_()const;
-    TexBuffer_EXT& ext_();
+    const TexBuffer_Ext& ext_()const;
+    TexBuffer_Ext& ext_();
 
 private:
-    TexBuffer_EXT mExt;
+    TexBuffer_Ext mExt;
     TexResData mResData;
 };
 //@}

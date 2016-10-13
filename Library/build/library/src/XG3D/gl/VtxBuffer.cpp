@@ -303,6 +303,20 @@ void VtxBuffer::flush()
         XG3D_GLCMD(glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Index) * mIndexArray.count(), &mIndexArray[0], GL_STATIC_DRAW));
         XG3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0));
     }
+
+    // データ指定
+    XG3D_GLCMD(glBindVertexArray(mExt.vtxArray));
+    XG3D_GLCMD(glBindBuffer(GL_ARRAY_BUFFER, mExt.vtxBuffer));
+    XG3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mExt.idxBuffer));
+    XG3D_GLCMD(glVertexAttribPointer(ShaderConstant::Attribute::Position, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), reinterpret_cast<const void*>(offsetof(Vertex, position))));
+    XG3D_GLCMD(glVertexAttribPointer(ShaderConstant::Attribute::Normal, 3, GL_FLOAT, GL_TRUE, sizeof(Vertex), reinterpret_cast<const void*>(offsetof(Vertex, normal))));
+    XG3D_GLCMD(glVertexAttribPointer(ShaderConstant::Attribute::TexCoord, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), reinterpret_cast<const void*>(offsetof(Vertex, texCoord))));
+    XG3D_GLCMD(glVertexAttribPointer(ShaderConstant::Attribute::Color, 4, GL_FLOAT, GL_TRUE, sizeof(Vertex), reinterpret_cast<const void*>(offsetof(Vertex, color))));
+    XG3D_GLCMD(glEnableVertexAttribArray(ShaderConstant::Attribute::Position));
+    XG3D_GLCMD(glEnableVertexAttribArray(ShaderConstant::Attribute::Normal));
+    XG3D_GLCMD(glEnableVertexAttribArray(ShaderConstant::Attribute::TexCoord));
+    XG3D_GLCMD(glEnableVertexAttribArray(ShaderConstant::Attribute::Color));
+    XG3D_GLCMD(glBindVertexArray(0));
 }
 
 //------------------------------------------------------------------------------
@@ -324,17 +338,8 @@ void VtxBuffer::draw()
         return;
     }
 
-    // 頂点の設定
-    XG3D_GLCMD(glBindBuffer(GL_ARRAY_BUFFER, mExt.vtxBuffer));
-    XG3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mExt.idxBuffer));
-    XG3D_GLCMD(glVertexAttribPointer(ShaderConstant::Attribute::Position, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), reinterpret_cast<const void*>(offsetof(Vertex, position))));
-    XG3D_GLCMD(glVertexAttribPointer(ShaderConstant::Attribute::Normal, 3, GL_FLOAT, GL_TRUE, sizeof(Vertex), reinterpret_cast<const void*>(offsetof(Vertex, normal))));
-    XG3D_GLCMD(glVertexAttribPointer(ShaderConstant::Attribute::TexCoord, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), reinterpret_cast<const void*>(offsetof(Vertex, texCoord))));
-    XG3D_GLCMD(glVertexAttribPointer(ShaderConstant::Attribute::Color, 4, GL_FLOAT, GL_TRUE, sizeof(Vertex), reinterpret_cast<const void*>(offsetof(Vertex, color))));
-    XG3D_GLCMD(glEnableVertexAttribArray(ShaderConstant::Attribute::Position));
-    XG3D_GLCMD(glEnableVertexAttribArray(ShaderConstant::Attribute::Normal));
-    XG3D_GLCMD(glEnableVertexAttribArray(ShaderConstant::Attribute::TexCoord));
-    XG3D_GLCMD(glEnableVertexAttribArray(ShaderConstant::Attribute::Color));
+    // セットアップ
+    XG3D_GLCMD(glBindVertexArray(mExt.vtxArray));
 
     // 各メッシュの描画
     for (int i = 0; i < mMeshArray.count(); ++i) {
@@ -348,28 +353,32 @@ void VtxBuffer::draw()
         XG3D_GLCMD(glDrawElements(GL_TRIANGLES, mesh.count, GL_UNSIGNED_SHORT, reinterpret_cast<const void*>(sizeof(Index) * mesh.beginIndex)));
     }
 
-    // 後始末
-    XG3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0));
-    XG3D_GLCMD(glBindBuffer(GL_ARRAY_BUFFER, 0));
+    // クリーンアップ
+    XG3D_GLCMD(glBindVertexArray(0));
 }
 
 //------------------------------------------------------------------------------
-VtxBuffer_EXT::VtxBuffer_EXT()
-: vtxBuffer()
+VtxBuffer_Ext::VtxBuffer_Ext()
+: vtxArray()
+, vtxBuffer()
 , idxBuffer()
 {
+    XG3D_GLCMD(glGenVertexArrays(1, &vtxArray));
     XG3D_GLCMD(glGenBuffers(1, &vtxBuffer));
     XG3D_GLCMD(glGenBuffers(1, &idxBuffer));
 }
 
 //------------------------------------------------------------------------------
-VtxBuffer_EXT::~VtxBuffer_EXT()
+VtxBuffer_Ext::~VtxBuffer_Ext()
 {
     XG3D_GLCMD(glDeleteBuffers(1, &idxBuffer));
     idxBuffer = 0;
 
     XG3D_GLCMD(glDeleteBuffers(1, &vtxBuffer));
     vtxBuffer = 0;
+
+    XG3D_GLCMD(glDeleteVertexArrays(1, &vtxArray));
+    vtxArray = 0;
 }
 
 } // namespace

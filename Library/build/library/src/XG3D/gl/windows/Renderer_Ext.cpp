@@ -17,7 +17,7 @@ void Renderer::copyToScreen(::XBase::Screen& aScreen)
 }
 
 //------------------------------------------------------------------------------
-void Renderer_EXT::setup(::XBase::Display& aDisplay)
+void Renderer_Ext::setup(::XBase::Display& aDisplay)
 {
     // デバイスコンテキスト取得
     HDC dc = GetDC(aDisplay.ext_().window);
@@ -51,11 +51,32 @@ void Renderer_EXT::setup(::XBase::Display& aDisplay)
     HGLRC tempContext = wglCreateContext(dc);
     wglMakeCurrent(dc, tempContext);
 
-    // GLEE
-    if (GLeeInit() == GL_FALSE) {
+    // GLEW
+    if (glewInit() != GLEW_OK) {
         XBASE_ASSERT_NOT_REACHED();
         return;
     }
+
+    // コアプロファイルの有効化
+    if (true) {
+        // 使用する OpenGL のバージョンとプロファイルの指定
+        static const int  att[] = {
+            WGL_CONTEXT_MAJOR_VERSION_ARB, 3,
+            WGL_CONTEXT_MINOR_VERSION_ARB, 3,
+            WGL_CONTEXT_FLAGS_ARB, 0,
+            WGL_CONTEXT_PROFILE_MASK_ARB, WGL_CONTEXT_CORE_PROFILE_BIT_ARB,
+            0,
+        };
+
+        // 作成済みのContextを無効化
+        wglMakeCurrent(dc, NULL);
+        wglDeleteContext(tempContext);
+
+        // コアプロファイルで有効化
+        tempContext = wglCreateContextAttribsARB(dc, NULL, att);
+        wglMakeCurrent(dc, tempContext);
+    }
+    //std::printf("Version: %s\n", glGetString(GL_VERSION));
 }
 
 } // namespace

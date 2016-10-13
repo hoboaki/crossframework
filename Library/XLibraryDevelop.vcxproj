@@ -106,7 +106,7 @@
     <ClCompile Include="build\library\src\XG3D\gl\TexBuffer.cpp" />
     <ClCompile Include="build\library\src\XG3D\gl\TexSetting.cpp" />
     <ClCompile Include="build\library\src\XG3D\gl\VtxBuffer.cpp" />
-    <ClCompile Include="build\library\src\XG3D\gl\windows\GLee.c" />
+    <ClCompile Include="build\library\src\XG3D\gl\windows\glew.c" />
     <ClCompile Include="build\library\src\XG3D\gl\windows\Renderer_EXT.cpp" />
     <ClCompile Include="build\library\develop\Main.cpp" />
   </ItemGroup>
@@ -251,7 +251,7 @@
     <ClInclude Include="build\library\src\XG3D\gl\BinResTex.hpp" />
     <ClInclude Include="include\XG3D\BuiltInTypes.hpp" />
     <ClInclude Include="include\XG3D\Engine.hpp" />
-    <ClInclude Include="include\XG3D\GLee.h" />
+    <ClInclude Include="include\XG3D\glew.h" />
     <ClInclude Include="include\XG3D\ITexRes.hpp" />
     <ClInclude Include="include\XG3D\MatParam.hpp" />
     <ClInclude Include="include\XG3D\MdlLocalMtx.hpp" />
@@ -288,6 +288,7 @@
     <ClInclude Include="include\XG3D\TexSetting_GL.hpp" />
     <ClInclude Include="include\XG3D\VtxBuffer.hpp" />
     <ClInclude Include="include\XG3D\VtxBuffer_GL.hpp" />
+    <ClInclude Include="include\XG3D\wglew.h" />
     <ClInclude Include="include\XG3D\XG3D.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

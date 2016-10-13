@@ -57,22 +57,17 @@ namespace CrossFramework.XG3D
             /// RGB565。
             /// </summary>
             RGB565,
-
+            
+            /// <summary>
+            /// RG8。
+            /// </summary>
+            RG8,
 
             /// <summary>
-            /// A8。
+            /// R8。
             /// </summary>
-            A8,
+            R8,
 
-            /// <summary>
-            /// LA8。
-            /// </summary>
-            LA8,
-
-            /// <summary>
-            /// L8。
-            /// </summary>
-            L8,
         };
         /// <summary>
         /// アルファがあるフォーマットか。
@@ -86,8 +81,6 @@ namespace CrossFramework.XG3D
                 case FormatType.RGBA8:
                 case FormatType.RGB5A1:
                 case FormatType.RGBA4:
-                case FormatType.A8:
-                case FormatType.LA8:
                     return true;
 
                 default:
@@ -117,16 +110,32 @@ namespace CrossFramework.XG3D
         }
 
         /// <summary>
-        /// Luminanceがあるフォーマットか。
+        /// RGがあるフォーマットか。
         /// </summary>
         /// <param name="aType"></param>
         /// <returns></returns>
-        static public bool HasLuminance(FormatType aType)
+        static public bool HasRG(FormatType aType)
         {
             switch (aType)
             {
-                case FormatType.LA8:
-                case FormatType.L8:
+                case FormatType.RG8:
+                    return true;
+
+                default:
+                    return false;
+            }
+        }
+
+        /// <summary>
+        /// Rがあるフォーマットか。
+        /// </summary>
+        /// <param name="aType"></param>
+        /// <returns></returns>
+        static public bool HasR(FormatType aType)
+        {
+            switch (aType)
+            {
+                case FormatType.R8:
                     return true;
 
                 default:
@@ -256,7 +265,8 @@ namespace CrossFramework.XG3D
                             xml.WriteStartElement("pixels");
                             {
                                 bool hasRGB = HasRGB(mFormat);
-                                bool hasLuminance = HasLuminance(mFormat);
+                                bool hasRG = HasRG(mFormat);
+                                bool hasR = HasR(mFormat);
                                 bool hasAlpha = HasAlpha(mFormat);
                                 for (int y = 0; y < mHeight; ++y)
                                 {
@@ -271,7 +281,11 @@ namespace CrossFramework.XG3D
                                         {
                                             str += pix.R.ToString() + " " + pix.G.ToString() + " " + pix.B.ToString();
                                         }
-                                        if (hasLuminance)
+                                        if (hasRG)
+                                        {
+                                            str += pix.R.ToString() + " " + pix.G.ToString();
+                                        }
+                                        if (hasR)
                                         {
                                             str += pix.R.ToString();
                                         }
@@ -395,37 +409,24 @@ namespace CrossFramework.XG3D
                                 );
                             break;
 
-                        case FormatType.A8:
+                        case FormatType.RG8:
+                            {
+                                newPix = Color.FromArgb(
+                                    255
+                                    , srcPix.R
+                                    , srcPix.G
+                                    , 255
+                                    );
+                            }
+                            break;
+
+                        case FormatType.R8:
                             newPix = Color.FromArgb(
-                                srcPix.A
-                                , 255
+                                255
+                                , srcPix.R
                                 , 255
                                 , 255
                                 );
-                            break;
-
-                        case FormatType.LA8:
-                            {
-                                int ave = calcLuminance(srcPix);
-                                newPix = Color.FromArgb(
-                                    srcPix.A
-                                    , ave
-                                    , ave
-                                    , ave
-                                    );
-                            }
-                            break;
-
-                        case FormatType.L8:
-                            {
-                                int ave = calcLuminance(srcPix);
-                                newPix = Color.FromArgb(
-                                    255
-                                    , ave
-                                    , ave
-                                    , ave
-                                    );
-                            }
                             break;
                             
                         default:
@@ -456,6 +457,10 @@ namespace CrossFramework.XG3D
             mPixels = new Color[mWidth, mHeight];
             {
                 int idx = 0;
+                bool hasRGB = HasRGB(mFormat);
+                bool hasRG = HasRG(mFormat);
+                bool hasR = HasR(mFormat);
+                bool hasA = HasAlpha(mFormat);
                 for (int y = 0; y < mHeight; ++y)
                 {
                     for (int x = 0; x < mWidth; ++x)
@@ -465,19 +470,22 @@ namespace CrossFramework.XG3D
                         byte b = 255; 
                         byte a = 255;
 
-                        if (HasRGB(mFormat))
+                        if (hasRGB)
                         {// RGB
                             r = byte.Parse(entries[idx]); ++idx;
                             g = byte.Parse(entries[idx]); ++idx;
                             b = byte.Parse(entries[idx]); ++idx;
                         }
-                        if (HasLuminance(mFormat))
-                        {// Luminance
+                        if (hasRG)
+                        {// RG
                             r = byte.Parse(entries[idx]); ++idx;
-                            g = r;
-                            b = r;
+                            g = byte.Parse(entries[idx]); ++idx;
                         }
-                        if (HasAlpha(mFormat))
+                        if (hasR)
+                        {// R
+                            r = byte.Parse(entries[idx]); ++idx;
+                        }
+                        if (hasA)
                         {// Alpha
                             a = byte.Parse(entries[idx]); ++idx;
                         }

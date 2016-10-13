@@ -17,12 +17,13 @@ class Display;
 namespace XG3D {
 
 // Rendererの拡張。
-class Renderer_EXT
+class Renderer_Ext
 {
 public:
     enum { UNIFORM_COUNT = 6 };
     GLuint demoShaderProgram;
     GLint  demoUniformLocations[UNIFORM_COUNT];
+    GLuint sharedVertexArray;
     ::XBase::Bool32 colorUpdate;
     ::XBase::Bool32 depthUpdate;
     ::XG3D::ResMat currentMaterial;
@@ -31,7 +32,7 @@ public:
     ::XBase::Matrix34 mtxWorld;
 
     //============================================================
-    Renderer_EXT();
+    Renderer_Ext();
 
     //============================================================
     void setup(::XBase::Display&);

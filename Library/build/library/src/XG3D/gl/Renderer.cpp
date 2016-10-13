@@ -50,35 +50,26 @@ XBASE_ARRAY_LENGTH_CHECK(tTexFilterTable, TexFilter::TERM);
 // シングルトンインスタンス
 ::XBase::Pointer< Renderer > tInstance;
 
+// バージョンマクロ
+#if defined(XG3D_ENGINE_GL)
+    #define LOCAL_VERSION_DIRECTIVE "#version 330 core\r\n"
+#elif defined(XG3D_ENGINE_GLES)
+    #define LOCAL_VERSION_DIRECTIVE "#version 300 es\r\n"
+#endif
+
 // シェーダーソース
 const GLchar tSHADER_SOURCE_VSH[] =
-#if defined(XG3D_ENGINE_GL)
-"#version 120\r\n"
-#endif
-"#ifdef GL_ES\r\n"
-"    #define IN         attribute\r\n"
-"    #define OUT        varying\r\n"
-"    #define LOWP       lowp\r\n"
-"    #define MEDIUMP    mediump\r\n"
-"    precision MEDIUMP  float;\r\n"
-"    precision MEDIUMP  int;\r\n"
-"#else\r\n"
-"    #define IN         attribute\r\n"
-"    #define OUT        varying\r\n"
-"    #define LOWP       \r\n"
-"    #define MEDIUMP    \r\n"
-"#endif\r\n"
-""
+LOCAL_VERSION_DIRECTIVE
 "uniform mat4 _prmMtxProj;"
 "uniform mat4 _prmMtxView;"
 "uniform mat4 _prmMtxWorld;"
 ""
-"IN  vec3 iVtxPosition;"
-"IN  vec3 iVtxNormal;"
-"IN  vec4 iVtxTexCoord;"
-"IN  vec4 iVtxColor;"
-"OUT vec4 vColor;"
-"OUT vec4 vTexCoord;"
+"in  vec3 iVtxPosition;"
+"in  vec3 iVtxNormal;"
+"in  vec4 iVtxTexCoord;"
+"in  vec4 iVtxColor;"
+"out vec4 vColor;"
+"out vec4 vTexCoord;"
 "    "
 "void main()"
 "{"
@@ -88,36 +79,24 @@ const GLchar tSHADER_SOURCE_VSH[] =
 "}"
 "";
 const GLchar tSHADER_SOURCE_FSH[] =
-#if defined(XG3D_ENGINE_GL)
-"#version 120\r\n"
-#endif
+LOCAL_VERSION_DIRECTIVE
 "#ifdef GL_ES\r\n"
-"    #define IN         varying\r\n"
-"    #define LOWP       lowp\r\n"
-"    #define MEDIUMP    mediump\r\n"
-"    precision MEDIUMP  float;\r\n"
-"    precision MEDIUMP  int;\r\n"
-"    precision LOWP     sampler2D;\r\n"
-"#else\r\n"
-"    #define IN         varying\r\n"
-"    #define LOWP       \r\n"
-"    #define MEDIUMP    \r\n"
+"    precision highp float;\r\n"
 "#endif\r\n"
-""
 "uniform int       uTexActive;"
 "uniform sampler2D uTexSampler;"
 ""
-"IN LOWP vec4 vColor;"
-"IN LOWP vec4 vTexCoord;"
+"in vec4 vColor;"
+"in vec4 vTexCoord;"
+"out vec4 oFragColor;"
 ""
 "void main()"
 "{"
-"    if ( uTexActive != 0 )" "    {"
-"        gl_FragColor = vColor * texture2D( uTexSampler , vTexCoord.st );"
+"    if (uTexActive != 0) {"
+"        oFragColor = vColor * texture(uTexSampler, vTexCoord.st);"
 "    }"
-"    else"
-"    {"
-"        gl_FragColor = vColor;"
+"    else {"
+"        oFragColor = vColor;"
 "    }"
 "}";
 bool tCreateShader(
@@ -135,7 +114,7 @@ bool tCreateShader(
     {
         GLint logLength;
         XG3D_GLCMD(glGetShaderiv(*aShader, GL_INFO_LOG_LENGTH, &logLength));
-        if (logLength > 0) {
+        if (1 < logLength) { // 1文字だけでる場合もあるので2文字以上のときのみ処理する
             GLchar *log = (GLchar *)malloc(logLength);
             XG3D_GLCMD(glGetShaderInfoLog(*aShader, logLength, &logLength, log));
             XBASE_COUT_LINE(log);
@@ -169,10 +148,13 @@ bool tLinkProgram(GLuint aProgram)
 bool tValidateProgram(GLuint aProgram)
 {
 #if defined(XBASE_OS_MACOSX)
-        // macos 10.11 環境で動作しないため即リターン。
+    // macos 10.11 環境では動作しないため即リターン。
+    // NSOpenGLView::prepareOpenGL が呼ばれた後なら動作するのだが
+    // Renderer.cpp のコンストラクタはそれよりも前に呼ばれてしまう。
+    // 少し気持ち悪いが return することで回避する。
     return true;
 #endif
-
+    
     GLint status = GLint();
     XG3D_GLCMD(glValidateProgram(aProgram));
     XG3D_GLCMD(glGetProgramiv(aProgram, GL_VALIDATE_STATUS, &status));
@@ -260,6 +242,9 @@ Renderer::Renderer(::XBase::Display& aDisplay)
     mExt.demoUniformLocations[ShaderConstant::Uniform::TexActive] = glGetUniformLocation(mExt.demoShaderProgram, "uTexActive");
     mExt.demoUniformLocations[ShaderConstant::Uniform::TexSampler] = glGetUniformLocation(mExt.demoShaderProgram, "uTexSampler");
 
+    // 共有VAO作成
+    XG3D_GLCMD(glGenVertexArrays(1, &mExt.sharedVertexArray));
+
     // アルファブレンドは常に有効
     XG3D_GLCMD(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
     XG3D_GLCMD(glEnable(GL_BLEND));
@@ -276,6 +261,10 @@ Renderer::~Renderer()
 {
     // インスタンス設定解除
     tInstance.unset(*this);
+
+    // 共有VAO削除
+    XG3D_GLCMD(glDeleteVertexArrays(1, &mExt.sharedVertexArray));
+    mExt.sharedVertexArray = 0;
 
     // シェーダープログラムの破棄
     XG3D_GLCMD(glUseProgram(0));
@@ -516,6 +505,7 @@ void Renderer::draw(
     // 頂点属性有効化
     const ResMdlShapeImpl* shapeImpl = aShape.impl_();
     const ResMatImpl* matImpl = aMaterial.resMat().impl_();
+    XG3D_GLCMD(glBindVertexArray(mExt.sharedVertexArray));
     XG3D_GLCMD(glBindBuffer(GL_ARRAY_BUFFER, shapeImpl->vtxAttrBuffer));
     XG3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, shapeImpl->idxBuffer));
     for (int i = 0; i < matImpl->vtxAttrs->count(); ++i) {
@@ -541,12 +531,13 @@ void Renderer::draw(
         0
     ));
 
-// 頂点属性無効化
+    // 頂点属性無効化
     for (int i = matImpl->vtxAttrs->count(); 0 < i; --i) {
         XG3D_GLCMD(glDisableVertexAttribArray(i - 1));
     }
     XG3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0));
     XG3D_GLCMD(glBindBuffer(GL_ARRAY_BUFFER, 0));
+    XG3D_GLCMD(glBindVertexArray(0));
 }
 
 //------------------------------------------------------------------------------
@@ -562,9 +553,10 @@ void Renderer::copyToDisplay(::XBase::Display& aDisplay)
 }
 
 //------------------------------------------------------------------------------
-Renderer_EXT::Renderer_EXT()
+Renderer_Ext::Renderer_Ext()
 : demoShaderProgram(0)
 , demoUniformLocations()
+, sharedVertexArray(0)
 , colorUpdate(false)
 , depthUpdate(false)
 , currentMaterial()
@@ -576,7 +568,7 @@ Renderer_EXT::Renderer_EXT()
 }
 
 //------------------------------------------------------------------------------
-void Renderer_EXT::updateMtxProj()
+void Renderer_Ext::updateMtxProj()
 {
     const GLint location = currentMaterial.isValid()
         ? currentMaterial.impl_()->sysUniformLocations[ShaderConstant::SysUniform::MtxProj]
@@ -590,7 +582,7 @@ void Renderer_EXT::updateMtxProj()
 }
 
 //------------------------------------------------------------------------------
-void Renderer_EXT::updateMtxView()
+void Renderer_Ext::updateMtxView()
 {
     const GLint location = currentMaterial.isValid()
         ? currentMaterial.impl_()->sysUniformLocations[ShaderConstant::SysUniform::MtxView]
@@ -604,7 +596,7 @@ void Renderer_EXT::updateMtxView()
 }
 
 //------------------------------------------------------------------------------
-void Renderer_EXT::updateMtxWorld()
+void Renderer_Ext::updateMtxWorld()
 {
     const GLint location = currentMaterial.isValid()
         ? currentMaterial.impl_()->sysUniformLocations[ShaderConstant::SysUniform::MtxWorld]

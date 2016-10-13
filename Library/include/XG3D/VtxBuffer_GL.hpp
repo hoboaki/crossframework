@@ -9,15 +9,16 @@
 namespace XG3D {
 
 // VtxBufferの拡張。
-class VtxBuffer_EXT
+class VtxBuffer_Ext
 {
 public:
+    GLuint vtxArray;
     GLuint vtxBuffer;
     GLuint idxBuffer;
 
     //============================================================
-    VtxBuffer_EXT();
-    ~VtxBuffer_EXT();
+    VtxBuffer_Ext();
+    ~VtxBuffer_Ext();
 };
 
 } // namespace

@@ -26,12 +26,11 @@ int tBytePerPixel(const ::XG3D::ResTexFormat::EnumType aFormat)
         case ResTexFormat::RGB5A1:
         case ResTexFormat::RGBA4:
         case ResTexFormat::RGB565:
-        case ResTexFormat::LA8:
+        case ResTexFormat::RG8:
             bytePerPix = 2;
             break;
 
-        case ResTexFormat::A8:
-        case ResTexFormat::L8:
+        case ResTexFormat::R8:
             bytePerPix = 1;
             break;
 
@@ -175,16 +174,12 @@ void RuntimeTex::setPixel(
                 );
             break;
 
-        case ResTexFormat::LA8:
+        case ResTexFormat::RG8:
             addr[0] = aVal.r;
-            addr[1] = aVal.a;
+            addr[1] = aVal.g;
             break;
 
-        case ResTexFormat::A8:
-            addr[0] = aVal.a;
-            break;
-
-        case ResTexFormat::L8:
+        case ResTexFormat::R8:
             addr[0] = aVal.r;
             break;
 
