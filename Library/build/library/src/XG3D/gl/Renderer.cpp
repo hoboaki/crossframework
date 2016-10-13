@@ -242,6 +242,9 @@ Renderer::Renderer(::XBase::Display& aDisplay)
     mExt.demoUniformLocations[ShaderConstant::Uniform::TexActive] = glGetUniformLocation(mExt.demoShaderProgram, "uTexActive");
     mExt.demoUniformLocations[ShaderConstant::Uniform::TexSampler] = glGetUniformLocation(mExt.demoShaderProgram, "uTexSampler");
 
+    // 共有VAO作成
+    XG3D_GLCMD(glGenVertexArrays(1, &mExt.sharedVertexArray));
+
     // アルファブレンドは常に有効
     XG3D_GLCMD(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
     XG3D_GLCMD(glEnable(GL_BLEND));
@@ -258,6 +261,10 @@ Renderer::~Renderer()
 {
     // インスタンス設定解除
     tInstance.unset(*this);
+
+    // 共有VAO削除
+    XG3D_GLCMD(glDeleteVertexArrays(1, &mExt.sharedVertexArray));
+    mExt.sharedVertexArray = 0;
 
     // シェーダープログラムの破棄
     XG3D_GLCMD(glUseProgram(0));
@@ -498,6 +505,7 @@ void Renderer::draw(
     // 頂点属性有効化
     const ResMdlShapeImpl* shapeImpl = aShape.impl_();
     const ResMatImpl* matImpl = aMaterial.resMat().impl_();
+    XG3D_GLCMD(glBindVertexArray(mExt.sharedVertexArray));
     XG3D_GLCMD(glBindBuffer(GL_ARRAY_BUFFER, shapeImpl->vtxAttrBuffer));
     XG3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, shapeImpl->idxBuffer));
     for (int i = 0; i < matImpl->vtxAttrs->count(); ++i) {
@@ -523,12 +531,13 @@ void Renderer::draw(
         0
     ));
 
-// 頂点属性無効化
+    // 頂点属性無効化
     for (int i = matImpl->vtxAttrs->count(); 0 < i; --i) {
         XG3D_GLCMD(glDisableVertexAttribArray(i - 1));
     }
     XG3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0));
     XG3D_GLCMD(glBindBuffer(GL_ARRAY_BUFFER, 0));
+    XG3D_GLCMD(glBindVertexArray(0));
 }
 
 //------------------------------------------------------------------------------
@@ -544,9 +553,10 @@ void Renderer::copyToDisplay(::XBase::Display& aDisplay)
 }
 
 //------------------------------------------------------------------------------
-Renderer_EXT::Renderer_EXT()
+Renderer_Ext::Renderer_Ext()
 : demoShaderProgram(0)
 , demoUniformLocations()
+, sharedVertexArray(0)
 , colorUpdate(false)
 , depthUpdate(false)
 , currentMaterial()
@@ -558,7 +568,7 @@ Renderer_EXT::Renderer_EXT()
 }
 
 //------------------------------------------------------------------------------
-void Renderer_EXT::updateMtxProj()
+void Renderer_Ext::updateMtxProj()
 {
     const GLint location = currentMaterial.isValid()
         ? currentMaterial.impl_()->sysUniformLocations[ShaderConstant::SysUniform::MtxProj]
@@ -572,7 +582,7 @@ void Renderer_EXT::updateMtxProj()
 }
 
 //------------------------------------------------------------------------------
-void Renderer_EXT::updateMtxView()
+void Renderer_Ext::updateMtxView()
 {
     const GLint location = currentMaterial.isValid()
         ? currentMaterial.impl_()->sysUniformLocations[ShaderConstant::SysUniform::MtxView]
@@ -586,7 +596,7 @@ void Renderer_EXT::updateMtxView()
 }
 
 //------------------------------------------------------------------------------
-void Renderer_EXT::updateMtxWorld()
+void Renderer_Ext::updateMtxWorld()
 {
     const GLint location = currentMaterial.isValid()
         ? currentMaterial.impl_()->sysUniformLocations[ShaderConstant::SysUniform::MtxWorld]

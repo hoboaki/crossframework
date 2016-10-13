@@ -54,7 +54,7 @@
     <ClCompile Include="..\src\XG3D\gl\TexSetting.cpp" />
     <ClCompile Include="..\src\XG3D\gl\VtxBuffer.cpp" />
     <ClCompile Include="..\src\XG3D\gl\windows\glew.c" />
-    <ClCompile Include="..\src\XG3D\gl\windows\Renderer_EXT.cpp" />
+    <ClCompile Include="..\src\XG3D\gl\windows\Renderer_Ext.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\include\XG3D\BuiltInTypes.hpp" />

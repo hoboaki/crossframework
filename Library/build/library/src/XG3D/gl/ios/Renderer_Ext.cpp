@@ -22,7 +22,7 @@ void Renderer::copyToScreen(::XBase::Screen& aScreen)
 }
 
 //------------------------------------------------------------------------------
-void Renderer_EXT::setup(::XBase::Display& aDisplay)
+void Renderer_Ext::setup(::XBase::Display& aDisplay)
 {
     XG3DUIOpenGLView* view = XG3DUIOpenGLView_Setup(
         aDisplay.ext_().windowPtr

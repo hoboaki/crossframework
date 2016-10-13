@@ -97,7 +97,7 @@ public:
 
 private:
     ::XBase::Display& mDisplay;
-    Renderer_EXT mExt;
+    Renderer_Ext mExt;
 };
 
 //@}

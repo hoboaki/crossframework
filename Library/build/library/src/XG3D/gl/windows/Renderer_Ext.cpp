@@ -17,7 +17,7 @@ void Renderer::copyToScreen(::XBase::Screen& aScreen)
 }
 
 //------------------------------------------------------------------------------
-void Renderer_EXT::setup(::XBase::Display& aDisplay)
+void Renderer_Ext::setup(::XBase::Display& aDisplay)
 {
     // デバイスコンテキスト取得
     HDC dc = GetDC(aDisplay.ext_().window);
