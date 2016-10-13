@@ -108,9 +108,6 @@
     <ClCompile Include="..\src\XG3D\gl\TexSetting.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\windows\Renderer_EXT.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\XG3D\gl\StateMaterial.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -118,6 +115,9 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="..\src\XG3D\gl\windows\glew.c">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\XG3D\gl\windows\Renderer_Ext.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
