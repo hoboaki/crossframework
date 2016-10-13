@@ -9,14 +9,14 @@
 namespace XG3D {
 
 // TexBufferの拡張。
-class TexBuffer_EXT
+class TexBuffer_Ext
 {
 public:
     GLuint texId;
 
     //============================================================
-    TexBuffer_EXT();
-    ~TexBuffer_EXT();
+    TexBuffer_Ext();
+    ~TexBuffer_Ext();
 };
 
 } // namespace

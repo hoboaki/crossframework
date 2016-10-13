@@ -52,21 +52,15 @@ TexBuffer::TexBuffer(
             type = GL_UNSIGNED_SHORT_5_6_5;
             break;
 
-        case ResTexFormat::A8:
-            internalFormat = GL_ALPHA;
-            format = GL_ALPHA;
-            type = GL_UNSIGNED_BYTE;
-            break;
-
-        case ResTexFormat::LA8:
-            internalFormat = GL_RG;
-            format = GL_RG;
-            type = GL_UNSIGNED_BYTE;
-            break;
-
-        case ResTexFormat::L8:
+        case ResTexFormat::R8:
             internalFormat = GL_RED;
             format = GL_RED;
+            type = GL_UNSIGNED_BYTE;
+            break;
+
+        case ResTexFormat::RG8:
+            internalFormat = GL_RG;
+            format = GL_RG;
             type = GL_UNSIGNED_BYTE;
             break;
 
@@ -107,26 +101,26 @@ int TexBuffer::imageHeight()const
 }
 
 //------------------------------------------------------------------------------
-TexBuffer_EXT& TexBuffer::ext_()
+TexBuffer_Ext& TexBuffer::ext_()
 {
     return mExt;
 }
 
 //------------------------------------------------------------------------------
-const TexBuffer_EXT& TexBuffer::ext_()const
+const TexBuffer_Ext& TexBuffer::ext_()const
 {
     return mExt;
 }
 
 //------------------------------------------------------------------------------
-TexBuffer_EXT::TexBuffer_EXT()
+TexBuffer_Ext::TexBuffer_Ext()
 : texId()
 {
     XG3D_GLCMD(glGenTextures(1, &texId));
 }
 
 //------------------------------------------------------------------------------
-TexBuffer_EXT::~TexBuffer_EXT()
+TexBuffer_Ext::~TexBuffer_Ext()
 {
     XG3D_GLCMD(glDeleteTextures(1, &texId));
 }

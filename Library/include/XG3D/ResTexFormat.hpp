@@ -18,9 +18,8 @@ struct ResTexFormat
         RGB5A1,  ///< RGB5A1。
         RGBA4,   ///< RGBA4。
         RGB565,  ///< RGB565。
-        A8,      ///< A8。
-        LA8,     ///< LA8。
-        L8,      ///< L8。
+        R8,      ///< R8。
+        RG8,     ///< RG8。
 
         TERM,
     };
