@@ -331,7 +331,7 @@ namespace CrossFramework.XG3D
                     }
                     else if (hasNormal)
                     {
-                        writer.WriteLine(@"    vec4 normalColor = vec4((" + VARYING_NORMAL + ".rgb + vec3(1.0)) * 0.5, 1.0);");
+                        writer.WriteLine(@"    vec4 normalColor = vec4((normalize(" + VARYING_NORMAL + ") + vec3(1.0)) * 0.5, 1.0);");
                         writer.WriteLine(@"    oFragColor = normalColor;");
                     }
                     else

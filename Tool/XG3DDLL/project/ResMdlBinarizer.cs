@@ -258,7 +258,6 @@ namespace CrossFramework.XG3D
                     }
                     int[] indexArrayData = new int[shape.VertexCount];
                     ShapeInputIndexSet[] inputIndexSets;
-                    unsafe
                     {
                         // index配列の作成
                         Dictionary<ShapeInputIndexSet, int> optimizedIndex = new Dictionary<ShapeInputIndexSet, int>();
@@ -269,7 +268,7 @@ namespace CrossFramework.XG3D
                             ShapeInputIndexSet tmpInputIndexSet = new ShapeInputIndexSet();
                             foreach (var shapeInput in shape.Inputs)
                             {
-                                tmpInputIndexSet.idx[(int)shapeInput.Kind] = shapeInput.IndexArray[vtxIdx];
+                                tmpInputIndexSet.IndexArray[(int)shapeInput.Kind] = shapeInput.IndexArray[vtxIdx];
                             }
 
                             // あるかないか
@@ -418,72 +417,69 @@ namespace CrossFramework.XG3D
                             }
 
                             // データ列をはいていく
-                            unsafe
+                            for (int indexSetIdx = 0; indexSetIdx < inputIndexSets.Length; ++indexSetIdx)
                             {
-                                for (int indexSetIdx = 0; indexSetIdx < inputIndexSets.Length; ++indexSetIdx)
+                                ShapeInputIndexSet indexSet = inputIndexSets[indexSetIdx];
+                                for (int inputIdx = 0; inputIdx < vtxAttrInfos.Length; ++inputIdx)
                                 {
-                                    ShapeInputIndexSet indexSet = inputIndexSets[indexSetIdx];
-                                    for (int inputIdx = 0; inputIdx < vtxAttrInfos.Length; ++inputIdx)
+                                    VtxAttrInfo attrInfo = vtxAttrInfos[inputIdx];
+                                    BinarizedInput input = binarizedInputs[inputIdx];
+                                    int elemCount = attrInfo.ElemCount;
+                                    int index = indexSet.IndexArray[(int)attrInfo.InputKind] * elemCount;
+                                    switch (attrInfo.DataType)
                                     {
-                                        VtxAttrInfo attrInfo = vtxAttrInfos[inputIdx];
-                                        BinarizedInput input = binarizedInputs[inputIdx];
-                                        int elemCount = attrInfo.ElemCount;
-                                        int index = indexSet.idx[(int)attrInfo.InputKind] * elemCount;
-                                        switch (attrInfo.DataType)
+                                    case ShapeDataTypeGL.Float:
+                                        for (int elemIdx = 0; elemIdx < elemCount; ++elemIdx)
                                         {
-                                        case ShapeDataTypeGL.Float:
-                                            for (int elemIdx = 0; elemIdx < elemCount; ++elemIdx)
-                                            {
-                                                binarizer.Add(input.Float[index + elemIdx]);
-                                            }
-                                            break;
-
-                                        case ShapeDataTypeGL.Int8:
-                                            for (int elemIdx = 0; elemIdx < elemCount; ++elemIdx)
-                                            {
-                                                binarizer.Add(input.Int8[index+elemIdx]);
-                                            }
-                                            break;
-
-                                        case ShapeDataTypeGL.Int16:
-                                            for (int elemIdx = 0; elemIdx < elemCount; ++elemIdx)
-                                            {
-                                                binarizer.Add(input.Int16[index+elemIdx]);
-                                            }
-                                            break;
-
-                                        case ShapeDataTypeGL.Int32:
-                                            for (int elemIdx = 0; elemIdx < elemCount; ++elemIdx)
-                                            {
-                                                binarizer.Add(input.Int32[index+elemIdx
-                                                    ]);
-                                            }
-                                            break;
-
-                                        case ShapeDataTypeGL.UInt8:
-                                            for (int elemIdx = 0; elemIdx < elemCount; ++elemIdx)
-                                            {
-                                                binarizer.Add(input.UInt8[index + elemIdx]);
-                                            }
-                                            break;
-
-                                        case ShapeDataTypeGL.UInt16:
-                                            for (int elemIdx = 0; elemIdx < elemCount; ++elemIdx)
-                                            {
-                                                binarizer.Add(input.UInt16[index + elemIdx]);
-                                            }
-                                            break;
-
-                                        case ShapeDataTypeGL.UInt32:
-                                            for (int elemIdx = 0; elemIdx < elemCount; ++elemIdx)
-                                            {
-                                                binarizer.Add(input.UInt32[index + elemIdx]);
-                                            }
-                                            break;
-
-                                        default:
-                                            throw new Exception();
+                                            binarizer.Add(input.Float[index + elemIdx]);
                                         }
+                                        break;
+
+                                    case ShapeDataTypeGL.Int8:
+                                        for (int elemIdx = 0; elemIdx < elemCount; ++elemIdx)
+                                        {
+                                            binarizer.Add(input.Int8[index+elemIdx]);
+                                        }
+                                        break;
+
+                                    case ShapeDataTypeGL.Int16:
+                                        for (int elemIdx = 0; elemIdx < elemCount; ++elemIdx)
+                                        {
+                                            binarizer.Add(input.Int16[index+elemIdx]);
+                                        }
+                                        break;
+
+                                    case ShapeDataTypeGL.Int32:
+                                        for (int elemIdx = 0; elemIdx < elemCount; ++elemIdx)
+                                        {
+                                            binarizer.Add(input.Int32[index+elemIdx
+                                                ]);
+                                        }
+                                        break;
+
+                                    case ShapeDataTypeGL.UInt8:
+                                        for (int elemIdx = 0; elemIdx < elemCount; ++elemIdx)
+                                        {
+                                            binarizer.Add(input.UInt8[index + elemIdx]);
+                                        }
+                                        break;
+
+                                    case ShapeDataTypeGL.UInt16:
+                                        for (int elemIdx = 0; elemIdx < elemCount; ++elemIdx)
+                                        {
+                                            binarizer.Add(input.UInt16[index + elemIdx]);
+                                        }
+                                        break;
+
+                                    case ShapeDataTypeGL.UInt32:
+                                        for (int elemIdx = 0; elemIdx < elemCount; ++elemIdx)
+                                        {
+                                            binarizer.Add(input.UInt32[index + elemIdx]);
+                                        }
+                                        break;
+
+                                    default:
+                                        throw new Exception();
                                     }
                                 }
                             }
@@ -508,9 +504,41 @@ namespace CrossFramework.XG3D
         };
 
         //------------------------------------------------------------
-        unsafe struct ShapeInputIndexSet
+        class ShapeInputIndexSet : IEquatable<ShapeInputIndexSet>
         {
-            public fixed int idx[(int)ResMdl.Shape.InputKind.TERM];
+            // ResMdl.Shape.InputKind が添え字になる配列。
+            public int[] IndexArray { get; private set; }
+
+            public ShapeInputIndexSet()
+            {
+                IndexArray = new int[(int)ResMdl.Shape.InputKind.TERM];
+            }
+
+            public bool Equals(ShapeInputIndexSet other)
+            {
+                for (int i = 0; i < IndexArray.Length; ++i)
+                {
+                    if (IndexArray[i] != other.IndexArray[i])
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+
+            public override bool Equals(object obj)
+            {
+                if (obj == null || !(obj is ShapeInputIndexSet))
+                {
+                    return false;
+                }
+                return Equals((ShapeInputIndexSet)obj);
+            }
+
+            public override int GetHashCode()
+            {
+                return IndexArray.GetHashCode();
+            }
         };
 
         //------------------------------------------------------------
