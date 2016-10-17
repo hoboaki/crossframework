@@ -189,9 +189,6 @@ namespace CrossFramework.XG3D
         const string UNIFORM_VIEW_MATRIX       = "_prmMtxView";
         const string UNIFORM_WORLD_MATRIX = "_prmMtxWorld";
 
-        const string VARYING_NORMAL = "_pshNormal";
-        const string VARYING_COLOR0 = "_pshColor0";
-
         //============================================================
         //------------------------------------------------------------
         class MatBin
@@ -241,109 +238,51 @@ namespace CrossFramework.XG3D
                     VtxAttrs = vtxAttrs.ToArray();
                 }
 
-                // バージョンディレクティブ
-                string versionHeader = "";
-                if (aIsGLES)
-                {
-                    versionHeader = @"#version 300 es";
-                }
-                else
-                {
-                    versionHeader = @"#version 330 core";
-                }
-
-                // VShSrcText
+                // ヘッダの準備
+                string header = "";
                 using (MemoryStream mem = new MemoryStream())
                 {
                     // ライターの設定
                     var writer = new StreamWriter(mem);
                     writer.NewLine = "\r\n";
 
-                    // ヘッダ
-                    writer.WriteLine(versionHeader);
 
-                    // パラメータ
-                    writer.WriteLine(@"uniform mat4 "+ UNIFORM_PROJECTION_MATRIX + ";");
-                    writer.WriteLine(@"uniform mat4 "+ UNIFORM_VIEW_MATRIX + ";");
-                    writer.WriteLine(@"uniform mat4 "+ UNIFORM_WORLD_MATRIX + ";");
-                    writer.WriteLine("in vec3 " + VtxAttr.ToSymbolName(ResMdl.Shape.InputKind.Position) + ";");
-                    if (hasNormal)
+                    // バージョンディレクティブ
+                    if (aIsGLES)
                     {
-                        writer.WriteLine("in vec3 " + VtxAttr.ToSymbolName(ResMdl.Shape.InputKind.Normal) + ";");
-                        writer.WriteLine("out vec3 " + VARYING_NORMAL + ";");
-                    }
-                    if (hasColor)
-                    {
-                        writer.WriteLine("in vec4 " + VtxAttr.ToSymbolName(ResMdl.Shape.InputKind.Color0) + ";");
-                        writer.WriteLine("out vec4 " + VARYING_COLOR0 + ";");
-                    }
-
-                    // メイン関数
-                    writer.WriteLine(@"void main()");
-                    writer.WriteLine(@"{");
-                    if (hasNormal)
-                    {
-                        writer.WriteLine(@"    " + VARYING_NORMAL + " = " + VtxAttr.ToSymbolName(ResMdl.Shape.InputKind.Normal) + ";");
-                    }
-                    if (hasColor)
-                    {
-                        writer.WriteLine(@"    " + VARYING_COLOR0 + " = " + VtxAttr.ToSymbolName(ResMdl.Shape.InputKind.Color0) + ";");
-                    }
-                    writer.WriteLine(@"    vec4 pos4 = vec4(" + VtxAttr.ToSymbolName(ResMdl.Shape.InputKind.Position) + ",1.0);");
-                    writer.WriteLine(@"    gl_Position = " + UNIFORM_PROJECTION_MATRIX + " * " +  UNIFORM_VIEW_MATRIX + " * " + UNIFORM_WORLD_MATRIX + " *  pos4;");
-                    writer.WriteLine(@"}");
-
-                    // 最後に文字列に変換
-                    writer.Flush();
-                    VShSrcText = Encoding.UTF8.GetString(mem.ToArray());
-                }
-                
-                // PShSrcText
-                using (MemoryStream mem = new MemoryStream())
-                {
-                    // ライターの設定
-                    var writer = new StreamWriter(mem);
-                    writer.NewLine = "\r\n";
-
-                    // ヘッダ
-                    writer.WriteLine(versionHeader);
-                    writer.WriteLine(@"#ifdef GL_ES");
-                    writer.WriteLine(@"    precision highp float;");
-                    writer.WriteLine(@"#endif");
-
-                    // パラメータ
-                    if (hasNormal)
-                    {
-                        writer.WriteLine(@"in vec3 " + VARYING_NORMAL + ";");
-                    }
-                    if (hasColor)
-                    {
-                        writer.WriteLine(@"in vec4 " + VARYING_COLOR0 + ";");
-                    }
-                    writer.WriteLine(@"out vec4 oFragColor;");
-
-                    // メイン関数
-                    writer.WriteLine(@"void main()");
-                    writer.WriteLine(@"{");
-                    if (hasColor)
-                    {
-                        writer.WriteLine(@"    oFragColor = " + VARYING_COLOR0 + ";");
-                    }
-                    else if (hasNormal)
-                    {
-                        writer.WriteLine(@"    vec4 normalColor = vec4((normalize(" + VARYING_NORMAL + ") + vec3(1.0)) * 0.5, 1.0);");
-                        writer.WriteLine(@"    oFragColor = normalColor;");
+                        writer.WriteLine(@"#version 300 es");
                     }
                     else
                     {
-                        writer.WriteLine(@"    oFragColor = vec4(1.0, 1.0, 1.0, 1.0);");
+                        writer.WriteLine(@"#version 330 core");
                     }
-                    writer.WriteLine(@"}");
+
+                    // 頂点属性定義
+                    foreach (var vtxAttr in VtxAttrs)
+                    {
+                        // Positionは無視
+                        if (vtxAttr.BindInputKind == ResMdl.Shape.InputKind.Position)
+                        {
+                            continue;
+                        }
+
+                        // 定義
+                        writer.WriteLine(String.Format("#define {0}", ToDefineName(vtxAttr.BindInputKind)));
+                    }
 
                     // 最後に文字列に変換
                     writer.Flush();
-                    PShSrcText = Encoding.UTF8.GetString(mem.ToArray());
-                }                
+                    header = Encoding.UTF8.GetString(mem.ToArray());
+                }
+
+                // テンプレートファイルロード
+                var assetsDirPath = new FileInfo(System.Reflection.Assembly.GetExecutingAssembly().Location).DirectoryName + "/Assets";
+                var shaderTemplateVsh = File.ReadAllText(assetsDirPath + "/Template_GLSL.vert");
+                var shaderTemplatePsh = File.ReadAllText(assetsDirPath + "/Template_GLSL.frag");
+                
+                // 置き換え＆代入
+                VShSrcText = shaderTemplateVsh.Replace("#version auto", header);
+                PShSrcText = shaderTemplatePsh.Replace("#version auto", header);
             }
         };
 
@@ -382,6 +321,7 @@ namespace CrossFramework.XG3D
                     throw new Exception();
                 }
             }
+
             //============================================================
             public readonly ResMdl.Shape.InputKind BindInputKind;
             //============================================================
@@ -390,6 +330,33 @@ namespace CrossFramework.XG3D
                 BindInputKind = aBindInputKind;
             }
         };
+
+        static string ToDefineName(ResMdl.Shape.InputKind aInputKind)
+        {
+            switch (aInputKind)
+            {
+                case ResMdl.Shape.InputKind.Normal: return "USE_ATTR_NORMAL";
+                case ResMdl.Shape.InputKind.WeightPaletteIndex: return "USE_ATTR_WEIGHT_PALETTE_INDEX";
+                case ResMdl.Shape.InputKind.Color0: return "USE_ATTR_COLOR0";
+                case ResMdl.Shape.InputKind.Color1: return "USE_ATTR_COLOR1";
+                case ResMdl.Shape.InputKind.Color2: return "USE_ATTR_COLOR2";
+                case ResMdl.Shape.InputKind.Color3: return "USE_ATTR_COLOR3";
+                case ResMdl.Shape.InputKind.Color4: return "USE_ATTR_COLOR4";
+                case ResMdl.Shape.InputKind.Color5: return "USE_ATTR_COLOR5";
+                case ResMdl.Shape.InputKind.Color6: return "USE_ATTR_COLOR6";
+                case ResMdl.Shape.InputKind.Color7: return "USE_ATTR_COLOR7";
+                case ResMdl.Shape.InputKind.TexCoord0: return "USE_ATTR_TEX_COORD0";
+                case ResMdl.Shape.InputKind.TexCoord1: return "USE_ATTR_TEX_COORD1";
+                case ResMdl.Shape.InputKind.TexCoord2: return "USE_ATTR_TEX_COORD2";
+                case ResMdl.Shape.InputKind.TexCoord3: return "USE_ATTR_TEX_COORD3";
+                case ResMdl.Shape.InputKind.TexCoord4: return "USE_ATTR_TEX_COORD4";
+                case ResMdl.Shape.InputKind.TexCoord5: return "USE_ATTR_TEX_COORD5";
+                case ResMdl.Shape.InputKind.TexCoord6: return "USE_ATTR_TEX_COORD6";
+                case ResMdl.Shape.InputKind.TexCoord7: return "USE_ATTR_TEX_COORD7";
+                default:
+                    throw new Exception();
+            }
+        }
 
         //============================================================       
         ResMdl mResMdl;
