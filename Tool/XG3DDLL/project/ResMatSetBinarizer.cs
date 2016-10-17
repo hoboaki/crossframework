@@ -267,7 +267,7 @@ namespace CrossFramework.XG3D
                         }
 
                         // 定義
-                        writer.WriteLine(String.Format("#define {0}", ToDefineName(vtxAttr.BindInputKind)));
+                        writer.WriteLine(String.Format("#define {0} (1)", ToDefineName(vtxAttr.BindInputKind)));
                     }
 
                     // 最後に文字列に変換
