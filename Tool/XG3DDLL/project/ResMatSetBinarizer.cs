@@ -335,24 +335,24 @@ namespace CrossFramework.XG3D
         {
             switch (aInputKind)
             {
-                case ResMdl.Shape.InputKind.Normal: return "USE_ATTR_NORMAL";
-                case ResMdl.Shape.InputKind.WeightPaletteIndex: return "USE_ATTR_WEIGHT_PALETTE_INDEX";
-                case ResMdl.Shape.InputKind.Color0: return "USE_ATTR_COLOR0";
-                case ResMdl.Shape.InputKind.Color1: return "USE_ATTR_COLOR1";
-                case ResMdl.Shape.InputKind.Color2: return "USE_ATTR_COLOR2";
-                case ResMdl.Shape.InputKind.Color3: return "USE_ATTR_COLOR3";
-                case ResMdl.Shape.InputKind.Color4: return "USE_ATTR_COLOR4";
-                case ResMdl.Shape.InputKind.Color5: return "USE_ATTR_COLOR5";
-                case ResMdl.Shape.InputKind.Color6: return "USE_ATTR_COLOR6";
-                case ResMdl.Shape.InputKind.Color7: return "USE_ATTR_COLOR7";
-                case ResMdl.Shape.InputKind.TexCoord0: return "USE_ATTR_TEX_COORD0";
-                case ResMdl.Shape.InputKind.TexCoord1: return "USE_ATTR_TEX_COORD1";
-                case ResMdl.Shape.InputKind.TexCoord2: return "USE_ATTR_TEX_COORD2";
-                case ResMdl.Shape.InputKind.TexCoord3: return "USE_ATTR_TEX_COORD3";
-                case ResMdl.Shape.InputKind.TexCoord4: return "USE_ATTR_TEX_COORD4";
-                case ResMdl.Shape.InputKind.TexCoord5: return "USE_ATTR_TEX_COORD5";
-                case ResMdl.Shape.InputKind.TexCoord6: return "USE_ATTR_TEX_COORD6";
-                case ResMdl.Shape.InputKind.TexCoord7: return "USE_ATTR_TEX_COORD7";
+                case ResMdl.Shape.InputKind.Normal: return "_USE_ATTR_NORMAL";
+                case ResMdl.Shape.InputKind.WeightPaletteIndex: return "_USE_ATTR_WEIGHT_PALETTE_INDEX";
+                case ResMdl.Shape.InputKind.Color0: return "_USE_ATTR_COLOR0";
+                case ResMdl.Shape.InputKind.Color1: return "_USE_ATTR_COLOR1";
+                case ResMdl.Shape.InputKind.Color2: return "_USE_ATTR_COLOR2";
+                case ResMdl.Shape.InputKind.Color3: return "_USE_ATTR_COLOR3";
+                case ResMdl.Shape.InputKind.Color4: return "_USE_ATTR_COLOR4";
+                case ResMdl.Shape.InputKind.Color5: return "_USE_ATTR_COLOR5";
+                case ResMdl.Shape.InputKind.Color6: return "_USE_ATTR_COLOR6";
+                case ResMdl.Shape.InputKind.Color7: return "_USE_ATTR_COLOR7";
+                case ResMdl.Shape.InputKind.TexCoord0: return "_USE_ATTR_TEX_COORD0";
+                case ResMdl.Shape.InputKind.TexCoord1: return "_USE_ATTR_TEX_COORD1";
+                case ResMdl.Shape.InputKind.TexCoord2: return "_USE_ATTR_TEX_COORD2";
+                case ResMdl.Shape.InputKind.TexCoord3: return "_USE_ATTR_TEX_COORD3";
+                case ResMdl.Shape.InputKind.TexCoord4: return "_USE_ATTR_TEX_COORD4";
+                case ResMdl.Shape.InputKind.TexCoord5: return "_USE_ATTR_TEX_COORD5";
+                case ResMdl.Shape.InputKind.TexCoord6: return "_USE_ATTR_TEX_COORD6";
+                case ResMdl.Shape.InputKind.TexCoord7: return "_USE_ATTR_TEX_COORD7";
                 default:
                     throw new Exception();
             }
