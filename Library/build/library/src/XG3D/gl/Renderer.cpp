@@ -10,6 +10,7 @@
 #include <XBase/Pointer.hpp>
 #include <XBase/Random.hpp>
 #include <XBase/Unused.hpp>
+#include <XG3D/ResConstant.hpp>
 #include <XG3D/ResMdlSubMesh.hpp>
 #include <XG3D/ResMdlShape.hpp>
 #include <XG3D/StateMaterial.hpp>
@@ -487,7 +488,12 @@ void Renderer::draw(
     }
 
     // ワールド行列設定
-    sdSetMtxWorld(aMdlTransform.worldMtx(aSubMesh.nodeIndex()));
+    if (aSubMesh.shape().isSkinning() || aSubMesh.nodeIndex() == ResConstant::INVALID_MDL_NODE_INDEX) {
+        sdSetMtxWorld(::XBase::Mtx34::Identity());
+    }
+    else {
+        sdSetMtxWorld(aMdlTransform.worldMtx(aSubMesh.nodeIndex()));
+    }
 
     // シェイプの描画
     draw(aSubMesh.shape(), aMdlMaterial.material(aSubMesh.matReferIndex()));

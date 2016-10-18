@@ -821,15 +821,9 @@ namespace CrossFramework.XG3D
                 // ノード追加処理を関数化
                 Action<node, node> addNode = (aNode, aParent) =>
                 {
-                    // Itemsのないノードはひとまずサポートしない
-                    if (aNode.Items == null)
-                    {
-                        return;
-                    }
-
                     // Transform解析
                     Transform3 transform = new Transform3();
-                    matrix mtx = (matrix)aNode.Items.FirstOrDefault((obj) => (obj is matrix));
+                    matrix mtx = (matrix)aNode.Items?.FirstOrDefault((obj) => (obj is matrix));
                     if (mtx == null)
                     {
                         // 行列のないノードは単位行列
@@ -962,7 +956,7 @@ namespace CrossFramework.XG3D
                                 meshList.Add(new Pair<string, Pair<string, bind_material>>(
                                     referencedNode.First.Name
                                     , new Pair<string, bind_material>(
-                                        ""
+                                        "" // 親ノード名は無し
                                         , referencedNode.Second.bind_material
                                         )
                                     ));
