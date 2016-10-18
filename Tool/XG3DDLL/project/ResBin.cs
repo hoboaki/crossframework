@@ -14,12 +14,12 @@ namespace CrossFramework.XG3D
         /// <summary>
         /// メジャーバージョン番号。
         /// </summary>
-        public const byte VersionMajor = 0;
+        public const byte VersionMajor = 1;
 
         /// <summary>
         /// マイナーバージョン番号。
         /// </summary>
-        public const byte VersionMinor = 2;
+        public const byte VersionMinor = 0;
 
         //============================================================
 

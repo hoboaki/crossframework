@@ -148,9 +148,19 @@ namespace CrossFramework.XG3D
                 Normal,
 
                 /// <summary>
-                /// ウェイトパレット番号。
+                /// 接線。
                 /// </summary>
-                WeightPaletteIndex,
+                Tangent,
+
+                /// <summary>
+                /// スキニング行列番号。
+                /// </summary>
+                SkinMtxIndex,
+
+                /// <summary>
+                /// スキニングウェイト値。
+                /// </summary>
+                SkinWeight,
 
                 /// <summary>
                 /// カラー0。
@@ -393,9 +403,7 @@ namespace CrossFramework.XG3D
             /// 入力データ。
             /// </summary>
             public readonly Input[] Inputs;
-
-            // スキンウェイトもここに含まれる？
-
+            
             //============================================================
 
             //------------------------------------------------------------

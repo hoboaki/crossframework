@@ -25,9 +25,10 @@ struct BinResMdlShape
     ::XData::UInt16     index;
     ::XData::UInt16     flags;
     ::XData::Reference  name;
-    ::XData::UInt16     skinningTableIdx;
     ::XData::UInt8      indexArrayDataType; // ResMdlShapeInputType
     ::XData::UInt8      vtxAttrInfoCount;
+    ::XData::UInt8      padding0;
+    ::XData::UInt8      padding1;
     ::XData::UInt32     indexArrayDataCount;// indexArrayDataRefの配列要素数。バイト数ではない。
     ::XData::Reference  indexArrayDataRef;
     ::XData::Reference  vtxAttrInfosRef;    // vtxAttrInfoCount数、VtxAttrInfoが並んでいる

@@ -44,7 +44,6 @@ namespace CrossFramework.XG3D
 
             // 定数
             const ushort INVALID_NODE_INDEX = 0xFFFF;
-            const ushort INVALID_SKINNING_TABLE_INDEX = 0xFFFF;
 
             // ラベルの作成
             string matRefersLabel = "ResMdl[" + res.Name + "].matRefers";
@@ -337,9 +336,10 @@ namespace CrossFramework.XG3D
                     binarizer.Add((ushort)shapeIdx);
                     binarizer.Add((ushort)0); // flags
                     binarizer.AddStringRef(shape.Name);
-                    binarizer.Add(INVALID_SKINNING_TABLE_INDEX);
                     binarizer.Add((byte)indexArrayDataType); // indexArrayDataType
                     binarizer.Add((byte)vtxAttrInfos.Length); // vtxAttrInfoCount
+                    binarizer.Add((byte)0); // padding
+                    binarizer.Add((byte)0); // padding
                     binarizer.Add(indexArrayData.Length); // indexArrayDataCount
                     binarizer.AddReference(indexArrayDataLabel); // indexArrayDataRef
                     binarizer.AddReference(vtxAttrInfosLabel); // vtxAttrInfosRef

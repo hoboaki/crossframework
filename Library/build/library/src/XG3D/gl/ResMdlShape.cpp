@@ -64,7 +64,7 @@ bool ResMdlShape::isSkinning()const
     if (checkInvalid()) {
         return false;
     }
-    return mPtr->binPtr->skinningTableIdx != ResConstant::INVALID_MDL_SKINNING_TABLE_INDEX;
+    return mPtr->vtxAttrs[ResMdlShapeInputKind::SkinMtxIndex].info != NULL;
 }
 
 //------------------------------------------------------------------------------
