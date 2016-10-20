@@ -582,6 +582,11 @@ namespace CrossFramework.XG3D
         /// </summary>
         public const byte VersionMinor = 0;
 
+        /// <summary>
+        /// スキニングのインフルエンス数。
+        /// </summary>
+        public const int SkinInfluenceCount = 4;
+
         //============================================================
         /// <summary>
         /// 名前。
@@ -675,6 +680,16 @@ namespace CrossFramework.XG3D
         //============================================================
 
         //------------------------------------------------------------
+        // メッシュ情報
+        class MeshInfo
+        {
+            public string MeshName{ get; set; }
+            public string ParentNodeName { get; set; }
+            public bind_material Material { get; set; }
+            public controller Controller { get; set; }
+        }
+
+        //------------------------------------------------------------
         // ShapeInputに変換するための中継クラス。
         class SourceProxy
         {
@@ -686,12 +701,21 @@ namespace CrossFramework.XG3D
             public SourceProxy(source aSRC)
             {
                 mId = aSRC.id;
-                mStride = (int)aSRC.technique_common.accessor.stride;
+                mInputStride = (int)aSRC.technique_common.accessor.stride;
+                mOutputStride = mInputStride;
                 mIsInt = (aSRC.Item as float_array) == null;
-
+                
                 if (mIsInt)
                 {
-                    mIntArray = ((int_array)aSRC.Item).Values;
+                    if (aSRC.Item is Name_array)
+                    {// Name -> Index なので配列だけ作っておく
+                        mNameArray = ((Name_array)aSRC.Item).Values;
+                        mIntArray = new int[mNameArray.Length];
+                    }
+                    else
+                    {// Int値そのまま
+                        mIntArray = ((int_array)aSRC.Item).Values;
+                    }
                 }
                 else
                 {
@@ -702,8 +726,27 @@ namespace CrossFramework.XG3D
             }
 
             //============================================================
-            public void Reset(string aSemantic, Shape.InputKind aShapeInputKind, int aInputIndex)
+            public void NameResolve(string[] aNameTable)
             {
+                for (int i = 0; i < mIntArray.Length; ++i)
+                {
+                    mIntArray[i] = Array.IndexOf(aNameTable, mNameArray[i]);
+                }
+            }
+
+            //------------------------------------------------------------
+            public void Reset(string aSemantic, Shape.InputKind aShapeInputKind, int aInputIndex, int aForceOutputStride)
+            {
+                // 1以上が指定されていたらそのStrides値で出力する
+                if (aForceOutputStride <= 0)
+                {
+                    mOutputStride = mInputStride;
+                }
+                else
+                {
+                    mOutputStride = aForceOutputStride;
+                }
+
                 mSemantic = aSemantic;
                 mInputIndex = aInputIndex;
                 mShapeInputKind = aShapeInputKind;
@@ -744,15 +787,20 @@ namespace CrossFramework.XG3D
                     List<int> newElemList = new List<int>();
                     for (int i = 0; i < toSrcIndexArray.Length; ++i)
                     {
-                        int srcIndexOffset = toSrcIndexArray[i] * mStride;
-                        for (int elemIdx = 0; elemIdx < mStride; ++i)
+                        int srcIndexOffset = toSrcIndexArray[i] * mInputStride;
+                        for (int elemIdx = 0; elemIdx < mOutputStride; ++i)
                         {
-                            newElemList.Add((int)mFloatArray[srcIndexOffset + elemIdx]);
+                            int value = 0;
+                            if (elemIdx < mInputStride)
+                            {
+                                value = (int)mFloatArray[srcIndexOffset + elemIdx];
+                            }
+                            newElemList.Add(value);
                         }
                     }
                     return new Shape.Input(
                         mShapeInputKind
-                        , mStride
+                        , mOutputStride
                         , newIndexArray
                         , newElemList.ToArray()
                         );
@@ -763,15 +811,20 @@ namespace CrossFramework.XG3D
                     List<float> newElemList = new List<float>();
                     for ( int i = 0; i < toSrcIndexArray.Length; ++i)
                     {
-                        int srcIndexOffset = toSrcIndexArray[i] * mStride;
-                        for ( int elemIdx = 0; elemIdx < mStride; ++elemIdx )
+                        int srcIndexOffset = toSrcIndexArray[i] * mInputStride;
+                        for ( int elemIdx = 0; elemIdx < mOutputStride; ++elemIdx )
                         {
-                            newElemList.Add((float)mFloatArray[srcIndexOffset + elemIdx]);
+                            float value = 0;
+                            if (elemIdx < mInputStride)
+                            {
+                                value = (float)mFloatArray[srcIndexOffset + elemIdx];
+                            }
+                            newElemList.Add(value);
                         }
                     }
                     return new Shape.Input(
                         mShapeInputKind
-                        , mStride
+                        , mOutputStride
                         , newIndexArray
                         , newElemList.ToArray()
                         );
@@ -780,10 +833,12 @@ namespace CrossFramework.XG3D
 
             //============================================================
             string mId;
-            int mStride;
+            int mInputStride;
+            int mOutputStride;
             bool mIsInt;
             int[] mIntArray;
             double[] mFloatArray;
+            string[] mNameArray;
             string mSemantic;
             int mInputIndex;
             Shape.InputKind mShapeInputKind;
@@ -931,20 +986,17 @@ namespace CrossFramework.XG3D
                 }
                 foreach (geometry geo in geometries.geometry)
                 {
-                    // このモデルに属するジオメトリをサーチ
-                    var meshList = new List<Pair<string, Pair<string, bind_material>>>(); // メッシュ名、親ノード名、バインドマテリアル情報
+                    var meshInfoList = new List<MeshInfo>();
                     {
                         {// node -> geometry のパターン
                             var referencedNodes = instanceGeometries.FindAll((obj) => (obj.Second.url == "#" + geo.id));
                             foreach (var referencedNode in referencedNodes)
                             {
-                                meshList.Add(new Pair<string, Pair<string, bind_material>>(
-                                    referencedNode.First.Name
-                                    , new Pair<string, bind_material>(
-                                        referencedNode.First.Name
-                                        , referencedNode.Second.bind_material
-                                        )
-                                    ));
+                                meshInfoList.Add(new MeshInfo(){
+                                    MeshName = referencedNode.First.Name,
+                                    ParentNodeName = referencedNode.First.Name,
+                                    Material = referencedNode.Second.bind_material,
+                                    });
                             }
                         }
                         if (controllers != null && controllers.controller != null)
@@ -953,19 +1005,17 @@ namespace CrossFramework.XG3D
                             var referencedNodes = instanceControllers.FindAll((obj) => (referencedControllers.Exists((ctrl) => (obj.Second.url == "#" + ctrl.id))));
                             foreach (var referencedNode in referencedNodes)
                             {
-                                meshList.Add(new Pair<string, Pair<string, bind_material>>(
-                                    referencedNode.First.Name
-                                    , new Pair<string, bind_material>(
-                                        "" // 親ノード名は無し
-                                        , referencedNode.Second.bind_material
-                                        )
-                                    ));
+                                meshInfoList.Add(new MeshInfo(){
+                                    MeshName = referencedNode.First.Name,
+                                    Material = referencedNode.Second.bind_material,
+                                    Controller = controllers.controller.First(ctrl => ("#" + ctrl.id) == referencedNode.Second.url),
+                                    });
                             }
                         }
                     }
 
                     // メッシュ化する必要がなければ何もしない
-                    if (meshList.Count == 0)
+                    if (meshInfoList.Count == 0)
                     {// このモデルに属するジオメトリではないのでパス
                         continue;
                     }
@@ -981,23 +1031,23 @@ namespace CrossFramework.XG3D
                     var trianglesArray = mesh.Items.ToList().FindAll((obj) => ((obj as triangles) != null));
 
                     // 各instance_geometry＆instance_controllerをMesh化
-                    foreach (var meshEntry in meshList)
+                    foreach (var meshEntry in meshInfoList)
                     {
                         // SubMeshを作成
                         List<SubMesh> subMeshes = new List<SubMesh>();
-                        var instanceMaterials = meshEntry.Second.Second.technique_common.ToList();
+                        var instanceMaterials = meshEntry.Material.technique_common.ToList();
                         int trianglesIndex = 0;
                         foreach (triangles triangles in trianglesArray)
                         {
                             string shapeName = generateShapeName(geo, trianglesIndex);
                             string materialName = instanceMaterials.Find((obj) => (obj.symbol == triangles.material)).target.Substring(1);
-                            subMeshes.Add(new SubMesh(shapeName, materialName, meshEntry.Second.First));
+                            subMeshes.Add(new SubMesh(shapeName, materialName, meshEntry.ParentNodeName));
                             ++trianglesIndex;
                         }
 
                         // メッシュを作成
                         meshes.Add(new Mesh(
-                            meshEntry.First
+                            meshEntry.MeshName
                             , subMeshes
                             ));
                     }
@@ -1006,9 +1056,26 @@ namespace CrossFramework.XG3D
                     {
                         // Sourceの準備
                         var sourceProxies = new List<SourceProxy>();
+                        skin skinning = null;
                         foreach (source source in mesh.source)
                         {
                             sourceProxies.Add(new SourceProxy(source));
+                        }
+                        foreach (var meshInfo in meshInfoList)
+                        {
+                            if (meshInfo.Controller != null && meshInfo.Controller.Item is skin)
+                            {
+                                if (skinning != null)
+                                {
+                                    // 複数のスキニングから１つのシェイプを参照しているケースはサポートしていないs
+                                    throw new NotSupportedException();
+                                }
+                                skinning = (skin)meshInfo.Controller.Item;
+                                foreach (var source in skinning.source)
+                                {
+                                    sourceProxies.Add(new SourceProxy(source));
+                                }
+                            }
                         }
 
                         // 各Triangleの処理
@@ -1020,11 +1087,13 @@ namespace CrossFramework.XG3D
                             {
                                 // 収集先を作成
                                 var targetSourceProxiesList = new List<SourceProxy>();
+                                var skinSourceProxiesList = new Dictionary<Shape.InputKind, SourceProxy>();
 
                                 // 追加関数を定義
                                 Action<string, SourceProxy, int> addTargetSourceProxy = (aSemantic, aTargetSource, aInputIndex) =>
                                 {
                                     Shape.InputKind inputKind;
+                                    int forceOutputStride = 0;
                                     switch (aSemantic)
                                     {
                                         case "POSITION":
@@ -1043,7 +1112,7 @@ namespace CrossFramework.XG3D
                                             throw new Exception("Unsupported semantic '" + aSemantic + "'.");
                                     }
 
-                                    aTargetSource.Reset(aSemantic, inputKind, aInputIndex);
+                                    aTargetSource.Reset(aSemantic, inputKind, aInputIndex, forceOutputStride);
                                     targetSourceProxiesList.Add(aTargetSource);
                                 };
 
@@ -1064,7 +1133,7 @@ namespace CrossFramework.XG3D
                                     }
                                     else
                                     {
-                                        targetSource = sourceProxies.Find((obj) => (input.source ==  "#" + obj.Id));
+                                        targetSource = sourceProxies.Find((obj) => (input.source == "#" + obj.Id));
                                         addTargetSourceProxy(semantic, targetSource, inputIdx);
                                     }
                                     ++inputIdx;
@@ -1072,6 +1141,31 @@ namespace CrossFramework.XG3D
 
                                 // 配列に変換して終了
                                 targetSourceProxies = targetSourceProxiesList.ToArray();
+                                
+                                // Skin対応
+                                if (skinning != null)
+                                {
+                                    foreach (var inputLocal in skinning.vertex_weights.input)
+                                    {
+                                        var targetSource = sourceProxies.First(obj => inputLocal.source == "#" + obj.Id);
+                                        Shape.InputKind inputKind;
+                                        if (inputLocal.semantic == "JOINT")
+                                        {
+                                            targetSource.NameResolve(nodes.Select(x => { return x.Name; }).ToArray());
+                                            inputKind = Shape.InputKind.SkinMtxIndex;
+                                        }
+                                        else if (inputLocal.semantic == "WEIGHT")
+                                        {
+                                            inputKind = Shape.InputKind.SkinWeight;
+                                        }
+                                        else
+                                        {
+                                            throw new NotSupportedException();
+                                        }
+                                        targetSource.Reset(inputLocal.semantic, inputKind, (int)inputLocal.offset, SkinInfluenceCount);
+                                        skinSourceProxiesList.Add(inputKind, targetSource);
+                                    }
+                                }
                             }
 
                             // indexリストを作成
