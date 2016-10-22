@@ -122,7 +122,9 @@
     <xs:restriction base="nstring">
       <xs:enumeration value="Position"/>
       <xs:enumeration value="Normal"/>
-      <xs:enumeration value="WeightPaletteIndex"/>
+      <xs:enumeration value="Tangent"/>
+      <xs:enumeration value="SkinMtxIndex"/>
+      <xs:enumeration value="SkinWeight"/>
       <xs:enumeration value="Color0"/>
       <xs:enumeration value="Color1"/>
       <xs:enumeration value="Color2"/>
