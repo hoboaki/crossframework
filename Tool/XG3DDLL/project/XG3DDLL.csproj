@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BinarizeOption.cs" />
+    <Compile Include="Matrix3x4.cs" />
     <Compile Include="ResMatSetBinarizer.cs" />
     <Compile Include="ResMdlBinarizer.cs" />
     <Compile Include="ResTexBinarizer.cs" />

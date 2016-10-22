@@ -159,7 +159,14 @@
       <xs:attribute name="values" type="sint32_array" use="required"/>
     </xs:complexType>
   </xs:element>
-  
+
+  <!-- inv_bind_pose_mtx -->
+  <xs:element name="inv_bind_pose_mtx">
+    <xs:complexType>
+      <xs:attribute name="values" type="float32_array" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
   <!-- mesh -->
   <xs:element name="mesh">
     <xs:complexType>
@@ -183,7 +190,8 @@
   <xs:element name="node">
     <xs:complexType>
       <xs:all>
-        <xs:element ref ="transform"/>
+        <xs:element ref="transform"/>
+        <xs:element ref="inv_bind_pose_mtx"/>
       </xs:all>
       <xs:attribute name="name" type="nstring" use="required"/>
       <xs:attribute name="parent_name" type="nstring" use="required"/>

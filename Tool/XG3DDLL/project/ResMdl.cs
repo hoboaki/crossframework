@@ -92,6 +92,11 @@ namespace CrossFramework.XG3D
             /// </summary>
             public readonly Transform3 Transform;
 
+            /// <summary>
+            /// バインドポーズの逆転置行列。
+            /// </summary>
+            public readonly Matrix3x4 InvBindPoseMtx;
+
             //============================================================
 
             //------------------------------------------------------------
@@ -100,16 +105,17 @@ namespace CrossFramework.XG3D
                 string name = aXml.Attributes["name"].Value;
                 string parentName = aXml.Attributes["parent_name"].Value;
                 Transform3 transform = Transform3.FromXml(aXml.SelectSingleNode("./n:transform", aNSMgr), aNSMgr);
-                return new Node(name, parentName, transform);
+                var invBindPoseMtx = Matrix3x4.FromXml(aXml.SelectSingleNode("./n:inv_bind_pose_mtx", aNSMgr));
+                return new Node(name, parentName, transform, invBindPoseMtx);
             }
 
             //============================================================
-
-            internal Node(string aName, string aParentName, Transform3 aTransform)
+            internal Node(string aName, string aParentName, Transform3 aTransform, Matrix3x4 aInvBindPoseMtx)
             {
                 Name = aName;
                 ParentName = aParentName;
                 Transform = aTransform;
+                InvBindPoseMtx = aInvBindPoseMtx;
             }
 
             //============================================================
@@ -120,6 +126,7 @@ namespace CrossFramework.XG3D
                     aXML.WriteAttributeString("name", Name);
                     aXML.WriteAttributeString("parent_name", ParentName);
                     Transform.WriteXml(aXML, "transform");
+                    InvBindPoseMtx.WriteXml(aXML, "inv_bind_pose_mtx");
                 }
                 aXML.WriteEndElement();
             }
@@ -828,6 +835,7 @@ namespace CrossFramework.XG3D
         {
             public string Id { get { return mId; } }
             public string Semantic { get { return mSemantic; } }
+            public string[] NameArray { get { return mNameArray; } }
 
             //============================================================
             public SkinSourceProxy(source aSRC, int aOutputStride)
@@ -960,7 +968,6 @@ namespace CrossFramework.XG3D
             double[] mFloatArray;
             string[] mNameArray;
             string mSemantic;
-            int mInputIndex;
             Shape.InputKind mShapeInputKind;
             int mNextNewIndex;
             int[] mToNewIndexTable;
@@ -1037,6 +1044,7 @@ namespace CrossFramework.XG3D
                         aNode.name
                         , aParent == null ? "" : aParent.name
                         , transform
+                        , Matrix3x4.Identity
                         );
                     nodes.Add(newNode);
 
@@ -1336,6 +1344,37 @@ namespace CrossFramework.XG3D
                                         skinBindTableDic.Add(entry.Key, entry.Value.ToArray());
                                     }
                                     skinBindTables = skinBindTableDic;
+                                }
+
+                                // バインドポーズ変換行列対応
+                                {
+                                    // floatの行列に変換
+                                    var sourceInvBindMtx = skinning.source.First(src => ("#" + src.id) == skinning.joints.input.First(x => x.semantic == "INV_BIND_MATRIX").source);
+                                    var invBindMtxArray = ((float_array)sourceInvBindMtx.Item).Values;
+
+                                    // 各ノードに代入
+                                    var nameArray = skinSouceProxies[Shape.InputKind.SkinMtxIndex].NameArray;
+                                    for (int i = 0; i < nameArray.Length; ++i)
+                                    {
+                                        int offset = i * 16;
+                                        int nodeIdx = nodes.FindIndex(x => x.Name == nameArray[i]);
+                                        Matrix3x4 mtx = new Matrix3x4();
+                                        mtx.Values[0] = (float)invBindMtxArray[offset + 0];
+                                        mtx.Values[1] = (float)invBindMtxArray[offset + 4];
+                                        mtx.Values[2] = (float)invBindMtxArray[offset + 8];
+                                        mtx.Values[3] = (float)invBindMtxArray[offset + 1];
+                                        mtx.Values[4] = (float)invBindMtxArray[offset + 5];
+                                        mtx.Values[5] = (float)invBindMtxArray[offset + 9];
+                                        mtx.Values[6] = (float)invBindMtxArray[offset + 2];
+                                        mtx.Values[7] = (float)invBindMtxArray[offset + 6];
+                                        mtx.Values[8] = (float)invBindMtxArray[offset + 10];
+                                        mtx.Values[9] = (float)invBindMtxArray[offset + 3];
+                                        mtx.Values[10] = (float)invBindMtxArray[offset + 7];
+                                        mtx.Values[11] = (float)invBindMtxArray[offset + 11];
+
+                                        var node = nodes[i];
+                                        nodes[i] = new Node(node.Name, node.ParentName, node.Transform, mtx);
+                                    }
                                 }
                             }
 
