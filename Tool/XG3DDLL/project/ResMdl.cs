@@ -911,7 +911,7 @@ namespace CrossFramework.XG3D
                         for (int bindIdxArrayIdx = 0; bindIdxArrayIdx < mOutputStride; ++bindIdxArrayIdx)
                         {
                             int value = 0;
-                            if (bindIdxArrayIdx < mInputStride && bindIdxArrayIdx < bindIdxArray.Length)
+                            if (bindIdxArrayIdx < bindIdxArray.Length)
                             {
                                 value = mIntArray[bindIdxArray[bindIdxArrayIdx]];
                             }
@@ -935,7 +935,7 @@ namespace CrossFramework.XG3D
                         for (int bindIdxArrayIdx = 0; bindIdxArrayIdx < mOutputStride; ++bindIdxArrayIdx)
                         {
                             float value = 0;
-                            if (bindIdxArrayIdx < mInputStride && bindIdxArrayIdx < bindIdxArray.Length)
+                            if (bindIdxArrayIdx < bindIdxArray.Length)
                             {
                                 value = (float)mFloatArray[bindIdxArray[bindIdxArrayIdx]];
                             }
