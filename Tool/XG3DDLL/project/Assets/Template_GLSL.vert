@@ -8,6 +8,16 @@ in vec3 _attrPosition;
     in vec3 _attrNormal;
 #endif
 
+// SkinMtxIdx
+#if defined(_USE_ATTR_SKIN_MTX_INDEX)
+	in ivec4 _attrSkinMtxIndex;
+#endif
+
+// SkinWeight
+#if defined(_USE_ATTR_SKIN_WEIGHT)
+	in vec4 _attrSkinWeight;
+#endif
+
 // Color0
 #if defined(_USE_ATTR_COLOR0)
     in vec4 _attrColor0;
@@ -22,6 +32,9 @@ in vec3 _attrPosition;
 uniform mat4 _prmMtxProj;
 uniform mat4 _prmMtxView;
 uniform mat4 _prmMtxWorld;
+#if defined(_USE_ATTR_SKIN_MTX_INDEX)
+    uniform mat3x4 _prmMtxBones[64];
+#endif
 
 //------------------------------------------------------------------------------
 #if defined(_USE_ATTR_NORMAL)
@@ -42,10 +55,35 @@ void main()
     pshColor0 = _attrColor0;
 #endif
 
-    {// Position
-        vec4 pos4 = vec4(_attrPosition, 1.0);
-        gl_Position =  _prmMtxProj * _prmMtxView * _prmMtxWorld * pos4;
-    }
+	// Pos
+	vec4 pos4; 
+#if defined(_USE_ATTR_SKIN_MTX_INDEX)
+	{
+		ivec4 boneIndexVec = _attrSkinMtxIndex;
+		vec4 boneWeightVec = _attrSkinWeight;
+		vec4 pos = vec4(0);
+		for(int skinSrcIdx = 0; skinSrcIdx < 4; skinSrcIdx++) {
+			// Position
+            mat4 boneMatrix = mat4(_prmMtxBones[boneIndexVec.x]);
+            pos += boneMatrix * vec4(_attrPosition, 1.0) * boneWeightVec.x;
+
+			// Normal & Tangent
+            //mat3 normalMatrix = BoneMatrixArrayIT[boneIndexVec.x];    
+            //objectNormal += normalMatrix * inNormal * boneWeightVec.x;
+            //objectTangent += normalMatrix * inTangent.xyz * boneWeightVec.x;
+
+			// ローテーション
+			boneIndexVec = boneIndexVec.yzwx;
+			boneWeightVec = boneWeightVec.yzwx;
+		}
+		pos4 = pos;
+	}
+#else
+	pos4 = _prmMtxWorld * vec4(_attrPosition, 1.0);
+#endif
+
+    // Output
+    gl_Position = _prmMtxProj * _prmMtxView * pos4;
 }
 
 //------------------------------------------------------------------------------

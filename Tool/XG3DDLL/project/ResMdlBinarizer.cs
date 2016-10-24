@@ -176,6 +176,7 @@ namespace CrossFramework.XG3D
                 for (int i = 0; i < res.Nodes.Length; ++i)
                 {
                     // ヘッダ
+                    string labelInvBindPoseMtx = createLabel(nodesLabel, i) + "_InvBindPoseMtx";
                     ResMdl.Node node = res.Nodes[i];
                     binarizer.AddAlign(4);
                     binarizer.AddLabel(createLabel(nodesLabel, i));
@@ -216,7 +217,19 @@ namespace CrossFramework.XG3D
                         binarizer.Add(node.Transform.Scale.Y);
                         binarizer.Add(node.Transform.Scale.Z);
                     }
-                    binarizer.AddNullReference(); // bindPosMtxRef
+                    {// invBindPoseMtx
+                        binarizer.AddReference(labelInvBindPoseMtx);
+                    }
+
+                    // データ
+                    {// invBindPoseMtx
+                        binarizer.AddAlign(4);
+                        binarizer.AddLabel(labelInvBindPoseMtx);
+                        foreach (var val in node.InvBindPoseMtx.Values)
+                        {
+                            binarizer.Add(val);
+                        }
+                    }
                 }
             }
             {// shapes

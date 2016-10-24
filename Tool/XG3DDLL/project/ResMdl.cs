@@ -1389,7 +1389,7 @@ namespace CrossFramework.XG3D
                                     var source = targetSourceProxies[inputIdx];
                                     int vertexAttrElemIdx = vertxAttrIdxArray[inputIdxOffset + source.InputIndex];
                                     source.NextIndex(vertexAttrElemIdx);
-                                    if (inputIdx == vtxInputIdx)
+                                    if (skinning != null && inputIdx == vtxInputIdx)
                                     {
                                         foreach (var skinSource in skinSouceProxies)
                                         {
@@ -1405,9 +1405,12 @@ namespace CrossFramework.XG3D
                             {
                                 shapeInputs.Add(targetSourceProxy.ToShapeInput());
                             }
-                            foreach (var targetSourceProxy in skinSouceProxies)
+                            if (skinning != null)
                             {
-                                shapeInputs.Add(targetSourceProxy.Value.ToShapeInput(skinBindTables[targetSourceProxy.Key]));
+                                foreach (var targetSourceProxy in skinSouceProxies)
+                                {
+                                    shapeInputs.Add(targetSourceProxy.Value.ToShapeInput(skinBindTables[targetSourceProxy.Key]));
+                                }
                             }
 
                             // Shape作成

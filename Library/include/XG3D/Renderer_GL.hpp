@@ -6,6 +6,7 @@
 #include <XBase/Bool.hpp>
 #include <XBase/Matrix34.hpp>
 #include <XBase/Matrix44.hpp>
+#include <XBase/Pointer.hpp>
 #include <XG3D/ResMat.hpp>
 #include <XG3D/SdkHeader.hpp>
 
@@ -30,6 +31,7 @@ public:
     ::XBase::Matrix44 mtxProj;
     ::XBase::Matrix34 mtxView;
     ::XBase::Matrix34 mtxWorld;
+    ::XBase::Pointer<const ::XBase::Mtx34> mtxBones;
 
     //============================================================
     Renderer_Ext();
@@ -39,6 +41,7 @@ public:
     void updateMtxProj();
     void updateMtxView();
     void updateMtxWorld();
+    void updateMtxBones();
 };
 
 } // namespace

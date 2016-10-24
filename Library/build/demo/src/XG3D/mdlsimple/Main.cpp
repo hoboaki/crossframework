@@ -18,8 +18,8 @@ int xmain(::XBase::Application& aApp)
     const char* fileName = "";
     {// 表示したいファイルをここで指定
         //fileName = "res/VertexColorSample.bin";
-        //fileName = "res/SimpleShapes.bin";
-        fileName = "res/SkinningSample.bin";
+        fileName = "res/SimpleShapes.bin";
+        //fileName = "res/SkinningSample.bin";
     }
     ::XBase::AutoMemBlock resData = XBase::ResFile::Read(fileName);
     ::XG3D::ResBin resBin(resData->head());

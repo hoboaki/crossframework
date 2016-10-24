@@ -33,7 +33,7 @@ public:
         , ::XBase::IAllocator& aAllocator = ::XBase::IAllocator::Default()
     );
 
-/// デストラクタ。
+    /// デストラクタ。
     ~StateMdlTransform();
     //@}
 
@@ -47,10 +47,16 @@ public:
     const ::XBase::Mtx34 worldMtx(int aNodeIndex)const; ///< 指定番目のノードのワールド行列を取得する。
     //@}
 
+    /// @name 計算結果データ
+    //@{
+    const ::XBase::Mtx34* boneMtxArray()const; ///< スキンバインド用ボーン行列配列。
+    //@}
+
 private:
     ResMdl mResMdl;
     ::XBase::RuntimeArray< MdlLocalMtx > mLocalMtxs;
     ::XBase::RuntimeArray< ::XBase::Matrix34 > mWorldMtxs;
+    ::XBase::RuntimeArray< ::XBase::Matrix34 > mBoneMtxs;
     //============================================================
     void resetLocalMtx();
 };

@@ -440,6 +440,13 @@ void Renderer::sdSetMtxWorld(const ::XBase::Mtx34& aMtx)
 }
 
 //------------------------------------------------------------------------------
+void Renderer::sdSetMtxBones(const ::XBase::Mtx34* aMtxPtr)
+{
+    mExt.mtxBones.reset(aMtxPtr);
+    mExt.updateMtxBones();
+}
+
+//------------------------------------------------------------------------------
 void Renderer::sdSetTex(const TexId::EnumType aId, const TexSetting& aSetting)
 {
     // チェック
@@ -487,8 +494,14 @@ void Renderer::draw(
         return;
     }
 
+    // マテリアル設定
+    sdSetMaterial(aMdlMaterial.material(aSubMesh.matReferIndex()).resMat());
+
     // ワールド行列設定
-    if (aSubMesh.shape().isSkinning() || aSubMesh.nodeIndex() == ResConstant::INVALID_MDL_NODE_INDEX) {
+    if (aSubMesh.shape().isSkinning()) {
+        sdSetMtxBones(aMdlTransform.boneMtxArray());
+    }
+    else if (aSubMesh.nodeIndex() == ResConstant::INVALID_MDL_NODE_INDEX) {
         sdSetMtxWorld(::XBase::Mtx34::Identity());
     }
     else {
@@ -569,6 +582,7 @@ Renderer_Ext::Renderer_Ext()
 , mtxProj()
 , mtxView()
 , mtxWorld()
+, mtxBones()
 {
     XBASE_STATIC_ASSERT(UNIFORM_COUNT == ShaderConstant::Uniform::TERM);
 }
@@ -612,6 +626,20 @@ void Renderer_Ext::updateMtxWorld()
         1,
         GL_FALSE,
         mtxWorld.toMatrix44().v
+    ));
+}
+
+//------------------------------------------------------------------------------
+void Renderer_Ext::updateMtxBones()
+{
+    const GLint location = currentMaterial.isValid()
+        ? currentMaterial.impl_()->sysUniformLocations[ShaderConstant::SysUniform::MtxBones]
+        : demoUniformLocations[ShaderConstant::SysUniform::MtxBones];
+    XG3D_GLCMD(glUniformMatrix3x4fv(
+        location,
+        64, // とりあえず固定で64個。
+        GL_FALSE,
+        mtxBones.get()->v
     ));
 }
 
