@@ -4,6 +4,7 @@
 #define XG3D_INCLUDED_STATEMDLTRANSFORM_HPP
 
 #include <XBase/Matrix34.hpp>
+#include <XBase/Matrix44.hpp>
 #include <XBase/NonCopyable.hpp>
 #include <XBase/RuntimeArray.hpp>
 #include <XG3D/ResMdl.hpp>
@@ -49,14 +50,14 @@ public:
 
     /// @name 計算結果データ
     //@{
-    const ::XBase::Mtx34* boneMtxArray()const; ///< スキンバインド用ボーン行列配列。
+    const ::XBase::Mtx44* boneMtxArray()const; ///< スキンバインド用ボーン行列配列。
     //@}
 
 private:
     ResMdl mResMdl;
     ::XBase::RuntimeArray< MdlLocalMtx > mLocalMtxs;
     ::XBase::RuntimeArray< ::XBase::Matrix34 > mWorldMtxs;
-    ::XBase::RuntimeArray< ::XBase::Matrix34 > mBoneMtxs;
+    ::XBase::RuntimeArray< ::XBase::Matrix44 > mBoneMtxs;
     //============================================================
     void resetLocalMtx();
 };

@@ -33,7 +33,7 @@ uniform mat4 _prmMtxProj;
 uniform mat4 _prmMtxView;
 uniform mat4 _prmMtxWorld;
 #if defined(_USE_ATTR_SKIN_MTX_INDEX)
-    uniform mat3x4 _prmMtxBones[64];
+    uniform mat4 _prmMtxBones[64];
 #endif
 
 //------------------------------------------------------------------------------
@@ -64,8 +64,10 @@ void main()
 		vec4 pos = vec4(0);
 		for(int skinSrcIdx = 0; skinSrcIdx < 4; skinSrcIdx++) {
 			// Position
-            mat4 boneMatrix = mat4(_prmMtxBones[boneIndexVec.x]);
-            pos += boneMatrix * vec4(_attrPosition, 1.0) * boneWeightVec.x;
+			float boneWeight = boneWeightVec.x;
+			int boneIndex = boneIndexVec.x;
+            mat4 boneMatrix = mat4(_prmMtxBones[boneIndex]);
+            pos += boneMatrix * vec4(_attrPosition, 1.0) * boneWeight;
 
 			// Normal & Tangent
             //mat3 normalMatrix = BoneMatrixArrayIT[boneIndexVec.x];    

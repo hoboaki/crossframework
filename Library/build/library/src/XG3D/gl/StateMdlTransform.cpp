@@ -21,7 +21,7 @@ StateMdlTransform::StateMdlTransform(
     resetLocalMtx();
 
     for (int i = 0; i < mBoneMtxs.count(); ++i) {
-        mBoneMtxs[i] = ::XBase::Mtx34::Identity();
+        mBoneMtxs[i] = ::XBase::Mtx44::Identity();
     }
 }
 
@@ -57,7 +57,7 @@ void StateMdlTransform::updateWorldMtx(const ::XBase::Mtx34& aMdlMtx)
         // ボーン用行列
         const ::XBase::Mtx34* invBindPoseMtx = node.bindPoseMtxPtr();
         if (invBindPoseMtx != NULL) {
-            mBoneMtxs[i] = mWorldMtxs[i] * (*invBindPoseMtx);
+            mBoneMtxs[i] = (mWorldMtxs[i] * (*invBindPoseMtx)).toMatrix44();
         }
     }
 }
@@ -69,7 +69,7 @@ const ::XBase::Mtx34 StateMdlTransform::worldMtx(const int aNodeIndex)const
 }
 
 //------------------------------------------------------------------------------
-const ::XBase::Mtx34* StateMdlTransform::boneMtxArray()const
+const ::XBase::Mtx44* StateMdlTransform::boneMtxArray()const
 {
     return &mBoneMtxs[0];
 }

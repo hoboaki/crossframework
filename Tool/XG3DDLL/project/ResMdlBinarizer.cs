@@ -465,8 +465,7 @@ namespace CrossFramework.XG3D
                                     case ShapeDataTypeGL.Int32:
                                         for (int elemIdx = 0; elemIdx < elemCount; ++elemIdx)
                                         {
-                                            binarizer.Add(input.Int32[index+elemIdx
-                                                ]);
+                                            binarizer.Add(input.Int32[index+elemIdx]);
                                         }
                                         break;
 
