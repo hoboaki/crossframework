@@ -22,7 +22,7 @@ void main()
 #if defined(_USE_ATTR_COLOR0)
     oFragColor = pshColor0;
 #elif defined(_USE_ATTR_NORMAL)
-    oFragColor = vec4(((pshNormal) + vec3(1.0)) * 0.5, 1.0);
+    oFragColor = vec4((normalize(pshNormal) + vec3(1.0)) * 0.5, 1.0f);
 #else
     oFragColor = vec4(1.0);
 #endif
