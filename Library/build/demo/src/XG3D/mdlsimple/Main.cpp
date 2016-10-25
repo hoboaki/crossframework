@@ -27,7 +27,7 @@ int xmain(::XBase::Application& aApp)
     resBin.setup();
 
     // インスタンス化
-    const int mdlIndex = 0; // 先頭のモデルをインスタンス化
+    const int mdlIndex = 0; // 先頭のモデルをインスタンスB化
     ::XG3D::ResMdl resMdl = resBin.mdl(mdlIndex);
     ::XG3D::StateMdlTransform stateTransform(resMdl);
     ::XG3D::StateMdlMaterial  stateMaterial(resMdl, resBin.matSet(resMdl.name())); // モデルと同じ名前のMaterialSetを使ってマテリアルをインスタンス化
