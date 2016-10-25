@@ -440,7 +440,7 @@ void Renderer::sdSetMtxWorld(const ::XBase::Mtx34& aMtx)
 }
 
 //------------------------------------------------------------------------------
-void Renderer::sdSetMtxBones(const ::XBase::Mtx44* aMtxPtr)
+void Renderer::sdSetMtxBones(const ::XBase::Mtx34* aMtxPtr)
 {
     mExt.mtxBones.reset(aMtxPtr);
     mExt.updateMtxBones();
@@ -649,7 +649,7 @@ void Renderer_Ext::updateMtxBones()
     const GLint location = currentMaterial.isValid()
         ? currentMaterial.impl_()->sysUniformLocations[ShaderConstant::SysUniform::MtxBones]
         : demoUniformLocations[ShaderConstant::SysUniform::MtxBones];
-    XG3D_GLCMD(glUniformMatrix4fv(
+    XG3D_GLCMD(glUniformMatrix3x4fv(
         location,
         64, // とりあえず固定で64個。
         GL_FALSE,

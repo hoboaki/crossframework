@@ -33,7 +33,7 @@ uniform mat4 _prmMtxProj;
 uniform mat4 _prmMtxView;
 uniform mat4 _prmMtxWorld;
 #if defined(_USE_ATTR_SKIN_MTX_INDEX)
-    uniform mat4 _prmMtxBones[64];
+    uniform mat3x4 _prmMtxBones[64];
 #endif
 
 //------------------------------------------------------------------------------
@@ -61,13 +61,52 @@ void main()
 	{
 		ivec4 boneIndexVec = _attrSkinMtxIndex;
 		vec4 boneWeightVec = _attrSkinWeight;
-		vec4 pos = vec4(0);
+		vec3 pos = vec3(0);
 		for(int skinSrcIdx = 0; skinSrcIdx < 4; skinSrcIdx++) {
 			// Position
 			float boneWeight = boneWeightVec.x;
 			int boneIndex = boneIndexVec.x;
-            mat4 boneMatrix = mat4(_prmMtxBones[boneIndex]);
-            pos += boneMatrix * vec4(_attrPosition, 1.0) * boneWeight;
+			mat3x4 boneMatrix34 = _prmMtxBones[boneIndex];
+
+
+
+            mat4 boneMatrix = mat4(
+				vec4(boneMatrix34[0]),
+				vec4(boneMatrix34[1]),
+				vec4(boneMatrix34[2]),
+				vec4(0.0, 0.0, 0.0, 1.0)
+				);
+			if (length(boneMatrix34[0]) == 0) {
+				//pshNormal = vec3(1,0,0);
+			}
+			if (boneIndex < 0 || 3 < boneIndex) {
+				pshNormal = vec3(1);
+				break;
+			}
+			else if (length(_prmMtxBones[boneIndex][0]) == 0) {
+				if(boneIndex == 0) {
+					pshNormal = vec3(1, 0, 0);
+				}
+				else if(boneIndex == 1) {
+					pshNormal = vec3(1, 1, 0);
+				}
+				else if(boneIndex == 2) {
+					if (length(_prmMtxBones[2][0]) == 0) {
+						pshNormal = vec3(0, 1, 1);
+					}
+					else {
+						pshNormal = vec3(1, 0, 1);
+					}
+				}
+				else if(boneIndex == 3) {
+					pshNormal = vec3(0, 1, 0);
+				}
+				break;
+			}
+
+
+
+            pos += (boneMatrix * vec4(_attrPosition, 1.0)).xyz * boneWeight;
 
 			// Normal & Tangent
             //mat3 normalMatrix = BoneMatrixArrayIT[boneIndexVec.x];    
@@ -78,7 +117,8 @@ void main()
 			boneIndexVec = boneIndexVec.yzwx;
 			boneWeightVec = boneWeightVec.yzwx;
 		}
-		pos4 = pos;
+		pos4 = vec4(pos, 1.0);
+		pos4 = vec4(_attrPosition, 1.0);
 	}
 #else
 	pos4 = _prmMtxWorld * vec4(_attrPosition, 1.0);
