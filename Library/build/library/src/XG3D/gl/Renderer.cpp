@@ -440,7 +440,7 @@ void Renderer::sdSetMtxWorld(const ::XBase::Mtx34& aMtx)
 }
 
 //------------------------------------------------------------------------------
-void Renderer::sdSetMtxBones(const ::XBase::Mtx34* aMtxPtr)
+void Renderer::sdSetMtxBones(const ::XBase::Vec4* aMtxPtr)
 {
     mExt.mtxBones.reset(aMtxPtr);
     mExt.updateMtxBones();
@@ -499,7 +499,7 @@ void Renderer::draw(
 
     // ワールド行列設定
     if (aSubMesh.shape().isSkinning()) {
-        sdSetMtxBones(aMdlTransform.boneMtxArray());
+        sdSetMtxBones(aMdlTransform.boneMtxData());
     }
     else if (aSubMesh.nodeIndex() == ResConstant::INVALID_MDL_NODE_INDEX) {
         sdSetMtxWorld(::XBase::Mtx34::Identity());
@@ -649,12 +649,11 @@ void Renderer_Ext::updateMtxBones()
     const GLint location = currentMaterial.isValid()
         ? currentMaterial.impl_()->sysUniformLocations[ShaderConstant::SysUniform::MtxBones]
         : demoUniformLocations[ShaderConstant::SysUniform::MtxBones];
-    XG3D_GLCMD(glUniformMatrix3x4fv(
+    XG3D_GLCMD(glUniform4fv(
         location,
-        64, // とりあえず固定で64個。
-        GL_FALSE,
-        mtxBones.get()->v
-    ));
+        64 * 3, // とりあえず固定で64個。
+        &mtxBones.get()->x
+        ));
 }
 
 } // namespace

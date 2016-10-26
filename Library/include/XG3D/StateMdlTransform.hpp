@@ -7,6 +7,7 @@
 #include <XBase/Matrix44.hpp>
 #include <XBase/NonCopyable.hpp>
 #include <XBase/RuntimeArray.hpp>
+#include <XBase/Vector4.hpp>
 #include <XG3D/ResMdl.hpp>
 
 namespace XG3D {
@@ -50,14 +51,14 @@ public:
 
     /// @name 計算結果データ
     //@{
-    const ::XBase::Mtx34* boneMtxArray()const; ///< スキンバインド用ボーン行列配列。
+    const ::XBase::Vec4* boneMtxData()const; ///< スキンバインド用ボーン行列データ。
     //@}
 
 private:
     ResMdl mResMdl;
     ::XBase::RuntimeArray< MdlLocalMtx > mLocalMtxs;
     ::XBase::RuntimeArray< ::XBase::Matrix34 > mWorldMtxs;
-    ::XBase::RuntimeArray< ::XBase::Matrix34 > mBoneMtxs;
+    ::XBase::RuntimeArray< ::XBase::Vec4 > mBoneMtxs;
     //============================================================
     void resetLocalMtx();
 };

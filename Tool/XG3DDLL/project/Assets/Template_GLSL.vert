@@ -33,7 +33,7 @@ uniform mat4 _prmMtxProj;
 uniform mat4 _prmMtxView;
 uniform mat4 _prmMtxWorld;
 #if defined(_USE_ATTR_SKIN_MTX_INDEX)
-    uniform mat3x4 _prmMtxBones[64];
+    uniform vec4 _prmMtxBones[64 * 3];
 #endif
 
 //------------------------------------------------------------------------------
@@ -62,53 +62,25 @@ void main()
 		ivec4 boneIndexVec = _attrSkinMtxIndex;
 		vec4 boneWeightVec = _attrSkinWeight;
 		vec3 pos = vec3(0);
-		for(int skinSrcIdx = 0; skinSrcIdx < 4; skinSrcIdx++) {
+		for(int skinSrcIdx = 0; skinSrcIdx < 2; skinSrcIdx++) {
 			// Position
 			float boneWeight = boneWeightVec.x;
 			int boneIndex = boneIndexVec.x;
-			mat3x4 boneMatrix34 = _prmMtxBones[boneIndex];
-
-            // デバッグ用
-            {
-                // 定数代入だとうまく動く
-                if (boneIndex == 2) {
-                    boneMatrix34 = _prmMtxBones[2];
-                }
-                if (boneIndex == 3) {
-                    boneMatrix34 = _prmMtxBones[3];
-                }
-
-                // デバッグ出力コード
-                if (false) {
-			        if (length(boneMatrix34[0]) == 0) {
-				        //pshNormal = vec3(1,0,0);
-			        }
-			        if (boneIndex < 0 || 3 < boneIndex) {
-				        pshNormal = vec3(1);
-				        break;
-			        }
-			        else if (length(_prmMtxBones[boneIndex][0]) == 0) {
-				        if(boneIndex == 0) {
-					        pshNormal = vec3(1, 0, 0);
-				        }
-				        else if(boneIndex == 1) {
-					        pshNormal = vec3(1, 1, 0);
-				        }
-				        else if(boneIndex == 2) {
-					        if (length(_prmMtxBones[2][0]) == 0) {
-						        pshNormal = vec3(0, 1, 1);
-					        }
-					        else {
-						        pshNormal = vec3(1, 0, 1);
-					        }
-				        }
-				        else if(boneIndex == 3) {
-					        pshNormal = vec3(0, 1, 0);
-				        }
-				        break;
-			        }
-                }
+            if (skinSrcIdx == 0) {
+                boneIndex = 2;
             }
+            else if (skinSrcIdx == 1) {
+                boneIndex = 3;
+            }
+            else {
+                boneIndex = 0;
+            }
+            int boneBaseIndex = boneIndex * 3;
+			mat3x4 boneMatrix34 = mat3x4(
+                _prmMtxBones[boneBaseIndex],
+                _prmMtxBones[boneBaseIndex + 1],
+                _prmMtxBones[boneBaseIndex + 2]
+                );
             pos += (boneMatrix34 * _attrPosition).xyz * boneWeight;
 
 			// Normal & Tangent
