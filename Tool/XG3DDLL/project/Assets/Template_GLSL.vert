@@ -62,26 +62,35 @@ void main()
 		ivec4 boneIndexVec = _attrSkinMtxIndex;
 		vec4 boneWeightVec = _attrSkinWeight;
 		vec3 pos = vec3(0);
-		for(int skinSrcIdx = 0; skinSrcIdx < 2; skinSrcIdx++) {
+		for(int skinSrcIdx = 0; skinSrcIdx < 4; skinSrcIdx++) {
 			// Position
 			float boneWeight = boneWeightVec.x;
 			int boneIndex = boneIndexVec.x;
             if (skinSrcIdx == 0) {
                 boneIndex = 2;
+                if (boneWeight > 0.3) {
+                    //pshNormal = vec3(0,0,1);
+                }
             }
             else if (skinSrcIdx == 1) {
                 boneIndex = 3;
+                if (boneWeight > 0.3) {
+                    //pshNormal = vec3(1,0,0);
+                }
             }
             else {
                 boneIndex = 0;
+                if (boneWeight > 0.0) {
+                    pshNormal = vec3(0,1,0);
+                }
             }
             int boneBaseIndex = boneIndex * 3;
-			mat3x4 boneMatrix34 = mat3x4(
+			mat4x3 boneMatrix = mat4x3(
                 _prmMtxBones[boneBaseIndex],
                 _prmMtxBones[boneBaseIndex + 1],
                 _prmMtxBones[boneBaseIndex + 2]
                 );
-            pos += (boneMatrix34 * _attrPosition).xyz * boneWeight;
+            pos += (boneMatrix * vec4(_attrPosition, 1.0)).xyz * boneWeight;
 
 			// Normal & Tangent
             //mat3 normalMatrix = BoneMatrixArrayIT[boneIndexVec.x];    

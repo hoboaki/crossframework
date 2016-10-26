@@ -1372,8 +1372,8 @@ namespace CrossFramework.XG3D
                                         mtx.Values[10] = (float)invBindMtxArray[offset + 7];
                                         mtx.Values[11] = (float)invBindMtxArray[offset + 11];
 
-                                        var node = nodes[i];
-                                        nodes[i] = new Node(node.Name, node.ParentName, node.Transform, mtx);
+                                        var node = nodes[nodeIdx];
+                                        nodes[nodeIdx] = new Node(node.Name, node.ParentName, node.Transform, mtx);
                                     }
                                 }
                             }
