@@ -82,7 +82,7 @@ void main()
                 _prmMtxBones[boneBaseIndex + 1],
                 _prmMtxBones[boneBaseIndex + 2]
                 );
-            pos += (boneMatrix * _attrPosition).xyz * boneWeight;
+            pos += (boneMatrix * vec4(_attrPosition, 1.0)).xyz * boneWeight;
 
             // Normal & Tangent
             //mat3 normalMatrix = BoneMatrixArrayIT[boneIndexVec.x];    
