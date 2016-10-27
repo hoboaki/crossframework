@@ -46,6 +46,23 @@ uniform mat4 _prmMtxWorld;
 #endif
 
 //------------------------------------------------------------------------------
+/// 4列3行の行列に変換。
+//#define ToMtx4x3(aRow0, aRow1, aRow2) \
+//    mat4( \
+//        vec4(aRow0[0], aRow1[0], aRow2[0], 0), \
+//        vec4(aRow0[1], aRow1[1], aRow2[1], 0), \
+//        vec4(aRow0[2], aRow1[2], aRow2[2], 0), \
+//        vec4(aRow0[3], aRow1[3], aRow2[3], 1.0) \
+//        )
+#define ToMtx4x3(aRow0, aRow1, aRow2) \
+    mat4( \
+        vec4(aRow0[0], aRow1[0], aRow2[0], 0), \
+        vec4(aRow0[1], aRow1[1], aRow2[1], 0), \
+        vec4(aRow0[2], aRow1[2], aRow2[2], 0), \
+        vec4(aRow0[3], aRow1[3], aRow2[3], 1.0) \
+        )
+
+//------------------------------------------------------------------------------
 void main()
 {
 #if defined(_USE_ATTR_NORMAL)
@@ -85,11 +102,22 @@ void main()
                 }
             }
             int boneBaseIndex = boneIndex * 3;
-			mat4x3 boneMatrix = mat4x3(
+
+
+
+
+
+			mat4 boneMatrix = ToMtx4x3(
                 _prmMtxBones[boneBaseIndex],
                 _prmMtxBones[boneBaseIndex + 1],
                 _prmMtxBones[boneBaseIndex + 2]
                 );
+
+
+
+
+
+
             pos += (boneMatrix * vec4(_attrPosition, 1.0)).xyz * boneWeight;
 
 			// Normal & Tangent
