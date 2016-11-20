@@ -51,14 +51,16 @@ public:
 
     /// @name 計算結果データ
     //@{
-    const ::XBase::Vec4* boneMtxData()const; ///< スキンバインド用ボーン行列データ。
+    const ::XBase::Vec4* bonePosMtxData()const; ///< スキンバインド用ボーン位置変換行列データ。
+    const ::XBase::Vec4* boneNrmMtxData()const; ///< スキンバインド用ボーン法線変換行列データ。
     //@}
 
 private:
     ResMdl mResMdl;
     ::XBase::RuntimeArray< MdlLocalMtx > mLocalMtxs;
     ::XBase::RuntimeArray< ::XBase::Matrix34 > mWorldMtxs;
-    ::XBase::RuntimeArray< ::XBase::Vec4 > mBoneMtxs;
+    ::XBase::RuntimeArray< ::XBase::Vec4 > mBonePosMtxs;
+    ::XBase::RuntimeArray< ::XBase::Vec4 > mBoneNrmMtxs;
     //============================================================
     void resetLocalMtx();
 };

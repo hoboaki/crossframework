@@ -32,7 +32,8 @@ public:
     ::XBase::Matrix44 mtxProj;
     ::XBase::Matrix34 mtxView;
     ::XBase::Matrix34 mtxWorld;
-    ::XBase::Pointer<const ::XBase::Vec4> mtxBones;
+    ::XBase::Pointer<const ::XBase::Vec4> mtxBonePosArray;
+    ::XBase::Pointer<const ::XBase::Vec4> mtxBoneNrmArray;
 
     //============================================================
     Renderer_Ext();

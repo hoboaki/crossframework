@@ -183,12 +183,7 @@ namespace CrossFramework.XG3D
                 }
             }
         }
-
-        //============================================================
-        const string UNIFORM_PROJECTION_MATRIX = "_prmMtxProj";
-        const string UNIFORM_VIEW_MATRIX       = "_prmMtxView";
-        const string UNIFORM_WORLD_MATRIX = "_prmMtxWorld";
-
+        
         //============================================================
         //------------------------------------------------------------
         class MatBin

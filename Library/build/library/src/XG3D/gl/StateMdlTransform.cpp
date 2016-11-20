@@ -10,7 +10,8 @@ namespace XG3D {
 
 //------------------------------------------------------------------------------
 namespace {
-    const int fBoneMtxVecCount = 3;
+    const int fBonePosMtxVecCount = 3;
+    const int fBoneNrmMtxVecCount = 3;
 }
 
 //------------------------------------------------------------------------------
@@ -21,12 +22,16 @@ StateMdlTransform::StateMdlTransform(
 : mResMdl(aResMdl)
 , mLocalMtxs(aResMdl.nodeCount(), aAllocator)
 , mWorldMtxs(aResMdl.nodeCount(), aAllocator)
-, mBoneMtxs(aResMdl.nodeCount() * fBoneMtxVecCount, aAllocator)
+, mBonePosMtxs(aResMdl.nodeCount() * fBonePosMtxVecCount, aAllocator)
+, mBoneNrmMtxs(aResMdl.nodeCount() * fBoneNrmMtxVecCount, aAllocator)
 {
     resetLocalMtx();
 
-    for (int i = 0; i < mBoneMtxs.count(); ++i) {
-        mBoneMtxs[i] = ::XBase::Vec4::Zero();
+    for (int i = 0; i < mBonePosMtxs.count(); ++i) {
+        mBonePosMtxs[i] = ::XBase::Vec4::Zero();
+    }
+    for (int i = 0; i < mBoneNrmMtxs.count(); ++i) {
+        mBoneNrmMtxs[i] = ::XBase::Vec4::Zero();
     }
 }
 
@@ -62,26 +67,47 @@ void StateMdlTransform::updateWorldMtx(const ::XBase::Mtx34& aMdlMtx)
         // ボーン用行列
         const ::XBase::Mtx34* invBindPoseMtx = node.bindPoseMtxPtr();
         if (invBindPoseMtx != NULL) {
-            const int baseIndex = i * fBoneMtxVecCount;
+            const int baseIndexPos = i * fBonePosMtxVecCount;
             const ::XBase::Mtx34 boneMtx = mWorldMtxs[i] * (*invBindPoseMtx);
-            mBoneMtxs[baseIndex] = ::XBase::Vector4(
+            mBonePosMtxs[baseIndexPos] = ::XBase::Vector4(
                 boneMtx.v[::XBase::Mtx34::Index00], 
                 boneMtx.v[::XBase::Mtx34::Index01], 
                 boneMtx.v[::XBase::Mtx34::Index02], 
                 boneMtx.v[::XBase::Mtx34::Index03]
                 );
-            mBoneMtxs[baseIndex + 1] = ::XBase::Vector4(
+            mBonePosMtxs[baseIndexPos + 1] = ::XBase::Vector4(
                 boneMtx.v[::XBase::Mtx34::Index10],
                 boneMtx.v[::XBase::Mtx34::Index11],
                 boneMtx.v[::XBase::Mtx34::Index12],
                 boneMtx.v[::XBase::Mtx34::Index13]
                 );
-            mBoneMtxs[baseIndex + 2] = ::XBase::Vector4(
+            mBonePosMtxs[baseIndexPos + 2] = ::XBase::Vector4(
                 boneMtx.v[::XBase::Mtx34::Index20],
                 boneMtx.v[::XBase::Mtx34::Index21],
                 boneMtx.v[::XBase::Mtx34::Index22],
                 boneMtx.v[::XBase::Mtx34::Index23]
                 );
+
+            const int baseIndexNrm = i * fBoneNrmMtxVecCount;
+            const ::XBase::Mtx34 boneMtxIt = boneMtx.invert().transpose();
+            mBoneNrmMtxs[baseIndexNrm] = ::XBase::Vector4(
+                boneMtxIt.v[::XBase::Mtx34::Index00],
+                boneMtxIt.v[::XBase::Mtx34::Index01],
+                boneMtxIt.v[::XBase::Mtx34::Index02],
+                0.0f
+            );
+            mBoneNrmMtxs[baseIndexNrm + 1] = ::XBase::Vector4(
+                boneMtxIt.v[::XBase::Mtx34::Index10],
+                boneMtxIt.v[::XBase::Mtx34::Index11],
+                boneMtxIt.v[::XBase::Mtx34::Index12],
+                0.0f
+            );
+            mBoneNrmMtxs[baseIndexNrm + 2] = ::XBase::Vector4(
+                boneMtxIt.v[::XBase::Mtx34::Index20],
+                boneMtxIt.v[::XBase::Mtx34::Index21],
+                boneMtxIt.v[::XBase::Mtx34::Index22],
+                0.0f
+            );
         }
     }
 }
@@ -93,9 +119,15 @@ const ::XBase::Mtx34 StateMdlTransform::worldMtx(const int aNodeIndex)const
 }
 
 //------------------------------------------------------------------------------
-const ::XBase::Vec4* StateMdlTransform::boneMtxData()const
+const ::XBase::Vec4* StateMdlTransform::bonePosMtxData()const
 {
-    return &mBoneMtxs[0];
+    return &mBonePosMtxs[0];
+}
+
+//------------------------------------------------------------------------------
+const ::XBase::Vec4* StateMdlTransform::boneNrmMtxData()const
+{
+    return &mBoneNrmMtxs[0];
 }
 
 //------------------------------------------------------------------------------
