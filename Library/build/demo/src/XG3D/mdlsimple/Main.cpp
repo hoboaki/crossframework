@@ -21,6 +21,14 @@ int xmain(::XBase::Application& aApp)
         //fileName = "res/SimpleShapes.bin";
         fileName = "res/SkinningSample.bin";
     }
+    ::XBase::Vector3 modelTranslate = ::XBase::Vector3::Zero();
+    float modelScale = 1.0f;
+    if (true) {
+        // Human用カスタマイズ
+        fileName = "res/SkinningHuman.bin";
+        modelTranslate = ::XBase::Vector3(0.0f, -30.0f, 0.0f);
+        modelScale = 0.2f;
+    }
     ::XBase::AutoMemBlock resData = XBase::ResFile::Read(fileName);
     ::XG3D::ResBin resBin(resData->head());
     XBASE_ASSERT(resBin.isValid());
@@ -72,7 +80,9 @@ int xmain(::XBase::Application& aApp)
                     ::XBase::Matrix34::Rotate(
                         ::XBase::Degree(360.0f * rotateFrame.rateFrame()),
                         ::XBase::Vec3::UnitY()
-                        )
+                        ) 
+                        * ::XBase::Matrix34::Scale(::XBase::Vector3(modelScale))
+                        * ::XBase::Matrix34::Translate(modelTranslate)
                     );
 
                 // フレームバッファのクリア

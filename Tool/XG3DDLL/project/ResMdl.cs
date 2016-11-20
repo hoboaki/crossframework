@@ -1317,8 +1317,8 @@ namespace CrossFramework.XG3D
                                     }
 
                                     // 参照データの作成
-                                    int[] vcountTable = skinning.vertex_weights.vcount.Split(' ').Select(x => int.Parse(x)).ToArray();
-                                    int[] elemIdxTable = skinning.vertex_weights.v.Split(' ').Select(x => int.Parse(x)).ToArray();
+                                    int[] vcountTable = skinning.vertex_weights.vcount.Trim().Split(' ').Select(x => int.Parse(x)).ToArray();
+                                    int[] elemIdxTable = skinning.vertex_weights.v.Trim().Split(' ').Select(x => int.Parse(x)).ToArray();
 
                                     // ElemIdx配列に変換していく
                                     int elemIdxOffset = 0;
