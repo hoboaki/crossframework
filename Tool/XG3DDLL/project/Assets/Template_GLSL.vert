@@ -35,7 +35,7 @@ uniform mat4 _prmMtxWorld;
 #if defined(_USE_ATTR_SKIN_MTX_INDEX)
     uniform vec4 _prmMtxBonePosArray[64 * 3];
     #if defined(_USE_ATTR_NORMAL)
-        //uniform vec4 _prmMtxBoneNrmArray[64 * 3];
+        uniform vec4 _prmMtxBoneNrmArray[64 * 3];
     #endif
 #endif
 
@@ -97,12 +97,12 @@ void main()
 
             // Normal & Tangent
             #if defined(_USE_ATTR_NORMAL)
-                // mat3 boneItMatrix = ToMtx3x3(
-                //     _prmMtxBoneNrmArray[boneBaseIndex],
-                //     _prmMtxBoneNrmArray[boneBaseIndex + 1],
-                //     _prmMtxBoneNrmArray[boneBaseIndex + 2]
-                //     );    
-                // nrm += boneItMatrix * _attrNormal * boneWeight;
+                mat3 boneItMatrix = ToMtx3x3(
+                    _prmMtxBoneNrmArray[boneBaseIndex],
+                    _prmMtxBoneNrmArray[boneBaseIndex + 1],
+                    _prmMtxBoneNrmArray[boneBaseIndex + 2]
+                    );    
+                nrm += boneItMatrix * _attrNormal * boneWeight;
             #endif
 
             // ローテーション
@@ -111,13 +111,13 @@ void main()
         }
         pos4 = vec4(pos, 1.0);
         #if defined(_USE_ATTR_NORMAL)
-            //nrm3 = nrm;
+            nrm3 = normalize(nrm);
         #endif
     }
 #else
     pos4 = _prmMtxWorld * vec4(_attrPosition, 1.0);
     #if defined(_USE_ATTR_NORMAL)
-        //nrm3 = _attrNormal;
+        nrm3 = _attrNormal;
     #endif
 #endif
 
