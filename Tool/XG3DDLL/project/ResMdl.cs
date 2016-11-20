@@ -92,6 +92,11 @@ namespace CrossFramework.XG3D
             /// </summary>
             public readonly Transform3 Transform;
 
+            /// <summary>
+            /// バインドポーズの逆転置行列。
+            /// </summary>
+            public readonly Matrix3x4 InvBindPoseMtx;
+
             //============================================================
 
             //------------------------------------------------------------
@@ -100,16 +105,17 @@ namespace CrossFramework.XG3D
                 string name = aXml.Attributes["name"].Value;
                 string parentName = aXml.Attributes["parent_name"].Value;
                 Transform3 transform = Transform3.FromXml(aXml.SelectSingleNode("./n:transform", aNSMgr), aNSMgr);
-                return new Node(name, parentName, transform);
+                var invBindPoseMtx = Matrix3x4.FromXml(aXml.SelectSingleNode("./n:inv_bind_pose_mtx", aNSMgr));
+                return new Node(name, parentName, transform, invBindPoseMtx);
             }
 
             //============================================================
-
-            internal Node(string aName, string aParentName, Transform3 aTransform)
+            internal Node(string aName, string aParentName, Transform3 aTransform, Matrix3x4 aInvBindPoseMtx)
             {
                 Name = aName;
                 ParentName = aParentName;
                 Transform = aTransform;
+                InvBindPoseMtx = aInvBindPoseMtx;
             }
 
             //============================================================
@@ -120,6 +126,7 @@ namespace CrossFramework.XG3D
                     aXML.WriteAttributeString("name", Name);
                     aXML.WriteAttributeString("parent_name", ParentName);
                     Transform.WriteXml(aXML, "transform");
+                    InvBindPoseMtx.WriteXml(aXML, "inv_bind_pose_mtx");
                 }
                 aXML.WriteEndElement();
             }
@@ -148,9 +155,19 @@ namespace CrossFramework.XG3D
                 Normal,
 
                 /// <summary>
-                /// ウェイトパレット番号。
+                /// 接線。
                 /// </summary>
-                WeightPaletteIndex,
+                Tangent,
+
+                /// <summary>
+                /// スキニング行列番号。
+                /// </summary>
+                SkinMtxIndex,
+
+                /// <summary>
+                /// スキニングウェイト値。
+                /// </summary>
+                SkinWeight,
 
                 /// <summary>
                 /// カラー0。
@@ -393,9 +410,7 @@ namespace CrossFramework.XG3D
             /// 入力データ。
             /// </summary>
             public readonly Input[] Inputs;
-
-            // スキンウェイトもここに含まれる？
-
+            
             //============================================================
 
             //------------------------------------------------------------
@@ -574,6 +589,11 @@ namespace CrossFramework.XG3D
         /// </summary>
         public const byte VersionMinor = 0;
 
+        /// <summary>
+        /// スキニングのインフルエンス数。
+        /// </summary>
+        public const int SkinInfluenceCount = 4;
+
         //============================================================
         /// <summary>
         /// 名前。
@@ -667,20 +687,32 @@ namespace CrossFramework.XG3D
         //============================================================
 
         //------------------------------------------------------------
+        // メッシュ情報
+        class MeshInfo
+        {
+            public string MeshName{ get; set; }
+            public string ParentNodeName { get; set; }
+            public bind_material Material { get; set; }
+            public controller Controller { get; set; }
+        }
+
+        //------------------------------------------------------------
         // ShapeInputに変換するための中継クラス。
-        class SourceProxy
+        class NormalSourceProxy
         {
             public string Id { get { return mId; } }
             public string Semantic { get { return mSemantic; } }
             public int InputIndex { get { return mInputIndex; } }
+            public int ElemCount { get { return mToNewIndexTable.Length; } }
 
             //============================================================
-            public SourceProxy(source aSRC)
+            public NormalSourceProxy(source aSRC)
             {
                 mId = aSRC.id;
-                mStride = (int)aSRC.technique_common.accessor.stride;
+                mInputStride = (int)aSRC.technique_common.accessor.stride;
+                mOutputStride = mInputStride;
                 mIsInt = (aSRC.Item as float_array) == null;
-
+                
                 if (mIsInt)
                 {
                     mIntArray = ((int_array)aSRC.Item).Values;
@@ -736,15 +768,20 @@ namespace CrossFramework.XG3D
                     List<int> newElemList = new List<int>();
                     for (int i = 0; i < toSrcIndexArray.Length; ++i)
                     {
-                        int srcIndexOffset = toSrcIndexArray[i] * mStride;
-                        for (int elemIdx = 0; elemIdx < mStride; ++i)
+                        int srcIndexOffset = toSrcIndexArray[i] * mInputStride;
+                        for (int elemIdx = 0; elemIdx < mOutputStride; ++i)
                         {
-                            newElemList.Add((int)mFloatArray[srcIndexOffset + elemIdx]);
+                            int value = 0;
+                            if (elemIdx < mInputStride)
+                            {
+                                value = mIntArray[srcIndexOffset + elemIdx];
+                            }
+                            newElemList.Add(value);
                         }
                     }
                     return new Shape.Input(
                         mShapeInputKind
-                        , mStride
+                        , mOutputStride
                         , newIndexArray
                         , newElemList.ToArray()
                         );
@@ -753,17 +790,22 @@ namespace CrossFramework.XG3D
                 {
                     // FloatArrayの再作成
                     List<float> newElemList = new List<float>();
-                    for ( int i = 0; i < toSrcIndexArray.Length; ++i)
+                    for (int i = 0; i < toSrcIndexArray.Length; ++i)
                     {
-                        int srcIndexOffset = toSrcIndexArray[i] * mStride;
-                        for ( int elemIdx = 0; elemIdx < mStride; ++elemIdx )
+                        int srcIndexOffset = toSrcIndexArray[i] * mInputStride;
+                        for (int elemIdx = 0; elemIdx < mOutputStride; ++elemIdx)
                         {
-                            newElemList.Add((float)mFloatArray[srcIndexOffset + elemIdx]);
+                            float value = 0;
+                            if (elemIdx < mInputStride)
+                            {
+                                value = (float)mFloatArray[srcIndexOffset + elemIdx];
+                            }
+                            newElemList.Add(value);
                         }
                     }
                     return new Shape.Input(
                         mShapeInputKind
-                        , mStride
+                        , mOutputStride
                         , newIndexArray
                         , newElemList.ToArray()
                         );
@@ -772,12 +814,160 @@ namespace CrossFramework.XG3D
 
             //============================================================
             string mId;
-            int mStride;
+            int mInputStride;
+            int mOutputStride;
             bool mIsInt;
             int[] mIntArray;
             double[] mFloatArray;
             string mSemantic;
             int mInputIndex;
+            Shape.InputKind mShapeInputKind;
+            int mNextNewIndex;
+            int[] mToNewIndexTable;
+            List<int> mToSrcIndexList;
+            List<int> mNewIndexList;
+        };
+
+
+        //------------------------------------------------------------
+        // Skin用ShapeInputに変換するための中継クラス。
+        class SkinSourceProxy
+        {
+            public string Id { get { return mId; } }
+            public string Semantic { get { return mSemantic; } }
+            public string[] NameArray { get { return mNameArray; } }
+
+            //============================================================
+            public SkinSourceProxy(source aSRC, int aOutputStride)
+            {
+                mId = aSRC.id;
+                mInputStride = (int)aSRC.technique_common.accessor.stride;
+                mOutputStride = aOutputStride;
+                mIsInt = (aSRC.Item as float_array) == null;
+
+                if (mIsInt)
+                {
+                    if (aSRC.Item is Name_array)
+                    {// Name -> Index なので配列だけ作っておく
+                        mNameArray = ((Name_array)aSRC.Item).Values;
+                        mIntArray = new int[mNameArray.Length];
+                    }
+                    else
+                    {// Int値そのまま
+                        mIntArray = ((int_array)aSRC.Item).Values;
+                    }
+                }
+                else
+                {
+                    mFloatArray = ((float_array)aSRC.Item).Values;
+                }
+            }
+
+            //============================================================
+            public void NameResolve(string[] aNameTable)
+            {
+                for (int i = 0; i < mIntArray.Length; ++i)
+                {
+                    mIntArray[i] = Array.IndexOf(aNameTable, mNameArray[i]);
+                }
+            }
+
+            //------------------------------------------------------------
+            public void Reset(string aSemantic, Shape.InputKind aShapeInputKind, int aChangedIndexArrayLength)
+            {
+                mSemantic = aSemantic;
+                mShapeInputKind = aShapeInputKind;
+                mNextNewIndex = 0;
+                mToNewIndexTable = new int[aChangedIndexArrayLength];
+                for (int i = 0; i < mToNewIndexTable.Length; ++i)
+                {
+                    mToNewIndexTable[i] = -1;
+                }
+                mToSrcIndexList = new List<int>();
+                mNewIndexList = new List<int>();
+            }
+
+            //------------------------------------------------------------
+            public void NextIndex(int aIndex)
+            {
+                // まだ1度も使用したことのないIndexなら追加
+                if (mToNewIndexTable[aIndex] == -1)
+                {
+                    mToNewIndexTable[aIndex] = mNextNewIndex;
+                    mToSrcIndexList.Add(aIndex);
+                    ++mNextNewIndex;
+                }
+
+                // リストに追加
+                mNewIndexList.Add(mToNewIndexTable[aIndex]);
+            }
+
+            //------------------------------------------------------------
+            public Shape.Input ToShapeInput(int[][] aSkinBindTable)
+            {
+                // IndexArrayの再作成
+                int[] newIndexArray = mNewIndexList.ToArray();
+                int[] toSrcIndexArray = mToSrcIndexList.ToArray();
+
+                if (mIsInt)
+                {
+                    // IntArrayの再作成
+                    List<int> newElemList = new List<int>();
+                    for (int i = 0; i < toSrcIndexArray.Length; ++i)
+                    {
+                        var bindIdxArray = aSkinBindTable[toSrcIndexArray[i]];
+                        for (int bindIdxArrayIdx = 0; bindIdxArrayIdx < mOutputStride; ++bindIdxArrayIdx)
+                        {
+                            int value = 0;
+                            if (bindIdxArrayIdx < bindIdxArray.Length)
+                            {
+                                value = mIntArray[bindIdxArray[bindIdxArrayIdx]];
+                            }
+                            newElemList.Add(value);
+                        }
+                    }
+                    return new Shape.Input(
+                        mShapeInputKind
+                        , mOutputStride
+                        , newIndexArray
+                        , newElemList.ToArray()
+                        );
+                }
+                else
+                {
+                    // FloatArrayの再作成
+                    List<float> newElemList = new List<float>();
+                    for (int i = 0; i < toSrcIndexArray.Length; ++i)
+                    {
+                        var bindIdxArray = aSkinBindTable[toSrcIndexArray[i]];
+                        for (int bindIdxArrayIdx = 0; bindIdxArrayIdx < mOutputStride; ++bindIdxArrayIdx)
+                        {
+                            float value = 0;
+                            if (bindIdxArrayIdx < bindIdxArray.Length)
+                            {
+                                value = (float)mFloatArray[bindIdxArray[bindIdxArrayIdx]];
+                            }
+                            newElemList.Add(value);
+                        }
+                    }
+                    return new Shape.Input(
+                        mShapeInputKind
+                        , mOutputStride
+                        , newIndexArray
+                        , newElemList.ToArray()
+                        );
+                }
+            }
+
+            //============================================================
+            string mId;
+            int mInputStride;
+            int mOutputStride;
+            bool mIsInt;
+            int[] mIntArray;
+            double[] mFloatArray;
+            string[] mNameArray;
+            string mSemantic;
             Shape.InputKind mShapeInputKind;
             int mNextNewIndex;
             int[] mToNewIndexTable;
@@ -813,15 +1003,9 @@ namespace CrossFramework.XG3D
                 // ノード追加処理を関数化
                 Action<node, node> addNode = (aNode, aParent) =>
                 {
-                    // Itemsのないノードはひとまずサポートしない
-                    if (aNode.Items == null)
-                    {
-                        return;
-                    }
-
                     // Transform解析
                     Transform3 transform = new Transform3();
-                    matrix mtx = (matrix)aNode.Items.FirstOrDefault((obj) => (obj is matrix));
+                    matrix mtx = (matrix)aNode.Items?.FirstOrDefault((obj) => (obj is matrix));
                     if (mtx == null)
                     {
                         // 行列のないノードは単位行列
@@ -860,6 +1044,7 @@ namespace CrossFramework.XG3D
                         aNode.name
                         , aParent == null ? "" : aParent.name
                         , transform
+                        , Matrix3x4.Identity
                         );
                     nodes.Add(newNode);
 
@@ -929,20 +1114,17 @@ namespace CrossFramework.XG3D
                 }
                 foreach (geometry geo in geometries.geometry)
                 {
-                    // このモデルに属するジオメトリをサーチ
-                    var meshList = new List<Pair<string, Pair<string, bind_material>>>(); // メッシュ名、親ノード名、バインドマテリアル情報
+                    var meshInfoList = new List<MeshInfo>();
                     {
                         {// node -> geometry のパターン
                             var referencedNodes = instanceGeometries.FindAll((obj) => (obj.Second.url == "#" + geo.id));
                             foreach (var referencedNode in referencedNodes)
                             {
-                                meshList.Add(new Pair<string, Pair<string, bind_material>>(
-                                    referencedNode.First.Name
-                                    , new Pair<string, bind_material>(
-                                        referencedNode.First.Name
-                                        , referencedNode.Second.bind_material
-                                        )
-                                    ));
+                                meshInfoList.Add(new MeshInfo(){
+                                    MeshName = referencedNode.First.Name,
+                                    ParentNodeName = referencedNode.First.Name,
+                                    Material = referencedNode.Second.bind_material,
+                                    });
                             }
                         }
                         if (controllers != null && controllers.controller != null)
@@ -951,19 +1133,17 @@ namespace CrossFramework.XG3D
                             var referencedNodes = instanceControllers.FindAll((obj) => (referencedControllers.Exists((ctrl) => (obj.Second.url == "#" + ctrl.id))));
                             foreach (var referencedNode in referencedNodes)
                             {
-                                meshList.Add(new Pair<string, Pair<string, bind_material>>(
-                                    referencedNode.First.Name
-                                    , new Pair<string, bind_material>(
-                                        ""
-                                        , referencedNode.Second.bind_material
-                                        )
-                                    ));
+                                meshInfoList.Add(new MeshInfo(){
+                                    MeshName = referencedNode.First.Name,
+                                    Material = referencedNode.Second.bind_material,
+                                    Controller = controllers.controller.First(ctrl => ("#" + ctrl.id) == referencedNode.Second.url),
+                                    });
                             }
                         }
                     }
 
                     // メッシュ化する必要がなければ何もしない
-                    if (meshList.Count == 0)
+                    if (meshInfoList.Count == 0)
                     {// このモデルに属するジオメトリではないのでパス
                         continue;
                     }
@@ -979,23 +1159,23 @@ namespace CrossFramework.XG3D
                     var trianglesArray = mesh.Items.ToList().FindAll((obj) => ((obj as triangles) != null));
 
                     // 各instance_geometry＆instance_controllerをMesh化
-                    foreach (var meshEntry in meshList)
+                    foreach (var meshEntry in meshInfoList)
                     {
                         // SubMeshを作成
                         List<SubMesh> subMeshes = new List<SubMesh>();
-                        var instanceMaterials = meshEntry.Second.Second.technique_common.ToList();
+                        var instanceMaterials = meshEntry.Material.technique_common.ToList();
                         int trianglesIndex = 0;
                         foreach (triangles triangles in trianglesArray)
                         {
                             string shapeName = generateShapeName(geo, trianglesIndex);
                             string materialName = instanceMaterials.Find((obj) => (obj.symbol == triangles.material)).target.Substring(1);
-                            subMeshes.Add(new SubMesh(shapeName, materialName, meshEntry.Second.First));
+                            subMeshes.Add(new SubMesh(shapeName, materialName, meshEntry.ParentNodeName));
                             ++trianglesIndex;
                         }
 
                         // メッシュを作成
                         meshes.Add(new Mesh(
-                            meshEntry.First
+                            meshEntry.MeshName
                             , subMeshes
                             ));
                     }
@@ -1003,10 +1183,28 @@ namespace CrossFramework.XG3D
                     // シェイプを出力
                     {
                         // Sourceの準備
-                        var sourceProxies = new List<SourceProxy>();
+                        var sourceProxies = new List<NormalSourceProxy>();
+                        var skinSourceProxies = new List<SkinSourceProxy>();
+                        skin skinning = null;
                         foreach (source source in mesh.source)
                         {
-                            sourceProxies.Add(new SourceProxy(source));
+                            sourceProxies.Add(new NormalSourceProxy(source));
+                        }
+                        foreach (var meshInfo in meshInfoList)
+                        {
+                            if (meshInfo.Controller != null && meshInfo.Controller.Item is skin)
+                            {
+                                if (skinning != null)
+                                {
+                                    // 複数のスキニングから１つのシェイプを参照しているケースはサポートしていないs
+                                    throw new NotSupportedException();
+                                }
+                                skinning = (skin)meshInfo.Controller.Item;
+                                foreach (var source in skinning.source)
+                                {
+                                    skinSourceProxies.Add(new SkinSourceProxy(source, SkinInfluenceCount));
+                                }
+                            }
                         }
 
                         // 各Triangleの処理
@@ -1014,13 +1212,14 @@ namespace CrossFramework.XG3D
                         foreach (triangles triangles in trianglesArray)
                         {
                             // 必要なソースの収集
-                            SourceProxy[] targetSourceProxies;
+                            NormalSourceProxy[] targetSourceProxies;
+                            int vtxInputIdx = -1;
                             {
                                 // 収集先を作成
-                                var targetSourceProxiesList = new List<SourceProxy>();
+                                var targetSourceProxiesList = new List<NormalSourceProxy>();
 
                                 // 追加関数を定義
-                                Action<string, SourceProxy, int> addTargetSourceProxy = (aSemantic, aTargetSource, aInputIndex) =>
+                                Action<string, NormalSourceProxy, int> addTargetSourceProxy = (aSemantic, aTargetSource, aInputIndex) =>
                                 {
                                     Shape.InputKind inputKind;
                                     switch (aSemantic)
@@ -1050,7 +1249,7 @@ namespace CrossFramework.XG3D
                                 foreach (InputLocalOffset input in triangles.input)
                                 {
                                     string semantic = input.semantic;
-                                    SourceProxy targetSource = null;
+                                    NormalSourceProxy targetSource = null;
                                     if (semantic == "VERTEX")
                                     {
                                         // VERTEXは複数の要素を抱えていることがあるので１つずつ追加していく
@@ -1059,10 +1258,11 @@ namespace CrossFramework.XG3D
                                             targetSource = sourceProxies.Find((obj) => (inputLocal.source == "#" + obj.Id));
                                             addTargetSourceProxy(inputLocal.semantic, targetSource, inputIdx);
                                         }
+                                        vtxInputIdx = inputIdx;
                                     }
                                     else
                                     {
-                                        targetSource = sourceProxies.Find((obj) => (input.source ==  "#" + obj.Id));
+                                        targetSource = sourceProxies.Find((obj) => (input.source == "#" + obj.Id));
                                         addTargetSourceProxy(semantic, targetSource, inputIdx);
                                     }
                                     ++inputIdx;
@@ -1072,8 +1272,114 @@ namespace CrossFramework.XG3D
                                 targetSourceProxies = targetSourceProxiesList.ToArray();
                             }
 
+
+
+                            // Skin対応
+                            IDictionary<Shape.InputKind, SkinSourceProxy> skinSouceProxies = null;
+                            IDictionary<Shape.InputKind, int[][]> skinBindTables = null;
+                            if (skinning != null)
+                            {
+                                // Input収集
+                                var offsetTable = new Dictionary<Shape.InputKind, int>();
+                                {
+                                    var skinSourceProxiesDic = new Dictionary<Shape.InputKind, SkinSourceProxy>();
+                                    foreach (var inputLocal in skinning.vertex_weights.input)
+                                    {
+                                        var targetSource = skinSourceProxies.First(obj => inputLocal.source == "#" + obj.Id);
+                                        Shape.InputKind inputKind;
+                                        if (inputLocal.semantic == "JOINT")
+                                        {
+                                            targetSource.NameResolve(nodes.Select(x => { return x.Name; }).ToArray());
+                                            inputKind = Shape.InputKind.SkinMtxIndex;
+                                        }
+                                        else if (inputLocal.semantic == "WEIGHT")
+                                        {
+                                            inputKind = Shape.InputKind.SkinWeight;
+                                        }
+                                        else
+                                        {
+                                            throw new NotSupportedException();
+                                        }
+                                        targetSource.Reset(inputLocal.semantic, inputKind, targetSourceProxies.First(x => x.Semantic == "POSITION").ElemCount);
+                                        skinSourceProxiesDic.Add(inputKind, targetSource);
+                                        offsetTable.Add(inputKind, (int)inputLocal.offset);
+                                    }
+                                    skinSouceProxies = skinSourceProxiesDic;
+                                }
+
+                                // スキンバインドテーブル作成
+                                {
+                                    // 格納先を用意
+                                    var skinBindTableListDic = new Dictionary<Shape.InputKind, List<int[]>>();
+                                    foreach (var entry in skinSouceProxies)
+                                    {
+                                        skinBindTableListDic.Add(entry.Key, new List<int[]>());
+                                    }
+
+                                    // 参照データの作成
+                                    int[] vcountTable = skinning.vertex_weights.vcount.Split(' ').Select(x => int.Parse(x)).ToArray();
+                                    int[] elemIdxTable = skinning.vertex_weights.v.Split(' ').Select(x => int.Parse(x)).ToArray();
+
+                                    // ElemIdx配列に変換していく
+                                    int elemIdxOffset = 0;
+                                    for (int vcountIdx = 0; vcountIdx < vcountTable.Length; ++vcountIdx)
+                                    {
+                                        int vcount = vcountTable[vcountIdx];
+                                        foreach (var entry in skinBindTableListDic)
+                                        {
+                                            var idxList = new List<int>();
+                                            for (int i = 0; i < vcount; ++i)
+                                            {
+                                                idxList.Add(elemIdxTable[elemIdxOffset + i * skinning.vertex_weights.input.Length + offsetTable[entry.Key]]);
+                                            }
+                                            entry.Value.Add(idxList.ToArray());
+                                        }
+                                        elemIdxOffset += vcount * skinning.vertex_weights.input.Length;
+                                    }
+
+                                    // 結果をリストから配列に変換して終了s
+                                    var skinBindTableDic = new Dictionary<Shape.InputKind, int[][]>();
+                                    foreach (var entry in skinBindTableListDic)
+                                    {
+                                        skinBindTableDic.Add(entry.Key, entry.Value.ToArray());
+                                    }
+                                    skinBindTables = skinBindTableDic;
+                                }
+
+                                // バインドポーズ変換行列対応
+                                {
+                                    // floatの行列に変換
+                                    var sourceInvBindMtx = skinning.source.First(src => ("#" + src.id) == skinning.joints.input.First(x => x.semantic == "INV_BIND_MATRIX").source);
+                                    var invBindMtxArray = ((float_array)sourceInvBindMtx.Item).Values;
+
+                                    // 各ノードに代入
+                                    var nameArray = skinSouceProxies[Shape.InputKind.SkinMtxIndex].NameArray;
+                                    for (int i = 0; i < nameArray.Length; ++i)
+                                    {
+                                        int offset = i * 16;
+                                        int nodeIdx = nodes.FindIndex(x => x.Name == nameArray[i]);
+                                        Matrix3x4 mtx = new Matrix3x4();
+                                        mtx.Values[0] = (float)invBindMtxArray[offset + 0];
+                                        mtx.Values[1] = (float)invBindMtxArray[offset + 4];
+                                        mtx.Values[2] = (float)invBindMtxArray[offset + 8];
+                                        mtx.Values[3] = (float)invBindMtxArray[offset + 1];
+                                        mtx.Values[4] = (float)invBindMtxArray[offset + 5];
+                                        mtx.Values[5] = (float)invBindMtxArray[offset + 9];
+                                        mtx.Values[6] = (float)invBindMtxArray[offset + 2];
+                                        mtx.Values[7] = (float)invBindMtxArray[offset + 6];
+                                        mtx.Values[8] = (float)invBindMtxArray[offset + 10];
+                                        mtx.Values[9] = (float)invBindMtxArray[offset + 3];
+                                        mtx.Values[10] = (float)invBindMtxArray[offset + 7];
+                                        mtx.Values[11] = (float)invBindMtxArray[offset + 11];
+
+                                        var node = nodes[nodeIdx];
+                                        nodes[nodeIdx] = new Node(node.Name, node.ParentName, node.Transform, mtx);
+                                    }
+                                }
+                            }
+
                             // indexリストを作成
-                            int[] vertxIdxArray = Array.ConvertAll<string,int>(triangles.p.Trim().Split(' '), (obj) => (int.Parse(obj))); // todo: 整形されていないXMLだとこれはアウト
+                            int[] vertxAttrIdxArray = Array.ConvertAll<string,int>(triangles.p.Trim().Split(' '), (obj) => (int.Parse(obj))); // todo: 整形されていないXMLだとこれはアウト
                             int vertexCount = (int)triangles.count * 3;
                             for (int vertexIdx = 0; vertexIdx < vertexCount; ++vertexIdx)
                             {
@@ -1081,7 +1387,15 @@ namespace CrossFramework.XG3D
                                 for (int inputIdx = 0; inputIdx < targetSourceProxies.Length; ++inputIdx)
                                 {
                                     var source = targetSourceProxies[inputIdx];
-                                    source.NextIndex(vertxIdxArray[inputIdxOffset + source.InputIndex]);
+                                    int vertexAttrElemIdx = vertxAttrIdxArray[inputIdxOffset + source.InputIndex];
+                                    source.NextIndex(vertexAttrElemIdx);
+                                    if (skinning != null && inputIdx == vtxInputIdx)
+                                    {
+                                        foreach (var skinSource in skinSouceProxies)
+                                        {
+                                            skinSource.Value.NextIndex(vertexAttrElemIdx);
+                                        }
+                                    }
                                 }
                             }
 
@@ -1090,6 +1404,13 @@ namespace CrossFramework.XG3D
                             foreach (var targetSourceProxy in targetSourceProxies)
                             {
                                 shapeInputs.Add(targetSourceProxy.ToShapeInput());
+                            }
+                            if (skinning != null)
+                            {
+                                foreach (var targetSourceProxy in skinSouceProxies)
+                                {
+                                    shapeInputs.Add(targetSourceProxy.Value.ToShapeInput(skinBindTables[targetSourceProxy.Key]));
+                                }
                             }
 
                             // Shape作成

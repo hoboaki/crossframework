@@ -4,8 +4,10 @@
 #define XG3D_INCLUDED_STATEMDLTRANSFORM_HPP
 
 #include <XBase/Matrix34.hpp>
+#include <XBase/Matrix44.hpp>
 #include <XBase/NonCopyable.hpp>
 #include <XBase/RuntimeArray.hpp>
+#include <XBase/Vector4.hpp>
 #include <XG3D/ResMdl.hpp>
 
 namespace XG3D {
@@ -33,7 +35,7 @@ public:
         , ::XBase::IAllocator& aAllocator = ::XBase::IAllocator::Default()
     );
 
-/// デストラクタ。
+    /// デストラクタ。
     ~StateMdlTransform();
     //@}
 
@@ -47,10 +49,16 @@ public:
     const ::XBase::Mtx34 worldMtx(int aNodeIndex)const; ///< 指定番目のノードのワールド行列を取得する。
     //@}
 
+    /// @name 計算結果データ
+    //@{
+    const ::XBase::Vec4* boneMtxData()const; ///< スキンバインド用ボーン行列データ。
+    //@}
+
 private:
     ResMdl mResMdl;
     ::XBase::RuntimeArray< MdlLocalMtx > mLocalMtxs;
     ::XBase::RuntimeArray< ::XBase::Matrix34 > mWorldMtxs;
+    ::XBase::RuntimeArray< ::XBase::Vec4 > mBoneMtxs;
     //============================================================
     void resetLocalMtx();
 };

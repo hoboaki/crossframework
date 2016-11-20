@@ -12,8 +12,8 @@ namespace XG3D {
 /// バイナリデータ：ヘッダ。
 struct BinResHeader
 {
-    static const u8 VersionMajor = 0;
-    static const u8 VersionMinor = 2;
+    static const u8 VersionMajor = 1;
+    static const u8 VersionMinor = 0;
 
     u8  versionMajor;
     u8  versionMinor;

@@ -10,6 +10,7 @@
 #include <XBase/Pointer.hpp>
 #include <XBase/Random.hpp>
 #include <XBase/Unused.hpp>
+#include <XG3D/ResConstant.hpp>
 #include <XG3D/ResMdlSubMesh.hpp>
 #include <XG3D/ResMdlShape.hpp>
 #include <XG3D/StateMaterial.hpp>
@@ -439,6 +440,13 @@ void Renderer::sdSetMtxWorld(const ::XBase::Mtx34& aMtx)
 }
 
 //------------------------------------------------------------------------------
+void Renderer::sdSetMtxBones(const ::XBase::Vec4* aMtxPtr)
+{
+    mExt.mtxBones.reset(aMtxPtr);
+    mExt.updateMtxBones();
+}
+
+//------------------------------------------------------------------------------
 void Renderer::sdSetTex(const TexId::EnumType aId, const TexSetting& aSetting)
 {
     // チェック
@@ -486,8 +494,19 @@ void Renderer::draw(
         return;
     }
 
+    // マテリアル設定
+    sdSetMaterial(aMdlMaterial.material(aSubMesh.matReferIndex()).resMat());
+
     // ワールド行列設定
-    sdSetMtxWorld(aMdlTransform.worldMtx(aSubMesh.nodeIndex()));
+    if (aSubMesh.shape().isSkinning()) {
+        sdSetMtxBones(aMdlTransform.boneMtxData());
+    }
+    else if (aSubMesh.nodeIndex() == ResConstant::INVALID_MDL_NODE_INDEX) {
+        sdSetMtxWorld(::XBase::Mtx34::Identity());
+    }
+    else {
+        sdSetMtxWorld(aMdlTransform.worldMtx(aSubMesh.nodeIndex()));
+    }
 
     // シェイプの描画
     draw(aSubMesh.shape(), aMdlMaterial.material(aSubMesh.matReferIndex()));
@@ -512,14 +531,28 @@ void Renderer::draw(
         const ResMatVtxAttrImpl* attrBind = &matImpl->vtxAttrs->at(i);
         const ResMdlShapeImpl::VtxAttr* attr = &shapeImpl->vtxAttrs[attrBind->binPtr->bindInputKind];
         XBASE_ASSERT_POINTER(attr->info);
-        XG3D_GLCMD(glVertexAttribPointer(
-            i,
-            attr->info->elemCount,
-            attr->glDataType,
-            GLboolean(attr->glNormalize),
-            shapeImpl->binPtr->vtxAttrDataStride,
-            reinterpret_cast<const void*>(attr->info->offset)
-        ));
+        switch (attr->info->dataType) {
+            case ResMdlShapeInputType::Float:
+                XG3D_GLCMD(glVertexAttribPointer(
+                    i,
+                    attr->info->elemCount,
+                    attr->glDataType,
+                    GLboolean(attr->glNormalize),
+                    shapeImpl->binPtr->vtxAttrDataStride,
+                    reinterpret_cast<const void*>(attr->info->offset)
+                    ));
+                break;
+
+            default:
+                XG3D_GLCMD(glVertexAttribIPointer(
+                    i,
+                    attr->info->elemCount,
+                    attr->glDataType,
+                    shapeImpl->binPtr->vtxAttrDataStride,
+                    reinterpret_cast<const void*>(attr->info->offset)
+                    ));
+                break;
+        }
         XG3D_GLCMD(glEnableVertexAttribArray(i));
     }
 
@@ -563,6 +596,7 @@ Renderer_Ext::Renderer_Ext()
 , mtxProj()
 , mtxView()
 , mtxWorld()
+, mtxBones()
 {
     XBASE_STATIC_ASSERT(UNIFORM_COUNT == ShaderConstant::Uniform::TERM);
 }
@@ -607,6 +641,19 @@ void Renderer_Ext::updateMtxWorld()
         GL_FALSE,
         mtxWorld.toMatrix44().v
     ));
+}
+
+//------------------------------------------------------------------------------
+void Renderer_Ext::updateMtxBones()
+{
+    const GLint location = currentMaterial.isValid()
+        ? currentMaterial.impl_()->sysUniformLocations[ShaderConstant::SysUniform::MtxBones]
+        : demoUniformLocations[ShaderConstant::SysUniform::MtxBones];
+    XG3D_GLCMD(glUniform4fv(
+        location,
+        64 * 3, // とりあえず固定で64個。
+        &mtxBones.get()->x
+        ));
 }
 
 } // namespace

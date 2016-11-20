@@ -16,7 +16,9 @@ struct ResMdlShapeInputKind
     {
         Position,
         Normal,
-        WeightPaletteIndex,
+        Tangent,
+        SkinMtxIndex,
+        SkinWeight,
         Color0,
         Color1,
         Color2,

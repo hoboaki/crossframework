@@ -206,6 +206,8 @@ namespace CrossFramework.XG3D
 
                 // シェーダー生成前のメモ
                 bool hasNormal = false;
+                bool hasSkinMtxIdx = false;
+                bool hasSkinWeight = false;
                 bool hasColor = false;
                 foreach (var mesh in aMdl.Meshes)
                 {
@@ -215,6 +217,14 @@ namespace CrossFramework.XG3D
                         if (aMdl.Shapes.First(x => x.Name == subMesh.ShapeName).Inputs.FirstOrDefault(x => x.Kind == ResMdl.Shape.InputKind.Normal) != null)
                         {
                             hasNormal = true;
+                        }
+                        if (aMdl.Shapes.First(x => x.Name == subMesh.ShapeName).Inputs.FirstOrDefault(x => x.Kind == ResMdl.Shape.InputKind.SkinMtxIndex) != null)
+                        {
+                            hasSkinMtxIdx = true;
+                        }
+                        if (aMdl.Shapes.First(x => x.Name == subMesh.ShapeName).Inputs.FirstOrDefault(x => x.Kind == ResMdl.Shape.InputKind.SkinWeight) != null)
+                        {
+                            hasSkinWeight = true;
                         }
                         if (aMdl.Shapes.First(x => x.Name == subMesh.ShapeName).Inputs.FirstOrDefault(x => x.Kind == ResMdl.Shape.InputKind.Color0) != null)
                         {
@@ -230,6 +240,14 @@ namespace CrossFramework.XG3D
                     if (hasNormal)
                     {
                         vtxAttrs.Add(new VtxAttr(ResMdl.Shape.InputKind.Normal));
+                    }
+                    if (hasSkinMtxIdx)
+                    {
+                        vtxAttrs.Add(new VtxAttr(ResMdl.Shape.InputKind.SkinMtxIndex));
+                    }
+                    if (hasSkinWeight)
+                    {
+                        vtxAttrs.Add(new VtxAttr(ResMdl.Shape.InputKind.SkinWeight));
                     }
                     if (hasColor)
                     {
@@ -300,7 +318,9 @@ namespace CrossFramework.XG3D
                 {
                 case ResMdl.Shape.InputKind.Position: return "_attrPosition";
                 case ResMdl.Shape.InputKind.Normal: return "_attrNormal";
-                case ResMdl.Shape.InputKind.WeightPaletteIndex: return "_attrWeightPaletteIndex";
+                case ResMdl.Shape.InputKind.Tangent: return "_attrTangent";
+                case ResMdl.Shape.InputKind.SkinMtxIndex: return "_attrSkinMtxIndex";
+                case ResMdl.Shape.InputKind.SkinWeight: return "_attrSkinWeight";
                 case ResMdl.Shape.InputKind.Color0: return "_attrColor0";
                 case ResMdl.Shape.InputKind.Color1: return "_attrColor1";
                 case ResMdl.Shape.InputKind.Color2: return "_attrColor2";
@@ -336,7 +356,9 @@ namespace CrossFramework.XG3D
             switch (aInputKind)
             {
                 case ResMdl.Shape.InputKind.Normal: return "_USE_ATTR_NORMAL";
-                case ResMdl.Shape.InputKind.WeightPaletteIndex: return "_USE_ATTR_WEIGHT_PALETTE_INDEX";
+                case ResMdl.Shape.InputKind.Tangent: return "_USE_ATTR_TANGENT";
+                case ResMdl.Shape.InputKind.SkinMtxIndex: return "_USE_ATTR_SKIN_MTX_INDEX";
+                case ResMdl.Shape.InputKind.SkinWeight: return "_USE_ATTR_SKIN_WEIGHT";
                 case ResMdl.Shape.InputKind.Color0: return "_USE_ATTR_COLOR0";
                 case ResMdl.Shape.InputKind.Color1: return "_USE_ATTR_COLOR1";
                 case ResMdl.Shape.InputKind.Color2: return "_USE_ATTR_COLOR2";

@@ -7,6 +7,7 @@ all:
 .PHONY:all
 
 to_xml:
+	$(daeConv) ./SkinningSample.dae -xmdl SkinningSample.xmdl
 	$(daeConv) ./SimpleShapes.dae -xmdl SimpleShapes.xmdl
 	$(daeConv) ./VertexColorSample.dae -xmdl VertexColorSample.xmdl
 	#$(daeConv) ./Dragon.dae -xmdl Dragon.xmdl
