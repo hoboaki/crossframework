@@ -440,9 +440,10 @@ void Renderer::sdSetMtxWorld(const ::XBase::Mtx34& aMtx)
 }
 
 //------------------------------------------------------------------------------
-void Renderer::sdSetMtxBones(const ::XBase::Vec4* aMtxPtr)
+void Renderer::sdSetMtxBones(const ::XBase::Vec4* aMtxBonePosArray, const ::XBase::Vec4* aMtxBoneNrmArray)
 {
-    mExt.mtxBones.reset(aMtxPtr);
+    mExt.mtxBonePosArray.reset(aMtxBonePosArray);
+    mExt.mtxBoneNrmArray.reset(aMtxBoneNrmArray);
     mExt.updateMtxBones();
 }
 
@@ -499,7 +500,7 @@ void Renderer::draw(
 
     // ワールド行列設定
     if (aSubMesh.shape().isSkinning()) {
-        sdSetMtxBones(aMdlTransform.boneMtxData());
+        sdSetMtxBones(aMdlTransform.bonePosMtxData(), aMdlTransform.boneNrmMtxData());
     }
     else if (aSubMesh.nodeIndex() == ResConstant::INVALID_MDL_NODE_INDEX) {
         sdSetMtxWorld(::XBase::Mtx34::Identity());
@@ -596,7 +597,8 @@ Renderer_Ext::Renderer_Ext()
 , mtxProj()
 , mtxView()
 , mtxWorld()
-, mtxBones()
+, mtxBonePosArray()
+, mtxBoneNrmArray()
 {
     XBASE_STATIC_ASSERT(UNIFORM_COUNT == ShaderConstant::Uniform::TERM);
 }
@@ -646,14 +648,29 @@ void Renderer_Ext::updateMtxWorld()
 //------------------------------------------------------------------------------
 void Renderer_Ext::updateMtxBones()
 {
-    const GLint location = currentMaterial.isValid()
-        ? currentMaterial.impl_()->sysUniformLocations[ShaderConstant::SysUniform::MtxBones]
-        : demoUniformLocations[ShaderConstant::SysUniform::MtxBones];
-    XG3D_GLCMD(glUniform4fv(
-        location,
-        64 * 3, // とりあえず固定で64個。
-        &mtxBones.get()->x
-        ));
+    const int boneCountMax = 64; // とりあえず固定で64個。
+    {
+        const GLint location = currentMaterial.isValid()
+            ? currentMaterial.impl_()->sysUniformLocations[ShaderConstant::SysUniform::MtxBonePosArray]
+            : demoUniformLocations[ShaderConstant::SysUniform::MtxBonePosArray];
+        XG3D_GLCMD(glUniform4fv(
+            location,
+            boneCountMax * 3,
+            &mtxBonePosArray.get()->x
+            ));
+    }
+    {
+        const GLint location = currentMaterial.isValid()
+            ? currentMaterial.impl_()->sysUniformLocations[ShaderConstant::SysUniform::MtxBoneNrmArray]
+            : demoUniformLocations[ShaderConstant::SysUniform::MtxBoneNrmArray];
+        if (0 <= location) {
+            XG3D_GLCMD(glUniform4fv(
+                location,
+                boneCountMax * 3,
+                &mtxBoneNrmArray.get()->x
+            ));
+        }
+    }
 }
 
 } // namespace

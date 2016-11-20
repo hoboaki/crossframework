@@ -186,7 +186,8 @@ void ResMatImpl::setup()
             "_prmMtxProj",
             "_prmMtxView",
             "_prmMtxWorld",
-            "_prmMtxBones",
+            "_prmMtxBonePosArray",
+            "_prmMtxBoneNrmArray",
         };
         XBASE_ARRAY_LENGTH_CHECK(TABLE, ShaderConstant::SysUniform::TERM);
         for (int i = 0; i < ShaderConstant::SysUniform::TERM; ++i) {

@@ -123,6 +123,7 @@ struct Matrix34Pod
     /// @name 変換
     //@{
     const Matrix34Pod invert()const; ///< 逆行列を取得する。4行目は0,0,0,1として作成する。
+    const Matrix34Pod transpose()const; ///< 転置行列を取得する。4行目は0,0,0,1として作成する。
     const Quaternion  toQuaternion()const; ///< 3x3の部分をクォータニオンに変換する。
     const Matrix44Pod toMatrix44()const; ///< 4x4に変換する。4行目は0,0,0,1として作成する。
     //@}

@@ -17,7 +17,8 @@ struct ShaderConstant
             MtxProj,
             MtxView,
             MtxWorld,
-            MtxBones,
+            MtxBonePosArray,
+            MtxBoneNrmArray,
 
             TERM,
         };

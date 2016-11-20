@@ -397,6 +397,29 @@ const Matrix34Pod Matrix34Pod::invert()const
 }
 
 //------------------------------------------------------------------------------
+const Matrix34Pod Matrix34Pod::transpose()const
+{
+    Matrix34Pod b;
+
+    b.v[Index00] = v[Index00];
+    b.v[Index01] = v[Index10];
+    b.v[Index02] = v[Index20];
+    b.v[Index03] = 0.0f;
+
+    b.v[Index10] = v[Index01];
+    b.v[Index11] = v[Index11];
+    b.v[Index12] = v[Index21];
+    b.v[Index13] = 0.0f;
+
+    b.v[Index20] = v[Index02];
+    b.v[Index21] = v[Index12];
+    b.v[Index22] = v[Index22];
+    b.v[Index23] = 0.0f;
+
+    return b;
+}
+
+//------------------------------------------------------------------------------
 const Quaternion Matrix34Pod::toQuaternion()const
 {
     Quaternion q;
