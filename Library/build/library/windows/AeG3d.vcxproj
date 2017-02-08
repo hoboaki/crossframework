@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="debug|x64">
+      <Configuration>debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="develop|x64">
+      <Configuration>develop</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="final|x64">
+      <Configuration>final</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="semifinal|x64">
+      <Configuration>semifinal</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <ItemGroup>
+    <ClCompile Include="..\src\AeG3d\gl\BinResHeader.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\ITexRes.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\Renderer.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\ResBin.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\ResMat.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\ResMatImpl.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\ResMatParam.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\ResMatParamImpl.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\ResMatSet.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\ResMatSetImpl.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\ResMatVtxAttrImpl.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\ResMdl.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\ResMdlImpl.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\ResMdlMatRefer.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\ResMdlMatReferImpl.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\ResMdlMesh.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\ResMdlMeshImpl.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\ResMdlNode.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\ResMdlNodeImpl.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\ResMdlShape.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\ResMdlShapeImpl.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\ResMdlSubMesh.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\ResMdlSubMeshImpl.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\ResTex.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\ResTexImpl.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\RuntimeTex.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\RuntimeTexContext.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\StateMaterial.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\StateMdlMaterial.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\StateMdlTransform.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\TexBuffer.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\TexSetting.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\VtxBuffer.cpp" />
+    <ClCompile Include="..\src\AeG3d\gl\windows\glew.c" />
+    <ClCompile Include="..\src\AeG3d\gl\windows\Renderer_Ext.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\include\ae\g3d\BuiltInTypes.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\Engine.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\ITexRes.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\MatParam.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\MdlLocalMtx.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\PrimitiveKind.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\Renderer.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\Renderer_GL.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\ResBin.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\ResConstant.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\ResMat.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\ResMatParam.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\ResMatSet.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\ResMdl.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\ResMdlMatRefer.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\ResMdlMesh.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\ResMdlNode.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\ResMdlShape.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\ResMdlSubMesh.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\ResTex.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\ResTexFormat.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\RuntimeTex.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\RuntimeTexContext.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\SdkHeader.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\StateMaterial.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\StateMdlMaterial.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\StateMdlTransform.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\TexAddress.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\TexBuffer.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\TexBuffer_GL.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\TexFilter.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\TexId.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\TexResData.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\TexSetting.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\TexSetting_GL.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\VtxBuffer.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\VtxBuffer_GL.hpp" />
+    <ClInclude Include="..\..\..\include\ae\g3d\XG3D.hpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{BD44E91A-DC25-4AC4-86C7-843EB7537AE3}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>XBase</RootNamespace>
+  </PropertyGroup>
+  <Import Project="CrossFramework.AeLibrary.Lib.props" />
+</Project>

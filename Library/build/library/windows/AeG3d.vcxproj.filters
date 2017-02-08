@@ -15,225 +15,225 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\XG3D\gl\VtxBuffer.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\VtxBuffer.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\BinResHeader.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\BinResHeader.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\ITexRes.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\ITexRes.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\Renderer.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\Renderer.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\ResBin.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\ResBin.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\ResMat.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\ResMat.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\ResMatImpl.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\ResMatImpl.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\ResMatParam.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\ResMatParam.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\ResMatParamImpl.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\ResMatParamImpl.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\ResMatSet.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\ResMatSet.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\ResMatSetImpl.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\ResMatSetImpl.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\ResMatVtxAttrImpl.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\ResMatVtxAttrImpl.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\ResMdl.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\ResMdl.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\ResMdlImpl.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\ResMdlImpl.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\ResMdlMatRefer.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\ResMdlMatRefer.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\ResMdlMatReferImpl.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\ResMdlMatReferImpl.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\ResMdlMesh.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\ResMdlMesh.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\ResMdlMeshImpl.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\ResMdlMeshImpl.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\ResMdlNode.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\ResMdlNode.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\ResMdlNodeImpl.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\ResMdlNodeImpl.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\ResMdlShape.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\ResMdlShape.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\ResMdlShapeImpl.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\ResMdlShapeImpl.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\ResMdlSubMesh.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\ResMdlSubMesh.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\ResMdlSubMeshImpl.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\ResMdlSubMeshImpl.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\ResTex.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\ResTex.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\ResTexImpl.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\ResTexImpl.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\RuntimeTex.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\RuntimeTex.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\RuntimeTexContext.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\RuntimeTexContext.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\StateMdlTransform.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\StateMdlTransform.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\TexBuffer.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\TexBuffer.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\TexSetting.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\TexSetting.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\StateMaterial.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\StateMaterial.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\StateMdlMaterial.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\StateMdlMaterial.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\windows\glew.c">
+    <ClCompile Include="..\src\AeG3d\gl\windows\glew.c">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XG3D\gl\windows\Renderer_Ext.cpp">
+    <ClCompile Include="..\src\AeG3d\gl\windows\Renderer_Ext.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\include\XG3D\TexFilter.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\TexFilter.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\TexId.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\TexId.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\TexResData.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\TexResData.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\TexSetting.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\TexSetting.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\TexSetting_GL.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\TexSetting_GL.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\VtxBuffer.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\VtxBuffer.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\VtxBuffer_GL.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\VtxBuffer_GL.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\XG3D.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\XG3D.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\BuiltInTypes.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\BuiltInTypes.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\Engine.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\Engine.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\ITexRes.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\ITexRes.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\MatParam.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\MatParam.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\MdlLocalMtx.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\MdlLocalMtx.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\PrimitiveKind.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\PrimitiveKind.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\Renderer.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\Renderer.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\Renderer_GL.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\Renderer_GL.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\ResBin.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\ResBin.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\ResConstant.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\ResConstant.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\ResMat.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\ResMat.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\ResMatParam.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\ResMatParam.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\ResMatSet.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\ResMatSet.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\ResMdl.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\ResMdl.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\ResMdlMatRefer.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\ResMdlMatRefer.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\ResMdlMesh.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\ResMdlMesh.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\ResMdlNode.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\ResMdlNode.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\ResMdlShape.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\ResMdlShape.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\ResMdlSubMesh.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\ResMdlSubMesh.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\ResTex.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\ResTex.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\ResTexFormat.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\ResTexFormat.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\RuntimeTex.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\RuntimeTex.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\RuntimeTexContext.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\RuntimeTexContext.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\SdkHeader.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\SdkHeader.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\StateMaterial.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\StateMaterial.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\StateMdlMaterial.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\StateMdlMaterial.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\StateMdlTransform.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\StateMdlTransform.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\TexAddress.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\TexAddress.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\TexBuffer.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\TexBuffer.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XG3D\TexBuffer_GL.hpp">
+    <ClInclude Include="..\..\..\include\ae\g3d\TexBuffer_GL.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

@@ -15,309 +15,309 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\include\XBase\Angle.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\Angle.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\Argument.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\Argument.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\ArrayLength.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\ArrayLength.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\BuiltInTypes.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\BuiltInTypes.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\Degree.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\Degree.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\EntryPoint.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\EntryPoint.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\Math.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\Math.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\Matrix34.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\Matrix34.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\Matrix44.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\Matrix44.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\Pi.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\Pi.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\PodStruct.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\PodStruct.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\PointerCheck.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\PointerCheck.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\Compiler.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\Compiler.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\Config.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\Config.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\Console.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\Console.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\DivideCheck.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\DivideCheck.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\Endian.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\Endian.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\FixedString.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\FixedString.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\FunctionAttribute.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\FunctionAttribute.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\Os.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\Os.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\PodClass.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\PodClass.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\PodTypes.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\PodTypes.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\Quaternion.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\Quaternion.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\Radian.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\Radian.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\RuntimeAssert.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\RuntimeAssert.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\RuntimeError.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\RuntimeError.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\ScalerClass.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\ScalerClass.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\ScalerStruct.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\ScalerStruct.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\ScalerTypes.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\ScalerTypes.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\ShortString.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\ShortString.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\ShortStringFactory.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\ShortStringFactory.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\StaticAssert.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\StaticAssert.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\StringTraits.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\StringTraits.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\ToShortString.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\ToShortString.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\Unused.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\Unused.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\ValueInRange.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\ValueInRange.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\Vector2.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\Vector2.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\Vector3.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\Vector3.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\Vector4.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\Vector4.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\XBase.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\XBase.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\OsType.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\OsType.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\Hash.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\Hash.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\RuntimeMArray.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\RuntimeMArray.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\RuntimeArray.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\RuntimeArray.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\TypeTraits.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\TypeTraits.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\XBase\RuntimeAutoArray.hpp">
+    <ClInclude Include="..\..\..\include\ae\base\RuntimeAutoArray.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\XBase\Angle.cpp">
+    <ClCompile Include="..\src\AeBase\Angle.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\Argument.cpp">
+    <ClCompile Include="..\src\AeBase\Argument.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\Calendar.cpp">
+    <ClCompile Include="..\src\AeBase\Calendar.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\Console.cpp">
+    <ClCompile Include="..\src\AeBase\Console.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\Degree.cpp">
+    <ClCompile Include="..\src\AeBase\Degree.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\DivideCheck.cpp">
+    <ClCompile Include="..\src\AeBase\DivideCheck.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\IConsoleCallback.cpp">
+    <ClCompile Include="..\src\AeBase\IConsoleCallback.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\InvalidCheck.cpp">
+    <ClCompile Include="..\src\AeBase\InvalidCheck.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\IRuntimeErrorCallback.cpp">
+    <ClCompile Include="..\src\AeBase\IRuntimeErrorCallback.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\Math.cpp">
+    <ClCompile Include="..\src\AeBase\Math.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\Matrix34.cpp">
+    <ClCompile Include="..\src\AeBase\Matrix34.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\Matrix44.cpp">
+    <ClCompile Include="..\src\AeBase\Matrix44.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\Quaternion.cpp">
+    <ClCompile Include="..\src\AeBase\Quaternion.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\Radian.cpp">
+    <ClCompile Include="..\src\AeBase\Radian.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\RuntimeAssert.cpp">
+    <ClCompile Include="..\src\AeBase\RuntimeAssert.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\RuntimeError.cpp">
+    <ClCompile Include="..\src\AeBase\RuntimeError.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\ShortStringFactory.cpp">
+    <ClCompile Include="..\src\AeBase\ShortStringFactory.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\StringTraits.cpp">
+    <ClCompile Include="..\src\AeBase\StringTraits.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\Time.cpp">
+    <ClCompile Include="..\src\AeBase\Time.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\TimeSpan.cpp">
+    <ClCompile Include="..\src\AeBase\TimeSpan.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\Vector2.cpp">
+    <ClCompile Include="..\src\AeBase\Vector2.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\Vector3.cpp">
+    <ClCompile Include="..\src\AeBase\Vector3.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\Vector4.cpp">
+    <ClCompile Include="..\src\AeBase\Vector4.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\DisplayContext.cpp">
+    <ClCompile Include="..\src\AeBase\DisplayContext.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\windows\Application_Ext.cpp">
+    <ClCompile Include="..\src\AeBase\windows\Application_Ext.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\windows\Display_Ext.cpp">
+    <ClCompile Include="..\src\AeBase\windows\Display_Ext.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\windows\EntryPoint_Ext.cpp">
+    <ClCompile Include="..\src\AeBase\windows\EntryPoint_Ext.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\Application.cpp">
+    <ClCompile Include="..\src\AeBase\Application.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\Display.cpp">
+    <ClCompile Include="..\src\AeBase\Display.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\Screen.cpp">
+    <ClCompile Include="..\src\AeBase\Screen.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\Color4.cpp">
+    <ClCompile Include="..\src\AeBase\Color4.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\Thread.cpp">
+    <ClCompile Include="..\src\AeBase\Thread.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\Random.cpp">
+    <ClCompile Include="..\src\AeBase\Random.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\IAllocator.cpp">
+    <ClCompile Include="..\src\AeBase\IAllocator.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\stdc\ResFileStream_EXT.cpp">
+    <ClCompile Include="..\src\AeBase\stdc\ResFileStream_EXT.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\ResFileStream.cpp">
+    <ClCompile Include="..\src\AeBase\ResFileStream.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\IReadStream.cpp">
+    <ClCompile Include="..\src\AeBase\IReadStream.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\AutoMemBlock.cpp">
+    <ClCompile Include="..\src\AeBase\AutoMemBlock.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\ResFile.cpp">
+    <ClCompile Include="..\src\AeBase\ResFile.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\MemBlock.cpp">
+    <ClCompile Include="..\src\AeBase\MemBlock.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\Keyboard.cpp">
+    <ClCompile Include="..\src\AeBase\Keyboard.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\windows\Hid_Ext.cpp">
+    <ClCompile Include="..\src\AeBase\windows\Hid_Ext.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\Touch.cpp">
+    <ClCompile Include="..\src\AeBase\Touch.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\TouchTap.cpp">
+    <ClCompile Include="..\src\AeBase\TouchTap.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\ScreenPos.cpp">
+    <ClCompile Include="..\src\AeBase\ScreenPos.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\Mouse.cpp">
+    <ClCompile Include="..\src\AeBase\Mouse.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\Hid.cpp">
+    <ClCompile Include="..\src\AeBase\Hid.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\FrameCounter.cpp">
+    <ClCompile Include="..\src\AeBase\FrameCounter.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\Vector2i.cpp">
+    <ClCompile Include="..\src\AeBase\Vector2i.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\Aabb2.cpp">
+    <ClCompile Include="..\src\AeBase\Aabb2.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\Aabb2i.cpp">
+    <ClCompile Include="..\src\AeBase\Aabb2i.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\Color4b.cpp">
+    <ClCompile Include="..\src\AeBase\Color4b.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\Vector3i.cpp">
+    <ClCompile Include="..\src\AeBase\Vector3i.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\Vector4i.cpp">
+    <ClCompile Include="..\src\AeBase\Vector4i.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\XBase\Hash.cpp">
+    <ClCompile Include="..\src\AeBase\Hash.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

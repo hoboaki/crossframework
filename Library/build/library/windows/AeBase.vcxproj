@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="debug|x64">
+      <Configuration>debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="develop|x64">
+      <Configuration>develop</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="final|x64">
+      <Configuration>final</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="semifinal|x64">
+      <Configuration>semifinal</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <ItemGroup>
+    <ClInclude Include="..\..\..\include\ae\base\Angle.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\Argument.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\ArrayLength.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\BuiltInTypes.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\Degree.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\EntryPoint.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\Hash.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\Math.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\Matrix34.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\Matrix44.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\OsType.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\Pi.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\PodStruct.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\PointerCheck.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\Compiler.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\Config.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\Console.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\DivideCheck.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\Endian.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\FixedString.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\FunctionAttribute.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\Os.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\PodClass.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\PodTypes.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\Quaternion.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\Radian.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\RuntimeArray.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\RuntimeAssert.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\RuntimeAutoArray.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\RuntimeError.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\RuntimeMArray.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\ScalerClass.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\ScalerStruct.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\ScalerTypes.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\ShortString.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\ShortStringFactory.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\StaticAssert.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\StringTraits.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\ToShortString.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\TypeTraits.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\Unused.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\ValueInRange.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\Vector2.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\Vector3.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\Vector4.hpp" />
+    <ClInclude Include="..\..\..\include\ae\base\XBase.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\AeBase\Aabb2.cpp" />
+    <ClCompile Include="..\src\AeBase\Aabb2i.cpp" />
+    <ClCompile Include="..\src\AeBase\Angle.cpp" />
+    <ClCompile Include="..\src\AeBase\Application.cpp" />
+    <ClCompile Include="..\src\AeBase\Argument.cpp" />
+    <ClCompile Include="..\src\AeBase\AutoMemBlock.cpp" />
+    <ClCompile Include="..\src\AeBase\Calendar.cpp" />
+    <ClCompile Include="..\src\AeBase\Color4.cpp" />
+    <ClCompile Include="..\src\AeBase\Color4b.cpp" />
+    <ClCompile Include="..\src\AeBase\Console.cpp" />
+    <ClCompile Include="..\src\AeBase\Degree.cpp" />
+    <ClCompile Include="..\src\AeBase\Display.cpp" />
+    <ClCompile Include="..\src\AeBase\DisplayContext.cpp" />
+    <ClCompile Include="..\src\AeBase\DivideCheck.cpp" />
+    <ClCompile Include="..\src\AeBase\FrameCounter.cpp" />
+    <ClCompile Include="..\src\AeBase\Hash.cpp" />
+    <ClCompile Include="..\src\AeBase\Hid.cpp" />
+    <ClCompile Include="..\src\AeBase\IAllocator.cpp" />
+    <ClCompile Include="..\src\AeBase\IConsoleCallback.cpp" />
+    <ClCompile Include="..\src\AeBase\InvalidCheck.cpp" />
+    <ClCompile Include="..\src\AeBase\IReadStream.cpp" />
+    <ClCompile Include="..\src\AeBase\IRuntimeErrorCallback.cpp" />
+    <ClCompile Include="..\src\AeBase\Keyboard.cpp" />
+    <ClCompile Include="..\src\AeBase\Math.cpp" />
+    <ClCompile Include="..\src\AeBase\Matrix34.cpp" />
+    <ClCompile Include="..\src\AeBase\Matrix44.cpp" />
+    <ClCompile Include="..\src\AeBase\MemBlock.cpp" />
+    <ClCompile Include="..\src\AeBase\Mouse.cpp" />
+    <ClCompile Include="..\src\AeBase\Quaternion.cpp" />
+    <ClCompile Include="..\src\AeBase\Radian.cpp" />
+    <ClCompile Include="..\src\AeBase\Random.cpp" />
+    <ClCompile Include="..\src\AeBase\ResFile.cpp" />
+    <ClCompile Include="..\src\AeBase\ResFileStream.cpp" />
+    <ClCompile Include="..\src\AeBase\RuntimeAssert.cpp" />
+    <ClCompile Include="..\src\AeBase\RuntimeError.cpp" />
+    <ClCompile Include="..\src\AeBase\Screen.cpp" />
+    <ClCompile Include="..\src\AeBase\ScreenPos.cpp" />
+    <ClCompile Include="..\src\AeBase\ShortStringFactory.cpp" />
+    <ClCompile Include="..\src\AeBase\stdc\ResFileStream_EXT.cpp" />
+    <ClCompile Include="..\src\AeBase\StringTraits.cpp" />
+    <ClCompile Include="..\src\AeBase\Thread.cpp" />
+    <ClCompile Include="..\src\AeBase\Time.cpp" />
+    <ClCompile Include="..\src\AeBase\TimeSpan.cpp" />
+    <ClCompile Include="..\src\AeBase\Touch.cpp" />
+    <ClCompile Include="..\src\AeBase\TouchTap.cpp" />
+    <ClCompile Include="..\src\AeBase\Vector2.cpp" />
+    <ClCompile Include="..\src\AeBase\Vector2i.cpp" />
+    <ClCompile Include="..\src\AeBase\Vector3.cpp" />
+    <ClCompile Include="..\src\AeBase\Vector3i.cpp" />
+    <ClCompile Include="..\src\AeBase\Vector4.cpp" />
+    <ClCompile Include="..\src\AeBase\Vector4i.cpp" />
+    <ClCompile Include="..\src\AeBase\windows\Application_Ext.cpp" />
+    <ClCompile Include="..\src\AeBase\windows\Display_Ext.cpp" />
+    <ClCompile Include="..\src\AeBase\windows\EntryPoint_Ext.cpp" />
+    <ClCompile Include="..\src\AeBase\windows\Hid_Ext.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F7CCEEA1-49F4-475F-839A-4B75237368B6}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>XBase</RootNamespace>
+  </PropertyGroup>
+  <Import Project="CrossFramework.AeLibrary.Lib.props" />
+</Project>

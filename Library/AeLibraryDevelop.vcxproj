@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="debug|x64">
+      <Configuration>debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="develop|x64">
+      <Configuration>develop</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="final|x64">
+      <Configuration>final</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="semifinal|x64">
+      <Configuration>semifinal</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="build\library\src\AeBase\Aabb2.cpp" />
+    <ClCompile Include="build\library\src\AeBase\Aabb2i.cpp" />
+    <ClCompile Include="build\library\src\AeBase\Angle.cpp" />
+    <ClCompile Include="build\library\src\AeBase\Application.cpp" />
+    <ClCompile Include="build\library\src\AeBase\Argument.cpp" />
+    <ClCompile Include="build\library\src\AeBase\AutoMemBlock.cpp" />
+    <ClCompile Include="build\library\src\AeBase\Calendar.cpp" />
+    <ClCompile Include="build\library\src\AeBase\Color4.cpp" />
+    <ClCompile Include="build\library\src\AeBase\Color4b.cpp" />
+    <ClCompile Include="build\library\src\AeBase\Console.cpp" />
+    <ClCompile Include="build\library\src\AeBase\Degree.cpp" />
+    <ClCompile Include="build\library\src\AeBase\Display.cpp" />
+    <ClCompile Include="build\library\src\AeBase\Hash.cpp" />
+    <ClCompile Include="build\library\src\AeBase\Hid.cpp" />
+    <ClCompile Include="build\library\src\AeBase\IAllocator.cpp" />
+    <ClCompile Include="build\library\src\AeBase\IReadStream.cpp" />
+    <ClCompile Include="build\library\src\AeBase\Keyboard.cpp" />
+    <ClCompile Include="build\library\src\AeBase\MemBlock.cpp" />
+    <ClCompile Include="build\library\src\AeBase\Mouse.cpp" />
+    <ClCompile Include="build\library\src\AeBase\Random.cpp" />
+    <ClCompile Include="build\library\src\AeBase\ResFile.cpp" />
+    <ClCompile Include="build\library\src\AeBase\ResFileStream.cpp" />
+    <ClCompile Include="build\library\src\AeBase\Screen.cpp" />
+    <ClCompile Include="build\library\src\AeBase\DisplayContext.cpp" />
+    <ClCompile Include="build\library\src\AeBase\DivideCheck.cpp" />
+    <ClCompile Include="build\library\src\AeBase\IConsoleCallback.cpp" />
+    <ClCompile Include="build\library\src\AeBase\InvalidCheck.cpp" />
+    <ClCompile Include="build\library\src\AeBase\IRuntimeErrorCallback.cpp" />
+    <ClCompile Include="build\library\src\AeBase\Math.cpp" />
+    <ClCompile Include="build\library\src\AeBase\Matrix34.cpp" />
+    <ClCompile Include="build\library\src\AeBase\Matrix44.cpp" />
+    <ClCompile Include="build\library\src\AeBase\Quaternion.cpp" />
+    <ClCompile Include="build\library\src\AeBase\Radian.cpp" />
+    <ClCompile Include="build\library\src\AeBase\RuntimeAssert.cpp" />
+    <ClCompile Include="build\library\src\AeBase\RuntimeError.cpp" />
+    <ClCompile Include="build\library\src\AeBase\ScreenPos.cpp" />
+    <ClCompile Include="build\library\src\AeBase\ShortStringFactory.cpp" />
+    <ClCompile Include="build\library\src\AeBase\stdc\ResFileStream_EXT.cpp" />
+    <ClCompile Include="build\library\src\AeBase\StringTraits.cpp" />
+    <ClCompile Include="build\library\src\AeBase\Thread.cpp" />
+    <ClCompile Include="build\library\src\AeBase\TimeSpan.cpp" />
+    <ClCompile Include="build\library\src\AeBase\Time.cpp" />
+    <ClCompile Include="build\library\src\AeBase\Touch.cpp" />
+    <ClCompile Include="build\library\src\AeBase\TouchTap.cpp" />
+    <ClCompile Include="build\library\src\AeBase\Vector2.cpp" />
+    <ClCompile Include="build\library\src\AeBase\Vector2i.cpp" />
+    <ClCompile Include="build\library\src\AeBase\Vector3.cpp" />
+    <ClCompile Include="build\library\src\AeBase\Vector3i.cpp" />
+    <ClCompile Include="build\library\src\AeBase\Vector4.cpp" />
+    <ClCompile Include="build\library\src\AeBase\Vector4i.cpp" />
+    <ClCompile Include="build\library\src\AeBase\windows\Application_Ext.cpp" />
+    <ClCompile Include="build\library\src\AeBase\windows\Display_Ext.cpp" />
+    <ClCompile Include="build\library\src\AeBase\windows\EntryPoint_Ext.cpp" />
+    <ClCompile Include="build\library\src\AeBase\windows\Hid_Ext.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\BinResHeader.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\ITexRes.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\Renderer.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\ResBin.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\ResMat.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\ResMatImpl.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\ResMatParam.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\ResMatParamImpl.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\ResMatSet.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\ResMatSetImpl.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\ResMatVtxAttrImpl.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\ResMdl.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\ResMdlImpl.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\ResMdlMatRefer.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\ResMdlMatReferImpl.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\ResMdlMesh.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\ResMdlMeshImpl.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\ResMdlNode.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\ResMdlNodeImpl.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\ResMdlShape.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\ResMdlShapeImpl.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\ResMdlSubMesh.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\ResMdlSubMeshImpl.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\ResTex.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\ResTexImpl.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\RuntimeTex.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\RuntimeTexContext.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\StateMaterial.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\StateMdlMaterial.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\StateMdlTransform.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\TexBuffer.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\TexSetting.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\VtxBuffer.cpp" />
+    <ClCompile Include="build\library\src\AeG3d\gl\windows\glew.c" />
+    <ClCompile Include="build\library\src\AeG3d\gl\windows\Renderer_EXT.cpp" />
+    <ClCompile Include="build\library\develop\Main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="build\library\src\AeG3d\gl\BinResHeader.hpp" />
+    <ClInclude Include="build\library\src\AeG3d\gl\BinResMat.hpp" />
+    <ClInclude Include="build\library\src\AeG3d\gl\BinResMatParam.hpp" />
+    <ClInclude Include="build\library\src\AeG3d\gl\BinResMatSet.hpp" />
+    <ClInclude Include="build\library\src\AeG3d\gl\BinResMatVtxAttr.hpp" />
+    <ClInclude Include="build\library\src\AeG3d\gl\BinResMdl.hpp" />
+    <ClInclude Include="build\library\src\AeG3d\gl\BinResMdlMatRefer.hpp" />
+    <ClInclude Include="build\library\src\AeG3d\gl\BinResMdlMesh.hpp" />
+    <ClInclude Include="build\library\src\AeG3d\gl\BinResMdlNode.hpp" />
+    <ClInclude Include="build\library\src\AeG3d\gl\BinResMdlShape.hpp" />
+    <ClInclude Include="build\library\src\AeG3d\gl\BinResMdlSubMesh.hpp" />
+    <ClInclude Include="build\library\src\AeG3d\gl\ResMatImpl.hpp" />
+    <ClInclude Include="build\library\src\AeG3d\gl\ResMatParamImpl.hpp" />
+    <ClInclude Include="build\library\src\AeG3d\gl\ResMatSetImpl.hpp" />
+    <ClInclude Include="build\library\src\AeG3d\gl\ResMatVtxAttrImpl.hpp" />
+    <ClInclude Include="build\library\src\AeG3d\gl\ResMdlImpl.hpp" />
+    <ClInclude Include="build\library\src\AeG3d\gl\ResMdlMatReferImpl.hpp" />
+    <ClInclude Include="build\library\src\AeG3d\gl\ResMdlMeshImpl.hpp" />
+    <ClInclude Include="build\library\src\AeG3d\gl\ResMdlNodeImpl.hpp" />
+    <ClInclude Include="build\library\src\AeG3d\gl\ResMdlShapeImpl.hpp" />
+    <ClInclude Include="build\library\src\AeG3d\gl\ResMdlShapeInputType.hpp" />
+    <ClInclude Include="build\library\src\AeG3d\gl\ResMdlShapeInputKind.hpp" />
+    <ClInclude Include="build\library\src\AeG3d\gl\ResMdlSubMeshImpl.hpp" />
+    <ClInclude Include="build\library\src\AeG3d\gl\ResTexImpl.hpp" />
+    <ClInclude Include="build\library\src\AeG3d\gl\XDataPlus.hpp" />
+    <ClInclude Include="include\ae\base\Aabb2.hpp" />
+    <ClInclude Include="include\ae\base\Aabb2i.hpp" />
+    <ClInclude Include="include\ae\base\AutoMemBlock.hpp" />
+    <ClInclude Include="build\library\src\AeG3d\gl\GlCmd.hpp" />
+    <ClInclude Include="build\library\src\AeG3d\gl\ShaderConstant.hpp" />
+    <ClInclude Include="include\ae\base\Angle.hpp" />
+    <ClInclude Include="include\ae\base\AppEvent.hpp" />
+    <ClInclude Include="include\ae\base\Application.hpp" />
+    <ClInclude Include="include\ae\base\Application_Windows.hpp" />
+    <ClInclude Include="include\ae\base\Argument.hpp" />
+    <ClInclude Include="include\ae\base\ArrayLength.hpp" />
+    <ClInclude Include="include\ae\base\AutoPtr.hpp" />
+    <ClInclude Include="include\ae\base\AutoSpPtr.hpp" />
+    <ClInclude Include="include\ae\base\BitSet.hpp" />
+    <ClInclude Include="include\ae\base\Bool.hpp" />
+    <ClInclude Include="include\ae\base\BuiltInTypes.hpp" />
+    <ClInclude Include="include\ae\base\Calendar.hpp" />
+    <ClInclude Include="include\ae\base\Color4.hpp" />
+    <ClInclude Include="include\ae\base\Color4b.hpp" />
+    <ClInclude Include="include\ae\base\Compiler.hpp" />
+    <ClInclude Include="include\ae\base\Config.hpp" />
+    <ClInclude Include="include\ae\base\Console.hpp" />
+    <ClInclude Include="include\ae\base\Enum.hpp" />
+    <ClInclude Include="include\ae\base\EnumCheck.hpp" />
+    <ClInclude Include="include\ae\base\FrameCounter.hpp" />
+    <ClInclude Include="include\ae\base\Hash.hpp" />
+    <ClInclude Include="include\ae\base\Hid.hpp" />
+    <ClInclude Include="include\ae\base\Hid_Windows.hpp" />
+    <ClInclude Include="include\ae\base\Infinity.hpp" />
+    <ClInclude Include="include\ae\base\IReadStream.hpp" />
+    <ClInclude Include="include\ae\base\KeyBitSet.hpp" />
+    <ClInclude Include="include\ae\base\Keyboard.hpp" />
+    <ClInclude Include="include\ae\base\KeyboardUpdateData.hpp" />
+    <ClInclude Include="include\ae\base\KeyKind.hpp" />
+    <ClInclude Include="include\ae\base\MemBlock.hpp" />
+    <ClInclude Include="include\ae\base\Mouse.hpp" />
+    <ClInclude Include="include\ae\base\MouseBtnBitSet.hpp" />
+    <ClInclude Include="include\ae\base\MouseBtnKind.hpp" />
+    <ClInclude Include="include\ae\base\MouseUpdateData.hpp" />
+    <ClInclude Include="include\ae\base\ResFile.hpp" />
+    <ClInclude Include="include\ae\base\ResFileStream.hpp" />
+    <ClInclude Include="include\ae\base\ResFileStream_STDC.hpp" />
+    <ClInclude Include="include\ae\base\RuntimeArray.hpp" />
+    <ClInclude Include="include\ae\base\Degree.hpp" />
+    <ClInclude Include="include\ae\base\Display.hpp" />
+    <ClInclude Include="include\ae\base\DisplayContext.hpp" />
+    <ClInclude Include="include\ae\base\Display_Windows.hpp" />
+    <ClInclude Include="include\ae\base\DivideCheck.hpp" />
+    <ClInclude Include="include\ae\base\Endian.hpp" />
+    <ClInclude Include="include\ae\base\EntryPoint.hpp" />
+    <ClInclude Include="include\ae\base\ExplicitSingleton.hpp" />
+    <ClInclude Include="include\ae\base\FixedString.hpp" />
+    <ClInclude Include="include\ae\base\FunctionAttribute.hpp" />
+    <ClInclude Include="include\ae\base\IAllocator.hpp" />
+    <ClInclude Include="include\ae\base\IConsoleCallback.hpp" />
+    <ClInclude Include="include\ae\base\IRuntimeErrorCallback.hpp" />
+    <ClInclude Include="include\ae\base\Math.hpp" />
+    <ClInclude Include="include\ae\base\Matrix34.hpp" />
+    <ClInclude Include="include\ae\base\Matrix44.hpp" />
+    <ClInclude Include="include\ae\base\NewLine.hpp" />
+    <ClInclude Include="include\ae\base\NonCopyable.hpp" />
+    <ClInclude Include="include\ae\base\OpenALCheck.hpp" />
+    <ClInclude Include="include\ae\base\OpenGLCheck.hpp" />
+    <ClInclude Include="include\ae\base\Os.hpp" />
+    <ClInclude Include="include\ae\base\OsType.hpp" />
+    <ClInclude Include="include\ae\base\Placement.hpp" />
+    <ClInclude Include="include\ae\base\Pointer.hpp" />
+    <ClInclude Include="include\ae\base\Random.hpp" />
+    <ClInclude Include="include\ae\base\Ref.hpp" />
+    <ClInclude Include="include\ae\base\Reference.hpp" />
+    <ClInclude Include="include\ae\base\RuntimeAutoArray.hpp" />
+    <ClInclude Include="include\ae\base\RuntimeMArray.hpp" />
+    <ClInclude Include="include\ae\base\ScopedPtr.hpp" />
+    <ClInclude Include="include\ae\base\Screen.hpp" />
+    <ClInclude Include="include\ae\base\ScreenPos.hpp" />
+    <ClInclude Include="include\ae\base\SdkHeader.hpp" />
+    <ClInclude Include="include\ae\base\Pi.hpp" />
+    <ClInclude Include="include\ae\base\PodClass.hpp" />
+    <ClInclude Include="include\ae\base\PodInheritClass.hpp" />
+    <ClInclude Include="include\ae\base\PodStruct.hpp" />
+    <ClInclude Include="include\ae\base\PodTypes.hpp" />
+    <ClInclude Include="include\ae\base\PointerCheck.hpp" />
+    <ClInclude Include="include\ae\base\Quaternion.hpp" />
+    <ClInclude Include="include\ae\base\Radian.hpp" />
+    <ClInclude Include="include\ae\base\RuntimeAssert.hpp" />
+    <ClInclude Include="include\ae\base\RuntimeError.hpp" />
+    <ClInclude Include="include\ae\base\ScalerClass.hpp" />
+    <ClInclude Include="include\ae\base\ScalerStruct.hpp" />
+    <ClInclude Include="include\ae\base\ScalerTypes.hpp" />
+    <ClInclude Include="include\ae\base\SeekOrigin.hpp" />
+    <ClInclude Include="include\ae\base\ShortString.hpp" />
+    <ClInclude Include="include\ae\base\ShortStringFactory.hpp" />
+    <ClInclude Include="include\ae\base\StaticAssert.hpp" />
+    <ClInclude Include="include\ae\base\StringTraits.hpp" />
+    <ClInclude Include="include\ae\base\Thread.hpp" />
+    <ClInclude Include="include\ae\base\Time.hpp" />
+    <ClInclude Include="include\ae\base\TimeSpan.hpp" />
+    <ClInclude Include="include\ae\base\ToShortString.hpp" />
+    <ClInclude Include="include\ae\base\Touch.hpp" />
+    <ClInclude Include="include\ae\base\TouchTap.hpp" />
+    <ClInclude Include="include\ae\base\TouchTapUpdateData.hpp" />
+    <ClInclude Include="include\ae\base\TouchUpdateData.hpp" />
+    <ClInclude Include="include\ae\base\TypeTraits.hpp" />
+    <ClInclude Include="include\ae\base\Unused.hpp" />
+    <ClInclude Include="include\ae\base\ValueInRange.hpp" />
+    <ClInclude Include="include\ae\base\Vector2.hpp" />
+    <ClInclude Include="include\ae\base\Vector2i.hpp" />
+    <ClInclude Include="include\ae\base\Vector3.hpp" />
+    <ClInclude Include="include\ae\base\Vector3i.hpp" />
+    <ClInclude Include="include\ae\base\Vector4.hpp" />
+    <ClInclude Include="include\ae\base\Vector4i.hpp" />
+    <ClInclude Include="include\ae\base\XBase.hpp" />
+    <ClInclude Include="build\library\src\AeG3d\gl\BinResTex.hpp" />
+    <ClInclude Include="include\ae\g3d\BuiltInTypes.hpp" />
+    <ClInclude Include="include\ae\g3d\Engine.hpp" />
+    <ClInclude Include="include\ae\g3d\glew.h" />
+    <ClInclude Include="include\ae\g3d\ITexRes.hpp" />
+    <ClInclude Include="include\ae\g3d\MatParam.hpp" />
+    <ClInclude Include="include\ae\g3d\MdlLocalMtx.hpp" />
+    <ClInclude Include="include\ae\g3d\ResBin.hpp" />
+    <ClInclude Include="include\ae\g3d\StateMaterial.hpp" />
+    <ClInclude Include="include\ae\g3d\StateMdlMaterial.hpp" />
+    <ClInclude Include="include\ae\g3d\StateMdlTransform.hpp" />
+    <ClInclude Include="include\ae\g3d\PrimitiveKind.hpp" />
+    <ClInclude Include="include\ae\g3d\Renderer_GL.hpp" />
+    <ClInclude Include="include\ae\g3d\ResConstant.hpp" />
+    <ClInclude Include="include\ae\g3d\ResFile.hpp" />
+    <ClInclude Include="include\ae\g3d\ResMat.hpp" />
+    <ClInclude Include="include\ae\g3d\ResMatParam.hpp" />
+    <ClInclude Include="include\ae\g3d\ResMatSet.hpp" />
+    <ClInclude Include="include\ae\g3d\ResMdl.hpp" />
+    <ClInclude Include="include\ae\g3d\ResMdlMatRefer.hpp" />
+    <ClInclude Include="include\ae\g3d\ResMdlMesh.hpp" />
+    <ClInclude Include="include\ae\g3d\ResMdlNode.hpp" />
+    <ClInclude Include="include\ae\g3d\ResMdlShape.hpp" />
+    <ClInclude Include="include\ae\g3d\ResMdlSubMesh.hpp" />
+    <ClInclude Include="include\ae\g3d\ResTex.hpp" />
+    <ClInclude Include="include\ae\g3d\ResTexFormat.hpp" />
+    <ClInclude Include="include\ae\g3d\RuntimeTexContext.hpp" />
+    <ClInclude Include="include\ae\g3d\SdkHeader.hpp" />
+    <ClInclude Include="include\ae\g3d\Renderer.hpp" />
+    <ClInclude Include="include\ae\g3d\TexAddress.hpp" />
+    <ClInclude Include="include\ae\g3d\RuntimeTex.hpp" />
+    <ClInclude Include="include\ae\g3d\TexBuffer.hpp" />
+    <ClInclude Include="include\ae\g3d\TexBuffer_GL.hpp" />
+    <ClInclude Include="include\ae\g3d\TexId.hpp" />
+    <ClInclude Include="include\ae\g3d\TexFilter.hpp" />
+    <ClInclude Include="include\ae\g3d\TexResData.hpp" />
+    <ClInclude Include="include\ae\g3d\TexSetting.hpp" />
+    <ClInclude Include="include\ae\g3d\TexSetting_GL.hpp" />
+    <ClInclude Include="include\ae\g3d\VtxBuffer.hpp" />
+    <ClInclude Include="include\ae\g3d\VtxBuffer_GL.hpp" />
+    <ClInclude Include="include\ae\g3d\wglew.h" />
+    <ClInclude Include="include\ae\g3d\XG3D.hpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{FE50142A-80DF-4CE1-B9FB-3BEB1A07CF62}</ProjectGuid>
+    <RootNamespace>XLibraryRoot</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='develop|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='final|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='semifinal|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='develop|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='final|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='semifinal|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
+    <PreBuildEventUseInBuild>false</PreBuildEventUseInBuild>
+    <PreLinkEventUseInBuild>false</PreLinkEventUseInBuild>
+    <IntDir>$(SolutionDir)\build\library\windows\build\$(TargetName)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)\build\library\windows\build\$(TargetName)\$(Configuration)\</OutDir>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='develop|x64'">
+    <PreBuildEventUseInBuild>false</PreBuildEventUseInBuild>
+    <PreLinkEventUseInBuild>false</PreLinkEventUseInBuild>
+    <OutDir>$(SolutionDir)\build\library\windows\build\$(TargetName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\build\library\windows\build\$(TargetName)\$(Configuration)\</IntDir>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='final|x64'">
+    <PreBuildEventUseInBuild>false</PreBuildEventUseInBuild>
+    <PreLinkEventUseInBuild>false</PreLinkEventUseInBuild>
+    <OutDir>$(SolutionDir)\build\library\windows\build\$(TargetName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\build\library\windows\build\$(TargetName)\$(Configuration)\</IntDir>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='semifinal|x64'">
+    <PreBuildEventUseInBuild>false</PreBuildEventUseInBuild>
+    <PreLinkEventUseInBuild>false</PreLinkEventUseInBuild>
+    <OutDir>$(SolutionDir)\build\library\windows\build\$(TargetName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\build\library\windows\build\$(TargetName)\$(Configuration)\</IntDir>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)/include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_CONSOLE;_DEBUG;AE_LIBRARY_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DisableSpecificWarnings>4127;4481;4351;</DisableSpecificWarnings>
+      <AdditionalOptions>/utf-8  %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='develop|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(ProjectDir)/include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>XLIBRARY_DEVELOP;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DisableSpecificWarnings>4127;4481;4351;</DisableSpecificWarnings>
+      <AdditionalOptions>/utf-8  %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='final|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(ProjectDir)/include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>AE_LIBRARY_FINAL;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DisableSpecificWarnings>4127;4481;4351;</DisableSpecificWarnings>
+      <AdditionalOptions>/utf-8  %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='semifinal|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(ProjectDir)/include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>AE_LIBRARY_SEMIFINAL;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DisableSpecificWarnings>4127;4481;4351;</DisableSpecificWarnings>
+      <AdditionalOptions>/utf-8  %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
