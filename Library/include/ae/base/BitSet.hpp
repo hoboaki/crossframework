@@ -10,7 +10,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Collection
+/// @addtogroup AeBase-Collection
 //@{
 /// @brief ビットを扱うコレクション(Pod版)。
 /// @details

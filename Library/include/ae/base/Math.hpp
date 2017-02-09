@@ -15,7 +15,7 @@ class Angle;
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Math
+/// @addtogroup AeBase-Math
 //@{
     /// @brief 数学系関数を集めた空間。
 //@{

@@ -9,7 +9,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Hid
+/// @addtogroup AeBase-Hid
 //@{
 /// @brief タッチのタップ入力。
 class TouchTap

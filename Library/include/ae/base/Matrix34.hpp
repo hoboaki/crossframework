@@ -18,7 +18,7 @@ struct Vector4Pod;
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Math
+/// @addtogroup AeBase-Math
 //@{
     /// @brief 3x4の32bit浮動小数行列構造体。
     /// @details 

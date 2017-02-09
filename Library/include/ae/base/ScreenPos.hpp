@@ -9,7 +9,7 @@
 namespace ae {
 namespace base {
 
-/// @name XBase-Util
+/// @name AeBase-Util
 //@{
 /// @brief スクリーン上の位置。
 /// @details

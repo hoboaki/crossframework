@@ -3,7 +3,7 @@
 
 #include <ae/base/Application.hpp>
 #include <ae/base/Ref.hpp>
-#include "XBaseNSWindow.h"
+#include "AeBaseNSWindow.h"
 #include <OpenGL/OpenGL.h>
 
 //------------------------------------------------------------------------------

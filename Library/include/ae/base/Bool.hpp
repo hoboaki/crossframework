@@ -9,7 +9,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Types
+/// @addtogroup AeBase-Types
 //@{
 /// @brief BoolTmpl のPod版。
 template< typename DATA_TYPE >

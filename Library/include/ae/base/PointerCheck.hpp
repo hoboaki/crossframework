@@ -9,7 +9,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Debug
+/// @addtogroup AeBase-Debug
 //@{
 /// ポインタについて調べる処理を扱う空間。
 struct PointerCheck

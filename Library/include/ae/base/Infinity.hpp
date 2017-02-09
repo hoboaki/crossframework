@@ -5,7 +5,7 @@
 
 #include <limits>
 
-/// @addtogroup XBase-Math
+/// @addtogroup AeBase-Math
 //@{
 /// 無限大の値。
 #define AE_BASE_INFINITY (std::numeric_limits< float >::infinity())

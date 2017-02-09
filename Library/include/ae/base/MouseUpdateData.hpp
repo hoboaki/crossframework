@@ -11,7 +11,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Hid
+/// @addtogroup AeBase-Hid
 //@{
 /// マウスの更新データ。
 struct MouseUpdateData

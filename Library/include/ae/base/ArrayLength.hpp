@@ -5,7 +5,7 @@
 
 #include <ae/base/StaticAssert.hpp>
 
-/// @addtogroup XBase-Util
+/// @addtogroup AeBase-Util
 //@{
 /// @name 配列長
 //@{

@@ -12,7 +12,7 @@ class IRuntimeErrorCallback;
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Debug
+/// @addtogroup AeBase-Debug
 //@{
 /// 実行時エラーを扱う空間。
 struct RuntimeError

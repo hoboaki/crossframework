@@ -16,7 +16,7 @@ struct TimeSpanPod;
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-DateTime
+/// @addtogroup AeBase-DateTime
 //@{
 /// @brief 時間を扱う構造体。
 /// @details 

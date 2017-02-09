@@ -9,7 +9,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Util
+/// @addtogroup AeBase-Util
 //@{
 /// フレームカウンター。
 class FrameCounter

@@ -9,7 +9,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Types
+/// @addtogroup AeBase-Types
 //@{
 //=================================================
 /// @name 符号無し整数型

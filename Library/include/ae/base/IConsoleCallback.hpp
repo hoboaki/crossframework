@@ -9,7 +9,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Debug
+/// @addtogroup AeBase-Debug
 //@{
 /// コンソール用コールバックインターフェースクラス。
 class IConsoleCallback

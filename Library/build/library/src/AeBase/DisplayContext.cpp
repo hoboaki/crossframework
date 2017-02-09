@@ -4,7 +4,7 @@
 #include <ae/base/SdkHeader.hpp>
 
 #if defined(AE_BASE_OS_MACOSX)
-    #include "XBaseNSScreen.h"
+    #include "AeBaseNSScreen.h"
 #endif
 
 //------------------------------------------------------------------------------

@@ -9,7 +9,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Util
+/// @addtogroup AeBase-Util
 //@{
 /// @brief Ref() 用の参照のラッパークラス。
 /// @details

@@ -1,5 +1,5 @@
 // 文字コード：UTF-8
-#include "XG3DUIOpenGLView.h"
+#include "AeG3dUIOpenGLView.h"
 
 #include <UIKit/UIKit.h>
 #import <OpenGLES/ES2/gl.h>

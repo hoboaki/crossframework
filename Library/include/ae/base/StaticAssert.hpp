@@ -5,7 +5,7 @@
 
 #include <ae/base/Compiler.hpp>
 
-/// @addtogroup XBase-Debug
+/// @addtogroup AeBase-Debug
 //@{
 /// @name コンパイル時アサート
 //@{

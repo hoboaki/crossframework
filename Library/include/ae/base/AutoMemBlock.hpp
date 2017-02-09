@@ -16,7 +16,7 @@ class IAllocator;
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Memory
+/// @addtogroup AeBase-Memory
 //@{
     /// @brief MemBlockのオートポインタ。
     /// @details

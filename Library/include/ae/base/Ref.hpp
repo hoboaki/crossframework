@@ -9,7 +9,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Util
+/// @addtogroup AeBase-Util
 //@{
 /// std::tr1::ref と同じ役割の関数。
 template< typename T >

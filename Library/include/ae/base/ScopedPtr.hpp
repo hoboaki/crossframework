@@ -7,7 +7,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Memory
+/// @addtogroup AeBase-Memory
 //@{
 /// boost::scoped_ptrと同じオートポインタクラス。
 template< typename T >

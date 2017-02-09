@@ -1,5 +1,5 @@
 // 文字コード：UTF-8
-#include "XBaseNSApp.h"
+#include "AeBaseNSApp.h"
 
 #import <Cocoa/Cocoa.h>
 

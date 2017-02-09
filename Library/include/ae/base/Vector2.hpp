@@ -17,7 +17,7 @@ struct Vector4Pod;
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Math
+/// @addtogroup AeBase-Math
 //@{
 /// Vector2Podのエイリアス。
 typedef Vector2Pod Vec2;

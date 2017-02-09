@@ -16,7 +16,7 @@ struct Color4Pod;
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Util
+/// @addtogroup AeBase-Util
 //@{
 /// 8bit符号無し整数をRGBAの順に並べた色構造体。
 struct Color4bPod

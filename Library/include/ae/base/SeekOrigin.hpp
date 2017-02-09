@@ -7,7 +7,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-IO
+/// @addtogroup AeBase-IO
 //@{
 /// Seek関数の基準。
 struct SeekOrigin

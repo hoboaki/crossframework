@@ -1,5 +1,5 @@
 // 文字コード：UTF-8
-#include "XBaseUIApplicationDelegate.h"
+#include "AeBaseUIApplicationDelegate.h"
 
 #import <QuartzCore/QuartzCore.h>
 #include "EntryPoint_Sync.h"

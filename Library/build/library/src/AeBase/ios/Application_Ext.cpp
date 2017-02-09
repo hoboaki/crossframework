@@ -4,7 +4,7 @@
 #include <ae/base/Display.hpp>
 #include <ae/base/Hid.hpp>
 #include "EntryPoint_Sync.h"
-#include "XBaseUIWindow.h"
+#include "AeBaseUIWindow.h"
 
 //------------------------------------------------------------------------------
 namespace ae {

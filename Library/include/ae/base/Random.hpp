@@ -9,7 +9,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Math
+/// @addtogroup AeBase-Math
 //@{
 /// @brief 乱数。
 /// @details

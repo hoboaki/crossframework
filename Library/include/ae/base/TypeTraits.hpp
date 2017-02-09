@@ -14,7 +14,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Types
+/// @addtogroup AeBase-Types
 //@{
 /// 型特性。
 struct TypeTraits

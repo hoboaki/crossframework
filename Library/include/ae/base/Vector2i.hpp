@@ -17,7 +17,7 @@ struct Vector4iPod;
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Math
+/// @addtogroup AeBase-Math
 //@{
     /// @brief 整数型2次元ベクトル構造体。
     /// @details 

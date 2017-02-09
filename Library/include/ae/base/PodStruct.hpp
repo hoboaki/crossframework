@@ -10,7 +10,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Types
+/// @addtogroup AeBase-Types
 //@{
 /// @brief PodClassの既定クラスとなる構造体。
 /// @details バイナリデータの定義で使うことを想定しています。

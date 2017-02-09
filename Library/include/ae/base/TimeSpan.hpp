@@ -10,7 +10,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-DateTime
+/// @addtogroup AeBase-DateTime
 //@{
 /// @brief 時間間隔を表現する構造体。
 /// @details

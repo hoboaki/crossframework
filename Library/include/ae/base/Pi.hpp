@@ -3,7 +3,7 @@
 #else
 #define AE_BASE_INCLUDED_PI_HPP
 
-/// @addtogroup XBase-Math
+/// @addtogroup AeBase-Math
 //@{
 /// 円周率の値。
 #define AE_BASE_PI (3.14159265f)

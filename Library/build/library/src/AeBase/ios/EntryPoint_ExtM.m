@@ -5,7 +5,7 @@
 #include <string.h>
 #include <UIKit/UIKit.h>
 #include "EntryPoint_Ext.h"
-#include "XBaseUIApplicationDelegate.h"
+#include "AeBaseUIApplicationDelegate.h"
 
 //------------------------------------------------------------------------------
 // EntryPointC.cppに定義してある関数。
@@ -68,7 +68,7 @@ int main( const int aArgCount , char* aArgValues[] )
 int mainUI( int aArgCount , char* aArgValues[] )
 {
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    int retVal = UIApplicationMain(aArgCount, aArgValues, nil, @"XBaseUIApplicationDelegate");
+    int retVal = UIApplicationMain(aArgCount, aArgValues, nil, @"AeBaseUIApplicationDelegate");
     [pool release];
     return retVal;    
 }

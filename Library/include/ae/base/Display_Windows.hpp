@@ -22,7 +22,7 @@ class Hid;
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-System
+/// @addtogroup AeBase-System
 //@{
 // Windows環境でのDisplayの拡張。
 class Display_Ext

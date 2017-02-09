@@ -10,7 +10,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-IO
+/// @addtogroup AeBase-IO
 //@{
 /// 読み込み専用ストリーム。
 class IReadStream

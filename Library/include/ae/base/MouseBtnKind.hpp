@@ -7,7 +7,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Hid
+/// @addtogroup AeBase-Hid
 //@{
 /// マウスのボタンの種類。
 struct MouseBtnKind

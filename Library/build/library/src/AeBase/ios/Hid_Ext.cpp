@@ -4,7 +4,7 @@
 #include <ae/base/Display.hpp>
 #include <ae/base/Keyboard.hpp>
 #include <ae/base/Mouse.hpp>
-#include "XBaseUIWindow.h"
+#include "AeBaseUIWindow.h"
 
 //------------------------------------------------------------------------------
 namespace ae {

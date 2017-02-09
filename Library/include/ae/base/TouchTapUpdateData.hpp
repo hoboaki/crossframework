@@ -10,7 +10,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Hid
+/// @addtogroup AeBase-Hid
 //@{
 /// タッチの1タップの更新データ。
 struct TouchTapUpdateData

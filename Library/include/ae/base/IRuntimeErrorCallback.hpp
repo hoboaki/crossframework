@@ -7,7 +7,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Debug
+/// @addtogroup AeBase-Debug
 //@{
 /// 実行時エラー用コールバックインターフェースクラス。
 class IRuntimeErrorCallback

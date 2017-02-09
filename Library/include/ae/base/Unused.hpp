@@ -3,7 +3,7 @@
 #else
 #define AE_BASE_INCLUDED_UNUSED_HPP
 
-/// @addtogroup XBase-Util
+/// @addtogroup AeBase-Util
 //@{
 /// @name 変数未使用警告対応
 //@{

@@ -10,7 +10,7 @@
 namespace ae {
 namespace base {
     
-/// @addtogroup XBase-Types
+/// @addtogroup AeBase-Types
 //@{
 //=================================================
 /// @name 必ず初期化される符号無し型

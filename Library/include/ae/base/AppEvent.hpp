@@ -7,7 +7,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-System
+/// @addtogroup AeBase-System
 //@{
 /// アプリケーションイベントの種類。
 struct AppEvent

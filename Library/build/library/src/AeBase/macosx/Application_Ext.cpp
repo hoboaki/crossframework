@@ -6,7 +6,7 @@
 #include <ae/base/Thread.hpp>
 #include <ae/base/Time.hpp>
 #include <ae/base/TimeSpan.hpp>
-#include "XBaseNSApp.h"
+#include "AeBaseNSApp.h"
 
 //------------------------------------------------------------------------------
 namespace ae {

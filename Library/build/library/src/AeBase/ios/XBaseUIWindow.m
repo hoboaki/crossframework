@@ -1,5 +1,5 @@
 // 文字コード：UTF-8
-#include "XBaseUIWindow.h"
+#include "AeBaseUIWindow.h"
 
 #import <UIKit/UIKit.h>
 

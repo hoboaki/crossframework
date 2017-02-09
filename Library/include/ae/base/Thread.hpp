@@ -12,7 +12,7 @@ struct TimeSpanPod;
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Thread
+/// @addtogroup AeBase-Thread
 //@{
 /// スレッド。
 class Thread

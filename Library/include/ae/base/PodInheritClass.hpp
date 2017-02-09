@@ -10,7 +10,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Types
+/// @addtogroup AeBase-Types
 //@{
 /// @brief Pod型を継承するクラス用のテンプレートクラス。
 /// @details ゼロクリアコンストラクタとコピーコンストラクタを自動で作成します。

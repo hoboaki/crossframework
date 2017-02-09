@@ -10,7 +10,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Util
+/// @addtogroup AeBase-Util
 //@{
 /// @brief ポインタのラッパーテンプレートクラス。
 /// @details

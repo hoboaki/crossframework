@@ -17,7 +17,7 @@ struct Vector4Pod;
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Math
+/// @addtogroup AeBase-Math
 //@{
 /// @brief 整数型4次元ベクトル構造体。
 /// @details 

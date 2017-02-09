@@ -10,7 +10,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-DateTime
+/// @addtogroup AeBase-DateTime
 //@{
 /// @brief カレンダー情報を扱う構造体。
 /// @details グレゴリアン歴を使っています。

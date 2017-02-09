@@ -9,7 +9,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Types
+/// @addtogroup AeBase-Types
 //@{
     /// @brief EnumTmpl のPod版。
 template< typename TEnumType, typename TDataType >

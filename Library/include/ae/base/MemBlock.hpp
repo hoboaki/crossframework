@@ -9,7 +9,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Memory
+/// @addtogroup AeBase-Memory
 //@{
 /// メモリブロック。
 class MemBlock

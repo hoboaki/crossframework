@@ -17,7 +17,7 @@ struct Vector3Pod;
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Math
+/// @addtogroup AeBase-Math
 //@{
 /// @brief 32bit浮動小数のクォータニオンクラス。
 class Quaternion

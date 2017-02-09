@@ -5,7 +5,7 @@
 
 #include <ae/base/Os.hpp>
 
-/// @addtogroup XBase-Env
+/// @addtogroup AeBase-Env
 //@{
 
 /// @def AE_BASE_NEWLINE

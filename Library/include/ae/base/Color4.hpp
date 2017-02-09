@@ -17,7 +17,7 @@ struct Vector4Pod;
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Util
+/// @addtogroup AeBase-Util
 //@{
 /// 32bit浮動小数をRGBAの順に並べた色構造体。
 struct Color4Pod

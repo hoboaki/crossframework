@@ -13,7 +13,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-String
+/// @addtogroup AeBase-String
 //@{
     /// @brief 固定長文字列テンプレート構造体。
     /// @details 

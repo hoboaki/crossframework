@@ -14,7 +14,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-IO
+/// @addtogroup AeBase-IO
 //@{
     /// @brief アプリケーションのリソースファイルを読み込むクラス。
     /// @details

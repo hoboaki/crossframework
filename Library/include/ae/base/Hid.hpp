@@ -26,7 +26,7 @@ class Touch;
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Hid
+/// @addtogroup AeBase-Hid
 //@{
 /// @brief Hid(Human Interface Device)にアクセスするクラス。
 class Hid : public NonCopyable

@@ -7,7 +7,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Debug
+/// @addtogroup AeBase-Debug
 //@{
 
 /// @brief Enumの値が 0以上 TERM　未満であることをチェックするマクロ。

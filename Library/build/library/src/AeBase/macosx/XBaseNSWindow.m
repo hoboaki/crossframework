@@ -1,5 +1,5 @@
 // 文字コード：UTF-8
-#include "XBaseNSWindow.h"
+#include "AeBaseNSWindow.h"
 
 #import <Cocoa/Cocoa.h>
 

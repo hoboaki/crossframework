@@ -14,7 +14,7 @@ class AutoMemBlock;
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-IO
+/// @addtogroup AeBase-IO
 //@{
 /// @brief アプリケーションのリソースファイルにアクセスするクラス。
 /// @see ResFileStream

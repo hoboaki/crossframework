@@ -11,7 +11,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-System
+/// @addtogroup AeBase-System
 //@{
 /// Display クラスのコンテキスト。
 class DisplayContext

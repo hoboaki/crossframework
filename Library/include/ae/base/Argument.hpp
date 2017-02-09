@@ -9,7 +9,7 @@
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-System
+/// @addtogroup AeBase-System
 //@{
 /// エントリーポイントの引数。
 class Argument

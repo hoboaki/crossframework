@@ -14,7 +14,7 @@ class MemBlock;
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Util
+/// @addtogroup AeBase-Util
 //@{
 /// ハッシュ値を求める関数群。
 struct Hash

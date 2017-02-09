@@ -15,7 +15,7 @@ struct DegreePod;
 namespace ae {
 namespace base {
 
-/// @addtogroup XBase-Math
+/// @addtogroup AeBase-Math
 //@{
 /// ラジアンを扱う構造体。
 struct RadianPod

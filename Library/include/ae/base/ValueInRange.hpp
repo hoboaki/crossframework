@@ -3,7 +3,7 @@
 #else
 #define AE_BASE_INCLUDED_VALUEINRANGE_HPP
 
-/// @addtogroup XBase-Util
+/// @addtogroup AeBase-Util
 //@{
 /// @name 値範囲チェック
 //@{

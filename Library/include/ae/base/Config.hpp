@@ -3,7 +3,7 @@
 #else
 #define AE_BASE_INCLUDED_CONFIG_HPP
 
-/// @addtogroup XBase-Env
+/// @addtogroup AeBase-Env
 //@{
 
 // ビルドバージョンレベルの定義。
