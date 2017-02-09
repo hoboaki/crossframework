@@ -42,7 +42,7 @@ int tBytePerPixel(const ::ae::g3d::ResTexFormat::EnumType aFormat)
     return bytePerPix;
 }
 
-}} // namespace
+} // namespace
 
 //------------------------------------------------------------------------------
 pword_t RuntimeTex::CalcDataSize(

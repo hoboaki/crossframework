@@ -19,9 +19,9 @@
     #define AE_XS_DATA_IS_LITTLE_ENDIAN
 #endif
 
-
+namespace ae {
 /// Xdataのアクセサを定義する名前空間。
-namespace Xdata {
+namespace xdata {
 /// @addtogroup Xdata
 //@{
 

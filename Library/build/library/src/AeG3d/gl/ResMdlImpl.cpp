@@ -18,7 +18,7 @@ struct tEntryHeader
     ::ae::xdata::Reference  entries[1]; // 本当は無限長配列
 };
 
-}} // namespace
+} // namespace
 
 //------------------------------------------------------------------------------
 ResMdlImpl::ResMdlImpl(
