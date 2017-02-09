@@ -13,7 +13,7 @@
 namespace ae {
 namespace g3d {
 struct MdlLocalMtx;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {
@@ -21,8 +21,8 @@ namespace g3d {
 
 /// @addtogroup AeG3d-State
 //@{
-    /// @brief モデルのTransformに関するState。
-    /// @details
+/// @brief モデルのTransformに関するState。
+/// @details
 /// 各関数の引数 aNodeIndex はインスタンス元モデルの node のインデックス値に対応します。
 class StateMdlTransform : public ::ae::base::NonCopyable
 {

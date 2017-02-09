@@ -10,7 +10,7 @@
 namespace ae {
 namespace base {
 class IConsoleCallback;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {
@@ -73,7 +73,8 @@ struct Console
     static void TimeWriteLineVF(const char* aFormat, va_list);
 };
 //@}
-}
+
+}} // namespace
 
 // 準備
 #if defined(AE_BASE_CONFIG_ENABLE_LOGSTR)

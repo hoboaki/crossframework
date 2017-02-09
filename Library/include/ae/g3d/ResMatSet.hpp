@@ -10,7 +10,7 @@
 namespace ae {
 namespace g3d {
 class ResMatSetImpl;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {
@@ -18,8 +18,8 @@ namespace g3d {
 
 /// @addtogroup AeG3d-Res
 //@{
-    /// @brief XMATSETデータのアクセサ。
-    /// @details
+/// @brief XMATSETデータのアクセサ。
+/// @details
 /// ただのアクセサなのでコピーして使って構いません。メモリのアロケーションも走りません。
 class ResMatSet
 {

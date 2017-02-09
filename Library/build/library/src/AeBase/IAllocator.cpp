@@ -26,7 +26,7 @@ public:
 
 tDefaultAllocatorObj tDefaultAllocator;
 
-}} // namespace
+} // namespace
 
 //------------------------------------------------------------------------------
 IAllocator::~IAllocator()
@@ -67,8 +67,8 @@ IAllocator& IAllocator::OperatorNewDelete()
     return obj;
 }
 
-//------------------------------------------------------------------------------
-}
+}} // namespace
+
 //------------------------------------------------------------------------------
 void* operator new(const std::size_t aSize, ::ae::base::IAllocator& aAllocator)
 {

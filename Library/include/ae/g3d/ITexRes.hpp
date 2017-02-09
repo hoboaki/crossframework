@@ -6,7 +6,7 @@
 namespace ae {
 namespace g3d {
 struct TexResData;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {

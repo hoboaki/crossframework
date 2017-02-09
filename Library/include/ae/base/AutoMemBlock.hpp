@@ -10,7 +10,7 @@
 namespace ae {
 namespace base {
 class IAllocator;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {

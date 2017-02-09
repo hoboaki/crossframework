@@ -11,7 +11,7 @@
 namespace ae {
 namespace g3d {
 class ResMdlNodeImpl;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {
@@ -19,8 +19,8 @@ namespace g3d {
 
 /// @addtogroup AeG3d-Res
 //@{
-    /// @brief XMDL::nodeデータのアクセサ。
-    /// @details
+/// @brief XMDL::nodeデータのアクセサ。
+/// @details
 /// ただのアクセサなのでコピーして使って構いません。メモリのアロケーションも走りません。
 class ResMdlNode
 {

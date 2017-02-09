@@ -22,7 +22,7 @@ namespace ae {
 namespace base {
 class Argument;
 class Display;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {

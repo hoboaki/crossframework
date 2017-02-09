@@ -13,7 +13,7 @@ namespace base {
 
 /// @addtogroup AeBase-Collection
 //@{
-    /// 実行時に最大要素数が決定する可変長配列。
+/// 実行時に最大要素数が決定する可変長配列。
 template< typename T >
 class RuntimeMArray : public ::ae::base::NonCopyable
 {

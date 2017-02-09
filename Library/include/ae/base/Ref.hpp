@@ -11,7 +11,7 @@ namespace base {
 
 /// @addtogroup XBase-Util
 //@{
-    /// std::tr1::ref と同じ役割の関数。
+/// std::tr1::ref と同じ役割の関数。
 template< typename T >
 const Reference< T > Ref(T& aObj)
 {

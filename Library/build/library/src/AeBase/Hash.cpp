@@ -114,7 +114,7 @@ const uint32 tCRC32C_TABLE[256] =
     0xBE2DA0A5L, 0x4C4623A6L, 0x5F16D052L, 0xAD7D5351L
 };
 
-}} // namespace
+} // namespace
 
 //------------------------------------------------------------------------------
 uint16 Hash::CRC16(const MemBlock& aBlock)

@@ -16,7 +16,7 @@
 namespace ae {
 namespace g3d {
 class TexSetting;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {

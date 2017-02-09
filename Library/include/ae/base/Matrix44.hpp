@@ -10,7 +10,7 @@ namespace base {
 class Angle;
 struct Vector3Pod;
 struct Vector4Pod;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {

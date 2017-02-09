@@ -12,9 +12,9 @@ namespace base {
 
 /// @addtogroup XBase-DateTime
 //@{
-    /// @brief 時間間隔を表現する構造体。
-    /// @details
-    /// 最小単位(1チック)は100ナノ秒です。@n
+/// @brief 時間間隔を表現する構造体。
+/// @details
+/// 最小単位(1チック)は100ナノ秒です。@n
 /// 加算・減算に関してオーバーフロー対策は何もしていないためオーバーフローしてもエラーにはなりません。 @n
 struct TimeSpanPod
 {

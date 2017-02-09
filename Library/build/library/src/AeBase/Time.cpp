@@ -113,7 +113,7 @@ const TimePod tCurrentTime(tTimeConverter aConverter)
     return obj;
 }
 
-}} // namespace
+} // namespace
 
 //------------------------------------------------------------------------------
 const TimePod TimePod::LocalTime()

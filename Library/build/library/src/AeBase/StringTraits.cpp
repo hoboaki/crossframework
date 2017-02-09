@@ -19,7 +19,8 @@ namespace base {
 
 //------------------------------------------------------------------------------
 namespace {
-    // 関数実装用テンプレート構造体宣言。
+
+// 関数実装用テンプレート構造体宣言。
 template< typename CharType >
 struct tImpl;
 
@@ -183,6 +184,7 @@ bool tEquals(const CharType* aStrA, const CharType* aStrB)
     // 結果を返す。
     return tImpl< CharType >::Equals(aStrA, aStrB);
 }
+
 }
 
 // Equalsの実装(char版)。
@@ -201,7 +203,7 @@ bool StringTraits< wchar_t >::Equals(const wchar_t* aStrA, const wchar_t* aStrB)
 
 //------------------------------------------------------------------------------
 namespace {
-    // NCopyStrictの実装。
+// NCopyStrictの実装。
 template< typename CharType >
 const typename StringTraits< CharType >::WriteResult tNCopyStrict(
     CharType* aBuffer,
@@ -258,7 +260,7 @@ const StringTraits< wchar_t >::WriteResult StringTraits< wchar_t >::NCopyStrict(
 
 //------------------------------------------------------------------------------
 namespace {
-    // NCopyの実装。
+// NCopyの実装。
 template< typename CharType >
 const typename StringTraits< CharType >::WriteResult tNCopy(
     CharType* aBuffer,
@@ -299,6 +301,7 @@ const typename StringTraits< CharType >::WriteResult tNCopy(
     // 結果を返す
     return result;
 }
+
 }
 
 // NCopyの実装(char版)。
@@ -325,7 +328,7 @@ const StringTraits< wchar_t >::WriteResult StringTraits< wchar_t >::NCopy(
 
 //------------------------------------------------------------------------------
 namespace {
-    // VSNPrintfStrictの実装。
+// VSNPrintfStrictの実装。
 template< typename CharType >
 const typename StringTraits< CharType >::WriteResult tVSNPrintfStrict(
     CharType* aBuffer,
@@ -387,7 +390,6 @@ const StringTraits< wchar_t >::WriteResult StringTraits< wchar_t >::VSNPrintfStr
 // 特殊化関数をSNPrintfより先に定義しないといけないので
 // VSNPrintfを先に定義。
 namespace {
-
 // VSNPrintfの実装。
 template< typename CharType >
 const typename StringTraits< CharType >::WriteResult tVSNPrintf(
@@ -430,8 +432,7 @@ const typename StringTraits< CharType >::WriteResult tVSNPrintf(
     // 結果を返す
     return result;
 }
-
-}} // namespace
+}
 
 // VSNPrintfの実装(char版)。
 template <>

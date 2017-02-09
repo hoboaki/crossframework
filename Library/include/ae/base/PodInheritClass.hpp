@@ -12,8 +12,8 @@ namespace base {
 
 /// @addtogroup XBase-Types
 //@{
-    /// @brief Pod型を継承するクラス用のテンプレートクラス。
-    /// @details ゼロクリアコンストラクタとコピーコンストラクタを自動で作成します。
+/// @brief Pod型を継承するクラス用のテンプレートクラス。
+/// @details ゼロクリアコンストラクタとコピーコンストラクタを自動で作成します。
 template< typename Pod_TYPE >
 class PodInheritClass : public Pod_TYPE
 {

@@ -12,9 +12,9 @@ namespace base {
 
 /// @addtogroup XBase-Util
 //@{
-    /// @brief ポインタのラッパーテンプレートクラス。
-    /// @details
-    /// ヌルポインタアクセスを防いだり意図しない二回設定を防ぐために使います。
+/// @brief ポインタのラッパーテンプレートクラス。
+/// @details
+/// ヌルポインタアクセスを防いだり意図しない二回設定を防ぐために使います。
 template< typename T >
 class Pointer
 {

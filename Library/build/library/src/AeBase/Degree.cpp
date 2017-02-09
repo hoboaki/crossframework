@@ -14,7 +14,7 @@ namespace {
 
 const float tToRadianRate = AE_BASE_PI / 180.0f;
 
-}} // namespace
+} // namespace
 
 //------------------------------------------------------------------------------
 const Angle DegreePod::toAngle()const

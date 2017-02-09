@@ -11,9 +11,9 @@ namespace base {
 
 /// @addtogroup XBase-Util
 //@{
-    /// @brief Ref() 用の参照のラッパークラス。
-    /// @details
-    /// 通常は Ref() 関数を使うのでこのクラスを意識することはないはずです。
+/// @brief Ref() 用の参照のラッパークラス。
+/// @details
+/// 通常は Ref() 関数を使うのでこのクラスを意識することはないはずです。
 template< typename T >
 class Reference
 {

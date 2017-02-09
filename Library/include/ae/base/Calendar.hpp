@@ -12,7 +12,7 @@ namespace base {
 
 /// @addtogroup XBase-DateTime
 //@{
-    /// @brief カレンダー情報を扱う構造体。
+/// @brief カレンダー情報を扱う構造体。
 /// @details グレゴリアン歴を使っています。
 struct CalendarPod
 {

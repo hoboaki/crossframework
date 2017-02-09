@@ -10,7 +10,7 @@
 namespace ae {
 namespace g3d {
 class ResMdlMeshImpl;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {
@@ -18,8 +18,8 @@ namespace g3d {
 
 /// @addtogroup AeG3d-Res
 //@{
-    /// @brief XMDL::meshデータのアクセサ。
-    /// @details
+/// @brief XMDL::meshデータのアクセサ。
+/// @details
 /// ただのアクセサなのでコピーして使って構いません。メモリのアロケーションも走りません。
 class ResMdlMesh
 {

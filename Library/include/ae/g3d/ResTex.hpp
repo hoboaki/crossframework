@@ -11,7 +11,7 @@ namespace ae {
 namespace g3d {
 class ResTexImpl;
 class TexBuffer;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {
@@ -19,8 +19,8 @@ namespace g3d {
 
 /// @addtogroup AeG3d-Res
 //@{
-    /// @brief XTEXデータのアクセサ。
-    /// @details
+/// @brief XTEXデータのアクセサ。
+/// @details
 /// ただのアクセサなのでコピーして使って構いません。メモリのアロケーションも走りません。
 class ResTex
 {

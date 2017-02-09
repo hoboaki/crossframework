@@ -6,13 +6,13 @@
 #include <cstddef>
 
 //------------------------------------------------------------------------------
-namespace XBase
+namespace ae {
+namespace base {
 
-{
 /// @addtogroup XBase-Types
 //@{
-    //=================================================
-    /// @name 符号無し整数型
+//=================================================
+/// @name 符号無し整数型
 //@{
 typedef unsigned char           u8;     ///< 8bit符号無し整数型。
 typedef unsigned char           uint8;  ///< 8bit符号無し整数型。

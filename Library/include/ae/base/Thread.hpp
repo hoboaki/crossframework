@@ -6,7 +6,7 @@
 namespace ae {
 namespace base {
 struct TimeSpanPod;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {

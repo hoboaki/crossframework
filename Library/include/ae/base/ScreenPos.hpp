@@ -11,9 +11,9 @@ namespace base {
 
 /// @name XBase-Util
 //@{
-    /// @brief スクリーン上の位置。
-    /// @details
-    /// スクリーンの左下が原点になります。@n
+/// @brief スクリーン上の位置。
+/// @details
+/// スクリーンの左下が原点になります。@n
 /// 符号有りにしているのはマウスのドラッグ操作でウィンドウ外の座標を扱うことがあるためです。@n
 struct ScreenPosPod
 {

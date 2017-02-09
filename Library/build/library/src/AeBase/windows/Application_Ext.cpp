@@ -26,7 +26,7 @@ u64 tCurrentUSec()
     }
 }
 
-}} // namespace
+} // namespace
 
 //------------------------------------------------------------------------------
 void Application::quit()

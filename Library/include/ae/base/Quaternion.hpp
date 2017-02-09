@@ -11,7 +11,7 @@ namespace base {
 class  Angle;
 struct Matrix34Pod;
 struct Vector3Pod;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {

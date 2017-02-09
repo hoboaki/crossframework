@@ -13,7 +13,7 @@
 namespace ae {
 namespace g3d {
 class ResMatParamImpl;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {

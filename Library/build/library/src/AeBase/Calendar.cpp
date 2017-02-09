@@ -34,7 +34,7 @@ int tMonthCheck(const int aMonth)
     return aMonth;
 }
 
-}} // namespace
+} // namespace
 
 //------------------------------------------------------------------------------
 bool CalendarPod::IsLeapYear(const int aYear)

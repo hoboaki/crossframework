@@ -12,7 +12,7 @@ class Quaternion;
 struct Matrix44Pod;
 struct Vector3Pod;
 struct Vector4Pod;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {

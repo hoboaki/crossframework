@@ -12,7 +12,7 @@ namespace base {
 
 /// @addtogroup AeBase-Memory
 //@{
-    /// AutoPtrのAllocator指定版。
+/// AutoPtrのAllocator指定版。
 template< typename T >
 class AutoSpPtr
 {

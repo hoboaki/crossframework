@@ -20,7 +20,7 @@ class Display;
 class Keyboard;
 class Mouse;
 class Touch;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {

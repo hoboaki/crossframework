@@ -11,7 +11,7 @@ namespace base {
 
 /// @addtogroup XBase-Types
 //@{
-    /// @brief BoolTmpl のPod版。
+/// @brief BoolTmpl のPod版。
 template< typename DATA_TYPE >
 struct BoolPodTmpl
 {

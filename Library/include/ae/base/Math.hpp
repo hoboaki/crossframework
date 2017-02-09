@@ -9,7 +9,7 @@
 namespace ae {
 namespace base {
 class Angle;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {

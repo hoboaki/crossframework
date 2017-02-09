@@ -14,7 +14,7 @@ struct XBaseNSWindow;
 namespace ae {
 namespace base {
 class Hid;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {

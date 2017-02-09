@@ -9,7 +9,7 @@ namespace base {
 
 /// @addtogroup XBase-Memory
 //@{
-    /// std::auto_ptrと同じオートポインタクラス。
+/// std::auto_ptrと同じオートポインタクラス。
 template< typename T >
 class AutoPtr
 {

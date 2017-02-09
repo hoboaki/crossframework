@@ -11,7 +11,7 @@ namespace base {
 struct Color3Pod;
 struct Color4bPod;
 struct Vector4Pod;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {

@@ -11,8 +11,8 @@ namespace base {
 
 /// @addtogroup XBase-Math
 //@{
-    /// @brief 乱数。
-    /// @details
+/// @brief 乱数。
+/// @details
 /// アルゴリズムはxorshiftを採用しています。
 class Random
 {

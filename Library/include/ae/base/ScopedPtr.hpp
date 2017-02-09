@@ -9,7 +9,7 @@ namespace base {
 
 /// @addtogroup XBase-Memory
 //@{
-    /// boost::scoped_ptrと同じオートポインタクラス。
+/// boost::scoped_ptrと同じオートポインタクラス。
 template< typename T >
 class ScopedPtr
 {

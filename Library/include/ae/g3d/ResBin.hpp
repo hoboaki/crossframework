@@ -21,7 +21,7 @@ class ResMatSetImpl;
 class ResMdlImpl;
 class ResTexImpl;
 struct BinResBin;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {

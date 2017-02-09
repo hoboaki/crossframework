@@ -16,7 +16,7 @@ namespace ae {
 namespace base {
 class Application;
 class Hid;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {

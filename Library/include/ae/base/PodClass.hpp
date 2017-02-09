@@ -13,9 +13,9 @@ namespace base {
 
 /// @addtogroup AeBase-Types
 //@{    
-    /// @brief Pod型のラッパーテンプレートクラス。
-    /// @details
-    /// boost::value_initializedのようにデフォルトコンストラクタで必ず初期化をすることで未初期化を防ぎます。
+/// @brief Pod型のラッパーテンプレートクラス。
+/// @details
+/// boost::value_initializedのようにデフォルトコンストラクタで必ず初期化をすることで未初期化を防ぎます。
 template< typename T >
 class PodClass : public PodStruct<T>
 {

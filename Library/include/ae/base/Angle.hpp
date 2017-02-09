@@ -9,7 +9,8 @@ namespace ae {
 namespace base {
 struct DegreePod;
 struct RadianPod;
-}
+}}
+
 //------------------------------------------------------------------------------
 namespace ae {
 namespace base {

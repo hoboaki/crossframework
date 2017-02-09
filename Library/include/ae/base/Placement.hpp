@@ -13,18 +13,18 @@ namespace base {
 
 /// @addtogroup AeBase-Util
 //@{
-    /// @brief 確保済みのメモリ領域からオブジェクトを生成するためのテンプレートクラス。
-    /// @details
-    /// クラスメンバの初期化子で生成できないメンバ変数を後から初期化するときに使います。@n
-    /// @n
-    /// init 関数の引数に参照を渡す場合は Ref() を使うことをおすすめします。@n
-    /// Ref() を使わない場合はオブジェクトのコピーが走るので注意してください。 @n
-    /// @code
-    /// // 例
-    /// ::ae::base::Placement< ::ae::base::Vector3 > vec3;
-    /// vec3.init( 1 , 2 , 3 );
-    /// const float len = vec3->length();
-    /// @endcode
+/// @brief 確保済みのメモリ領域からオブジェクトを生成するためのテンプレートクラス。
+/// @details
+/// クラスメンバの初期化子で生成できないメンバ変数を後から初期化するときに使います。@n
+/// @n
+/// init 関数の引数に参照を渡す場合は Ref() を使うことをおすすめします。@n
+/// Ref() を使わない場合はオブジェクトのコピーが走るので注意してください。 @n
+/// @code
+/// // 例
+/// ::ae::base::Placement< ::ae::base::Vector3 > vec3;
+/// vec3.init( 1 , 2 , 3 );
+/// const float len = vec3->length();
+/// @endcode
 template< typename T >
 class Placement
 {

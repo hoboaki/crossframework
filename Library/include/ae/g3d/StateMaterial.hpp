@@ -10,7 +10,7 @@
 namespace ae {
 namespace g3d {
 class MatParam;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {

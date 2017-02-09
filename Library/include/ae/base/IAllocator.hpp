@@ -56,7 +56,9 @@ public:
     //@}
 };
 //@}
-}
+
+}} // namespace
+
 /// @addtogroup AeBase-Memory
 //@{
 /// @name IAllocator用operator new/delete

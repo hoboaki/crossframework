@@ -12,8 +12,8 @@ namespace base {
 
 /// @addtogroup XBase-Hid
 //@{
-    /// @brief タッチ入力。
-    /// @details
+/// @brief タッチ入力。
+/// @details
 /// マルチタッチをサポートします。@n
 class Touch
 {

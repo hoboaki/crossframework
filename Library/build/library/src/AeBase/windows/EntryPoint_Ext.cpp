@@ -171,7 +171,7 @@ int tWinMainIN(
     return ::xmain(app);
 }
 
-}} // namespace
+} // namespace
 
 //------------------------------------------------------------------------------
 int WINAPI WinMain(

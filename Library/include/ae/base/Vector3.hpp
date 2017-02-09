@@ -10,7 +10,7 @@ namespace ae {
 namespace base {
 struct Vector2Pod;
 struct Vector4Pod;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {

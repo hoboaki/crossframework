@@ -10,7 +10,7 @@ namespace ae {
 namespace base {
 struct Vector2Pod;
 struct Vector3Pod;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {
@@ -18,9 +18,9 @@ namespace base {
 
 /// @addtogroup XBase-Math
 //@{
-    /// @brief 浮動小数型4次元ベクトル構造体。
-    /// @details 
-    /// 使用頻度のことを考えて Vec4 という名前でもアクセスできます。
+/// @brief 浮動小数型4次元ベクトル構造体。
+/// @details 
+/// 使用頻度のことを考えて Vec4 という名前でもアクセスできます。
 /// メモリ配置は32bit浮動小数が先頭からx,y,z,wの順番に並んでいます。
 struct Vector4Pod
 {

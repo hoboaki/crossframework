@@ -12,8 +12,8 @@ namespace base {
 
 /// @addtogroup XBase-Types
 //@{
-    /// @brief PodClassの既定クラスとなる構造体。
-    /// @details バイナリデータの定義で使うことを想定しています。
+/// @brief PodClassの既定クラスとなる構造体。
+/// @details バイナリデータの定義で使うことを想定しています。
 template< typename T >
 struct PodStruct
 {

@@ -19,7 +19,7 @@ const ShortString tToShortString(const char* aFormat, const T& aValue)
         );
 }
 
-}} // namespace
+} // namespace
 
 //------------------------------------------------------------------------------
 const ShortString ShortStringFactory::Create(const bool aVal)

@@ -14,7 +14,7 @@ namespace base {
 
 /// @addtogroup AeBase-Collection
 //@{
-    /// 実行時に確保する大きさが決まる配列。
+/// 実行時に確保する大きさが決まる配列。
 template< typename T >
 class RuntimeArray : public ::ae::base::NonCopyable
 {

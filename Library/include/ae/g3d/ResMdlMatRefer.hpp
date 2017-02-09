@@ -9,7 +9,7 @@
 namespace ae {
 namespace g3d {
 class ResMdlMatReferImpl;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {
@@ -17,8 +17,8 @@ namespace g3d {
 
 /// @addtogroup AeG3d-Res
 //@{
-    /// @brief XMDLのマテリアル参照データのアクセサ。
-    /// @details
+/// @brief XMDLのマテリアル参照データのアクセサ。
+/// @details
 /// ただのアクセサなのでコピーして使って構いません。メモリのアロケーションも走りません。
 class ResMdlMatRefer
 {

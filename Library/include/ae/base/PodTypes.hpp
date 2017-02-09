@@ -7,13 +7,13 @@
 #include <ae/base/ScalerClass.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase
+namespace ae {
+namespace base {
 
-{
 /// @addtogroup XBase-Types
 //@{
-    //=================================================
-    /// @name struct化された符号無し型
+//=================================================
+/// @name struct化された符号無し型
 //@{
 typedef PodStruct< u8 >   U8Pod;     ///< 8bit符号有り整数型。
 typedef PodStruct< u8 >   UInt8Pod;  ///< 8bit符号有り整数型。

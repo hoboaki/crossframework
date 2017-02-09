@@ -32,7 +32,7 @@ IRuntimeErrorCallback& tCallbackObj()
 }
 #endif
 
-}} // namespace
+} // namespace
 
 //------------------------------------------------------------------------------
 IRuntimeErrorCallback& RuntimeError::DefaultCallback()

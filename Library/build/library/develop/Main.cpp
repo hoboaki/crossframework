@@ -4,7 +4,7 @@
 #include <ae/g3d/All.hpp>
 
 //------------------------------------------------------------------------------
-int xmain( ::ae::base::Application& aApp )
+int xmain( ::ae::base::Application& aApp)
 {
     // ディスプレイ作成
     ::ae::base::Display display = ::ae::base::Display( ::ae::base::DisplayContext() );

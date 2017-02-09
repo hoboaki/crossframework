@@ -16,7 +16,7 @@ namespace base {
 
 /// @addtogroup AeBase-Types
 //@{
-    /// Scaler型のPodラッパーテンプレート構造体。
+/// Scaler型のPodラッパーテンプレート構造体。
 template< typename T >
 struct ScalerStruct : public PodStruct<T>
 {

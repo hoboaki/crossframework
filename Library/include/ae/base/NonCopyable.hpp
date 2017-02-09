@@ -9,14 +9,14 @@ namespace base {
 
 /// @addtogroup XBase-Util
 //@{
-    /// @brief 誤ってコピーできないようにする継承専用クラス。
-    /// @code
-    /// // 例
-    /// class Hoge : private NonCopyable
-    /// {
-    /// };
-    /// Hoge a;
-    /// Hoge b = a; // コピーできないのでコンパイルエラー。
+/// @brief 誤ってコピーできないようにする継承専用クラス。
+/// @code
+/// // 例
+/// class Hoge : private NonCopyable
+/// {
+/// };
+/// Hoge a;
+/// Hoge b = a; // コピーできないのでコンパイルエラー。
 /// @endcode
 class NonCopyable
 {

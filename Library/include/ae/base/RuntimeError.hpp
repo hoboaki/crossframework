@@ -6,7 +6,7 @@
 namespace ae {
 namespace base {
 class IRuntimeErrorCallback;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {

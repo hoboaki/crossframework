@@ -13,8 +13,8 @@ namespace base {
 
 /// @addtogroup AeBase-Types
 //@{
-    /// @brief Scaler型のラッパーテンプレートクラス。
-    /// @copydetails PodClass
+/// @brief Scaler型のラッパーテンプレートクラス。
+/// @copydetails PodClass
 template< typename T >
 class ScalerClass : public ScalerStruct<T>
 {

@@ -11,7 +11,7 @@ namespace base {
 struct Vector2iPod;
 struct Vector3iPod;
 struct Vector4Pod;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {

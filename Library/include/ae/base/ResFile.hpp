@@ -8,7 +8,7 @@
 namespace ae {
 namespace base {
 class AutoMemBlock;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {
@@ -16,7 +16,7 @@ namespace base {
 
 /// @addtogroup XBase-IO
 //@{
-    /// @brief アプリケーションのリソースファイルにアクセスするクラス。
+/// @brief アプリケーションのリソースファイルにアクセスするクラス。
 /// @see ResFileStream
 class ResFile
 {

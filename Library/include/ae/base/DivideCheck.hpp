@@ -23,7 +23,9 @@ struct DivideCheck
         return aRetVal;
     }
 };
-}
+
+}} // namespace
+
 /// @addtogroup AeBase-Debug
 //@{
 /// @name 0除算チェック

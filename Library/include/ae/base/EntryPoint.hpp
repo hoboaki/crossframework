@@ -6,9 +6,8 @@
 //------------------------------------------------------------------------------
 namespace ae {
 namespace base {
-
 class Application;
-}
+}}
 
 /// @addtogroup AeBase-System
 //@{

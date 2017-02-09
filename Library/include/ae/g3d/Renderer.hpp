@@ -19,7 +19,7 @@ namespace ae {
 namespace base {
 class Display;
 class Screen;
-}
+}}
 namespace ae {
 namespace g3d {
 class ResMat;
@@ -29,7 +29,7 @@ class StateMaterial;
 class StateMdlMaterial;
 class StateMdlTransform;
 class TexSetting;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {

@@ -8,7 +8,7 @@
 namespace ae {
 namespace base {
 class MemBlock;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {

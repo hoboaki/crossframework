@@ -133,7 +133,7 @@ void tUpdateMouseBtn(MouseUpdateData& aData, WPARAM aWParam)
     aData.hold.set(MouseBtnKind::M, (aWParam & MK_MBUTTON) != 0);
 }
 
-}} // namespace
+} // namespace
 
 //------------------------------------------------------------------------------
 int Display::screenCount()const

@@ -14,7 +14,7 @@
 namespace ae {
 namespace base {
 class Display;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {

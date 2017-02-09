@@ -13,7 +13,7 @@ namespace base {
 
 /// @addtogroup AeBase-Collection
 //@{
-    /// @brief 実行時に最大要素数が決定するAutoPtr配列。
+/// @brief 実行時に最大要素数が決定するAutoPtr配列。
 template< typename T >
 class RuntimeAutoArray : public ::ae::base::NonCopyable
 {

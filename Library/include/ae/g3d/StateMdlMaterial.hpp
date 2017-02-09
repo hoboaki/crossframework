@@ -11,7 +11,7 @@
 namespace ae {
 namespace g3d {
 class StateMaterial;
-}
+}}
 
 //------------------------------------------------------------------------------
 namespace ae {
@@ -19,8 +19,8 @@ namespace g3d {
 
 /// @addtogroup AeG3d-State
 //@{
-    /// @brief モデルが必要とする全Materialに関するState。
-    /// @details
+/// @brief モデルが必要とする全Materialに関するState。
+/// @details
 /// 各関数の引数 aMatIndex はインスタンス元モデルの matRefer のインデックス値に対応します。
 class StateMdlMaterial : public ::ae::base::NonCopyable
 {
