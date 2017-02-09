@@ -41,7 +41,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\include\ae\xsdata\XsData.hpp" />
+    <ClInclude Include="..\..\..\include\ae\xdata\Xdata.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
