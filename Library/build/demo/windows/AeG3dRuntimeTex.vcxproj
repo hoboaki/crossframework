@@ -20,11 +20,11 @@
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <ItemGroup>
-    <ClCompile Include="..\src\XBase\touch\Main.cpp" />
+    <ClCompile Include="..\src\AeG3d\runtimetex\Main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{9B96240D-2943-4478-8624-451BFB99388C}</ProjectGuid>
+    <ProjectGuid>{2E45787A-9F95-4844-80BB-A4D5D23EA28C}</ProjectGuid>
     <RootNamespace>XLibraryDemo</RootNamespace>
   </PropertyGroup>
-  <Import Project="CrossFramework.XLibrary.Demo.props" />
+  <Import Project="CrossFramework.AeLibrary.Demo.props" />
 </Project>

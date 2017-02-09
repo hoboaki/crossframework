@@ -20,14 +20,14 @@
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <ItemGroup>
-    <ClCompile Include="..\src\XG3D\texture\Main.cpp" />
+    <ClCompile Include="..\src\AeG3d\mdlsimple\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResFiles Include="$(ProjectDir)\..\res\XG3D\texture\win\**\*.*" />
+    <ResFiles Include="$(ProjectDir)\..\res\XG3D\mdlsimple\win\**\*.*" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{282812F4-49BE-402F-9B2B-FB5D6C92EA50}</ProjectGuid>
+    <ProjectGuid>{2E8ACB41-5CA9-4492-B2CF-7D7492176A64}</ProjectGuid>
     <RootNamespace>XLibraryDemo</RootNamespace>
   </PropertyGroup>
-  <Import Project="CrossFramework.XLibrary.Demo.props" />
+  <Import Project="CrossFramework.AeLibrary.Demo.props" />
 </Project>

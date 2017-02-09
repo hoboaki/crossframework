@@ -20,11 +20,11 @@
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <ItemGroup>
-    <ClCompile Include="..\src\XBase\mouse\Main.cpp" />
+    <ClCompile Include="..\src\AeBase\mouse\Main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{38143B72-82B0-4C9E-AE49-2DFC9156F455}</ProjectGuid>
     <RootNamespace>XLibraryDemo</RootNamespace>
   </PropertyGroup>
-  <Import Project="CrossFramework.XLibrary.Demo.props" />
+  <Import Project="CrossFramework.AeLibrary.Demo.props" />
 </Project>

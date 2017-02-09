@@ -1,11 +1,11 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ProjectReference Include="..\..\library\windows\XBase.vcxproj">
+    <ProjectReference Include="..\..\library\windows\AeBase.vcxproj">
       <Project>{f7cceea1-49f4-475f-839a-4b75237368b6}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\library\windows\XG3D.vcxproj">
+    <ProjectReference Include="..\..\library\windows\AeG3d.vcxproj">
       <Project>{bd44e91a-dc25-4ac4-86c7-843eb7537ae3}</Project>
     </ProjectReference>
   </ItemGroup>
@@ -89,7 +89,7 @@
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ProjectDir)/../../../include</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_CONSOLE;_DEBUG;XLIBRARY_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_CONSOLE;_DEBUG;AE_LIBRARY_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <TreatWarningAsError>true</TreatWarningAsError>
       <DisableSpecificWarnings>4127;4481;</DisableSpecificWarnings>
       <AdditionalOptions>/utf-8  %(AdditionalOptions)</AdditionalOptions>
@@ -106,7 +106,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <AdditionalIncludeDirectories>$(ProjectDir)/../../../include</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>XLIBRARY_DEVELOP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>AE_LIBRARY_DEVELOP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <TreatWarningAsError>true</TreatWarningAsError>
       <DisableSpecificWarnings>4127;4481;</DisableSpecificWarnings>
       <AdditionalOptions>/utf-8  %(AdditionalOptions)</AdditionalOptions>
@@ -125,7 +125,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <AdditionalIncludeDirectories>$(ProjectDir)/../../../include</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>XLIBRARY_FINAL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>AE_LIBRARY_FINAL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <TreatWarningAsError>true</TreatWarningAsError>
       <DisableSpecificWarnings>4127;4481;</DisableSpecificWarnings>
       <AdditionalOptions>/utf-8  %(AdditionalOptions)</AdditionalOptions>
@@ -144,7 +144,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <AdditionalIncludeDirectories>$(ProjectDir)/../../../include</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>XLIBRARY_SEMIFINAL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>AE_LIBRARY_SEMIFINAL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <TreatWarningAsError>true</TreatWarningAsError>
       <DisableSpecificWarnings>4127;4481;</DisableSpecificWarnings>
       <AdditionalOptions>/utf-8  %(AdditionalOptions)</AdditionalOptions>

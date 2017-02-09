@@ -20,14 +20,11 @@
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <ItemGroup>
-    <ClCompile Include="..\src\XBase\resfile\Main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResFiles Include="$(ProjectDir)\..\res\XBase\resfile\**\*.*" />
+    <ClCompile Include="..\src\AeBase\keyboard\Main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{95C65DC6-1C10-46B9-9ECB-96A630905A74}</ProjectGuid>
+    <ProjectGuid>{B8872B87-5F7B-46F6-9048-C0202E3ED1C4}</ProjectGuid>
     <RootNamespace>XLibraryDemo</RootNamespace>
   </PropertyGroup>
-  <Import Project="CrossFramework.XLibrary.Demo.props" />
+  <Import Project="CrossFramework.AeLibrary.Demo.props" />
 </Project>

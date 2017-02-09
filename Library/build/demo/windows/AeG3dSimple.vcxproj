@@ -20,11 +20,11 @@
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <ItemGroup>
-    <ClCompile Include="..\src\XBase\display\Main.cpp" />
+    <ClCompile Include="..\src\AeG3d\simple\Main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{B9EEAE4A-5E7E-4E2E-8D54-A8B15DFE6907}</ProjectGuid>
+    <ProjectGuid>{7631F531-F237-4CA7-9779-37C111F308BA}</ProjectGuid>
     <RootNamespace>XLibraryDemo</RootNamespace>
   </PropertyGroup>
-  <Import Project="CrossFramework.XLibrary.Demo.props" />
+  <Import Project="CrossFramework.AeLibrary.Demo.props" />
 </Project>
