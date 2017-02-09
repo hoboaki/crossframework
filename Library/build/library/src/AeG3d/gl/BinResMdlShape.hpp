@@ -1,42 +1,43 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_BINRESMDLSHAPE_HPP)
+#if defined(AE_G3D_INCLUDED_BINRESMDLSHAPE_HPP)
 #else
-#define XG3D_INCLUDED_BINRESMDLSHAPE_HPP
+#define AE_G3D_INCLUDED_BINRESMDLSHAPE_HPP
 
-#include <XData/XData.hpp>
-#include <XG3D/BuiltInTypes.hpp>
+#include <ae/xdata/Xdata.hpp>
+#include <ae/g3d/BuiltInTypes.hpp>
 #include "ResMdlShapeInputKind.hpp"
 #include "ResMdlShapeInputType.hpp"
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 // バイナリデータ：モデルシェイプ。
 struct BinResMdlShape
 {
     struct VtxAttrInfo
     {
-        ::XData::UInt8      inputKind; // ResMdlShapeInputKind
-        ::XData::UInt8      dataType;  // ResMdlShapeInputType
-        ::XData::UInt8      elemCount; // 要素数1～4
-        ::XData::UInt8      offset;
+        ::ae::xdata::UInt8      inputKind; // ResMdlShapeInputKind
+        ::ae::xdata::UInt8      dataType;  // ResMdlShapeInputType
+        ::ae::xdata::UInt8      elemCount; // 要素数1～4
+        ::ae::xdata::UInt8      offset;
     };
     //============================================================
-    ::XData::UInt16     index;
-    ::XData::UInt16     flags;
-    ::XData::Reference  name;
-    ::XData::UInt8      indexArrayDataType; // ResMdlShapeInputType
-    ::XData::UInt8      vtxAttrInfoCount;
-    ::XData::UInt8      padding0;
-    ::XData::UInt8      padding1;
-    ::XData::UInt32     indexArrayDataCount;// indexArrayDataRefの配列要素数。バイト数ではない。
-    ::XData::Reference  indexArrayDataRef;
-    ::XData::Reference  vtxAttrInfosRef;    // vtxAttrInfoCount数、VtxAttrInfoが並んでいる
-    ::XData::UInt32     vtxAttrDataSize;
-    ::XData::UInt32     vtxAttrDataStride;  // 1頂点あたりにかかるバイト数。
-    ::XData::Reference  vtxAttrDataRef;     // vtxAttrDataSize長のバイト配列。
+    ::ae::xdata::UInt16     index;
+    ::ae::xdata::UInt16     flags;
+    ::ae::xdata::Reference  name;
+    ::ae::xdata::UInt8      indexArrayDataType; // ResMdlShapeInputType
+    ::ae::xdata::UInt8      vtxAttrInfoCount;
+    ::ae::xdata::UInt8      padding0;
+    ::ae::xdata::UInt8      padding1;
+    ::ae::xdata::UInt32     indexArrayDataCount;// indexArrayDataRefの配列要素数。バイト数ではない。
+    ::ae::xdata::Reference  indexArrayDataRef;
+    ::ae::xdata::Reference  vtxAttrInfosRef;    // vtxAttrInfoCount数、VtxAttrInfoが並んでいる
+    ::ae::xdata::UInt32     vtxAttrDataSize;
+    ::ae::xdata::UInt32     vtxAttrDataStride;  // 1頂点あたりにかかるバイト数。
+    ::ae::xdata::Reference  vtxAttrDataRef;     // vtxAttrDataSize長のバイト配列。
 };
 
-} // namespace
+}} // namespace
 #endif
 // EOF

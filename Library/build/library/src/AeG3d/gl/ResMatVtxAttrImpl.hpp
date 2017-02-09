@@ -1,30 +1,31 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_RESMATVTXATTRIMPL_HPP)
+#if defined(AE_G3D_INCLUDED_RESMATVTXATTRIMPL_HPP)
 #else
-#define XG3D_INCLUDED_RESMATVTXATTRIMPL_HPP
+#define AE_G3D_INCLUDED_RESMATVTXATTRIMPL_HPP
 
-#include <XBase/IAllocator.hpp>
-#include <XBase/NonCopyable.hpp>
-#include <XG3D/SdkHeader.hpp>
+#include <ae/base/IAllocator.hpp>
+#include <ae/base/NonCopyable.hpp>
+#include <ae/g3d/SdkHeader.hpp>
 #include "BinResMatVtxAttr.hpp"
-#include "XDataPlus.hpp"
+#include "XdataPlus.hpp"
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 // BinResMatVtxAttrとResMatVtxAttrの間にかますクラス。
-class ResMatVtxAttrImpl : public ::XBase::NonCopyable
+class ResMatVtxAttrImpl : public ::ae::base::NonCopyable
 {
 public:
-    const XDataPlus  xdata;
+    const XdataPlus  xdata;
     const BinResMatVtxAttr* binPtr;
 
     //============================================================
     // バイナリデータの先頭アドレスを指定して作成。
-    ResMatVtxAttrImpl(const ::XData::XData& aXData, const BinResMatVtxAttr* aBinPtr, ::XBase::IAllocator& aAllocator);
+    ResMatVtxAttrImpl(const ::ae::xdata::Xdata& aXdata, const BinResMatVtxAttr* aBinPtr, ::ae::base::IAllocator& aAllocator);
     ~ResMatVtxAttrImpl();
 };
 
-} // namespace
+}} // namespace
 #endif
 // EOF

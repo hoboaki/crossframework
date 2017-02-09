@@ -1,9 +1,9 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_ARRAYLENGTH_HPP)
+#if defined(AE_BASE_INCLUDED_ARRAYLENGTH_HPP)
 #else
-#define XBASE_INCLUDED_ARRAYLENGTH_HPP
+#define AE_BASE_INCLUDED_ARRAYLENGTH_HPP
 
-#include <XBase/StaticAssert.hpp>
+#include <ae/base/StaticAssert.hpp>
 
 /// @addtogroup XBase-Util
 //@{
@@ -12,10 +12,10 @@
 
 /// @brief 配列の長さを取得するマクロ。
 /// @return 配列長。
-#define XBASE_ARRAY_LENGTH( obj ) ( sizeof(obj)/sizeof(obj[0]) )
+#define AE_BASE_ARRAY_LENGTH( obj ) ( sizeof(obj)/sizeof(obj[0]) )
 
 /// 指定の配列の長さが指定の長さかチェックする。
-#define XBASE_ARRAY_LENGTH_CHECK( arr , len ) XBASE_STATIC_ASSERT( XBASE_ARRAY_LENGTH( arr ) == len )
+#define AE_BASE_ARRAY_LENGTH_CHECK( arr , len ) AE_BASE_STATIC_ASSERT( AE_BASE_ARRAY_LENGTH( arr ) == len )
 
 //@}
 //@}

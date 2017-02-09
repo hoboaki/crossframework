@@ -1,10 +1,11 @@
 // 文字コード：UTF-8
-#include <XBase/Screen.hpp>
+#include <ae/base/Screen.hpp>
 
-#include <XBase/ScreenPos.hpp>
+#include <ae/base/ScreenPos.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 Screen::Screen(
@@ -50,5 +51,5 @@ Screen_Ext& Screen::ext_()
     return mExt;
 }
 
-} // namespace
+}} // namespace
 // EOF

@@ -1,16 +1,16 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_FUNCTIONATTRIBUTE_HPP)
+#if defined(AE_BASE_INCLUDED_FUNCTIONATTRIBUTE_HPP)
 #else
-#define XBASE_INCLUDED_FUNCTIONATTRIBUTE_HPP
+#define AE_BASE_INCLUDED_FUNCTIONATTRIBUTE_HPP
 
-#include <XBase/Compiler.hpp>
+#include <ae/base/Compiler.hpp>
 
 /// @addtogroup XBase-Debug
 //@{
 /// @name 関数属性
 //@{
 
-/// @def XBASE_OVERRIDE
+/// @def AE_BASE_OVERRIDE
 /// @brief オーバーライドチェック。
 /// @details 指定の関数がオーバーライドしていなければコンパイルエラーにします。
 /// @code
@@ -25,17 +25,17 @@
 ///  class Inherit : public Base
 ///  {
 ///  public:
-///      XBASE_OVERRIDE( void func() ); // オーバーライドしているのでOK。
-///      XBASE_OVERRIDE( void foo() );  // オーバーライドしていないのでエラー。
+///      AE_BASE_OVERRIDE( void func() ); // オーバーライドしているのでOK。
+///      AE_BASE_OVERRIDE( void foo() );  // オーバーライドしていないのでエラー。
 ///  };
 /// @endcode
-#if defined(XBASE_COMPILER_MSVC)
-#define XBASE_OVERRIDE( ... ) virtual __VA_ARGS__ override
+#if defined(AE_BASE_COMPILER_MSVC)
+#define AE_BASE_OVERRIDE( ... ) virtual __VA_ARGS__ override
 #else
-#define XBASE_OVERRIDE( ... ) __VA_ARGS__
+#define AE_BASE_OVERRIDE( ... ) __VA_ARGS__
 #endif
 
-/// @def XBASE_FINAL
+/// @def AE_BASE_FINAL
 /// @brief オーバーライド禁止チェック。
 /// @details 指定の関数が派生クラスでオーバーライドしていればコンパイルエラーにします。
 /// @code
@@ -44,7 +44,7 @@
 ///  class Base
 ///  {
 ///  public:
-///      XBASE_FINAL( void func() );
+///      AE_BASE_FINAL( void func() );
 ///  };
 ///  // 派生クラス。
 ///  class Inherit : public Base
@@ -53,10 +53,10 @@
 ///      virtual void func(); // オーバーライドしようとしたのでエラー。
 ///  };
 /// @endcode
-#if defined(XBASE_COMPILER_MSVC)
-#define XBASE_FINAL( ... ) virtual __VA_ARGS__ sealed
+#if defined(AE_BASE_COMPILER_MSVC)
+#define AE_BASE_FINAL( ... ) virtual __VA_ARGS__ sealed
 #else
-#define XBASE_FINAL( ... ) __VA_ARGS__
+#define AE_BASE_FINAL( ... ) __VA_ARGS__
 #endif
 
 //@}

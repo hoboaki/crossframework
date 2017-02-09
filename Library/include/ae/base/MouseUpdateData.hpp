@@ -1,14 +1,15 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_MOUSEUPDATEDATA_HPP)
+#if defined(AE_BASE_INCLUDED_MOUSEUPDATEDATA_HPP)
 #else
-#define XBASE_INCLUDED_MOUSEUPDATEDATA_HPP
+#define AE_BASE_INCLUDED_MOUSEUPDATEDATA_HPP
 
-#include <XBase/Bool.hpp>
-#include <XBase/MouseBtnBitSet.hpp>
-#include <XBase/ScreenPos.hpp>
+#include <ae/base/Bool.hpp>
+#include <ae/base/MouseBtnBitSet.hpp>
+#include <ae/base/ScreenPos.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Hid
 //@{
@@ -21,6 +22,6 @@ struct MouseUpdateData
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

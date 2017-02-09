@@ -2,8 +2,8 @@
 #include "EntryPoint_Sync.h"
 
 #include <pthread.h>
-#include <XBase/Placement.hpp>
-#include <XBase/RuntimeAssert.hpp>
+#include <ae/base/Placement.hpp>
+#include <ae/base/RuntimeAssert.hpp>
 
 //------------------------------------------------------------------------------
 namespace {
@@ -19,53 +19,53 @@ public:
     {
         int result = int();
         result = pthread_mutex_init(&mMutex, 0);
-        XBASE_ASSERT_EQUALS(result, 0);
+        AE_BASE_ASSERT_EQUALS(result, 0);
         result = pthread_cond_init(&mCond, 0);
-        XBASE_ASSERT_EQUALS(result, 0);
+        AE_BASE_ASSERT_EQUALS(result, 0);
     }
 
     ~tSynbObj()
     {
         int result = int();
         result = pthread_cond_destroy(&mCond);
-        XBASE_ASSERT_EQUALS(result, 0);
+        AE_BASE_ASSERT_EQUALS(result, 0);
         result = pthread_mutex_destroy(&mMutex);
-        XBASE_ASSERT_EQUALS(result, 0);
+        AE_BASE_ASSERT_EQUALS(result, 0);
     }
 
     void signal()
     {
         int result = int();
         result = pthread_mutex_lock(&mMutex);
-        XBASE_ASSERT_EQUALS(result, 0);
+        AE_BASE_ASSERT_EQUALS(result, 0);
 
-        XBASE_ASSERT_EQUALS(mValue, 1);
+        AE_BASE_ASSERT_EQUALS(mValue, 1);
         mValue = 0;
 
         result = pthread_cond_broadcast(&mCond);
-        XBASE_ASSERT_EQUALS(result, 0);
+        AE_BASE_ASSERT_EQUALS(result, 0);
 
         result = pthread_mutex_unlock(&mMutex);
-        XBASE_ASSERT_EQUALS(result, 0);
+        AE_BASE_ASSERT_EQUALS(result, 0);
     }
 
     void wait()
     {
         int result = int();
         result = pthread_mutex_lock(&mMutex);
-        XBASE_ASSERT_EQUALS(result, 0);
+        AE_BASE_ASSERT_EQUALS(result, 0);
 
         while (0 < mValue) {
             result = pthread_cond_wait(&mCond, &mMutex);
-            XBASE_ASSERT_EQUALS(result, 0);
+            AE_BASE_ASSERT_EQUALS(result, 0);
         }
         mValue = 1;
 
         result = pthread_cond_broadcast(&mCond);
-        XBASE_ASSERT_EQUALS(result, 0);
+        AE_BASE_ASSERT_EQUALS(result, 0);
 
         result = pthread_mutex_unlock(&mMutex);
-        XBASE_ASSERT_EQUALS(result, 0);
+        AE_BASE_ASSERT_EQUALS(result, 0);
     }
 private:
     pthread_mutex_t mMutex;
@@ -82,57 +82,57 @@ public:
 };
 
 // 同期オブジェクトの変数。
-::XBase::Placement< tSyncObjSet > tSyncObjSetInstance;
-XBaseAppEvent tAppEvent = XBaseAppEvent_INVALID;
+::ae::base::Placement< tSyncObjSet > tSyncObjSetInstance;
+AeBaseAppEvent tAppEvent = AeBaseAppEvent_INVALID;
 
-} // namespace
+}} // namespace
 
 //------------------------------------------------------------------------------
-void XBaseEntryPointSync_Initialize()
+void AeBaseEntryPointSync_Initialize()
 {
     tSyncObjSetInstance.init();
 }
 
 //------------------------------------------------------------------------------
-void XBaseEntryPointSync_Finalize()
+void AeBaseEntryPointSync_Finalize()
 {
     tSyncObjSetInstance.reset();
 }
 
 //------------------------------------------------------------------------------
-void XBaseEntryPointSync_XMainWait()
+void AeBaseEntryPointSync_XMainWait()
 {
-    XBaseEntryPointSync_CATransactionFlush();
+    AeBaseEntryPointSync_CATransactionFlush();
     tSyncObjSetInstance->syncXMain.wait();
 }
 
 //------------------------------------------------------------------------------
-void XBaseEntryPointSync_XMainSignal()
+void AeBaseEntryPointSync_XMainSignal()
 {
     tSyncObjSetInstance->syncXMain.signal();
 }
 
 //------------------------------------------------------------------------------
-void XBaseEntryPointSync_UIMainWait()
+void AeBaseEntryPointSync_UIMainWait()
 {
-    XBaseEntryPointSync_CATransactionFlush();
+    AeBaseEntryPointSync_CATransactionFlush();
     tSyncObjSetInstance->syncUIMain.wait();
 }
 
 //------------------------------------------------------------------------------
-void XBaseEntryPointSync_UIMainSignal()
+void AeBaseEntryPointSync_UIMainSignal()
 {
     tSyncObjSetInstance->syncUIMain.signal();
 }
 
 //------------------------------------------------------------------------------
-void XBaseEntryPointSync_SetAppEvent(const XBaseAppEvent aEvent)
+void AeBaseEntryPointSync_SetAppEvent(const AeBaseAppEvent aEvent)
 {
     tAppEvent = aEvent;
 }
 
 //------------------------------------------------------------------------------
-XBaseAppEvent XBaseEntryPointSync_GetAppEvent()
+AeBaseAppEvent AeBaseEntryPointSync_GetAppEvent()
 {
     return tAppEvent;
 }

@@ -1,30 +1,31 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_RESMATPARAMIMPL_HPP)
+#if defined(AE_G3D_INCLUDED_RESMATPARAMIMPL_HPP)
 #else
-#define XG3D_INCLUDED_RESMATPARAMIMPL_HPP
+#define AE_G3D_INCLUDED_RESMATPARAMIMPL_HPP
 
-#include <XBase/IAllocator.hpp>
-#include <XBase/NonCopyable.hpp>
-#include <XG3D/SdkHeader.hpp>
+#include <ae/base/IAllocator.hpp>
+#include <ae/base/NonCopyable.hpp>
+#include <ae/g3d/SdkHeader.hpp>
 #include "BinResMatParam.hpp"
-#include "XDataPlus.hpp"
+#include "XdataPlus.hpp"
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 // BinResMatParamとResMatParamの間にかますクラス。
-class ResMatParamImpl : public ::XBase::NonCopyable
+class ResMatParamImpl : public ::ae::base::NonCopyable
 {
 public:
-    const XDataPlus  xdata;
+    const XdataPlus  xdata;
     const BinResMatParam* binPtr;
 
     //============================================================
     // バイナリデータの先頭アドレスを指定して作成。
-    ResMatParamImpl(const ::XData::XData& aXData, const BinResMatParam* aBinPtr, ::XBase::IAllocator& aAllocator);
+    ResMatParamImpl(const ::ae::xdata::Xdata& aXdata, const BinResMatParam* aBinPtr, ::ae::base::IAllocator& aAllocator);
     ~ResMatParamImpl();
 };
 
-} // namespace
+}} // namespace
 #endif
 // EOF

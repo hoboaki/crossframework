@@ -1,10 +1,11 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_SCOPEDPTR_HPP)
+#if defined(AE_BASE_INCLUDED_SCOPEDPTR_HPP)
 #else
-#define XBASE_INCLUDED_SCOPEDPTR_HPP
+#define AE_BASE_INCLUDED_SCOPEDPTR_HPP
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Memory
 //@{
@@ -39,7 +40,7 @@ public:
     /// ポインタの参照を取得する。
     T& ref()const
     {
-        XBASE_ASSERT(isValid());
+        AE_BASE_ASSERT(isValid());
         return *mPtr;
     }
 
@@ -83,7 +84,7 @@ public:
     /// 参照演算子
     T* operator->()const
     {
-        XBASE_ASSERT(isValid());
+        AE_BASE_ASSERT(isValid());
         return get();
     }
     //@}
@@ -93,6 +94,6 @@ private:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

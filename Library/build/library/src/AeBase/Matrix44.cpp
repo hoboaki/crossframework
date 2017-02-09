@@ -1,16 +1,17 @@
 // 文字コード：UTF-8
-#include <XBase/Matrix44.hpp>
+#include <ae/base/Matrix44.hpp>
 
-#include <XBase/Angle.hpp>
-#include <XBase/Console.hpp>
-#include <XBase/Math.hpp>
-#include <XBase/Matrix34.hpp>
-#include <XBase/RuntimeAssert.hpp>
-#include <XBase/Vector3.hpp>
-#include <XBase/Vector4.hpp>
+#include <ae/base/Angle.hpp>
+#include <ae/base/Console.hpp>
+#include <ae/base/Math.hpp>
+#include <ae/base/Matrix34.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/base/Vector3.hpp>
+#include <ae/base/Vector4.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 const Matrix44Pod Matrix44Pod::Identity()
@@ -117,9 +118,9 @@ const Matrix44Pod Matrix44Pod::Ortho(
     const f32 aFar
     )
 {
-    XBASE_ASSERT_NOT_EQUALS(aLeft, aRight);
-    XBASE_ASSERT_NOT_EQUALS(aTop, aBottom);
-    XBASE_ASSERT_NOT_EQUALS(aNear, aFar);
+    AE_BASE_ASSERT_NOT_EQUALS(aLeft, aRight);
+    AE_BASE_ASSERT_NOT_EQUALS(aTop, aBottom);
+    AE_BASE_ASSERT_NOT_EQUALS(aNear, aFar);
 
     const f32 r_sub_l = aRight - aLeft;
     const f32 r_add_l = aRight + aLeft;
@@ -145,9 +146,9 @@ const Matrix44Pod Matrix44Pod::Frustum(
     const f32 aFar
     )
 {
-    XBASE_ASSERT_NOT_EQUALS(aLeft, aRight);
-    XBASE_ASSERT_NOT_EQUALS(aBottom, aTop);
-    XBASE_ASSERT_NOT_EQUALS(aNear, aFar);
+    AE_BASE_ASSERT_NOT_EQUALS(aLeft, aRight);
+    AE_BASE_ASSERT_NOT_EQUALS(aBottom, aTop);
+    AE_BASE_ASSERT_NOT_EQUALS(aNear, aFar);
 
     const f32 l = aLeft;
     const f32 r = aRight;
@@ -172,9 +173,9 @@ const Matrix44Pod Matrix44Pod::Perspective(
     const f32 aFar
     )
 {
-    XBASE_ASSERT_LESS(0, aFOVY.rad());
-    XBASE_ASSERT_LESS(0, aAspect);
-    XBASE_ASSERT_NOT_EQUALS(aNear, aFar);
+    AE_BASE_ASSERT_LESS(0, aFOVY.rad());
+    AE_BASE_ASSERT_LESS(0, aAspect);
+    AE_BASE_ASSERT_NOT_EQUALS(aNear, aFar);
 
     const f32 c = Math::CotF32(aFOVY);
     return Matrix44(
@@ -405,7 +406,7 @@ const Matrix44Pod Matrix44Pod::invert()const
         - v[Index03] * v[Index10] * v[Index21] * v[Index32] - v[Index03] * v[Index11] * v[Index22] * v[Index30] - v[Index03] * v[Index12] * v[Index20] * v[Index31];
 
     if (c == 0.0f) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return Identity();
     }
 
@@ -493,11 +494,11 @@ const Matrix44Pod Matrix44Pod::transpose()const
 //------------------------------------------------------------------------------
 void Matrix44Pod::dump()const
 {
-    XBASE_COUTFMT("Matrix44Pod::dump %p\n", this);
-    XBASE_COUTFMT("( %f , %f , %f , %f )\n", v[Index00], v[Index01], v[Index02], v[Index03]);
-    XBASE_COUTFMT("( %f , %f , %f , %f )\n", v[Index10], v[Index11], v[Index12], v[Index13]);
-    XBASE_COUTFMT("( %f , %f , %f , %f )\n", v[Index20], v[Index21], v[Index22], v[Index23]);
-    XBASE_COUTFMT("( %f , %f , %f , %f )\n", v[Index30], v[Index31], v[Index32], v[Index33]);
+    AE_BASE_COUTFMT("Matrix44Pod::dump %p\n", this);
+    AE_BASE_COUTFMT("( %f , %f , %f , %f )\n", v[Index00], v[Index01], v[Index02], v[Index03]);
+    AE_BASE_COUTFMT("( %f , %f , %f , %f )\n", v[Index10], v[Index11], v[Index12], v[Index13]);
+    AE_BASE_COUTFMT("( %f , %f , %f , %f )\n", v[Index20], v[Index21], v[Index22], v[Index23]);
+    AE_BASE_COUTFMT("( %f , %f , %f , %f )\n", v[Index30], v[Index31], v[Index32], v[Index33]);
 }
 
 //------------------------------------------------------------------------------
@@ -551,5 +552,5 @@ Matrix44::Matrix44(
     setZ(aZ);
     setW(aW);
 }
-} // namespace
+}} // namespace
 // EOF

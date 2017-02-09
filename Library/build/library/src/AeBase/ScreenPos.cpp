@@ -1,8 +1,9 @@
 // 文字コード：UTF-8
-#include <XBase/ScreenPos.hpp>
+#include <ae/base/ScreenPos.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 ScreenPos::ScreenPos()
@@ -24,5 +25,5 @@ ScreenPos::ScreenPos(const ScreenPosPod& aObj)
     static_cast<ScreenPosPod&>(*this) = aObj;
 }
 
-} // namespace
+}} // namespace
 // EOF

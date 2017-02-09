@@ -1,26 +1,27 @@
 // 文字コード：UTF-8
-#include <XBase/RuntimeError.hpp>
+#include <ae/base/RuntimeError.hpp>
 
 #include <cassert>
-#include <XBase/Compiler.hpp>
-#include <XBase/Config.hpp>
-#include <XBase/FunctionAttribute.hpp>
-#include <XBase/IRuntimeErrorCallback.hpp>
-#include <XBase/Os.hpp>
+#include <ae/base/Compiler.hpp>
+#include <ae/base/Config.hpp>
+#include <ae/base/FunctionAttribute.hpp>
+#include <ae/base/IRuntimeErrorCallback.hpp>
+#include <ae/base/Os.hpp>
 
 // for MessageBox
-#if (defined(XBASE_OS_WIN32) && defined(XBASE_COMPILER_MSVC))
+#if (defined(AE_BASE_OS_WIN32) && defined(AE_BASE_COMPILER_MSVC))
 #include <crtdbg.h>
 #endif
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 namespace {
 
 IRuntimeErrorCallback* tCallbackPtr = 0;
-#if defined(XBASE_CONFIG_ENABLE_RUNTIME_ERROR)
+#if defined(AE_BASE_CONFIG_ENABLE_RUNTIME_ERROR)
 IRuntimeErrorCallback& tCallbackObj()
 {
     // ここに到達するということは既に致命的な状態なはずなので
@@ -31,7 +32,7 @@ IRuntimeErrorCallback& tCallbackObj()
 }
 #endif
 
-} // namespace
+}} // namespace
 
 //------------------------------------------------------------------------------
 IRuntimeErrorCallback& RuntimeError::DefaultCallback()
@@ -40,14 +41,14 @@ IRuntimeErrorCallback& RuntimeError::DefaultCallback()
     class Callback : public IRuntimeErrorCallback
     {
     public:
-        XBASE_OVERRIDE(void onRuntimeError())
+        AE_BASE_OVERRIDE(void onRuntimeError())
         {
-        #if defined(XBASE_CONFIG_ENABLE_RUNTIME_ERROR)
+        #if defined(AE_BASE_CONFIG_ENABLE_RUNTIME_ERROR)
                     // 標準のアサートで止めてみる。
             assert(false && "Runtime Error.");
 
             // メッセージボックスで止めてみる。
-        #if (defined(XBASE_OS_WIN32) && defined(XBASE_COMPILER_MSVC)) 
+        #if (defined(AE_BASE_OS_WIN32) && defined(AE_BASE_COMPILER_MSVC)) 
             MessageBox(0, L"エラーが発生しました。ログを確認してください。", L"Runtime Error", MB_OK);
         #endif
         #endif
@@ -68,10 +69,10 @@ void RuntimeError::SetCallback(IRuntimeErrorCallback& aCallback)
 //------------------------------------------------------------------------------
 void RuntimeError::OnError()
 {
-#if defined(XBASE_CONFIG_ENABLE_RUNTIME_ERROR)
+#if defined(AE_BASE_CONFIG_ENABLE_RUNTIME_ERROR)
     tCallbackObj().onRuntimeError();
 #endif
 }
 
-} // namespace
+}} // namespace
 // EOF

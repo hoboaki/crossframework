@@ -1,22 +1,24 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_RENDERER_GL_HPP)
+#if defined(AE_G3D_INCLUDED_RENDERER_GL_HPP)
 #else
-#define XG3D_INCLUDED_RENDERER_GL_HPP
+#define AE_G3D_INCLUDED_RENDERER_GL_HPP
 
-#include <XBase/Bool.hpp>
-#include <XBase/Matrix34.hpp>
-#include <XBase/Matrix44.hpp>
-#include <XBase/Pointer.hpp>
-#include <XBase/Vector4.hpp>
-#include <XG3D/ResMat.hpp>
-#include <XG3D/SdkHeader.hpp>
+#include <ae/base/Bool.hpp>
+#include <ae/base/Matrix34.hpp>
+#include <ae/base/Matrix44.hpp>
+#include <ae/base/Pointer.hpp>
+#include <ae/base/Vector4.hpp>
+#include <ae/g3d/ResMat.hpp>
+#include <ae/g3d/SdkHeader.hpp>
 
-namespace XBase {
+namespace ae {
+namespace base {
 class Display;
 }
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 // Rendererの拡張。
 class Renderer_Ext
@@ -26,26 +28,26 @@ public:
     GLuint demoShaderProgram;
     GLint  demoUniformLocations[UNIFORM_COUNT];
     GLuint sharedVertexArray;
-    ::XBase::Bool32 colorUpdate;
-    ::XBase::Bool32 depthUpdate;
-    ::XG3D::ResMat currentMaterial;
-    ::XBase::Matrix44 mtxProj;
-    ::XBase::Matrix34 mtxView;
-    ::XBase::Matrix34 mtxWorld;
-    ::XBase::Pointer<const ::XBase::Vec4> mtxBonePosArray;
-    ::XBase::Pointer<const ::XBase::Vec4> mtxBoneNrmArray;
+    ::ae::base::Bool32 colorUpdate;
+    ::ae::base::Bool32 depthUpdate;
+    ::ae::g3d::ResMat currentMaterial;
+    ::ae::base::Matrix44 mtxProj;
+    ::ae::base::Matrix34 mtxView;
+    ::ae::base::Matrix34 mtxWorld;
+    ::ae::base::Pointer<const ::ae::base::Vec4> mtxBonePosArray;
+    ::ae::base::Pointer<const ::ae::base::Vec4> mtxBoneNrmArray;
 
     //============================================================
     Renderer_Ext();
 
     //============================================================
-    void setup(::XBase::Display&);
+    void setup(::ae::base::Display&);
     void updateMtxProj();
     void updateMtxView();
     void updateMtxWorld();
     void updateMtxBones();
 };
 
-} // namespace
+}} // namespace
 #endif
 // EOF

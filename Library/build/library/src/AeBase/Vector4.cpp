@@ -1,16 +1,17 @@
 // 文字コード：UTF-8
-#include <XBase/Vector4.hpp>
+#include <ae/base/Vector4.hpp>
 
-#include <XBase/DivideCheck.hpp>
-#include <XBase/Infinity.hpp>
-#include <XBase/Math.hpp>
-#include <XBase/RuntimeAssert.hpp>
-#include <XBase/ScalerTypes.hpp>
-#include <XBase/Vector2.hpp>
-#include <XBase/Vector3.hpp>
+#include <ae/base/DivideCheck.hpp>
+#include <ae/base/Infinity.hpp>
+#include <ae/base/Math.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/base/ScalerTypes.hpp>
+#include <ae/base/Vector2.hpp>
+#include <ae/base/Vector3.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 const Vector4Pod Vector4Pod::Zero()
@@ -29,14 +30,14 @@ const Vector4Pod Vector4Pod::One()
 //------------------------------------------------------------------------------
 const Vector4Pod Vector4Pod::Min()
 {
-    Vector4Pod obj = {-XBASE_INFINITY, -XBASE_INFINITY, -XBASE_INFINITY, -XBASE_INFINITY};
+    Vector4Pod obj = {-AE_BASE_INFINITY, -AE_BASE_INFINITY, -AE_BASE_INFINITY, -AE_BASE_INFINITY};
     return obj;
 }
 
 //------------------------------------------------------------------------------
 const Vector4Pod Vector4Pod::Max()
 {
-    Vector4Pod obj = {XBASE_INFINITY, XBASE_INFINITY, XBASE_INFINITY, XBASE_INFINITY};
+    Vector4Pod obj = {AE_BASE_INFINITY, AE_BASE_INFINITY, AE_BASE_INFINITY, AE_BASE_INFINITY};
     return obj;
 }
 
@@ -368,7 +369,7 @@ void Vector4Pod::mulAssign(const float aVal)
 void Vector4Pod::divAssign(const float aVal)
 {
     if (aVal == 0) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return;
     }
     mulAssign(1.0f / aVal);
@@ -404,10 +405,10 @@ void Vector4Pod::mulAssign(const Vector4Pod& aVal)
 //------------------------------------------------------------------------------
 void Vector4Pod::divAssign(const Vector4Pod& aVal)
 {
-    XBASE_DIV_ASSIGN(x, aVal.x);
-    XBASE_DIV_ASSIGN(y, aVal.y);
-    XBASE_DIV_ASSIGN(z, aVal.z);
-    XBASE_DIV_ASSIGN(w, aVal.w);
+    AE_BASE_DIV_ASSIGN(x, aVal.x);
+    AE_BASE_DIV_ASSIGN(y, aVal.y);
+    AE_BASE_DIV_ASSIGN(z, aVal.z);
+    AE_BASE_DIV_ASSIGN(w, aVal.w);
 }
 
 //------------------------------------------------------------------------------
@@ -630,7 +631,7 @@ const Vector4Pod Vector4Pod::unit()const
 void Vector4Pod::unitAssign()
 {
     if (isZeroStrict()) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return;
     }
     mulAssign(1.0f / length());
@@ -643,9 +644,9 @@ f32 Vector4Pod::dot(const Vector4Pod& aVec)const
 }
 
 //------------------------------------------------------------------------------
-const ::XBase::ShortString Vector4Pod::toShortString()const
+const ::ae::base::ShortString Vector4Pod::toShortString()const
 {
-    return ::XBase::ShortString::FromFormat(
+    return ::ae::base::ShortString::FromFormat(
         "%s,%s,%s,%s",
         F32(x).toShortString().readPtr(),
         F32(y).toShortString().readPtr(),
@@ -702,5 +703,5 @@ Vector4::Vector4(const float aX, const float aY, const float aZ, const float aW)
     w = aW;
 }
 
-} // namespace
+}} // namespace
 // EOF

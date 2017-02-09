@@ -1,20 +1,20 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_NEWLINE_HPP)
+#if defined(AE_BASE_INCLUDED_NEWLINE_HPP)
 #else
-#define XBASE_INCLUDED_NEWLINE_HPP
+#define AE_BASE_INCLUDED_NEWLINE_HPP
 
-#include <XBase/Os.hpp>
+#include <ae/base/Os.hpp>
 
 /// @addtogroup XBase-Env
 //@{
 
-/// @def XBASE_NEWLINE
+/// @def AE_BASE_NEWLINE
 /// @brief 環境に合った改行コード文字列を定義するマクロ。
-#if defined(XBASE_OS_WINDOWS)
-    #define XBASE_NEWLINE ("\r\n")
+#if defined(AE_BASE_OS_WINDOWS)
+    #define AE_BASE_NEWLINE ("\r\n")
 #else
     // デフォルトは\n
-    #define XBASE_NEWLINE ("\n")
+    #define AE_BASE_NEWLINE ("\n")
 #endif
 
 //@}

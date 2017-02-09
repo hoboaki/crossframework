@@ -1,15 +1,16 @@
 // 文字コード：UTF-8
-#include <XBase/Color4.hpp>
+#include <ae/base/Color4.hpp>
 
-#include <XBase/Color4b.hpp>
-#include <XBase/DivideCheck.hpp>
-#include <XBase/Math.hpp>
-#include <XBase/RuntimeAssert.hpp>
-#include <XBase/ScalerTypes.hpp>
-#include <XBase/Vector4.hpp>
+#include <ae/base/Color4b.hpp>
+#include <ae/base/DivideCheck.hpp>
+#include <ae/base/Math.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/base/ScalerTypes.hpp>
+#include <ae/base/Vector4.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 const Color4Pod Color4Pod::Zero()
@@ -210,7 +211,7 @@ void Color4Pod::mulAssign(const float aVal)
 void Color4Pod::divAssign(const float aVal)
 {
     if (aVal == 0) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return;
     }
     mulAssign(1.0f / aVal);
@@ -246,10 +247,10 @@ void Color4Pod::mulAssign(const Color4Pod& aVal)
 //------------------------------------------------------------------------------
 void Color4Pod::divAssign(const Color4Pod& aVal)
 {
-    XBASE_DIV_ASSIGN(r, aVal.r);
-    XBASE_DIV_ASSIGN(g, aVal.g);
-    XBASE_DIV_ASSIGN(b, aVal.b);
-    XBASE_DIV_ASSIGN(a, aVal.a);
+    AE_BASE_DIV_ASSIGN(r, aVal.r);
+    AE_BASE_DIV_ASSIGN(g, aVal.g);
+    AE_BASE_DIV_ASSIGN(b, aVal.b);
+    AE_BASE_DIV_ASSIGN(a, aVal.a);
 }
 
 //------------------------------------------------------------------------------
@@ -357,9 +358,9 @@ const Color4Pod Color4Pod::operator/(const Color4Pod& aVal)const
 }
 
 //------------------------------------------------------------------------------
-const ::XBase::ShortString Color4Pod::toShortString()const
+const ::ae::base::ShortString Color4Pod::toShortString()const
 {
-    return ::XBase::ShortString::FromFormat(
+    return ::ae::base::ShortString::FromFormat(
         "%s,%s,%s,%s",
         F32(r).toShortString().readPtr(),
         F32(g).toShortString().readPtr(),
@@ -398,5 +399,5 @@ Color4::Color4(const Vector4Pod& aVec)
     a = aVec.w;
 }
 
-} // namespace
+}} // namespace
 // EOF

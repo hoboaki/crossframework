@@ -1,11 +1,12 @@
 // 文字コード：UTF-8
-#include <XBase/ResFile.hpp>
+#include <ae/base/ResFile.hpp>
 
-#include <XBase/AutoMemBlock.hpp>
-#include <XBase/ResFileStream.hpp>
+#include <ae/base/AutoMemBlock.hpp>
+#include <ae/base/ResFileStream.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 const AutoMemBlock ResFile::Read(
@@ -16,21 +17,21 @@ const AutoMemBlock ResFile::Read(
     // オープン
     ResFileStream stream;
     if (!stream.open(aPath)) {
-        XBASE_ASSERT_NOT_REACHED_MSGFMT("ResFile named '%s' is failed to open.", aPath);
+        AE_BASE_ASSERT_NOT_REACHED_MSGFMT("ResFile named '%s' is failed to open.", aPath);
         return AutoMemBlock();
     }
 
     // メモリ準備
-    const pword_t size = stream.seek(0, ::XBase::SeekOrigin::End);
+    const pword_t size = stream.seek(0, ::ae::base::SeekOrigin::End);
     const pword_t bufferSize = stream.calcReadBufferSize(size);
     ptr_t ptr = aAllocator.alloc(bufferSize, stream.requireReadBufferAlignment());
     if (ptr == 0) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return AutoMemBlock();
     }
 
     // 読み込み
-    stream.seek(0, ::XBase::SeekOrigin::Begin);
+    stream.seek(0, ::ae::base::SeekOrigin::Begin);
     stream.read(ptr, size);
     stream.close();
 
@@ -38,5 +39,5 @@ const AutoMemBlock ResFile::Read(
     return AutoMemBlock(MemBlock(ptr, size), aAllocator);
 }
 
-} // namespace
+}} // namespace
 // EOF

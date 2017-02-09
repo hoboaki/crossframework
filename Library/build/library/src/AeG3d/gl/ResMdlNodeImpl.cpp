@@ -2,17 +2,18 @@
 #include "ResMdlNodeImpl.hpp"
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 //------------------------------------------------------------------------------
 ResMdlNodeImpl::ResMdlNodeImpl(
-    const ::XData::XData& aXData,
+    const ::ae::xdata::Xdata& aXdata,
     const BinResMdlNode* aBinPtr,
-    ::XBase::IAllocator&
+    ::ae::base::IAllocator&
     )
-: xdata(aXData.ptr())
+: xdata(aXdata.ptr())
 , binPtr(aBinPtr)
-, bindPoseMtxPtr(xdata.safeRef< ::XBase::Mtx34 >(binPtr->bindPoseMtxRef))
+, bindPoseMtxPtr(xdata.safeRef< ::ae::base::Mtx34 >(binPtr->bindPoseMtxRef))
 {
 }
 
@@ -21,5 +22,5 @@ ResMdlNodeImpl::~ResMdlNodeImpl()
 {
 }
 
-} // namespace
+}} // namespace
 // EOF

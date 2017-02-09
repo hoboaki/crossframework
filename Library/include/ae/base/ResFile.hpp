@@ -1,16 +1,18 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_RESFILE_HPP)
+#if defined(AE_BASE_INCLUDED_RESFILE_HPP)
 #else
-#define XBASE_INCLUDED_RESFILE_HPP
+#define AE_BASE_INCLUDED_RESFILE_HPP
 
-#include <XBase/IAllocator.hpp>
+#include <ae/base/IAllocator.hpp>
 
-namespace XBase {
+namespace ae {
+namespace base {
 class AutoMemBlock;
 }
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-IO
 //@{
@@ -30,6 +32,6 @@ public:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

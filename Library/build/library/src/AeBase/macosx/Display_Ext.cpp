@@ -1,13 +1,14 @@
 // 文字コード：UTF-8
-#include <XBase/Display.hpp>
+#include <ae/base/Display.hpp>
 
-#include <XBase/Application.hpp>
-#include <XBase/Ref.hpp>
+#include <ae/base/Application.hpp>
+#include <ae/base/Ref.hpp>
 #include "XBaseNSWindow.h"
 #include <OpenGL/OpenGL.h>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 namespace {
@@ -547,7 +548,7 @@ const int tSpecialKeyCode[256] =
     }
 }
 
-} // namespace
+}} // namespace
 
 //------------------------------------------------------------------------------
 int Display::screenCount()const
@@ -558,7 +559,7 @@ int Display::screenCount()const
 //------------------------------------------------------------------------------
 Screen& Display::screenAtIndex(const int aIndex)
 {
-    XBASE_ASSERT_LESS(aIndex, screenCount());
+    AE_BASE_ASSERT_LESS(aIndex, screenCount());
     return mainScreen();
 }
 
@@ -662,5 +663,5 @@ Display_Ext::~Display_Ext()
     XBaseNSWindow_Destroy(ptr);
 }
 
-} // namespace
+}} // namespace
 // EOF

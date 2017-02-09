@@ -1,28 +1,28 @@
 // 文字コード：UTF-8
-#if defined(XDATA_INCLUDED_XDATA_HPP)
+#if defined(AE_XS_DATA_INCLUDED_AE_XS_DATA_HPP)
 #else
-#define XDATA_INCLUDED_XDATA_HPP
+#define AE_XS_DATA_INCLUDED_AE_XS_DATA_HPP
 
 
 /// @brief BigEndian環境かどうか指定するマクロオプション。
 /// 指定されていなければ、__BIG_ENDIAN__が定義されているかどうかで判定。
-#if defined(XDATA_OPTION_IS_BIG_ENDIAN)
+#if defined(AE_XS_DATA_OPTION_IS_BIG_ENDIAN)
 #else
     #if defined(__BIG_ENDIAN__)
-        #define XDATA_OPTION_IS_BIG_ENDIAN
+        #define AE_XS_DATA_OPTION_IS_BIG_ENDIAN
     #endif
 #endif
 
-#if defined(XDATA_OPTION_IS_BIG_ENDIAN)
-    #define XDATA_IS_BIG_ENDIAN
+#if defined(AE_XS_DATA_OPTION_IS_BIG_ENDIAN)
+    #define AE_XS_DATA_IS_BIG_ENDIAN
 #else
-    #define XDATA_IS_LITTLE_ENDIAN
+    #define AE_XS_DATA_IS_LITTLE_ENDIAN
 #endif
 
 
-/// XDataのアクセサを定義する名前空間。
-namespace XData {
-/// @addtogroup XData
+/// Xdataのアクセサを定義する名前空間。
+namespace Xdata {
+/// @addtogroup Xdata
 //@{
 
 // TypeDef
@@ -63,7 +63,7 @@ class Constant
 public:
     // XBIN(Xdata BINary)を示す4文字。
     static const UInt32 SIGNATURE =
-    #if defined(XDATA_IS_BIG_ENDIAN)
+    #if defined(AE_XS_DATA_IS_BIG_ENDIAN)
         0x5842494E;
 #else
         0x4E494258;
@@ -76,8 +76,8 @@ public:
     static const UInt8 VERSION_MINOR = 0;
 };
 
-// XDataのヘッダ。
-struct XDataHeader
+// Xdataのヘッダ。
+struct XdataHeader
 {
     UInt32 signature;       // シグネチャ。Constant::SIGNATUREと等しい。
     UInt16 endian;          // エンディアンチェッカー。Constant::ENDIANと等しい。
@@ -87,15 +87,15 @@ struct XDataHeader
     UInt32 pageCode;        // 文字列のページコード。.netframeworkのページコード番号が入る。
 };
 
-/// XDataConverterで変換されたバイナリデータのアクセサ。
-class XData
+/// XdataConverterで変換されたバイナリデータのアクセサ。
+class Xdata
 {
 public:
-    /// 不正なXDataとして作成。
-    XData() : mPtr(0) {}
+    /// 不正なXdataとして作成。
+    Xdata() : mPtr(0) {}
     /// バイナリデータの先頭アドレスを指定して作成。
-    XData(const void* aPtr)
-        : mPtr(static_cast<const XDataHeader*>(aPtr))
+    Xdata(const void* aPtr)
+        : mPtr(static_cast<const XdataHeader*>(aPtr))
     {
     }
 
@@ -106,7 +106,7 @@ public:
         return mPtr;
     }
 
-    /// @brief 正しいXDataか取得する。
+    /// @brief 正しいXdataか取得する。
     /// @return 正当なデータならtrue。
     /// @details 
     /// デフォルトコンストラクタで作成された場合、
@@ -118,7 +118,7 @@ public:
             && mPtr->endian == Constant::ENDIAN
             && mPtr->versionMajor == Constant::VERSION_MAJOR
             && mPtr->versionMinor <= Constant::VERSION_MINOR
-            && sizeof(XDataHeader) <= mPtr->datasize
+            && sizeof(XdataHeader) <= mPtr->datasize
             ;
     };
 
@@ -141,7 +141,7 @@ public:
         {// 無効なデータならNULLポインタを。
             return 0;
         }
-        if (aReferenceValue < sizeof(XDataHeader) // ヘッダの中を指している
+        if (aReferenceValue < sizeof(XdataHeader) // ヘッダの中を指している
             || mPtr->datasize < aReferenceValue // データの外を指している
             )
         {// 範囲外
@@ -151,11 +151,11 @@ public:
     }
 
 private:
-    const XDataHeader* mPtr;
+    const XdataHeader* mPtr;
 };
 
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

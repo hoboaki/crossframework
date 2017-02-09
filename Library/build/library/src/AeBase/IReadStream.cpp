@@ -1,13 +1,14 @@
 // 文字コード：UTF-8
-#include <XBase/IReadStream.hpp>
+#include <ae/base/IReadStream.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 IReadStream::~IReadStream()
 {
 }
 
-} // namespace
+}} // namespace
 // EOF

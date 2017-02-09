@@ -1,11 +1,11 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_SDKHEADER_HPP)
+#if defined(AE_BASE_INCLUDED_SDKHEADER_HPP)
 #else
-#define XBASE_INCLUDED_SDKHEADER_HPP
+#define AE_BASE_INCLUDED_SDKHEADER_HPP
 
-#include <XBase/Os.hpp>
+#include <ae/base/Os.hpp>
 
-#if defined(XBASE_OS_WINDOWS)
+#if defined(AE_BASE_OS_WINDOWS)
     #include <windows.h>
     #undef min
     #undef max

@@ -1,11 +1,12 @@
 // 文字コード：UTF-8
-#include <XBase/Angle.hpp>
+#include <ae/base/Angle.hpp>
 
-#include <XBase/Degree.hpp>
-#include <XBase/Radian.hpp>
+#include <ae/base/Degree.hpp>
+#include <ae/base/Radian.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 Angle::Angle()
@@ -37,5 +38,5 @@ f32 Angle::deg()const
     return Radian(mRad).toDegree().value;
 }
 
-} // namespace
+}} // namespace
 // EOF

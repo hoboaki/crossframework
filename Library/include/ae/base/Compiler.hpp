@@ -1,7 +1,7 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_COMPILER_HPP)
+#if defined(AE_BASE_INCLUDED_COMPILER_HPP)
 #else
-#define XBASE_INCLUDED_COMPILER_HPP
+#define AE_BASE_INCLUDED_COMPILER_HPP
 
 /// @addtogroup XBase-Env
 //@{
@@ -9,18 +9,18 @@
 //@{
 
 /// MicrosoftVisualC使用時に定義されるプリプロセッサ。
-#define XBASE_COMPILER_MSVC
-#undef  XBASE_COMPILER_MSVC
+#define AE_BASE_COMPILER_MSVC
+#undef  AE_BASE_COMPILER_MSVC
 
 /// GNUC使用時に定義されるプリプロセッサ。
-#define XBASE_COMPILER_GNUC
-#undef  XBASE_COMPILER_GNUC
+#define AE_BASE_COMPILER_GNUC
+#undef  AE_BASE_COMPILER_GNUC
 
 // 選択
 #if defined(_MSC_VER)
-    #define XBASE_COMPILER_MSVC
+    #define AE_BASE_COMPILER_MSVC
 #elif defined(__GNUC__)
-    #define XBASE_COMPILER_GNUC
+    #define AE_BASE_COMPILER_GNUC
 #else
     #error Unknown Compiler.
 #endif

@@ -1,18 +1,20 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_AUTOMEMBLOCK_HPP)
+#if defined(AE_BASE_INCLUDED_AUTOMEMBLOCK_HPP)
 #else
-#define XBASE_INCLUDED_AUTOMEMBLOCK_HPP
+#define AE_BASE_INCLUDED_AUTOMEMBLOCK_HPP
 
-#include <XBase/IAllocator.hpp>
-#include <XBase/MemBlock.hpp>
-#include <XBase/Pointer.hpp>
+#include <ae/base/IAllocator.hpp>
+#include <ae/base/MemBlock.hpp>
+#include <ae/base/Pointer.hpp>
 
-namespace XBase {
+namespace ae {
+namespace base {
 class IAllocator;
 }
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Memory
 //@{
@@ -76,6 +78,6 @@ private:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

@@ -1,30 +1,31 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_RESMDLNODEIMPL_HPP)
+#if defined(AE_G3D_INCLUDED_RESMDLNODEIMPL_HPP)
 #else
-#define XG3D_INCLUDED_RESMDLNODEIMPL_HPP
+#define AE_G3D_INCLUDED_RESMDLNODEIMPL_HPP
 
-#include <XBase/IAllocator.hpp>
-#include <XBase/NonCopyable.hpp>
+#include <ae/base/IAllocator.hpp>
+#include <ae/base/NonCopyable.hpp>
 #include "BinResMdlNode.hpp"
-#include "XDataPlus.hpp"
+#include "XdataPlus.hpp"
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 // BinResMdlNodeとResMdlNodeの間にかますクラス。
-class ResMdlNodeImpl : public ::XBase::NonCopyable
+class ResMdlNodeImpl : public ::ae::base::NonCopyable
 {
 public:
-    const XDataPlus         xdata;
+    const XdataPlus         xdata;
     const BinResMdlNode*    binPtr;
-    const ::XBase::Mtx34*   bindPoseMtxPtr;
+    const ::ae::base::Mtx34*   bindPoseMtxPtr;
 
     //============================================================
     // バイナリデータの先頭アドレスを指定して作成。
-    ResMdlNodeImpl(const ::XData::XData& aXData, const BinResMdlNode* aBinPtr, ::XBase::IAllocator& aAllocator);
+    ResMdlNodeImpl(const ::ae::xdata::Xdata& aXdata, const BinResMdlNode* aBinPtr, ::ae::base::IAllocator& aAllocator);
     ~ResMdlNodeImpl();
 };
 
-} // namespace
+}} // namespace
 #endif
 // EOF

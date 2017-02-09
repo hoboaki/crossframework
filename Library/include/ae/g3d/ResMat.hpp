@@ -1,20 +1,22 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_RESMAT_HPP)
+#if defined(AE_G3D_INCLUDED_RESMAT_HPP)
 #else
-#define XG3D_INCLUDED_RESMAT_HPP
+#define AE_G3D_INCLUDED_RESMAT_HPP
 
-#include <XBase/Pointer.hpp>
-#include <XG3D/BuiltInTypes.hpp>
-#include <XG3D/ResMatParam.hpp>
+#include <ae/base/Pointer.hpp>
+#include <ae/g3d/BuiltInTypes.hpp>
+#include <ae/g3d/ResMatParam.hpp>
 
-namespace XG3D {
+namespace ae {
+namespace g3d {
 class ResMatImpl;
 }
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
-/// @addtogroup XG3D-Res
+/// @addtogroup AeG3d-Res
 //@{
 /// @brief XMATSET::matデータのアクセサ。
 /// @details
@@ -51,12 +53,12 @@ public:
     // 内部実装用関数群。
     const ResMatImpl* impl_()const;
 private:
-    ::XBase::Pointer< const ResMatImpl > mPtr;
+    ::ae::base::Pointer< const ResMatImpl > mPtr;
     //------------------------------------------------------------------------------
     bool checkInvalid()const;
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

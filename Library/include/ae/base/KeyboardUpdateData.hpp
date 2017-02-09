@@ -1,12 +1,13 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_KEYBOARDUPDATEDATA_HPP)
+#if defined(AE_BASE_INCLUDED_KEYBOARDUPDATEDATA_HPP)
 #else
-#define XBASE_INCLUDED_KEYBOARDUPDATEDATA_HPP
+#define AE_BASE_INCLUDED_KEYBOARDUPDATEDATA_HPP
 
-#include <XBase/KeyBitSet.hpp>
+#include <ae/base/KeyBitSet.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Hid
 //@{
@@ -18,6 +19,6 @@ struct KeyboardUpdateData
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

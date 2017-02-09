@@ -1,18 +1,20 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_ANGLE_HPP)
+#if defined(AE_BASE_INCLUDED_ANGLE_HPP)
 #else
-#define XBASE_INCLUDED_ANGLE_HPP
+#define AE_BASE_INCLUDED_ANGLE_HPP
 
-#include <XBase/BuiltinTypes.hpp>
+#include <ae/base/BuiltinTypes.hpp>
 
-namespace XBase {
+namespace ae {
+namespace base {
 struct DegreePod;
 struct RadianPod;
 }
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
-/// @addtogroup XBase-Math
+/// @addtogroup AeBase-Math
 //@{
 /// 角度を示すクラス。
 class Angle
@@ -36,6 +38,6 @@ private:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

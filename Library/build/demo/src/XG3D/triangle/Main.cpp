@@ -1,22 +1,22 @@
 // 文字コード：UTF-8
-#include <XBase/XBase.hpp>
-#include <XG3D/XG3D.hpp>
+#include <ae/base/All.hpp>
+#include <ae/g3d/All.hpp>
 
 //------------------------------------------------------------------------------
-int xmain(::XBase::Application& aApp)
+int xmain(::ae::base::Application& aApp)
 {
     // ディスプレイ作成
-    ::XBase::Display display = ::XBase::Display(::XBase::DisplayContext());
+    ::ae::base::Display display = ::ae::base::Display(::ae::base::DisplayContext());
 
     // レンダラー作成
-    ::XG3D::Renderer renderer(display);
+    ::ae::g3d::Renderer renderer(display);
 
     // フレームバッファのクリアカラー設定
-    renderer.fbSetClearColor(::XBase::Color4(0.5f, 0.5f, 0.5f, 0.5f));
+    renderer.fbSetClearColor(::ae::base::Color4(0.5f, 0.5f, 0.5f, 0.5f));
 
     // 三角形の頂点バッファを作成
-    ::XG3D::VtxBuffer vtx(1, 3);
-    vtx.begin(::XG3D::PrimitiveKind::Triangles);
+    ::ae::g3d::VtxBuffer vtx(1, 3);
+    vtx.begin(::ae::g3d::PrimitiveKind::Triangles);
     {
         vtx.color(1, 0, 0);
         vtx.vertex(0.0f, 0.5f);
@@ -37,15 +37,15 @@ int xmain(::XBase::Application& aApp)
     bool doExit = false;
     while (!doExit) {
         // イベントの取得
-        ::XBase::AppEvent::EnumType event = aApp.receiveEvent();
+        ::ae::base::AppEvent::EnumType event = aApp.receiveEvent();
 
         // イベントによって分岐
         switch (event) {
-            case ::XBase::AppEvent::Quit:
+            case ::ae::base::AppEvent::Quit:
                 doExit = true;
                 break;
 
-            case ::XBase::AppEvent::Update:
+            case ::ae::base::AppEvent::Update:
             {
                 // ディスプレイが閉じてたら終了
                 if (display.isClosed()) {
@@ -67,7 +67,7 @@ int xmain(::XBase::Application& aApp)
                 }
 
                 // ビュー行列指定
-                renderer.sdSetMtxView(::XBase::Matrix34::Rotate(::XBase::Degree(deg).toAngle(), ::XBase::Vector3::UnitZ()));
+                renderer.sdSetMtxView(::ae::base::Matrix34::Rotate(::ae::base::Degree(deg).toAngle(), ::ae::base::Vector3::UnitZ()));
 
                 // 三角形を描画
                 vtx.draw();

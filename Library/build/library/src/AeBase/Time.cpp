@@ -1,22 +1,23 @@
 // 文字コード：UTF-8
-#include <XBase/Time.hpp>
+#include <ae/base/Time.hpp>
 
 #include <ctime>
-#include <XBase/Calendar.hpp>
-#include <XBase/Os.hpp>
-#include <XBase/RuntimeAssert.hpp>
-#include <XBase/TimeSpan.hpp>
+#include <ae/base/Calendar.hpp>
+#include <ae/base/Os.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/base/TimeSpan.hpp>
 
 // for LocalTime() UniversalTime()
-#if defined(XBASE_OS_WINDOWS)
+#if defined(AE_BASE_OS_WINDOWS)
 #pragma warning(disable: 4996) // for gmtime,localtime
-#include <XBase/SdkHeader.hpp>
-#elif defined(XBASE_OS_MACOSX)
+#include <ae/base/SdkHeader.hpp>
+#elif defined(AE_BASE_OS_MACOSX)
 #include <sys/time.h>
 #endif
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 namespace {
@@ -33,7 +34,7 @@ const TimePod tCurrentTime(tTimeConverter aConverter)
     // 1970/01/01 00:00からの秒数とチック(100ナノ秒)数を求める
     std::time_t secFrom1970 = std::time_t();
     u64 subTick = u64();
-#if defined(XBASE_OS_WINDOWS)
+#if defined(AE_BASE_OS_WINDOWS)
     {
         // 1601/01/01 12:00 の時間
         FILETIME ft = {};
@@ -58,7 +59,7 @@ const TimePod tCurrentTime(tTimeConverter aConverter)
             subTick = caster.as_integer % 10000000;
         }
     }
-#elif defined(XBASE_OS_MACOSX)
+#elif defined(AE_BASE_OS_MACOSX)
     {
         timeval tv;
         gettimeofday(&tv, 0);
@@ -74,7 +75,7 @@ const TimePod tCurrentTime(tTimeConverter aConverter)
     std::tm safeTM = {};
     const std::tm* tmPtr = aConverter(&secFrom1970, &safeTM);
     if (PointerCheck::InvalidCheck(tmPtr)) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
     }
     else
     {
@@ -112,7 +113,7 @@ const TimePod tCurrentTime(tTimeConverter aConverter)
     return obj;
 }
 
-} // namespace
+}} // namespace
 
 //------------------------------------------------------------------------------
 const TimePod TimePod::LocalTime()
@@ -185,7 +186,7 @@ const CalendarPod TimePod::toCalendar()const
 
     // マイナスの値はサポートしない
     if (ticks_ < 0) {
-        XBASE_ERROR_INVALID_VALUE(ticks_);
+        AE_BASE_ERROR_INVALID_VALUE(ticks_);
         return calendar;
     }
 
@@ -291,5 +292,5 @@ s64 TimePod::ticks()const
     return ticks_;
 }
 
-} // namespace
+}} // namespace
 // EOF

@@ -1,10 +1,11 @@
 // 文字コード：UTF-8
-#include <XBase/Hash.hpp>
+#include <ae/base/Hash.hpp>
 
-#include <XBase/MemBlock.hpp>
+#include <ae/base/MemBlock.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 namespace {
@@ -113,7 +114,7 @@ const uint32 tCRC32C_TABLE[256] =
     0xBE2DA0A5L, 0x4C4623A6L, 0x5F16D052L, 0xAD7D5351L
 };
 
-} // namespace
+}} // namespace
 
 //------------------------------------------------------------------------------
 uint16 Hash::CRC16(const MemBlock& aBlock)
@@ -143,5 +144,5 @@ uint32 Hash::CRC32(const MemBlock& aBlock)
     return crcVal;
 }
 
-} // namespace
+}} // namespace
 // EOF

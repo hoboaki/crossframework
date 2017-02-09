@@ -1,9 +1,9 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_OSTYPE_HPP)
+#if defined(AE_BASE_INCLUDED_OSTYPE_HPP)
 #else
-#define XBASE_INCLUDED_OSTYPE_HPP
+#define AE_BASE_INCLUDED_OSTYPE_HPP
 
-#include <XBase/Os.hpp>
+#include <ae/base/Os.hpp>
 
 /// @addtogroup XBase-Env 
 //@{
@@ -12,18 +12,18 @@
 //@{
 
 /// WindowSystem型OS使用時に定義されるプリプロセッサ。
-#define XBASE_OSTYPE_WINDOWSYSTEM
-#undef  XBASE_OSTYPE_WINDOWSYSTEM
+#define AE_BASE_OSTYPE_WINDOWSYSTEM
+#undef  AE_BASE_OSTYPE_WINDOWSYSTEM
 
 /// 組み込み型OS使用時に定義されるプリプロセッサ。
-#define XBASE_OSTYPE_EMBEDDEDSYSTEM
-#undef  XBASE_OSTYPE_EMBEDDEDSYSTEM
+#define AE_BASE_OSTYPE_EMBEDDEDSYSTEM
+#undef  AE_BASE_OSTYPE_EMBEDDEDSYSTEM
 
 // 選択
-#if defined(XBASE_OS_WINDOWS) || defined(XBASE_OS_MACOSX)
-    #define XBASE_OSTYPE_WINDOWSYSTEM
-#elif defined(XBASE_OS_IOS)
-    #define XBASE_OSTYPE_EMBEDDEDSYSTEM
+#if defined(AE_BASE_OS_WINDOWS) || defined(AE_BASE_OS_MACOSX)
+    #define AE_BASE_OSTYPE_WINDOWSYSTEM
+#elif defined(AE_BASE_OS_IOS)
+    #define AE_BASE_OSTYPE_EMBEDDEDSYSTEM
 #endif
 
 //@}

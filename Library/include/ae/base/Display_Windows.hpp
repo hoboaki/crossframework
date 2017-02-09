@@ -1,24 +1,26 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_DISPLAY_WINDOWS_HPP)
+#if defined(AE_BASE_INCLUDED_DISPLAY_WINDOWS_HPP)
 #else
-#define XBASE_INCLUDED_DISPLAY_WINDOWS_HPP
+#define AE_BASE_INCLUDED_DISPLAY_WINDOWS_HPP
 
-#include <XBase/Bool.hpp>
-#include <XBase/DisplayContext.hpp>
-#include <XBase/KeyboardUpdateData.hpp>
-#include <XBase/MouseUpdateData.hpp>
-#include <XBase/Placement.hpp>
-#include <XBase/Pointer.hpp>
-#include <XBase/Screen.hpp>
-#include <XBase/SdkHeader.hpp>
+#include <ae/base/Bool.hpp>
+#include <ae/base/DisplayContext.hpp>
+#include <ae/base/KeyboardUpdateData.hpp>
+#include <ae/base/MouseUpdateData.hpp>
+#include <ae/base/Placement.hpp>
+#include <ae/base/Pointer.hpp>
+#include <ae/base/Screen.hpp>
+#include <ae/base/SdkHeader.hpp>
 
-namespace XBase {
+namespace ae {
+namespace base {
 class Application;
 class Hid;
 }
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-System
 //@{
@@ -51,6 +53,6 @@ public:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

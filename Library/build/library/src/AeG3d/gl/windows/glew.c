@@ -31,7 +31,7 @@
 */
 
 //#include <GL/glew.h>
-#include <XG3D/glew.h>
+#include <ae/g3d/glew.h>
 
 #if defined(GLEW_OSMESA)
 #  define GLAPI extern

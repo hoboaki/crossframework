@@ -1,21 +1,23 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_RESMDLNODE_HPP)
+#if defined(AE_G3D_INCLUDED_RESMDLNODE_HPP)
 #else
-#define XG3D_INCLUDED_RESMDLNODE_HPP
+#define AE_G3D_INCLUDED_RESMDLNODE_HPP
 
-#include <XBase/Matrix34.hpp>
-#include <XBase/Pointer.hpp>
-#include <XBase/Vector3.hpp>
-#include <XG3D/BuiltInTypes.hpp>
+#include <ae/base/Matrix34.hpp>
+#include <ae/base/Pointer.hpp>
+#include <ae/base/Vector3.hpp>
+#include <ae/g3d/BuiltInTypes.hpp>
 
-namespace XG3D {
+namespace ae {
+namespace g3d {
 class ResMdlNodeImpl;
 }
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
-/// @addtogroup XG3D-Res
+/// @addtogroup AeG3d-Res
 //@{
     /// @brief XMDL::nodeデータのアクセサ。
     /// @details
@@ -46,18 +48,18 @@ public:
     int parentNodeIndex()const;        ///< @brief 親ノードのノードインデックス番号。 @return 親がなければ ResConstant::INVALID_MDL_NODE_INDEX を返す。
     int firstChildNodeIndex()const;    ///< @brief 長男ノードのノードインデックス番号。 @return 子がなければ ResConstant::INVALID_MDL_NODE_INDEX を返す。
     int nextSiblingNodeIndex()const;   ///< @brief 次の兄弟ノードのノードインデックス番号。 @return 兄弟がなければ ResConstant::INVALID_MDL_NODE_INDEX を返す。
-    ::XBase::Mtx34 rtMtx()const;        ///< RotateTrans行列の初期値。
-    ::XBase::Vec3  scale()const;        ///< Scale値の初期値。
-    const ::XBase::Mtx34* bindPoseMtxPtr()const; ///< @brief バインドポーズ行列のポインタ。 @return ResMdlレベルでバインドポーズ行列が不要な場合は0を返す。
+    ::ae::base::Mtx34 rtMtx()const;        ///< RotateTrans行列の初期値。
+    ::ae::base::Vec3  scale()const;        ///< Scale値の初期値。
+    const ::ae::base::Mtx34* bindPoseMtxPtr()const; ///< @brief バインドポーズ行列のポインタ。 @return ResMdlレベルでバインドポーズ行列が不要な場合は0を返す。
     //@}
 
 private:
-    ::XBase::Pointer< const ResMdlNodeImpl > mPtr;
+    ::ae::base::Pointer< const ResMdlNodeImpl > mPtr;
     //------------------------------------------------------------------------------
     bool checkInvalid()const;
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

@@ -1,16 +1,16 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_TOSHORTSTRING_HPP)
+#if defined(AE_BASE_INCLUDED_TOSHORTSTRING_HPP)
 #else
-#define XBASE_INCLUDED_TOSHORTSTRING_HPP
+#define AE_BASE_INCLUDED_TOSHORTSTRING_HPP
 
-#include <XBase/ShortStringFactory.hpp>
+#include <ae/base/ShortStringFactory.hpp>
 
-/// @addtogroup XBase-String
+/// @addtogroup AeBase-String
 //@{
 
 /// @brief 引数の値をShortStringに変換するマクロ。
 /// @return 変換された文字列。
-#define XBASE_TO_SHORT_STRING( aVal ) (::XBase::ShortStringFactory::Create( aVal ))
+#define AE_BASE_TO_SHORT_STRING( aVal ) (::ae::base::ShortStringFactory::Create( aVal ))
 
 //@}
 #endif

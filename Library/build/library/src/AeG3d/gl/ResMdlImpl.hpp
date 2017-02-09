@@ -1,42 +1,43 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_RESMDLIMPL_HPP)
+#if defined(AE_G3D_INCLUDED_RESMDLIMPL_HPP)
 #else
-#define XG3D_INCLUDED_RESMDLIMPL_HPP
+#define AE_G3D_INCLUDED_RESMDLIMPL_HPP
 
-#include <XBase/IAllocator.hpp>
-#include <XBase/NonCopyable.hpp>
-#include <XBase/Placement.hpp>
-#include <XBase/RuntimeAutoArray.hpp>
+#include <ae/base/IAllocator.hpp>
+#include <ae/base/NonCopyable.hpp>
+#include <ae/base/Placement.hpp>
+#include <ae/base/RuntimeAutoArray.hpp>
 #include "BinResMdl.hpp"
 #include "ResMdlMatReferImpl.hpp"
 #include "ResMdlMeshImpl.hpp"
 #include "ResMdlNodeImpl.hpp"
 #include "ResMdlShapeImpl.hpp"
-#include "XDataPlus.hpp"
+#include "XdataPlus.hpp"
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 // BinResMdlとResMdlの間にかますクラス。
-class ResMdlImpl : public ::XBase::NonCopyable
+class ResMdlImpl : public ::ae::base::NonCopyable
 {
 public:
-    typedef ::XBase::RuntimeAutoArray< ResMdlMatReferImpl > MatReferArray;
-    typedef ::XBase::RuntimeAutoArray< ResMdlMeshImpl >     MeshArray;
-    typedef ::XBase::RuntimeAutoArray< ResMdlNodeImpl >     NodeArray;
-    typedef ::XBase::RuntimeAutoArray< ResMdlShapeImpl >    ShapeArray;
+    typedef ::ae::base::RuntimeAutoArray< ResMdlMatReferImpl > MatReferArray;
+    typedef ::ae::base::RuntimeAutoArray< ResMdlMeshImpl >     MeshArray;
+    typedef ::ae::base::RuntimeAutoArray< ResMdlNodeImpl >     NodeArray;
+    typedef ::ae::base::RuntimeAutoArray< ResMdlShapeImpl >    ShapeArray;
 
     //============================================================
-    const XDataPlus  xdata;
+    const XdataPlus  xdata;
     const BinResMdl* binPtr;
-    ::XBase::Placement< ShapeArray >    shapeImpls; // Meshの参照解決で必要なため一番先に宣言
-    ::XBase::Placement< MatReferArray > matReferImpls;
-    ::XBase::Placement< MeshArray >     meshImpls;
-    ::XBase::Placement< NodeArray >     nodeImpls;
+    ::ae::base::Placement< ShapeArray >    shapeImpls; // Meshの参照解決で必要なため一番先に宣言
+    ::ae::base::Placement< MatReferArray > matReferImpls;
+    ::ae::base::Placement< MeshArray >     meshImpls;
+    ::ae::base::Placement< NodeArray >     nodeImpls;
 
     //============================================================
     // バイナリデータの先頭アドレスを指定して作成。
-    ResMdlImpl(const ::XData::XData& aXData, const BinResMdl* aBinPtr, ::XBase::IAllocator& aAllocator);
+    ResMdlImpl(const ::ae::xdata::Xdata& aXdata, const BinResMdl* aBinPtr, ::ae::base::IAllocator& aAllocator);
     ~ResMdlImpl();
 
     //============================================================
@@ -44,6 +45,6 @@ public:
     void release();
 };
 
-} // namespace
+}} // namespace
 #endif
 // EOF

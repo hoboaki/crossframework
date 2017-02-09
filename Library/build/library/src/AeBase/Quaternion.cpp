@@ -1,16 +1,17 @@
 // 文字コード：UTF-8
-#include <XBase/Quaternion.hpp>
+#include <ae/base/Quaternion.hpp>
 
-#include <XBase/Angle.hpp>
-#include <XBase/Math.hpp>
-#include <XBase/Matrix34.hpp>
-#include <XBase/Radian.hpp>
-#include <XBase/RuntimeAssert.hpp>
-#include <XBase/ScalerTypes.hpp>
-#include <XBase/Vector3.hpp>
+#include <ae/base/Angle.hpp>
+#include <ae/base/Math.hpp>
+#include <ae/base/Matrix34.hpp>
+#include <ae/base/Radian.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/base/ScalerTypes.hpp>
+#include <ae/base/Vector3.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 Quaternion::Quaternion()
@@ -79,7 +80,7 @@ const Matrix34Pod Quaternion::toRotateMatrix()const
 {
     const f32 lenSrc = Math::SqrtF32(w*w + x*x + y*y + z*z);
     if (lenSrc == 0) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return Matrix34::Identity();
     }
 
@@ -121,9 +122,9 @@ Quaternion& Quaternion::operator*=(const Quaternion& aRHS)
 }
 
 //------------------------------------------------------------------------------
-const ::XBase::ShortString Quaternion::toShortString()const
+const ::ae::base::ShortString Quaternion::toShortString()const
 {
-    return ::XBase::ShortString::FromFormat(
+    return ::ae::base::ShortString::FromFormat(
         "%s,%s,%s,%s",
         F32(x).toShortString().readPtr(),
         F32(y).toShortString().readPtr(),
@@ -132,5 +133,5 @@ const ::XBase::ShortString Quaternion::toShortString()const
         );
 }
 
-} // namespace
+}} // namespace
 // EOF

@@ -1,13 +1,14 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_BITSET_HPP)
+#if defined(AE_BASE_INCLUDED_BITSET_HPP)
 #else
-#define XBASE_INCLUDED_BITSET_HPP
+#define AE_BASE_INCLUDED_BITSET_HPP
 
-#include <XBase/BuiltInTypes.hpp>
-#include <XBase/RuntimeAssert.hpp>
+#include <ae/base/BuiltInTypes.hpp>
+#include <ae/base/RuntimeAssert.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Collection
 //@{
@@ -56,7 +57,7 @@ struct BitSetPod
         // チェック
         if (BitCount <= aIndex)
         {
-            XBASE_ERROR_INVALID_VALUE(aIndex);
+            AE_BASE_ERROR_INVALID_VALUE(aIndex);
             return;
         }
 
@@ -84,7 +85,7 @@ struct BitSetPod
         // チェック
         if (BitCount <= aIndex)
         {
-            XBASE_ERROR_INVALID_VALUE(aIndex);
+            AE_BASE_ERROR_INVALID_VALUE(aIndex);
             return bool();
         }
 
@@ -195,6 +196,6 @@ public:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

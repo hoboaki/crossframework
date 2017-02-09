@@ -1,16 +1,17 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_PodCLASS_HPP)
+#if defined(AE_BASE_INCLUDED_PodCLASS_HPP)
 #else
-#define XBASE_INCLUDED_PodCLASS_HPP
+#define AE_BASE_INCLUDED_PodCLASS_HPP
 
-#include <XBase/PodStruct.hpp>
-#include <XBase/StaticAssert.hpp>
-#include <XBase/TypeTraits.hpp>
+#include <ae/base/PodStruct.hpp>
+#include <ae/base/StaticAssert.hpp>
+#include <ae/base/TypeTraits.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
-/// @addtogroup XBase-Types
+/// @addtogroup AeBase-Types
 //@{    
     /// @brief Pod型のラッパーテンプレートクラス。
     /// @details
@@ -20,18 +21,18 @@ class PodClass : public PodStruct<T>
 {
 public:
     /// Struct型のエイリアス。
-    typedef ::XBase::PodStruct<T> StructType;
+    typedef ::ae::base::PodStruct<T> StructType;
 
     PodClass() { StructType::ref() = StructType::DefaultValue(); }   ///< 規定値で初期化される。
     PodClass(const PodStruct<T>& aValue) { StructType::ref() = aValue; } ///< 値を指定して初期化。
 
 private:
     typedef StructType SuperClass;
-    XBASE_STATIC_ASSERT(TypeTraits::IsPod< StructType >::Value);
-    XBASE_STATIC_ASSERT(sizeof(SuperClass) == sizeof(ValueType)); // サイズが同じであることを保証。
+    AE_BASE_STATIC_ASSERT(TypeTraits::IsPod< StructType >::Value);
+    AE_BASE_STATIC_ASSERT(sizeof(SuperClass) == sizeof(ValueType)); // サイズが同じであることを保証。
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

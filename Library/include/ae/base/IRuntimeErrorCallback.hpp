@@ -1,10 +1,11 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_IRUNTIMEERRORCALLBACK_HPP)
+#if defined(AE_BASE_INCLUDED_IRUNTIMEERRORCALLBACK_HPP)
 #else
-#define XBASE_INCLUDED_IRUNTIMEERRORCALLBACK_HPP
+#define AE_BASE_INCLUDED_IRUNTIMEERRORCALLBACK_HPP
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Debug
 //@{
@@ -22,6 +23,6 @@ public:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

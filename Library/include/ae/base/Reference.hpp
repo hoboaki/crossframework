@@ -1,12 +1,13 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_REFERENCE_HPP)
+#if defined(AE_BASE_INCLUDED_REFERENCE_HPP)
 #else
-#define XBASE_INCLUDED_REFERENCE_HPP
+#define AE_BASE_INCLUDED_REFERENCE_HPP
 
-#include <XBase/RuntimeAssert.hpp>
+#include <ae/base/RuntimeAssert.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Util
 //@{
@@ -24,7 +25,7 @@ public:
 
     operator T& ()const
     {
-        XBASE_ASSERT_POINTER(mPtr);
+        AE_BASE_ASSERT_POINTER(mPtr);
         return *mPtr;
     }
 
@@ -33,6 +34,6 @@ private:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

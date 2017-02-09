@@ -1,12 +1,13 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_SHORTSTRING_HPP)
+#if defined(AE_BASE_INCLUDED_SHORTSTRING_HPP)
 #else
-#define XBASE_INCLUDED_SHORTSTRING_HPP
+#define AE_BASE_INCLUDED_SHORTSTRING_HPP
 
-#include <XBase/FixedString.hpp>
+#include <ae/base/FixedString.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-String
 //@{
@@ -14,6 +15,6 @@ typedef FixedString< char, 64 > ShortString;  ///< char版ShortString。短い�
 typedef FixedString< wchar_t, 64 > ShortWString; ///< wchar_t版ShortString。短い固定長文字列。
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

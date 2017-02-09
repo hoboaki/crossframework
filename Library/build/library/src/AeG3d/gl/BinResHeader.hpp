@@ -1,13 +1,14 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_BINRESHEADER_HPP)
+#if defined(AE_G3D_INCLUDED_BINRESHEADER_HPP)
 #else
-#define XG3D_INCLUDED_BINRESHEADER_HPP
+#define AE_G3D_INCLUDED_BINRESHEADER_HPP
 
-#include <XG3D/BuiltInTypes.hpp>
-#include <XData/XData.hpp>
+#include <ae/g3d/BuiltInTypes.hpp>
+#include <ae/xdata/Xdata.hpp>
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 /// バイナリデータ：ヘッダ。
 struct BinResHeader
@@ -19,14 +20,14 @@ struct BinResHeader
     u8  versionMinor;
     u16 targetEngine;
 
-    ::XData::Reference matSets;
-    ::XData::Reference mdls;
-    ::XData::Reference texs;
+    ::ae::xdata::Reference matSets;
+    ::ae::xdata::Reference mdls;
+    ::ae::xdata::Reference texs;
 
     bool isValid()const;
     bool checkInvalid()const; // Invalidならエラー処理をしてtrueを返す。
 };
 
-} // namespace
+}} // namespace
 #endif
 // EOF

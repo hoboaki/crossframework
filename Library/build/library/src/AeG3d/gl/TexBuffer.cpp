@@ -1,14 +1,15 @@
 // 文字コード：UTF-8
-#include <XG3D/TexBuffer.hpp>
+#include <ae/g3d/TexBuffer.hpp>
 
-#include <XBase/RuntimeAssert.hpp>
-#include <XG3D/ITexRes.hpp>
-#include <XG3D/SdkHeader.hpp>
-#include <XG3D/TexSetting.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/g3d/ITexRes.hpp>
+#include <ae/g3d/SdkHeader.hpp>
+#include <ae/g3d/TexSetting.hpp>
 #include "GlCmd.hpp"
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 //------------------------------------------------------------------------------
 TexBuffer::TexBuffer(
@@ -65,11 +66,11 @@ TexBuffer::TexBuffer(
             break;
 
         default:
-            XBASE_ERROR_INVALID_VALUE(int(mResData.format));
+            AE_BASE_ERROR_INVALID_VALUE(int(mResData.format));
             break;
     }
-    XG3D_GLCMD(glBindTexture(GL_TEXTURE_2D, mExt.texId));
-    XG3D_GLCMD(glTexImage2D(
+    AE_G3D_GLCMD(glBindTexture(GL_TEXTURE_2D, mExt.texId));
+    AE_G3D_GLCMD(glTexImage2D(
         GL_TEXTURE_2D,
         0,
         internalFormat,
@@ -80,7 +81,7 @@ TexBuffer::TexBuffer(
         type,
         mResData.pixels
     ));
-    XG3D_GLCMD(glBindTexture(GL_TEXTURE_2D, 0));
+    AE_G3D_GLCMD(glBindTexture(GL_TEXTURE_2D, 0));
 }
 
 //------------------------------------------------------------------------------
@@ -116,14 +117,14 @@ const TexBuffer_Ext& TexBuffer::ext_()const
 TexBuffer_Ext::TexBuffer_Ext()
 : texId()
 {
-    XG3D_GLCMD(glGenTextures(1, &texId));
+    AE_G3D_GLCMD(glGenTextures(1, &texId));
 }
 
 //------------------------------------------------------------------------------
 TexBuffer_Ext::~TexBuffer_Ext()
 {
-    XG3D_GLCMD(glDeleteTextures(1, &texId));
+    AE_G3D_GLCMD(glDeleteTextures(1, &texId));
 }
 
-} // namespace
+}} // namespace
 // EOF

@@ -1,8 +1,9 @@
 // 文字コード：UTF-8
-#include <XBase/Keyboard.hpp>
+#include <ae/base/Keyboard.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 Keyboard::Keyboard()
@@ -95,5 +96,5 @@ const KeyBitSet Keyboard::release()const
     return mRelease;
 }
 
-} // namespace
+}} // namespace
 // EOF

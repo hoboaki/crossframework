@@ -1,11 +1,12 @@
 // 文字コード：UTF-8
-#include <XBase/FrameCounter.hpp>
+#include <ae/base/FrameCounter.hpp>
 
-#include <XBase/DivideCheck.hpp>
-#include <XBase/RuntimeAssert.hpp>
+#include <ae/base/DivideCheck.hpp>
+#include <ae/base/RuntimeAssert.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 FrameCounter::FrameCounter()
@@ -46,7 +47,7 @@ void FrameCounter::advance()
 void FrameCounter::advanceStrict()
 {
     if (isEnd()) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return;
     }
     ++mFrame;
@@ -91,7 +92,7 @@ float FrameCounter::rateFrame()const
     }
     else
     {
-        return XBASE_DIV(float(mFrame), mTotalFrame);
+        return AE_BASE_DIV(float(mFrame), mTotalFrame);
     }
 }
 
@@ -101,5 +102,5 @@ float FrameCounter::invRateFrame()const
     return 1.0f - rateFrame();
 }
 
-} // namespace
+}} // namespace
 // EOF

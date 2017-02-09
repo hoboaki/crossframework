@@ -1,13 +1,14 @@
 // 文字コード：UTF-8
-#include <XBase/IRuntimeErrorCallback.hpp>
+#include <ae/base/IRuntimeErrorCallback.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 IRuntimeErrorCallback::~IRuntimeErrorCallback()
 {
 }
 
-} // namespace
+}} // namespace
 // EOF

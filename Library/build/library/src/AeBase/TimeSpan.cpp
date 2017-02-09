@@ -1,8 +1,9 @@
 // 文字コード：UTF-8
-#include <XBase/TimeSpan.hpp>
+#include <ae/base/TimeSpan.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 const TimeSpanPod TimeSpanPod::FromTicks(const s64 aTicks)
@@ -143,5 +144,5 @@ TimeSpanPod& TimeSpanPod::operator-=(const TimeSpanPod& aTimeSpan)
     return subAssign(aTimeSpan);
 }
 
-} // namespace
+}} // namespace
 // EOF

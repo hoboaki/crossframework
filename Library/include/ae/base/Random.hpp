@@ -1,12 +1,13 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_RANDOM_HPP)
+#if defined(AE_BASE_INCLUDED_RANDOM_HPP)
 #else
-#define XBASE_INCLUDED_RANDOM_HPP
+#define AE_BASE_INCLUDED_RANDOM_HPP
 
-#include <XBase/BuiltInTypes.hpp>
+#include <ae/base/BuiltInTypes.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Math
 //@{
@@ -41,6 +42,6 @@ private:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

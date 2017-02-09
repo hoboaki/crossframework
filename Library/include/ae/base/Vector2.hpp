@@ -1,19 +1,21 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_VECTOR2_HPP)
+#if defined(AE_BASE_INCLUDED_VECTOR2_HPP)
 #else
-#define XBASE_INCLUDED_VECTOR2_HPP
+#define AE_BASE_INCLUDED_VECTOR2_HPP
 
-#include <XBase/BuiltInTypes.hpp>
-#include <XBase/ShortString.hpp>
+#include <ae/base/BuiltInTypes.hpp>
+#include <ae/base/ShortString.hpp>
 
-namespace XBase {
+namespace ae {
+namespace base {
 struct Vector2Pod;
 struct Vector3Pod;
 struct Vector4Pod;
 }
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Math
 //@{
@@ -189,6 +191,6 @@ typedef Vec2 Vec2f;
 typedef Vector2 Vector2f;
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

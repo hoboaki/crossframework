@@ -1,12 +1,13 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_TEXFILTER_HPP)
+#if defined(AE_G3D_INCLUDED_TEXFILTER_HPP)
 #else
-#define XG3D_INCLUDED_TEXFILTER_HPP
+#define AE_G3D_INCLUDED_TEXFILTER_HPP
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
-/// @addtogroup XG3D-Enum
+/// @addtogroup AeG3d-Enum
 //@{
 /// テクスチャ補間の種類。
 struct TexFilter
@@ -25,6 +26,6 @@ struct TexFilter
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

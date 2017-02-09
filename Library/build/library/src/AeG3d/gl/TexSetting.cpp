@@ -1,12 +1,13 @@
 // 文字コード：UTF-8
-#include <XG3D/TexSetting.hpp>
+#include <ae/g3d/TexSetting.hpp>
 
-#include <XBase/EnumCheck.hpp>
-#include <XBase/RuntimeAssert.hpp>
-#include <XG3D/TexBuffer.hpp>
+#include <ae/base/EnumCheck.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/g3d/TexBuffer.hpp>
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 //------------------------------------------------------------------------------
 TexSetting::TexSetting()
@@ -58,8 +59,8 @@ TexFilter::EnumType TexSetting::minFilter()const
 //------------------------------------------------------------------------------
 void TexSetting::setMinFilter(const TexFilter::EnumType aFilter)
 {
-    if (XBASE_ENUM_IS_INVALID(TexFilter, aFilter)) {
-        XBASE_ERROR_INVALID_ENUM(int(aFilter));
+    if (AE_BASE_ENUM_IS_INVALID(TexFilter, aFilter)) {
+        AE_BASE_ERROR_INVALID_ENUM(int(aFilter));
         return;
     }
     mMinFilter = aFilter;
@@ -74,8 +75,8 @@ TexFilter::EnumType TexSetting::magFilter()const
 //------------------------------------------------------------------------------
 void TexSetting::setMagFilter(const TexFilter::EnumType aFilter)
 {
-    if (XBASE_ENUM_IS_INVALID(TexFilter, aFilter)) {
-        XBASE_ERROR_INVALID_ENUM(int(aFilter));
+    if (AE_BASE_ENUM_IS_INVALID(TexFilter, aFilter)) {
+        AE_BASE_ERROR_INVALID_ENUM(int(aFilter));
         return;
     }
     mMagFilter = aFilter;
@@ -90,8 +91,8 @@ TexAddress::EnumType TexSetting::addressU()const
 //------------------------------------------------------------------------------
 void TexSetting::setAddressU(const TexAddress::EnumType aAddress)
 {
-    if (XBASE_ENUM_IS_INVALID(TexAddress, aAddress)) {
-        XBASE_ERROR_INVALID_ENUM(int(aAddress));
+    if (AE_BASE_ENUM_IS_INVALID(TexAddress, aAddress)) {
+        AE_BASE_ERROR_INVALID_ENUM(int(aAddress));
         return;
     }
     mAddressU = aAddress;
@@ -106,8 +107,8 @@ TexAddress::EnumType TexSetting::addressV()const
 //------------------------------------------------------------------------------
 void TexSetting::setAddressV(const TexAddress::EnumType aAddress)
 {
-    if (XBASE_ENUM_IS_INVALID(TexAddress, aAddress)) {
-        XBASE_ERROR_INVALID_ENUM(int(aAddress));
+    if (AE_BASE_ENUM_IS_INVALID(TexAddress, aAddress)) {
+        AE_BASE_ERROR_INVALID_ENUM(int(aAddress));
         return;
     }
     mAddressV = aAddress;
@@ -136,5 +137,5 @@ TexSetting_EXT::~TexSetting_EXT()
 {
 }
 
-} // namespace
+}} // namespace
 // EOF

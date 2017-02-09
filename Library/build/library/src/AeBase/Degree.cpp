@@ -1,19 +1,20 @@
 // 文字コード：UTF-8
-#include <XBase/Degree.hpp>
+#include <ae/base/Degree.hpp>
 
-#include <XBase/Angle.hpp>
-#include <XBase/Pi.hpp>
-#include <XBase/Radian.hpp>
+#include <ae/base/Angle.hpp>
+#include <ae/base/Pi.hpp>
+#include <ae/base/Radian.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 namespace {
 
-const float tToRadianRate = XBASE_PI / 180.0f;
+const float tToRadianRate = AE_BASE_PI / 180.0f;
 
-} // namespace
+}} // namespace
 
 //------------------------------------------------------------------------------
 const Angle DegreePod::toAngle()const
@@ -47,5 +48,5 @@ Degree::Degree(const DegreePod& aVal)
 {
 }
 
-} // namespace
+}} // namespace
 // EOF

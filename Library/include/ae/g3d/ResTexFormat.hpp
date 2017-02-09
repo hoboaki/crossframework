@@ -1,12 +1,13 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_RESTEXFORMAT_HPP)
+#if defined(AE_G3D_INCLUDED_RESTEXFORMAT_HPP)
 #else
-#define XG3D_INCLUDED_RESTEXFORMAT_HPP
+#define AE_G3D_INCLUDED_RESTEXFORMAT_HPP
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
-/// @addtogroup XG3D-Res
+/// @addtogroup AeG3d-Res
 //@{
 /// テクスチャのフォーマット。
 struct ResTexFormat
@@ -29,6 +30,6 @@ struct ResTexFormat
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

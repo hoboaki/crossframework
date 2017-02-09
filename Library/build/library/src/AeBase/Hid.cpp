@@ -1,13 +1,14 @@
 // 文字コード：UTF-8
-#include <XBase/Hid.hpp>
+#include <ae/base/Hid.hpp>
 
-#include <XBase/Display.hpp>
-#include <XBase/Keyboard.hpp>
-#include <XBase/Mouse.hpp>
-#include <XBase/Touch.hpp>
+#include <ae/base/Display.hpp>
+#include <ae/base/Keyboard.hpp>
+#include <ae/base/Mouse.hpp>
+#include <ae/base/Touch.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 Hid::Hid(Display& aDisplay)
@@ -56,5 +57,5 @@ Hid_Ext& Hid::ext_()
     return mExt;
 }
 
-} // namespace
+}} // namespace
 // EOF

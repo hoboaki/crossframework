@@ -1,17 +1,19 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_MATH_HPP)
+#if defined(AE_BASE_INCLUDED_MATH_HPP)
 #else
-#define XBASE_INCLUDED_MATH_HPP
+#define AE_BASE_INCLUDED_MATH_HPP
 
-#include <XBase/BuiltInTypes.hpp>
-#include <XBase/RuntimeAssert.hpp>
+#include <ae/base/BuiltInTypes.hpp>
+#include <ae/base/RuntimeAssert.hpp>
 
-namespace XBase {
+namespace ae {
+namespace base {
 class Angle;
 }
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Math
 //@{
@@ -113,7 +115,7 @@ struct Math
     template< typename T >
     static const T Interpolation(const T& aVal1, const T& aVal2, const f32 aRate)
     {
-        XBASE_ASSERT_MIN_MAX(0.0f, aRate, 1.0f);
+        AE_BASE_ASSERT_MIN_MAX(0.0f, aRate, 1.0f);
         return aVal1 + (aVal2 - aVal1) * aRate;
     }
     //@}
@@ -121,6 +123,6 @@ struct Math
 //@}
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

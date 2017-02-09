@@ -1,15 +1,16 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_IALLOCATOR_HPP)
+#if defined(AE_BASE_INCLUDED_IALLOCATOR_HPP)
 #else
-#define XBASE_INCLUDED_IALLOCATOR_HPP
+#define AE_BASE_INCLUDED_IALLOCATOR_HPP
 
 #include <memory>
-#include <XBase/BuiltInTypes.hpp>
+#include <ae/base/BuiltInTypes.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
-/// @addtogroup XBase-Memory
+/// @addtogroup AeBase-Memory
 //@{
 /// アロケータインターフェース。
 class IAllocator
@@ -56,14 +57,14 @@ public:
 };
 //@}
 }
-/// @addtogroup XBase-Memory
+/// @addtogroup AeBase-Memory
 //@{
 /// @name IAllocator用operator new/delete
 //@{
-extern void* operator new(std::size_t, ::XBase::IAllocator&);
-extern void* operator new[](std::size_t, ::XBase::IAllocator&);
-extern void  operator delete(void*, ::XBase::IAllocator&);
-extern void  operator delete[](void*, ::XBase::IAllocator&);
+extern void* operator new(std::size_t, ::ae::base::IAllocator&);
+extern void* operator new[](std::size_t, ::ae::base::IAllocator&);
+extern void  operator delete(void*, ::ae::base::IAllocator&);
+extern void  operator delete[](void*, ::ae::base::IAllocator&);
 //@}
 //@}
 #endif

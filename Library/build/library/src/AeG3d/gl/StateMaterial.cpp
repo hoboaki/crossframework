@@ -1,16 +1,17 @@
 // 文字コード：UTF-8
-#include <XG3D/StateMaterial.hpp>
+#include <ae/g3d/StateMaterial.hpp>
 
-#include <XG3D/MatParam.hpp>
-#include <XG3D/ResMat.hpp>
+#include <ae/g3d/MatParam.hpp>
+#include <ae/g3d/ResMat.hpp>
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 //------------------------------------------------------------------------------
 StateMaterial::StateMaterial(
     const ResMat& aResMat,
-    ::XBase::IAllocator& aAllocator
+    ::ae::base::IAllocator& aAllocator
     )
 : mResMat(aResMat)
 , mParams(aResMat.paramCount(), aAllocator)
@@ -28,5 +29,5 @@ ResMat StateMaterial::resMat()const
     return mResMat;
 }
 
-} // namespace
+}} // namespace
 // EOF

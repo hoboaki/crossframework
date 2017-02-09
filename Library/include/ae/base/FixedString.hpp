@@ -1,16 +1,17 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_FIXEDSTRING_HPP)
+#if defined(AE_BASE_INCLUDED_FIXEDSTRING_HPP)
 #else
-#define XBASE_INCLUDED_FIXEDSTRING_HPP
+#define AE_BASE_INCLUDED_FIXEDSTRING_HPP
 
 #include <cstdio>
-#include <XBase/BuiltInTypes.hpp>
-#include <XBase/StaticAssert.hpp>
-#include <XBase/StringTraits.hpp>
-#include <XBase/TypeTraits.hpp>
+#include <ae/base/BuiltInTypes.hpp>
+#include <ae/base/StaticAssert.hpp>
+#include <ae/base/StringTraits.hpp>
+#include <ae/base/TypeTraits.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-String
 //@{
@@ -102,10 +103,10 @@ public:
 
 private:
     typedef FixedStringPod< CHAR_TYPE, BUFFER_LENGTH > SuperType;
-    XBASE_STATIC_ASSERT(TypeTraits::IsPod< PodType >::Value);
+    AE_BASE_STATIC_ASSERT(TypeTraits::IsPod< PodType >::Value);
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

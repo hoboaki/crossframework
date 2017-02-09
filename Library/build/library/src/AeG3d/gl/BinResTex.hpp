@@ -1,27 +1,28 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_BINRESTEX_HPP)
+#if defined(AE_G3D_INCLUDED_BINRESTEX_HPP)
 #else
-#define XG3D_INCLUDED_BINRESTEX_HPP
+#define AE_G3D_INCLUDED_BINRESTEX_HPP
 
-#include <XData/XData.hpp>
-#include <XG3D/BuiltInTypes.hpp>
+#include <ae/xdata/Xdata.hpp>
+#include <ae/g3d/BuiltInTypes.hpp>
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 // バイナリデータ：テクスチャ。
 struct BinResTex
 {
-    ::XData::UInt16    index;
-    ::XData::UInt16    flags;
-    ::XData::Reference name;
-    ::XData::UInt16 width;
-    ::XData::UInt16 height;
-    ::XData::UInt8 format;
-    ::XData::UInt8 padding[3];
-    ::XData::Reference pixels;
+    ::ae::xdata::UInt16    index;
+    ::ae::xdata::UInt16    flags;
+    ::ae::xdata::Reference name;
+    ::ae::xdata::UInt16 width;
+    ::ae::xdata::UInt16 height;
+    ::ae::xdata::UInt8 format;
+    ::ae::xdata::UInt8 padding[3];
+    ::ae::xdata::Reference pixels;
 };
 
-} // namespace
+}} // namespace
 #endif
 // EOF

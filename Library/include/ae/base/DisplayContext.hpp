@@ -1,14 +1,15 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_DISPLAYCONTEXT_HPP)
+#if defined(AE_BASE_INCLUDED_DISPLAYCONTEXT_HPP)
 #else
-#define XBASE_INCLUDED_DISPLAYCONTEXT_HPP
+#define AE_BASE_INCLUDED_DISPLAYCONTEXT_HPP
 
-#include <XBase/Bool.hpp>
-#include <XBase/BuiltInTypes.hpp>
-#include <XBase/OsType.hpp>
+#include <ae/base/Bool.hpp>
+#include <ae/base/BuiltInTypes.hpp>
+#include <ae/base/OsType.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-System
 //@{
@@ -19,7 +20,7 @@ public:
     /// デフォルトの設定で作成する。
     DisplayContext();
 
-#if defined(XBASE_OSTYPE_WINDOWSYSTEM)
+#if defined(AE_BASE_OSTYPE_WINDOWSYSTEM)
         /// @name WindowSystem環境でのカスタマイズ
         //@{
     void setLocationToCenter(); ///< 現在のwidthとheightの値を見て画面の中央にウィンドウがくるようにlocationX,Yを設定する。
@@ -32,7 +33,7 @@ public:
 #endif
 
 private:
-#if defined(XBASE_OSTYPE_WINDOWSYSTEM)
+#if defined(AE_BASE_OSTYPE_WINDOWSYSTEM)
     int mLocationX;
     int mLocationY;
     int mWidth;
@@ -42,6 +43,6 @@ private:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

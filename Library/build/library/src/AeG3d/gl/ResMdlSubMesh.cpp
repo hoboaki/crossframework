@@ -1,12 +1,13 @@
 // 文字コード：UTF-8
-#include <XG3D/ResMdlSubMesh.hpp>
+#include <ae/g3d/ResMdlSubMesh.hpp>
 
-#include <XBase/RuntimeAssert.hpp>
-#include <XG3D/ResConstant.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/g3d/ResConstant.hpp>
 #include "ResMdlSubMeshImpl.hpp"
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 //------------------------------------------------------------------------------
 ResMdlSubMesh::ResMdlSubMesh()
@@ -86,9 +87,9 @@ bool ResMdlSubMesh::checkInvalid()const
     }
 
     // 不正なのでエラー
-    XBASE_ASSERT_NOT_REACHED();
+    AE_BASE_ASSERT_NOT_REACHED();
     return true;
 }
 
-} // namespace
+}} // namespace
 // EOF

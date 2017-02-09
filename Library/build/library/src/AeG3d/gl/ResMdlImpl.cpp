@@ -1,11 +1,12 @@
 // 文字コード：UTF-8
 #include "ResMdlImpl.hpp"
 
-#include <XBase/Ref.hpp>
-#include <XG3D/ResMdl.hpp>
+#include <ae/base/Ref.hpp>
+#include <ae/g3d/ResMdl.hpp>
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 //------------------------------------------------------------------------------
 namespace {
@@ -13,19 +14,19 @@ namespace {
 //------------------------------------------------------------------------------
 struct tEntryHeader
 {
-    ::XData::SInt32     count;
-    ::XData::Reference  entries[1]; // 本当は無限長配列
+    ::ae::xdata::SInt32     count;
+    ::ae::xdata::Reference  entries[1]; // 本当は無限長配列
 };
 
-} // namespace
+}} // namespace
 
 //------------------------------------------------------------------------------
 ResMdlImpl::ResMdlImpl(
-    const ::XData::XData& aXData,
+    const ::ae::xdata::Xdata& aXdata,
     const BinResMdl* aBinPtr,
-    ::XBase::IAllocator& aAllocator
+    ::ae::base::IAllocator& aAllocator
     )
-: xdata(aXData.ptr())
+: xdata(aXdata.ptr())
 , binPtr(aBinPtr)
 , matReferImpls()
 , shapeImpls()
@@ -35,12 +36,12 @@ ResMdlImpl::ResMdlImpl(
     // shape
     {
         const tEntryHeader* header = xdata.ref< tEntryHeader >(binPtr->shapes);
-        shapeImpls.init(header->count, ::XBase::Ref(aAllocator));
+        shapeImpls.init(header->count, ::ae::base::Ref(aAllocator));
         for (int i = 0; i < header->count; ++i) {
             shapeImpls->add(
-                ::XBase::Ref(xdata),
+                ::ae::base::Ref(xdata),
                 xdata.ref< BinResMdlShape >(header->entries[i]),
-                ::XBase::Ref(aAllocator)
+                ::ae::base::Ref(aAllocator)
                 );
         }
     }
@@ -48,12 +49,12 @@ ResMdlImpl::ResMdlImpl(
     // matRefer
     {
         const tEntryHeader* header = xdata.ref< tEntryHeader >(binPtr->matRefers);
-        matReferImpls.init(header->count, ::XBase::Ref(aAllocator));
+        matReferImpls.init(header->count, ::ae::base::Ref(aAllocator));
         for (int i = 0; i < header->count; ++i) {
             matReferImpls->add(
-                ::XBase::Ref(xdata),
+                ::ae::base::Ref(xdata),
                 xdata.ref< BinResMdlMatRefer >(header->entries[i]),
-                ::XBase::Ref(aAllocator)
+                ::ae::base::Ref(aAllocator)
                 );
         }
     }
@@ -61,12 +62,12 @@ ResMdlImpl::ResMdlImpl(
     // mesh
     {
         const tEntryHeader* header = xdata.ref< tEntryHeader >(binPtr->meshes);
-        meshImpls.init(header->count, ::XBase::Ref(aAllocator));
+        meshImpls.init(header->count, ::ae::base::Ref(aAllocator));
         for (int i = 0; i < header->count; ++i) {
             meshImpls->add(
-                ::XBase::Ref(xdata),
+                ::ae::base::Ref(xdata),
                 xdata.ref< BinResMdlMesh >(header->entries[i]),
-                ::XBase::Ref(aAllocator),
+                ::ae::base::Ref(aAllocator),
                 ResMdl(*this)
                 );
         }
@@ -75,12 +76,12 @@ ResMdlImpl::ResMdlImpl(
     // node
     {
         const tEntryHeader* header = xdata.ref< tEntryHeader >(binPtr->nodes);
-        nodeImpls.init(header->count, ::XBase::Ref(aAllocator));
+        nodeImpls.init(header->count, ::ae::base::Ref(aAllocator));
         for (int i = 0; i < header->count; ++i) {
             nodeImpls->add(
-                ::XBase::Ref(xdata),
+                ::ae::base::Ref(xdata),
                 xdata.ref< BinResMdlNode >(header->entries[i]),
-                ::XBase::Ref(aAllocator)
+                ::ae::base::Ref(aAllocator)
                 );
         }
     }
@@ -109,5 +110,5 @@ void ResMdlImpl::release()
     }
 }
 
-} // namespace
+}} // namespace
 // EOF

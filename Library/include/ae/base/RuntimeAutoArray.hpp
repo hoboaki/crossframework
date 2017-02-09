@@ -1,20 +1,21 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_RUNTIMEAUTOARRAY_HPP)
+#if defined(AE_BASE_INCLUDED_RUNTIMEAUTOARRAY_HPP)
 #else
-#define XBASE_INCLUDED_RUNTIMEAUTOARRAY_HPP
+#define AE_BASE_INCLUDED_RUNTIMEAUTOARRAY_HPP
 
-#include <XBase/IAllocator.hpp>
-#include <XBase/NonCopyable.hpp>
-#include <XBase/RuntimeAssert.hpp>
+#include <ae/base/IAllocator.hpp>
+#include <ae/base/NonCopyable.hpp>
+#include <ae/base/RuntimeAssert.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
-/// @addtogroup XBase-Collection
+/// @addtogroup AeBase-Collection
 //@{
     /// @brief 実行時に最大要素数が決定するAutoPtr配列。
 template< typename T >
-class RuntimeAutoArray : public ::XBase::NonCopyable
+class RuntimeAutoArray : public ::ae::base::NonCopyable
 {
 public:
     /// @name typedef
@@ -89,7 +90,7 @@ public:
     {
         if (mCount <= aIndex)
         {
-            XBASE_ASSERT_LESS(aIndex, mCount);
+            AE_BASE_ASSERT_LESS(aIndex, mCount);
             return mPtr[0]; // fail safe code
         }
         return mPtr[aIndex];
@@ -100,7 +101,7 @@ public:
     {
         if (mCount <= aIndex)
         {
-            XBASE_ASSERT_LESS(aIndex, mCount);
+            AE_BASE_ASSERT_LESS(aIndex, mCount);
             return mPtr[0]; // fail safe code
         }
         return mPtr[aIndex];
@@ -147,7 +148,7 @@ public:
     {
         if (isFull())
         {
-            XBASE_ASSERT_NOT_REACHED();
+            AE_BASE_ASSERT_NOT_REACHED();
             return;
         }
         new (&mPtr[mCount]) ValueType();
@@ -158,7 +159,7 @@ public:
     {
         if (isFull())
         {
-            XBASE_ASSERT_NOT_REACHED();
+            AE_BASE_ASSERT_NOT_REACHED();
             return;
         }
         new (&mPtr[mCount]) ValueType(a0);
@@ -169,7 +170,7 @@ public:
     {
         if (isFull())
         {
-            XBASE_ASSERT_NOT_REACHED();
+            AE_BASE_ASSERT_NOT_REACHED();
             return;
         }
         new (&mPtr[mCount]) ValueType(a0, a1);
@@ -180,7 +181,7 @@ public:
     {
         if (isFull())
         {
-            XBASE_ASSERT_NOT_REACHED();
+            AE_BASE_ASSERT_NOT_REACHED();
             return;
         }
         new (&mPtr[mCount]) ValueType(a0, a1, a2);
@@ -191,7 +192,7 @@ public:
     {
         if (isFull())
         {
-            XBASE_ASSERT_NOT_REACHED();
+            AE_BASE_ASSERT_NOT_REACHED();
             return;
         }
         new (&mPtr[mCount]) ValueType(a0, a1, a2, a3);
@@ -202,7 +203,7 @@ public:
     {
         if (isFull())
         {
-            XBASE_ASSERT_NOT_REACHED();
+            AE_BASE_ASSERT_NOT_REACHED();
             return;
         }
         new (&mPtr[mCount]) ValueType(a0, a1, a2, a3, a4);
@@ -213,7 +214,7 @@ public:
     {
         if (isFull())
         {
-            XBASE_ASSERT_NOT_REACHED();
+            AE_BASE_ASSERT_NOT_REACHED();
             return;
         }
         new (&mPtr[mCount]) ValueType(a0, a1, a2, a3, a4, a5);
@@ -224,7 +225,7 @@ public:
     {
         if (isFull())
         {
-            XBASE_ASSERT_NOT_REACHED();
+            AE_BASE_ASSERT_NOT_REACHED();
             return;
         }
         new (&mPtr[mCount]) ValueType(a0, a1, a2, a3, a4, a5, a6);
@@ -235,7 +236,7 @@ public:
     {
         if (isFull())
         {
-            XBASE_ASSERT_NOT_REACHED();
+            AE_BASE_ASSERT_NOT_REACHED();
             return;
         }
         new (&mPtr[mCount]) ValueType(a0, a1, a2, a3, a4, a5, a6, a7);
@@ -246,7 +247,7 @@ public:
     {
         if (isFull())
         {
-            XBASE_ASSERT_NOT_REACHED();
+            AE_BASE_ASSERT_NOT_REACHED();
             return;
         }
         new (&mPtr[mCount]) ValueType(a0, a1, a2, a3, a4, a5, a6, a7, a8);
@@ -257,7 +258,7 @@ public:
     {
         if (isFull())
         {
-            XBASE_ASSERT_NOT_REACHED();
+            AE_BASE_ASSERT_NOT_REACHED();
             return;
         }
         new (&mPtr[mCount]) ValueType(a0, a1, a2, a3, a4, a5, a6.a7, a8, a9);
@@ -280,6 +281,6 @@ private:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

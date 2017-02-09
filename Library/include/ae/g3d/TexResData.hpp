@@ -1,27 +1,28 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_TEXRESDATA_HPP)
+#if defined(AE_G3D_INCLUDED_TEXRESDATA_HPP)
 #else
-#define XG3D_INCLUDED_TEXRESDATA_HPP
+#define AE_G3D_INCLUDED_TEXRESDATA_HPP
 
-#include <XBase/Enum.hpp>
-#include <XG3D/BuiltInTypes.hpp>
-#include <XG3D/ResTexFormat.hpp>
+#include <ae/base/Enum.hpp>
+#include <ae/g3d/BuiltInTypes.hpp>
+#include <ae/g3d/ResTexFormat.hpp>
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
-/// @addtogroup XG3D-Util
+/// @addtogroup AeG3d-Util
 //@{
 /// テクスチャリソースのデータ。
 struct TexResData
 {
-    ::XBase::EnumPodTmpl< ResTexFormat::EnumType, s32 > format; ///< フォーマット。
+    ::ae::base::EnumPodTmpl< ResTexFormat::EnumType, s32 > format; ///< フォーマット。
     u16 width;  ///< 横ピクセル数。
     u16 height; ///< 縦ピクセル数。。
     const byte_t* pixels; ///< ピクセルデータの先頭アドレス。
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

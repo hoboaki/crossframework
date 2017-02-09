@@ -1,20 +1,21 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_RUNTIMEMARRAY_HPP)
+#if defined(AE_BASE_INCLUDED_RUNTIMEMARRAY_HPP)
 #else
-#define XBASE_INCLUDED_RUNTIMEMARRAY_HPP
+#define AE_BASE_INCLUDED_RUNTIMEMARRAY_HPP
 
-#include <XBase/IAllocator.hpp>
-#include <XBase/NonCopyable.hpp>
-#include <XBase/RuntimeAssert.hpp>
+#include <ae/base/IAllocator.hpp>
+#include <ae/base/NonCopyable.hpp>
+#include <ae/base/RuntimeAssert.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
-/// @addtogroup XBase-Collection
+/// @addtogroup AeBase-Collection
 //@{
     /// 実行時に最大要素数が決定する可変長配列。
 template< typename T >
-class RuntimeMArray : public ::XBase::NonCopyable
+class RuntimeMArray : public ::ae::base::NonCopyable
 {
 public:
     /// @name typedef
@@ -93,7 +94,7 @@ public:
     {
         if (mCount <= aIndex)
         {
-            XBASE_ASSERT_LESS(aIndex, mCount);
+            AE_BASE_ASSERT_LESS(aIndex, mCount);
             return mPtr[0]; // fail safe code
         }
         return mPtr[aIndex];
@@ -104,7 +105,7 @@ public:
     {
         if (mCount <= aIndex)
         {
-            XBASE_ASSERT_LESS(aIndex, mCount);
+            AE_BASE_ASSERT_LESS(aIndex, mCount);
             return mPtr[0]; // fail safe code
         }
         return mPtr[aIndex];
@@ -136,7 +137,7 @@ public:
     {
         if (isFull())
         {
-            XBASE_ASSERT_NOT_REACHED();
+            AE_BASE_ASSERT_NOT_REACHED();
             return;
         }
         mPtr[mCount] = aVal;
@@ -159,6 +160,6 @@ private:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

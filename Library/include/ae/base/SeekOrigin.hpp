@@ -1,10 +1,11 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_SEEKORIGIN_HPP)
+#if defined(AE_BASE_INCLUDED_SEEKORIGIN_HPP)
 #else
-#define XBASE_INCLUDED_SEEKORIGIN_HPP
+#define AE_BASE_INCLUDED_SEEKORIGIN_HPP
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-IO
 //@{
@@ -22,6 +23,6 @@ struct SeekOrigin
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

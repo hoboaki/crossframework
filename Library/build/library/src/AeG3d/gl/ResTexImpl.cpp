@@ -1,23 +1,24 @@
 // 文字コード：UTF-8
 #include "ResTexImpl.hpp"
 
-#include <XBase/EnumCheck.hpp>
-#include <XBase/FunctionAttribute.hpp>
-#include <XBase/Ref.hpp>
-#include <XBase/RuntimeAssert.hpp>
-#include <XG3D/TexResData.hpp>
-#include <XG3D/ResTexFormat.hpp>
+#include <ae/base/EnumCheck.hpp>
+#include <ae/base/FunctionAttribute.hpp>
+#include <ae/base/Ref.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/g3d/TexResData.hpp>
+#include <ae/g3d/ResTexFormat.hpp>
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 //------------------------------------------------------------------------------
 ResTexImpl::ResTexImpl(
-    const ::XData::XData& aXData,
+    const ::ae::xdata::Xdata& aXdata,
     const BinResTex* aBinPtr,
-    ::XBase::IAllocator&
+    ::ae::base::IAllocator&
     )
-: xdata(aXData.ptr())
+: xdata(aXdata.ptr())
 , binPtr(aBinPtr)
 , texBufferPtr(0)
 , mTexBuffer()
@@ -45,7 +46,7 @@ void ResTexImpl::setup()
     data.pixels = pixels();
 
     // 作成
-    mTexBuffer.init(::XBase::Ref(data));
+    mTexBuffer.init(::ae::base::Ref(data));
     texBufferPtr = mTexBuffer.ptr();
 }
 
@@ -53,8 +54,8 @@ void ResTexImpl::setup()
 ResTexFormat::EnumType ResTexImpl::format()const
 {
     ResTexFormat::EnumType fmt = ResTexFormat::EnumType(binPtr->format);
-    if (XBASE_ENUM_IS_INVALID(ResTexFormat, fmt)) {
-        XBASE_ASSERT_NOT_REACHED();
+    if (AE_BASE_ENUM_IS_INVALID(ResTexFormat, fmt)) {
+        AE_BASE_ASSERT_NOT_REACHED();
         return ResTexFormat::EnumType(0);
     }
     return ResTexFormat::EnumType(fmt);
@@ -66,5 +67,5 @@ const byte_t* ResTexImpl::pixels()const
     return xdata.ref< byte_t >(binPtr->pixels);
 }
 
-} // namespace
+}} // namespace
 // EOF

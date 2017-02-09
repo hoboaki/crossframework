@@ -1,33 +1,34 @@
 // 文字コード：UTF-8
 #include "ResMdlMeshImpl.hpp"
 
-#include <XBase/Ref.hpp>
-#include <XG3D/ResMdl.hpp>
+#include <ae/base/Ref.hpp>
+#include <ae/g3d/ResMdl.hpp>
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 //------------------------------------------------------------------------------
 ResMdlMeshImpl::ResMdlMeshImpl(
-    const ::XData::XData& aXData,
+    const ::ae::xdata::Xdata& aXdata,
     const BinResMdlMesh* aBinPtr,
-    ::XBase::IAllocator& aAllocator,
+    ::ae::base::IAllocator& aAllocator,
     const ResMdl& aResMdl
     )
-: xdata(aXData.ptr())
+: xdata(aXdata.ptr())
 , binPtr(aBinPtr)
 , subMeshImpls()
 {
     // subMesh
     {
         const BinResMdlSubMesh* binArray = xdata.ref< BinResMdlSubMesh >(binPtr->subMeshes);
-        subMeshImpls.init(binPtr->subMeshesCount, ::XBase::Ref(aAllocator));
+        subMeshImpls.init(binPtr->subMeshesCount, ::ae::base::Ref(aAllocator));
         for (int i = 0; i < binPtr->subMeshesCount; ++i) {
             subMeshImpls->add(
-                ::XBase::Ref(xdata),
+                ::ae::base::Ref(xdata),
                 &binArray[i],
-                ::XBase::Ref(aAllocator),
-                ::XBase::Ref(aResMdl)
+                ::ae::base::Ref(aAllocator),
+                ::ae::base::Ref(aResMdl)
                 );
         }
     }
@@ -38,5 +39,5 @@ ResMdlMeshImpl::~ResMdlMeshImpl()
 {
 }
 
-} // namespace
+}} // namespace
 // EOF

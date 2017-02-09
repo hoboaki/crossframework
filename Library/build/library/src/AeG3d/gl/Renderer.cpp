@@ -1,22 +1,22 @@
 // 文字コード：UTF-8
-#include <XG3D/Renderer.hpp>
+#include <ae/g3d/Renderer.hpp>
 
-#include <XBase/ArrayLength.hpp>
-#include <XBase/Console.hpp>
-#include <XBase/Display.hpp>
-#include <XBase/EnumCheck.hpp>
-#include <XBase/Matrix34.hpp>
-#include <XBase/Matrix44.hpp>
-#include <XBase/Pointer.hpp>
-#include <XBase/Random.hpp>
-#include <XBase/Unused.hpp>
-#include <XG3D/ResConstant.hpp>
-#include <XG3D/ResMdlSubMesh.hpp>
-#include <XG3D/ResMdlShape.hpp>
-#include <XG3D/StateMaterial.hpp>
-#include <XG3D/StateMdlMaterial.hpp>
-#include <XG3D/StateMdlTransform.hpp>
-#include <XG3D/TexSetting.hpp>
+#include <ae/base/ArrayLength.hpp>
+#include <ae/base/Console.hpp>
+#include <ae/base/Display.hpp>
+#include <ae/base/EnumCheck.hpp>
+#include <ae/base/Matrix34.hpp>
+#include <ae/base/Matrix44.hpp>
+#include <ae/base/Pointer.hpp>
+#include <ae/base/Random.hpp>
+#include <ae/base/Unused.hpp>
+#include <ae/g3d/ResConstant.hpp>
+#include <ae/g3d/ResMdlSubMesh.hpp>
+#include <ae/g3d/ResMdlShape.hpp>
+#include <ae/g3d/StateMaterial.hpp>
+#include <ae/g3d/StateMdlMaterial.hpp>
+#include <ae/g3d/StateMdlTransform.hpp>
+#include <ae/g3d/TexSetting.hpp>
 #include "GlCmd.hpp"
 #include "ResMatImpl.hpp"
 #include "ResMdlShapeImpl.hpp"
@@ -27,7 +27,8 @@
 #endif
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 //------------------------------------------------------------------------------
 namespace {
 
@@ -38,7 +39,7 @@ const GLenum tTexAddressTable[] =
     GL_MIRRORED_REPEAT,
     GL_CLAMP_TO_EDGE
 };
-XBASE_ARRAY_LENGTH_CHECK(tTexAddressTable, TexAddress::TERM);
+AE_BASE_ARRAY_LENGTH_CHECK(tTexAddressTable, TexAddress::TERM);
 
 // TexFilterテーブル
 const GLenum tTexFilterTable[] =
@@ -46,15 +47,15 @@ const GLenum tTexFilterTable[] =
     GL_NEAREST,
     GL_LINEAR
 };
-XBASE_ARRAY_LENGTH_CHECK(tTexFilterTable, TexFilter::TERM);
+AE_BASE_ARRAY_LENGTH_CHECK(tTexFilterTable, TexFilter::TERM);
 
 // シングルトンインスタンス
-::XBase::Pointer< Renderer > tInstance;
+::ae::base::Pointer< Renderer > tInstance;
 
 // バージョンマクロ
-#if defined(XG3D_ENGINE_GL)
+#if defined(AE_G3D_ENGINE_GL)
     #define LOCAL_VERSION_DIRECTIVE "#version 330 core\r\n"
-#elif defined(XG3D_ENGINE_GLES)
+#elif defined(AE_G3D_ENGINE_GLES)
     #define LOCAL_VERSION_DIRECTIVE "#version 300 es\r\n"
 #endif
 
@@ -107,27 +108,27 @@ bool tCreateShader(
     )
 {
     GLint status = GLint();
-    XG3D_GLCMD(*aShader = glCreateShader(aShaderType));
-    XG3D_GLCMD(glShaderSource(*aShader, 1, &aSource, 0));
-    XG3D_GLCMD(glCompileShader(*aShader));
+    AE_G3D_GLCMD(*aShader = glCreateShader(aShaderType));
+    AE_G3D_GLCMD(glShaderSource(*aShader, 1, &aSource, 0));
+    AE_G3D_GLCMD(glCompileShader(*aShader));
 
 #if defined(XLIBRARY_DEBUG)
     {
         GLint logLength;
-        XG3D_GLCMD(glGetShaderiv(*aShader, GL_INFO_LOG_LENGTH, &logLength));
+        AE_G3D_GLCMD(glGetShaderiv(*aShader, GL_INFO_LOG_LENGTH, &logLength));
         if (1 < logLength) { // 1文字だけでる場合もあるので2文字以上のときのみ処理する
             GLchar *log = (GLchar *)malloc(logLength);
-            XG3D_GLCMD(glGetShaderInfoLog(*aShader, logLength, &logLength, log));
-            XBASE_COUT_LINE(log);
+            AE_G3D_GLCMD(glGetShaderInfoLog(*aShader, logLength, &logLength, log));
+            AE_BASE_COUT_LINE(log);
             free(log);
         }
     }
 #endif
 
-    XG3D_GLCMD(glGetShaderiv(*aShader, GL_COMPILE_STATUS, &status));
+    AE_G3D_GLCMD(glGetShaderiv(*aShader, GL_COMPILE_STATUS, &status));
     if (status == GL_FALSE) {
-        XBASE_ASSERT_NOT_REACHED();
-        XG3D_GLCMD(glDeleteShader(*aShader));
+        AE_BASE_ASSERT_NOT_REACHED();
+        AE_G3D_GLCMD(glDeleteShader(*aShader));
         *aShader = GLuint();
         return false;
     }
@@ -137,10 +138,10 @@ bool tCreateShader(
 bool tLinkProgram(GLuint aProgram)
 {
     GLint status = GLint();
-    XG3D_GLCMD(glLinkProgram(aProgram));
-    XG3D_GLCMD(glGetProgramiv(aProgram, GL_LINK_STATUS, &status));
+    AE_G3D_GLCMD(glLinkProgram(aProgram));
+    AE_G3D_GLCMD(glGetProgramiv(aProgram, GL_LINK_STATUS, &status));
     if (status == 0) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return false;
     }
     return true;
@@ -148,7 +149,7 @@ bool tLinkProgram(GLuint aProgram)
 
 bool tValidateProgram(GLuint aProgram)
 {
-#if defined(XBASE_OS_MACOSX)
+#if defined(AE_BASE_OS_MACOSX)
     // macos 10.11 環境では動作しないため即リターン。
     // NSOpenGLView::prepareOpenGL が呼ばれた後なら動作するのだが
     // Renderer.cpp のコンストラクタはそれよりも前に呼ばれてしまう。
@@ -157,12 +158,12 @@ bool tValidateProgram(GLuint aProgram)
 #endif
     
     GLint status = GLint();
-    XG3D_GLCMD(glValidateProgram(aProgram));
-    XG3D_GLCMD(glGetProgramiv(aProgram, GL_VALIDATE_STATUS, &status));
+    AE_G3D_GLCMD(glValidateProgram(aProgram));
+    AE_G3D_GLCMD(glGetProgramiv(aProgram, GL_VALIDATE_STATUS, &status));
     if (status == 0) {
         GLchar logBuffer[256];
         glGetProgramInfoLog(aProgram, sizeof(logBuffer), 0, logBuffer);
-        XBASE_ASSERT_NOT_REACHED_MSG(logBuffer);
+        AE_BASE_ASSERT_NOT_REACHED_MSG(logBuffer);
         return false;
     }
     return true;
@@ -171,46 +172,46 @@ bool tValidateProgram(GLuint aProgram)
 bool tCreateShaderProgram(GLuint* aProgram)
 {
     // プログラム作成
-    XG3D_GLCMD(*aProgram = glCreateProgram());
+    AE_G3D_GLCMD(*aProgram = glCreateProgram());
 
     // シェーダーソースを作成
     GLuint srcVSH = GLuint();
     if (!tCreateShader(&srcVSH, GL_VERTEX_SHADER, tSHADER_SOURCE_VSH)) {
-        XBASE_ASSERT_NOT_REACHED();
-        XG3D_GLCMD(glDeleteProgram(*aProgram));
+        AE_BASE_ASSERT_NOT_REACHED();
+        AE_G3D_GLCMD(glDeleteProgram(*aProgram));
         return false;
     }
     GLuint srcFSH = GLuint();
     if (!tCreateShader(&srcFSH, GL_FRAGMENT_SHADER, tSHADER_SOURCE_FSH)) {
-        XBASE_ASSERT_NOT_REACHED();
-        XG3D_GLCMD(glDeleteShader(srcVSH));
-        XG3D_GLCMD(glDeleteProgram(*aProgram));
+        AE_BASE_ASSERT_NOT_REACHED();
+        AE_G3D_GLCMD(glDeleteShader(srcVSH));
+        AE_G3D_GLCMD(glDeleteProgram(*aProgram));
         return false;
     }
 
     // アタッチ
-    XG3D_GLCMD(glAttachShader(*aProgram, srcVSH));
-    XG3D_GLCMD(glAttachShader(*aProgram, srcFSH));
+    AE_G3D_GLCMD(glAttachShader(*aProgram, srcVSH));
+    AE_G3D_GLCMD(glAttachShader(*aProgram, srcFSH));
 
     // 属性バインド
-    XG3D_GLCMD(glBindAttribLocation(*aProgram, ShaderConstant::Attribute::Position, "iVtxPosition"));
-    XG3D_GLCMD(glBindAttribLocation(*aProgram, ShaderConstant::Attribute::Normal, "iVtxNormal"));
-    XG3D_GLCMD(glBindAttribLocation(*aProgram, ShaderConstant::Attribute::TexCoord, "iVtxTexCoord"));
-    XG3D_GLCMD(glBindAttribLocation(*aProgram, ShaderConstant::Attribute::Color, "iVtxColor"));
+    AE_G3D_GLCMD(glBindAttribLocation(*aProgram, ShaderConstant::Attribute::Position, "iVtxPosition"));
+    AE_G3D_GLCMD(glBindAttribLocation(*aProgram, ShaderConstant::Attribute::Normal, "iVtxNormal"));
+    AE_G3D_GLCMD(glBindAttribLocation(*aProgram, ShaderConstant::Attribute::TexCoord, "iVtxTexCoord"));
+    AE_G3D_GLCMD(glBindAttribLocation(*aProgram, ShaderConstant::Attribute::Color, "iVtxColor"));
 
     // リンク＆チェック
     if (!tLinkProgram(*aProgram)
         || !tValidateProgram(*aProgram)
         )
     {
-        XG3D_GLCMD(glDeleteShader(srcFSH));
-        XG3D_GLCMD(glDeleteShader(srcVSH));
-        XG3D_GLCMD(glDeleteProgram(*aProgram));
+        AE_G3D_GLCMD(glDeleteShader(srcFSH));
+        AE_G3D_GLCMD(glDeleteShader(srcVSH));
+        AE_G3D_GLCMD(glDeleteProgram(*aProgram));
     }
 
     // 後始末
-    XG3D_GLCMD(glDeleteShader(srcFSH));
-    XG3D_GLCMD(glDeleteShader(srcVSH));
+    AE_G3D_GLCMD(glDeleteShader(srcFSH));
+    AE_G3D_GLCMD(glDeleteShader(srcVSH));
 
     // 成功
     return true;
@@ -223,7 +224,7 @@ Renderer& Renderer::Instance()
 }
 
 //------------------------------------------------------------------------------
-Renderer::Renderer(::XBase::Display& aDisplay)
+Renderer::Renderer(::ae::base::Display& aDisplay)
 : mDisplay(aDisplay)
 , mExt()
 {
@@ -232,7 +233,7 @@ Renderer::Renderer(::XBase::Display& aDisplay)
 
     // シェーダープログラムの作成
     if (!tCreateShaderProgram(&mExt.demoShaderProgram)) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return;
     }
 
@@ -244,11 +245,11 @@ Renderer::Renderer(::XBase::Display& aDisplay)
     mExt.demoUniformLocations[ShaderConstant::Uniform::TexSampler] = glGetUniformLocation(mExt.demoShaderProgram, "uTexSampler");
 
     // 共有VAO作成
-    XG3D_GLCMD(glGenVertexArrays(1, &mExt.sharedVertexArray));
+    AE_G3D_GLCMD(glGenVertexArrays(1, &mExt.sharedVertexArray));
 
     // アルファブレンドは常に有効
-    XG3D_GLCMD(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
-    XG3D_GLCMD(glEnable(GL_BLEND));
+    AE_G3D_GLCMD(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
+    AE_G3D_GLCMD(glEnable(GL_BLEND));
 
     // リセット
     reset();
@@ -264,12 +265,12 @@ Renderer::~Renderer()
     tInstance.unset(*this);
 
     // 共有VAO削除
-    XG3D_GLCMD(glDeleteVertexArrays(1, &mExt.sharedVertexArray));
+    AE_G3D_GLCMD(glDeleteVertexArrays(1, &mExt.sharedVertexArray));
     mExt.sharedVertexArray = 0;
 
     // シェーダープログラムの破棄
-    XG3D_GLCMD(glUseProgram(0));
-    XG3D_GLCMD(glDeleteProgram(mExt.demoShaderProgram));
+    AE_G3D_GLCMD(glUseProgram(0));
+    AE_G3D_GLCMD(glDeleteProgram(mExt.demoShaderProgram));
     mExt.demoShaderProgram = GLuint();
 }
 
@@ -280,7 +281,7 @@ void Renderer::reset()
     fbSetViewport(0, 0, mDisplay.mainScreen().width(), mDisplay.mainScreen().height());
 
     // fbClearColor
-    fbSetClearColor(::XBase::Color4::Zero());
+    fbSetClearColor(::ae::base::Color4::Zero());
 
     // fbClearDepth
     fbSetClearDepth(1.0F);
@@ -306,7 +307,7 @@ void Renderer::fbSetViewport(
     const int aHeight
     )
 {
-    XG3D_GLCMD(glViewport(GLint(aBaseX), GLint(aBaseY), GLint(aWidth), GLint(aHeight)));
+    AE_G3D_GLCMD(glViewport(GLint(aBaseX), GLint(aBaseY), GLint(aWidth), GLint(aHeight)));
 }
 
 //------------------------------------------------------------------------------
@@ -319,22 +320,22 @@ void Renderer::fbClear()
     if (mExt.depthUpdate) {
         bits |= GL_DEPTH_BUFFER_BIT;
     }
-    XG3D_GLCMD(glClear(bits));
+    AE_G3D_GLCMD(glClear(bits));
 }
 
 //------------------------------------------------------------------------------
-void Renderer::fbSetClearColor(const ::XBase::Color4Pod& aColor)
+void Renderer::fbSetClearColor(const ::ae::base::Color4Pod& aColor)
 {
-    XG3D_GLCMD(glClearColor(aColor.r, aColor.g, aColor.b, aColor.a));
+    AE_G3D_GLCMD(glClearColor(aColor.r, aColor.g, aColor.b, aColor.a));
 }
 
 //------------------------------------------------------------------------------
 void Renderer::fbSetClearDepth(const float aDepth)
 {
-#if defined(XG3D_ENGINE_GLES)
-    XG3D_GLCMD(glClearDepthf(aDepth));
+#if defined(AE_G3D_ENGINE_GLES)
+    AE_G3D_GLCMD(glClearDepthf(aDepth));
 #else
-    XG3D_GLCMD(glClearDepth(aDepth));
+    AE_G3D_GLCMD(glClearDepth(aDepth));
 #endif
 }
 
@@ -342,14 +343,14 @@ void Renderer::fbSetClearDepth(const float aDepth)
 void Renderer::fbSetColorUpdate(const bool aIsEnable)
 {
     const GLboolean val = aIsEnable ? GL_TRUE : GL_FALSE;
-    XG3D_GLCMD(glColorMask(val, val, val, val));
+    AE_G3D_GLCMD(glColorMask(val, val, val, val));
     mExt.colorUpdate = aIsEnable;
 }
 
 //------------------------------------------------------------------------------
 void Renderer::fbSetDepthUpdate(const bool aIsEnable)
 {
-    XG3D_GLCMD(glDepthMask(aIsEnable ? GL_TRUE : GL_FALSE));
+    AE_G3D_GLCMD(glDepthMask(aIsEnable ? GL_TRUE : GL_FALSE));
     mExt.depthUpdate = aIsEnable;
 }
 
@@ -357,11 +358,11 @@ void Renderer::fbSetDepthUpdate(const bool aIsEnable)
 void Renderer::fbSetDepthCompare(const bool aIsEnabled)
 {
     if (aIsEnabled) {
-        XG3D_GLCMD(glEnable(GL_DEPTH_TEST));
-        XG3D_GLCMD(glDepthFunc(aIsEnabled ? GL_LESS : GL_ALWAYS));
+        AE_G3D_GLCMD(glEnable(GL_DEPTH_TEST));
+        AE_G3D_GLCMD(glDepthFunc(aIsEnabled ? GL_LESS : GL_ALWAYS));
     }
     else {
-        XG3D_GLCMD(glDisable(GL_DEPTH_TEST));
+        AE_G3D_GLCMD(glDisable(GL_DEPTH_TEST));
     }
 }
 
@@ -372,13 +373,13 @@ void Renderer::sdReset()
     sdSetMaterialForDemo();
 
     // mtxProjection
-    sdSetMtxProjection(::XBase::Matrix44::Ortho(-1, 1, 1, -1, 0, 1));
+    sdSetMtxProjection(::ae::base::Matrix44::Ortho(-1, 1, 1, -1, 0, 1));
 
     // mtxView
-    sdSetMtxView(::XBase::Matrix34::Identity());
+    sdSetMtxView(::ae::base::Matrix34::Identity());
 
     // mtxWorld
-    sdSetMtxWorld(::XBase::Matrix34::Identity());
+    sdSetMtxWorld(::ae::base::Matrix34::Identity());
 
     // texMap
     for (int i = 0; i < TexId::TERM; ++i) {
@@ -389,8 +390,8 @@ void Renderer::sdReset()
 //------------------------------------------------------------------------------
 void Renderer::sdSetMaterialForDemo()
 {
-    XG3D_GLCMD(glUseProgram(mExt.demoShaderProgram));
-    mExt.currentMaterial = ::XG3D::ResMat();
+    AE_G3D_GLCMD(glUseProgram(mExt.demoShaderProgram));
+    mExt.currentMaterial = ::ae::g3d::ResMat();
     mExt.updateMtxProj();
     mExt.updateMtxView();
     mExt.updateMtxWorld();
@@ -406,41 +407,41 @@ void Renderer::sdSetMaterial(const ResMat& aResMat)
 
     // 無効なマテリアルチェック
     if (!aResMat.isValid()) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return;
     }
 
     // 適用
     mExt.currentMaterial = aResMat;
-    XG3D_GLCMD(glUseProgram(aResMat.impl_()->shaderProgram));
+    AE_G3D_GLCMD(glUseProgram(aResMat.impl_()->shaderProgram));
     mExt.updateMtxProj();
     mExt.updateMtxView();
     mExt.updateMtxWorld();
 }
 
 //------------------------------------------------------------------------------
-void Renderer::sdSetMtxProjection(const ::XBase::Mtx44& aMtx)
+void Renderer::sdSetMtxProjection(const ::ae::base::Mtx44& aMtx)
 {
     mExt.mtxProj = aMtx;
     mExt.updateMtxProj();
 }
 
 //------------------------------------------------------------------------------
-void Renderer::sdSetMtxView(const ::XBase::Mtx34& aMtx)
+void Renderer::sdSetMtxView(const ::ae::base::Mtx34& aMtx)
 {
     mExt.mtxView = aMtx;
     mExt.updateMtxView();
 }
 
 //------------------------------------------------------------------------------
-void Renderer::sdSetMtxWorld(const ::XBase::Mtx34& aMtx)
+void Renderer::sdSetMtxWorld(const ::ae::base::Mtx34& aMtx)
 {
     mExt.mtxWorld = aMtx;
     mExt.updateMtxWorld();
 }
 
 //------------------------------------------------------------------------------
-void Renderer::sdSetMtxBones(const ::XBase::Vec4* aMtxBonePosArray, const ::XBase::Vec4* aMtxBoneNrmArray)
+void Renderer::sdSetMtxBones(const ::ae::base::Vec4* aMtxBonePosArray, const ::ae::base::Vec4* aMtxBoneNrmArray)
 {
     mExt.mtxBonePosArray.reset(aMtxBonePosArray);
     mExt.mtxBoneNrmArray.reset(aMtxBoneNrmArray);
@@ -451,34 +452,34 @@ void Renderer::sdSetMtxBones(const ::XBase::Vec4* aMtxBonePosArray, const ::XBas
 void Renderer::sdSetTex(const TexId::EnumType aId, const TexSetting& aSetting)
 {
     // チェック
-    if (XBASE_ENUM_IS_INVALID(TexId, aId)) {
-        XBASE_ERROR_INVALID_VALUE(int(aId));
+    if (AE_BASE_ENUM_IS_INVALID(TexId, aId)) {
+        AE_BASE_ERROR_INVALID_VALUE(int(aId));
         return;
     }
-    XBASE_UNUSED(aId); // マルチテクスチャに対応するタイミングで使用する。
+    AE_BASE_UNUSED(aId); // マルチテクスチャに対応するタイミングで使用する。
 
-    XG3D_GLCMD(glUseProgram(mExt.demoShaderProgram));
+    AE_G3D_GLCMD(glUseProgram(mExt.demoShaderProgram));
     if (aSetting.isActive()) {
         // 設定準備
-        XG3D_GLCMD(glActiveTexture(GL_TEXTURE0));
-        XG3D_GLCMD(glBindTexture(GL_TEXTURE_2D, aSetting.ext_().texId));
+        AE_G3D_GLCMD(glActiveTexture(GL_TEXTURE0));
+        AE_G3D_GLCMD(glBindTexture(GL_TEXTURE_2D, aSetting.ext_().texId));
 
         // テクスチャ有効
-        XG3D_GLCMD(glUniform1i(mExt.demoUniformLocations[ShaderConstant::Uniform::TexActive], 1));
-        XG3D_GLCMD(glUniform1i(mExt.demoUniformLocations[ShaderConstant::Uniform::TexSampler], 0));
+        AE_G3D_GLCMD(glUniform1i(mExt.demoUniformLocations[ShaderConstant::Uniform::TexActive], 1));
+        AE_G3D_GLCMD(glUniform1i(mExt.demoUniformLocations[ShaderConstant::Uniform::TexSampler], 0));
 
         // 補間フィルタ
-        XG3D_GLCMD(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, tTexFilterTable[aSetting.minFilter()]));
-        XG3D_GLCMD(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, tTexFilterTable[aSetting.magFilter()]));
+        AE_G3D_GLCMD(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, tTexFilterTable[aSetting.minFilter()]));
+        AE_G3D_GLCMD(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, tTexFilterTable[aSetting.magFilter()]));
 
         // アドレッシングモード
-        XG3D_GLCMD(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, tTexAddressTable[aSetting.addressU()]));
-        XG3D_GLCMD(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, tTexAddressTable[aSetting.addressV()]));
+        AE_G3D_GLCMD(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, tTexAddressTable[aSetting.addressU()]));
+        AE_G3D_GLCMD(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, tTexAddressTable[aSetting.addressV()]));
     }
     else
     {
         // テクスチャ無効
-        XG3D_GLCMD(glUniform1i(mExt.demoUniformLocations[ShaderConstant::Uniform::TexActive], 0));
+        AE_G3D_GLCMD(glUniform1i(mExt.demoUniformLocations[ShaderConstant::Uniform::TexActive], 0));
     }
 }
 
@@ -491,7 +492,7 @@ void Renderer::draw(
 {
     // 前チェック
     if (!aSubMesh.isValid()) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return;
     }
 
@@ -503,7 +504,7 @@ void Renderer::draw(
         sdSetMtxBones(aMdlTransform.bonePosMtxData(), aMdlTransform.boneNrmMtxData());
     }
     else if (aSubMesh.nodeIndex() == ResConstant::INVALID_MDL_NODE_INDEX) {
-        sdSetMtxWorld(::XBase::Mtx34::Identity());
+        sdSetMtxWorld(::ae::base::Mtx34::Identity());
     }
     else {
         sdSetMtxWorld(aMdlTransform.worldMtx(aSubMesh.nodeIndex()));
@@ -525,16 +526,16 @@ void Renderer::draw(
     // 頂点属性有効化
     const ResMdlShapeImpl* shapeImpl = aShape.impl_();
     const ResMatImpl* matImpl = aMaterial.resMat().impl_();
-    XG3D_GLCMD(glBindVertexArray(mExt.sharedVertexArray));
-    XG3D_GLCMD(glBindBuffer(GL_ARRAY_BUFFER, shapeImpl->vtxAttrBuffer));
-    XG3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, shapeImpl->idxBuffer));
+    AE_G3D_GLCMD(glBindVertexArray(mExt.sharedVertexArray));
+    AE_G3D_GLCMD(glBindBuffer(GL_ARRAY_BUFFER, shapeImpl->vtxAttrBuffer));
+    AE_G3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, shapeImpl->idxBuffer));
     for (int i = 0; i < matImpl->vtxAttrs->count(); ++i) {
         const ResMatVtxAttrImpl* attrBind = &matImpl->vtxAttrs->at(i);
         const ResMdlShapeImpl::VtxAttr* attr = &shapeImpl->vtxAttrs[attrBind->binPtr->bindInputKind];
-        XBASE_ASSERT_POINTER(attr->info);
+        AE_BASE_ASSERT_POINTER(attr->info);
         switch (attr->info->dataType) {
             case ResMdlShapeInputType::Float:
-                XG3D_GLCMD(glVertexAttribPointer(
+                AE_G3D_GLCMD(glVertexAttribPointer(
                     i,
                     attr->info->elemCount,
                     attr->glDataType,
@@ -545,7 +546,7 @@ void Renderer::draw(
                 break;
 
             default:
-                XG3D_GLCMD(glVertexAttribIPointer(
+                AE_G3D_GLCMD(glVertexAttribIPointer(
                     i,
                     attr->info->elemCount,
                     attr->glDataType,
@@ -554,11 +555,11 @@ void Renderer::draw(
                     ));
                 break;
         }
-        XG3D_GLCMD(glEnableVertexAttribArray(i));
+        AE_G3D_GLCMD(glEnableVertexAttribArray(i));
     }
 
     // 描画
-    XG3D_GLCMD(glDrawElements(
+    AE_G3D_GLCMD(glDrawElements(
         GL_TRIANGLES,
         shapeImpl->binPtr->indexArrayDataCount,
         shapeImpl->idxGLDataType,
@@ -567,21 +568,21 @@ void Renderer::draw(
 
     // 頂点属性無効化
     for (int i = matImpl->vtxAttrs->count(); 0 < i; --i) {
-        XG3D_GLCMD(glDisableVertexAttribArray(i - 1));
+        AE_G3D_GLCMD(glDisableVertexAttribArray(i - 1));
     }
-    XG3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0));
-    XG3D_GLCMD(glBindBuffer(GL_ARRAY_BUFFER, 0));
-    XG3D_GLCMD(glBindVertexArray(0));
+    AE_G3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0));
+    AE_G3D_GLCMD(glBindBuffer(GL_ARRAY_BUFFER, 0));
+    AE_G3D_GLCMD(glBindVertexArray(0));
 }
 
 //------------------------------------------------------------------------------
 void Renderer::waitDrawDone()
 {
-    XG3D_GLCMD(glFinish());
+    AE_G3D_GLCMD(glFinish());
 }
 
 //------------------------------------------------------------------------------
-void Renderer::copyToDisplay(::XBase::Display& aDisplay)
+void Renderer::copyToDisplay(::ae::base::Display& aDisplay)
 {
     copyToScreen(aDisplay.mainScreen());
 }
@@ -600,7 +601,7 @@ Renderer_Ext::Renderer_Ext()
 , mtxBonePosArray()
 , mtxBoneNrmArray()
 {
-    XBASE_STATIC_ASSERT(UNIFORM_COUNT == ShaderConstant::Uniform::TERM);
+    AE_BASE_STATIC_ASSERT(UNIFORM_COUNT == ShaderConstant::Uniform::TERM);
 }
 
 //------------------------------------------------------------------------------
@@ -609,7 +610,7 @@ void Renderer_Ext::updateMtxProj()
     const GLint location = currentMaterial.isValid()
         ? currentMaterial.impl_()->sysUniformLocations[ShaderConstant::SysUniform::MtxProj]
         : demoUniformLocations[ShaderConstant::SysUniform::MtxProj];
-    XG3D_GLCMD(glUniformMatrix4fv(
+    AE_G3D_GLCMD(glUniformMatrix4fv(
         location,
         1,
         GL_FALSE,
@@ -623,7 +624,7 @@ void Renderer_Ext::updateMtxView()
     const GLint location = currentMaterial.isValid()
         ? currentMaterial.impl_()->sysUniformLocations[ShaderConstant::SysUniform::MtxView]
         : demoUniformLocations[ShaderConstant::SysUniform::MtxView];
-    XG3D_GLCMD(glUniformMatrix4fv(
+    AE_G3D_GLCMD(glUniformMatrix4fv(
         location,
         1,
         GL_FALSE,
@@ -637,7 +638,7 @@ void Renderer_Ext::updateMtxWorld()
     const GLint location = currentMaterial.isValid()
         ? currentMaterial.impl_()->sysUniformLocations[ShaderConstant::SysUniform::MtxWorld]
         : demoUniformLocations[ShaderConstant::SysUniform::MtxWorld];
-    XG3D_GLCMD(glUniformMatrix4fv(
+    AE_G3D_GLCMD(glUniformMatrix4fv(
         location,
         1,
         GL_FALSE,
@@ -653,7 +654,7 @@ void Renderer_Ext::updateMtxBones()
         const GLint location = currentMaterial.isValid()
             ? currentMaterial.impl_()->sysUniformLocations[ShaderConstant::SysUniform::MtxBonePosArray]
             : demoUniformLocations[ShaderConstant::SysUniform::MtxBonePosArray];
-        XG3D_GLCMD(glUniform4fv(
+        AE_G3D_GLCMD(glUniform4fv(
             location,
             boneCountMax * 3,
             &mtxBonePosArray.get()->x
@@ -664,7 +665,7 @@ void Renderer_Ext::updateMtxBones()
             ? currentMaterial.impl_()->sysUniformLocations[ShaderConstant::SysUniform::MtxBoneNrmArray]
             : demoUniformLocations[ShaderConstant::SysUniform::MtxBoneNrmArray];
         if (0 <= location) {
-            XG3D_GLCMD(glUniform4fv(
+            AE_G3D_GLCMD(glUniform4fv(
                 location,
                 boneCountMax * 3,
                 &mtxBoneNrmArray.get()->x
@@ -673,5 +674,5 @@ void Renderer_Ext::updateMtxBones()
     }
 }
 
-} // namespace
+}} // namespace
 // EOF

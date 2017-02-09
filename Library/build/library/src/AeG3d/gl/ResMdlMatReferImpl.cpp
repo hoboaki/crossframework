@@ -2,15 +2,16 @@
 #include "ResMdlMatReferImpl.hpp"
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 //------------------------------------------------------------------------------
 ResMdlMatReferImpl::ResMdlMatReferImpl(
-    const ::XData::XData& aXData,
+    const ::ae::xdata::Xdata& aXdata,
     const BinResMdlMatRefer* aBinPtr,
-    ::XBase::IAllocator&
+    ::ae::base::IAllocator&
     )
-: xdata(aXData.ptr())
+: xdata(aXdata.ptr())
 , binPtr(aBinPtr)
 {
 }
@@ -20,5 +21,5 @@ ResMdlMatReferImpl::~ResMdlMatReferImpl()
 {
 }
 
-} // namespace
+}} // namespace
 // EOF

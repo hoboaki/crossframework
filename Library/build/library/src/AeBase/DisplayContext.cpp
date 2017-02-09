@@ -1,15 +1,16 @@
 // 文字コード：UTF-8
-#include <XBase/DisplayContext.hpp>
+#include <ae/base/DisplayContext.hpp>
 
-#include <XBase/SdkHeader.hpp>
+#include <ae/base/SdkHeader.hpp>
 
-#if defined(XBASE_OS_MACOSX)
+#if defined(AE_BASE_OS_MACOSX)
     #include "XBaseNSScreen.h"
 #endif
 
 //------------------------------------------------------------------------------
-namespace XBase {
-#if defined(XBASE_OSTYPE_WINDOWSYSTEM)
+namespace ae {
+namespace base {
+#if defined(AE_BASE_OSTYPE_WINDOWSYSTEM)
 
 //------------------------------------------------------------------------------
 namespace {
@@ -37,7 +38,7 @@ DisplayContext::DisplayContext()
 //------------------------------------------------------------------------------
 void DisplayContext::setLocationToCenter()
 {
-#if defined(XBASE_OS_WINDOWS)
+#if defined(AE_BASE_OS_WINDOWS)
     // 情報取得
     HWND hwnd = GetDesktopWindow();
     HDC hdc = GetDC(hwnd);
@@ -52,7 +53,7 @@ void DisplayContext::setLocationToCenter()
     if (mHeight < dispHeight) {
         mLocationY = (dispHeight - mHeight) / 2;
     }
-#elif defined(XBASE_OS_MACOSX)
+#elif defined(AE_BASE_OS_MACOSX)
     // 情報取得
     XBaseNSRect rect = {};
     XBaseNSScreen_GetMainScreenVisibleFrame(&rect);
@@ -106,5 +107,5 @@ DisplayContext::DisplayContext()
 
 //------------------------------------------------------------------------------
 #endif // end of other OS
-} // namespace
+}} // namespace
 // EOF

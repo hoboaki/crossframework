@@ -1,13 +1,14 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_KEYBITSET_HPP)
+#if defined(AE_BASE_INCLUDED_KEYBITSET_HPP)
 #else
-#define XBASE_INCLUDED_KEYBITSET_HPP
+#define AE_BASE_INCLUDED_KEYBITSET_HPP
 
-#include <XBase/BitSet.hpp>
-#include <XBase/KeyKind.hpp>
+#include <ae/base/BitSet.hpp>
+#include <ae/base/KeyKind.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Hid
 //@{
@@ -17,6 +18,6 @@ namespace XBase {
 typedef BitSet< KeyKind::TERM > KeyBitSet;
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

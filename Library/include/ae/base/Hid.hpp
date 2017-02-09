@@ -1,20 +1,21 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_HID_HPP)
+#if defined(AE_BASE_INCLUDED_HID_HPP)
 #else
-#define XBASE_INCLUDED_HID_HPP
+#define AE_BASE_INCLUDED_HID_HPP
 
-#include <XBase/NonCopyable.hpp>
-#include <XBase/Os.hpp>
+#include <ae/base/NonCopyable.hpp>
+#include <ae/base/Os.hpp>
 
-#if defined(XBASE_OS_WINDOWS)
-    #include <XBase/Hid_Windows.hpp>
-#elif defined(XBASE_OS_MACOSX)
-    #include <XBase/Hid_MacOSX.hpp>
-#elif defined(XBASE_OS_IOS)
-    #include <XBase/Hid_iOS.hpp>
+#if defined(AE_BASE_OS_WINDOWS)
+    #include <ae/base/Hid_Windows.hpp>
+#elif defined(AE_BASE_OS_MACOSX)
+    #include <ae/base/Hid_MacOSX.hpp>
+#elif defined(AE_BASE_OS_IOS)
+    #include <ae/base/Hid_iOS.hpp>
 #endif
 
-namespace XBase {
+namespace ae {
+namespace base {
 class Display;
 class Keyboard;
 class Mouse;
@@ -22,7 +23,8 @@ class Touch;
 }
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Hid
 //@{
@@ -95,6 +97,6 @@ private:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

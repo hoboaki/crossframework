@@ -1,20 +1,21 @@
 // 文字コード：UTF-8
-#include <XG3D/VtxBuffer.hpp>
+#include <ae/g3d/VtxBuffer.hpp>
 
-#include <XBase/EnumCheck.hpp>
-#include <XBase/RuntimeAssert.hpp>
-#include <XG3D/Renderer.hpp>
+#include <ae/base/EnumCheck.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/g3d/Renderer.hpp>
 #include "GlCmd.hpp"
 #include "ShaderConstant.hpp"
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 //------------------------------------------------------------------------------
 VtxBuffer::VtxBuffer(
     const int aMeshCountMax,
     const int aVertexCountMax,
-    ::XBase::IAllocator& aAllocator
+    ::ae::base::IAllocator& aAllocator
     )
 : mVertexArray(aVertexCountMax, aAllocator)
 , mIndexArray((aVertexCountMax * 3) / 2, aAllocator) // 矩形描画をカバーできるようにindex数を1.5倍に。
@@ -40,15 +41,15 @@ void VtxBuffer::reset()
 {
     // チェック
     if (mIsMeshActive) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return;
     }
 
     clear();
-    mWorldMtx = ::XBase::Matrix34::Identity();
-    mNormal = ::XBase::Vector3::Zero();
-    mTexCoord = ::XBase::Vector2::Zero();
-    mColor = ::XBase::Color4::One();
+    mWorldMtx = ::ae::base::Matrix34::Identity();
+    mNormal = ::ae::base::Vector3::Zero();
+    mTexCoord = ::ae::base::Vector2::Zero();
+    mColor = ::ae::base::Color4::One();
 }
 
 //------------------------------------------------------------------------------
@@ -56,7 +57,7 @@ void VtxBuffer::clear()
 {
     // チェック
     if (mIsMeshActive) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return;
     }
 
@@ -67,7 +68,7 @@ void VtxBuffer::clear()
 }
 
 //------------------------------------------------------------------------------
-void VtxBuffer::worldMtx(const ::XBase::Matrix34Pod& aMtx)
+void VtxBuffer::worldMtx(const ::ae::base::Matrix34Pod& aMtx)
 {
     mWorldMtx = aMtx;
 }
@@ -77,15 +78,15 @@ void VtxBuffer::begin(const PrimitiveKind::EnumType aKind)
 {
     // チェック
     if (mIsFlushed) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return;
     }
     if (mMeshArray.isFull()) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return;
     }
-    if (XBASE_ENUM_IS_INVALID(PrimitiveKind, aKind)) {
-        XBASE_ASSERT_NOT_REACHED();
+    if (AE_BASE_ENUM_IS_INVALID(PrimitiveKind, aKind)) {
+        AE_BASE_ASSERT_NOT_REACHED();
         return;
     }
 
@@ -106,20 +107,20 @@ void VtxBuffer::end()
 {
     // チェック
     if (!mIsMeshActive) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return;
     }
 
     // メッシュの種類ごとの処理
     Mesh& mesh = mMeshArray.last();
-    XBASE_ASSERT_ENUM(PrimitiveKind, mesh.kind);
+    AE_BASE_ASSERT_ENUM(PrimitiveKind, mesh.kind);
     switch (mesh.kind) {
         case PrimitiveKind::Triangles:
         {// 連続三角形
             // チェック
             const int vertexCountPerPrimitive = 3;
             if ((mesh.count % vertexCountPerPrimitive) != 0) {
-                XBASE_ERROR_INVALID_VALUE(mesh.count);
+                AE_BASE_ERROR_INVALID_VALUE(mesh.count);
                 return;
             }
             // index生成
@@ -137,7 +138,7 @@ void VtxBuffer::end()
             // チェック
             const int vertexCountPerPrimitive = 4;
             if ((mesh.count % vertexCountPerPrimitive) != 0) {
-                XBASE_ERROR_INVALID_VALUE(mesh.count);
+                AE_BASE_ERROR_INVALID_VALUE(mesh.count);
                 return;
             }
             // index生成
@@ -166,7 +167,7 @@ void VtxBuffer::end()
         break;
 
         default:
-            XBASE_ERROR_INVALID_VALUE(int(mesh.kind));
+            AE_BASE_ERROR_INVALID_VALUE(int(mesh.kind));
             return;
     }
 
@@ -177,15 +178,15 @@ void VtxBuffer::end()
 //------------------------------------------------------------------------------
 void VtxBuffer::normal(const f32 aX, const f32 aY, const f32 aZ)
 {
-    normal(::XBase::Vector3(aX, aY, aZ));
+    normal(::ae::base::Vector3(aX, aY, aZ));
 }
 
 //------------------------------------------------------------------------------
-void VtxBuffer::normal(const ::XBase::Vector3Pod& aXYZ)
+void VtxBuffer::normal(const ::ae::base::Vector3Pod& aXYZ)
 {
     // チェック
     if (!mIsMeshActive) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return;
     }
     mNormal = aXYZ;
@@ -194,15 +195,15 @@ void VtxBuffer::normal(const ::XBase::Vector3Pod& aXYZ)
 //------------------------------------------------------------------------------
 void VtxBuffer::texCoord(const f32 aS, const f32 aT)
 {
-    texCoord(::XBase::Vector2(aS, aT));
+    texCoord(::ae::base::Vector2(aS, aT));
 }
 
 //------------------------------------------------------------------------------
-void VtxBuffer::texCoord(const ::XBase::Vector2Pod& aST)
+void VtxBuffer::texCoord(const ::ae::base::Vector2Pod& aST)
 {
     // チェック
     if (!mIsMeshActive) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return;
     }
     mTexCoord = aST;
@@ -217,15 +218,15 @@ void VtxBuffer::color(const f32 aR, const f32 aG, const f32 aB)
 //------------------------------------------------------------------------------
 void VtxBuffer::color(const f32 aR, const f32 aG, const f32 aB, const f32 aA)
 {
-    color(::XBase::Color4(aR, aG, aB, aA));
+    color(::ae::base::Color4(aR, aG, aB, aA));
 }
 
 //------------------------------------------------------------------------------
-void VtxBuffer::color(const ::XBase::Color4Pod& aRGBA)
+void VtxBuffer::color(const ::ae::base::Color4Pod& aRGBA)
 {
     // チェック
     if (!mIsMeshActive) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return;
     }
     mColor = aRGBA;
@@ -240,25 +241,25 @@ void VtxBuffer::vertex(const f32 aX, const f32 aY)
 //------------------------------------------------------------------------------
 void VtxBuffer::vertex(const f32 aX, const f32 aY, const f32 aZ)
 {
-    vertex(::XBase::Vector3(aX, aY, aZ));
+    vertex(::ae::base::Vector3(aX, aY, aZ));
 }
 
 //------------------------------------------------------------------------------
-void VtxBuffer::vertex(const ::XBase::Vector2Pod& aXY)
+void VtxBuffer::vertex(const ::ae::base::Vector2Pod& aXY)
 {
     vertex(aXY.toXY0());
 }
 
 //------------------------------------------------------------------------------
-void VtxBuffer::vertex(const ::XBase::Vector3Pod& aXYZ)
+void VtxBuffer::vertex(const ::ae::base::Vector3Pod& aXYZ)
 {
     // チェック
     if (!mIsMeshActive) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return;
     }
     if (mVertexArray.isFull()) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return;
     }
 
@@ -277,7 +278,7 @@ void VtxBuffer::flush()
 {
     // チェック
     if (mIsFlushed) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return;
     }
 
@@ -294,29 +295,29 @@ void VtxBuffer::flush()
 
     // バッファ作成
     {
-        XG3D_GLCMD(glBindBuffer(GL_ARRAY_BUFFER, mExt.vtxBuffer));
-        XG3D_GLCMD(glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * mVertexArray.count(), &mVertexArray[0], GL_STATIC_DRAW));
-        XG3D_GLCMD(glBindBuffer(GL_ARRAY_BUFFER, 0));
+        AE_G3D_GLCMD(glBindBuffer(GL_ARRAY_BUFFER, mExt.vtxBuffer));
+        AE_G3D_GLCMD(glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * mVertexArray.count(), &mVertexArray[0], GL_STATIC_DRAW));
+        AE_G3D_GLCMD(glBindBuffer(GL_ARRAY_BUFFER, 0));
     }
     {
-        XG3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mExt.idxBuffer));
-        XG3D_GLCMD(glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Index) * mIndexArray.count(), &mIndexArray[0], GL_STATIC_DRAW));
-        XG3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0));
+        AE_G3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mExt.idxBuffer));
+        AE_G3D_GLCMD(glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Index) * mIndexArray.count(), &mIndexArray[0], GL_STATIC_DRAW));
+        AE_G3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0));
     }
 
     // データ指定
-    XG3D_GLCMD(glBindVertexArray(mExt.vtxArray));
-    XG3D_GLCMD(glBindBuffer(GL_ARRAY_BUFFER, mExt.vtxBuffer));
-    XG3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mExt.idxBuffer));
-    XG3D_GLCMD(glVertexAttribPointer(ShaderConstant::Attribute::Position, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), reinterpret_cast<const void*>(offsetof(Vertex, position))));
-    XG3D_GLCMD(glVertexAttribPointer(ShaderConstant::Attribute::Normal, 3, GL_FLOAT, GL_TRUE, sizeof(Vertex), reinterpret_cast<const void*>(offsetof(Vertex, normal))));
-    XG3D_GLCMD(glVertexAttribPointer(ShaderConstant::Attribute::TexCoord, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), reinterpret_cast<const void*>(offsetof(Vertex, texCoord))));
-    XG3D_GLCMD(glVertexAttribPointer(ShaderConstant::Attribute::Color, 4, GL_FLOAT, GL_TRUE, sizeof(Vertex), reinterpret_cast<const void*>(offsetof(Vertex, color))));
-    XG3D_GLCMD(glEnableVertexAttribArray(ShaderConstant::Attribute::Position));
-    XG3D_GLCMD(glEnableVertexAttribArray(ShaderConstant::Attribute::Normal));
-    XG3D_GLCMD(glEnableVertexAttribArray(ShaderConstant::Attribute::TexCoord));
-    XG3D_GLCMD(glEnableVertexAttribArray(ShaderConstant::Attribute::Color));
-    XG3D_GLCMD(glBindVertexArray(0));
+    AE_G3D_GLCMD(glBindVertexArray(mExt.vtxArray));
+    AE_G3D_GLCMD(glBindBuffer(GL_ARRAY_BUFFER, mExt.vtxBuffer));
+    AE_G3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mExt.idxBuffer));
+    AE_G3D_GLCMD(glVertexAttribPointer(ShaderConstant::Attribute::Position, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), reinterpret_cast<const void*>(offsetof(Vertex, position))));
+    AE_G3D_GLCMD(glVertexAttribPointer(ShaderConstant::Attribute::Normal, 3, GL_FLOAT, GL_TRUE, sizeof(Vertex), reinterpret_cast<const void*>(offsetof(Vertex, normal))));
+    AE_G3D_GLCMD(glVertexAttribPointer(ShaderConstant::Attribute::TexCoord, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), reinterpret_cast<const void*>(offsetof(Vertex, texCoord))));
+    AE_G3D_GLCMD(glVertexAttribPointer(ShaderConstant::Attribute::Color, 4, GL_FLOAT, GL_TRUE, sizeof(Vertex), reinterpret_cast<const void*>(offsetof(Vertex, color))));
+    AE_G3D_GLCMD(glEnableVertexAttribArray(ShaderConstant::Attribute::Position));
+    AE_G3D_GLCMD(glEnableVertexAttribArray(ShaderConstant::Attribute::Normal));
+    AE_G3D_GLCMD(glEnableVertexAttribArray(ShaderConstant::Attribute::TexCoord));
+    AE_G3D_GLCMD(glEnableVertexAttribArray(ShaderConstant::Attribute::Color));
+    AE_G3D_GLCMD(glBindVertexArray(0));
 }
 
 //------------------------------------------------------------------------------
@@ -324,7 +325,7 @@ void VtxBuffer::draw()
 {
     // チェック
     if (!mIsFlushed) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return;
     }
 
@@ -339,7 +340,7 @@ void VtxBuffer::draw()
     }
 
     // セットアップ
-    XG3D_GLCMD(glBindVertexArray(mExt.vtxArray));
+    AE_G3D_GLCMD(glBindVertexArray(mExt.vtxArray));
 
     // 各メッシュの描画
     for (int i = 0; i < mMeshArray.count(); ++i) {
@@ -350,11 +351,11 @@ void VtxBuffer::draw()
         Renderer::Instance().sdSetMtxWorld(mesh.worldMtx);
 
         // 描画
-        XG3D_GLCMD(glDrawElements(GL_TRIANGLES, mesh.count, GL_UNSIGNED_SHORT, reinterpret_cast<const void*>(sizeof(Index) * mesh.beginIndex)));
+        AE_G3D_GLCMD(glDrawElements(GL_TRIANGLES, mesh.count, GL_UNSIGNED_SHORT, reinterpret_cast<const void*>(sizeof(Index) * mesh.beginIndex)));
     }
 
     // クリーンアップ
-    XG3D_GLCMD(glBindVertexArray(0));
+    AE_G3D_GLCMD(glBindVertexArray(0));
 }
 
 //------------------------------------------------------------------------------
@@ -363,23 +364,23 @@ VtxBuffer_Ext::VtxBuffer_Ext()
 , vtxBuffer()
 , idxBuffer()
 {
-    XG3D_GLCMD(glGenVertexArrays(1, &vtxArray));
-    XG3D_GLCMD(glGenBuffers(1, &vtxBuffer));
-    XG3D_GLCMD(glGenBuffers(1, &idxBuffer));
+    AE_G3D_GLCMD(glGenVertexArrays(1, &vtxArray));
+    AE_G3D_GLCMD(glGenBuffers(1, &vtxBuffer));
+    AE_G3D_GLCMD(glGenBuffers(1, &idxBuffer));
 }
 
 //------------------------------------------------------------------------------
 VtxBuffer_Ext::~VtxBuffer_Ext()
 {
-    XG3D_GLCMD(glDeleteBuffers(1, &idxBuffer));
+    AE_G3D_GLCMD(glDeleteBuffers(1, &idxBuffer));
     idxBuffer = 0;
 
-    XG3D_GLCMD(glDeleteBuffers(1, &vtxBuffer));
+    AE_G3D_GLCMD(glDeleteBuffers(1, &vtxBuffer));
     vtxBuffer = 0;
 
-    XG3D_GLCMD(glDeleteVertexArrays(1, &vtxArray));
+    AE_G3D_GLCMD(glDeleteVertexArrays(1, &vtxArray));
     vtxArray = 0;
 }
 
-} // namespace
+}} // namespace
 // EOF

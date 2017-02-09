@@ -1,8 +1,9 @@
 // 文字コード：UTF-8
-#include <XBase/MemBlock.hpp>
+#include <ae/base/MemBlock.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 MemBlock::MemBlock()
@@ -42,5 +43,5 @@ pword_t MemBlock::size()const
     return mSize;
 }
 
-} // namespace
+}} // namespace
 // EOF

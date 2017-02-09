@@ -1,22 +1,23 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_BINRESMDLMATREFER_HPP)
+#if defined(AE_G3D_INCLUDED_BINRESMDLMATREFER_HPP)
 #else
-#define XG3D_INCLUDED_BINRESMDLMATREFER_HPP
+#define AE_G3D_INCLUDED_BINRESMDLMATREFER_HPP
 
-#include <XData/XData.hpp>
-#include <XG3D/BuiltInTypes.hpp>
+#include <ae/xdata/Xdata.hpp>
+#include <ae/g3d/BuiltInTypes.hpp>
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 // バイナリデータ：モデルマテリアル参照。
 struct BinResMdlMatRefer
 {
-    ::XData::UInt16    index;
-    ::XData::UInt16    flags;
-    ::XData::Reference name;
+    ::ae::xdata::UInt16    index;
+    ::ae::xdata::UInt16    flags;
+    ::ae::xdata::Reference name;
 };
 
-} // namespace
+}} // namespace
 #endif
 // EOF

@@ -1,13 +1,14 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_RESMDLSHAPEINPUTTYPE_HPP)
+#if defined(AE_G3D_INCLUDED_RESMDLSHAPEINPUTTYPE_HPP)
 #else
-#define XG3D_INCLUDED_RESMDLSHAPEINPUTTYPE_HPP
+#define AE_G3D_INCLUDED_RESMDLSHAPEINPUTTYPE_HPP
 
-#include <XData/XData.hpp>
-#include <XG3D/BuiltInTypes.hpp>
+#include <ae/xdata/Xdata.hpp>
+#include <ae/g3d/BuiltInTypes.hpp>
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 // シェイプ入力データのデータ型。
 struct ResMdlShapeInputType
@@ -26,6 +27,6 @@ struct ResMdlShapeInputType
     };
 };
 
-} // namespace
+}} // namespace
 #endif
 // EOF

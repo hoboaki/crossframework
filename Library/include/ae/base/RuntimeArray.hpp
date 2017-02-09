@@ -1,21 +1,22 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_RUNTIMEARRAY_HPP)
+#if defined(AE_BASE_INCLUDED_RUNTIMEARRAY_HPP)
 #else
-#define XBASE_INCLUDED_RUNTIMEARRAY_HPP
+#define AE_BASE_INCLUDED_RUNTIMEARRAY_HPP
 
-#include <XBase/Compiler.hpp>
-#include <XBase/IAllocator.hpp>
-#include <XBase/NonCopyable.hpp>
-#include <XBase/RuntimeAssert.hpp>
+#include <ae/base/Compiler.hpp>
+#include <ae/base/IAllocator.hpp>
+#include <ae/base/NonCopyable.hpp>
+#include <ae/base/RuntimeAssert.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
-/// @addtogroup XBase-Collection
+/// @addtogroup AeBase-Collection
 //@{
     /// 実行時に確保する大きさが決まる配列。
 template< typename T >
-class RuntimeArray : public ::XBase::NonCopyable
+class RuntimeArray : public ::ae::base::NonCopyable
 {
 public:
     /// @name typedef
@@ -42,12 +43,12 @@ public:
 
             for (int i = 0; i < aCount; ++i)
             {
-            #if defined(XBASE_COMPILER_MSVC)
+            #if defined(AE_BASE_COMPILER_MSVC)
             #pragma warning(push)
             #pragma warning(disable: 4345)
             #endif
                 new (&at(i)) ValueType(); // 初期値で初期化                    
-            #if defined(XBASE_COMPILER_MSVC)
+            #if defined(AE_BASE_COMPILER_MSVC)
             #pragma warning(pop)
             #endif
             }
@@ -86,7 +87,7 @@ public:
     {
         if (mCount <= aIndex)
         {
-            XBASE_ASSERT_LESS(aIndex, mCount);
+            AE_BASE_ASSERT_LESS(aIndex, mCount);
             return mPtr[0]; // fail safe code
         }
         return mPtr[aIndex];
@@ -97,7 +98,7 @@ public:
     {
         if (mCount <= aIndex)
         {
-            XBASE_ASSERT_LESS(aIndex, mCount);
+            AE_BASE_ASSERT_LESS(aIndex, mCount);
             return mPtr[0]; // fail safe code
         }
         return mPtr[aIndex];
@@ -118,6 +119,6 @@ private:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

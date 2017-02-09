@@ -1,15 +1,16 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_ENTRYPOINT_HPP)
+#if defined(AE_BASE_INCLUDED_ENTRYPOINT_HPP)
 #else
-#define XBASE_INCLUDED_ENTRYPOINT_HPP
+#define AE_BASE_INCLUDED_ENTRYPOINT_HPP
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 class Application;
 }
 
-/// @addtogroup XBase-System
+/// @addtogroup AeBase-System
 //@{
 
 /// @brief メイン関数の宣言。
@@ -17,13 +18,13 @@ class Application;
 /// @details アプリケーションはこれを実装してアプリケーションを開始してください。
 /// @code
 /// // 例
-/// int xmain( const ::XBase::Application& )
+/// int xmain( const ::ae::base::Application& )
 /// {
 ///     // 何もせずにアプリケーションを終了するコード。
 ///     return 0;
 /// }
 /// @endcode
-extern int xmain(::XBase::Application& aApp);
+extern int xmain(::ae::base::Application& aApp);
 
 //@}
 #endif

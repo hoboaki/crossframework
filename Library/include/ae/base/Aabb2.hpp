@@ -1,18 +1,20 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_AABBOX2_HPP)
+#if defined(AE_BASE_INCLUDED_AABBOX2_HPP)
 #else
-#define XBASE_INCLUDED_AABBOX2_HPP
+#define AE_BASE_INCLUDED_AABBOX2_HPP
 
-#include <XBase/Vector2.hpp>
+#include <ae/base/Vector2.hpp>
 
-namespace XBase {
+namespace ae {
+namespace base {
 class Aabb2i;
 }
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
-/// @addtogroup XBase-Math
+/// @addtogroup AeBase-Math
 //@{
 /// @brief 浮動小数型2次元AABB(Axis Aligned Bounding Box)。
 /// @details
@@ -122,6 +124,6 @@ private:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

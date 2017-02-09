@@ -1,24 +1,25 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_MDLLOCALMTX_HPP)
+#if defined(AE_G3D_INCLUDED_MDLLOCALMTX_HPP)
 #else
-#define XG3D_INCLUDED_MDLLOCALMTX_HPP
+#define AE_G3D_INCLUDED_MDLLOCALMTX_HPP
 
-#include <XBase/Matrix34.hpp>
-#include <XBase/Vector3.hpp>
+#include <ae/base/Matrix34.hpp>
+#include <ae/base/Vector3.hpp>
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
-/// @addtogroup XG3D-State
+/// @addtogroup AeG3d-State
 //@{
 /// @brief StateMdlTransformが持つローカル行列。
 struct MdlLocalMtx
 {
-    ::XBase::Mtx34 rtMtx; ///< RotateTrans行列。
-    ::XBase::Vec3  scale; ///< Scale値。
+    ::ae::base::Mtx34 rtMtx; ///< RotateTrans行列。
+    ::ae::base::Vec3  scale; ///< Scale値。
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

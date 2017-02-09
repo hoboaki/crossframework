@@ -1,12 +1,13 @@
 // 文字コード：UTF-8
-#include <XBase/Application.hpp>
+#include <ae/base/Application.hpp>
 
-#include <XBase/Display.hpp>
-#include <XBase/Thread.hpp>
-#include <XBase/TimeSpan.hpp>
+#include <ae/base/Display.hpp>
+#include <ae/base/Thread.hpp>
+#include <ae/base/TimeSpan.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 namespace {
@@ -25,7 +26,7 @@ u64 tCurrentUSec()
     }
 }
 
-} // namespace
+}} // namespace
 
 //------------------------------------------------------------------------------
 void Application::quit()
@@ -72,5 +73,5 @@ Application_Ext::Application_Ext()
 {
 }
 
-} // namespace
+}} // namespace
 // EOF

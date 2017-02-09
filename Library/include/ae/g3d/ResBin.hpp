@@ -1,21 +1,22 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_RESFILE_HPP)
+#if defined(AE_G3D_INCLUDED_RESFILE_HPP)
 #else
-#define XG3D_INCLUDED_RESFILE_HPP
+#define AE_G3D_INCLUDED_RESFILE_HPP
 
-#include <XBase/FunctionAttribute.hpp>
-#include <XBase/IAllocator.hpp>
-#include <XBase/NonCopyable.hpp>
-#include <XBase/Placement.hpp>
-#include <XBase/RuntimeAutoArray.hpp>
-#include <XBase/ScopedPtr.hpp>
-#include <XG3D/BuiltInTypes.hpp>
-#include <XG3D/ResMatSet.hpp>
-#include <XG3D/ResMdl.hpp>
-#include <XG3D/ResTex.hpp>
-#include <XData/XData.hpp>
+#include <ae/base/FunctionAttribute.hpp>
+#include <ae/base/IAllocator.hpp>
+#include <ae/base/NonCopyable.hpp>
+#include <ae/base/Placement.hpp>
+#include <ae/base/RuntimeAutoArray.hpp>
+#include <ae/base/ScopedPtr.hpp>
+#include <ae/g3d/BuiltInTypes.hpp>
+#include <ae/g3d/ResMatSet.hpp>
+#include <ae/g3d/ResMdl.hpp>
+#include <ae/g3d/ResTex.hpp>
+#include <ae/xdata/Xdata.hpp>
 
-namespace XG3D {
+namespace ae {
+namespace g3d {
 class ResMatSetImpl;
 class ResMdlImpl;
 class ResTexImpl;
@@ -23,24 +24,25 @@ struct BinResBin;
 }
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
-/// @addtogroup XG3D-Res
+/// @addtogroup AeG3d-Res
 //@{
-    /// @brief コンバートされたXG3Dデータを扱うクラス。
+    /// @brief コンバートされたAeG3dデータを扱うクラス。
     /// @details
 /// 各リソースを使って描画する前に setup() を前もって呼ぶようにしてください。
-class ResBin : public ::XBase::NonCopyable
+class ResBin : public ::ae::base::NonCopyable
 {
 public:
     /// @name コンストラクタとデストラクタ
     //@{
 
     /// @brief バイナリデータの先頭アドレスを指定して作成。
-    /// @param aBin XG3DConverterでバイナリ化したデータの先頭アドレス。
+    /// @param aBin AeG3dConverterでバイナリ化したデータの先頭アドレス。
     /// @param aAllocator ワーク領域を確保するためのアロケータ。
     /// @details 無効なバイナリデータの場合、isValid() == false になります。
-    ResBin(const_ptr_t aBin, ::XBase::IAllocator& aAllocator = ::XBase::IAllocator::Default());
+    ResBin(const_ptr_t aBin, ::ae::base::IAllocator& aAllocator = ::ae::base::IAllocator::Default());
 
     /// @brief セットアップ済みなら release() を呼ぶ。
     ~ResBin();
@@ -72,20 +74,20 @@ public:
     //@}
 
 private:
-    typedef ::XBase::RuntimeAutoArray< ResMatSetImpl >  MatSetArray;
-    typedef ::XBase::RuntimeAutoArray< ResMdlImpl >     MdlArray;
-    typedef ::XBase::RuntimeAutoArray< ResTexImpl >     TexArray;
+    typedef ::ae::base::RuntimeAutoArray< ResMatSetImpl >  MatSetArray;
+    typedef ::ae::base::RuntimeAutoArray< ResMdlImpl >     MdlArray;
+    typedef ::ae::base::RuntimeAutoArray< ResTexImpl >     TexArray;
     //------------------------------------------------------------------------------
-    ::XData::XData mXData;
-    ::XBase::Placement< MatSetArray >   mResMatSetImpls;
-    ::XBase::Placement< MdlArray >      mResMdlImpls;
-    ::XBase::Placement< TexArray >      mResTexImpls;
+    ::ae::xdata::Xdata mXdata;
+    ::ae::base::Placement< MatSetArray >   mResMatSetImpls;
+    ::ae::base::Placement< MdlArray >      mResMdlImpls;
+    ::ae::base::Placement< TexArray >      mResTexImpls;
     //------------------------------------------------------------------------------
     bool checkInvalid()const;
-    const_ptr_t ref(::XData::Reference val)const;
+    const_ptr_t ref(::ae::xdata::Reference val)const;
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

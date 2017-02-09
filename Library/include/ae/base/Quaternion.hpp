@@ -1,19 +1,21 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_QUATERNION_HPP)
+#if defined(AE_BASE_INCLUDED_QUATERNION_HPP)
 #else
-#define XBASE_INCLUDED_QUATERNION_HPP
+#define AE_BASE_INCLUDED_QUATERNION_HPP
 
-#include <XBase/BuiltInTypes.hpp>
-#include <XBase/ShortString.hpp>
+#include <ae/base/BuiltInTypes.hpp>
+#include <ae/base/ShortString.hpp>
 
-namespace XBase {
+namespace ae {
+namespace base {
 class  Angle;
 struct Matrix34Pod;
 struct Vector3Pod;
 }
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Math
 //@{
@@ -67,6 +69,6 @@ public:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

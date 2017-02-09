@@ -1,13 +1,14 @@
 // 文字コード：UTF-8
-#include <XBase/Math.hpp>
+#include <ae/base/Math.hpp>
 
 #include <cmath>
-#include <XBase/Angle.hpp>
-#include <XBase/DivideCheck.hpp>
-#include <XBase/RuntimeAssert.hpp>
+#include <ae/base/Angle.hpp>
+#include <ae/base/DivideCheck.hpp>
+#include <ae/base/RuntimeAssert.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 //------------------------------------------------------------------------------
 namespace {
 
@@ -20,7 +21,7 @@ f32 Math::ClampF32(
     const f32 aMax
     )
 {
-    XBASE_ASSERT_LESS_EQUALS(aMin, aMax);
+    AE_BASE_ASSERT_LESS_EQUALS(aMin, aMax);
     if (aValue < aMin) {
         return aMin;
     }
@@ -89,19 +90,19 @@ f32 Math::TanF32(const Angle& aAngle)
 //------------------------------------------------------------------------------
 f32 Math::CecF32(const Angle& aAngle)
 {
-    return XBASE_DIV(1, SinF32(aAngle));
+    return AE_BASE_DIV(1, SinF32(aAngle));
 }
 
 //------------------------------------------------------------------------------
 f32 Math::SecF32(const Angle& aAngle)
 {
-    return XBASE_DIV(1, CosF32(aAngle));
+    return AE_BASE_DIV(1, CosF32(aAngle));
 }
 
 //------------------------------------------------------------------------------
 f32 Math::CotF32(const Angle& aAngle)
 {
-    return XBASE_DIV(1, TanF32(aAngle));
+    return AE_BASE_DIV(1, TanF32(aAngle));
 }
 
 //------------------------------------------------------------------------------
@@ -125,5 +126,5 @@ f32 Math::FloorF32(const f32 aVal)
     return f32(floor(aVal));
 }
 
-} // namespace
+}} // namespace
 // EOF

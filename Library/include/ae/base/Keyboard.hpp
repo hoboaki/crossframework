@@ -1,12 +1,13 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_KEYBOARD_HPP)
+#if defined(AE_BASE_INCLUDED_KEYBOARD_HPP)
 #else
-#define XBASE_INCLUDED_KEYBOARD_HPP
+#define AE_BASE_INCLUDED_KEYBOARD_HPP
 
-#include <XBase/KeyboardUpdateData.hpp>
+#include <ae/base/KeyboardUpdateData.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Hid
 //@{
@@ -62,6 +63,6 @@ private:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

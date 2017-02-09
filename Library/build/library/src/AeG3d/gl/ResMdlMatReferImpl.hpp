@@ -1,29 +1,30 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_RESMDLMATREFERIMPL_HPP)
+#if defined(AE_G3D_INCLUDED_RESMDLMATREFERIMPL_HPP)
 #else
-#define XG3D_INCLUDED_RESMDLMATREFERIMPL_HPP
+#define AE_G3D_INCLUDED_RESMDLMATREFERIMPL_HPP
 
-#include <XBase/IAllocator.hpp>
-#include <XBase/NonCopyable.hpp>
+#include <ae/base/IAllocator.hpp>
+#include <ae/base/NonCopyable.hpp>
 #include "BinResMdlMatRefer.hpp"
-#include "XDataPlus.hpp"
+#include "XdataPlus.hpp"
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 // BinResMdlMatReferとResMdlMatReferの間にかますクラス。
-class ResMdlMatReferImpl : public ::XBase::NonCopyable
+class ResMdlMatReferImpl : public ::ae::base::NonCopyable
 {
 public:
-    const XDataPlus             xdata;
+    const XdataPlus             xdata;
     const BinResMdlMatRefer*    binPtr;
 
     //============================================================
     // バイナリデータの先頭アドレスを指定して作成。
-    ResMdlMatReferImpl(const ::XData::XData& aXData, const BinResMdlMatRefer* aBinPtr, ::XBase::IAllocator& aAllocator);
+    ResMdlMatReferImpl(const ::ae::xdata::Xdata& aXdata, const BinResMdlMatRefer* aBinPtr, ::ae::base::IAllocator& aAllocator);
     ~ResMdlMatReferImpl();
 };
 
-} // namespace
+}} // namespace
 #endif
 // EOF

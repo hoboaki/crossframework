@@ -1,40 +1,41 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_RESMATIMPL_HPP)
+#if defined(AE_G3D_INCLUDED_RESMATIMPL_HPP)
 #else
-#define XG3D_INCLUDED_RESMATIMPL_HPP
+#define AE_G3D_INCLUDED_RESMATIMPL_HPP
 
-#include <XBase/IAllocator.hpp>
-#include <XBase/NonCopyable.hpp>
-#include <XBase/Placement.hpp>
-#include <XBase/RuntimeAutoArray.hpp>
-#include <XG3D/SdkHeader.hpp>
+#include <ae/base/IAllocator.hpp>
+#include <ae/base/NonCopyable.hpp>
+#include <ae/base/Placement.hpp>
+#include <ae/base/RuntimeAutoArray.hpp>
+#include <ae/g3d/SdkHeader.hpp>
 #include "BinResMat.hpp"
 #include "ResMatParamImpl.hpp"
 #include "ResMatVtxAttrImpl.hpp"
 #include "ShaderConstant.hpp"
-#include "XDataPlus.hpp"
+#include "XdataPlus.hpp"
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 // BinResMatとResMatの間にかますクラス。
-class ResMatImpl : public ::XBase::NonCopyable
+class ResMatImpl : public ::ae::base::NonCopyable
 {
 public:
-    typedef ::XBase::RuntimeAutoArray< ResMatParamImpl >     ParamArray;
-    typedef ::XBase::RuntimeAutoArray< ResMatVtxAttrImpl > VtxAttrArray;
+    typedef ::ae::base::RuntimeAutoArray< ResMatParamImpl >     ParamArray;
+    typedef ::ae::base::RuntimeAutoArray< ResMatVtxAttrImpl > VtxAttrArray;
 
     //============================================================
-    const XDataPlus  xdata;
+    const XdataPlus  xdata;
     const BinResMat* binPtr;
     GLuint shaderProgram;
     GLint  sysUniformLocations[ShaderConstant::SysUniform::TERM];
-    ::XBase::Placement< ParamArray >    paramImpls;
-    ::XBase::Placement< VtxAttrArray >  vtxAttrs;
+    ::ae::base::Placement< ParamArray >    paramImpls;
+    ::ae::base::Placement< VtxAttrArray >  vtxAttrs;
 
     //============================================================
     // バイナリデータの先頭アドレスを指定して作成。
-    ResMatImpl(const ::XData::XData& aXData, const BinResMat* aBinPtr, ::XBase::IAllocator& aAllocator);
+    ResMatImpl(const ::ae::xdata::Xdata& aXdata, const BinResMat* aBinPtr, ::ae::base::IAllocator& aAllocator);
     ~ResMatImpl();
 
     //============================================================
@@ -42,6 +43,6 @@ public:
     void release();
 };
 
-} // namespace
+}} // namespace
 #endif
 // EOF

@@ -1,24 +1,25 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_TYPETRAITS_HPP)
+#if defined(AE_BASE_INCLUDED_TYPETRAITS_HPP)
 #else
-#define XBASE_INCLUDED_TYPETRAITS_HPP
+#define AE_BASE_INCLUDED_TYPETRAITS_HPP
 
-#include <XBase/Compiler.hpp>
+#include <ae/base/Compiler.hpp>
 
 // type_traitsのインクルード
-#if defined(XBASE_COMPILER_MSVC)
+#if defined(AE_BASE_COMPILER_MSVC)
     #include <type_traits>
 #endif
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Types
 //@{
 /// 型特性。
 struct TypeTraits
 {
-#if defined(XBASE_COMPILER_MSVC)
+#if defined(AE_BASE_COMPILER_MSVC)
     template< typename T >
     struct IsPod { enum { Value = ::std::tr1::is_pod< T >::value }; };
 
@@ -34,6 +35,6 @@ struct TypeTraits
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

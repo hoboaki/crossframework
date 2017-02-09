@@ -1,14 +1,15 @@
 // 文字コード：UTF-8
-#include <XG3D/ResMat.hpp>
+#include <ae/g3d/ResMat.hpp>
 
-#include <XBase/EnumCheck.hpp>
-#include <XBase/RuntimeAssert.hpp>
-#include <XBase/StringTraits.hpp>
-#include <XG3D/ResConstant.hpp>
+#include <ae/base/EnumCheck.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/base/StringTraits.hpp>
+#include <ae/g3d/ResConstant.hpp>
 #include "ResMatImpl.hpp"
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 //------------------------------------------------------------------------------
 ResMat::ResMat()
@@ -56,7 +57,7 @@ const char* ResMat::name()const
     if (checkInvalid()) {
         return "";
     }
-    return mPtr->xdata.ref< ::XData::String >(mPtr->binPtr->name)->toCStr();
+    return mPtr->xdata.ref< ::ae::xdata::String >(mPtr->binPtr->name)->toCStr();
 }
 
 //------------------------------------------------------------------------------
@@ -90,7 +91,7 @@ ResMatParam ResMat::param(const char* aName)const
     // 検索
     for (int i = 0; i < mPtr->paramImpls->count(); ++i) {
         ResMatParamImpl& impl = mPtr->paramImpls->at(i);
-        if (::XBase::StringTraits< char >::Equals(ResMatParam(impl).name(), aName)) {
+        if (::ae::base::StringTraits< char >::Equals(ResMatParam(impl).name(), aName)) {
             return ResMatParam(impl);
         }
     }
@@ -112,9 +113,9 @@ bool ResMat::checkInvalid()const
     }
 
     // 不正なのでエラー
-    XBASE_ASSERT_NOT_REACHED();
+    AE_BASE_ASSERT_NOT_REACHED();
     return true;
 }
 
-} // namespace
+}} // namespace
 // EOF

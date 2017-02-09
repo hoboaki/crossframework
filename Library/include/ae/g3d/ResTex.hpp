@@ -1,21 +1,23 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_RESTEX_HPP)
+#if defined(AE_G3D_INCLUDED_RESTEX_HPP)
 #else
-#define XG3D_INCLUDED_RESTEX_HPP
+#define AE_G3D_INCLUDED_RESTEX_HPP
 
-#include <XBase/Pointer.hpp>
-#include <XG3D/BuiltInTypes.hpp>
-#include <XG3D/ResTexFormat.hpp>
+#include <ae/base/Pointer.hpp>
+#include <ae/g3d/BuiltInTypes.hpp>
+#include <ae/g3d/ResTexFormat.hpp>
 
-namespace XG3D {
+namespace ae {
+namespace g3d {
 class ResTexImpl;
 class TexBuffer;
 }
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
-/// @addtogroup XG3D-Res
+/// @addtogroup AeG3d-Res
 //@{
     /// @brief XTEXデータのアクセサ。
     /// @details
@@ -51,12 +53,12 @@ public:
     //@}
 
 private:
-    ::XBase::Pointer< const ResTexImpl > mPtr;
+    ::ae::base::Pointer< const ResTexImpl > mPtr;
     //------------------------------------------------------------------------------
     bool checkInvalid()const;
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

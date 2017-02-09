@@ -1,19 +1,20 @@
 // 文字コード：UTF-8
 #include "ResMdlSubMeshImpl.hpp"
 
-#include <XG3D/ResMdl.hpp>
+#include <ae/g3d/ResMdl.hpp>
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 //------------------------------------------------------------------------------
 ResMdlSubMeshImpl::ResMdlSubMeshImpl(
-    const ::XData::XData& aXData,
+    const ::ae::xdata::Xdata& aXdata,
     const BinResMdlSubMesh* aBinPtr,
-    ::XBase::IAllocator&,
+    ::ae::base::IAllocator&,
     const ResMdl& aResMdl
     )
-: xdata(aXData.ptr())
+: xdata(aXdata.ptr())
 , binPtr(aBinPtr)
 , resMdlShape(aResMdl.shape(binPtr->shapeIdx))
 {
@@ -24,5 +25,5 @@ ResMdlSubMeshImpl::~ResMdlSubMeshImpl()
 {
 }
 
-} // namespace
+}} // namespace
 // EOF

@@ -1,19 +1,19 @@
 // 文字コード：UTF-8
-#include <XBase/XBase.hpp>
+#include <ae/base/All.hpp>
 
 //------------------------------------------------------------------------------
-int xmain(::XBase::Application& aApp)
+int xmain(::ae::base::Application& aApp)
 {
     // ディスプレイの作成
-    ::XBase::Display display = ::XBase::Display(::XBase::DisplayContext());
+    ::ae::base::Display display = ::ae::base::Display(::ae::base::DisplayContext());
 
     // ディスプレイの表示
     display.show();
 
     // メインループ
-    while (aApp.receiveEvent() != ::XBase::AppEvent::Quit) {
+    while (aApp.receiveEvent() != ::ae::base::AppEvent::Quit) {
         // 更新以外は何もしない
-        if (aApp.lastEvent() != ::XBase::AppEvent::Update) {
+        if (aApp.lastEvent() != ::ae::base::AppEvent::Update) {
             continue;
         }
 

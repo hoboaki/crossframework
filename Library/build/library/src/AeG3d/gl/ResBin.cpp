@@ -1,31 +1,32 @@
 // 文字コード：UTF-8
-#include <XG3D/ResBin.hpp>
+#include <ae/g3d/ResBin.hpp>
 
-#include <XBase/EnumCheck.hpp>
-#include <XBase/Ref.hpp>
-#include <XBase/RuntimeAssert.hpp>
-#include <XBase/StringTraits.hpp>
-#include <XG3D/Engine.hpp>
+#include <ae/base/EnumCheck.hpp>
+#include <ae/base/Ref.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/base/StringTraits.hpp>
+#include <ae/g3d/Engine.hpp>
 #include "BinResHeader.hpp"
 #include "ResMatSetImpl.hpp"
 #include "ResMdlImpl.hpp"
 #include "ResTexImpl.hpp"
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 //------------------------------------------------------------------------------
 ResBin::ResBin(
     const const_ptr_t aBin,
-    ::XBase::IAllocator& aAllocator
+    ::ae::base::IAllocator& aAllocator
     )
-: mXData()
+: mXdata()
 , mResMatSetImpls()
 , mResMdlImpls()
 , mResTexImpls()
 {
-    // XData作成
-    ::XData::XData xdata(aBin);
+    // Xdata作成
+    ::ae::xdata::Xdata xdata(aBin);
     if (!xdata.isValidData()) {
         // 無効なデータ
         return;
@@ -38,44 +39,44 @@ ResBin::ResBin(
     }
 
     // 正当なデータと判断
-    mXData = xdata;
+    mXdata = xdata;
 
     // Implを作成
     struct Header
     {
         int count;
-        ::XData::Reference refs[1]; // 本来は無限長の配列
+        ::ae::xdata::Reference refs[1]; // 本来は無限長の配列
     };
     {// matSet
         const Header* resMatSets = reinterpret_cast<const Header*>(ref(ptr->matSets));
-        mResMatSetImpls.init(resMatSets->count, ::XBase::Ref(aAllocator));
+        mResMatSetImpls.init(resMatSets->count, ::ae::base::Ref(aAllocator));
         for (int i = 0; i < resMatSets->count; ++i) {
             mResMatSetImpls->add(
-                ::XBase::Ref(mXData),
+                ::ae::base::Ref(mXdata),
                 reinterpret_cast<const BinResMatSet*>(ref(resMatSets->refs[i])),
-                ::XBase::Ref(aAllocator)
+                ::ae::base::Ref(aAllocator)
                 );
         }
     }
     {// mdl
         const Header* resMdls = reinterpret_cast<const Header*>(ref(ptr->mdls));
-        mResMdlImpls.init(resMdls->count, ::XBase::Ref(aAllocator));
+        mResMdlImpls.init(resMdls->count, ::ae::base::Ref(aAllocator));
         for (int i = 0; i < resMdls->count; ++i) {
             mResMdlImpls->add(
-                ::XBase::Ref(mXData),
+                ::ae::base::Ref(mXdata),
                 reinterpret_cast<const BinResMdl*>(ref(resMdls->refs[i])),
-                ::XBase::Ref(aAllocator)
+                ::ae::base::Ref(aAllocator)
                 );
         }
     }
     {// tex
         const Header* resTexs = reinterpret_cast<const Header*>(ref(ptr->texs));
-        mResTexImpls.init(resTexs->count, ::XBase::Ref(aAllocator));
+        mResTexImpls.init(resTexs->count, ::ae::base::Ref(aAllocator));
         for (int i = 0; i < resTexs->count; ++i) {
             mResTexImpls->add(
-                ::XBase::Ref(mXData),
+                ::ae::base::Ref(mXdata),
                 reinterpret_cast<const BinResTex*>(ref(resTexs->refs[i])),
-                ::XBase::Ref(aAllocator)
+                ::ae::base::Ref(aAllocator)
                 );
         }
     }
@@ -90,7 +91,7 @@ ResBin::~ResBin()
 //------------------------------------------------------------------------------
 bool ResBin::isValid()const
 {
-    return mXData.isValidData();
+    return mXdata.isValidData();
 }
 
 //------------------------------------------------------------------------------
@@ -213,7 +214,7 @@ ResMatSet ResBin::matSet(const char* aName)const
     // 検索
     for (int i = 0; i < mResMatSetImpls->count(); ++i) {
         ResMatSetImpl& impl = mResMatSetImpls->at(i);
-        if (::XBase::StringTraits< char >::Equals(ResMatSet(impl).name(), aName)) {
+        if (::ae::base::StringTraits< char >::Equals(ResMatSet(impl).name(), aName)) {
             return ResMatSet(impl);
         }
     }
@@ -251,7 +252,7 @@ ResMdl ResBin::mdl(const char* aName)const
     // 検索
     for (int i = 0; i < mResMdlImpls->count(); ++i) {
         ResMdlImpl& impl = mResMdlImpls->at(i);
-        if (::XBase::StringTraits< char >::Equals(ResMdl(impl).name(), aName)) {
+        if (::ae::base::StringTraits< char >::Equals(ResMdl(impl).name(), aName)) {
             return ResMdl(impl);
         }
     }
@@ -289,7 +290,7 @@ ResTex ResBin::tex(const char* aName)const
     // 検索
     for (int i = 0; i < mResTexImpls->count(); ++i) {
         ResTexImpl& impl = mResTexImpls->at(i);
-        if (::XBase::StringTraits< char >::Equals(ResTex(impl).name(), aName)) {
+        if (::ae::base::StringTraits< char >::Equals(ResTex(impl).name(), aName)) {
             return ResTex(impl);
         }
     }
@@ -304,19 +305,19 @@ bool ResBin::checkInvalid()const
     }
 
     // 不正なのでエラー
-    XBASE_ASSERT_NOT_REACHED();
+    AE_BASE_ASSERT_NOT_REACHED();
     return true;
 }
 
 //------------------------------------------------------------------------------
-const_ptr_t ResBin::ref(const ::XData::Reference aVal)const
+const_ptr_t ResBin::ref(const ::ae::xdata::Reference aVal)const
 {
     // ポインタ取得
-    XBASE_ASSERT(isValid());
-    const void* ptr = mXData.labelAddressWithReference(aVal);
+    AE_BASE_ASSERT(isValid());
+    const void* ptr = mXdata.labelAddressWithReference(aVal);
 
     // エラーチェック
-    if (::XBase::PointerCheck::InvalidCheck(ptr)) {
+    if (::ae::base::PointerCheck::InvalidCheck(ptr)) {
         return 0;
     }
 
@@ -324,5 +325,5 @@ const_ptr_t ResBin::ref(const ::XData::Reference aVal)const
     return const_ptr_t(ptr);
 }
 
-} // namespace
+}} // namespace
 // EOF

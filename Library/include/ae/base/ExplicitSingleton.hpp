@@ -1,15 +1,16 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_EXPLICITSINGLETON_HPP)
+#if defined(AE_BASE_INCLUDED_EXPLICITSINGLETON_HPP)
 #else
-#define XBASE_INCLUDED_EXPLICITSINGLETON_HPP
+#define AE_BASE_INCLUDED_EXPLICITSINGLETON_HPP
 
-#include <XBase/NonCopyable.hpp>
-#include <XBase/RuntimeAssert.hpp>
+#include <ae/base/NonCopyable.hpp>
+#include <ae/base/RuntimeAssert.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
-/// @name addtogroup XBase-Util
+/// @name addtogroup AeBase-Util
 //@{
     /// @brief 明示的に生成・解放できるシングルトン。
     /// @details 
@@ -19,7 +20,7 @@ namespace XBase {
     ///      *
     /// @code
     /// // 例
-    /// class Manager : public ::XBase::ExplicitSingleton< Manager >
+    /// class Manager : public ::ae::base::ExplicitSingleton< Manager >
     /// {
     /// public:
     ///     Manager()
@@ -46,11 +47,11 @@ public:
     //@{
     ExplicitSingleton()
     {
-        XBASE_ASSERT(!IsCreated());
+        AE_BASE_ASSERT(!IsCreated());
     }
     ~ExplicitSingleton()
     {
-        XBASE_ASSERT(!IsCreated());
+        AE_BASE_ASSERT(!IsCreated());
     }
     //@}
 
@@ -75,7 +76,7 @@ private:
 template< typename T >
 T& ExplicitSingleton<T>::Instance()
 {
-    XBASE_ASSERT(IsCreated());
+    AE_BASE_ASSERT(IsCreated());
     return *sPtr;
 }
 
@@ -88,20 +89,20 @@ bool ExplicitSingleton<T>::IsCreated()
 template< typename T >
 void ExplicitSingleton<T>::SetInstance(T& aRef)
 {
-    XBASE_ASSERT(!IsCreated());
+    AE_BASE_ASSERT(!IsCreated());
     sPtr = &aRef;
 }
 
 template< typename T >
 void ExplicitSingleton<T>::UnsetInstance()
 {
-    XBASE_ASSERT(IsCreated());
+    AE_BASE_ASSERT(IsCreated());
     sPtr = 0;
 }
 
 template< typename T >
 T* ExplicitSingleton<T>::sPtr = 0;
 
-} // namespace
+}} // namespace
 #endif
 // EOF

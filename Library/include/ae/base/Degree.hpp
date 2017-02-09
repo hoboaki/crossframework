@@ -1,17 +1,19 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_DEGREE_HPP)
+#if defined(AE_BASE_INCLUDED_DEGREE_HPP)
 #else
-#define XBASE_INCLUDED_DEGREE_HPP
+#define AE_BASE_INCLUDED_DEGREE_HPP
 
-#include <XBase/BuiltInTypes.hpp>
+#include <ae/base/BuiltInTypes.hpp>
 
-namespace XBase {
+namespace ae {
+namespace base {
 class  Angle;
 struct RadianPod;
 }
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Math
 //@{
@@ -40,6 +42,6 @@ public:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

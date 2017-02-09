@@ -1,14 +1,15 @@
 // 文字コード：UTF-8
-#include <XBase/Color4b.hpp>
+#include <ae/base/Color4b.hpp>
 
-#include <XBase/Color4.hpp>
-#include <XBase/DivideCheck.hpp>
-#include <XBase/Math.hpp>
-#include <XBase/RuntimeAssert.hpp>
-#include <XBase/ScalerTypes.hpp>
+#include <ae/base/Color4.hpp>
+#include <ae/base/DivideCheck.hpp>
+#include <ae/base/Math.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/base/ScalerTypes.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 const Color4bPod Color4bPod::Zero()
@@ -78,9 +79,9 @@ const Color4Pod Color4bPod::toRGBAf()const
 }
 
 //------------------------------------------------------------------------------
-const ::XBase::ShortString Color4bPod::toShortString()const
+const ::ae::base::ShortString Color4bPod::toShortString()const
 {
-    return ::XBase::ShortString::FromFormat(
+    return ::ae::base::ShortString::FromFormat(
         "%s,%s,%s,%s",
         U8(r).toShortString().readPtr(),
         U8(g).toShortString().readPtr(),
@@ -110,5 +111,5 @@ Color4b::Color4b(const u8 aR, const u8 aG, const u8 aB, const u8 aA)
     a = aA;
 }
 
-} // namespace
+}} // namespace
 // EOF

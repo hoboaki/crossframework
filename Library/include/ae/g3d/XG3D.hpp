@@ -1,45 +1,45 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_XG3D_HPP)
+#if defined(AE_G3D_INCLUDED_AE_G3D_HPP)
 #else
-#define XG3D_INCLUDED_XG3D_HPP
+#define AE_G3D_INCLUDED_AE_G3D_HPP
 
-/// @namespace XG3D 3Dレンダリングに関わるクラス・関数を定義する名前空間。
+/// @namespace AeG3d 3Dレンダリングに関わるクラス・関数を定義する名前空間。
 
-/// @defgroup XG3D-Enum XG3D:列挙値・定数
-#include <XG3D/PrimitiveKind.hpp>
-#include <XG3D/TexAddress.hpp>
-#include <XG3D/TexFilter.hpp>
-#include <XG3D/TexId.hpp>
+/// @defgroup AeG3d-Enum AeG3d:列挙値・定数
+#include <ae/g3d/PrimitiveKind.hpp>
+#include <ae/g3d/TexAddress.hpp>
+#include <ae/g3d/TexFilter.hpp>
+#include <ae/g3d/TexId.hpp>
 
-/// @defgroup XG3D-Env XG3D:環境情報
-#include <XG3D/Engine.hpp>
+/// @defgroup AeG3d-Env AeG3d:環境情報
+#include <ae/g3d/Engine.hpp>
 
-/// @defgroup XG3D-Res XG3D:リソース
-#include <XG3D/ResBin.hpp>
-#include <XG3D/ResMdl.hpp>
-#include <XG3D/ResTex.hpp>
-#include <XG3D/ResTexFormat.hpp>
+/// @defgroup AeG3d-Res AeG3d:リソース
+#include <ae/g3d/ResBin.hpp>
+#include <ae/g3d/ResMdl.hpp>
+#include <ae/g3d/ResTex.hpp>
+#include <ae/g3d/ResTexFormat.hpp>
 
-/// @defgroup XG3D-State XG3D:リソースインスタンスの状態
-#include <XG3D/StateMaterial.hpp>
-#include <XG3D/StateMdlMaterial.hpp>
-#include <XG3D/StateMdlTransform.hpp>
-// #include <XG3D/StateMdlVisibility.hpp>
+/// @defgroup AeG3d-State AeG3d:リソースインスタンスの状態
+#include <ae/g3d/StateMaterial.hpp>
+#include <ae/g3d/StateMdlMaterial.hpp>
+#include <ae/g3d/StateMdlTransform.hpp>
+// #include <ae/g3d/StateMdlVisibility.hpp>
 
-/// @defgroup XG3D-System XG3D:システム
-#include <XG3D/Renderer.hpp>
+/// @defgroup AeG3d-System AeG3d:システム
+#include <ae/g3d/Renderer.hpp>
 
-/// @defgroup XG3D-Types XG3D:型
-#include <XG3D/BuiltInTypes.hpp>
+/// @defgroup AeG3d-Types AeG3d:型
+#include <ae/g3d/BuiltInTypes.hpp>
 
-/// @defgroup XG3D-Util XG3D:ユーティリティ
-#include <XG3D/RuntimeTex.hpp>
-#include <XG3D/RuntimeTexContext.hpp>
-#include <XG3D/ITexRes.hpp>
-#include <XG3D/TexBuffer.hpp>
-#include <XG3D/TexResData.hpp>
-#include <XG3D/TexSetting.hpp>
-#include <XG3D/VtxBuffer.hpp>
+/// @defgroup AeG3d-Util AeG3d:ユーティリティ
+#include <ae/g3d/RuntimeTex.hpp>
+#include <ae/g3d/RuntimeTexContext.hpp>
+#include <ae/g3d/ITexRes.hpp>
+#include <ae/g3d/TexBuffer.hpp>
+#include <ae/g3d/TexResData.hpp>
+#include <ae/g3d/TexSetting.hpp>
+#include <ae/g3d/VtxBuffer.hpp>
 
 #endif
 // EOF

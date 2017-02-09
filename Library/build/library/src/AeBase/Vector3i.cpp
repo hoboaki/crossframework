@@ -1,16 +1,17 @@
 // 文字コード：UTF-8
-#include <XBase/Vector3i.hpp>
+#include <ae/base/Vector3i.hpp>
 
-#include <XBase/DivideCheck.hpp>
-#include <XBase/Math.hpp>
-#include <XBase/RuntimeAssert.hpp>
-#include <XBase/ScalerTypes.hpp>
-#include <XBase/Vector2i.hpp>
-#include <XBase/Vector3.hpp>
-#include <XBase/Vector4i.hpp>
+#include <ae/base/DivideCheck.hpp>
+#include <ae/base/Math.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/base/ScalerTypes.hpp>
+#include <ae/base/Vector2i.hpp>
+#include <ae/base/Vector3.hpp>
+#include <ae/base/Vector4i.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 const Vector3iPod Vector3iPod::Zero()
@@ -285,7 +286,7 @@ void Vector3iPod::mulAssign(const s32 aVal)
 void Vector3iPod::divAssign(const s32 aVal)
 {
     if (aVal == 0) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return;
     }
     x /= aVal;
@@ -320,9 +321,9 @@ void Vector3iPod::mulAssign(const Vector3iPod& aVal)
 //------------------------------------------------------------------------------
 void Vector3iPod::divAssign(const Vector3iPod& aVal)
 {
-    XBASE_DIV_ASSIGN(x, aVal.x);
-    XBASE_DIV_ASSIGN(y, aVal.y);
-    XBASE_DIV_ASSIGN(z, aVal.z);
+    AE_BASE_DIV_ASSIGN(x, aVal.x);
+    AE_BASE_DIV_ASSIGN(y, aVal.y);
+    AE_BASE_DIV_ASSIGN(z, aVal.z);
 }
 
 //------------------------------------------------------------------------------
@@ -509,9 +510,9 @@ bool Vector3iPod::isZero()const
 }
 
 //------------------------------------------------------------------------------
-const ::XBase::ShortString Vector3iPod::toShortString()const
+const ::ae::base::ShortString Vector3iPod::toShortString()const
 {
-    return ::XBase::ShortString::FromFormat(
+    return ::ae::base::ShortString::FromFormat(
         "%s,%s,%s",
         S32(x).toShortString().readPtr(),
         S32(y).toShortString().readPtr(),
@@ -555,5 +556,5 @@ Vector3i::Vector3i(const s32 aX, const s32 aY, const s32 aZ)
     z = aZ;
 }
 
-} // namespace
+}} // namespace
 // EOF

@@ -1,31 +1,33 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_TEXBUFFER_HPP)
+#if defined(AE_G3D_INCLUDED_TEXBUFFER_HPP)
 #else
-#define XG3D_INCLUDED_TEXBUFFER_HPP
+#define AE_G3D_INCLUDED_TEXBUFFER_HPP
 
-#include <XBase/IAllocator.hpp>
-#include <XBase/NonCopyable.hpp>
-#include <XG3D/BuiltInTypes.hpp>
-#include <XG3D/Engine.hpp>
-#include <XG3D/TexResData.hpp>
+#include <ae/base/IAllocator.hpp>
+#include <ae/base/NonCopyable.hpp>
+#include <ae/g3d/BuiltInTypes.hpp>
+#include <ae/g3d/Engine.hpp>
+#include <ae/g3d/TexResData.hpp>
 
-#if defined(XG3D_ENGINE_GLSERIES)
-#include <XG3D/TexBuffer_GL.hpp>
+#if defined(AE_G3D_ENGINE_GLSERIES)
+#include <ae/g3d/TexBuffer_GL.hpp>
 #endif
 
-namespace XG3D {
+namespace ae {
+namespace g3d {
 class TexSetting;
 }
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
-/// @addtogroup XG3D-Util
+/// @addtogroup AeG3d-Util
 //@{
 /// @brief テクスチャバッファ。
 /// @details
 /// テクスチャの描画用バッファの作成・保持をするクラスです。 @n
-class TexBuffer : public ::XBase::NonCopyable
+class TexBuffer : public ::ae::base::NonCopyable
 {
 public:
     /// @name コンストラクタとデストラクタ
@@ -53,6 +55,6 @@ private:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

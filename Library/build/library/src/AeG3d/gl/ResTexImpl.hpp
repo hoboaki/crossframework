@@ -1,24 +1,25 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_RESTEXIMPL_HPP)
+#if defined(AE_G3D_INCLUDED_RESTEXIMPL_HPP)
 #else
-#define XG3D_INCLUDED_RESTEXIMPL_HPP
+#define AE_G3D_INCLUDED_RESTEXIMPL_HPP
 
-#include <XBase/IAllocator.hpp>
-#include <XBase/NonCopyable.hpp>
-#include <XBase/Placement.hpp>
-#include <XG3D/ResTexFormat.hpp>
-#include <XG3D/TexBuffer.hpp>
+#include <ae/base/IAllocator.hpp>
+#include <ae/base/NonCopyable.hpp>
+#include <ae/base/Placement.hpp>
+#include <ae/g3d/ResTexFormat.hpp>
+#include <ae/g3d/TexBuffer.hpp>
 #include "BinResTex.hpp"
-#include "XDataPlus.hpp"
+#include "XdataPlus.hpp"
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 // BinResTexとResTexの間にかますクラス。
-class ResTexImpl : public ::XBase::NonCopyable
+class ResTexImpl : public ::ae::base::NonCopyable
 {
 public:
-    const XDataPlus     xdata;
+    const XdataPlus     xdata;
     const BinResTex*    binPtr;
     const TexBuffer*    texBufferPtr;
 
@@ -26,7 +27,7 @@ public:
 
     //============================================================
     // バイナリデータの先頭アドレスを指定して作成。
-    ResTexImpl(const ::XData::XData& aXData, const BinResTex* aBinPtr, ::XBase::IAllocator& aAllocator);
+    ResTexImpl(const ::ae::xdata::Xdata& aXdata, const BinResTex* aBinPtr, ::ae::base::IAllocator& aAllocator);
     ~ResTexImpl();
 
     //============================================================
@@ -35,9 +36,9 @@ public:
     const byte_t* pixels()const;
 
 private:
-    ::XBase::Placement< TexBuffer > mTexBuffer;
+    ::ae::base::Placement< TexBuffer > mTexBuffer;
 };
 
-} // namespace
+}} // namespace
 #endif
 // EOF

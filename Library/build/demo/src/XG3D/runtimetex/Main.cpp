@@ -1,23 +1,23 @@
 // 文字コード：UTF-8
-#include <XBase/XBase.hpp>
-#include <XG3D/XG3D.hpp>
+#include <ae/base/All.hpp>
+#include <ae/g3d/All.hpp>
 
 //------------------------------------------------------------------------------
-int xmain(::XBase::Application& aApp)
+int xmain(::ae::base::Application& aApp)
 {
     // ディスプレイ作成
-    ::XBase::Display display = ::XBase::Display(::XBase::DisplayContext());
+    ::ae::base::Display display = ::ae::base::Display(::ae::base::DisplayContext());
 
     // レンダラー作成
-    ::XG3D::Renderer renderer(display);
+    ::ae::g3d::Renderer renderer(display);
 
     // フレームバッファのクリアカラー設定
-    renderer.fbSetClearColor(::XBase::Color4(0.5f, 0.5f, 0.5f, 0.5f));
+    renderer.fbSetClearColor(::ae::base::Color4(0.5f, 0.5f, 0.5f, 0.5f));
 
     // 矩形の頂点バッファを準備
-    ::XG3D::VtxBuffer vtx(1, 4);
+    ::ae::g3d::VtxBuffer vtx(1, 4);
     {// 頂点を作成
-        vtx.begin(::XG3D::PrimitiveKind::Quads);
+        vtx.begin(::ae::g3d::PrimitiveKind::Quads);
         {
             vtx.texCoord(1.0f, 1.0f);
             vtx.vertex(0.5f, 0.5f);
@@ -36,21 +36,21 @@ int xmain(::XBase::Application& aApp)
     }
 
     // 実行時テクスチャのイメージを作成
-    ::XG3D::RuntimeTex runtimeTex(::XG3D::RuntimeTexContext::Create(
-        ::XG3D::ResTexFormat::RGBA8,
+    ::ae::g3d::RuntimeTex runtimeTex(::ae::g3d::RuntimeTexContext::Create(
+        ::ae::g3d::ResTexFormat::RGBA8,
         256,
         256
         ));
     runtimeTex.beginEdit();
     {
-        ::XBase::Color4b color;
+        ::ae::base::Color4b color;
         color.a = 0xFF;
         for (int y = 0; y < runtimeTex.context().height(); ++y) {
             // 縦方向にRのグラデーション
-            color.r = ::XBase::u8(y);
+            color.r = ::ae::base::u8(y);
             for (int x = 0; x < runtimeTex.context().width(); ++x) {
                 // 横方向にGのグラデーション
-                color.g = ::XBase::u8(x);
+                color.g = ::ae::base::u8(x);
 
                 // 設定
                 runtimeTex.setPixel(x, y, color);
@@ -60,8 +60,8 @@ int xmain(::XBase::Application& aApp)
     runtimeTex.endEdit();
 
     // テクスチャの準備
-    ::XG3D::TexBuffer texBuffer(runtimeTex.texResData());
-    ::XG3D::TexSetting texSetting;
+    ::ae::g3d::TexBuffer texBuffer(runtimeTex.texResData());
+    ::ae::g3d::TexSetting texSetting;
     {// 設定を作成
         texSetting.setIsActive(true);
         texSetting.bindBuffer(texBuffer);
@@ -74,15 +74,15 @@ int xmain(::XBase::Application& aApp)
     bool doExit = false;
     while (!doExit) {
         // イベントの取得
-        ::XBase::AppEvent::EnumType event = aApp.receiveEvent();
+        ::ae::base::AppEvent::EnumType event = aApp.receiveEvent();
 
         // イベントによって分岐
         switch (event) {
-            case ::XBase::AppEvent::Quit:
+            case ::ae::base::AppEvent::Quit:
                 doExit = true;
                 break;
 
-            case ::XBase::AppEvent::Update:
+            case ::ae::base::AppEvent::Update:
             {
                 // ディスプレイが閉じてたら終了
                 if (display.isClosed()) {
@@ -95,7 +95,7 @@ int xmain(::XBase::Application& aApp)
 
                 // テクスチャを設定
                 renderer.sdReset();
-                renderer.sdSetTex(::XG3D::TexId::No0, texSetting);
+                renderer.sdSetTex(::ae::g3d::TexId::No0, texSetting);
 
                 // 矩形を描画
                 vtx.draw();

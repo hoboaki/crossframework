@@ -1,29 +1,29 @@
 // 文字コード：UTF-8
-#include <XBase/XBase.hpp>
+#include <ae/base/All.hpp>
 
 //------------------------------------------------------------------------------
-int xmain(::XBase::Application& aApp)
+int xmain(::ae::base::Application& aApp)
 {
     // 開始
-    XBASE_COUT_LINE("xmain started.");
+    AE_BASE_COUT_LINE("xmain started.");
 
     // 終了イベントがくるまでループ
     int count = 0;
-    while (aApp.receiveEvent() != ::XBase::AppEvent::Quit) {
+    while (aApp.receiveEvent() != ::ae::base::AppEvent::Quit) {
         // 更新以外は何もしない
-        if (aApp.lastEvent() != ::XBase::AppEvent::Update) {
+        if (aApp.lastEvent() != ::ae::base::AppEvent::Update) {
             continue;
         }
 
         // 60フレごとにprintf
         ++count;
         if (count % 60 == 0) {
-            XBASE_COUTFMT_LINE("count is %d.", count);
+            AE_BASE_COUTFMT_LINE("count is %d.", count);
         }
     }
 
     // 終了
-    XBASE_COUT_LINE("xmain finished.");
+    AE_BASE_COUT_LINE("xmain finished.");
     return 0;
 }
 

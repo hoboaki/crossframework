@@ -1,12 +1,13 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_TEXBUFFER_GL_HPP)
+#if defined(AE_G3D_INCLUDED_TEXBUFFER_GL_HPP)
 #else
-#define XG3D_INCLUDED_TEXBUFFER_GL_HPP
+#define AE_G3D_INCLUDED_TEXBUFFER_GL_HPP
 
-#include <XG3D/SdkHeader.hpp>
+#include <ae/g3d/SdkHeader.hpp>
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 // TexBufferの拡張。
 class TexBuffer_Ext
@@ -19,6 +20,6 @@ public:
     ~TexBuffer_Ext();
 };
 
-} // namespace
+}} // namespace
 #endif
 // EOF

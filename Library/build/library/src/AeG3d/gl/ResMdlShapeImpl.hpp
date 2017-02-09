@@ -1,19 +1,20 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_RESMDLSHAPEIMPL_HPP)
+#if defined(AE_G3D_INCLUDED_RESMDLSHAPEIMPL_HPP)
 #else
-#define XG3D_INCLUDED_RESMDLSHAPEIMPL_HPP
+#define AE_G3D_INCLUDED_RESMDLSHAPEIMPL_HPP
 
-#include <XBase/IAllocator.hpp>
-#include <XBase/NonCopyable.hpp>
-#include <XG3D/SdkHeader.hpp>
+#include <ae/base/IAllocator.hpp>
+#include <ae/base/NonCopyable.hpp>
+#include <ae/g3d/SdkHeader.hpp>
 #include "BinResMdlShape.hpp"
-#include "XDataPlus.hpp"
+#include "XdataPlus.hpp"
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 // BinResMdlShapeとResMdlShapeの間にかますクラス。
-class ResMdlShapeImpl : public ::XBase::NonCopyable
+class ResMdlShapeImpl : public ::ae::base::NonCopyable
 {
 public:
     struct VtxAttr
@@ -23,7 +24,7 @@ public:
         const BinResMdlShape::VtxAttrInfo* info;
     };
     //============================================================
-    const XDataPlus         xdata;
+    const XdataPlus         xdata;
     const BinResMdlShape*   binPtr;
     VtxAttr vtxAttrs[ResMdlShapeInputKind::TERM];
     GLuint idxBuffer;
@@ -32,7 +33,7 @@ public:
 
     //============================================================
     // バイナリデータの先頭アドレスを指定して作成。
-    ResMdlShapeImpl(const ::XData::XData& aXData, const BinResMdlShape* aBinPtr, ::XBase::IAllocator& aAllocator);
+    ResMdlShapeImpl(const ::ae::xdata::Xdata& aXdata, const BinResMdlShape* aBinPtr, ::ae::base::IAllocator& aAllocator);
     ~ResMdlShapeImpl();
 
     //============================================================
@@ -40,6 +41,6 @@ public:
     void release();
 };
 
-} // namespace
+}} // namespace
 #endif
 // EOF

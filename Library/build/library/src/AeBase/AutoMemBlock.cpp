@@ -1,10 +1,11 @@
 // 文字コード：UTF-8
-#include <XBase/AutoMemBlock.hpp>
+#include <ae/base/AutoMemBlock.hpp>
 
-#include <XBase/IAllocator.hpp>
+#include <ae/base/IAllocator.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 AutoMemBlock::AutoMemBlock()
@@ -75,7 +76,7 @@ void AutoMemBlock::clear()
 //------------------------------------------------------------------------------
 const MemBlock& AutoMemBlock::ref()const
 {
-    XBASE_ASSERT(!isEmpty());
+    AE_BASE_ASSERT(!isEmpty());
     return mBlock;
 }
 
@@ -109,5 +110,5 @@ const MemBlock* AutoMemBlock::operator->()const
     return &ref();
 }
 
-} // namespace
+}} // namespace
 // EOF

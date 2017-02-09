@@ -1,15 +1,16 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_MATPARAM_HPP)
+#if defined(AE_G3D_INCLUDED_MATPARAM_HPP)
 #else
-#define XG3D_INCLUDED_MATPARAM_HPP
+#define AE_G3D_INCLUDED_MATPARAM_HPP
 
-#include <XBase/Matrix34.hpp>
-#include <XBase/Vector3.hpp>
+#include <ae/base/Matrix34.hpp>
+#include <ae/base/Vector3.hpp>
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
-/// @addtogroup XG3D-State
+/// @addtogroup AeG3d-State
 //@{
 /// @brief StateMaterialが持つマテリアルパラメータ。
 class MatParam
@@ -22,6 +23,6 @@ private:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

@@ -1,16 +1,17 @@
 // 文字コード：UTF-8
-#include <XBase/Vector4i.hpp>
+#include <ae/base/Vector4i.hpp>
 
-#include <XBase/DivideCheck.hpp>
-#include <XBase/Math.hpp>
-#include <XBase/RuntimeAssert.hpp>
-#include <XBase/ScalerTypes.hpp>
-#include <XBase/Vector2i.hpp>
-#include <XBase/Vector3i.hpp>
-#include <XBase/Vector4.hpp>
+#include <ae/base/DivideCheck.hpp>
+#include <ae/base/Math.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/base/ScalerTypes.hpp>
+#include <ae/base/Vector2i.hpp>
+#include <ae/base/Vector3i.hpp>
+#include <ae/base/Vector4.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 const Vector4iPod Vector4iPod::Zero()
@@ -369,7 +370,7 @@ void Vector4iPod::mulAssign(const s32 aVal)
 void Vector4iPod::divAssign(const s32 aVal)
 {
     if (aVal == 0) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return;
     }
     x /= aVal;
@@ -408,10 +409,10 @@ void Vector4iPod::mulAssign(const Vector4iPod& aVal)
 //------------------------------------------------------------------------------
 void Vector4iPod::divAssign(const Vector4iPod& aVal)
 {
-    XBASE_DIV_ASSIGN(x, aVal.x);
-    XBASE_DIV_ASSIGN(y, aVal.y);
-    XBASE_DIV_ASSIGN(z, aVal.z);
-    XBASE_DIV_ASSIGN(w, aVal.w);
+    AE_BASE_DIV_ASSIGN(x, aVal.x);
+    AE_BASE_DIV_ASSIGN(y, aVal.y);
+    AE_BASE_DIV_ASSIGN(z, aVal.z);
+    AE_BASE_DIV_ASSIGN(w, aVal.w);
 }
 
 //------------------------------------------------------------------------------
@@ -602,9 +603,9 @@ bool Vector4iPod::isZero()const
 }
 
 //------------------------------------------------------------------------------
-const ::XBase::ShortString Vector4iPod::toShortString()const
+const ::ae::base::ShortString Vector4iPod::toShortString()const
 {
-    return ::XBase::ShortString::FromFormat(
+    return ::ae::base::ShortString::FromFormat(
         "%s,%s,%s,%s",
         S32(x).toShortString().readPtr(),
         S32(y).toShortString().readPtr(),
@@ -661,5 +662,5 @@ Vector4i::Vector4i(const s32 aX, const s32 aY, const s32 aZ, const s32 aW)
     w = aW;
 }
 
-} // namespace
+}} // namespace
 // EOF

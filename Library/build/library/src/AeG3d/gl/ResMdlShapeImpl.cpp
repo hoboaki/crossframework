@@ -1,12 +1,13 @@
 // 文字コード：UTF-8
 #include "ResMdlShapeImpl.hpp"
 
-#include <XBase/ArrayLength.hpp>
-#include <XBase/Ref.hpp>
+#include <ae/base/ArrayLength.hpp>
+#include <ae/base/Ref.hpp>
 #include "GlCmd.hpp"
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 //------------------------------------------------------------------------------
 namespace {
 
@@ -25,15 +26,15 @@ const tInputTypeData tINPUT_TYPE_DATA_TABLE[] =
     {GL_UNSIGNED_SHORT, sizeof(GLushort)},
     {GL_UNSIGNED_INT, sizeof(GLuint)}
 };
-XBASE_ARRAY_LENGTH_CHECK(tINPUT_TYPE_DATA_TABLE, ResMdlShapeInputType::TERM);
+AE_BASE_ARRAY_LENGTH_CHECK(tINPUT_TYPE_DATA_TABLE, ResMdlShapeInputType::TERM);
 }
 //------------------------------------------------------------------------------
 ResMdlShapeImpl::ResMdlShapeImpl(
-    const ::XData::XData& aXData,
+    const ::ae::xdata::Xdata& aXdata,
     const BinResMdlShape* aBinPtr,
-    ::XBase::IAllocator&
+    ::ae::base::IAllocator&
     )
-: xdata(aXData.ptr())
+: xdata(aXdata.ptr())
 , binPtr(aBinPtr)
 , vtxAttrs()
 , idxBuffer(0)
@@ -74,34 +75,34 @@ void ResMdlShapeImpl::setup()
     }
 
     // バッファ作成
-    XBASE_ASSERT_EQUALS(uint(idxBuffer), 0);
-    XBASE_ASSERT_EQUALS(uint(vtxAttrBuffer), 0);
-    XG3D_GLCMD(glGenBuffers(1, &idxBuffer));
-    XG3D_GLCMD(glGenBuffers(1, &vtxAttrBuffer));
+    AE_BASE_ASSERT_EQUALS(uint(idxBuffer), 0);
+    AE_BASE_ASSERT_EQUALS(uint(vtxAttrBuffer), 0);
+    AE_G3D_GLCMD(glGenBuffers(1, &idxBuffer));
+    AE_G3D_GLCMD(glGenBuffers(1, &vtxAttrBuffer));
 
     // idx
-    XG3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, idxBuffer));
-    XG3D_GLCMD(glBufferData(GL_ELEMENT_ARRAY_BUFFER, tINPUT_TYPE_DATA_TABLE[binPtr->indexArrayDataType].size * binPtr->indexArrayDataCount, xdata.ref< GLubyte >(binPtr->indexArrayDataRef), GL_STATIC_DRAW));
-    XG3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0));
+    AE_G3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, idxBuffer));
+    AE_G3D_GLCMD(glBufferData(GL_ELEMENT_ARRAY_BUFFER, tINPUT_TYPE_DATA_TABLE[binPtr->indexArrayDataType].size * binPtr->indexArrayDataCount, xdata.ref< GLubyte >(binPtr->indexArrayDataRef), GL_STATIC_DRAW));
+    AE_G3D_GLCMD(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0));
 
     // vtx
-    XG3D_GLCMD(glBindBuffer(GL_ARRAY_BUFFER, vtxAttrBuffer));
-    XG3D_GLCMD(glBufferData(GL_ARRAY_BUFFER, binPtr->vtxAttrDataSize, xdata.ref< GLubyte >(binPtr->vtxAttrDataRef), GL_STATIC_DRAW));
-    XG3D_GLCMD(glBindBuffer(GL_ARRAY_BUFFER, 0));
+    AE_G3D_GLCMD(glBindBuffer(GL_ARRAY_BUFFER, vtxAttrBuffer));
+    AE_G3D_GLCMD(glBufferData(GL_ARRAY_BUFFER, binPtr->vtxAttrDataSize, xdata.ref< GLubyte >(binPtr->vtxAttrDataRef), GL_STATIC_DRAW));
+    AE_G3D_GLCMD(glBindBuffer(GL_ARRAY_BUFFER, 0));
 }
 
 //------------------------------------------------------------------------------
 void ResMdlShapeImpl::release()
 {
     if (vtxAttrBuffer != 0) {
-        XG3D_GLCMD(glDeleteBuffers(1, &vtxAttrBuffer));
+        AE_G3D_GLCMD(glDeleteBuffers(1, &vtxAttrBuffer));
         vtxAttrBuffer = 0;
     }
     if (idxBuffer != 0) {
-        XG3D_GLCMD(glDeleteBuffers(1, &idxBuffer));
+        AE_G3D_GLCMD(glDeleteBuffers(1, &idxBuffer));
         idxBuffer = 0;
     }
 }
 
-} // namespace
+}} // namespace
 // EOF

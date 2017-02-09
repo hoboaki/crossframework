@@ -1,10 +1,11 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_NONCOPYABLE_HPP)
+#if defined(AE_BASE_INCLUDED_NONCOPYABLE_HPP)
 #else
-#define XBASE_INCLUDED_NONCOPYABLE_HPP
+#define AE_BASE_INCLUDED_NONCOPYABLE_HPP
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Util
 //@{
@@ -27,6 +28,6 @@ private:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

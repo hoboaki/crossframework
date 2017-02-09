@@ -1,14 +1,14 @@
 // 文字コード：UTF-8
-#include <XBase/EntryPoint.hpp>
+#include <ae/base/EntryPoint.hpp>
 
-#include <XBase/Application.hpp>
-#include <XBase/Argument.hpp>
-#include <XBase/Config.hpp>
-#include <XBase/Console.hpp>
-#include <XBase/RuntimeAssert.hpp>
-#include <XBase/SdkHeader.hpp>
-#include <XBase/StringTraits.hpp>
-#include <XBase/Unused.hpp>
+#include <ae/base/Application.hpp>
+#include <ae/base/Argument.hpp>
+#include <ae/base/Config.hpp>
+#include <ae/base/Console.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/base/SdkHeader.hpp>
+#include <ae/base/StringTraits.hpp>
+#include <ae/base/Unused.hpp>
 
 //------------------------------------------------------------------------------
 #pragma warning(disable: 4996)
@@ -22,7 +22,7 @@ enum
     tExeFileNameLength = 260,
     tExeDirPathLength = 260,
     tArgCharsLength = 8192, // WindowsXP以降のコマンドライン引数の最長。
-    tArgPtrsLength = ::XBase::Argument::ArgCountMax
+    tArgPtrsLength = ::ae::base::Argument::ArgCountMax
 };
 
 bool  tIsConsole = false;
@@ -36,7 +36,7 @@ char* tArgPtrs[tArgPtrsLength];
 // 指定の文字の最後のindex値取得。
 int tLastIndexOf(const char aCh, const char* aStr)
 {
-    XBASE_ASSERT_POINTER(aStr);
+    AE_BASE_ASSERT_POINTER(aStr);
     int index = -1;
     for (int i = 0; aStr[i] != '\0'; ++i) {
         if (aStr[i] == aCh) {
@@ -49,7 +49,7 @@ int tLastIndexOf(const char aCh, const char* aStr)
 // 文字置き換え。
 void tReplaceChar(const char aTargetCh, const char aNewCh, char* aStr)
 {
-    XBASE_ASSERT_POINTER(aStr);
+    AE_BASE_ASSERT_POINTER(aStr);
     for (int i = 0; aStr[i] != '\0'; ++i) {
         if (aStr[i] == aTargetCh) {
             aStr[i] = aNewCh;
@@ -62,15 +62,15 @@ void tSetupExeInfo()
 {
     // 最後の'\'の位置
     const int dirPathLength = tLastIndexOf('\\', tExeFilePath);
-    XBASE_ASSERT_MIN_TERM(0, dirPathLength, int(tExeDirPathLength));
+    AE_BASE_ASSERT_MIN_TERM(0, dirPathLength, int(tExeDirPathLength));
 
     // ディレクトリパス
-    ::XBase::StringTraits< char >::NCopy(tExeDirPath, tExeDirPathLength, tExeFilePath);
+    ::ae::base::StringTraits< char >::NCopy(tExeDirPath, tExeDirPathLength, tExeFilePath);
     tExeDirPath[dirPathLength] = '\0';
     tReplaceChar('\\', '/', tExeDirPath);
 
     // ファイル名
-    ::XBase::StringTraits< char >::NCopy(tExeFileName, tExeFileNameLength, &tExeFilePath[dirPathLength + 1]);
+    ::ae::base::StringTraits< char >::NCopy(tExeFileName, tExeFileNameLength, &tExeFilePath[dirPathLength + 1]);
 }
 
 // 空白文字か
@@ -155,23 +155,23 @@ int tWinMainIN(
     )
 {
     // 引数の作成
-    const ::XBase::Argument arg(
+    const ::ae::base::Argument arg(
         tArgCount,
         tArgPtrs,
         tExeFileName,
         tExeDirPath
         );
-    XBASE_UNUSED(aInstance);
-    XBASE_UNUSED(aCmdShow);
+    AE_BASE_UNUSED(aInstance);
+    AE_BASE_UNUSED(aCmdShow);
 
     // アプリケーション作成
-    ::XBase::Application app(arg);
+    ::ae::base::Application app(arg);
 
     // 実行
     return ::xmain(app);
 }
 
-} // namespace
+}} // namespace
 
 //------------------------------------------------------------------------------
 int WINAPI WinMain(
@@ -188,17 +188,17 @@ int WINAPI WinMain(
     // 引数の解析
     {
         // まずコピー
-        ::XBase::StringTraits< char >::NCopy(tArgChars, tArgCharsLength, aCmdLine);
+        ::ae::base::StringTraits< char >::NCopy(tArgChars, tArgCharsLength, aCmdLine);
 
         // 解析開始
         tSetupArg();
     }
 
     // 引数の作成
-    XBASE_UNUSED(aInstance);
-    XBASE_UNUSED(aPrevInstance);
-    XBASE_UNUSED(aCmdLine);
-    XBASE_UNUSED(aCmdShow);
+    AE_BASE_UNUSED(aInstance);
+    AE_BASE_UNUSED(aPrevInstance);
+    AE_BASE_UNUSED(aCmdLine);
+    AE_BASE_UNUSED(aCmdShow);
     /// @todo 引数の解析
 
     // 実行
@@ -206,7 +206,7 @@ int WINAPI WinMain(
 }
 
 //------------------------------------------------------------------------------
-#if !defined(XBASE_FINAL)
+#if !defined(AE_BASE_FINAL)
 int main(
     const int aArgCount,
     const char* aArgValues[]
@@ -219,11 +219,11 @@ int main(
     // C:\dirname\FileName.exe といった文字列が入っている。
     {
         // フルパス取得
-        XBASE_ASSERT_LESS_EQUALS(1, aArgCount);
+        AE_BASE_ASSERT_LESS_EQUALS(1, aArgCount);
         const char* fullPath = aArgValues[0];
 
         // フルパスを設定
-        ::XBase::StringTraits< char >::NCopy(tExeFilePath, tExeFilePathLength, fullPath);
+        ::ae::base::StringTraits< char >::NCopy(tExeFilePath, tExeFilePathLength, fullPath);
 
         // セットアップ
         tSetupExeInfo();
@@ -232,12 +232,12 @@ int main(
     {// 引数
         int index = 0;
         for (int i = 1; i < aArgCount && i < tArgPtrsLength; ++i) {
-            const ::XBase::StringTraits< char >::WriteResult result =
-                ::XBase::StringTraits< char >::NCopy(tArgChars, tArgCharsLength - index, aArgValues[i]);
+            const ::ae::base::StringTraits< char >::WriteResult result =
+                ::ae::base::StringTraits< char >::NCopy(tArgChars, tArgCharsLength - index, aArgValues[i]);
             tArgPtrs[i] = &tArgChars[index];
-            index += ::XBase::uint(result.length + 1);
+            index += ::ae::base::uint(result.length + 1);
         }
-        tArgCount = ::XBase::uint(aArgCount - 1);
+        tArgCount = ::ae::base::uint(aArgCount - 1);
     }
 
     // 実行

@@ -1,8 +1,9 @@
 // 文字コード：UTF-8
-#include <XG3D/RuntimeTexContext.hpp>
+#include <ae/g3d/RuntimeTexContext.hpp>
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 //------------------------------------------------------------------------------
 const RuntimeTexContext RuntimeTexContext::Create(
@@ -44,5 +45,5 @@ RuntimeTexContext::RuntimeTexContext(
 {
 }
 
-} // namespace
+}} // namespace
 // EOF

@@ -1,13 +1,14 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_TOUCHTAPUPDATEDATA_HPP)
+#if defined(AE_BASE_INCLUDED_TOUCHTAPUPDATEDATA_HPP)
 #else
-#define XBASE_INCLUDED_TOUCHTAPUPDATEDATA_HPP
+#define AE_BASE_INCLUDED_TOUCHTAPUPDATEDATA_HPP
 
-#include <XBase/BuiltInTypes.hpp>
-#include <XBase/ScreenPos.hpp>
+#include <ae/base/BuiltInTypes.hpp>
+#include <ae/base/ScreenPos.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Hid
 //@{
@@ -19,6 +20,6 @@ struct TouchTapUpdateData
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

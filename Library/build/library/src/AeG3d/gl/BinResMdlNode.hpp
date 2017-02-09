@@ -1,31 +1,32 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_BINRESMDLNODE_HPP)
+#if defined(AE_G3D_INCLUDED_BINRESMDLNODE_HPP)
 #else
-#define XG3D_INCLUDED_BINRESMDLNODE_HPP
+#define AE_G3D_INCLUDED_BINRESMDLNODE_HPP
 
-#include <XBase/Matrix34.hpp>
-#include <XBase/Vector3.hpp>
-#include <XData/XData.hpp>
-#include <XG3D/BuiltInTypes.hpp>
+#include <ae/base/Matrix34.hpp>
+#include <ae/base/Vector3.hpp>
+#include <ae/xdata/Xdata.hpp>
+#include <ae/g3d/BuiltInTypes.hpp>
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 // バイナリデータ：モデルノード。
 struct BinResMdlNode
 {
-    ::XData::UInt16     index;
-    ::XData::UInt16     flags;
-    ::XData::Reference  name;
-    ::XData::UInt16     parentNodeIdx;
-    ::XData::UInt16     firstChildNodeIdx;
-    ::XData::UInt16     nextSiblingNodeIdx;
-    ::XData::UInt16     padding;
-    ::XBase::Mtx34      rtMtx;
-    ::XBase::Vec3       scale;
-    ::XData::Reference  bindPoseMtxRef; // バインドポーズ行列が必要なときのみMtx34への参照
+    ::ae::xdata::UInt16     index;
+    ::ae::xdata::UInt16     flags;
+    ::ae::xdata::Reference  name;
+    ::ae::xdata::UInt16     parentNodeIdx;
+    ::ae::xdata::UInt16     firstChildNodeIdx;
+    ::ae::xdata::UInt16     nextSiblingNodeIdx;
+    ::ae::xdata::UInt16     padding;
+    ::ae::base::Mtx34      rtMtx;
+    ::ae::base::Vec3       scale;
+    ::ae::xdata::Reference  bindPoseMtxRef; // バインドポーズ行列が必要なときのみMtx34への参照
 };
 
-} // namespace
+}} // namespace
 #endif
 // EOF

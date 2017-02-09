@@ -1,23 +1,25 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_STATEMATERIAL_HPP)
+#if defined(AE_G3D_INCLUDED_STATEMATERIAL_HPP)
 #else
-#define XG3D_INCLUDED_STATEMATERIAL_HPP
+#define AE_G3D_INCLUDED_STATEMATERIAL_HPP
 
-#include <XBase/NonCopyable.hpp>
-#include <XBase/RuntimeArray.hpp>
-#include <XG3D/ResMat.hpp>
+#include <ae/base/NonCopyable.hpp>
+#include <ae/base/RuntimeArray.hpp>
+#include <ae/g3d/ResMat.hpp>
 
-namespace XG3D {
+namespace ae {
+namespace g3d {
 class MatParam;
 }
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
-/// @addtogroup XG3D-State
+/// @addtogroup AeG3d-State
 //@{
 /// @brief マテリアルのState。
-class StateMaterial : public ::XBase::NonCopyable
+class StateMaterial : public ::ae::base::NonCopyable
 {
 public:
     /// @name コンストラクタとデストラクタ
@@ -27,7 +29,7 @@ public:
     /// @param aAllocator ワーク領域を確保するためのアロケータ。
     StateMaterial(
         const ResMat& aResMat
-        , ::XBase::IAllocator& aAllocator = ::XBase::IAllocator::Default()
+        , ::ae::base::IAllocator& aAllocator = ::ae::base::IAllocator::Default()
     );
 
 /// デストラクタ。
@@ -41,10 +43,10 @@ public:
 
 private:
     ResMat mResMat;
-    ::XBase::RuntimeArray< MatParam > mParams;
+    ::ae::base::RuntimeArray< MatParam > mParams;
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

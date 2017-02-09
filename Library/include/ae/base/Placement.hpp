@@ -1,16 +1,17 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_PLACEMENT_HPP)
+#if defined(AE_BASE_INCLUDED_PLACEMENT_HPP)
 #else
-#define XBASE_INCLUDED_PLACEMENT_HPP
+#define AE_BASE_INCLUDED_PLACEMENT_HPP
 
 #include <new>
-#include <XBase/BuiltInTypes.hpp>
-#include <XBase/RuntimeAssert.hpp>
+#include <ae/base/BuiltInTypes.hpp>
+#include <ae/base/RuntimeAssert.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
-/// @addtogroup XBase-Util
+/// @addtogroup AeBase-Util
 //@{
     /// @brief 確保済みのメモリ領域からオブジェクトを生成するためのテンプレートクラス。
     /// @details
@@ -20,7 +21,7 @@ namespace XBase {
     /// Ref() を使わない場合はオブジェクトのコピーが走るので注意してください。 @n
     /// @code
     /// // 例
-    /// ::XBase::Placement< ::XBase::Vector3 > vec3;
+    /// ::ae::base::Placement< ::ae::base::Vector3 > vec3;
     /// vec3.init( 1 , 2 , 3 );
     /// const float len = vec3->length();
     /// @endcode
@@ -40,7 +41,7 @@ public:
     bool isValid()const { return mPtr != 0; }
 
     /// 生成済みのオブジェクトのポインタを取得する。
-    T*   ptr()const { XBASE_ASSERT_POINTER(mPtr); return mPtr; }
+    T*   ptr()const { AE_BASE_ASSERT_POINTER(mPtr); return mPtr; }
 
     /// 生成済みのオブジェクトの参照を取得する。
     T&   ref()const { return *ptr(); }
@@ -147,6 +148,6 @@ private:
 
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

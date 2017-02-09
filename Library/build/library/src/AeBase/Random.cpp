@@ -1,10 +1,11 @@
 // 文字コード：UTF-8
-#include <XBase/Random.hpp>
+#include <ae/base/Random.hpp>
 
-#include <XBase/RuntimeAssert.hpp>
+#include <ae/base/RuntimeAssert.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 Random::Random()
@@ -45,7 +46,7 @@ u32 Random::rand()
 u32 Random::randU32(const u32 aTerm)
 {
     if (aTerm == 0) {
-        XBASE_ERROR_INVALID_VALUE(aTerm);
+        AE_BASE_ERROR_INVALID_VALUE(aTerm);
         return 0;
     }
     return rand() % aTerm;
@@ -55,7 +56,7 @@ u32 Random::randU32(const u32 aTerm)
 s32 Random::randS32(const s32 aTerm)
 {
     if (aTerm == 0) {
-        XBASE_ERROR_INVALID_VALUE(aTerm);
+        AE_BASE_ERROR_INVALID_VALUE(aTerm);
         return 0;
     }
     return rand() % aTerm;
@@ -88,5 +89,5 @@ unsigned int Random::operator()(const unsigned int aTerm)
     return rand() % (aTerm + 1);
 }
 
-} // namespace
+}} // namespace
 // EOF

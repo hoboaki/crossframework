@@ -1,10 +1,11 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_APPLICATION_DEFAULT_HPP)
+#if defined(AE_BASE_INCLUDED_APPLICATION_DEFAULT_HPP)
 #else
-#define XBASE_INCLUDED_APPLICATION_DEFAULT_HPP
+#define AE_BASE_INCLUDED_APPLICATION_DEFAULT_HPP
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 // デフォルト環境でのApplicationの拡張。
 class Application_Ext
@@ -13,6 +14,6 @@ public:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

@@ -1,41 +1,42 @@
 // 文字コード：UTF-8
 #include "ResMatSetImpl.hpp"
 
-#include <XBase/Ref.hpp>
+#include <ae/base/Ref.hpp>
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 //------------------------------------------------------------------------------
 namespace {
 
 //------------------------------------------------------------------------------
 struct tEntryHeader
 {
-    ::XData::SInt32     count;
-    ::XData::Reference  entries[1]; // 本当は無限長配列
+    ::ae::xdata::SInt32     count;
+    ::ae::xdata::Reference  entries[1]; // 本当は無限長配列
 };
 
-} // namespace
+}} // namespace
 
 //------------------------------------------------------------------------------
 ResMatSetImpl::ResMatSetImpl(
-    const ::XData::XData& aXData,
+    const ::ae::xdata::Xdata& aXdata,
     const BinResMatSet* aBinPtr,
-    ::XBase::IAllocator& aAllocator
+    ::ae::base::IAllocator& aAllocator
     )
-: xdata(aXData.ptr())
+: xdata(aXdata.ptr())
 , binPtr(aBinPtr)
 , matImpls()
 {
     // mat
     {
         const tEntryHeader* header = xdata.ref< tEntryHeader >(binPtr->mats);
-        matImpls.init(header->count, ::XBase::Ref(aAllocator));
+        matImpls.init(header->count, ::ae::base::Ref(aAllocator));
         for (int i = 0; i < header->count; ++i) {
             matImpls->add(
-                ::XBase::Ref(xdata),
+                ::ae::base::Ref(xdata),
                 xdata.ref< BinResMat >(header->entries[i]),
-                ::XBase::Ref(aAllocator)
+                ::ae::base::Ref(aAllocator)
                 );
         }
     }
@@ -65,5 +66,5 @@ void ResMatSetImpl::release()
     }
 }
 
-} // namespace
+}} // namespace
 // EOF

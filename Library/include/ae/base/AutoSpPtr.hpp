@@ -1,15 +1,16 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_AUTOSPPTR_HPP)
+#if defined(AE_BASE_INCLUDED_AUTOSPPTR_HPP)
 #else
-#define XBASE_INCLUDED_AUTOSPPTR_HPP
+#define AE_BASE_INCLUDED_AUTOSPPTR_HPP
 
-#include <XBase/IAllocator.hpp>
-#include <XBase/Pointer.hpp>
+#include <ae/base/IAllocator.hpp>
+#include <ae/base/Pointer.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
-/// @addtogroup XBase-Memory
+/// @addtogroup AeBase-Memory
 //@{
     /// AutoPtrのAllocator指定版。
 template< typename T >
@@ -24,77 +25,77 @@ public:
     }
 
     /// 0引数 init() で作成。
-    AutoSpPtr(::XBase::IAllocator& aAllocator)
+    AutoSpPtr(::ae::base::IAllocator& aAllocator)
     {
         init(aAllocator);
     }
 
     /// 1引数 init() で作成。
     template< typename A0 >
-    AutoSpPtr(::XBase::IAllocator& aAllocator, A0 a0)
+    AutoSpPtr(::ae::base::IAllocator& aAllocator, A0 a0)
     {
         init(aAllocator, a0);
     }
 
     /// 2引数 init() で作成。
     template< typename A0, typename A1 >
-    AutoSpPtr(::XBase::IAllocator& aAllocator, A0 a0, A1 a1)
+    AutoSpPtr(::ae::base::IAllocator& aAllocator, A0 a0, A1 a1)
     {
         init(aAllocator, a0, a1);
     }
 
     /// 3引数 init() で作成。
     template< typename A0, typename A1, typename A2 >
-    AutoSpPtr(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2)
+    AutoSpPtr(::ae::base::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2)
     {
         init(aAllocator, a0, a1, a2);
     }
 
     /// 4引数 init() で作成。
     template< typename A0, typename A1, typename A2, typename A3 >
-    AutoSpPtr(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3)
+    AutoSpPtr(::ae::base::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3)
     {
         init(aAllocator, a0, a1, a2, a3);
     }
 
     /// 5引数 init() で作成。
     template< typename A0, typename A1, typename A2, typename A3, typename A4 >
-    AutoSpPtr(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4)
+    AutoSpPtr(::ae::base::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4)
     {
         init(aAllocator, a0, a1, a2, a3, a4);
     }
 
     /// 6引数 init() で作成。
     template< typename A0, typename A1, typename A2, typename A3, typename A4, typename A5 >
-    AutoSpPtr(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5)
+    AutoSpPtr(::ae::base::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5)
     {
         init(aAllocator, a0, a1, a2, a3, a4, a5);
     }
 
     /// 7引数 init() で作成。
     template< typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6 >
-    AutoSpPtr(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6)
+    AutoSpPtr(::ae::base::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6)
     {
         init(aAllocator, a0, a1, a2, a3, a4, a5, a6);
     }
 
     /// 8引数 init() で作成。
     template< typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7 >
-    AutoSpPtr(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7)
+    AutoSpPtr(::ae::base::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7)
     {
         init(aAllocator, a0, a1, a2, a3, a4, a5, a6, a7);
     }
 
     /// 9引数 init() で作成。
     template< typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8 >
-    AutoSpPtr(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7, A8 a8)
+    AutoSpPtr(::ae::base::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7, A8 a8)
     {
         init(aAllocator, a0, a1, a2, a3, a4, a5, a6, a7, a8);
     }
 
     /// 10引数 init() で作成。
     template< typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8, typename A9 >
-    AutoSpPtr(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7, A8 a8, A9 a9)
+    AutoSpPtr(::ae::base::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7, A8 a8, A9 a9)
     {
         init(aAllocator, a0, a1, a2, a3, a4, a5, a6, a7, a8, a9);
     }
@@ -137,7 +138,7 @@ public:
     /// ポインタの参照を取得する。
     T& ref()const
     {
-        XBASE_ASSERT(isValid());
+        AE_BASE_ASSERT(isValid());
         return *mPtr;
     }
 
@@ -169,67 +170,67 @@ public:
 
     /// @name 生成
     //@{
-    void init(::XBase::IAllocator& aAllocator)
+    void init(::ae::base::IAllocator& aAllocator)
     {
         prepareCtor(aAllocator);
         mPtr.reset(new (aAllocator) T());
     }
     template< typename A0 >
-    void init(::XBase::IAllocator& aAllocator, A0 a0)
+    void init(::ae::base::IAllocator& aAllocator, A0 a0)
     {
         prepareCtor(aAllocator);
         mPtr.reset(new (aAllocator) T(a0));
     }
     template< typename A0, typename A1 >
-    void init(::XBase::IAllocator& aAllocator, A0 a0, A1 a1)
+    void init(::ae::base::IAllocator& aAllocator, A0 a0, A1 a1)
     {
         prepareCtor(aAllocator);
         mPtr.reset(new (aAllocator) T(a0, a1));
     }
     template< typename A0, typename A1, typename A2 >
-    void init(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2)
+    void init(::ae::base::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2)
     {
         prepareCtor(aAllocator);
         mPtr.reset(new (aAllocator) T(a0, a1, a2));
     }
     template< typename A0, typename A1, typename A2, typename A3 >
-    void init(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3)
+    void init(::ae::base::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3)
     {
         prepareCtor(aAllocator);
         mPtr.reset(new (aAllocator) T(a0, a1, a2, a3));
     }
     template< typename A0, typename A1, typename A2, typename A3, typename A4 >
-    void init(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4)
+    void init(::ae::base::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4)
     {
         prepareCtor(aAllocator);
         mPtr.reset(new (aAllocator) T(a0, a1, a2, a3, a4));
     }
     template< typename A0, typename A1, typename A2, typename A3, typename A4, typename A5 >
-    void init(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5)
+    void init(::ae::base::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5)
     {
         prepareCtor(aAllocator);
         mPtr.reset(new (aAllocator) T(a0, a1, a2, a3, a4, a5));
     }
     template< typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6 >
-    void init(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6)
+    void init(::ae::base::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6)
     {
         prepareCtor(aAllocator);
         mPtr.reset(new (aAllocator) T(a0, a1, a2, a3, a4, a5, a6));
     }
     template< typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7 >
-    void init(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7)
+    void init(::ae::base::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7)
     {
         prepareCtor(aAllocator);
         mPtr.reset(new (aAllocator) T(a0, a1, a2, a3, a4, a5, a6, a7));
     }
     template< typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8 >
-    void init(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7, A8 a8)
+    void init(::ae::base::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7, A8 a8)
     {
         prepareCtor(aAllocator);
         mPtr.reset(new (aAllocator) T(a0, a1, a2, a3, a4, a5, a6, a7, a8));
     }
     template< typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8, typename A9 >
-    void init(::XBase::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7, A8 a8, A9 a9)
+    void init(::ae::base::IAllocator& aAllocator, A0 a0, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7, A8 a8, A9 a9)
     {
         prepareCtor(aAllocator);
         mPtr.reset(new (aAllocator) T(a0, a1, a2, a3, a4, a5, a6, a7, a8, a9));
@@ -276,7 +277,7 @@ public:
     /// 参照演算子
     T* operator->()const
     {
-        XBASE_ASSERT(isValid());
+        AE_BASE_ASSERT(isValid());
         return get();
     }
     //@}
@@ -285,7 +286,7 @@ private:
     mutable Pointer< T >          mPtr;
     mutable Pointer< IAllocator > mAllocatorPtr;
     //------------------------------------------------------------------------------
-    void prepareCtor(::XBase::IAllocator& aAllocator)
+    void prepareCtor(::ae::base::IAllocator& aAllocator)
     {
         reset();
         mAllocatorPtr.set(aAllocator);
@@ -293,6 +294,6 @@ private:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

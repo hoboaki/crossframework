@@ -1,10 +1,11 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_SCREEN_DEFAULT_HPP)
+#if defined(AE_BASE_INCLUDED_SCREEN_DEFAULT_HPP)
 #else
-#define XBASE_INCLUDED_SCREEN_DEFAULT_HPP
+#define AE_BASE_INCLUDED_SCREEN_DEFAULT_HPP
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //デフォルト環境でのScreenの拡張。
 class Screen_Ext
@@ -12,6 +13,6 @@ class Screen_Ext
 public:
 };
 
-} // namespace
+}} // namespace
 #endif
 // EOF

@@ -1,11 +1,12 @@
 // 文字コード：UTF-8
-#include <XBase/Aabb2i.hpp>
+#include <ae/base/Aabb2i.hpp>
 
-#include <XBase/Aabb2.hpp>
-#include <XBase/RuntimeAssert.hpp>
+#include <ae/base/Aabb2.hpp>
+#include <ae/base/RuntimeAssert.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 const Aabb2i Aabb2i::Largest()
@@ -39,8 +40,8 @@ Aabb2i::Aabb2i(
     aBegin.y + reinterpret_cast<const int&>(aHeight)
     )
 {
-    XBASE_ASSERT_LESS_EQUALS(mMin.x, mTerm.x);
-    XBASE_ASSERT_LESS_EQUALS(mMin.y, mTerm.y);
+    AE_BASE_ASSERT_LESS_EQUALS(mMin.x, mTerm.x);
+    AE_BASE_ASSERT_LESS_EQUALS(mMin.y, mTerm.y);
 }
 
 //------------------------------------------------------------------------------
@@ -206,5 +207,5 @@ const Aabb2 Aabb2i::toAABB2f()const
         );
 }
 
-} // namespace
+}} // namespace
 // EOF

@@ -1,25 +1,26 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_SCREEN_MACOSX_HPP)
+#if defined(AE_BASE_INCLUDED_SCREEN_MACOSX_HPP)
 #else
-#define XBASE_INCLUDED_SCREEN_MACOSX_HPP
+#define AE_BASE_INCLUDED_SCREEN_MACOSX_HPP
 
-struct XG3DNSOpenGLView;
+struct AeG3dNSOpenGLView;
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 // MacOSX環境でのScreenの拡張。
 class Screen_Ext
 {
 public:
     //============================================================
-    XG3DNSOpenGLView* glView;
+    AeG3dNSOpenGLView* glView;
 
     //============================================================
     Screen_Ext();
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

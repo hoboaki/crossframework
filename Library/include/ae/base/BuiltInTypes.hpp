@@ -1,7 +1,7 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_BUILTINTYPES_HPP)
+#if defined(AE_BASE_INCLUDED_BUILTINTYPES_HPP)
 #else
-#define XBASE_INCLUDED_BUILTINTYPES_HPP
+#define AE_BASE_INCLUDED_BUILTINTYPES_HPP
 
 #include <cstddef>
 
@@ -73,6 +73,6 @@ typedef const void* const_anyptr_t; ///< any_ptr_tのconst版。
 //@}    
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

@@ -1,8 +1,9 @@
 // 文字コード：UTF-8
-#include <XBase/Mouse.hpp>
+#include <ae/base/Mouse.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 Mouse::Mouse()
@@ -83,5 +84,5 @@ const MouseBtnBitSet Mouse::release()const
     return mRelease;
 }
 
-} // namespace
+}} // namespace
 // EOF

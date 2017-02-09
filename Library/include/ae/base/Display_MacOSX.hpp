@@ -1,22 +1,24 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_DISPLAY_MACOSX_HPP)
+#if defined(AE_BASE_INCLUDED_DISPLAY_MACOSX_HPP)
 #else
-#define XBASE_INCLUDED_DISPLAY_MACOSX_HPP
+#define AE_BASE_INCLUDED_DISPLAY_MACOSX_HPP
 
-#include <XBase/DisplayContext.hpp>
-#include <XBase/KeyboardUpdateData.hpp>
-#include <XBase/MouseUpdateData.hpp>
-#include <XBase/Placement.hpp>
-#include <XBase/Pointer.hpp>
-#include <XBase/Screen.hpp>
+#include <ae/base/DisplayContext.hpp>
+#include <ae/base/KeyboardUpdateData.hpp>
+#include <ae/base/MouseUpdateData.hpp>
+#include <ae/base/Placement.hpp>
+#include <ae/base/Pointer.hpp>
+#include <ae/base/Screen.hpp>
 
 struct XBaseNSWindow;
-namespace XBase {
+namespace ae {
+namespace base {
 class Hid;
 }
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 // MacOSX環境でのDisplayの拡張。
 class Display_Ext
@@ -40,6 +42,6 @@ public:
     ~Display_Ext();
 };
 
-} // namespace
+}} // namespace
 #endif
 // EOF

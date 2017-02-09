@@ -1,10 +1,11 @@
 // 文字コード：UTF-8
-#include <XBase/Touch.hpp>
+#include <ae/base/Touch.hpp>
 
-#include <XBase/RuntimeAssert.hpp>
+#include <ae/base/RuntimeAssert.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 Touch::Touch(const int aTapCount)
@@ -13,7 +14,7 @@ Touch::Touch(const int aTapCount)
 , mTaps()
 {
     if (TouchUpdateData::TAP_COUNT_MAX < mTapCount) {
-        XBASE_ERROR_INVALID_VALUE(aTapCount);
+        AE_BASE_ERROR_INVALID_VALUE(aTapCount);
         mTapCount = TouchUpdateData::TAP_COUNT_MAX;
     }
 }
@@ -51,11 +52,11 @@ int Touch::tapCount()const
 const TouchTap Touch::tapAtIndex(const int aIndex)const
 {
     if (tapCount() <= aIndex) {
-        XBASE_ERROR_INVALID_VALUE(aIndex);
+        AE_BASE_ERROR_INVALID_VALUE(aIndex);
         return TouchTap();
     }
     return mTaps[aIndex];
 }
 
-} // namespace
+}} // namespace
 // EOF

@@ -1,11 +1,12 @@
 // 文字コード：UTF-8
-#include <XBase/Aabb2.hpp>
+#include <ae/base/Aabb2.hpp>
 
-#include <XBase/Aabb2i.hpp>
-#include <XBase/Math.hpp>
+#include <ae/base/Aabb2i.hpp>
+#include <ae/base/Math.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 Aabb2::Aabb2()
@@ -334,5 +335,5 @@ const Aabb2i Aabb2::toAABB2i()const
         );
 }
 
-} // namespace
+}} // namespace
 // EOF

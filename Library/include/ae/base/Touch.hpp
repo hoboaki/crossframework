@@ -1,13 +1,14 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_TOUCH_HPP)
+#if defined(AE_BASE_INCLUDED_TOUCH_HPP)
 #else
-#define XBASE_INCLUDED_TOUCH_HPP
+#define AE_BASE_INCLUDED_TOUCH_HPP
 
-#include <XBase/TouchTap.hpp>
-#include <XBase/TouchUpdateData.hpp>
+#include <ae/base/TouchTap.hpp>
+#include <ae/base/TouchUpdateData.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Hid
 //@{
@@ -59,6 +60,6 @@ private:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

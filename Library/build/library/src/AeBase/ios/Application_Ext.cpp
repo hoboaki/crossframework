@@ -1,13 +1,14 @@
 // 文字コード：UTF-8
-#include <XBase/Application.hpp>
+#include <ae/base/Application.hpp>
 
-#include <XBase/Display.hpp>
-#include <XBase/Hid.hpp>
+#include <ae/base/Display.hpp>
+#include <ae/base/Hid.hpp>
 #include "EntryPoint_Sync.h"
 #include "XBaseUIWindow.h"
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 void Application::quit()
@@ -35,7 +36,7 @@ AppEvent::EnumType Application::receiveEventCore()
                 if (mDisplayPtr->ext_().hidPtr.isValid()) {
                     const int screenHeight = mDisplayPtr->mainScreen().height();
                     TouchUpdateData data = {};
-                    for (int i = 0; i < XBASE_UITOUCHSET_TOUCH_COUNT_MAX; ++i) {
+                    for (int i = 0; i < AE_BASE_UITOUCHSET_TOUCH_COUNT_MAX; ++i) {
                         const XBaseUITouch& src = touchSet->touches[i];
                         TouchTapUpdateData& dst = data.taps[i];
                         dst.tapCount = src.tapCount;
@@ -49,10 +50,10 @@ AppEvent::EnumType Application::receiveEventCore()
         return AppEvent::Update;
 
         default:
-            XBASE_ASSERT_NOT_REACHED();
+            AE_BASE_ASSERT_NOT_REACHED();
             return AppEvent::EnumType(0);
     }
 }
 
-} // namespace
+}} // namespace
 // EOF

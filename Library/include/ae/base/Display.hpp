@@ -1,28 +1,29 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_DISPLAY_HPP)
+#if defined(AE_BASE_INCLUDED_DISPLAY_HPP)
 #else
-#define XBASE_INCLUDED_DISPLAY_HPP
+#define AE_BASE_INCLUDED_DISPLAY_HPP
 
-#include <XBase/DisplayContext.hpp>
-#include <XBase/Os.hpp>
-#include <XBase/Screen.hpp>
+#include <ae/base/DisplayContext.hpp>
+#include <ae/base/Os.hpp>
+#include <ae/base/Screen.hpp>
 
-#if defined(XBASE_OS_WINDOWS)
-#include <XBase/Display_Windows.hpp>
-#elif defined(XBASE_OS_MACOSX)
-#include <XBase/Display_MacOSX.hpp>
-#elif defined(XBASE_OS_IOS)
-#include <XBase/Display_iOS.hpp>
+#if defined(AE_BASE_OS_WINDOWS)
+#include <ae/base/Display_Windows.hpp>
+#elif defined(AE_BASE_OS_MACOSX)
+#include <ae/base/Display_MacOSX.hpp>
+#elif defined(AE_BASE_OS_IOS)
+#include <ae/base/Display_iOS.hpp>
 #else
-#include <XBase/Display_Default.hpp>
+#include <ae/base/Display_Default.hpp>
 #endif
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
-/// @addtogroup XBase-System
+/// @addtogroup AeBase-System
 //@{
 
-    /// @class XBase::Display
+    /// @class ae::base::Display
     /// @brief ディスプレイ。
     /// @details 
     /// ここでいうディスプレイとはWindowsやMacOSX環境では１つのウィンドウのことを指します。@n
@@ -71,6 +72,6 @@ private:
 
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

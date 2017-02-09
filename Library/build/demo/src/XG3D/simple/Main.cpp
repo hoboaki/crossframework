@@ -1,15 +1,15 @@
 // 文字コード：UTF-8
-#include <XBase/XBase.hpp>
-#include <XG3D/XG3D.hpp>
+#include <ae/base/All.hpp>
+#include <ae/g3d/All.hpp>
 
 //------------------------------------------------------------------------------
-int xmain(::XBase::Application& aApp)
+int xmain(::ae::base::Application& aApp)
 {
     // ディスプレイ作成
-    ::XBase::Display display = ::XBase::Display(::XBase::DisplayContext());
+    ::ae::base::Display display = ::ae::base::Display(::ae::base::DisplayContext());
 
     // レンダラー作成
-    ::XG3D::Renderer renderer(display);
+    ::ae::g3d::Renderer renderer(display);
 
     // ディスプレイ表示
     display.show();
@@ -18,15 +18,15 @@ int xmain(::XBase::Application& aApp)
     bool doExit = false;
     while (!doExit) {
         // イベントの取得
-        ::XBase::AppEvent::EnumType event = aApp.receiveEvent();
+        ::ae::base::AppEvent::EnumType event = aApp.receiveEvent();
 
         // イベントによって分岐
         switch (event) {
-            case ::XBase::AppEvent::Quit:
+            case ::ae::base::AppEvent::Quit:
                 doExit = true;
                 break;
 
-            case ::XBase::AppEvent::Update:
+            case ::ae::base::AppEvent::Update:
             {
                 // ディスプレイが閉じてたら終了
                 if (display.isClosed()) {
@@ -42,7 +42,7 @@ int xmain(::XBase::Application& aApp)
                 }
 
                 // フレームバッファのクリア
-                renderer.fbSetClearColor(::XBase::Color4(red, 0.9f, 0.9f, 1.0f));
+                renderer.fbSetClearColor(::ae::base::Color4(red, 0.9f, 0.9f, 1.0f));
                 renderer.fbClear();
 
                 // 描画の完了を待つ

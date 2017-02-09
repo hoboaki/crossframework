@@ -1,23 +1,23 @@
 // 文字コード：UTF-8
-#include <XBase/XBase.hpp>
-#include <XG3D/XG3D.hpp>
+#include <ae/base/All.hpp>
+#include <ae/g3d/All.hpp>
 
 //------------------------------------------------------------------------------
-int xmain(::XBase::Application& aApp)
+int xmain(::ae::base::Application& aApp)
 {
     // ディスプレイ作成
-    ::XBase::Display display = ::XBase::Display(::XBase::DisplayContext());
+    ::ae::base::Display display = ::ae::base::Display(::ae::base::DisplayContext());
 
     // レンダラー作成
-    ::XG3D::Renderer renderer(display);
+    ::ae::g3d::Renderer renderer(display);
 
     // フレームバッファのクリアカラー設定
-    renderer.fbSetClearColor(::XBase::Color4(0.5f, 0.5f, 0.5f, 0.5f));
+    renderer.fbSetClearColor(::ae::base::Color4(0.5f, 0.5f, 0.5f, 0.5f));
 
     // 矩形の頂点バッファを準備
-    ::XG3D::VtxBuffer vtx(1, 4);
+    ::ae::g3d::VtxBuffer vtx(1, 4);
     {// 頂点を作成
-        vtx.begin(::XG3D::PrimitiveKind::Quads);
+        vtx.begin(::ae::g3d::PrimitiveKind::Quads);
         {
             vtx.texCoord(1.0f, 1.0f);
             vtx.vertex(0.5f, 0.5f);
@@ -36,10 +36,10 @@ int xmain(::XBase::Application& aApp)
     }
 
     // テクスチャの準備
-    ::XBase::AutoMemBlock resData = XBase::ResFile::Read("res/RGBA8.bin");
-    ::XG3D::ResBin resBin(resData->head());
+    ::ae::base::AutoMemBlock resData = ae::base::ResFile::Read("res/RGBA8.bin");
+    ::ae::g3d::ResBin resBin(resData->head());
     resBin.setup(); // TextureBufferの準備
-    ::XG3D::TexSetting texSetting;
+    ::ae::g3d::TexSetting texSetting;
     {// 設定を作成
         const int texIndex = 0; // 先頭のテクスチャを使用
         texSetting.setIsActive(true);
@@ -53,15 +53,15 @@ int xmain(::XBase::Application& aApp)
     bool doExit = false;
     while (!doExit) {
         // イベントの取得
-        ::XBase::AppEvent::EnumType event = aApp.receiveEvent();
+        ::ae::base::AppEvent::EnumType event = aApp.receiveEvent();
 
         // イベントによって分岐
         switch (event) {
-            case ::XBase::AppEvent::Quit:
+            case ::ae::base::AppEvent::Quit:
                 doExit = true;
                 break;
 
-            case ::XBase::AppEvent::Update:
+            case ::ae::base::AppEvent::Update:
             {
                 // ディスプレイが閉じてたら終了
                 if (display.isClosed()) {
@@ -74,7 +74,7 @@ int xmain(::XBase::Application& aApp)
 
                 // テクスチャを設定
                 renderer.sdReset();
-                renderer.sdSetTex(::XG3D::TexId::No0, texSetting);
+                renderer.sdSetTex(::ae::g3d::TexId::No0, texSetting);
 
                 // 矩形を描画
                 vtx.draw();

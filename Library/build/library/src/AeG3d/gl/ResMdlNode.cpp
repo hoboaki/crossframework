@@ -1,12 +1,13 @@
 // 文字コード：UTF-8
-#include <XG3D/ResMdlNode.hpp>
+#include <ae/g3d/ResMdlNode.hpp>
 
-#include <XBase/RuntimeAssert.hpp>
-#include <XG3D/ResConstant.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/g3d/ResConstant.hpp>
 #include "ResMdlNodeImpl.hpp"
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 //------------------------------------------------------------------------------
 ResMdlNode::ResMdlNode()
@@ -44,7 +45,7 @@ const char* ResMdlNode::name()const
     if (checkInvalid()) {
         return "";
     }
-    return mPtr->xdata.ref< ::XData::String >(mPtr->binPtr->name)->toCStr();
+    return mPtr->xdata.ref< ::ae::xdata::String >(mPtr->binPtr->name)->toCStr();
 }
 
 //------------------------------------------------------------------------------
@@ -88,33 +89,33 @@ int ResMdlNode::nextSiblingNodeIndex()const
 }
 
 //------------------------------------------------------------------------------
-::XBase::Mtx34 ResMdlNode::rtMtx()const
+::ae::base::Mtx34 ResMdlNode::rtMtx()const
 {
     // チェック
     if (checkInvalid()) {
-        return ::XBase::Mtx34::Identity();
+        return ::ae::base::Mtx34::Identity();
     }
     return mPtr->binPtr->rtMtx;;
 }
 
 //------------------------------------------------------------------------------
-::XBase::Vec3 ResMdlNode::scale()const
+::ae::base::Vec3 ResMdlNode::scale()const
 {
     // チェック
     if (checkInvalid()) {
-        return ::XBase::Vec3::One();
+        return ::ae::base::Vec3::One();
     }
     return mPtr->binPtr->scale;
 }
 
 //------------------------------------------------------------------------------
-const ::XBase::Mtx34* ResMdlNode::bindPoseMtxPtr()const
+const ::ae::base::Mtx34* ResMdlNode::bindPoseMtxPtr()const
 {
     // チェック
     if (checkInvalid()) {
         return 0;
     }
-    return mPtr->xdata.safeRef< ::XBase::Mtx34 >(mPtr->binPtr->bindPoseMtxRef);
+    return mPtr->xdata.safeRef< ::ae::base::Mtx34 >(mPtr->binPtr->bindPoseMtxRef);
 }
 
 //------------------------------------------------------------------------------
@@ -126,9 +127,9 @@ bool ResMdlNode::checkInvalid()const
     }
 
     // 不正なのでエラー
-    XBASE_ASSERT_NOT_REACHED();
+    AE_BASE_ASSERT_NOT_REACHED();
     return true;
 }
 
-} // namespace
+}} // namespace
 // EOF

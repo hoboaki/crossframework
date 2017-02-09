@@ -1,34 +1,35 @@
 // 文字コード：UTF-8
-#include <XG3D/Renderer.hpp>
+#include <ae/g3d/Renderer.hpp>
 
-#include <XBase/Display.hpp>
-#include <XBase/RuntimeAssert.hpp>
-#include <XBase/Unused.hpp>
-#include <XG3D/SdkHeader.hpp>
-#include "XG3DUIOpenGLView.h"
-
-//------------------------------------------------------------------------------
-namespace XG3D {
+#include <ae/base/Display.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/base/Unused.hpp>
+#include <ae/g3d/SdkHeader.hpp>
+#include "AeG3dUIOpenGLView.h"
 
 //------------------------------------------------------------------------------
-void Renderer::copyToScreen(::XBase::Screen& aScreen)
+namespace ae {
+namespace g3d {
+
+//------------------------------------------------------------------------------
+void Renderer::copyToScreen(::ae::base::Screen& aScreen)
 {
-    XG3DUIOpenGLView* view = aScreen.ext_().glView;
+    AeG3dUIOpenGLView* view = aScreen.ext_().glView;
     if (view == 0) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return;
     }
-    XG3DUIOpenGLView_FlushBuffer(view);
+    AeG3dUIOpenGLView_FlushBuffer(view);
 }
 
 //------------------------------------------------------------------------------
-void Renderer_Ext::setup(::XBase::Display& aDisplay)
+void Renderer_Ext::setup(::ae::base::Display& aDisplay)
 {
-    XG3DUIOpenGLView* view = XG3DUIOpenGLView_Setup(
+    AeG3dUIOpenGLView* view = AeG3dUIOpenGLView_Setup(
         aDisplay.ext_().windowPtr
         );
     aDisplay.mainScreen().ext_().glView = view;
 }
 
-} // namespace
+}} // namespace
 // EOF

@@ -1,13 +1,14 @@
 // 文字コード：UTF-8
-#include <XBase/Hid.hpp>
+#include <ae/base/Hid.hpp>
 
-#include <XBase/Display.hpp>
-#include <XBase/Keyboard.hpp>
-#include <XBase/Mouse.hpp>
+#include <ae/base/Display.hpp>
+#include <ae/base/Keyboard.hpp>
+#include <ae/base/Mouse.hpp>
 #include "XBaseUIWindow.h"
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 int Hid::keyboardCount()const
@@ -18,7 +19,7 @@ int Hid::keyboardCount()const
 //------------------------------------------------------------------------------
 const Keyboard Hid::keyboardAtIndex(const int)const
 {
-    XBASE_ASSERT_NOT_REACHED();
+    AE_BASE_ASSERT_NOT_REACHED();
     return Keyboard();
 }
 
@@ -31,14 +32,14 @@ int Hid::mouseCount()const
 //------------------------------------------------------------------------------
 const Mouse Hid::mouseAtIndex(const int)const
 {
-    XBASE_ASSERT_NOT_REACHED();
+    AE_BASE_ASSERT_NOT_REACHED();
     return Mouse();
 }
 
 //------------------------------------------------------------------------------
 int Hid::supportedTouchTapCount()const
 {
-    return XBASE_UITOUCHSET_TOUCH_COUNT_MAX;
+    return AE_BASE_UITOUCHSET_TOUCH_COUNT_MAX;
 }
 
 //------------------------------------------------------------------------------
@@ -51,17 +52,17 @@ int Hid::touchCount()const
 const Touch Hid::touchAtIndex(const int aIndex)const
 {
     if (touchCount() <= aIndex) {
-        XBASE_ERROR_INVALID_VALUE(aIndex);
-        return Touch(XBASE_UITOUCHSET_TOUCH_COUNT_MAX);
+        AE_BASE_ERROR_INVALID_VALUE(aIndex);
+        return Touch(AE_BASE_UITOUCHSET_TOUCH_COUNT_MAX);
     }
     return mExt.touch;
 }
 
 //------------------------------------------------------------------------------
 Hid_Ext::Hid_Ext()
-: touch(XBASE_UITOUCHSET_TOUCH_COUNT_MAX)
+: touch(AE_BASE_UITOUCHSET_TOUCH_COUNT_MAX)
 {
 }
 
-} // namespace
+}} // namespace
 // EOF

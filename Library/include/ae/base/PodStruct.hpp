@@ -1,13 +1,14 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_PodSTRUCT_HPP)
+#if defined(AE_BASE_INCLUDED_PodSTRUCT_HPP)
 #else
-#define XBASE_INCLUDED_PodSTRUCT_HPP
+#define AE_BASE_INCLUDED_PodSTRUCT_HPP
 
-#include <XBase/StaticAssert.hpp>
-#include <XBase/TypeTraits.hpp>
+#include <ae/base/StaticAssert.hpp>
+#include <ae/base/TypeTraits.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Types
 //@{
@@ -51,10 +52,10 @@ struct PodStruct
     ValueType value_;
 
 private:
-    XBASE_STATIC_ASSERT(TypeTraits::IsPod< typename ValueType >::Value);         // Pod型のチェック。
+    AE_BASE_STATIC_ASSERT(TypeTraits::IsPod< typename ValueType >::Value);         // Pod型のチェック。
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

@@ -1,16 +1,17 @@
 // 文字コード：UTF-8
-#include <XBase/Vector2.hpp>
+#include <ae/base/Vector2.hpp>
 
-#include <XBase/DivideCheck.hpp>
-#include <XBase/Infinity.hpp>
-#include <XBase/Math.hpp>
-#include <XBase/RuntimeAssert.hpp>
-#include <XBase/ScalerTypes.hpp>
-#include <XBase/Vector3.hpp>
-#include <XBase/Vector4.hpp>
+#include <ae/base/DivideCheck.hpp>
+#include <ae/base/Infinity.hpp>
+#include <ae/base/Math.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/base/ScalerTypes.hpp>
+#include <ae/base/Vector3.hpp>
+#include <ae/base/Vector4.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 const Vector2Pod Vector2Pod::Zero()
@@ -29,14 +30,14 @@ const Vector2Pod Vector2Pod::One()
 //------------------------------------------------------------------------------
 const Vector2Pod Vector2Pod::Min()
 {
-    Vector2Pod obj = {-XBASE_INFINITY, -XBASE_INFINITY};
+    Vector2Pod obj = {-AE_BASE_INFINITY, -AE_BASE_INFINITY};
     return obj;
 }
 
 //------------------------------------------------------------------------------
 const Vector2Pod Vector2Pod::Max()
 {
-    Vector2Pod obj = {XBASE_INFINITY, XBASE_INFINITY};
+    Vector2Pod obj = {AE_BASE_INFINITY, AE_BASE_INFINITY};
     return obj;
 }
 
@@ -230,7 +231,7 @@ void Vector2Pod::mulAssign(const float aVal)
 void Vector2Pod::divAssign(const float aVal)
 {
     if (aVal == 0) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return;
     }
     mulAssign(1.0f / aVal);
@@ -260,8 +261,8 @@ void Vector2Pod::mulAssign(const Vector2Pod& aVal)
 //------------------------------------------------------------------------------
 void Vector2Pod::divAssign(const Vector2Pod& aVal)
 {
-    XBASE_DIV_ASSIGN(x, aVal.x);
-    XBASE_DIV_ASSIGN(y, aVal.y);
+    AE_BASE_DIV_ASSIGN(x, aVal.x);
+    AE_BASE_DIV_ASSIGN(y, aVal.y);
 }
 
 //------------------------------------------------------------------------------
@@ -478,7 +479,7 @@ const Vector2Pod Vector2Pod::unit()const
 void Vector2Pod::unitAssign()
 {
     if (isZeroStrict()) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return;
     }
     mulAssign(1.0f / length());
@@ -497,9 +498,9 @@ f32 Vector2Pod::cross(const Vector2Pod& aVec)const
 }
 
 //------------------------------------------------------------------------------
-const ::XBase::ShortString Vector2Pod::toShortString()const
+const ::ae::base::ShortString Vector2Pod::toShortString()const
 {
-    return ::XBase::ShortString::FromFormat(
+    return ::ae::base::ShortString::FromFormat(
         "%s,%s",
         F32(x).toShortString().readPtr(),
         F32(y).toShortString().readPtr()
@@ -532,5 +533,5 @@ Vector2::Vector2(const float aX, const float aY)
     y = aY;
 }
 
-} // namespace
+}} // namespace
 // EOF

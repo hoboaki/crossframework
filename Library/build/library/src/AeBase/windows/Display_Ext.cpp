@@ -1,16 +1,17 @@
 // 文字コード：UTF-8
-#include <XBase/Display.hpp>
+#include <ae/base/Display.hpp>
 
-#include <XBase/Application.hpp>
-#include <XBase/KeyKind.hpp>
-#include <XBase/Hid.hpp>
-#include <XBase/Pointer.hpp>
-#include <XBase/Ref.hpp>
-#include <XBase/Unused.hpp>
-#include <XBase/SdkHeader.hpp>
+#include <ae/base/Application.hpp>
+#include <ae/base/KeyKind.hpp>
+#include <ae/base/Hid.hpp>
+#include <ae/base/Pointer.hpp>
+#include <ae/base/Ref.hpp>
+#include <ae/base/Unused.hpp>
+#include <ae/base/SdkHeader.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 namespace {
@@ -132,7 +133,7 @@ void tUpdateMouseBtn(MouseUpdateData& aData, WPARAM aWParam)
     aData.hold.set(MouseBtnKind::M, (aWParam & MK_MBUTTON) != 0);
 }
 
-} // namespace
+}} // namespace
 
 //------------------------------------------------------------------------------
 int Display::screenCount()const
@@ -143,8 +144,8 @@ int Display::screenCount()const
 //------------------------------------------------------------------------------
 Screen& Display::screenAtIndex(const int aIndex)
 {
-    XBASE_ASSERT_LESS(aIndex, screenCount());
-    XBASE_UNUSED(aIndex);
+    AE_BASE_ASSERT_LESS(aIndex, screenCount());
+    AE_BASE_UNUSED(aIndex);
     return mainScreen();
 }
 
@@ -357,5 +358,5 @@ LRESULT Display_Ext::windowProcess(HWND aHWND, UINT aMsg, WPARAM aWParam, LPARAM
     return DefWindowProc(aHWND, aMsg, aWParam, aLParam);
 }
 
-} // namespace
+}} // namespace
 // EOF

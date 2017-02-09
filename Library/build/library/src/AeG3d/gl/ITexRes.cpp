@@ -1,13 +1,14 @@
 // 文字コード：UTF-8
-#include <XG3D/ITexRes.hpp>
+#include <ae/g3d/ITexRes.hpp>
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 //------------------------------------------------------------------------------
 ITexRes::~ITexRes()
 {
 }
 
-} // namespace
+}} // namespace
 // EOF

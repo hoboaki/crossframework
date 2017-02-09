@@ -1,21 +1,22 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_RUNTIMETEX_HPP)
+#if defined(AE_G3D_INCLUDED_RUNTIMETEX_HPP)
 #else
-#define XG3D_INCLUDED_RUNTIMETEX_HPP
+#define AE_G3D_INCLUDED_RUNTIMETEX_HPP
 
-#include <XBase/AutoMemBlock.hpp>
-#include <XBase/Color4.hpp>
-#include <XBase/Color4b.hpp>
-#include <XBase/IAllocator.hpp>
-#include <XBase/NonCopyable.hpp>
-#include <XG3D/BuiltInTypes.hpp>
-#include <XG3D/RuntimeTexContext.hpp>
-#include <XG3D/TexResData.hpp>
+#include <ae/base/AutoMemBlock.hpp>
+#include <ae/base/Color4.hpp>
+#include <ae/base/Color4b.hpp>
+#include <ae/base/IAllocator.hpp>
+#include <ae/base/NonCopyable.hpp>
+#include <ae/g3d/BuiltInTypes.hpp>
+#include <ae/g3d/RuntimeTexContext.hpp>
+#include <ae/g3d/TexResData.hpp>
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
-/// @addtogroup XG3D-Util
+/// @addtogroup AeG3d-Util
 //@{
     /// @brief 実行時にイメージをを生成するテクスチャ。
     /// @details
@@ -28,7 +29,7 @@ namespace XG3D {
     /// ・L系 : R を L に代入@n
 /// ・A系 : A を A に代入@n
 class RuntimeTex
-    : public ::XBase::NonCopyable
+    : public ::ae::base::NonCopyable
 {
 public:
     /// @name ユーティリティ
@@ -44,7 +45,7 @@ public:
     /// @param aAllocator データ領域を確保するのに使うアロケータ。
     RuntimeTex(
         const RuntimeTexContext& aContext
-        , ::XBase::IAllocator& aAllocator = ::XBase::IAllocator::Default()
+        , ::ae::base::IAllocator& aAllocator = ::ae::base::IAllocator::Default()
     );
 
 /// デストラクタ。
@@ -54,7 +55,7 @@ public:
     /// @name 取得
     //@{
     const RuntimeTexContext context()const; ///< 作成時に使用したコンテキスト。
-    const ::XBase::MemBlock data()const;    ///< イメージデータ。
+    const ::ae::base::MemBlock data()const;    ///< イメージデータ。
     const TexResData texResData()const;     ///< TexBufferに渡すデータ。
     //@}
 
@@ -62,16 +63,16 @@ public:
     //@{
     void beginEdit(); ///< 編集開始前に必ず呼ぶべき関数。
     void endEdit();   ///< 編集終了後に必ず呼ぶべき関数。
-    void setPixel(int aX, int aY, const ::XBase::Color4Pod&);  ///< 指定の座標のピクセルを設定。
-    void setPixel(int aX, int aY, const ::XBase::Color4bPod&); ///< 指定の座標のピクセルを設定。
+    void setPixel(int aX, int aY, const ::ae::base::Color4Pod&);  ///< 指定の座標のピクセルを設定。
+    void setPixel(int aX, int aY, const ::ae::base::Color4bPod&); ///< 指定の座標のピクセルを設定。
     //@}
 
 private:
     const RuntimeTexContext mContext;
-    ::XBase::AutoMemBlock mData;
+    ::ae::base::AutoMemBlock mData;
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

@@ -1,16 +1,17 @@
 // 文字コード：UTF-8
-#include <XBase/Vector2i.hpp>
+#include <ae/base/Vector2i.hpp>
 
-#include <XBase/DivideCheck.hpp>
-#include <XBase/Math.hpp>
-#include <XBase/RuntimeAssert.hpp>
-#include <XBase/ScalerTypes.hpp>
-#include <XBase/Vector2.hpp>
-#include <XBase/Vector3i.hpp>
-#include <XBase/Vector4i.hpp>
+#include <ae/base/DivideCheck.hpp>
+#include <ae/base/Math.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/base/ScalerTypes.hpp>
+#include <ae/base/Vector2.hpp>
+#include <ae/base/Vector3i.hpp>
+#include <ae/base/Vector4i.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 const Vector2iPod Vector2iPod::Zero()
@@ -230,7 +231,7 @@ void Vector2iPod::mulAssign(const s32 aVal)
 void Vector2iPod::divAssign(const s32 aVal)
 {
     if (aVal == 0) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return;
     }
     x /= aVal;
@@ -261,8 +262,8 @@ void Vector2iPod::mulAssign(const Vector2iPod& aVal)
 //------------------------------------------------------------------------------
 void Vector2iPod::divAssign(const Vector2iPod& aVal)
 {
-    XBASE_DIV_ASSIGN(x, aVal.x);
-    XBASE_DIV_ASSIGN(y, aVal.y);
+    AE_BASE_DIV_ASSIGN(x, aVal.x);
+    AE_BASE_DIV_ASSIGN(y, aVal.y);
 }
 
 //------------------------------------------------------------------------------
@@ -445,9 +446,9 @@ bool Vector2iPod::isZero()const
 }
 
 //------------------------------------------------------------------------------
-const ::XBase::ShortString Vector2iPod::toShortString()const
+const ::ae::base::ShortString Vector2iPod::toShortString()const
 {
-    return ::XBase::ShortString::FromFormat(
+    return ::ae::base::ShortString::FromFormat(
         "%s,%s",
         S32(x).toShortString().readPtr(),
         S32(y).toShortString().readPtr()
@@ -480,5 +481,5 @@ Vector2i::Vector2i(const s32 aX, const s32 aY)
     y = aY;
 }
 
-} // namespace
+}} // namespace
 // EOF

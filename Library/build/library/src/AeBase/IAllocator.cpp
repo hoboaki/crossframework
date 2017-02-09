@@ -1,14 +1,15 @@
 // 文字コード：UTF-8
-#include <XBase/IAllocator.hpp>
+#include <ae/base/IAllocator.hpp>
 
 #include <memory>
-#include <XBase/FunctionAttribute.hpp>
-#include <XBase/Pointer.hpp>
-#include <XBase/RuntimeAssert.hpp>
-#include <XBase/Unused.hpp>
+#include <ae/base/FunctionAttribute.hpp>
+#include <ae/base/Pointer.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/base/Unused.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 namespace {
@@ -25,7 +26,7 @@ public:
 
 tDefaultAllocatorObj tDefaultAllocator;
 
-} // namespace
+}} // namespace
 
 //------------------------------------------------------------------------------
 IAllocator::~IAllocator()
@@ -50,14 +51,14 @@ IAllocator& IAllocator::OperatorNewDelete()
     class OperatorNewDeleteAllocator : public IAllocator
     {
     public:
-        XBASE_OVERRIDE(ptr_t alloc(pword_t aSize, pword_t aAlignment))
+        AE_BASE_OVERRIDE(ptr_t alloc(pword_t aSize, pword_t aAlignment))
         {
-            XBASE_UNUSED(aAlignment);
+            AE_BASE_UNUSED(aAlignment);
             void* ptr = ::operator new(aSize, std::nothrow_t());
-            XBASE_ASSERT_EQUALS(pword_t(ptr) % aAlignment, 0);
+            AE_BASE_ASSERT_EQUALS(pword_t(ptr) % aAlignment, 0);
             return static_cast<ptr_t>(ptr);
         }
-        XBASE_OVERRIDE(void free(ptr_t aPtr))
+        AE_BASE_OVERRIDE(void free(ptr_t aPtr))
         {
             ::operator delete(aPtr, std::nothrow_t());
         }
@@ -69,27 +70,27 @@ IAllocator& IAllocator::OperatorNewDelete()
 //------------------------------------------------------------------------------
 }
 //------------------------------------------------------------------------------
-void* operator new(const std::size_t aSize, ::XBase::IAllocator& aAllocator)
+void* operator new(const std::size_t aSize, ::ae::base::IAllocator& aAllocator)
 {
     return aAllocator.alloc(aSize);
 }
 
 //------------------------------------------------------------------------------
-void* operator new[](const std::size_t aSize, ::XBase::IAllocator& aAllocator)
+void* operator new[](const std::size_t aSize, ::ae::base::IAllocator& aAllocator)
 {
     return aAllocator.alloc(aSize);
 }
 
 //------------------------------------------------------------------------------
-void operator delete(void* aPtr, ::XBase::IAllocator& aAllocator)
+void operator delete(void* aPtr, ::ae::base::IAllocator& aAllocator)
 {
-    aAllocator.free(::XBase::ptr_t(aPtr));
+    aAllocator.free(::ae::base::ptr_t(aPtr));
 }
 
 //------------------------------------------------------------------------------
-void operator delete[](void* aPtr, ::XBase::IAllocator& aAllocator)
+void operator delete[](void* aPtr, ::ae::base::IAllocator& aAllocator)
 {
-    aAllocator.free(::XBase::ptr_t(aPtr));
+    aAllocator.free(::ae::base::ptr_t(aPtr));
 }
 
 // EOF

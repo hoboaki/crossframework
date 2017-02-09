@@ -1,14 +1,16 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_RUNTIMEERROR_HPP)
+#if defined(AE_BASE_INCLUDED_RUNTIMEERROR_HPP)
 #else
-#define XBASE_INCLUDED_RUNTIMEERROR_HPP
+#define AE_BASE_INCLUDED_RUNTIMEERROR_HPP
 
-namespace XBase {
+namespace ae {
+namespace base {
 class IRuntimeErrorCallback;
 }
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Debug
 //@{
@@ -32,6 +34,6 @@ struct RuntimeError
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

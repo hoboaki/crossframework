@@ -1,12 +1,13 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_ARGUMENT_HPP)
+#if defined(AE_BASE_INCLUDED_ARGUMENT_HPP)
 #else
-#define XBASE_INCLUDED_ARGUMENT_HPP
+#define AE_BASE_INCLUDED_ARGUMENT_HPP
 
-#include <XBase/BuiltInTypes.hpp>
+#include <ae/base/BuiltInTypes.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-System
 //@{
@@ -56,6 +57,6 @@ private:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

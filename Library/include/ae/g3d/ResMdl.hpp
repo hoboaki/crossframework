@@ -1,23 +1,25 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_RESMDL_HPP)
+#if defined(AE_G3D_INCLUDED_RESMDL_HPP)
 #else
-#define XG3D_INCLUDED_RESMDL_HPP
+#define AE_G3D_INCLUDED_RESMDL_HPP
 
-#include <XBase/Pointer.hpp>
-#include <XG3D/BuiltInTypes.hpp>
-#include <XG3D/ResMdlMatRefer.hpp>
-#include <XG3D/ResMdlMesh.hpp>
-#include <XG3D/ResMdlNode.hpp>
-#include <XG3D/ResMdlShape.hpp>
+#include <ae/base/Pointer.hpp>
+#include <ae/g3d/BuiltInTypes.hpp>
+#include <ae/g3d/ResMdlMatRefer.hpp>
+#include <ae/g3d/ResMdlMesh.hpp>
+#include <ae/g3d/ResMdlNode.hpp>
+#include <ae/g3d/ResMdlShape.hpp>
 
-namespace XG3D {
+namespace ae {
+namespace g3d {
 class ResMdlImpl;
 }
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
-/// @addtogroup XG3D-Res
+/// @addtogroup AeG3d-Res
 //@{
     /// @brief XMDLデータのアクセサ。
     /// @details
@@ -59,12 +61,12 @@ public:
     //@}
 
 private:
-    ::XBase::Pointer< const ResMdlImpl > mPtr;
+    ::ae::base::Pointer< const ResMdlImpl > mPtr;
     //------------------------------------------------------------------------------
     bool checkInvalid()const;
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

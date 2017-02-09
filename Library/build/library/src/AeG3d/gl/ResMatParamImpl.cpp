@@ -2,15 +2,16 @@
 #include "ResMatParamImpl.hpp"
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 //------------------------------------------------------------------------------
 ResMatParamImpl::ResMatParamImpl(
-    const ::XData::XData& aXData,
+    const ::ae::xdata::Xdata& aXdata,
     const BinResMatParam* aBinPtr,
-    ::XBase::IAllocator&
+    ::ae::base::IAllocator&
     )
-: xdata(aXData.ptr())
+: xdata(aXdata.ptr())
 , binPtr(aBinPtr)
 {
 }
@@ -20,5 +21,5 @@ ResMatParamImpl::~ResMatParamImpl()
 {
 }
 
-} // namespace
+}} // namespace
 // EOF

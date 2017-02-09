@@ -1,16 +1,17 @@
 // 文字コード：UTF-8
-#include <XBase/Matrix34.hpp>
+#include <ae/base/Matrix34.hpp>
 
-#include <XBase/Angle.hpp>
-#include <XBase/Console.hpp>
-#include <XBase/Math.hpp>
-#include <XBase/Quaternion.hpp>
-#include <XBase/RuntimeAssert.hpp>
-#include <XBase/Vector3.hpp>
-#include <XBase/Matrix44.hpp>
+#include <ae/base/Angle.hpp>
+#include <ae/base/Console.hpp>
+#include <ae/base/Math.hpp>
+#include <ae/base/Quaternion.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/base/Vector3.hpp>
+#include <ae/base/Matrix44.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 const Matrix34Pod Matrix34Pod::Identity()
@@ -114,7 +115,7 @@ const Matrix34Pod Matrix34Pod::LookAt(
     // toTargetUnit
     Vector3 toTarget = aTargetPos - aEyePos;
     if (toTarget.isZeroStrict()) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         toTarget = Vector3Pod::UnitZ(); // fail safe code
     }
     const Vector3 toTargetUnit = toTarget.unit();
@@ -122,7 +123,7 @@ const Matrix34Pod Matrix34Pod::LookAt(
     // upVecUnit
     Vector3Pod upVecUnit;
     if (aUpVec.isZeroStrict()) {
-        XBASE_ERROR_INVALID_VALUE(aUpVec);
+        AE_BASE_ERROR_INVALID_VALUE(aUpVec);
         upVecUnit = Vector3::UnitY(); // fail safe code
     }
     else
@@ -338,7 +339,7 @@ const Matrix34Pod Matrix34Pod::invert()const
         - v[Index02] * v[Index11] * v[Index20];
 
     if (c == 0.0f) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return Identity();
     }
 
@@ -487,10 +488,10 @@ const Matrix44Pod Matrix34Pod::toMatrix44()const
 //------------------------------------------------------------------------------
 void Matrix34Pod::dump()const
 {
-    XBASE_COUTFMT("Matrix34Pod::dump %p\n", this);
-    XBASE_COUTFMT("( %f , %f , %f , %f )\n", v[Index00], v[Index01], v[Index02], v[Index03]);
-    XBASE_COUTFMT("( %f , %f , %f , %f )\n", v[Index10], v[Index11], v[Index12], v[Index13]);
-    XBASE_COUTFMT("( %f , %f , %f , %f )\n", v[Index20], v[Index21], v[Index22], v[Index23]);
+    AE_BASE_COUTFMT("Matrix34Pod::dump %p\n", this);
+    AE_BASE_COUTFMT("( %f , %f , %f , %f )\n", v[Index00], v[Index01], v[Index02], v[Index03]);
+    AE_BASE_COUTFMT("( %f , %f , %f , %f )\n", v[Index10], v[Index11], v[Index12], v[Index13]);
+    AE_BASE_COUTFMT("( %f , %f , %f , %f )\n", v[Index20], v[Index21], v[Index22], v[Index23]);
 }
 
 //------------------------------------------------------------------------------
@@ -540,5 +541,5 @@ Matrix34::Matrix34(
     setW(aW);
 }
 
-} // namespace
+}} // namespace
 // EOF

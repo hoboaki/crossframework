@@ -1,13 +1,14 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_POINTER_HPP)
+#if defined(AE_BASE_INCLUDED_POINTER_HPP)
 #else
-#define XBASE_INCLUDED_POINTER_HPP
+#define AE_BASE_INCLUDED_POINTER_HPP
 
-#include <XBase/RuntimeAssert.hpp>
-#include <XBase/Unused.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/base/Unused.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Util
 //@{
@@ -48,7 +49,7 @@ public:
     /// ポインタが設定されているとして参照を返す。
     T&   ref()const
     {
-        XBASE_ASSERT_POINTER(mPtr);
+        AE_BASE_ASSERT_POINTER(mPtr);
         return *mPtr;
     }
 
@@ -77,7 +78,7 @@ public:
     /// @details 既に設定済みな状況で呼ぶとエラーになります。
     void set(T& aRef)
     {
-        XBASE_ASSERT(isNull());
+        AE_BASE_ASSERT(isNull());
         mPtr = &aRef;
     }
 
@@ -92,9 +93,9 @@ public:
     /// @details 未設定な状況で呼んだり指定のオブジェクト以外が設定されているとエラーになる。
     void unset(T& aRef)
     {
-        XBASE_ASSERT(isValid());
-        XBASE_ASSERT(mPtr == &aRef);
-        XBASE_UNUSED(aRef);
+        AE_BASE_ASSERT(isValid());
+        AE_BASE_ASSERT(mPtr == &aRef);
+        AE_BASE_UNUSED(aRef);
         mPtr = 0;
     }
     //@}
@@ -111,6 +112,6 @@ private:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

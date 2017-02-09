@@ -1,31 +1,32 @@
 // 文字コード：UTF-8
-#include <XG3D/Renderer.hpp>
+#include <ae/g3d/Renderer.hpp>
 
-#include <XBase/Display.hpp>
-#include <XBase/RuntimeAssert.hpp>
-#include <XBase/Unused.hpp>
-#include <XG3D/SdkHeader.hpp>
-#include "XG3DNSOpenGLView.h"
-
-//------------------------------------------------------------------------------
-namespace XG3D {
+#include <ae/base/Display.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/base/Unused.hpp>
+#include <ae/g3d/SdkHeader.hpp>
+#include "AeG3dNSOpenGLView.h"
 
 //------------------------------------------------------------------------------
-void Renderer::copyToScreen(::XBase::Screen& aScreen)
+namespace ae {
+namespace g3d {
+
+//------------------------------------------------------------------------------
+void Renderer::copyToScreen(::ae::base::Screen& aScreen)
 {
-    XG3DNSOpenGLView* view = aScreen.ext_().glView;
+    AeG3dNSOpenGLView* view = aScreen.ext_().glView;
     if (view == 0) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return;
     }
-    XG3DNSOpenGLView_FlushBuffer(view);
+    AeG3dNSOpenGLView_FlushBuffer(view);
 }
 
 //------------------------------------------------------------------------------
-void Renderer_Ext::setup(::XBase::Display& aDisplay)
+void Renderer_Ext::setup(::ae::base::Display& aDisplay)
 {
     // View割り当て
-    XG3DNSOpenGLView* view = XG3DNSOpenGLView_Setup(
+    AeG3dNSOpenGLView* view = AeG3dNSOpenGLView_Setup(
         aDisplay.ext_().windowPtr,
         aDisplay.context_().width(),
         aDisplay.context_().height(),
@@ -34,5 +35,5 @@ void Renderer_Ext::setup(::XBase::Display& aDisplay)
     aDisplay.mainScreen().ext_().glView = view;
 }
 
-} // namespace
+}} // namespace
 // EOF

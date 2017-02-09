@@ -1,13 +1,14 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_CALENDAR_HPP)
+#if defined(AE_BASE_INCLUDED_CALENDAR_HPP)
 #else
-#define XBASE_INCLUDED_CALENDAR_HPP
+#define AE_BASE_INCLUDED_CALENDAR_HPP
 
-#include <XBase/BuiltInTypes.hpp>
-#include <XBase/PodInheritClass.hpp>
+#include <ae/base/BuiltInTypes.hpp>
+#include <ae/base/PodInheritClass.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-DateTime
 //@{
@@ -90,6 +91,6 @@ struct CalendarPod
 typedef PodInheritClass< CalendarPod > Calendar;
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

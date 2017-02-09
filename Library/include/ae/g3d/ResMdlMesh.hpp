@@ -1,20 +1,22 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_RESMDLMESH_HPP)
+#if defined(AE_G3D_INCLUDED_RESMDLMESH_HPP)
 #else
-#define XG3D_INCLUDED_RESMDLMESH_HPP
+#define AE_G3D_INCLUDED_RESMDLMESH_HPP
 
-#include <XBase/Pointer.hpp>
-#include <XG3D/BuiltInTypes.hpp>
-#include <XG3D/ResMdlSubMesh.hpp>
+#include <ae/base/Pointer.hpp>
+#include <ae/g3d/BuiltInTypes.hpp>
+#include <ae/g3d/ResMdlSubMesh.hpp>
 
-namespace XG3D {
+namespace ae {
+namespace g3d {
 class ResMdlMeshImpl;
 }
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
-/// @addtogroup XG3D-Res
+/// @addtogroup AeG3d-Res
 //@{
     /// @brief XMDL::meshデータのアクセサ。
     /// @details
@@ -47,12 +49,12 @@ public:
     //@}
 
 private:
-    ::XBase::Pointer< const ResMdlMeshImpl > mPtr;
+    ::ae::base::Pointer< const ResMdlMeshImpl > mPtr;
     //------------------------------------------------------------------------------
     bool checkInvalid()const;
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

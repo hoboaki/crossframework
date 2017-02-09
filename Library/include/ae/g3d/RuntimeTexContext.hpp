@@ -1,17 +1,18 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_RUNTIMETEXCONTEXT_HPP)
+#if defined(AE_G3D_INCLUDED_RUNTIMETEXCONTEXT_HPP)
 #else
-#define XG3D_INCLUDED_RUNTIMETEXCONTEXT_HPP
+#define AE_G3D_INCLUDED_RUNTIMETEXCONTEXT_HPP
 
-#include <XBase/Enum.hpp>
-#include <XBase/NonCopyable.hpp>
-#include <XG3D/BuiltInTypes.hpp>
-#include <XG3D/ResTexFormat.hpp>
+#include <ae/base/Enum.hpp>
+#include <ae/base/NonCopyable.hpp>
+#include <ae/g3d/BuiltInTypes.hpp>
+#include <ae/g3d/ResTexFormat.hpp>
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
-/// @addtogroup XG3D-Util
+/// @addtogroup AeG3d-Util
 //@{
 /// RuntimeTex用コンテキスト。
 class RuntimeTexContext
@@ -32,12 +33,12 @@ public:
 private:
     RuntimeTexContext(ResTexFormat::EnumType, int aWidth, int aHeight);
     //------------------------------------------------------------------------------
-    ::XBase::Enum32< ResTexFormat::EnumType > mFormat;
+    ::ae::base::Enum32< ResTexFormat::EnumType > mFormat;
     u16 mWidth;
     u16 mHeight;
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

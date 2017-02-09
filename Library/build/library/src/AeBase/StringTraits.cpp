@@ -1,20 +1,21 @@
 // 文字コード：UTF-8
-#include <XBase/StringTraits.hpp>
+#include <ae/base/StringTraits.hpp>
 
 #include <cstdio>
 #include <cstring>
 #include <cwchar>
-#include <XBase/Compiler.hpp>
-#include <XBase/PointerCheck.hpp>
-#include <XBase/RuntimeAssert.hpp>
+#include <ae/base/Compiler.hpp>
+#include <ae/base/PointerCheck.hpp>
+#include <ae/base/RuntimeAssert.hpp>
 
 //------------------------------------------------------------------------------
-#if defined(XBASE_COMPILER_MSVC)
+#if defined(AE_BASE_COMPILER_MSVC)
 #pragma warning(disable: 4996) // for vsnprintf
 #endif
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 namespace {
@@ -272,7 +273,7 @@ const typename StringTraits< CharType >::WriteResult tNCopy(
     // バッファ長チェック
     if (aBufferLength < 1) {
         // 不正な引数
-        XBASE_ERROR_INVALID_VALUE(aBufferLength);
+        AE_BASE_ERROR_INVALID_VALUE(aBufferLength);
         return result;
     }
 
@@ -285,7 +286,7 @@ const typename StringTraits< CharType >::WriteResult tNCopy(
         )
     {// 想定していないことが起きたときの処理
         // 本来あってはならない
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
 
         // result初期化
         const WriteResult tmpResult = {};
@@ -403,7 +404,7 @@ const typename StringTraits< CharType >::WriteResult tVSNPrintf(
     // バッファ長チェック
     if (aBufferLength < 1) {
         // 不正な引数
-        XBASE_ERROR_INVALID_VALUE(aBufferLength);
+        AE_BASE_ERROR_INVALID_VALUE(aBufferLength);
         return result;
     }
 
@@ -416,7 +417,7 @@ const typename StringTraits< CharType >::WriteResult tVSNPrintf(
         )
     {// 想定していないことが起きたときの処理
         // 本来あってはならない
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
 
         // result初期化
         const WriteResult tmpResult = {};
@@ -430,7 +431,7 @@ const typename StringTraits< CharType >::WriteResult tVSNPrintf(
     return result;
 }
 
-} // namespace
+}} // namespace
 
 // VSNPrintfの実装(char版)。
 template <>
@@ -522,5 +523,5 @@ const StringTraits< wchar_t >::WriteResult StringTraits< wchar_t >::SNPrintf(
     return result;
 }
 
-} // namespace
+}} // namespace
 // EOF

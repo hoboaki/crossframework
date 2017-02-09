@@ -1,8 +1,9 @@
 // 文字コード：UTF-8
-#include <XBase/TouchTap.hpp>
+#include <ae/base/TouchTap.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 TouchTap::TouchTap()
@@ -59,5 +60,5 @@ bool TouchTap::isRelease()const
     return mData.tapCount == 0 && mPrevData.tapCount != 0;
 }
 
-} // namespace
+}} // namespace
 // EOF

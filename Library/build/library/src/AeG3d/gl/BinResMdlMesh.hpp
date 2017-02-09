@@ -1,25 +1,26 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_BINRESMDLMESH_HPP)
+#if defined(AE_G3D_INCLUDED_BINRESMDLMESH_HPP)
 #else
-#define XG3D_INCLUDED_BINRESMDLMESH_HPP
+#define AE_G3D_INCLUDED_BINRESMDLMESH_HPP
 
-#include <XData/XData.hpp>
-#include <XG3D/BuiltInTypes.hpp>
+#include <ae/xdata/Xdata.hpp>
+#include <ae/g3d/BuiltInTypes.hpp>
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 // バイナリデータ：モデルメッシュ。
 struct BinResMdlMesh
 {
-    ::XData::UInt16    index;
-    ::XData::UInt16    flags;
-    ::XData::Reference name;
-    ::XData::UInt16    subMeshesCount;
-    ::XData::UInt16    padding;
-    ::XData::Reference subMeshes;
+    ::ae::xdata::UInt16    index;
+    ::ae::xdata::UInt16    flags;
+    ::ae::xdata::Reference name;
+    ::ae::xdata::UInt16    subMeshesCount;
+    ::ae::xdata::UInt16    padding;
+    ::ae::xdata::Reference subMeshes;
 };
 
-} // namespace
+}} // namespace
 #endif
 // EOF

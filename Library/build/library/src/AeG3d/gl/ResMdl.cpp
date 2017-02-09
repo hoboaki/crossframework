@@ -1,12 +1,13 @@
 // 文字コード：UTF-8
-#include <XG3D/ResMdl.hpp>
+#include <ae/g3d/ResMdl.hpp>
 
-#include <XBase/RuntimeAssert.hpp>
-#include <XG3D/ResConstant.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/g3d/ResConstant.hpp>
 #include "ResMdlImpl.hpp"
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 //------------------------------------------------------------------------------
 ResMdl::ResMdl()
@@ -54,7 +55,7 @@ const char* ResMdl::name()const
     if (checkInvalid()) {
         return "";
     }
-    return mPtr->xdata.ref< ::XData::String >(mPtr->binPtr->name)->toCStr();
+    return mPtr->xdata.ref< ::ae::xdata::String >(mPtr->binPtr->name)->toCStr();
 }
 
 //------------------------------------------------------------------------------
@@ -108,7 +109,7 @@ ResMdlMesh ResMdl::mesh(const char* aName)const
     // 検索
     for (int i = 0; i < mPtr->meshImpls->count(); ++i) {
         ResMdlMeshImpl& impl = mPtr->meshImpls->at(i);
-        if (::XBase::StringTraits< char >::Equals(ResMdlMesh(impl).name(), aName)) {
+        if (::ae::base::StringTraits< char >::Equals(ResMdlMesh(impl).name(), aName)) {
             return ResMdlMesh(impl);
         }
     }
@@ -146,7 +147,7 @@ ResMdlNode ResMdl::node(const char* aName)const
     // 検索
     for (int i = 0; i < mPtr->nodeImpls->count(); ++i) {
         ResMdlNodeImpl& impl = mPtr->nodeImpls->at(i);
-        if (::XBase::StringTraits< char >::Equals(ResMdlNode(impl).name(), aName)) {
+        if (::ae::base::StringTraits< char >::Equals(ResMdlNode(impl).name(), aName)) {
             return ResMdlNode(impl);
         }
     }
@@ -184,7 +185,7 @@ ResMdlShape ResMdl::shape(const char* aName)const
     // 検索
     for (int i = 0; i < mPtr->shapeImpls->count(); ++i) {
         ResMdlShapeImpl& impl = mPtr->shapeImpls->at(i);
-        if (::XBase::StringTraits< char >::Equals(ResMdlShape(impl).name(), aName)) {
+        if (::ae::base::StringTraits< char >::Equals(ResMdlShape(impl).name(), aName)) {
             return ResMdlShape(impl);
         }
     }
@@ -200,9 +201,9 @@ bool ResMdl::checkInvalid()const
     }
 
     // 不正なのでエラー
-    XBASE_ASSERT_NOT_REACHED();
+    AE_BASE_ASSERT_NOT_REACHED();
     return true;
 }
 
-} // namespace
+}} // namespace
 // EOF

@@ -1,12 +1,13 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_ENUM_HPP)
+#if defined(AE_BASE_INCLUDED_ENUM_HPP)
 #else
-#define XBASE_INCLUDED_ENUM_HPP
+#define AE_BASE_INCLUDED_ENUM_HPP
 
-#include <XBase/BuiltInTypes.hpp>
+#include <ae/base/BuiltInTypes.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Types
 //@{
@@ -106,6 +107,6 @@ template< typename TEnumType > class Enum : public Enum8< TEnumType > { public: 
 
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

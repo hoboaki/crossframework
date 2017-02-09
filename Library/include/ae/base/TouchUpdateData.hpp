@@ -1,12 +1,13 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_TOUCHUPDATEDATA_HPP)
+#if defined(AE_BASE_INCLUDED_TOUCHUPDATEDATA_HPP)
 #else
-#define XBASE_INCLUDED_TOUCHUPDATEDATA_HPP
+#define AE_BASE_INCLUDED_TOUCHUPDATEDATA_HPP
 
-#include <XBase/TouchTapUpdateData.hpp>
+#include <ae/base/TouchTapUpdateData.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Hid
 //@{
@@ -22,6 +23,6 @@ struct TouchUpdateData
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

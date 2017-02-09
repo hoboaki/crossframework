@@ -1,16 +1,17 @@
 // 文字コード：UTF-8
-#include <XBase/Vector3.hpp>
+#include <ae/base/Vector3.hpp>
 
-#include <XBase/DivideCheck.hpp>
-#include <XBase/Infinity.hpp>
-#include <XBase/Math.hpp>
-#include <XBase/RuntimeAssert.hpp>
-#include <XBase/ScalerTypes.hpp>
-#include <XBase/Vector2.hpp>
-#include <XBase/Vector4.hpp>
+#include <ae/base/DivideCheck.hpp>
+#include <ae/base/Infinity.hpp>
+#include <ae/base/Math.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/base/ScalerTypes.hpp>
+#include <ae/base/Vector2.hpp>
+#include <ae/base/Vector4.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 const Vector3Pod Vector3Pod::Zero()
@@ -29,14 +30,14 @@ const Vector3Pod Vector3Pod::One()
 //------------------------------------------------------------------------------
 const Vector3Pod Vector3Pod::Min()
 {
-    Vector3Pod obj = {-XBASE_INFINITY, -XBASE_INFINITY, -XBASE_INFINITY};
+    Vector3Pod obj = {-AE_BASE_INFINITY, -AE_BASE_INFINITY, -AE_BASE_INFINITY};
     return obj;
 }
 
 //------------------------------------------------------------------------------
 const Vector3Pod Vector3Pod::Max()
 {
-    Vector3Pod obj = {XBASE_INFINITY, XBASE_INFINITY, XBASE_INFINITY};
+    Vector3Pod obj = {AE_BASE_INFINITY, AE_BASE_INFINITY, AE_BASE_INFINITY};
     return obj;
 }
 
@@ -284,7 +285,7 @@ void Vector3Pod::mulAssign(const float aVal)
 void Vector3Pod::divAssign(const float aVal)
 {
     if (aVal == 0) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return;
     }
     mulAssign(1.0f / aVal);
@@ -317,9 +318,9 @@ void Vector3Pod::mulAssign(const Vector3Pod& aVal)
 //------------------------------------------------------------------------------
 void Vector3Pod::divAssign(const Vector3Pod& aVal)
 {
-    XBASE_DIV_ASSIGN(x, aVal.x);
-    XBASE_DIV_ASSIGN(y, aVal.y);
-    XBASE_DIV_ASSIGN(z, aVal.z);
+    AE_BASE_DIV_ASSIGN(x, aVal.x);
+    AE_BASE_DIV_ASSIGN(y, aVal.y);
+    AE_BASE_DIV_ASSIGN(z, aVal.z);
 }
 
 //------------------------------------------------------------------------------
@@ -540,7 +541,7 @@ const Vector3Pod Vector3Pod::unit()const
 void Vector3Pod::unitAssign()
 {
     if (isZeroStrict()) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return;
     }
     mulAssign(1.0f / length());
@@ -563,9 +564,9 @@ const Vector3Pod Vector3Pod::cross(const Vector3Pod& aVec)const
 }
 
 //------------------------------------------------------------------------------
-const ::XBase::ShortString Vector3Pod::toShortString()const
+const ::ae::base::ShortString Vector3Pod::toShortString()const
 {
-    return ::XBase::ShortString::FromFormat(
+    return ::ae::base::ShortString::FromFormat(
         "%s,%s,%s",
         F32(x).toShortString().readPtr(),
         F32(y).toShortString().readPtr(),
@@ -609,5 +610,5 @@ Vector3::Vector3(const float aX, const float aY, const float aZ)
     z = aZ;
 }
 
-} // namespace
+}} // namespace
 // EOF

@@ -1,8 +1,9 @@
 // 文字コード：UTF-8
-#include <XBase/ShortStringFactory.hpp>
+#include <ae/base/ShortStringFactory.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 namespace {
@@ -18,7 +19,7 @@ const ShortString tToShortString(const char* aFormat, const T& aValue)
         );
 }
 
-} // namespace
+}} // namespace
 
 //------------------------------------------------------------------------------
 const ShortString ShortStringFactory::Create(const bool aVal)
@@ -87,7 +88,7 @@ const ShortString ShortStringFactory::Create(const u64 aVal)
 }
 
 //------------------------------------------------------------------------------
-#if !defined(XBASE_OS_WINDOWS)
+#if !defined(AE_BASE_OS_WINDOWS)
 const ShortString ShortStringFactory::Create(pword_t aVal)
 {
     if (sizeof(pword_t) == 4) {
@@ -130,5 +131,5 @@ const ShortString ShortStringFactory::Create(const char* aPtr)
     return tToShortString("%s", aPtr);
 }
 
-} // namespace
+}} // namespace
 // EOF

@@ -1,13 +1,14 @@
 // 文字コード：UTF-8
-#include <XBase/Display.hpp>
+#include <ae/base/Display.hpp>
 
-#include <XBase/Application.hpp>
-#include <XBase/Pointer.hpp>
-#include <XBase/Ref.hpp>
-#include <XBase/SdkHeader.hpp>
+#include <ae/base/Application.hpp>
+#include <ae/base/Pointer.hpp>
+#include <ae/base/Ref.hpp>
+#include <ae/base/SdkHeader.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 Display::Display(const DisplayContext& aContext)
@@ -37,5 +38,5 @@ Display_Ext& Display::ext_()
     return mExt;
 }
 
-} // namespace
+}} // namespace
 // EOF

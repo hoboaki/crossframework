@@ -1,26 +1,28 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_TEXSETTING_HPP)
+#if defined(AE_G3D_INCLUDED_TEXSETTING_HPP)
 #else
-#define XG3D_INCLUDED_TEXSETTING_HPP
+#define AE_G3D_INCLUDED_TEXSETTING_HPP
 
-#include <XBase/Bool.hpp>
-#include <XBase/Enum.hpp>
-#include <XG3D/Engine.hpp>
-#include <XG3D/TexAddress.hpp>
-#include <XG3D/TexFilter.hpp>
+#include <ae/base/Bool.hpp>
+#include <ae/base/Enum.hpp>
+#include <ae/g3d/Engine.hpp>
+#include <ae/g3d/TexAddress.hpp>
+#include <ae/g3d/TexFilter.hpp>
 
-#if defined(XG3D_ENGINE_GLSERIES)
-#include <XG3D/TexSetting_GL.hpp>
+#if defined(AE_G3D_ENGINE_GLSERIES)
+#include <ae/g3d/TexSetting_GL.hpp>
 #endif
 
-namespace XG3D {
+namespace ae {
+namespace g3d {
 class TexBuffer;
 }
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
-/// @addtogroup XG3D-Util
+/// @addtogroup AeG3d-Util
 //@{
 /// テクスチャの設定。
 class TexSetting
@@ -79,14 +81,14 @@ public:
 
 private:
     TexSetting_EXT  mExt;
-    ::XBase::Bool32 mIsActive;
-    ::XBase::Enum8< TexFilter::EnumType > mMinFilter;
-    ::XBase::Enum8< TexFilter::EnumType > mMagFilter;
-    ::XBase::Enum8< TexAddress::EnumType > mAddressU;
-    ::XBase::Enum8< TexAddress::EnumType > mAddressV;
+    ::ae::base::Bool32 mIsActive;
+    ::ae::base::Enum8< TexFilter::EnumType > mMinFilter;
+    ::ae::base::Enum8< TexFilter::EnumType > mMagFilter;
+    ::ae::base::Enum8< TexAddress::EnumType > mAddressU;
+    ::ae::base::Enum8< TexAddress::EnumType > mAddressV;
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

@@ -1,31 +1,31 @@
 // 文字コード：UTF-8
-#include <XBase/XBase.hpp>
+#include <ae/base/All.hpp>
 
 //------------------------------------------------------------------------------
-int xmain(::XBase::Application& aApp)
+int xmain(::ae::base::Application& aApp)
 {
     // 読み込み
-    const ::XBase::AutoMemBlock data = ::XBase::ResFile::Read("res/Simple.txt");
+    const ::ae::base::AutoMemBlock data = ::ae::base::ResFile::Read("res/Simple.txt");
 
     // データサイズを出力
-    XBASE_COUTFMT_LINE("size: %d", int(data->size()));
+    AE_BASE_COUTFMT_LINE("size: %d", int(data->size()));
 
     // 終端文字を入れるためのバッファを作成
     char* buffer = new char[data->size() + 1];
-    for (::XBase::pword_t i = 0; i < data->size(); ++i) {
+    for (::ae::base::pword_t i = 0; i < data->size(); ++i) {
         buffer[i] = reinterpret_cast<const char*>(data->head())[i];
     }
     buffer[data->size()] = '\0';
 
     // テキストファイルの内容を出力
-    XBASE_COUT_LINE(buffer);
+    AE_BASE_COUT_LINE(buffer);
 
     // バッファ解放
     delete[] buffer;
     buffer = 0;
 
     // 終了イベントがくるまでループ
-    while (aApp.receiveEvent() != ::XBase::AppEvent::Quit) {
+    while (aApp.receiveEvent() != ::ae::base::AppEvent::Quit) {
     }
 
     // 終了

@@ -1,12 +1,13 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_DIVIDECHECK_HPP)
+#if defined(AE_BASE_INCLUDED_DIVIDECHECK_HPP)
 #else
-#define XBASE_INCLUDED_DIVIDECHECK_HPP
+#define AE_BASE_INCLUDED_DIVIDECHECK_HPP
 
-#include <XBase/RuntimeAssert.hpp>
+#include <ae/base/RuntimeAssert.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 // 割り算チェックで使うモノたち用空間。
 struct DivideCheck
@@ -18,24 +19,24 @@ struct DivideCheck
     template< typename T >
     static T Error(const T& aRetVal)
     {
-        XBASE_ASSERT_NOT_REACHED_MSG(AssertionMessage);
+        AE_BASE_ASSERT_NOT_REACHED_MSG(AssertionMessage);
         return aRetVal;
     }
 };
 }
-/// @addtogroup XBase-Debug
+/// @addtogroup AeBase-Debug
 //@{
 /// @name 0除算チェック
 //@{
 
 /// @brief lhs /= rhs, operator /=の0除算チェック。
 /// @details 0除算しようとした場合はエラー。エラーが無効なときは除算をせずに続行する。
-#define XBASE_DIV_ASSIGN( lhs , rhs ) \
+#define AE_BASE_DIV_ASSIGN( lhs , rhs ) \
     do \
     { \
         if ( rhs == 0 ) \
         { \
-            XBASE_ASSERT_NOT_REACHED_MSG( ::XBase::DivideCheck::AssertionMessage ); \
+            AE_BASE_ASSERT_NOT_REACHED_MSG( ::ae::base::DivideCheck::AssertionMessage ); \
         } \
         else \
         { \
@@ -45,7 +46,7 @@ struct DivideCheck
 
 /// @brief lhs / rhsの0除算チェック。
 /// @details 0除算しようとした場合はエラー。エラーが無効なときは除算をせずに左辺を返す。
-#define XBASE_DIV( aLHS , aRHS ) ( aRHS != 0 ? ( aLHS / aRHS ) : ::XBase::DivideCheck::Error( aLHS ) )
+#define AE_BASE_DIV( aLHS , aRHS ) ( aRHS != 0 ? ( aLHS / aRHS ) : ::ae::base::DivideCheck::Error( aLHS ) )
 
 //@}
 //@}

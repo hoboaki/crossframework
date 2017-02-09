@@ -1,13 +1,14 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_APPLICATION_WINDOWS_HPP)
+#if defined(AE_BASE_INCLUDED_APPLICATION_WINDOWS_HPP)
 #else
-#define XBASE_INCLUDED_APPLICATION_WINDOWS_HPP
+#define AE_BASE_INCLUDED_APPLICATION_WINDOWS_HPP
 
-#include <XBase/Bool.hpp>
-#include <XBase/Time.hpp>
+#include <ae/base/Bool.hpp>
+#include <ae/base/Time.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 // Windows環境でのApplicationの拡張。
 class Application_Ext
@@ -22,6 +23,6 @@ public:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

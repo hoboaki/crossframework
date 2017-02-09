@@ -1,12 +1,13 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_MOUSE_HPP)
+#if defined(AE_BASE_INCLUDED_MOUSE_HPP)
 #else
-#define XBASE_INCLUDED_MOUSE_HPP
+#define AE_BASE_INCLUDED_MOUSE_HPP
 
-#include <XBase/MouseUpdateData.hpp>
+#include <ae/base/MouseUpdateData.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Hid
 //@{
@@ -72,6 +73,6 @@ private:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

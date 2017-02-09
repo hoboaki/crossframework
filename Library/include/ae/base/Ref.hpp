@@ -1,12 +1,13 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_REF_HPP)
+#if defined(AE_BASE_INCLUDED_REF_HPP)
 #else
-#define XBASE_INCLUDED_REF_HPP
+#define AE_BASE_INCLUDED_REF_HPP
 
-#include <XBase/Reference.hpp>
+#include <ae/base/Reference.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Util
 //@{
@@ -18,6 +19,6 @@ const Reference< T > Ref(T& aObj)
 }
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

@@ -1,40 +1,42 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_RESMDLMESHIMPL_HPP)
+#if defined(AE_G3D_INCLUDED_RESMDLMESHIMPL_HPP)
 #else
-#define XG3D_INCLUDED_RESMDLMESHIMPL_HPP
+#define AE_G3D_INCLUDED_RESMDLMESHIMPL_HPP
 
-#include <XBase/IAllocator.hpp>
-#include <XBase/NonCopyable.hpp>
-#include <XBase/Placement.hpp>
-#include <XBase/RuntimeAutoArray.hpp>
+#include <ae/base/IAllocator.hpp>
+#include <ae/base/NonCopyable.hpp>
+#include <ae/base/Placement.hpp>
+#include <ae/base/RuntimeAutoArray.hpp>
 #include "BinResMdlMesh.hpp"
 #include "ResMdlSubMeshImpl.hpp"
-#include "XDataPlus.hpp"
+#include "XdataPlus.hpp"
 
-namespace XG3D {
+namespace ae {
+namespace g3d {
 class ResMdl;
 }
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 // BinResMdlMeshとResMdlMeshの間にかますクラス。
-class ResMdlMeshImpl : public ::XBase::NonCopyable
+class ResMdlMeshImpl : public ::ae::base::NonCopyable
 {
 public:
-    typedef ::XBase::RuntimeAutoArray< ResMdlSubMeshImpl >  SubMeshArray;
+    typedef ::ae::base::RuntimeAutoArray< ResMdlSubMeshImpl >  SubMeshArray;
 
     //============================================================
-    const XDataPlus  xdata;
+    const XdataPlus  xdata;
     const BinResMdlMesh* binPtr;
-    ::XBase::Placement< SubMeshArray > subMeshImpls;
+    ::ae::base::Placement< SubMeshArray > subMeshImpls;
 
     //============================================================
     // バイナリデータの先頭アドレスを指定して作成。
-    ResMdlMeshImpl(const ::XData::XData& aXData, const BinResMdlMesh* aBinPtr, ::XBase::IAllocator& aAllocator, const ResMdl& aResMdl);
+    ResMdlMeshImpl(const ::ae::xdata::Xdata& aXdata, const BinResMdlMesh* aBinPtr, ::ae::base::IAllocator& aAllocator, const ResMdl& aResMdl);
     ~ResMdlMeshImpl();
 };
 
-} // namespace
+}} // namespace
 #endif
 // EOF

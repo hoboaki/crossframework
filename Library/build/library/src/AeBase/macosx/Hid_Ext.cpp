@@ -1,12 +1,13 @@
 // 文字コード：UTF-8
-#include <XBase/Hid.hpp>
+#include <ae/base/Hid.hpp>
 
-#include <XBase/Display.hpp>
-#include <XBase/Mouse.hpp>
-#include <XBase/Touch.hpp>
+#include <ae/base/Display.hpp>
+#include <ae/base/Mouse.hpp>
+#include <ae/base/Touch.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 int Hid::keyboardCount()const
@@ -17,7 +18,7 @@ int Hid::keyboardCount()const
 //------------------------------------------------------------------------------
 const Keyboard Hid::keyboardAtIndex( const int aIndex )const
 {
-    XBASE_ASSERT_LESS( aIndex , keyboardCount() );
+    AE_BASE_ASSERT_LESS( aIndex , keyboardCount() );
     return mExt.keyboard;
 }
     
@@ -30,7 +31,7 @@ int Hid::mouseCount()const
 //------------------------------------------------------------------------------
 const Mouse Hid::mouseAtIndex( const int aIndex )const
 {
-    XBASE_ASSERT_LESS( aIndex , mouseCount() );
+    AE_BASE_ASSERT_LESS( aIndex , mouseCount() );
     return mExt.mouse;
 }
     
@@ -49,9 +50,9 @@ int Hid::touchCount()const
 //------------------------------------------------------------------------------
 const Touch Hid::touchAtIndex( const int )const
 {
-    XBASE_ASSERT_NOT_REACHED();
+    AE_BASE_ASSERT_NOT_REACHED();
     return Touch( 1 );
 }
 
-} // namespace
+}} // namespace
 // EOF

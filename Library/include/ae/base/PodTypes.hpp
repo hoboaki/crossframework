@@ -1,10 +1,10 @@
 // 文字コード：UTF-8
-#if defined(XDATA_INCLUDED_PodTYPES_HPP)
+#if defined(AE_XS_DATA_INCLUDED_PodTYPES_HPP)
 #else
-#define XDATA_INCLUDED_PodTYPES_HPP
+#define AE_XS_DATA_INCLUDED_PodTYPES_HPP
 
-#include <XBase/BuiltInTypes.hpp>
-#include <XBase/ScalerClass.hpp>
+#include <ae/base/BuiltInTypes.hpp>
+#include <ae/base/ScalerClass.hpp>
 
 //------------------------------------------------------------------------------
 namespace XBase
@@ -76,6 +76,6 @@ typedef PodStruct< const_anyptr_t > ConstAnyPtrPod; ///< any_ptr_tのconst版。
 
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

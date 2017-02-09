@@ -1,11 +1,12 @@
 // 文字コード：UTF-8
-#include <XBase/Argument.hpp>
+#include <ae/base/Argument.hpp>
 
-#include <XBase/PointerCheck.hpp>
-#include <XBase/RuntimeAssert.hpp>
+#include <ae/base/PointerCheck.hpp>
+#include <ae/base/RuntimeAssert.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 Argument::Argument(
@@ -32,7 +33,7 @@ const char* Argument::argValue(const int aIndex)const
 {
     // 範囲外チェック
     if (mArgCount <= aIndex) {
-        XBASE_ERROR_INVALID_VALUE(aIndex);
+        AE_BASE_ERROR_INVALID_VALUE(aIndex);
         return "";
     }
 
@@ -69,5 +70,5 @@ const char* Argument::exeDirPath()const
     return mExeDirPath;
 }
 
-} // namespace
+}} // namespace
 // EOF

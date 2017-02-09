@@ -1,12 +1,13 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_DISPLAY_DEFAULT_HPP)
+#if defined(AE_BASE_INCLUDED_DISPLAY_DEFAULT_HPP)
 #else
-#define XBASE_INCLUDED_DISPLAY_DEFAULT_HPP
+#define AE_BASE_INCLUDED_DISPLAY_DEFAULT_HPP
 
-#include <XBase/DisplayContext.hpp>
+#include <ae/base/DisplayContext.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 // デフォルト環境でのDisplayの拡張。
 class Display_Ext
@@ -16,6 +17,6 @@ public:
     Display_Ext(const DisplayContext&) {}
 };
 
-} // namespace
+}} // namespace
 #endif
 // EOF

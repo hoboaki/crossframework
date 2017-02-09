@@ -1,15 +1,16 @@
 // 文字コード：UTF-8
-#include <XBase/Application.hpp>
+#include <ae/base/Application.hpp>
 
-#include <XBase/Display.hpp>
-#include <XBase/Hid.hpp>
-#include <XBase/Thread.hpp>
-#include <XBase/Time.hpp>
-#include <XBase/TimeSpan.hpp>
+#include <ae/base/Display.hpp>
+#include <ae/base/Hid.hpp>
+#include <ae/base/Thread.hpp>
+#include <ae/base/Time.hpp>
+#include <ae/base/TimeSpan.hpp>
 #include "XBaseNSApp.h"
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 void Application::quit()
@@ -85,5 +86,5 @@ Application_Ext::~Application_Ext()
     XBaseNSApp_Finalize();
 }
 
-} // namespace
+}} // namespace
 // EOF

@@ -1,17 +1,18 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_RESFILESTREAM_HPP)
+#if defined(AE_BASE_INCLUDED_RESFILESTREAM_HPP)
 #else
-#define XBASE_INCLUDED_RESFILESTREAM_HPP
+#define AE_BASE_INCLUDED_RESFILESTREAM_HPP
 
-#include <XBase/FunctionAttribute.hpp>
-#include <XBase/IAllocator.hpp>
-#include <XBase/IReadStream.hpp>
+#include <ae/base/FunctionAttribute.hpp>
+#include <ae/base/IAllocator.hpp>
+#include <ae/base/IReadStream.hpp>
 
 // EXT
-#include <XBase/ResFileStream_STDC.hpp>
+#include <ae/base/ResFileStream_STDC.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-IO
 //@{
@@ -71,11 +72,11 @@ public:
     //@}
 
     // IReadStreamの実装。
-    XBASE_OVERRIDE(pword_t requireReadBufferAlignment()const);
-    XBASE_OVERRIDE(pword_t calcReadBufferSize(pword_t aSize)const);
-    XBASE_OVERRIDE(pword_t seek(int aOffset, SeekOrigin::EnumType aOrigin));
-    XBASE_OVERRIDE(pword_t read(ptr_t aBuffer, pword_t aSize));
-    XBASE_OVERRIDE(void close());
+    AE_BASE_OVERRIDE(pword_t requireReadBufferAlignment()const);
+    AE_BASE_OVERRIDE(pword_t calcReadBufferSize(pword_t aSize)const);
+    AE_BASE_OVERRIDE(pword_t seek(int aOffset, SeekOrigin::EnumType aOrigin));
+    AE_BASE_OVERRIDE(pword_t read(ptr_t aBuffer, pword_t aSize));
+    AE_BASE_OVERRIDE(void close());
 
 private:
     ResFileStream_EXT mExt;
@@ -83,6 +84,6 @@ private:
 
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

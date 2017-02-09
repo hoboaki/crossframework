@@ -1,12 +1,13 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_TEXADDRESS_HPP)
+#if defined(AE_G3D_INCLUDED_TEXADDRESS_HPP)
 #else
-#define XG3D_INCLUDED_TEXADDRESS_HPP
+#define AE_G3D_INCLUDED_TEXADDRESS_HPP
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
-/// @addtogroup XG3D-Enum
+/// @addtogroup AeG3d-Enum
 //@{
 /// テクスチャのアドレッシングモードの種類。
 struct TexAddress
@@ -22,6 +23,6 @@ struct TexAddress
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

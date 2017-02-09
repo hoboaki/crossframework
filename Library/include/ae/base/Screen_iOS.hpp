@@ -1,25 +1,26 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_SCREEN_IOS_HPP)
+#if defined(AE_BASE_INCLUDED_SCREEN_IOS_HPP)
 #else
-#define XBASE_INCLUDED_SCREEN_IOS_HPP
+#define AE_BASE_INCLUDED_SCREEN_IOS_HPP
 
-struct XG3DUIOpenGLView;
+struct AeG3dUIOpenGLView;
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 // iOS環境でのScreenの拡張。
 class Screen_Ext
 {
 public:
     //============================================================
-    XG3DUIOpenGLView* glView;
+    AeG3dUIOpenGLView* glView;
 
     //============================================================
     Screen_Ext();
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

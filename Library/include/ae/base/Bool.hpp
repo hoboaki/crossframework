@@ -1,12 +1,13 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_BOOL_HPP)
+#if defined(AE_BASE_INCLUDED_BOOL_HPP)
 #else
-#define XBASE_INCLUDED_BOOL_HPP
+#define AE_BASE_INCLUDED_BOOL_HPP
 
-#include <XBase/BuiltInTypes.hpp>
+#include <ae/base/BuiltInTypes.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Types
 //@{
@@ -98,6 +99,6 @@ typedef BoolPod8 BoolPod; ///< 標準のPod版(8bit)。
 
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

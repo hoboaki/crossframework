@@ -1,38 +1,40 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_APPLICATION_HPP)
+#if defined(AE_BASE_INCLUDED_APPLICATION_HPP)
 #else
-#define XBASE_INCLUDED_APPLICATION_HPP
+#define AE_BASE_INCLUDED_APPLICATION_HPP
 
-#include <XBase/AppEvent.hpp>
-#include <XBase/Enum.hpp>
-#include <XBase/NonCopyable.hpp>
-#include <XBase/Os.hpp>
-#include <XBase/Pointer.hpp>
-#include <XBase/SdkHeader.hpp>
+#include <ae/base/AppEvent.hpp>
+#include <ae/base/Enum.hpp>
+#include <ae/base/NonCopyable.hpp>
+#include <ae/base/Os.hpp>
+#include <ae/base/Pointer.hpp>
+#include <ae/base/SdkHeader.hpp>
 
-#if defined(XBASE_OS_WINDOWS)
-#include <XBase/Application_Windows.hpp>
-#elif defined(XBASE_OS_MACOSX)
-#include <XBase/Application_MacOSX.hpp>
+#if defined(AE_BASE_OS_WINDOWS)
+#include <ae/base/Application_Windows.hpp>
+#elif defined(AE_BASE_OS_MACOSX)
+#include <ae/base/Application_MacOSX.hpp>
 #else
-#include <XBase/Application_Default.hpp>
+#include <ae/base/Application_Default.hpp>
 #endif
 
-namespace XBase {
+namespace ae {
+namespace base {
 class Argument;
 class Display;
 }
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
-/// @addtogroup XBase-System
+/// @addtogroup AeBase-System
 //@{
     /// @brief アプリケーションの全体を扱うクラス。
     /// @details
     /// このクラスのインスタンスはフレームワークによって生成されます。@n
 /// xmain 関数が呼ばれた時点でこのクラスは生成されているため Instance() を使ってアクセスできます。@n
-class Application : public ::XBase::NonCopyable
+class Application : public ::ae::base::NonCopyable
 {
 public:
     /// インスタンスにアクセス。
@@ -72,6 +74,6 @@ private:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

@@ -3,21 +3,23 @@
  * @brief ResMatParam型を記述する。
  * @author akino
  */
-#if defined(XG3D_INCLUDED_RESMATPARAM_HPP)
+#if defined(AE_G3D_INCLUDED_RESMATPARAM_HPP)
 #else
-#define XG3D_INCLUDED_RESMATPARAM_HPP
+#define AE_G3D_INCLUDED_RESMATPARAM_HPP
 
-#include <XBase/Pointer.hpp>
-#include <XG3D/BuiltInTypes.hpp>
+#include <ae/base/Pointer.hpp>
+#include <ae/g3d/BuiltInTypes.hpp>
 
-namespace XG3D {
+namespace ae {
+namespace g3d {
 class ResMatParamImpl;
 }
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
-/// @addtogroup XG3D-Res
+/// @addtogroup AeG3d-Res
 //@{
     /// @brief XMATSETのマテリアルパラメータデータのアクセサ。
     /// @details
@@ -48,12 +50,12 @@ public:
     //@}
 
 private:
-    ::XBase::Pointer< const ResMatParamImpl > mPtr;
+    ::ae::base::Pointer< const ResMatParamImpl > mPtr;
     //------------------------------------------------------------------------------
     bool checkInvalid()const;
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

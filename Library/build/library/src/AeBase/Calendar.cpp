@@ -1,10 +1,11 @@
 // 文字コード：UTF-8
-#include <XBase/Calendar.hpp>
+#include <ae/base/Calendar.hpp>
 
-#include <XBase/RuntimeAssert.hpp>
+#include <ae/base/RuntimeAssert.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 namespace {
@@ -16,7 +17,7 @@ int tYearCheck(const int aYear)
         || Calendar::YearMax < aYear
         )
     {
-        XBASE_ERROR_INVALID_VALUE(aYear);
+        AE_BASE_ERROR_INVALID_VALUE(aYear);
         return Calendar::YearMin;
     }
     return aYear;
@@ -27,13 +28,13 @@ int tMonthCheck(const int aMonth)
         || Calendar::MonthMax < aMonth
         )
     {
-        XBASE_ERROR_INVALID_VALUE(aMonth);
+        AE_BASE_ERROR_INVALID_VALUE(aMonth);
         return Calendar::MonthMin;
     }
     return aMonth;
 }
 
-} // namespace
+}} // namespace
 
 //------------------------------------------------------------------------------
 bool CalendarPod::IsLeapYear(const int aYear)
@@ -172,10 +173,10 @@ int CalendarPod::DaysInMonth(
             return IsLeapYear(tYearCheck(aYear)) ? 29 : 28;
 
         default:
-            XBASE_ERROR_INVALID_VALUE(month);
+            AE_BASE_ERROR_INVALID_VALUE(month);
             return 28; // fail safe code
     }
 }
 
-} // namespace
+}} // namespace
 // EOF

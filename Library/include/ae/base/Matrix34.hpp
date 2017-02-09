@@ -1,11 +1,12 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_MATRIX34_HPP)
+#if defined(AE_BASE_INCLUDED_MATRIX34_HPP)
 #else
-#define XBASE_INCLUDED_MATRIX34_HPP
+#define AE_BASE_INCLUDED_MATRIX34_HPP
 
-#include <XBase/BuiltInTypes.hpp>
+#include <ae/base/BuiltInTypes.hpp>
 
-namespace XBase {
+namespace ae {
+namespace base {
 class Angle;
 class Quaternion;
 struct Matrix44Pod;
@@ -14,7 +15,8 @@ struct Vector4Pod;
 }
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Math
 //@{
@@ -157,6 +159,6 @@ public:
 typedef Matrix34Pod Mtx34;
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

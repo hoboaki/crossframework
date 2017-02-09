@@ -1,12 +1,13 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_PRIMITIVEKIND_HPP)
+#if defined(AE_G3D_INCLUDED_PRIMITIVEKIND_HPP)
 #else
-#define XG3D_INCLUDED_PRIMITIVEKIND_HPP
+#define AE_G3D_INCLUDED_PRIMITIVEKIND_HPP
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
-/// @addtogroup XG3D-Enum
+/// @addtogroup AeG3d-Enum
 //@{
 /// プリミティブの種類。
 struct PrimitiveKind
@@ -21,6 +22,6 @@ struct PrimitiveKind
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

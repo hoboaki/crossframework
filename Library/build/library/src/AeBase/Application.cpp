@@ -1,10 +1,11 @@
 // 文字コード：UTF-8
-#include <XBase/Application.hpp>
+#include <ae/base/Application.hpp>
 
-#include <XBase/Display.hpp>
+#include <ae/base/Display.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 //------------------------------------------------------------------------------
 namespace {
 
@@ -17,7 +18,7 @@ Application& Application::Instance()
 }
 
 //------------------------------------------------------------------------------
-XBase::Application::Application(const Argument& aArgument)
+ae::base::Application::Application(const Argument& aArgument)
 : mArgument(aArgument)
 , mLastEvent(AppEvent::INVALID)
 , mDisplayPtr()
@@ -63,5 +64,5 @@ void Application::unregisterDisplay_(Display& aDisplay)
     mDisplayPtr.unset(aDisplay);
 }
 
-} // namespace
+}} // namespace
 // EOF

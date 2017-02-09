@@ -1,13 +1,14 @@
 // 文字コード：UTF-8
-#include <XBase/IConsoleCallback.hpp>
+#include <ae/base/IConsoleCallback.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 IConsoleCallback::~IConsoleCallback()
 {
 }
 
-} // namespace
+}} // namespace
 // EOF

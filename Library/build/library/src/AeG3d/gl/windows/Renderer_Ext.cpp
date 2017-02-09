@@ -1,23 +1,24 @@
 // 文字コード：UTF-8
-#include <XG3D/Renderer.hpp>
+#include <ae/g3d/Renderer.hpp>
 
-#include <XBase/Display.hpp>
-#include <XBase/RuntimeAssert.hpp>
-#include <XBase/Unused.hpp>
-#include <XG3D/SdkHeader.hpp>
-
-//------------------------------------------------------------------------------
-namespace XG3D {
+#include <ae/base/Display.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/base/Unused.hpp>
+#include <ae/g3d/SdkHeader.hpp>
 
 //------------------------------------------------------------------------------
-void Renderer::copyToScreen(::XBase::Screen& aScreen)
+namespace ae {
+namespace g3d {
+
+//------------------------------------------------------------------------------
+void Renderer::copyToScreen(::ae::base::Screen& aScreen)
 {
-    XBASE_UNUSED(aScreen);
+    AE_BASE_UNUSED(aScreen);
     SwapBuffers(wglGetCurrentDC());
 }
 
 //------------------------------------------------------------------------------
-void Renderer_Ext::setup(::XBase::Display& aDisplay)
+void Renderer_Ext::setup(::ae::base::Display& aDisplay)
 {
     // デバイスコンテキスト取得
     HDC dc = GetDC(aDisplay.ext_().window);
@@ -53,7 +54,7 @@ void Renderer_Ext::setup(::XBase::Display& aDisplay)
 
     // GLEW
     if (glewInit() != GLEW_OK) {
-        XBASE_ASSERT_NOT_REACHED();
+        AE_BASE_ASSERT_NOT_REACHED();
         return;
     }
 
@@ -79,5 +80,5 @@ void Renderer_Ext::setup(::XBase::Display& aDisplay)
     //std::printf("Version: %s\n", glGetString(GL_VERSION));
 }
 
-} // namespace
+}} // namespace
 // EOF

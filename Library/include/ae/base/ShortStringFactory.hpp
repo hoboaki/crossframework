@@ -1,47 +1,48 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_SHORTSTRINGFACTORY)
+#if defined(AE_BASE_INCLUDED_SHORTSTRINGFACTORY)
 #else
-#define XBASE_INCLUDED_SHORTSTRINGFACTORY
+#define AE_BASE_INCLUDED_SHORTSTRINGFACTORY
 
-#include <XBase/BuiltInTypes.hpp>
-#include <XBase/Os.hpp>
-#include <XBase/ShortString.hpp>
-#include <XBase/TypeTraits.hpp>
+#include <ae/base/BuiltInTypes.hpp>
+#include <ae/base/Os.hpp>
+#include <ae/base/ShortString.hpp>
+#include <ae/base/TypeTraits.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 // ShortStringを作る関数群。
 class ShortStringFactory
 {
 public:
     // 特殊化された関数達。
-    static const ::XBase::ShortString Create(bool aVal);
-    static const ::XBase::ShortString Create(int aVal);
-    static const ::XBase::ShortString Create(uint aVal);
-    static const ::XBase::ShortString Create(f32 aVal);
-    static const ::XBase::ShortString Create(f64 aVal);
-    static const ::XBase::ShortString Create(s8 aVal);
-    static const ::XBase::ShortString Create(s16 aVal);
-    static const ::XBase::ShortString Create(s64 aVal);
-    static const ::XBase::ShortString Create(u8 aVal);
-    static const ::XBase::ShortString Create(u16 aVal);
-    static const ::XBase::ShortString Create(u64 aVal);
-#if !defined(XBASE_OS_WINDOWS)
-    static const ::XBase::ShortString Create(pword_t aVal);
+    static const ::ae::base::ShortString Create(bool aVal);
+    static const ::ae::base::ShortString Create(int aVal);
+    static const ::ae::base::ShortString Create(uint aVal);
+    static const ::ae::base::ShortString Create(f32 aVal);
+    static const ::ae::base::ShortString Create(f64 aVal);
+    static const ::ae::base::ShortString Create(s8 aVal);
+    static const ::ae::base::ShortString Create(s16 aVal);
+    static const ::ae::base::ShortString Create(s64 aVal);
+    static const ::ae::base::ShortString Create(u8 aVal);
+    static const ::ae::base::ShortString Create(u16 aVal);
+    static const ::ae::base::ShortString Create(u64 aVal);
+#if !defined(AE_BASE_OS_WINDOWS)
+    static const ::ae::base::ShortString Create(pword_t aVal);
 #endif
-    static const ::XBase::ShortString Create(ptr_t aVal);
-    static const ::XBase::ShortString Create(const_ptr_t aVal);
-    static const ::XBase::ShortString Create(anyptr_t aVal);
-    static const ::XBase::ShortString Create(const_anyptr_t aVal);
-    static const ::XBase::ShortString Create(const char* aVal);
+    static const ::ae::base::ShortString Create(ptr_t aVal);
+    static const ::ae::base::ShortString Create(const_ptr_t aVal);
+    static const ::ae::base::ShortString Create(anyptr_t aVal);
+    static const ::ae::base::ShortString Create(const_anyptr_t aVal);
+    static const ::ae::base::ShortString Create(const char* aVal);
 
     // デフォルトの実装。toShortString関数を使う。
     template< typename T, class Cond = void >
     class Impl
     {
     public:
-        static const ::XBase::ShortString Create(const T& aObj)
+        static const ::ae::base::ShortString Create(const T& aObj)
         {
             return aObj.toShortString();
         }
@@ -49,13 +50,13 @@ public:
 
     // 特殊化できなかったものは、Implに委譲。
     template< typename T >
-    static const ::XBase::ShortString Create(const T& aObj)
+    static const ::ae::base::ShortString Create(const T& aObj)
     {
         return Impl< T >::Create(aObj);
     };
 };
 
 
-} // namespace
+}} // namespace
 #endif
 // EOF

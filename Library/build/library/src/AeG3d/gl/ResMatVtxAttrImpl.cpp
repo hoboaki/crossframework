@@ -2,15 +2,16 @@
 #include "ResMatVtxAttrImpl.hpp"
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 //------------------------------------------------------------------------------
 ResMatVtxAttrImpl::ResMatVtxAttrImpl(
-    const ::XData::XData& aXData,
+    const ::ae::xdata::Xdata& aXdata,
     const BinResMatVtxAttr* aBinPtr,
-    ::XBase::IAllocator&
+    ::ae::base::IAllocator&
     )
-: xdata(aXData.ptr())
+: xdata(aXdata.ptr())
 , binPtr(aBinPtr)
 {
 }
@@ -20,5 +21,5 @@ ResMatVtxAttrImpl::~ResMatVtxAttrImpl()
 {
 }
 
-} // namespace
+}} // namespace
 // EOF

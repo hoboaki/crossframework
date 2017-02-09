@@ -1,31 +1,31 @@
 // 文字コード：UTF-8
-#include <XBase/XBase.hpp>
+#include <ae/base/All.hpp>
 
 //------------------------------------------------------------------------------
-int xmain(::XBase::Application& aApp)
+int xmain(::ae::base::Application& aApp)
 {
     // ディスプレイの作成
-    ::XBase::Display display = ::XBase::Display(::XBase::DisplayContext());
+    ::ae::base::Display display = ::ae::base::Display(::ae::base::DisplayContext());
 
     // Hidの作成
-    ::XBase::Hid hid(display);
+    ::ae::base::Hid hid(display);
 
     // ディスプレイの表示
     display.show();
 
     // メインループ
-    while (aApp.receiveEvent() != ::XBase::AppEvent::Quit) {
+    while (aApp.receiveEvent() != ::ae::base::AppEvent::Quit) {
         // 更新以外は何もしない
-        if (aApp.lastEvent() != ::XBase::AppEvent::Update) {
+        if (aApp.lastEvent() != ::ae::base::AppEvent::Update) {
             continue;
         }
 
         // タッチの値を見てコンソールに出力
-        const ::XBase::Touch touch = hid.touch();
+        const ::ae::base::Touch touch = hid.touch();
         for (int i = 0; i < touch.tapCount(); ++i) {
-            const ::XBase::TouchTap tap = touch.tapAtIndex(i);
+            const ::ae::base::TouchTap tap = touch.tapAtIndex(i);
             if (tap.isTrigger()) {
-                XBASE_COUTFMT_LINE_WITH_TIME(
+                AE_BASE_COUTFMT_LINE_WITH_TIME(
                     "[%lu] trigger(%lu) : (%d,%d)",
                     i,
                     tap.tapCount(),
@@ -34,7 +34,7 @@ int xmain(::XBase::Application& aApp)
                     );
             }
             if (tap.isRelease()) {
-                XBASE_COUTFMT_LINE_WITH_TIME(
+                AE_BASE_COUTFMT_LINE_WITH_TIME(
                     "[%lu] release(%lu) : (%d,%d)",
                     i,
                     tap.tapCount(),

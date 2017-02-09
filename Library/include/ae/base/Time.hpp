@@ -1,18 +1,20 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_TIMEPod_HPP)
+#if defined(AE_BASE_INCLUDED_TIMEPod_HPP)
 #else
-#define XBASE_INCLUDED_TIMEPod_HPP
+#define AE_BASE_INCLUDED_TIMEPod_HPP
 
-#include <XBase/BuiltInTypes.hpp>
-#include <XBase/PodInheritClass.hpp>
+#include <ae/base/BuiltInTypes.hpp>
+#include <ae/base/PodInheritClass.hpp>
 
-namespace XBase {
+namespace ae {
+namespace base {
 struct CalendarPod;
 struct TimeSpanPod;
 }
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-DateTime
 //@{
@@ -96,6 +98,6 @@ struct TimePod
 typedef PodInheritClass< TimePod > Time;
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

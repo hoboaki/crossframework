@@ -1,14 +1,14 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_INFINITY_HPP)
+#if defined(AE_BASE_INCLUDED_INFINITY_HPP)
 #else
-#define XBASE_INCLUDED_INFINITY_HPP
+#define AE_BASE_INCLUDED_INFINITY_HPP
 
 #include <limits>
 
 /// @addtogroup XBase-Math
 //@{
 /// 無限大の値。
-#define XBASE_INFINITY (std::numeric_limits< float >::infinity())
+#define AE_BASE_INFINITY (std::numeric_limits< float >::infinity())
 //@}
 #endif
 // EOF

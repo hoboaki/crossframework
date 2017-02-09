@@ -1,17 +1,18 @@
 // 文字コード：UTF-8
-#include <XG3D/RuntimeTex.hpp>
+#include <ae/g3d/RuntimeTex.hpp>
 
-#include <XBase/RuntimeAssert.hpp>
-#include <XBase/Unused.hpp>
-#include <XG3D/TexResData.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/base/Unused.hpp>
+#include <ae/g3d/TexResData.hpp>
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 //------------------------------------------------------------------------------
 namespace {
 
-int tBytePerPixel(const ::XG3D::ResTexFormat::EnumType aFormat)
+int tBytePerPixel(const ::ae::g3d::ResTexFormat::EnumType aFormat)
 {
     int bytePerPix = 0;
     switch (aFormat) {
@@ -35,13 +36,13 @@ int tBytePerPixel(const ::XG3D::ResTexFormat::EnumType aFormat)
             break;
 
         default:
-            XBASE_ERROR_INVALID_ENUM(aFormat);
+            AE_BASE_ERROR_INVALID_ENUM(aFormat);
             break;
     }
     return bytePerPix;
 }
 
-} // namespace
+}} // namespace
 
 //------------------------------------------------------------------------------
 pword_t RuntimeTex::CalcDataSize(
@@ -54,13 +55,13 @@ pword_t RuntimeTex::CalcDataSize(
 //------------------------------------------------------------------------------
 pword_t RuntimeTex::RequireAlignment()
 {
-    return ::XBase::IAllocator::DefaultAlignment;
+    return ::ae::base::IAllocator::DefaultAlignment;
 }
 
 //------------------------------------------------------------------------------
 RuntimeTex::RuntimeTex(
     const RuntimeTexContext& aContext,
-    ::XBase::IAllocator& aAllocator
+    ::ae::base::IAllocator& aAllocator
     )
 : mContext(aContext)
 , mData(CalcDataSize(aContext), aAllocator, RequireAlignment())
@@ -83,7 +84,7 @@ const RuntimeTexContext RuntimeTex::context()const
 }
 
 //------------------------------------------------------------------------------
-const ::XBase::MemBlock RuntimeTex::data()const
+const ::ae::base::MemBlock RuntimeTex::data()const
 {
     return mData.ref();
 }
@@ -116,7 +117,7 @@ void RuntimeTex::endEdit()
 void RuntimeTex::setPixel(
     const int aX,
     const int aY,
-    const ::XBase::Color4Pod& aVal
+    const ::ae::base::Color4Pod& aVal
     )
 {
     setPixel(aX, aY, aVal.toRGBAb());
@@ -126,12 +127,12 @@ void RuntimeTex::setPixel(
 void RuntimeTex::setPixel(
     const int aX,
     const int aY,
-    const ::XBase::Color4bPod& aVal
+    const ::ae::base::Color4bPod& aVal
     )
 {
     // アドレス計算
-    XBASE_ASSERT_LESS(aX, mContext.width());
-    XBASE_ASSERT_LESS(aY, mContext.height());
+    AE_BASE_ASSERT_LESS(aX, mContext.width());
+    AE_BASE_ASSERT_LESS(aY, mContext.height());
     const int pixelPos = aX + aY * mContext.width();
     const int bytePos = pixelPos * tBytePerPixel(mContext.format());
     byte_t* addr = &mData->head()[bytePos];
@@ -139,7 +140,7 @@ void RuntimeTex::setPixel(
     // フォーマットごとに代入
     switch (mContext.format()) {
         case ResTexFormat::RGBA8:
-            *reinterpret_cast< ::XBase::Color4bPod* >(addr) = aVal;
+            *reinterpret_cast< ::ae::base::Color4bPod* >(addr) = aVal;
             break;
 
         case ResTexFormat::RGB8:
@@ -184,10 +185,10 @@ void RuntimeTex::setPixel(
             break;
 
         default:
-            XBASE_ERROR_INVALID_ENUM(mContext.format());
+            AE_BASE_ERROR_INVALID_ENUM(mContext.format());
             break;
     }
 }
 
-} // namespace
+}} // namespace
 // EOF

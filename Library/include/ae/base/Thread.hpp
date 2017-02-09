@@ -1,14 +1,16 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_THREAD_HPP)
+#if defined(AE_BASE_INCLUDED_THREAD_HPP)
 #else
-#define XBASE_INCLUDED_THREAD_HPP
+#define AE_BASE_INCLUDED_THREAD_HPP
 
-namespace XBase {
+namespace ae {
+namespace base {
 struct TimeSpanPod;
 }
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Thread
 //@{
@@ -21,6 +23,6 @@ public:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

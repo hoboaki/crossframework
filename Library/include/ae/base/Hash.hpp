@@ -1,16 +1,18 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_HASH_HPP)
+#if defined(AE_BASE_INCLUDED_HASH_HPP)
 #else
-#define XBASE_INCLUDED_HASH_HPP
+#define AE_BASE_INCLUDED_HASH_HPP
 
-#include <XBase/BuiltInTypes.hpp>
+#include <ae/base/BuiltInTypes.hpp>
 
-namespace XBase {
+namespace ae {
+namespace base {
 class MemBlock;
 }
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Util
 //@{
@@ -25,6 +27,6 @@ struct Hash
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

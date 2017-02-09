@@ -1,11 +1,11 @@
 // 文字コード：UTF-8
-#include <XBase/EntryPoint.hpp>
+#include <ae/base/EntryPoint.hpp>
 
 #include <pthread.h>
-#include <XBase/Application.hpp>
-#include <XBase/Argument.hpp>
-#include <XBase/RuntimeAssert.hpp>
-#include <XBase/Unused.hpp>
+#include <ae/base/Application.hpp>
+#include <ae/base/Argument.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/base/Unused.hpp>
 #include "EntryPoint_Ext.h"
 #include "EntryPoint_Sync.h"
 
@@ -16,10 +16,10 @@ namespace {
 struct tThreadArg
 {
     int result;
-    const ::XBase::Argument* argPtr;
+    const ::ae::base::Argument* argPtr;
 };
 
-} // namespace
+}} // namespace
 
 //------------------------------------------------------------------------------
 int xmainThreadEntryPointC(void* aArg)
@@ -28,18 +28,18 @@ int xmainThreadEntryPointC(void* aArg)
     tThreadArg* arg = static_cast<tThreadArg*>(aArg);
 
     // UIMainが立ち上がるまで待つ。
-    XBaseEntryPointSync_XMainWait();
+    AeBaseEntryPointSync_XMainWait();
 
     {// 起動処理開始  
         // Application作成
-        ::XBase::Application app(*arg->argPtr);
+        ::ae::base::Application app(*arg->argPtr);
 
         // xmain実行
         arg->result = xmain(app);
     }
 
     // UIMainに終了したことを通知
-    XBaseEntryPointSync_UIMainSignal();
+    AeBaseEntryPointSync_UIMainSignal();
 
     // スレッド終了
     return 0;
@@ -55,16 +55,16 @@ int mainC(
 {
     // 引数作成
     const int offset = 1; // Exeのパスは別で処理しているためパス。
-    XBASE_ASSERT_LESS_EQUALS(offset, aArgCount);
-    const ::XBase::Argument arg(
-        ::XBase::uint(aArgCount - offset),
+    AE_BASE_ASSERT_LESS_EQUALS(offset, aArgCount);
+    const ::ae::base::Argument arg(
+        ::ae::base::uint(aArgCount - offset),
         &aArgValues[offset],
         aExeFileName,
         aExeDirPath
         );
 
 // 同期オブジェクト作成
-    XBaseEntryPointSync_Initialize();
+    AeBaseEntryPointSync_Initialize();
 
     // xmainスレッド作成
     tThreadArg threadArg = {};
@@ -77,8 +77,8 @@ int mainC(
             xmainThreadEntryPoint,
             &threadArg
             );
-        XBASE_UNUSED(result);
-        XBASE_ASSERT_EQUALS(result, 0);
+        AE_BASE_UNUSED(result);
+        AE_BASE_ASSERT_EQUALS(result, 0);
     }
 
     // UIMain実行
@@ -87,12 +87,12 @@ int mainC(
     // xmainスレッド終了待ち
     {
         int result = pthread_join(threadXMain, 0);
-        XBASE_UNUSED(result);
-        XBASE_ASSERT_EQUALS(result, 0);
+        AE_BASE_UNUSED(result);
+        AE_BASE_ASSERT_EQUALS(result, 0);
     }
 
     // 同期オブジェクト後始末
-    XBaseEntryPointSync_Finalize();
+    AeBaseEntryPointSync_Finalize();
 
     // 終了
     return threadArg.result;

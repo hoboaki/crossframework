@@ -1,19 +1,21 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_COLOR4_HPP)
+#if defined(AE_BASE_INCLUDED_COLOR4_HPP)
 #else
-#define XBASE_INCLUDED_COLOR4_HPP
+#define AE_BASE_INCLUDED_COLOR4_HPP
 
-#include <XBase/BuiltInTypes.hpp>
-#include <XBase/ShortString.hpp>
+#include <ae/base/BuiltInTypes.hpp>
+#include <ae/base/ShortString.hpp>
 
-namespace XBase {
+namespace ae {
+namespace base {
 struct Color3Pod;
 struct Color4bPod;
 struct Vector4Pod;
 }
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Util
 //@{
@@ -130,6 +132,6 @@ public:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

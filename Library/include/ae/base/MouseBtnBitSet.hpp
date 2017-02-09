@@ -1,13 +1,14 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_MOUSEBTNBITSET_HPP)
+#if defined(AE_BASE_INCLUDED_MOUSEBTNBITSET_HPP)
 #else
-#define XBASE_INCLUDED_MOUSEBTNBITSET_HPP
+#define AE_BASE_INCLUDED_MOUSEBTNBITSET_HPP
 
-#include <XBase/BitSet.hpp>
-#include <XBase/MouseBtnKind.hpp>
+#include <ae/base/BitSet.hpp>
+#include <ae/base/MouseBtnKind.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Hid
 //@{
@@ -17,6 +18,6 @@ namespace XBase {
 typedef BitSet< MouseBtnKind::TERM > MouseBtnBitSet;
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

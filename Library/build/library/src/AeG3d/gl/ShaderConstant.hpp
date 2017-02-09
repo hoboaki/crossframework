@@ -1,10 +1,11 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_SHADERCONSTANT_HPP)
+#if defined(AE_G3D_INCLUDED_SHADERCONSTANT_HPP)
 #else
-#define XG3D_INCLUDED_SHADERCONSTANT_HPP
+#define AE_G3D_INCLUDED_SHADERCONSTANT_HPP
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 // シェーダーに関する定数群。
 struct ShaderConstant
@@ -56,6 +57,6 @@ struct ShaderConstant
     };
 };
 
-} // namespace
+}} // namespace
 #endif
 // EOF

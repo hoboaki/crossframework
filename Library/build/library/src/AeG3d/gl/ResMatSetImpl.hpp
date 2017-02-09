@@ -1,33 +1,34 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_RESMATSETIMPL_HPP)
+#if defined(AE_G3D_INCLUDED_RESMATSETIMPL_HPP)
 #else
-#define XG3D_INCLUDED_RESMATSETIMPL_HPP
+#define AE_G3D_INCLUDED_RESMATSETIMPL_HPP
 
-#include <XBase/IAllocator.hpp>
-#include <XBase/NonCopyable.hpp>
-#include <XBase/Placement.hpp>
-#include <XBase/RuntimeAutoArray.hpp>
+#include <ae/base/IAllocator.hpp>
+#include <ae/base/NonCopyable.hpp>
+#include <ae/base/Placement.hpp>
+#include <ae/base/RuntimeAutoArray.hpp>
 #include "BinResMatSet.hpp"
 #include "ResMatImpl.hpp"
-#include "XDataPlus.hpp"
+#include "XdataPlus.hpp"
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 // BinResMatSetとResMatSetの間にかますクラス。
-class ResMatSetImpl : public ::XBase::NonCopyable
+class ResMatSetImpl : public ::ae::base::NonCopyable
 {
 public:
-    typedef ::XBase::RuntimeAutoArray< ResMatImpl > MatArray;
+    typedef ::ae::base::RuntimeAutoArray< ResMatImpl > MatArray;
 
     //============================================================
-    const XDataPlus  xdata;
+    const XdataPlus  xdata;
     const BinResMatSet* binPtr;
-    ::XBase::Placement< MatArray > matImpls;
+    ::ae::base::Placement< MatArray > matImpls;
 
     //============================================================
     // バイナリデータの先頭アドレスを指定して作成。
-    ResMatSetImpl(const ::XData::XData& aXData, const BinResMatSet* aBinPtr, ::XBase::IAllocator& aAllocator);
+    ResMatSetImpl(const ::ae::xdata::Xdata& aXdata, const BinResMatSet* aBinPtr, ::ae::base::IAllocator& aAllocator);
     ~ResMatSetImpl();
 
     //============================================================
@@ -35,6 +36,6 @@ public:
     void release();
 };
 
-} // namespace
+}} // namespace
 #endif
 // EOF

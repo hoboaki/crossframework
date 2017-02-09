@@ -1,12 +1,13 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_SCREENPOS_HPP)
+#if defined(AE_BASE_INCLUDED_SCREENPOS_HPP)
 #else
-#define XBASE_INCLUDED_SCREENPOS_HPP
+#define AE_BASE_INCLUDED_SCREENPOS_HPP
 
-#include <XBase/BuiltInTypes.hpp>
+#include <ae/base/BuiltInTypes.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @name XBase-Util
 //@{
@@ -33,6 +34,6 @@ public:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

@@ -1,15 +1,16 @@
 // 文字コード：UTF-8
-#include <XBase/Console.hpp>
+#include <ae/base/Console.hpp>
 
-#include <XBase/Calendar.hpp>
-#include <XBase/FunctionAttribute.hpp>
-#include <XBase/IConsoleCallback.hpp>
-#include <XBase/NewLine.hpp>
-#include <XBase/PointerCheck.hpp>
-#include <XBase/Time.hpp>
+#include <ae/base/Calendar.hpp>
+#include <ae/base/FunctionAttribute.hpp>
+#include <ae/base/IConsoleCallback.hpp>
+#include <ae/base/NewLine.hpp>
+#include <ae/base/PointerCheck.hpp>
+#include <ae/base/Time.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 //------------------------------------------------------------------------------
 namespace {
 
@@ -62,7 +63,7 @@ IConsoleCallback& Console::DefaultCallback()
     class Callback : public IConsoleCallback
     {
     public:
-        XBASE_OVERRIDE(void onWrite(const char* aFormat, va_list aArg))
+        AE_BASE_OVERRIDE(void onWrite(const char* aFormat, va_list aArg))
         {
             ::std::vprintf(aFormat, aArg);
         }
@@ -105,7 +106,7 @@ void Console::WriteLineF(const char* aFormat, ...)
 void Console::WriteLineVF(const char* aFormat, va_list aArg)
 {
     WriteVF(aFormat, aArg);
-    WriteF("%s", XBASE_NEWLINE);
+    WriteF("%s", AE_BASE_NEWLINE);
 }
 
 //------------------------------------------------------------------------------
@@ -143,5 +144,5 @@ void Console::TimeWriteLineVF(const char* aFormat, va_list aArg)
     WriteLineVF(aFormat, aArg);
 }
 
-} // namespace
+}} // namespace
 // EOF

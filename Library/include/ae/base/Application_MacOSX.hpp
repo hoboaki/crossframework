@@ -1,12 +1,13 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_APPLICATION_MACOSX_HPP)
+#if defined(AE_BASE_INCLUDED_APPLICATION_MACOSX_HPP)
 #else
-#define XBASE_INCLUDED_APPLICATION_MACOSX_HPP
+#define AE_BASE_INCLUDED_APPLICATION_MACOSX_HPP
 
-#include <XBase/Bool.hpp>
+#include <ae/base/Bool.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 // MacOSX環境でのApplicationの拡張。
 class Application_Ext
@@ -22,6 +23,6 @@ public:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

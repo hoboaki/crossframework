@@ -1,12 +1,13 @@
 // 文字コード：UTF-8
-#include <XG3D/ResMdlShape.hpp>
+#include <ae/g3d/ResMdlShape.hpp>
 
-#include <XBase/RuntimeAssert.hpp>
-#include <XG3D/ResConstant.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/g3d/ResConstant.hpp>
 #include "ResMdlShapeImpl.hpp"
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
 //------------------------------------------------------------------------------
 ResMdlShape::ResMdlShape()
@@ -54,7 +55,7 @@ const char* ResMdlShape::name()const
     if (checkInvalid()) {
         return "";
     }
-    return mPtr->xdata.ref< ::XData::String >(mPtr->binPtr->name)->toCStr();
+    return mPtr->xdata.ref< ::ae::xdata::String >(mPtr->binPtr->name)->toCStr();
 }
 
 //------------------------------------------------------------------------------
@@ -82,9 +83,9 @@ bool ResMdlShape::checkInvalid()const
     }
 
     // 不正なのでエラー
-    XBASE_ASSERT_NOT_REACHED();
+    AE_BASE_ASSERT_NOT_REACHED();
     return true;
 }
 
-} // namespace
+}} // namespace
 // EOF

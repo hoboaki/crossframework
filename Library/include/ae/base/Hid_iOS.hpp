@@ -1,13 +1,14 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_HID_IOS_HPP)
+#if defined(AE_BASE_INCLUDED_HID_IOS_HPP)
 #else
-#define XBASE_INCLUDED_HID_IOS_HPP
+#define AE_BASE_INCLUDED_HID_IOS_HPP
 
-#include <XBase/NonCopyable.hpp>
-#include <XBase/Touch.hpp>
+#include <ae/base/NonCopyable.hpp>
+#include <ae/base/Touch.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 // iOSのHid拡張。
 class Hid_Ext : public NonCopyable
@@ -19,6 +20,6 @@ public:
     Hid_Ext();
 };
 
-} // namespace
+}} // namespace
 #endif
 // EOF

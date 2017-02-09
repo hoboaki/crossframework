@@ -1,23 +1,24 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_CHARTRAITS_HPP)
+#if defined(AE_BASE_INCLUDED_CHARTRAITS_HPP)
 #else
-#define XBASE_INCLUDED_CHARTRAITS_HPP
+#define AE_BASE_INCLUDED_CHARTRAITS_HPP
 
 #include <cstdarg>
-#include <XBase/Bool.hpp>
-#include <XBase/BuiltInTypes.hpp>
+#include <ae/base/Bool.hpp>
+#include <ae/base/BuiltInTypes.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
-/// @addtogroup XBase-String
+/// @addtogroup AeBase-String
 //@{
     /// @brief 文字列に関する関数群。
     /// @details テンプレート引数に char/wchar_t を入れて使ってください。
     /// @code
     /// // 例
-    /// ::XBase::pword_t charLength = ::XBase::StringTraits< char >::Length( "abc" );
-    /// ::XBase::pword_t wcharLength = ::XBase::StringTraits< wchar_t >::Length( L"abc" );
+    /// ::ae::base::pword_t charLength = ::ae::base::StringTraits< char >::Length( "abc" );
+    /// ::ae::base::pword_t wcharLength = ::ae::base::StringTraits< wchar_t >::Length( L"abc" );
     /// @endcode
 template< typename CharType >
 struct StringTraits
@@ -95,6 +96,6 @@ struct StringTraits
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

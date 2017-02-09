@@ -1,13 +1,14 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_PodINHERITCLASS_HPP)
+#if defined(AE_BASE_INCLUDED_PodINHERITCLASS_HPP)
 #else
-#define XBASE_INCLUDED_PodINHERITCLASS_HPP
+#define AE_BASE_INCLUDED_PodINHERITCLASS_HPP
 
-#include <XBase/StaticAssert.hpp>
-#include <XBase/TypeTraits.hpp>
+#include <ae/base/StaticAssert.hpp>
+#include <ae/base/TypeTraits.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Types
 //@{
@@ -34,11 +35,11 @@ public:
     }
 
 private:
-    XBASE_STATIC_ASSERT(TypeTraits::IsPod< PodType >::Value);
+    AE_BASE_STATIC_ASSERT(TypeTraits::IsPod< PodType >::Value);
 };
 
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

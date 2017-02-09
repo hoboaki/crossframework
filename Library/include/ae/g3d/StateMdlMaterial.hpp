@@ -1,26 +1,28 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_STATEMDLMATERIAL_HPP)
+#if defined(AE_G3D_INCLUDED_STATEMDLMATERIAL_HPP)
 #else
-#define XG3D_INCLUDED_STATEMDLMATERIAL_HPP
+#define AE_G3D_INCLUDED_STATEMDLMATERIAL_HPP
 
-#include <XBase/NonCopyable.hpp>
-#include <XBase/RuntimeAutoArray.hpp>
-#include <XG3D/ResMatSet.hpp>
-#include <XG3D/ResMdl.hpp>
+#include <ae/base/NonCopyable.hpp>
+#include <ae/base/RuntimeAutoArray.hpp>
+#include <ae/g3d/ResMatSet.hpp>
+#include <ae/g3d/ResMdl.hpp>
 
-namespace XG3D {
+namespace ae {
+namespace g3d {
 class StateMaterial;
 }
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
-/// @addtogroup XG3D-State
+/// @addtogroup AeG3d-State
 //@{
     /// @brief モデルが必要とする全Materialに関するState。
     /// @details
 /// 各関数の引数 aMatIndex はインスタンス元モデルの matRefer のインデックス値に対応します。
-class StateMdlMaterial : public ::XBase::NonCopyable
+class StateMdlMaterial : public ::ae::base::NonCopyable
 {
 public:
     /// @name コンストラクタとデストラクタ
@@ -32,7 +34,7 @@ public:
     StateMdlMaterial(
         const ResMdl& aResMdl
         , const ResMatSet& aResMatSet
-        , ::XBase::IAllocator& aAllocator = ::XBase::IAllocator::Default()
+        , ::ae::base::IAllocator& aAllocator = ::ae::base::IAllocator::Default()
     );
 
 /// デストラクタ。
@@ -47,10 +49,10 @@ public:
 
 private:
     ResMdl mResMdl;
-    ::XBase::RuntimeAutoArray< StateMaterial > mMaterials;
+    ::ae::base::RuntimeAutoArray< StateMaterial > mMaterials;
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

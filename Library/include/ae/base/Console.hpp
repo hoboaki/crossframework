@@ -1,20 +1,22 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_CONSOLE_HPP)
+#if defined(AE_BASE_INCLUDED_CONSOLE_HPP)
 #else
-#define XBASE_INCLUDED_CONSOLE_HPP
+#define AE_BASE_INCLUDED_CONSOLE_HPP
 
 #include <cstdarg>
-#include <XBase/Config.hpp>
-#include <XBase/ToShortString.hpp>
+#include <ae/base/Config.hpp>
+#include <ae/base/ToShortString.hpp>
 
-namespace XBase {
+namespace ae {
+namespace base {
 class IConsoleCallback;
 }
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
-/// @addtogroup XBase-Debug
+/// @addtogroup AeBase-Debug
 //@{
 /// コンソールに関する関数を定義する空間。
 struct Console
@@ -74,117 +76,117 @@ struct Console
 }
 
 // 準備
-#if defined(XBASE_CONFIG_ENABLE_LOGSTR)
-#define XBASE_COUT_CORE( aFmt , ...) ::XBase::Console::WriteF( aFmt , __VA_ARGS__ )
+#if defined(AE_BASE_CONFIG_ENABLE_LOGSTR)
+#define AE_BASE_COUT_CORE( aFmt , ...) ::ae::base::Console::WriteF( aFmt , __VA_ARGS__ )
 #else
-#define XBASE_COUT_CORE( aFmt , ...) do{}while(0)
+#define AE_BASE_COUT_CORE( aFmt , ...) do{}while(0)
 #endif
 
-/// @addtogroup XBase-Debug
+/// @addtogroup AeBase-Debug
 //@{
 /// @name コンソール出力
 //@{
 
 /// @brief 文字列をコンソールに書き込む。
-/// @see XBASE_CONFIG_ENABLE_LOGSTR
+/// @see AE_BASE_CONFIG_ENABLE_LOGSTR
 /// @details ログ文字列が無効な時は何もしません。
-#define XBASE_COUT( aStr ) XBASE_COUT_CORE( "%s" , aStr )
+#define AE_BASE_COUT( aStr ) AE_BASE_COUT_CORE( "%s" , aStr )
 
 /// @brief printfフォーマットの文字列をコンソールに書き込む。
-/// @see XBASE_CONFIG_ENABLE_LOGSTR
+/// @see AE_BASE_CONFIG_ENABLE_LOGSTR
 /// @details ログ文字列が無効な時は何もしません。
-#define XBASE_COUTFMT( aFmt , ... ) XBASE_COUT_CORE( aFmt , __VA_ARGS__ )
+#define AE_BASE_COUTFMT( aFmt , ... ) AE_BASE_COUT_CORE( aFmt , __VA_ARGS__ )
 
-/// @def XBASE_COUT_TIME
+/// @def AE_BASE_COUT_TIME
 /// @brief 現在時刻をコンソールに書き込む。
-/// @see XBASE_CONFIG_ENABLE_LOGSTR
+/// @see AE_BASE_CONFIG_ENABLE_LOGSTR
 /// @details ログ文字列が無効な時は何もしません。
-#if defined(XBASE_CONFIG_ENABLE_LOGSTR)
-#define XBASE_COUT_TIME() ::XBase::Console::WriteTime()
+#if defined(AE_BASE_CONFIG_ENABLE_LOGSTR)
+#define AE_BASE_COUT_TIME() ::ae::base::Console::WriteTime()
 #else
-#define XBASE_COUT_TIME() do{}while(false)
+#define AE_BASE_COUT_TIME() do{}while(false)
 #endif
 
-/// @def XBASE_COUT_END_LINE
+/// @def AE_BASE_COUT_END_LINE
 /// @brief 改行コードをコンソールに書き込む。
-/// @see XBASE_CONFIG_ENABLE_LOGSTR
+/// @see AE_BASE_CONFIG_ENABLE_LOGSTR
 /// @details ログ文字列が無効な時は何もしません。
-#if defined(XBASE_CONFIG_ENABLE_LOGSTR)
-#define XBASE_COUT_END_LINE() ::XBase::Console::WriteLineF("%s","")
+#if defined(AE_BASE_CONFIG_ENABLE_LOGSTR)
+#define AE_BASE_COUT_END_LINE() ::ae::base::Console::WriteLineF("%s","")
 #else
-#define XBASE_COUT_END_LINE() do{}while(false)
+#define AE_BASE_COUT_END_LINE() do{}while(false)
 #endif
 
 /// @brief 文字列をコンソールに改行書き込みする。
-/// @see XBASE_CONFIG_ENABLE_LOGSTR
+/// @see AE_BASE_CONFIG_ENABLE_LOGSTR
 /// @details ログ文字列が無効な時は何もしません。
-#define XBASE_COUT_LINE( aStr ) \
+#define AE_BASE_COUT_LINE( aStr ) \
     do \
     { \
-        XBASE_COUT( aStr ); \
-        XBASE_COUT_END_LINE(); \
+        AE_BASE_COUT( aStr ); \
+        AE_BASE_COUT_END_LINE(); \
     } while(0)
 
 /// @brief printfフォーマットの文字列をコンソールに改行書き込みする。
-/// @see XBASE_CONFIG_ENABLE_LOGSTR
+/// @see AE_BASE_CONFIG_ENABLE_LOGSTR
 /// @details ログ文字列が無効な時は何もしません。
-#define XBASE_COUTFMT_LINE( ... ) \
+#define AE_BASE_COUTFMT_LINE( ... ) \
     do \
     { \
-        XBASE_COUTFMT( __VA_ARGS__ ); \
-        XBASE_COUT_END_LINE(); \
+        AE_BASE_COUTFMT( __VA_ARGS__ ); \
+        AE_BASE_COUT_END_LINE(); \
     } while(0)
 
 /// @brief 現在時間と共にprintfフォーマットの文字列をコンソールに書き込む。
-/// @see XBASE_CONFIG_ENABLE_LOGSTR
+/// @see AE_BASE_CONFIG_ENABLE_LOGSTR
 /// @details ログ文字列が無効な時は何もしません。
-#define XBASE_COUT_WITH_TIME( aStr ) \
+#define AE_BASE_COUT_WITH_TIME( aStr ) \
     do \
     { \
-        XBASE_COUT_TIME(); \
-        XBASE_COUT( aStr ); \
+        AE_BASE_COUT_TIME(); \
+        AE_BASE_COUT( aStr ); \
     } while(0)
 
 /// @brief 現在時間と共にprintfフォーマットの文字列をコンソールに書き込む。
-/// @see XBASE_CONFIG_ENABLE_LOGSTR
+/// @see AE_BASE_CONFIG_ENABLE_LOGSTR
 /// @details ログ文字列が無効な時は何もしません。
-#define XBASE_COUTFMT_WITH_TIME( ... ) \
+#define AE_BASE_COUTFMT_WITH_TIME( ... ) \
     do \
     { \
-        XBASE_COUT_TIME(); \
-        XBASE_COUTFMT( __VA_ARGS__ ); \
+        AE_BASE_COUT_TIME(); \
+        AE_BASE_COUTFMT( __VA_ARGS__ ); \
     } while(0)
 
 /// @brief 現在時間と共に文字列をコンソールに改行書き込みする。
-/// @see XBASE_CONFIG_ENABLE_LOGSTR
+/// @see AE_BASE_CONFIG_ENABLE_LOGSTR
 /// @details ログ文字列が無効な時は何もしません。
-#define XBASE_COUT_LINE_WITH_TIME( aStr ) \
+#define AE_BASE_COUT_LINE_WITH_TIME( aStr ) \
     do \
     { \
-        XBASE_COUT_WITH_TIME( aStr ); \
-        XBASE_COUT_END_LINE(); \
+        AE_BASE_COUT_WITH_TIME( aStr ); \
+        AE_BASE_COUT_END_LINE(); \
     } while(0)
 
 /// @brief 現在時間と共にprintfフォーマットの文字列をコンソールに改行書き込みする。
-/// @see XBASE_CONFIG_ENABLE_LOGSTR
+/// @see AE_BASE_CONFIG_ENABLE_LOGSTR
 /// @details ログ文字列が無効な時は何もしません。
-#define XBASE_COUTFMT_LINE_WITH_TIME(...) \
+#define AE_BASE_COUTFMT_LINE_WITH_TIME(...) \
     do \
     { \
-        XBASE_COUTFMT_WITH_TIME( __VA_ARGS__ ); \
-        XBASE_COUT_END_LINE(); \
+        AE_BASE_COUTFMT_WITH_TIME( __VA_ARGS__ ); \
+        AE_BASE_COUT_END_LINE(); \
     } while(0)
 
 /// @brief 現在時刻と共にファイル名と行番号をコンソールに改行書き込みする。
-/// @see XBASE_CONFIG_ENABLE_LOGSTR
+/// @see AE_BASE_CONFIG_ENABLE_LOGSTR
 /// @details ログ文字列が無効な時は何もしません。
-#define XBASE_CHECKPOINT() XBASE_COUTFMT_LINE_WITH_TIME( "%s at %lu\n" , __FILE__ , __LINE__ )
+#define AE_BASE_CHECKPOINT() AE_BASE_COUTFMT_LINE_WITH_TIME( "%s at %lu\n" , __FILE__ , __LINE__ )
 
 /// @brief 現在時刻と共に変数の名前・値をコンソールに改行書き込みする。
 /// @param aVal ダンプする値。ShortString変換に対応していないとエラーになる。
-/// @see XBASE_CONFIG_ENABLE_LOGSTR
+/// @see AE_BASE_CONFIG_ENABLE_LOGSTR
 /// @details ログ文字列が無効な時は何もしません。
-#define XBASE_DUMP( aVal ) XBASE_COUTFMT_LINE_WITH_TIME( "%s : %s\n" , #aVal , XBASE_TO_SHORT_STRING( aVal ).readPtr() )
+#define AE_BASE_DUMP( aVal ) AE_BASE_COUTFMT_LINE_WITH_TIME( "%s : %s\n" , #aVal , AE_BASE_TO_SHORT_STRING( aVal ).readPtr() )
 
 //@}
 //@}

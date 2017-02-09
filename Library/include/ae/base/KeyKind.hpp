@@ -1,10 +1,11 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_KEYKIND_HPP)
+#if defined(AE_BASE_INCLUDED_KEYKIND_HPP)
 #else
-#define XBASE_INCLUDED_KEYKIND_HPP
+#define AE_BASE_INCLUDED_KEYKIND_HPP
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Hid
 //@{
@@ -101,6 +102,6 @@ struct KeyKind
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

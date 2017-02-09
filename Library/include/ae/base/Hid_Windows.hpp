@@ -1,14 +1,15 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_HID_WINDOWS_HPP)
+#if defined(AE_BASE_INCLUDED_HID_WINDOWS_HPP)
 #else
-#define XBASE_INCLUDED_HID_WINDOWS_HPP
+#define AE_BASE_INCLUDED_HID_WINDOWS_HPP
 
-#include <XBase/Keyboard.hpp>
-#include <XBase/Mouse.hpp>
-#include <XBase/NonCopyable.hpp>
+#include <ae/base/Keyboard.hpp>
+#include <ae/base/Mouse.hpp>
+#include <ae/base/NonCopyable.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 // WindowsのHid拡張。
 class Hid_Ext : public NonCopyable
@@ -18,6 +19,6 @@ public:
     Mouse mouse;
 };
 
-} // namespace
+}} // namespace
 #endif
 // EOF

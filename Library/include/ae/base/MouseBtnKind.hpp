@@ -1,10 +1,11 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_MOUSEBTNKIND_HPP)
+#if defined(AE_BASE_INCLUDED_MOUSEBTNKIND_HPP)
 #else
-#define XBASE_INCLUDED_MOUSEBTNKIND_HPP
+#define AE_BASE_INCLUDED_MOUSEBTNKIND_HPP
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 /// @addtogroup XBase-Hid
 //@{
@@ -22,6 +23,6 @@ struct MouseBtnKind
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

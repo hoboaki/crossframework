@@ -2,20 +2,21 @@
 #include "ResMatImpl.hpp"
 
 #include <cstdlib>
-#include <XBase/ArrayLength.hpp>
-#include <XBase/Ref.hpp>
+#include <ae/base/ArrayLength.hpp>
+#include <ae/base/Ref.hpp>
 #include "GlCmd.hpp"
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 //------------------------------------------------------------------------------
 namespace {
 
 //------------------------------------------------------------------------------
 struct tEntryHeader
 {
-    ::XData::SInt32      count;
-    ::XData::Reference  entries[1]; // 本当は無限長配列
+    ::ae::xdata::SInt32      count;
+    ::ae::xdata::Reference  entries[1]; // 本当は無限長配列
 };
 
 //------------------------------------------------------------------------------
@@ -26,26 +27,26 @@ bool tCreateShader(
     )
 {
     GLint status = GLint();
-    XG3D_GLCMD(*aShader = glCreateShader(aShaderType));
-    XG3D_GLCMD(glShaderSource(*aShader, 1, &aSource, 0));
-    XG3D_GLCMD(glCompileShader(*aShader));
+    AE_G3D_GLCMD(*aShader = glCreateShader(aShaderType));
+    AE_G3D_GLCMD(glShaderSource(*aShader, 1, &aSource, 0));
+    AE_G3D_GLCMD(glCompileShader(*aShader));
 
 #if defined(XLIBRARY_DEBUG)
     {
         GLint logLength;
-        XG3D_GLCMD(glGetShaderiv(*aShader, GL_INFO_LOG_LENGTH, &logLength));
+        AE_G3D_GLCMD(glGetShaderiv(*aShader, GL_INFO_LOG_LENGTH, &logLength));
         if (logLength > 0) {
             GLchar *log = (GLchar *)malloc(logLength);
-            XG3D_GLCMD(glGetShaderInfoLog(*aShader, logLength, &logLength, log));
-            XBASE_COUT_LINE(log);
+            AE_G3D_GLCMD(glGetShaderInfoLog(*aShader, logLength, &logLength, log));
+            AE_BASE_COUT_LINE(log);
             free(log);
         }
     }
 #endif
 
-    XG3D_GLCMD(glGetShaderiv(*aShader, GL_COMPILE_STATUS, &status));
+    AE_G3D_GLCMD(glGetShaderiv(*aShader, GL_COMPILE_STATUS, &status));
     if (status == GL_FALSE) {
-        XG3D_GLCMD(glDeleteShader(*aShader));
+        AE_G3D_GLCMD(glDeleteShader(*aShader));
         *aShader = GLuint();
         return false;
     }
@@ -56,8 +57,8 @@ bool tCreateShader(
 bool tLinkProgram(GLuint aProgram)
 {
     GLint status = GLint();
-    XG3D_GLCMD(glLinkProgram(aProgram));
-    XG3D_GLCMD(glGetProgramiv(aProgram, GL_LINK_STATUS, &status));
+    AE_G3D_GLCMD(glLinkProgram(aProgram));
+    AE_G3D_GLCMD(glGetProgramiv(aProgram, GL_LINK_STATUS, &status));
     if (status == 0) {
         return false;
     }
@@ -67,13 +68,13 @@ bool tLinkProgram(GLuint aProgram)
 //------------------------------------------------------------------------------
 bool tValidateProgram(GLuint aProgram)
 {
-#if defined(XBASE_OS_MACOSX)
+#if defined(AE_BASE_OS_MACOSX)
         // macos 10.11 環境で動作しないため即リターン。
     return true;
 #endif
     GLint status = GLint();
-    XG3D_GLCMD(glValidateProgram(aProgram));
-    XG3D_GLCMD(glGetProgramiv(aProgram, GL_VALIDATE_STATUS, &status));
+    AE_G3D_GLCMD(glValidateProgram(aProgram));
+    AE_G3D_GLCMD(glGetProgramiv(aProgram, GL_VALIDATE_STATUS, &status));
     if (status == 0) {
         return false;
     }
@@ -82,11 +83,11 @@ bool tValidateProgram(GLuint aProgram)
 }
 //------------------------------------------------------------------------------
 ResMatImpl::ResMatImpl(
-    const ::XData::XData& aXData,
+    const ::ae::xdata::Xdata& aXdata,
     const BinResMat* aBinPtr,
-    ::XBase::IAllocator& aAllocator
+    ::ae::base::IAllocator& aAllocator
     )
-: xdata(aXData.ptr())
+: xdata(aXdata.ptr())
 , binPtr(aBinPtr)
 , shaderProgram(0)
 , sysUniformLocations()
@@ -96,12 +97,12 @@ ResMatImpl::ResMatImpl(
     // param
     {
         const tEntryHeader* header = xdata.ref< tEntryHeader >(binPtr->params);
-        paramImpls.init(header->count, ::XBase::Ref(aAllocator));
+        paramImpls.init(header->count, ::ae::base::Ref(aAllocator));
         for (int i = 0; i < header->count; ++i) {
             paramImpls->add(
-                ::XBase::Ref(xdata),
+                ::ae::base::Ref(xdata),
                 xdata.ref< BinResMatParam >(header->entries[i]),
-                ::XBase::Ref(aAllocator)
+                ::ae::base::Ref(aAllocator)
                 );
         }
     }
@@ -109,12 +110,12 @@ ResMatImpl::ResMatImpl(
     // vtxAttrs
     {
         const tEntryHeader* header = xdata.ref< tEntryHeader >(binPtr->vtxAttrs);
-        vtxAttrs.init(header->count, ::XBase::Ref(aAllocator));
+        vtxAttrs.init(header->count, ::ae::base::Ref(aAllocator));
         for (int i = 0; i < header->count; ++i) {
             vtxAttrs->add(
-                ::XBase::Ref(xdata),
+                ::ae::base::Ref(xdata),
                 xdata.ref< BinResMatVtxAttr >(header->entries[i]),
-                ::XBase::Ref(aAllocator)
+                ::ae::base::Ref(aAllocator)
                 );
         }
     }
@@ -135,35 +136,35 @@ void ResMatImpl::setup()
     }
 
     // プログラム作成
-    XG3D_GLCMD(shaderProgram = glCreateProgram());
+    AE_G3D_GLCMD(shaderProgram = glCreateProgram());
 
     // シェーダーソースを作成
     GLuint srcVSH = GLuint();
     if (!tCreateShader(&srcVSH, GL_VERTEX_SHADER, xdata.ref< GLchar >(binPtr->vshSrcText))) {
-        XBASE_COUT(xdata.ref< GLchar >(binPtr->vshSrcText));
-        XBASE_ASSERT_NOT_REACHED_MSG("VSH compile failed.");
-        XG3D_GLCMD(glDeleteProgram(shaderProgram));
+        AE_BASE_COUT(xdata.ref< GLchar >(binPtr->vshSrcText));
+        AE_BASE_ASSERT_NOT_REACHED_MSG("VSH compile failed.");
+        AE_G3D_GLCMD(glDeleteProgram(shaderProgram));
         shaderProgram = 0;
         return;
     }
     GLuint srcPSH = GLuint();
     if (!tCreateShader(&srcPSH, GL_FRAGMENT_SHADER, xdata.ref< GLchar >(binPtr->pshSrcText))) {
-        XBASE_COUT(xdata.ref< GLchar >(binPtr->pshSrcText));
-        XBASE_ASSERT_NOT_REACHED_MSG("PSH compile failed.");
-        XG3D_GLCMD(glDeleteShader(srcVSH));
-        XG3D_GLCMD(glDeleteProgram(shaderProgram));
+        AE_BASE_COUT(xdata.ref< GLchar >(binPtr->pshSrcText));
+        AE_BASE_ASSERT_NOT_REACHED_MSG("PSH compile failed.");
+        AE_G3D_GLCMD(glDeleteShader(srcVSH));
+        AE_G3D_GLCMD(glDeleteProgram(shaderProgram));
         shaderProgram = 0;
         return;
     }
 
     // アタッチ
-    XG3D_GLCMD(glAttachShader(shaderProgram, srcVSH));
-    XG3D_GLCMD(glAttachShader(shaderProgram, srcPSH));
+    AE_G3D_GLCMD(glAttachShader(shaderProgram, srcVSH));
+    AE_G3D_GLCMD(glAttachShader(shaderProgram, srcPSH));
 
     // 属性バインド
     for (int i = 0; i < vtxAttrs->count(); ++i) {
         const ResMatVtxAttrImpl* vtxAttr = &vtxAttrs->at(i);
-        XG3D_GLCMD(glBindAttribLocation(shaderProgram, i, vtxAttr->xdata.ref< char >(vtxAttr->binPtr->symbolName)));
+        AE_G3D_GLCMD(glBindAttribLocation(shaderProgram, i, vtxAttr->xdata.ref< char >(vtxAttr->binPtr->symbolName)));
     }
 
     // リンク＆チェック
@@ -171,10 +172,10 @@ void ResMatImpl::setup()
         || !tValidateProgram(shaderProgram)
         )
     {
-        XBASE_ASSERT_NOT_REACHED_MSG("Shader link failed.");
-        XG3D_GLCMD(glDeleteShader(srcPSH));
-        XG3D_GLCMD(glDeleteShader(srcVSH));
-        XG3D_GLCMD(glDeleteProgram(shaderProgram));
+        AE_BASE_ASSERT_NOT_REACHED_MSG("Shader link failed.");
+        AE_G3D_GLCMD(glDeleteShader(srcPSH));
+        AE_G3D_GLCMD(glDeleteShader(srcVSH));
+        AE_G3D_GLCMD(glDeleteProgram(shaderProgram));
         shaderProgram = 0;
         return;
     }
@@ -189,15 +190,15 @@ void ResMatImpl::setup()
             "_prmMtxBonePosArray",
             "_prmMtxBoneNrmArray",
         };
-        XBASE_ARRAY_LENGTH_CHECK(TABLE, ShaderConstant::SysUniform::TERM);
+        AE_BASE_ARRAY_LENGTH_CHECK(TABLE, ShaderConstant::SysUniform::TERM);
         for (int i = 0; i < ShaderConstant::SysUniform::TERM; ++i) {
             sysUniformLocations[i] = glGetUniformLocation(shaderProgram, TABLE[i]);
         }
     }
 
     // 後始末
-    XG3D_GLCMD(glDeleteShader(srcPSH));
-    XG3D_GLCMD(glDeleteShader(srcVSH));
+    AE_G3D_GLCMD(glDeleteShader(srcPSH));
+    AE_G3D_GLCMD(glDeleteShader(srcVSH));
 }
 
 //------------------------------------------------------------------------------
@@ -209,10 +210,10 @@ void ResMatImpl::release()
     }
 
     // シェーダープログラムの破棄
-    XG3D_GLCMD(glUseProgram(0));
-    XG3D_GLCMD(glDeleteProgram(shaderProgram));
+    AE_G3D_GLCMD(glUseProgram(0));
+    AE_G3D_GLCMD(glDeleteProgram(shaderProgram));
     shaderProgram = 0;
 }
 
-} // namespace
+}} // namespace
 // EOF

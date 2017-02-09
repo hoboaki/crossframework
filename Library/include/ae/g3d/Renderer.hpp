@@ -1,25 +1,27 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_RENDERER_HPP)
+#if defined(AE_G3D_INCLUDED_RENDERER_HPP)
 #else
-#define XG3D_INCLUDED_RENDERER_HPP
+#define AE_G3D_INCLUDED_RENDERER_HPP
 
-#include <XBase/Color4.hpp>
-#include <XBase/Matrix34.hpp>
-#include <XBase/Matrix44.hpp>
-#include <XBase/NonCopyable.hpp>
-#include <XG3D/BuiltInTypes.hpp>
-#include <XG3D/Engine.hpp>
-#include <XG3D/TexId.hpp>
+#include <ae/base/Color4.hpp>
+#include <ae/base/Matrix34.hpp>
+#include <ae/base/Matrix44.hpp>
+#include <ae/base/NonCopyable.hpp>
+#include <ae/g3d/BuiltInTypes.hpp>
+#include <ae/g3d/Engine.hpp>
+#include <ae/g3d/TexId.hpp>
 
-#if defined(XG3D_ENGINE_GLSERIES)
-#include <XG3D/Renderer_GL.hpp>
+#if defined(AE_G3D_ENGINE_GLSERIES)
+#include <ae/g3d/Renderer_GL.hpp>
 #endif
 
-namespace XBase {
+namespace ae {
+namespace base {
 class Display;
 class Screen;
 }
-namespace XG3D {
+namespace ae {
+namespace g3d {
 class ResMat;
 class ResMdlShape;
 class ResMdlSubMesh;
@@ -30,12 +32,13 @@ class TexSetting;
 }
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
-/// @addtogroup XG3D-System
+/// @addtogroup AeG3d-System
 //@{
 /// @brief レンダリングを統括するクラス。
-class Renderer : public ::XBase::NonCopyable
+class Renderer : public ::ae::base::NonCopyable
 {
 public:
     /// @name シングルトンアクセス
@@ -45,7 +48,7 @@ public:
 
     /// @name コンストラクタとデストラクタ
     //@{
-    Renderer(::XBase::Display& aSampleDisplay);
+    Renderer(::ae::base::Display& aSampleDisplay);
     ~Renderer();
     //@}
 
@@ -58,7 +61,7 @@ public:
     /// @name フレームバッファ
     //@{
     void fbClear(); ///< クリアする。
-    void fbSetClearColor(const ::XBase::Color4Pod& aColor); ///< クリア時の色値を設定する。初期値RGBA(0,0,0,0)。
+    void fbSetClearColor(const ::ae::base::Color4Pod& aColor); ///< クリア時の色値を設定する。初期値RGBA(0,0,0,0)。
     void fbSetClearDepth(float aDepth); ///< クリア時の深度値を設定する。初期値1.0f。
     void fbSetColorUpdate(bool aIsEnable); ///< 色バッファの更新フラグを設定する。初期値true。
     void fbSetDepthUpdate(bool aIsEnable); ///< 深度バッファの更新フラグを設定する。初期値true。
@@ -72,10 +75,10 @@ public:
     void sdReset(); ///< シェーダーの設定を初期値に戻す。
     void sdSetMaterialForDemo(); ///< デモ確認用のマテリアルに設定。
     void sdSetMaterial(const ResMat& aResMat); ///< 指定のマテリアルに設定。
-    void sdSetMtxProjection(const ::XBase::Mtx44&); ///< 射影行列の設定。初期値Ortho: l-r(-1,1) b-t(-1,1) n-f(0,1)。
-    void sdSetMtxView(const ::XBase::Mtx34&);  ///< 視点座標系に変換する行列の設定。初期値は単位行列。
-    void sdSetMtxWorld(const ::XBase::Mtx34&);  ///< ワールド座標系に変換する行列の設定。初期値は単位行列。
-    void sdSetMtxBones(const ::XBase::Vec4* aMtxBonePosArray, const ::XBase::Vec4* aMtxBoneNrmArray);  ///< スキニング位置変換行列（Vec4x3で1セット）と法線変換行列（Vec4x3で1セット）の設定。初期値は不定値。
+    void sdSetMtxProjection(const ::ae::base::Mtx44&); ///< 射影行列の設定。初期値Ortho: l-r(-1,1) b-t(-1,1) n-f(0,1)。
+    void sdSetMtxView(const ::ae::base::Mtx34&);  ///< 視点座標系に変換する行列の設定。初期値は単位行列。
+    void sdSetMtxWorld(const ::ae::base::Mtx34&);  ///< ワールド座標系に変換する行列の設定。初期値は単位行列。
+    void sdSetMtxBones(const ::ae::base::Vec4* aMtxBonePosArray, const ::ae::base::Vec4* aMtxBoneNrmArray);  ///< スキニング位置変換行列（Vec4x3で1セット）と法線変換行列（Vec4x3で1セット）の設定。初期値は不定値。
     void sdSetTex(TexId::EnumType, const TexSetting&); ///< テクスチャの設定。初期値は全テクスチャが非Activeなテクスチャ。
     //@}
 
@@ -92,17 +95,17 @@ public:
 
     /// @name 転送
     //@{
-    void copyToDisplay(::XBase::Display&); ///< 指定したディスプレイのメインスクリーンの描画結果を転送する。
-    void copyToScreen(::XBase::Screen&);   ///< 指定したスクリーンに描画結果を転送する。
+    void copyToDisplay(::ae::base::Display&); ///< 指定したディスプレイのメインスクリーンの描画結果を転送する。
+    void copyToScreen(::ae::base::Screen&);   ///< 指定したスクリーンに描画結果を転送する。
     //@}
 
 private:
-    ::XBase::Display& mDisplay;
+    ::ae::base::Display& mDisplay;
     Renderer_Ext mExt;
 };
 
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF

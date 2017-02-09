@@ -1,11 +1,12 @@
 // 文字コード：UTF-8
-#include <XBase/ResFileStream.hpp>
+#include <ae/base/ResFileStream.hpp>
 
-#include <XBase/RuntimeAssert.hpp>
-#include <XBase/Unused.hpp>
+#include <ae/base/RuntimeAssert.hpp>
+#include <ae/base/Unused.hpp>
 
 //------------------------------------------------------------------------------
-namespace XBase {
+namespace ae {
+namespace base {
 
 //------------------------------------------------------------------------------
 ResFileStream::ResFileStream()
@@ -18,8 +19,8 @@ ResFileStream::ResFileStream(const char* aPath)
 : mExt()
 {
     const bool result = open(aPath);
-    XBASE_UNUSED(result);
-    XBASE_ASSERT_MSGFMT(result, "Can't open resource file '%s'.", aPath);
+    AE_BASE_UNUSED(result);
+    AE_BASE_ASSERT_MSGFMT(result, "Can't open resource file '%s'.", aPath);
 }
 
 //------------------------------------------------------------------------------
@@ -34,5 +35,5 @@ pword_t ResFileStream::calcReadBufferSize(const pword_t aSize)const
     return CalcReadBufferSize(aSize);
 }
 
-} // namespace
+}} // namespace
 // EOF

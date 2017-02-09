@@ -1,16 +1,18 @@
 // 文字コード：UTF-8
-#if defined(XG3D_INCLUDED_ITEXRES_HPP)
+#if defined(AE_G3D_INCLUDED_ITEXRES_HPP)
 #else
-#define XG3D_INCLUDED_ITEXRES_HPP
+#define AE_G3D_INCLUDED_ITEXRES_HPP
 
-namespace XG3D {
+namespace ae {
+namespace g3d {
 struct TexResData;
 }
 
 //------------------------------------------------------------------------------
-namespace XG3D {
+namespace ae {
+namespace g3d {
 
-/// @addtogroup XG3D-Util
+/// @addtogroup AeG3d-Util
 //@{
 /// テクスチャリソースのデータを返すインターフェースクラス。
 class ITexRes
@@ -23,6 +25,6 @@ public:
 };
 //@}
 
-} // namespace
+}} // namespace
 #endif
 // EOF
