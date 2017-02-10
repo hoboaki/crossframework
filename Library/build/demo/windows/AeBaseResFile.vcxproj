@@ -23,7 +23,7 @@
     <ClCompile Include="..\src\AeBase\resfile\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResFiles Include="$(ProjectDir)\..\res\XBase\resfile\**\*.*" />
+    <ResFiles Include="$(ProjectDir)\..\res\AeBase\resfile\**\*.*" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{95C65DC6-1C10-46B9-9ECB-96A630905A74}</ProjectGuid>

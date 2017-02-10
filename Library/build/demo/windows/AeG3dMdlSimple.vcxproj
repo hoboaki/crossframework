@@ -23,7 +23,7 @@
     <ClCompile Include="..\src\AeG3d\mdlsimple\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResFiles Include="$(ProjectDir)\..\res\XG3D\mdlsimple\win\**\*.*" />
+    <ResFiles Include="$(ProjectDir)\..\res\AeG3d\mdlsimple\win\**\*.*" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{2E8ACB41-5CA9-4492-B2CF-7D7492176A64}</ProjectGuid>
