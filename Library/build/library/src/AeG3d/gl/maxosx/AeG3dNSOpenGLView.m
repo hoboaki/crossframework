@@ -7,18 +7,18 @@
 #include <OpenCL/OpenCL.h>
 
 //------------------------------------------------------------------------------
-@interface XG3DOpenGLView : NSOpenGLView 
+@interface AeG3dOpenGLView : NSOpenGLView 
 {
 }
 @end
 
-@implementation XG3DOpenGLView
+@implementation AeG3dOpenGLView
 
 @end
 
 //------------------------------------------------------------------------------
-struct XG3DNSOpenGLView* XG3DNSOpenGLView_Setup(
-    struct XBaseNSWindow* aWindow
+struct AeG3dNSOpenGLView* AeG3dNSOpenGLView_Setup(
+    struct AeBaseNSWindow* aWindow
     , const float aWidth 
     , const float aHeight 
     , const int aIsDoubleBuffer                                                
@@ -45,7 +45,7 @@ struct XG3DNSOpenGLView* XG3DNSOpenGLView_Setup(
 	
     // view作成
 	NSRect contRect = NSMakeRect( 0 , 0 , aWidth , aHeight );    
-	XG3DOpenGLView* view = [[XG3DOpenGLView alloc]
+	AeG3dOpenGLView* view = [[AeG3dOpenGLView alloc]
         initWithFrame:contRect
         pixelFormat:format
         ];
@@ -70,11 +70,11 @@ struct XG3DNSOpenGLView* XG3DNSOpenGLView_Setup(
     
     // 結果を返す
     [pool release];
-    return (struct XG3DNSOpenGLView*)view;    
+    return (struct AeG3dNSOpenGLView*)view;    
 }
 
 //------------------------------------------------------------------------------
-void XG3DNSOpenGLView_FlushBuffer( struct XG3DNSOpenGLView* aView )
+void AeG3dNSOpenGLView_FlushBuffer( struct AeG3dNSOpenGLView* aView )
 {
     NSOpenGLView* view = (NSOpenGLView*)aView;
     [[view openGLContext] flushBuffer];

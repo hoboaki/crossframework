@@ -533,7 +533,7 @@ const int tSpecialKeyCode[256] =
     -1                   // 255
 };
 
-    void tUpdateModKey(KeyboardUpdateData& aData, KeyKind::EnumType aKey, int aIsDown)
+void tUpdateModKey(KeyboardUpdateData& aData, KeyKind::EnumType aKey, int aIsDown)
 {
     // 同じなら何もしない
     const bool isDown = aIsDown != 0;
@@ -548,7 +548,7 @@ const int tSpecialKeyCode[256] =
     }
 }
 
-}} // namespace
+} // namespace
 
 //------------------------------------------------------------------------------
 int Display::screenCount()const
@@ -573,7 +573,7 @@ Screen& Display::mainScreen()
 void Display::show()
 {
     mExt.isClosed = 0;
-    XBaseNSWindow_Show(mExt.windowPtr);
+    AeBaseNSWindow_Show(mExt.windowPtr);
 }
 
 //------------------------------------------------------------------------------
@@ -635,7 +635,7 @@ Display_Ext::Display_Ext(const DisplayContext& aContext)
 , mouseUpdateData()
 {
     // Window作成
-    windowPtr = XBaseNSWindow_Create(
+    windowPtr = AeBaseNSWindow_Create(
         aContext.locationX(),
         aContext.locationY(),
         aContext.width(),
@@ -658,9 +658,9 @@ Display_Ext::~Display_Ext()
     mainScreen.reset();
 
     // Window解放
-    XBaseNSWindow* ptr = windowPtr;
+    AeBaseNSWindow* ptr = windowPtr;
     windowPtr = 0;
-    XBaseNSWindow_Destroy(ptr);
+    AeBaseNSWindow_Destroy(ptr);
 }
 
 }} // namespace

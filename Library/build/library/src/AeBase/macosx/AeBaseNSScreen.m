@@ -4,7 +4,7 @@
 #import <Cocoa/Cocoa.h>
 
 //------------------------------------------------------------------------------
-void XBaseNSScreen_GetMainScreenFrame( struct XBaseNSRect* aRect )
+void AeBaseNSScreen_GetMainScreenFrame( struct AeBaseNSRect* aRect )
 { 
     NSRect rect = [[NSScreen mainScreen] frame];
     aRect->originX = rect.origin.x;
@@ -14,7 +14,7 @@ void XBaseNSScreen_GetMainScreenFrame( struct XBaseNSRect* aRect )
 }
 
 //------------------------------------------------------------------------------
-void XBaseNSScreen_GetMainScreenVisibleFrame( struct XBaseNSRect* aRect )
+void AeBaseNSScreen_GetMainScreenVisibleFrame( struct AeBaseNSRect* aRect )
 { 
     NSRect rect = [[NSScreen mainScreen] visibleFrame];
     aRect->originX = rect.origin.x;

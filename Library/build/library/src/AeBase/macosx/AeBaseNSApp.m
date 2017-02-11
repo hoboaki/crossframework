@@ -4,7 +4,7 @@
 #import <Cocoa/Cocoa.h>
 
 //------------------------------------------------------------------------------
-@interface XBaseApp_Delegate : NSObject <NSApplicationDelegate>
+@interface AeBaseApp_Delegate : NSObject <NSApplicationDelegate>
 /* Example: Fire has the same problem no explanation */
 {
 }
@@ -13,7 +13,7 @@
 @end
 
 //------------------------------------------------------------------------------
-@implementation XBaseApp_Delegate
+@implementation AeBaseApp_Delegate
 - (BOOL) applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication
 {
 	return NO;
@@ -21,12 +21,12 @@
 @end
 
 //------------------------------------------------------------------------------
-void XBaseNSApp_Initialize()
+void AeBaseNSApp_Initialize()
 {        
     {// Application起動
         [NSApplication sharedApplication];
         
-        XBaseApp_Delegate* delegate = [[[XBaseApp_Delegate alloc] init]autorelease];
+        AeBaseApp_Delegate* delegate = [[[AeBaseApp_Delegate alloc] init]autorelease];
         [NSApp setDelegate: delegate];
         
         [NSApp finishLaunching];
@@ -40,13 +40,13 @@ void XBaseNSApp_Initialize()
 }
 
 //------------------------------------------------------------------------------
-void XBaseNSApp_Finalize()
+void AeBaseNSApp_Finalize()
 {
 	//[NSApp terminate:nil];	// This can also be exit(0);    
 }
 
 //------------------------------------------------------------------------------
-void XBaseNSApp_PollEvent()
+void AeBaseNSApp_PollEvent()
 {    
  	NSAutoreleasePool *pool=[[NSAutoreleasePool alloc] init];
     
@@ -76,7 +76,7 @@ void XBaseNSApp_PollEvent()
 }
 
 //------------------------------------------------------------------------------
-void XBaseNSApp_Terminate()
+void AeBaseNSApp_Terminate()
 {
     [NSApp terminate:nil];
 }

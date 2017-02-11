@@ -9,7 +9,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 //------------------------------------------------------------------------------
-@interface XG3DOpenGLView : UIView 
+@interface AeG3dOpenGLView : UIView 
 {
 @private
     EAGLContext *context;
@@ -25,7 +25,7 @@
 - (void)flushBuffer;
 @end
 
-@implementation XG3DOpenGLView
+@implementation AeG3dOpenGLView
 
 // You must implement this method
 + (Class)layerClass
@@ -135,22 +135,22 @@
 @end
 
 //------------------------------------------------------------------------------
-struct XG3DUIOpenGLView* XG3DUIOpenGLView_Setup(
+struct AeG3dUIOpenGLView* AeG3dUIOpenGLView_Setup(
     struct XBaseUIWindow* aWindow                                              
     )
 {  
     UIWindow* window = (UIWindow*)aWindow;
-    XG3DOpenGLView* glView = [[XG3DOpenGLView alloc]initWithFrame:[[UIScreen mainScreen]bounds]];    
+    AeG3dOpenGLView* glView = [[AeG3dOpenGLView alloc]initWithFrame:[[UIScreen mainScreen]bounds]];    
     glView.multipleTouchEnabled = YES;
     [window addSubview:glView];
     
-    return (struct XG3DUIOpenGLView*)glView;
+    return (struct AeG3dUIOpenGLView*)glView;
 }
 
 //------------------------------------------------------------------------------
-void XG3DUIOpenGLView_FlushBuffer( struct XG3DUIOpenGLView* aView )
+void AeG3dUIOpenGLView_FlushBuffer( struct AeG3dUIOpenGLView* aView )
 {
-    XG3DOpenGLView* glView = (XG3DOpenGLView*)aView;;
+    AeG3dOpenGLView* glView = (AeG3dOpenGLView*)aView;;
     [glView flushBuffer];
 }
                                                 

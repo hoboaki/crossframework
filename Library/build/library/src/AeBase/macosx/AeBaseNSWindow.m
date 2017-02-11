@@ -4,24 +4,24 @@
 #import <Cocoa/Cocoa.h>
 
 //------------------------------------------------------------------------------
-@interface XBaseOpenGLWindow : NSWindow
+@interface AeBaseOpenGLWindow : NSWindow
 {
 @private
     void* mOwnerPtr;
     int* mIsClosedPtr;
-    XBaseNSWindow_CBKeyEvent mCBKeyEvent;
-    XBaseNSWindow_CBModKeyEvent mCBModKeyEvent;
-    XBaseNSWindow_CBMouseEvent mCBMouseEvent;
+    AeBaseNSWindow_CBKeyEvent mCBKeyEvent;
+    AeBaseNSWindow_CBModKeyEvent mCBModKeyEvent;
+    AeBaseNSWindow_CBMouseEvent mCBMouseEvent;
 }
 - (void**) ownerPtr;
 - (int**) isClosedPtr;
-- (XBaseNSWindow_CBKeyEvent*) cbKeyEventPtr;
-- (XBaseNSWindow_CBModKeyEvent*) cbModKeyEventPtr;
-- (XBaseNSWindow_CBMouseEvent*) cbMouseEventPtr;
+- (AeBaseNSWindow_CBKeyEvent*) cbKeyEventPtr;
+- (AeBaseNSWindow_CBModKeyEvent*) cbModKeyEventPtr;
+- (AeBaseNSWindow_CBMouseEvent*) cbMouseEventPtr;
 @end
 
 //------------------------------------------------------------------------------
-@implementation XBaseOpenGLWindow
+@implementation AeBaseOpenGLWindow
 - (id) initWithContentRect: (NSRect)rect styleMask:(NSUInteger)wndStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)deferFlg
 {
 	id result = [super initWithContentRect:rect styleMask:wndStyle backing:bufferingType defer:deferFlg];
@@ -165,32 +165,32 @@
     return &mIsClosedPtr;
 }
 
-- (XBaseNSWindow_CBKeyEvent*) cbKeyEventPtr
+- (AeBaseNSWindow_CBKeyEvent*) cbKeyEventPtr
 {
     return &mCBKeyEvent;
 }
 
-- (XBaseNSWindow_CBModKeyEvent*) cbModKeyEventPtr
+- (AeBaseNSWindow_CBModKeyEvent*) cbModKeyEventPtr
 {
     return &mCBModKeyEvent;
 }
 
-- (XBaseNSWindow_CBMouseEvent*) cbMouseEventPtr
+- (AeBaseNSWindow_CBMouseEvent*) cbMouseEventPtr
 {
     return &mCBMouseEvent;
 }
 @end
 //------------------------------------------------------------------------------
-struct XBaseNSWindow* XBaseNSWindow_Create(
+struct AeBaseNSWindow* AeBaseNSWindow_Create(
     const float aPosX
     , const float aPosY
     , const float aWidth
     , const float aHeight
     , void* aOwnerPtr
     , int* aIsClosedPtr 
-    , XBaseNSWindow_CBKeyEvent aCBKeyEvent
-    , XBaseNSWindow_CBModKeyEvent aCBModKeyEvent
-    , XBaseNSWindow_CBMouseEvent aCBMouseEvent
+    , AeBaseNSWindow_CBKeyEvent aCBKeyEvent
+    , AeBaseNSWindow_CBModKeyEvent aCBModKeyEvent
+    , AeBaseNSWindow_CBMouseEvent aCBMouseEvent
     )
 {    
     NSAutoreleasePool* pool=[[NSAutoreleasePool alloc] init];
@@ -202,7 +202,7 @@ struct XBaseNSWindow* XBaseNSWindow_Create(
     NSClosableWindowMask|
     NSMiniaturizableWindowMask;
 	
-	XBaseOpenGLWindow* window =[XBaseOpenGLWindow alloc];
+	AeBaseOpenGLWindow* window =[AeBaseOpenGLWindow alloc];
     *[window ownerPtr] = aOwnerPtr;
     *[window isClosedPtr] = aIsClosedPtr;
     *[window cbKeyEventPtr] = aCBKeyEvent;
@@ -217,20 +217,20 @@ struct XBaseNSWindow* XBaseNSWindow_Create(
     
     [pool release];
     
-    return (struct XBaseNSWindow*)window;
+    return (struct AeBaseNSWindow*)window;
 }
 
 //------------------------------------------------------------------------------
-void XBaseNSWindow_Destroy( struct XBaseNSWindow* aWindow )
+void AeBaseNSWindow_Destroy( struct AeBaseNSWindow* aWindow )
 {
 }
 
 //------------------------------------------------------------------------------
-void XBaseNSWindow_Show( struct XBaseNSWindow* aWindow )
+void AeBaseNSWindow_Show( struct AeBaseNSWindow* aWindow )
 {   
     NSAutoreleasePool* pool=[[NSAutoreleasePool alloc] init];
     
-    XBaseOpenGLWindow* window = (XBaseOpenGLWindow*)aWindow;
+    AeBaseOpenGLWindow* window = (AeBaseOpenGLWindow*)aWindow;
     
     **[window isClosedPtr] = 0;
 	[window makeKeyAndOrderFront:nil];

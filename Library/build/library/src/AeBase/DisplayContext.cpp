@@ -55,8 +55,8 @@ void DisplayContext::setLocationToCenter()
     }
 #elif defined(AE_BASE_OS_MACOSX)
     // 情報取得
-    XBaseNSRect rect = {};
-    XBaseNSScreen_GetMainScreenVisibleFrame(&rect);
+    AeBaseNSRect rect = {};
+    AeBaseNSScreen_GetMainScreenVisibleFrame(&rect);
 
     // 位置設定
     if (mWidth < rect.sizeW) {

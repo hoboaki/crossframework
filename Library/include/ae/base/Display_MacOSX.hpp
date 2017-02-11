@@ -10,7 +10,7 @@
 #include <ae/base/Pointer.hpp>
 #include <ae/base/Screen.hpp>
 
-struct XBaseNSWindow;
+struct AeBaseNSWindow;
 namespace ae {
 namespace base {
 class Hid;
@@ -30,7 +30,7 @@ public:
     static void CBMouseEvent(void* aEXT, int aPressedButtons, float aX, float aY);
 
     //============================================================
-    XBaseNSWindow* windowPtr;
+    AeBaseNSWindow* windowPtr;
     Placement< Screen > mainScreen;
     Pointer< Hid > hidPtr;
     int isClosed;

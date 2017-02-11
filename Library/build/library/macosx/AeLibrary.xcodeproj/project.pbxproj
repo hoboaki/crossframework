@@ -43,7 +43,7 @@
 		C50CEE27166F70B20079C496 /* TexSetting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C50CEE06166F70B20079C496 /* TexSetting.cpp */; };
 		C50CEE28166F70B20079C496 /* VtxBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C50CEE07166F70B20079C496 /* VtxBuffer.cpp */; };
 		C50CEEB0166F70CD0079C496 /* Renderer_EXT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C50CEEAF166F70CD0079C496 /* Renderer_EXT.cpp */; };
-		C51FEC1C166B473A004DD079 /* XG3DNSOpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = C51FEBF9166B4432004DD079 /* XG3DNSOpenGLView.m */; };
+		C51FEC1C166B473A004DD079 /* AeG3dNSOpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = C51FEBF9166B4432004DD079 /* AeG3dNSOpenGLView.m */; };
 		C55CF391146E7526002B2603 /* Vector3i.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C55CF38F146E7526002B2603 /* Vector3i.cpp */; };
 		C55CF392146E7526002B2603 /* Vector4i.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C55CF390146E7526002B2603 /* Vector4i.cpp */; };
 		C55CF394146E752F002B2603 /* Hash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C55CF393146E752F002B2603 /* Hash.cpp */; };
@@ -100,12 +100,12 @@
 		C5674396135F23180057A630 /* EntryPoint_ExtM.m in Sources */ = {isa = PBXBuildFile; fileRef = C567438A135F23180057A630 /* EntryPoint_ExtM.m */; };
 		C5674397135F23180057A630 /* Hid_Ext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C567438B135F23180057A630 /* Hid_Ext.cpp */; };
 		C5674398135F23180057A630 /* Screen_Ext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C567438C135F23180057A630 /* Screen_Ext.cpp */; };
-		C5674399135F23180057A630 /* XBaseNSApp.h in Headers */ = {isa = PBXBuildFile; fileRef = C567438D135F23180057A630 /* XBaseNSApp.h */; };
-		C567439A135F23180057A630 /* XBaseNSApp.m in Sources */ = {isa = PBXBuildFile; fileRef = C567438E135F23180057A630 /* XBaseNSApp.m */; };
-		C567439B135F23180057A630 /* XBaseNSScreen.h in Headers */ = {isa = PBXBuildFile; fileRef = C567438F135F23180057A630 /* XBaseNSScreen.h */; };
-		C567439C135F23180057A630 /* XBaseNSScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = C5674390135F23180057A630 /* XBaseNSScreen.m */; };
-		C567439D135F23180057A630 /* XBaseNSWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = C5674391135F23180057A630 /* XBaseNSWindow.h */; };
-		C567439E135F23180057A630 /* XBaseNSWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = C5674392135F23180057A630 /* XBaseNSWindow.m */; };
+		C5674399135F23180057A630 /* AeBaseNSApp.h in Headers */ = {isa = PBXBuildFile; fileRef = C567438D135F23180057A630 /* AeBaseNSApp.h */; };
+		C567439A135F23180057A630 /* AeBaseNSApp.m in Sources */ = {isa = PBXBuildFile; fileRef = C567438E135F23180057A630 /* AeBaseNSApp.m */; };
+		C567439B135F23180057A630 /* AeBaseNSScreen.h in Headers */ = {isa = PBXBuildFile; fileRef = C567438F135F23180057A630 /* AeBaseNSScreen.h */; };
+		C567439C135F23180057A630 /* AeBaseNSScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = C5674390135F23180057A630 /* AeBaseNSScreen.m */; };
+		C567439D135F23180057A630 /* AeBaseNSWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = C5674391135F23180057A630 /* AeBaseNSWindow.h */; };
+		C567439E135F23180057A630 /* AeBaseNSWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = C5674392135F23180057A630 /* AeBaseNSWindow.m */; };
 		C56743A0135F231C0057A630 /* ResFileStream_EXT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C567439F135F231C0057A630 /* ResFileStream_EXT.cpp */; };
 		D2AAC088055469A000DB518D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
@@ -114,7 +114,7 @@
 		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		C505AA661321FD490015A9F3 /* libXG3D.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libXG3D.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C505AA661321FD490015A9F3 /* libAeG3d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAeG3d.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C505AA841321FDFC0015A9F3 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; name = include; path = ../../../include; sourceTree = SOURCE_ROOT; };
 		C505AACF1321FE0C0015A9F3 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = src; path = ../src; sourceTree = SOURCE_ROOT; };
 		C5069D19184A3D79004CF173 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -152,7 +152,7 @@
 		C50CEE06166F70B20079C496 /* TexSetting.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TexSetting.cpp; path = gl/TexSetting.cpp; sourceTree = "<group>"; };
 		C50CEE07166F70B20079C496 /* VtxBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = VtxBuffer.cpp; path = gl/VtxBuffer.cpp; sourceTree = "<group>"; };
 		C50CEEAF166F70CD0079C496 /* Renderer_EXT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Renderer_EXT.cpp; path = gl/maxosx/Renderer_EXT.cpp; sourceTree = "<group>"; };
-		C51FEBF9166B4432004DD079 /* XG3DNSOpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XG3DNSOpenGLView.m; path = gl/maxosx/XG3DNSOpenGLView.m; sourceTree = "<group>"; };
+		C51FEBF9166B4432004DD079 /* AeG3dNSOpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AeG3dNSOpenGLView.m; path = gl/maxosx/AeG3dNSOpenGLView.m; sourceTree = "<group>"; };
 		C55CF38F146E7526002B2603 /* Vector3i.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3i.cpp; sourceTree = "<group>"; };
 		C55CF390146E7526002B2603 /* Vector4i.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; path = Vector4i.cpp; sourceTree = "<group>"; };
 		C55CF393146E752F002B2603 /* Hash.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; path = Hash.cpp; sourceTree = "<group>"; };
@@ -209,14 +209,14 @@
 		C567438A135F23180057A630 /* EntryPoint_ExtM.m */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.c.objc; name = EntryPoint_ExtM.m; path = macosx/EntryPoint_ExtM.m; sourceTree = "<group>"; };
 		C567438B135F23180057A630 /* Hid_Ext.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = Hid_Ext.cpp; path = macosx/Hid_Ext.cpp; sourceTree = "<group>"; };
 		C567438C135F23180057A630 /* Screen_Ext.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = Screen_Ext.cpp; path = macosx/Screen_Ext.cpp; sourceTree = "<group>"; };
-		C567438D135F23180057A630 /* XBaseNSApp.h */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.c.h; name = XBaseNSApp.h; path = macosx/XBaseNSApp.h; sourceTree = "<group>"; };
-		C567438E135F23180057A630 /* XBaseNSApp.m */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.c.objc; name = XBaseNSApp.m; path = macosx/XBaseNSApp.m; sourceTree = "<group>"; };
-		C567438F135F23180057A630 /* XBaseNSScreen.h */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.c.h; name = XBaseNSScreen.h; path = macosx/XBaseNSScreen.h; sourceTree = "<group>"; };
-		C5674390135F23180057A630 /* XBaseNSScreen.m */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.c.objc; name = XBaseNSScreen.m; path = macosx/XBaseNSScreen.m; sourceTree = "<group>"; };
-		C5674391135F23180057A630 /* XBaseNSWindow.h */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.c.h; name = XBaseNSWindow.h; path = macosx/XBaseNSWindow.h; sourceTree = "<group>"; };
-		C5674392135F23180057A630 /* XBaseNSWindow.m */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.c.objc; name = XBaseNSWindow.m; path = macosx/XBaseNSWindow.m; sourceTree = "<group>"; };
+		C567438D135F23180057A630 /* AeBaseNSApp.h */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.c.h; name = AeBaseNSApp.h; path = macosx/AeBaseNSApp.h; sourceTree = "<group>"; };
+		C567438E135F23180057A630 /* AeBaseNSApp.m */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.c.objc; name = AeBaseNSApp.m; path = macosx/AeBaseNSApp.m; sourceTree = "<group>"; };
+		C567438F135F23180057A630 /* AeBaseNSScreen.h */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.c.h; name = AeBaseNSScreen.h; path = macosx/AeBaseNSScreen.h; sourceTree = "<group>"; };
+		C5674390135F23180057A630 /* AeBaseNSScreen.m */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.c.objc; name = AeBaseNSScreen.m; path = macosx/AeBaseNSScreen.m; sourceTree = "<group>"; };
+		C5674391135F23180057A630 /* AeBaseNSWindow.h */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.c.h; name = AeBaseNSWindow.h; path = macosx/AeBaseNSWindow.h; sourceTree = "<group>"; };
+		C5674392135F23180057A630 /* AeBaseNSWindow.m */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.c.objc; name = AeBaseNSWindow.m; path = macosx/AeBaseNSWindow.m; sourceTree = "<group>"; };
 		C567439F135F231C0057A630 /* ResFileStream_EXT.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = ResFileStream_EXT.cpp; path = stdc/ResFileStream_EXT.cpp; sourceTree = "<group>"; };
-		D2AAC07E0554694100DB518D /* libXBase.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libXBase.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2AAC07E0554694100DB518D /* libAeBase.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAeBase.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E8BE07B2D77200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -244,13 +244,13 @@
 		034768DFFF38A50411DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D2AAC07E0554694100DB518D /* libXBase.a */,
-				C505AA661321FD490015A9F3 /* libXG3D.a */,
+				D2AAC07E0554694100DB518D /* libAeBase.a */,
+				C505AA661321FD490015A9F3 /* libAeG3d.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0867D691FE84028FC02AAC07 /* XBase */ = {
+		0867D691FE84028FC02AAC07 /* AeBase */ = {
 			isa = PBXGroup;
 			children = (
 				C505AB121321FE550015A9F3 /* Code */,
@@ -258,7 +258,7 @@
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
 				034768DFFF38A50411DB9C8B /* Products */,
 			);
-			name = XBase;
+			name = AeBase;
 			sourceTree = "<group>";
 		};
 		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
@@ -292,8 +292,8 @@
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				C505AC21132209E80015A9F3 /* XBase */,
-				C505AC4D132209E80015A9F3 /* XG3D */,
+				C505AC21132209E80015A9F3 /* AeBase */,
+				C505AC4D132209E80015A9F3 /* AeG3d */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -307,7 +307,7 @@
 			name = Code;
 			sourceTree = "<group>";
 		};
-		C505AC21132209E80015A9F3 /* XBase */ = {
+		C505AC21132209E80015A9F3 /* AeBase */ = {
 			isa = PBXGroup;
 			children = (
 				C567439F135F231C0057A630 /* ResFileStream_EXT.cpp */,
@@ -317,12 +317,12 @@
 				C567438A135F23180057A630 /* EntryPoint_ExtM.m */,
 				C567438B135F23180057A630 /* Hid_Ext.cpp */,
 				C567438C135F23180057A630 /* Screen_Ext.cpp */,
-				C567438D135F23180057A630 /* XBaseNSApp.h */,
-				C567438E135F23180057A630 /* XBaseNSApp.m */,
-				C567438F135F23180057A630 /* XBaseNSScreen.h */,
-				C5674390135F23180057A630 /* XBaseNSScreen.m */,
-				C5674391135F23180057A630 /* XBaseNSWindow.h */,
-				C5674392135F23180057A630 /* XBaseNSWindow.m */,
+				C567438D135F23180057A630 /* AeBaseNSApp.h */,
+				C567438E135F23180057A630 /* AeBaseNSApp.m */,
+				C567438F135F23180057A630 /* AeBaseNSScreen.h */,
+				C5674390135F23180057A630 /* AeBaseNSScreen.m */,
+				C5674391135F23180057A630 /* AeBaseNSWindow.h */,
+				C5674392135F23180057A630 /* AeBaseNSWindow.m */,
 				C5674329135F23130057A630 /* Aabb2.cpp */,
 				C567432A135F23130057A630 /* Aabb2i.cpp */,
 				C567432B135F23130057A630 /* Angle.cpp */,
@@ -374,14 +374,14 @@
 				C55CF390146E7526002B2603 /* Vector4i.cpp */,
 				C55CF393146E752F002B2603 /* Hash.cpp */,
 			);
-			name = XBase;
-			path = ../src/XBase;
+			name = AeBase;
+			path = ../src/AeBase;
 			sourceTree = SOURCE_ROOT;
 		};
-		C505AC4D132209E80015A9F3 /* XG3D */ = {
+		C505AC4D132209E80015A9F3 /* AeG3d */ = {
 			isa = PBXGroup;
 			children = (
-				C51FEBF9166B4432004DD079 /* XG3DNSOpenGLView.m */,
+				C51FEBF9166B4432004DD079 /* AeG3dNSOpenGLView.m */,
 				C50CEEAF166F70CD0079C496 /* Renderer_EXT.cpp */,
 				C50CEDE7166F70B20079C496 /* BinResHeader.cpp */,
 				C50CEDE8166F70B20079C496 /* ITexRes.cpp */,
@@ -417,8 +417,8 @@
 				C50CEE06166F70B20079C496 /* TexSetting.cpp */,
 				C50CEE07166F70B20079C496 /* VtxBuffer.cpp */,
 			);
-			name = XG3D;
-			path = ../src/XG3D;
+			name = AeG3d;
+			path = ../src/AeG3d;
 			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
@@ -435,18 +435,18 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5674399135F23180057A630 /* XBaseNSApp.h in Headers */,
-				C567439B135F23180057A630 /* XBaseNSScreen.h in Headers */,
-				C567439D135F23180057A630 /* XBaseNSWindow.h in Headers */,
+				C5674399135F23180057A630 /* AeBaseNSApp.h in Headers */,
+				C567439B135F23180057A630 /* AeBaseNSScreen.h in Headers */,
+				C567439D135F23180057A630 /* AeBaseNSWindow.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		C505AA021321FD490015A9F3 /* XG3D */ = {
+		C505AA021321FD490015A9F3 /* AeG3d */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C505AA611321FD490015A9F3 /* Build configuration list for PBXNativeTarget "XG3D" */;
+			buildConfigurationList = C505AA611321FD490015A9F3 /* Build configuration list for PBXNativeTarget "AeG3d" */;
 			buildPhases = (
 				C505AA031321FD490015A9F3 /* Headers */,
 				C505AA3E1321FD490015A9F3 /* Sources */,
@@ -456,14 +456,14 @@
 			);
 			dependencies = (
 			);
-			name = XG3D;
-			productName = XBase;
-			productReference = C505AA661321FD490015A9F3 /* libXG3D.a */;
+			name = AeG3d;
+			productName = AeBase;
+			productReference = C505AA661321FD490015A9F3 /* libAeG3d.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		D2AAC07D0554694100DB518D /* XBase */ = {
+		D2AAC07D0554694100DB518D /* AeBase */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "XBase" */;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "AeBase" */;
 			buildPhases = (
 				D2AAC07A0554694100DB518D /* Headers */,
 				D2AAC07B0554694100DB518D /* Sources */,
@@ -473,9 +473,9 @@
 			);
 			dependencies = (
 			);
-			name = XBase;
-			productName = XBase;
-			productReference = D2AAC07E0554694100DB518D /* libXBase.a */;
+			name = AeBase;
+			productName = AeBase;
+			productReference = D2AAC07E0554694100DB518D /* libAeBase.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -486,7 +486,7 @@
 			attributes = {
 				LastUpgradeCheck = 0730;
 			};
-			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "XLibrary" */;
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "AeLibrary" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -496,13 +496,13 @@
 				French,
 				German,
 			);
-			mainGroup = 0867D691FE84028FC02AAC07 /* XBase */;
+			mainGroup = 0867D691FE84028FC02AAC07 /* AeBase */;
 			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D2AAC07D0554694100DB518D /* XBase */,
-				C505AA021321FD490015A9F3 /* XG3D */,
+				D2AAC07D0554694100DB518D /* AeBase */,
+				C505AA021321FD490015A9F3 /* AeG3d */,
 			);
 		};
 /* End PBXProject section */
@@ -512,7 +512,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C51FEC1C166B473A004DD079 /* XG3DNSOpenGLView.m in Sources */,
+				C51FEC1C166B473A004DD079 /* AeG3dNSOpenGLView.m in Sources */,
 				C50CEE08166F70B20079C496 /* BinResHeader.cpp in Sources */,
 				C50CEE09166F70B20079C496 /* ITexRes.cpp in Sources */,
 				C50CEE0A166F70B20079C496 /* Renderer.cpp in Sources */,
@@ -607,9 +607,9 @@
 				C5674396135F23180057A630 /* EntryPoint_ExtM.m in Sources */,
 				C5674397135F23180057A630 /* Hid_Ext.cpp in Sources */,
 				C5674398135F23180057A630 /* Screen_Ext.cpp in Sources */,
-				C567439A135F23180057A630 /* XBaseNSApp.m in Sources */,
-				C567439C135F23180057A630 /* XBaseNSScreen.m in Sources */,
-				C567439E135F23180057A630 /* XBaseNSWindow.m in Sources */,
+				C567439A135F23180057A630 /* AeBaseNSApp.m in Sources */,
+				C567439C135F23180057A630 /* AeBaseNSScreen.m in Sources */,
+				C567439E135F23180057A630 /* AeBaseNSWindow.m in Sources */,
 				C56743A0135F231C0057A630 /* ResFileStream_EXT.cpp in Sources */,
 				C55CF391146E7526002B2603 /* Vector3i.cpp in Sources */,
 				C55CF392146E7526002B2603 /* Vector4i.cpp in Sources */,
@@ -623,14 +623,14 @@
 		1DEB921F08733DC00010E9CD /* debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = XBase;
+				PRODUCT_NAME = AeBase;
 			};
 			name = debug;
 		};
 		1DEB922008733DC00010E9CD /* final */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = XBase;
+				PRODUCT_NAME = AeBase;
 			};
 			name = final;
 		};
@@ -648,7 +648,7 @@
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = XLIBRARY_DEBUG;
+				GCC_PREPROCESSOR_DEFINITIONS = AE_LIBRARY_DEBUG;
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -673,7 +673,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_MODEL_TUNING = G5;
-				GCC_PREPROCESSOR_DEFINITIONS = XLIBRARY_FINAL;
+				GCC_PREPROCESSOR_DEFINITIONS = AE_LIBRARY_FINAL;
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -687,28 +687,28 @@
 		C505AA621321FD490015A9F3 /* debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = XG3D;
+				PRODUCT_NAME = AeG3d;
 			};
 			name = debug;
 		};
 		C505AA631321FD490015A9F3 /* develop */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = XG3D;
+				PRODUCT_NAME = AeG3d;
 			};
 			name = develop;
 		};
 		C505AA641321FD490015A9F3 /* semifinal */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = XG3D;
+				PRODUCT_NAME = AeG3d;
 			};
 			name = semifinal;
 		};
 		C505AA651321FD490015A9F3 /* final */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = XG3D;
+				PRODUCT_NAME = AeG3d;
 			};
 			name = final;
 		};
@@ -725,7 +725,7 @@
 				GCC_ENABLE_SYMBOL_SEPARATION = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_MODEL_TUNING = G5;
-				GCC_PREPROCESSOR_DEFINITIONS = XLIBRARY_DEVELOP;
+				GCC_PREPROCESSOR_DEFINITIONS = AE_LIBRARY_DEVELOP;
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -741,7 +741,7 @@
 		C5D4735F13194922001EB665 /* develop */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = XBase;
+				PRODUCT_NAME = AeBase;
 			};
 			name = develop;
 		};
@@ -758,7 +758,7 @@
 				GCC_ENABLE_SYMBOL_SEPARATION = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_MODEL_TUNING = G5;
-				GCC_PREPROCESSOR_DEFINITIONS = XLIBRARY_SEMIFINAL;
+				GCC_PREPROCESSOR_DEFINITIONS = AE_LIBRARY_SEMIFINAL;
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -774,14 +774,14 @@
 		C5D473611319492A001EB665 /* semifinal */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = XBase;
+				PRODUCT_NAME = AeBase;
 			};
 			name = semifinal;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "XBase" */ = {
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "AeBase" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB921F08733DC00010E9CD /* debug */,
@@ -792,7 +792,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = final;
 		};
-		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "XLibrary" */ = {
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "AeLibrary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB922308733DC00010E9CD /* debug */,
@@ -803,7 +803,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = final;
 		};
-		C505AA611321FD490015A9F3 /* Build configuration list for PBXNativeTarget "XG3D" */ = {
+		C505AA611321FD490015A9F3 /* Build configuration list for PBXNativeTarget "AeG3d" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C505AA621321FD490015A9F3 /* debug */,

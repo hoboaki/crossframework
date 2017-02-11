@@ -19,7 +19,7 @@ void Application::quit()
     mExt.doQuit = true;
 
     // 終了処理
-    XBaseNSApp_Terminate();
+    AeBaseNSApp_Terminate();
 }
 
 //------------------------------------------------------------------------------
@@ -32,7 +32,7 @@ AppEvent::EnumType Application::receiveEventCore()
     }
 
     // イベント処理
-    XBaseNSApp_PollEvent();
+    AeBaseNSApp_PollEvent();
 
     // 終了要求が来たら終了
     if (mExt.doQuit) {
@@ -77,13 +77,13 @@ Application_Ext::Application_Ext()
 : prevUpdateTicks(Time::LocalTime().ticks())
 , doQuit(false)
 {
-    XBaseNSApp_Initialize();
+    AeBaseNSApp_Initialize();
 }
 
 //------------------------------------------------------------------------------
 Application_Ext::~Application_Ext()
 {
-    XBaseNSApp_Finalize();
+    AeBaseNSApp_Finalize();
 }
 
 }} // namespace

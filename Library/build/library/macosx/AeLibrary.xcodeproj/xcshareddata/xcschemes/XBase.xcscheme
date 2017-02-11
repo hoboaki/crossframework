@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D2AAC07D0554694100DB518D"
-               BuildableName = "libXBase.a"
-               BlueprintName = "XBase"
-               ReferencedContainer = "container:XLibrary.xcodeproj">
+               BuildableName = "libAeBase.a"
+               BlueprintName = "AeBase"
+               ReferencedContainer = "container:AeLibrary.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,9 +46,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D2AAC07D0554694100DB518D"
-            BuildableName = "libXBase.a"
-            BlueprintName = "XBase"
-            ReferencedContainer = "container:XLibrary.xcodeproj">
+            BuildableName = "libAeBase.a"
+            BlueprintName = "AeBase"
+            ReferencedContainer = "container:AeLibrary.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
