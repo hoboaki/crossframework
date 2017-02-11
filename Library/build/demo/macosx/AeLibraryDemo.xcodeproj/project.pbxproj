@@ -1,0 +1,1741 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		C505AD0513220E1F0015A9F3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		C505AD0913220E1F0015A9F3 /* libAeBase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C537925E131A4F9D00A49EC1 /* libAeBase.a */; };
+		C505AD0A13220E1F0015A9F3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		C505AD0B13220E1F0015A9F3 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C554C0A9131A2BA7002325E0 /* OpenGL.framework */; };
+		C505AD2013220E910015A9F3 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C505AD1F13220E910015A9F3 /* Main.cpp */; };
+		C505AD2413220EAD0015A9F3 /* libAeG3d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C505AA6A1321FD670015A9F3 /* libAeG3d.a */; };
+		C50CEC5D166F6F5A0079C496 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		C50CEC62166F6F5A0079C496 /* libAeG3d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C505AA6A1321FD670015A9F3 /* libAeG3d.a */; };
+		C50CEC63166F6F5A0079C496 /* libAeBase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C537925E131A4F9D00A49EC1 /* libAeBase.a */; };
+		C50CEC64166F6F5A0079C496 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		C50CEC65166F6F5A0079C496 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C554C0A9131A2BA7002325E0 /* OpenGL.framework */; };
+		C50CEC73166F6FF40079C496 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C50CEC72166F6FF40079C496 /* Main.cpp */; };
+		C50CEC75166F703B0079C496 /* res in Resources */ = {isa = PBXBuildFile; fileRef = C50CEC74166F703B0079C496 /* res */; };
+		C519F2141657DDDF0090C414 /* res in Resources */ = {isa = PBXBuildFile; fileRef = C519F2131657DDDF0090C414 /* res */; };
+		C523F2D3131B7D6C00AF433C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		C523F2D7131B7D6C00AF433C /* libAeBase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C537925E131A4F9D00A49EC1 /* libAeBase.a */; };
+		C523F2D8131B7D6C00AF433C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		C523F2D9131B7D6C00AF433C /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C554C0A9131A2BA7002325E0 /* OpenGL.framework */; };
+		C523F2EA131B7D8B00AF433C /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C523F2E8131B7D8B00AF433C /* Main.cpp */; };
+		C523F2EB131B7DA000AF433C /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C523F2E6131B7D8B00AF433C /* Main.cpp */; };
+		C5379280131A506100A49EC1 /* libAeBase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C537925E131A4F9D00A49EC1 /* libAeBase.a */; };
+		C54E7F39133B8F9C00746155 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		C54E7F3D133B8F9C00746155 /* libAeBase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C537925E131A4F9D00A49EC1 /* libAeBase.a */; };
+		C54E7F3E133B8F9C00746155 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		C54E7F3F133B8F9C00746155 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C554C0A9131A2BA7002325E0 /* OpenGL.framework */; };
+		C54E7F4A133B8FFB00746155 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C54E7F49133B8FFB00746155 /* Main.cpp */; };
+		C554C0AA131A2BA7002325E0 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C554C0A9131A2BA7002325E0 /* OpenGL.framework */; };
+		C56BA8BE135F2DC50024490B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		C56BA8C2135F2DC50024490B /* libAeG3d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C505AA6A1321FD670015A9F3 /* libAeG3d.a */; };
+		C56BA8C3135F2DC50024490B /* libAeBase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C537925E131A4F9D00A49EC1 /* libAeBase.a */; };
+		C56BA8C4135F2DC50024490B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		C56BA8C5135F2DC50024490B /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C554C0A9131A2BA7002325E0 /* OpenGL.framework */; };
+		C56BA8CF135F2DF70024490B /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56BA8CE135F2DF70024490B /* Main.cpp */; };
+		C5AE7EA3133F62C5006DE4B4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		C5AE7EA7133F62C5006DE4B4 /* libAeBase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C537925E131A4F9D00A49EC1 /* libAeBase.a */; };
+		C5AE7EA8133F62C5006DE4B4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		C5AE7EA9133F62C5006DE4B4 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C554C0A9131A2BA7002325E0 /* OpenGL.framework */; };
+		C5AE7EB4133F6305006DE4B4 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5AE7EB3133F6305006DE4B4 /* Main.cpp */; };
+		C5B3BCC11335FE5900F08A09 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		C5B3BCC51335FE5900F08A09 /* libAeBase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C537925E131A4F9D00A49EC1 /* libAeBase.a */; };
+		C5B3BCC61335FE5900F08A09 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		C5B3BCC71335FE5900F08A09 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C554C0A9131A2BA7002325E0 /* OpenGL.framework */; };
+		C5B3BDD11335FED100F08A09 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5B3BDD01335FED100F08A09 /* Main.cpp */; };
+		C5B3BE4B133600E300F08A09 /* res in Resources */ = {isa = PBXBuildFile; fileRef = C5B3BE4A133600E300F08A09 /* res */; };
+		C5D3E90613374EF1002626F5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		C5D3E90A13374EF1002626F5 /* libAeG3d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C505AA6A1321FD670015A9F3 /* libAeG3d.a */; };
+		C5D3E90B13374EF1002626F5 /* libAeBase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C537925E131A4F9D00A49EC1 /* libAeBase.a */; };
+		C5D3E90C13374EF1002626F5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		C5D3E90D13374EF1002626F5 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C554C0A9131A2BA7002325E0 /* OpenGL.framework */; };
+		C5D3E91813374F2C002626F5 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5D3E91713374F2C002626F5 /* Main.cpp */; };
+		C5DA3ADC132A9381006748E0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		C5DA3AE0132A9381006748E0 /* libAeG3d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C505AA6A1321FD670015A9F3 /* libAeG3d.a */; };
+		C5DA3AE1132A9381006748E0 /* libAeBase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C537925E131A4F9D00A49EC1 /* libAeBase.a */; };
+		C5DA3AE2132A9381006748E0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		C5DA3AE3132A9381006748E0 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C554C0A9131A2BA7002325E0 /* OpenGL.framework */; };
+		C5DA3AF6132A93BF006748E0 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5DA3AF5132A93BF006748E0 /* Main.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C505AA691321FD670015A9F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C5379259131A4F9D00A49EC1 /* AeLibrary.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C505AA661321FD490015A9F3;
+			remoteInfo = AeG3d;
+		};
+		C505AD0213220E1F0015A9F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C5379259131A4F9D00A49EC1 /* AeLibrary.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = AeBase;
+		};
+		C505AD1413220E390015A9F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C5379259131A4F9D00A49EC1 /* AeLibrary.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C505AA021321FD490015A9F3;
+			remoteInfo = AeG3d;
+		};
+		C50CEC59166F6F5A0079C496 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C5379259131A4F9D00A49EC1 /* AeLibrary.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = AeBase;
+		};
+		C50CEC5B166F6F5A0079C496 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C5379259131A4F9D00A49EC1 /* AeLibrary.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C505AA021321FD490015A9F3;
+			remoteInfo = AeG3d;
+		};
+		C523F2D0131B7D6C00AF433C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C5379259131A4F9D00A49EC1 /* AeLibrary.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = AeBase;
+		};
+		C537925D131A4F9D00A49EC1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C5379259131A4F9D00A49EC1 /* AeLibrary.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = AeBase;
+		};
+		C537927B131A505500A49EC1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C5379259131A4F9D00A49EC1 /* AeLibrary.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = AeBase;
+		};
+		C54E7F36133B8F9C00746155 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C5379259131A4F9D00A49EC1 /* AeLibrary.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = AeBase;
+		};
+		C56BA8BA135F2DC50024490B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C5379259131A4F9D00A49EC1 /* AeLibrary.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = AeBase;
+		};
+		C56BA8BC135F2DC50024490B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C5379259131A4F9D00A49EC1 /* AeLibrary.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C505AA021321FD490015A9F3;
+			remoteInfo = AeG3d;
+		};
+		C5AE7EA0133F62C5006DE4B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C5379259131A4F9D00A49EC1 /* AeLibrary.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = AeBase;
+		};
+		C5B3BCBE1335FE5900F08A09 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C5379259131A4F9D00A49EC1 /* AeLibrary.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = AeBase;
+		};
+		C5D3E90113374EF1002626F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C5379259131A4F9D00A49EC1 /* AeLibrary.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = AeBase;
+		};
+		C5D3E90313374EF1002626F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C5379259131A4F9D00A49EC1 /* AeLibrary.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C505AA021321FD490015A9F3;
+			remoteInfo = AeG3d;
+		};
+		C5DA3AD7132A9381006748E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C5379259131A4F9D00A49EC1 /* AeLibrary.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = AeBase;
+		};
+		C5DA3AD9132A9381006748E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C5379259131A4F9D00A49EC1 /* AeLibrary.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C505AA021321FD490015A9F3;
+			remoteInfo = AeG3d;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* AeBaseSimple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AeBaseSimple.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C505AD1113220E1F0015A9F3 /* AeG3dSimple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AeG3dSimple.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C505AD1F13220E910015A9F3 /* Main.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = Main.cpp; path = AeG3d/simple/Main.cpp; sourceTree = "<group>"; };
+		C50CEC6B166F6F5A0079C496 /* AeG3dMdlSimple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AeG3dMdlSimple.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C50CEC72166F6FF40079C496 /* Main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Main.cpp; path = AeG3d/mdlsimple/Main.cpp; sourceTree = "<group>"; };
+		C50CEC74166F703B0079C496 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; name = res; path = ../res/AeG3d/mdlsimple/mac/res; sourceTree = SOURCE_ROOT; };
+		C519F2131657DDDF0090C414 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; name = res; path = ../res/AeG3d/texture/mac/res; sourceTree = SOURCE_ROOT; };
+		C523F2DF131B7D6C00AF433C /* AeBaseDisplay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AeBaseDisplay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C523F2E6131B7D8B00AF433C /* Main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Main.cpp; sourceTree = "<group>"; };
+		C523F2E8131B7D8B00AF433C /* Main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Main.cpp; sourceTree = "<group>"; };
+		C5379259131A4F9D00A49EC1 /* AeLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AeLibrary.xcodeproj; path = ../../library/macosx/AeLibrary.xcodeproj; sourceTree = SOURCE_ROOT; };
+		C54E7F45133B8F9C00746155 /* AeBaseKeyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AeBaseKeyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C54E7F49133B8FFB00746155 /* Main.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = Main.cpp; path = keyboard/Main.cpp; sourceTree = "<group>"; };
+		C554C0A9131A2BA7002325E0 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		C56BA8CB135F2DC50024490B /* AeG3dRuntimeTex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AeG3dRuntimeTex.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C56BA8CE135F2DF70024490B /* Main.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = Main.cpp; path = AeG3d/runtimetex/Main.cpp; sourceTree = "<group>"; };
+		C5AE7EAF133F62C5006DE4B4 /* AeBaseMouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AeBaseMouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5AE7EB3133F6305006DE4B4 /* Main.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = Main.cpp; path = mouse/Main.cpp; sourceTree = "<group>"; };
+		C5B3BCCD1335FE5900F08A09 /* AeBaseResFile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AeBaseResFile.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5B3BDB31335FEAB00F08A09 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; name = res; path = ../res; sourceTree = SOURCE_ROOT; };
+		C5B3BDBA1335FEB000F08A09 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = src; path = ../src; sourceTree = SOURCE_ROOT; };
+		C5B3BDD01335FED100F08A09 /* Main.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = Main.cpp; path = resfile/Main.cpp; sourceTree = "<group>"; };
+		C5B3BE4A133600E300F08A09 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; name = res; path = ../res/AeBase/resfile/res; sourceTree = SOURCE_ROOT; };
+		C5D3E91313374EF1002626F5 /* AeG3dTexture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AeG3dTexture.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5D3E91713374F2C002626F5 /* Main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Main.cpp; path = AeG3d/texture/Main.cpp; sourceTree = "<group>"; };
+		C5DA3AE9132A9381006748E0 /* AeG3dTriangle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AeG3dTriangle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5DA3AF5132A93BF006748E0 /* Main.cpp */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.cpp.cpp; name = Main.cpp; path = AeG3d/triangle/Main.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5379280131A506100A49EC1 /* libAeBase.a in Frameworks */,
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				C554C0AA131A2BA7002325E0 /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C505AD0813220E1F0015A9F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C505AD2413220EAD0015A9F3 /* libAeG3d.a in Frameworks */,
+				C505AD0913220E1F0015A9F3 /* libAeBase.a in Frameworks */,
+				C505AD0A13220E1F0015A9F3 /* Cocoa.framework in Frameworks */,
+				C505AD0B13220E1F0015A9F3 /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C50CEC61166F6F5A0079C496 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C50CEC62166F6F5A0079C496 /* libAeG3d.a in Frameworks */,
+				C50CEC63166F6F5A0079C496 /* libAeBase.a in Frameworks */,
+				C50CEC64166F6F5A0079C496 /* Cocoa.framework in Frameworks */,
+				C50CEC65166F6F5A0079C496 /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C523F2D6131B7D6C00AF433C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C523F2D7131B7D6C00AF433C /* libAeBase.a in Frameworks */,
+				C523F2D8131B7D6C00AF433C /* Cocoa.framework in Frameworks */,
+				C523F2D9131B7D6C00AF433C /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C54E7F3C133B8F9C00746155 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C54E7F3D133B8F9C00746155 /* libAeBase.a in Frameworks */,
+				C54E7F3E133B8F9C00746155 /* Cocoa.framework in Frameworks */,
+				C54E7F3F133B8F9C00746155 /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C56BA8C1135F2DC50024490B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C56BA8C2135F2DC50024490B /* libAeG3d.a in Frameworks */,
+				C56BA8C3135F2DC50024490B /* libAeBase.a in Frameworks */,
+				C56BA8C4135F2DC50024490B /* Cocoa.framework in Frameworks */,
+				C56BA8C5135F2DC50024490B /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5AE7EA6133F62C5006DE4B4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5AE7EA7133F62C5006DE4B4 /* libAeBase.a in Frameworks */,
+				C5AE7EA8133F62C5006DE4B4 /* Cocoa.framework in Frameworks */,
+				C5AE7EA9133F62C5006DE4B4 /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5B3BCC41335FE5900F08A09 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5B3BCC51335FE5900F08A09 /* libAeBase.a in Frameworks */,
+				C5B3BCC61335FE5900F08A09 /* Cocoa.framework in Frameworks */,
+				C5B3BCC71335FE5900F08A09 /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5D3E90913374EF1002626F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5D3E90A13374EF1002626F5 /* libAeG3d.a in Frameworks */,
+				C5D3E90B13374EF1002626F5 /* libAeBase.a in Frameworks */,
+				C5D3E90C13374EF1002626F5 /* Cocoa.framework in Frameworks */,
+				C5D3E90D13374EF1002626F5 /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5DA3ADF132A9381006748E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5DA3AE0132A9381006748E0 /* libAeG3d.a in Frameworks */,
+				C5DA3AE1132A9381006748E0 /* libAeBase.a in Frameworks */,
+				C5DA3AE2132A9381006748E0 /* Cocoa.framework in Frameworks */,
+				C5DA3AE3132A9381006748E0 /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+				C554C0A9131A2BA7002325E0 /* OpenGL.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* AeBaseSimple.app */,
+				C523F2DF131B7D6C00AF433C /* AeBaseDisplay.app */,
+				C505AD1113220E1F0015A9F3 /* AeG3dSimple.app */,
+				C5DA3AE9132A9381006748E0 /* AeG3dTriangle.app */,
+				C5B3BCCD1335FE5900F08A09 /* AeBaseResFile.app */,
+				C5D3E91313374EF1002626F5 /* AeG3dTexture.app */,
+				C54E7F45133B8F9C00746155 /* AeBaseKeyboard.app */,
+				C5AE7EAF133F62C5006DE4B4 /* AeBaseMouse.app */,
+				C56BA8CB135F2DC50024490B /* AeG3dRuntimeTex.app */,
+				C50CEC6B166F6F5A0079C496 /* AeG3dMdlSimple.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* Simple */ = {
+			isa = PBXGroup;
+			children = (
+				C5B3BDAC1335FE9C00F08A09 /* Files */,
+				C554C258131A492E002325E0 /* Other Projects */,
+				C554C23D131A44A7002325E0 /* Static Libraries */,
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = Simple;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C523F2E3131B7D8B00AF433C /* src */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107310486CEB800E47090 /* Info.plist */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C505AD1A13220E740015A9F3 /* AeG3d */ = {
+			isa = PBXGroup;
+			children = (
+				C50CEC6E166F6F9E0079C496 /* mdlsimple */,
+				C56BA8B0135F2D990024490B /* runtimetex */,
+				C5D3E91613374F1F002626F5 /* texture */,
+				C5DA3AF3132A93B2006748E0 /* triangle */,
+				C505AD1B13220E7A0015A9F3 /* simple */,
+			);
+			name = AeG3d;
+			sourceTree = "<group>";
+		};
+		C505AD1B13220E7A0015A9F3 /* simple */ = {
+			isa = PBXGroup;
+			children = (
+				C505AD1F13220E910015A9F3 /* Main.cpp */,
+			);
+			name = simple;
+			sourceTree = "<group>";
+		};
+		C50CEC6E166F6F9E0079C496 /* mdlsimple */ = {
+			isa = PBXGroup;
+			children = (
+				C50CEC74166F703B0079C496 /* res */,
+				C50CEC72166F6FF40079C496 /* Main.cpp */,
+			);
+			name = mdlsimple;
+			sourceTree = "<group>";
+		};
+		C523F2E3131B7D8B00AF433C /* src */ = {
+			isa = PBXGroup;
+			children = (
+				C505AD1A13220E740015A9F3 /* AeG3d */,
+				C523F2E4131B7D8B00AF433C /* AeBase */,
+			);
+			name = src;
+			path = ../src;
+			sourceTree = SOURCE_ROOT;
+		};
+		C523F2E4131B7D8B00AF433C /* AeBase */ = {
+			isa = PBXGroup;
+			children = (
+				C5AE7EB2133F62F1006DE4B4 /* mouse */,
+				C54E7F48133B8FF100746155 /* keyboard */,
+				C5B3BDCF1335FEC400F08A09 /* resfile */,
+				C523F2E5131B7D8B00AF433C /* display */,
+				C523F2E7131B7D8B00AF433C /* simple */,
+			);
+			path = AeBase;
+			sourceTree = "<group>";
+		};
+		C523F2E5131B7D8B00AF433C /* display */ = {
+			isa = PBXGroup;
+			children = (
+				C523F2E6131B7D8B00AF433C /* Main.cpp */,
+			);
+			path = display;
+			sourceTree = "<group>";
+		};
+		C523F2E7131B7D8B00AF433C /* simple */ = {
+			isa = PBXGroup;
+			children = (
+				C523F2E8131B7D8B00AF433C /* Main.cpp */,
+			);
+			path = simple;
+			sourceTree = "<group>";
+		};
+		C537925A131A4F9D00A49EC1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C537925E131A4F9D00A49EC1 /* libAeBase.a */,
+				C505AA6A1321FD670015A9F3 /* libAeG3d.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C54E7F48133B8FF100746155 /* keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				C54E7F49133B8FFB00746155 /* Main.cpp */,
+			);
+			name = keyboard;
+			sourceTree = "<group>";
+		};
+		C554C23D131A44A7002325E0 /* Static Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Static Libraries";
+			sourceTree = "<group>";
+		};
+		C554C258131A492E002325E0 /* Other Projects */ = {
+			isa = PBXGroup;
+			children = (
+				C5379259131A4F9D00A49EC1 /* AeLibrary.xcodeproj */,
+			);
+			name = "Other Projects";
+			sourceTree = "<group>";
+		};
+		C56BA8B0135F2D990024490B /* runtimetex */ = {
+			isa = PBXGroup;
+			children = (
+				C56BA8CE135F2DF70024490B /* Main.cpp */,
+			);
+			name = runtimetex;
+			sourceTree = "<group>";
+		};
+		C5AE7EB2133F62F1006DE4B4 /* mouse */ = {
+			isa = PBXGroup;
+			children = (
+				C5AE7EB3133F6305006DE4B4 /* Main.cpp */,
+			);
+			name = mouse;
+			sourceTree = "<group>";
+		};
+		C5B3BDAC1335FE9C00F08A09 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				C5B3BDBA1335FEB000F08A09 /* src */,
+				C5B3BDB31335FEAB00F08A09 /* res */,
+			);
+			name = Files;
+			sourceTree = "<group>";
+		};
+		C5B3BDCF1335FEC400F08A09 /* resfile */ = {
+			isa = PBXGroup;
+			children = (
+				C5B3BE4A133600E300F08A09 /* res */,
+				C5B3BDD01335FED100F08A09 /* Main.cpp */,
+			);
+			name = resfile;
+			sourceTree = "<group>";
+		};
+		C5D3E91613374F1F002626F5 /* texture */ = {
+			isa = PBXGroup;
+			children = (
+				C519F2131657DDDF0090C414 /* res */,
+				C5D3E91713374F2C002626F5 /* Main.cpp */,
+			);
+			name = texture;
+			sourceTree = "<group>";
+		};
+		C5DA3AF3132A93B2006748E0 /* triangle */ = {
+			isa = PBXGroup;
+			children = (
+				C5DA3AF5132A93BF006748E0 /* Main.cpp */,
+			);
+			name = triangle;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* AeBaseSimple */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "AeBaseSimple" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C537927C131A505500A49EC1 /* PBXTargetDependency */,
+			);
+			name = AeBaseSimple;
+			productInstallPath = "$(HOME)/Applications";
+			productName = Simple;
+			productReference = 8D1107320486CEB800E47090 /* AeBaseSimple.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C505AD0013220E1F0015A9F3 /* AeG3dSimple */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C505AD0C13220E1F0015A9F3 /* Build configuration list for PBXNativeTarget "AeG3dSimple" */;
+			buildPhases = (
+				C505AD0313220E1F0015A9F3 /* Resources */,
+				C505AD0613220E1F0015A9F3 /* Sources */,
+				C505AD0813220E1F0015A9F3 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C505AD0113220E1F0015A9F3 /* PBXTargetDependency */,
+				C505AD1513220E390015A9F3 /* PBXTargetDependency */,
+			);
+			name = AeG3dSimple;
+			productInstallPath = "$(HOME)/Applications";
+			productName = Simple;
+			productReference = C505AD1113220E1F0015A9F3 /* AeG3dSimple.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C50CEC57166F6F5A0079C496 /* AeG3dMdlSimple */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C50CEC66166F6F5A0079C496 /* Build configuration list for PBXNativeTarget "AeG3dMdlSimple" */;
+			buildPhases = (
+				C50CEC5C166F6F5A0079C496 /* Resources */,
+				C50CEC5F166F6F5A0079C496 /* Sources */,
+				C50CEC61166F6F5A0079C496 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C50CEC58166F6F5A0079C496 /* PBXTargetDependency */,
+				C50CEC5A166F6F5A0079C496 /* PBXTargetDependency */,
+			);
+			name = AeG3dMdlSimple;
+			productInstallPath = "$(HOME)/Applications";
+			productName = Simple;
+			productReference = C50CEC6B166F6F5A0079C496 /* AeG3dMdlSimple.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C523F2CE131B7D6C00AF433C /* AeBaseDisplay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C523F2DA131B7D6C00AF433C /* Build configuration list for PBXNativeTarget "AeBaseDisplay" */;
+			buildPhases = (
+				C523F2D1131B7D6C00AF433C /* Resources */,
+				C523F2D4131B7D6C00AF433C /* Sources */,
+				C523F2D6131B7D6C00AF433C /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C523F2CF131B7D6C00AF433C /* PBXTargetDependency */,
+			);
+			name = AeBaseDisplay;
+			productInstallPath = "$(HOME)/Applications";
+			productName = Simple;
+			productReference = C523F2DF131B7D6C00AF433C /* AeBaseDisplay.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C54E7F34133B8F9C00746155 /* AeBaseKeyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C54E7F40133B8F9C00746155 /* Build configuration list for PBXNativeTarget "AeBaseKeyboard" */;
+			buildPhases = (
+				C54E7F37133B8F9C00746155 /* Resources */,
+				C54E7F3A133B8F9C00746155 /* Sources */,
+				C54E7F3C133B8F9C00746155 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C54E7F35133B8F9C00746155 /* PBXTargetDependency */,
+			);
+			name = AeBaseKeyboard;
+			productInstallPath = "$(HOME)/Applications";
+			productName = Simple;
+			productReference = C54E7F45133B8F9C00746155 /* AeBaseKeyboard.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C56BA8B8135F2DC50024490B /* AeG3dRuntimeTex */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C56BA8C6135F2DC50024490B /* Build configuration list for PBXNativeTarget "AeG3dRuntimeTex" */;
+			buildPhases = (
+				C56BA8BD135F2DC50024490B /* Resources */,
+				C56BA8BF135F2DC50024490B /* Sources */,
+				C56BA8C1135F2DC50024490B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C56BA8B9135F2DC50024490B /* PBXTargetDependency */,
+				C56BA8BB135F2DC50024490B /* PBXTargetDependency */,
+			);
+			name = AeG3dRuntimeTex;
+			productInstallPath = "$(HOME)/Applications";
+			productName = Simple;
+			productReference = C56BA8CB135F2DC50024490B /* AeG3dRuntimeTex.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C5AE7E9E133F62C5006DE4B4 /* AeBaseMouse */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C5AE7EAA133F62C5006DE4B4 /* Build configuration list for PBXNativeTarget "AeBaseMouse" */;
+			buildPhases = (
+				C5AE7EA1133F62C5006DE4B4 /* Resources */,
+				C5AE7EA4133F62C5006DE4B4 /* Sources */,
+				C5AE7EA6133F62C5006DE4B4 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C5AE7E9F133F62C5006DE4B4 /* PBXTargetDependency */,
+			);
+			name = AeBaseMouse;
+			productInstallPath = "$(HOME)/Applications";
+			productName = Simple;
+			productReference = C5AE7EAF133F62C5006DE4B4 /* AeBaseMouse.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C5B3BCBC1335FE5900F08A09 /* AeBaseResFile */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C5B3BCC81335FE5900F08A09 /* Build configuration list for PBXNativeTarget "AeBaseResFile" */;
+			buildPhases = (
+				C5B3BCBF1335FE5900F08A09 /* Resources */,
+				C5B3BCC21335FE5900F08A09 /* Sources */,
+				C5B3BCC41335FE5900F08A09 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C5B3BCBD1335FE5900F08A09 /* PBXTargetDependency */,
+			);
+			name = AeBaseResFile;
+			productInstallPath = "$(HOME)/Applications";
+			productName = Simple;
+			productReference = C5B3BCCD1335FE5900F08A09 /* AeBaseResFile.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C5D3E8FF13374EF1002626F5 /* AeG3dTexture */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C5D3E90E13374EF1002626F5 /* Build configuration list for PBXNativeTarget "AeG3dTexture" */;
+			buildPhases = (
+				C5D3E90413374EF1002626F5 /* Resources */,
+				C5D3E90713374EF1002626F5 /* Sources */,
+				C5D3E90913374EF1002626F5 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C5D3E90013374EF1002626F5 /* PBXTargetDependency */,
+				C5D3E90213374EF1002626F5 /* PBXTargetDependency */,
+			);
+			name = AeG3dTexture;
+			productInstallPath = "$(HOME)/Applications";
+			productName = Simple;
+			productReference = C5D3E91313374EF1002626F5 /* AeG3dTexture.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C5DA3AD5132A9381006748E0 /* AeG3dTriangle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C5DA3AE4132A9381006748E0 /* Build configuration list for PBXNativeTarget "AeG3dTriangle" */;
+			buildPhases = (
+				C5DA3ADA132A9381006748E0 /* Resources */,
+				C5DA3ADD132A9381006748E0 /* Sources */,
+				C5DA3ADF132A9381006748E0 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C5DA3AD6132A9381006748E0 /* PBXTargetDependency */,
+				C5DA3AD8132A9381006748E0 /* PBXTargetDependency */,
+			);
+			name = AeG3dTriangle;
+			productInstallPath = "$(HOME)/Applications";
+			productName = Simple;
+			productReference = C5DA3AE9132A9381006748E0 /* AeG3dTriangle.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "AeLibraryDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* Simple */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C537925A131A4F9D00A49EC1 /* Products */;
+					ProjectRef = C5379259131A4F9D00A49EC1 /* AeLibrary.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* AeBaseSimple */,
+				C523F2CE131B7D6C00AF433C /* AeBaseDisplay */,
+				C5B3BCBC1335FE5900F08A09 /* AeBaseResFile */,
+				C54E7F34133B8F9C00746155 /* AeBaseKeyboard */,
+				C5AE7E9E133F62C5006DE4B4 /* AeBaseMouse */,
+				C505AD0013220E1F0015A9F3 /* AeG3dSimple */,
+				C5DA3AD5132A9381006748E0 /* AeG3dTriangle */,
+				C5D3E8FF13374EF1002626F5 /* AeG3dTexture */,
+				C56BA8B8135F2DC50024490B /* AeG3dRuntimeTex */,
+				C50CEC57166F6F5A0079C496 /* AeG3dMdlSimple */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C505AA6A1321FD670015A9F3 /* libAeG3d.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAeG3d.a;
+			remoteRef = C505AA691321FD670015A9F3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C537925E131A4F9D00A49EC1 /* libAeBase.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAeBase.a;
+			remoteRef = C537925D131A4F9D00A49EC1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C505AD0313220E1F0015A9F3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C505AD0513220E1F0015A9F3 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C50CEC5C166F6F5A0079C496 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C50CEC5D166F6F5A0079C496 /* InfoPlist.strings in Resources */,
+				C50CEC75166F703B0079C496 /* res in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C523F2D1131B7D6C00AF433C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C523F2D3131B7D6C00AF433C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C54E7F37133B8F9C00746155 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C54E7F39133B8F9C00746155 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C56BA8BD135F2DC50024490B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C56BA8BE135F2DC50024490B /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5AE7EA1133F62C5006DE4B4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5AE7EA3133F62C5006DE4B4 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5B3BCBF1335FE5900F08A09 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5B3BCC11335FE5900F08A09 /* InfoPlist.strings in Resources */,
+				C5B3BE4B133600E300F08A09 /* res in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5D3E90413374EF1002626F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5D3E90613374EF1002626F5 /* InfoPlist.strings in Resources */,
+				C519F2141657DDDF0090C414 /* res in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5DA3ADA132A9381006748E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5DA3ADC132A9381006748E0 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C523F2EA131B7D8B00AF433C /* Main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C505AD0613220E1F0015A9F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C505AD2013220E910015A9F3 /* Main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C50CEC5F166F6F5A0079C496 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C50CEC73166F6FF40079C496 /* Main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C523F2D4131B7D6C00AF433C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C523F2EB131B7DA000AF433C /* Main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C54E7F3A133B8F9C00746155 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C54E7F4A133B8FFB00746155 /* Main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C56BA8BF135F2DC50024490B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C56BA8CF135F2DF70024490B /* Main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5AE7EA4133F62C5006DE4B4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5AE7EB4133F6305006DE4B4 /* Main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5B3BCC21335FE5900F08A09 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5B3BDD11335FED100F08A09 /* Main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5D3E90713374EF1002626F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5D3E91813374F2C002626F5 /* Main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5DA3ADD132A9381006748E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5DA3AF6132A93BF006748E0 /* Main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C505AD0113220E1F0015A9F3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AeBase;
+			targetProxy = C505AD0213220E1F0015A9F3 /* PBXContainerItemProxy */;
+		};
+		C505AD1513220E390015A9F3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AeG3d;
+			targetProxy = C505AD1413220E390015A9F3 /* PBXContainerItemProxy */;
+		};
+		C50CEC58166F6F5A0079C496 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AeBase;
+			targetProxy = C50CEC59166F6F5A0079C496 /* PBXContainerItemProxy */;
+		};
+		C50CEC5A166F6F5A0079C496 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AeG3d;
+			targetProxy = C50CEC5B166F6F5A0079C496 /* PBXContainerItemProxy */;
+		};
+		C523F2CF131B7D6C00AF433C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AeBase;
+			targetProxy = C523F2D0131B7D6C00AF433C /* PBXContainerItemProxy */;
+		};
+		C537927C131A505500A49EC1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AeBase;
+			targetProxy = C537927B131A505500A49EC1 /* PBXContainerItemProxy */;
+		};
+		C54E7F35133B8F9C00746155 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AeBase;
+			targetProxy = C54E7F36133B8F9C00746155 /* PBXContainerItemProxy */;
+		};
+		C56BA8B9135F2DC50024490B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AeBase;
+			targetProxy = C56BA8BA135F2DC50024490B /* PBXContainerItemProxy */;
+		};
+		C56BA8BB135F2DC50024490B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AeG3d;
+			targetProxy = C56BA8BC135F2DC50024490B /* PBXContainerItemProxy */;
+		};
+		C5AE7E9F133F62C5006DE4B4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AeBase;
+			targetProxy = C5AE7EA0133F62C5006DE4B4 /* PBXContainerItemProxy */;
+		};
+		C5B3BCBD1335FE5900F08A09 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AeBase;
+			targetProxy = C5B3BCBE1335FE5900F08A09 /* PBXContainerItemProxy */;
+		};
+		C5D3E90013374EF1002626F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AeBase;
+			targetProxy = C5D3E90113374EF1002626F5 /* PBXContainerItemProxy */;
+		};
+		C5D3E90213374EF1002626F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AeG3d;
+			targetProxy = C5D3E90313374EF1002626F5 /* PBXContainerItemProxy */;
+		};
+		C5DA3AD6132A9381006748E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AeBase;
+			targetProxy = C5DA3AD7132A9381006748E0 /* PBXContainerItemProxy */;
+		};
+		C5DA3AD8132A9381006748E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AeG3d;
+			targetProxy = C5DA3AD9132A9381006748E0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C01FCF4B08A954540054247B /* debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_MODEL_TUNING = G5;
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeBaseSimple;
+				WRAPPER_EXTENSION = app;
+			};
+			name = debug;
+		};
+		C01FCF4C08A954540054247B /* develop */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_MODEL_TUNING = G5;
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeBaseSimple;
+				WRAPPER_EXTENSION = app;
+			};
+			name = develop;
+		};
+		C01FCF4F08A954540054247B /* debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = AE_LIBRARY_DEBUG;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../../../include";
+				INFOPLIST_FILE = "";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				SDKROOT = macosx;
+				ZERO_LINK = YES;
+			};
+			name = debug;
+		};
+		C01FCF5008A954540054247B /* develop */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = AE_LIBRARY_DEVELOP;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../../../include";
+				INFOPLIST_FILE = "";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				SDKROOT = macosx;
+			};
+			name = develop;
+		};
+		C505AD0D13220E1F0015A9F3 /* debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeG3dSimple;
+				WRAPPER_EXTENSION = app;
+			};
+			name = debug;
+		};
+		C505AD0E13220E1F0015A9F3 /* develop */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeG3dSimple;
+				WRAPPER_EXTENSION = app;
+			};
+			name = develop;
+		};
+		C505AD0F13220E1F0015A9F3 /* semifinal */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeG3dSimple;
+				WRAPPER_EXTENSION = app;
+			};
+			name = semifinal;
+		};
+		C505AD1013220E1F0015A9F3 /* final */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeG3dSimple;
+				WRAPPER_EXTENSION = app;
+			};
+			name = final;
+		};
+		C50CEC67166F6F5A0079C496 /* debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeG3dMdlSimple;
+				WRAPPER_EXTENSION = app;
+			};
+			name = debug;
+		};
+		C50CEC68166F6F5A0079C496 /* develop */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeG3dMdlSimple;
+				WRAPPER_EXTENSION = app;
+			};
+			name = develop;
+		};
+		C50CEC69166F6F5A0079C496 /* semifinal */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeG3dMdlSimple;
+				WRAPPER_EXTENSION = app;
+			};
+			name = semifinal;
+		};
+		C50CEC6A166F6F5A0079C496 /* final */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeG3dMdlSimple;
+				WRAPPER_EXTENSION = app;
+			};
+			name = final;
+		};
+		C523F2DB131B7D6C00AF433C /* debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeBaseDisplay;
+				WRAPPER_EXTENSION = app;
+			};
+			name = debug;
+		};
+		C523F2DC131B7D6C00AF433C /* develop */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeBaseDisplay;
+				WRAPPER_EXTENSION = app;
+			};
+			name = develop;
+		};
+		C523F2DD131B7D6C00AF433C /* semifinal */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeBaseDisplay;
+				WRAPPER_EXTENSION = app;
+			};
+			name = semifinal;
+		};
+		C523F2DE131B7D6C00AF433C /* final */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeBaseDisplay;
+				WRAPPER_EXTENSION = app;
+			};
+			name = final;
+		};
+		C54E7F41133B8F9C00746155 /* debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeBaseKeyboard;
+				WRAPPER_EXTENSION = app;
+			};
+			name = debug;
+		};
+		C54E7F42133B8F9C00746155 /* develop */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeBaseKeyboard;
+				WRAPPER_EXTENSION = app;
+			};
+			name = develop;
+		};
+		C54E7F43133B8F9C00746155 /* semifinal */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeBaseKeyboard;
+				WRAPPER_EXTENSION = app;
+			};
+			name = semifinal;
+		};
+		C54E7F44133B8F9C00746155 /* final */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeBaseKeyboard;
+				WRAPPER_EXTENSION = app;
+			};
+			name = final;
+		};
+		C554C22A131A442E002325E0 /* semifinal */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = AE_LIBRARY_SEMIFINAL;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../../../include";
+				INFOPLIST_FILE = "";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				SDKROOT = macosx;
+			};
+			name = semifinal;
+		};
+		C554C22B131A442E002325E0 /* semifinal */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_MODEL_TUNING = G5;
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeBaseSimple;
+				WRAPPER_EXTENSION = app;
+			};
+			name = semifinal;
+		};
+		C554C22C131A4435002325E0 /* final */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = AE_LIBRARY_FINAL;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../../../include";
+				INFOPLIST_FILE = "";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				SDKROOT = macosx;
+			};
+			name = final;
+		};
+		C554C22D131A4435002325E0 /* final */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_MODEL_TUNING = G5;
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeBaseSimple;
+				WRAPPER_EXTENSION = app;
+			};
+			name = final;
+		};
+		C56BA8C7135F2DC50024490B /* debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeG3dRuntimeTex;
+				WRAPPER_EXTENSION = app;
+			};
+			name = debug;
+		};
+		C56BA8C8135F2DC50024490B /* develop */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeG3dRuntimeTex;
+				WRAPPER_EXTENSION = app;
+			};
+			name = develop;
+		};
+		C56BA8C9135F2DC50024490B /* semifinal */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeG3dRuntimeTex;
+				WRAPPER_EXTENSION = app;
+			};
+			name = semifinal;
+		};
+		C56BA8CA135F2DC50024490B /* final */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeG3dRuntimeTex;
+				WRAPPER_EXTENSION = app;
+			};
+			name = final;
+		};
+		C5AE7EAB133F62C5006DE4B4 /* debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeBaseMouse;
+				WRAPPER_EXTENSION = app;
+			};
+			name = debug;
+		};
+		C5AE7EAC133F62C5006DE4B4 /* develop */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeBaseMouse;
+				WRAPPER_EXTENSION = app;
+			};
+			name = develop;
+		};
+		C5AE7EAD133F62C5006DE4B4 /* semifinal */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeBaseMouse;
+				WRAPPER_EXTENSION = app;
+			};
+			name = semifinal;
+		};
+		C5AE7EAE133F62C5006DE4B4 /* final */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeBaseMouse;
+				WRAPPER_EXTENSION = app;
+			};
+			name = final;
+		};
+		C5B3BCC91335FE5900F08A09 /* debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeBaseResFile;
+				WRAPPER_EXTENSION = app;
+			};
+			name = debug;
+		};
+		C5B3BCCA1335FE5900F08A09 /* develop */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeBaseResFile;
+				WRAPPER_EXTENSION = app;
+			};
+			name = develop;
+		};
+		C5B3BCCB1335FE5900F08A09 /* semifinal */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeBaseResFile;
+				WRAPPER_EXTENSION = app;
+			};
+			name = semifinal;
+		};
+		C5B3BCCC1335FE5900F08A09 /* final */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeBaseResFile;
+				WRAPPER_EXTENSION = app;
+			};
+			name = final;
+		};
+		C5D3E90F13374EF1002626F5 /* debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeG3dTexture;
+				WRAPPER_EXTENSION = app;
+			};
+			name = debug;
+		};
+		C5D3E91013374EF1002626F5 /* develop */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeG3dTexture;
+				WRAPPER_EXTENSION = app;
+			};
+			name = develop;
+		};
+		C5D3E91113374EF1002626F5 /* semifinal */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeG3dTexture;
+				WRAPPER_EXTENSION = app;
+			};
+			name = semifinal;
+		};
+		C5D3E91213374EF1002626F5 /* final */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeG3dTexture;
+				WRAPPER_EXTENSION = app;
+			};
+			name = final;
+		};
+		C5DA3AE5132A9381006748E0 /* debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeG3dTriangle;
+				WRAPPER_EXTENSION = app;
+			};
+			name = debug;
+		};
+		C5DA3AE6132A9381006748E0 /* develop */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeG3dTriangle;
+				WRAPPER_EXTENSION = app;
+			};
+			name = develop;
+		};
+		C5DA3AE7132A9381006748E0 /* semifinal */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeG3dTriangle;
+				WRAPPER_EXTENSION = app;
+			};
+			name = semifinal;
+		};
+		C5DA3AE8132A9381006748E0 /* final */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Simple;
+				PRODUCT_NAME = AeG3dTriangle;
+				WRAPPER_EXTENSION = app;
+			};
+			name = final;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "AeBaseSimple" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* debug */,
+				C01FCF4C08A954540054247B /* develop */,
+				C554C22B131A442E002325E0 /* semifinal */,
+				C554C22D131A4435002325E0 /* final */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = final;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "AeLibraryDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* debug */,
+				C01FCF5008A954540054247B /* develop */,
+				C554C22A131A442E002325E0 /* semifinal */,
+				C554C22C131A4435002325E0 /* final */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = final;
+		};
+		C505AD0C13220E1F0015A9F3 /* Build configuration list for PBXNativeTarget "AeG3dSimple" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C505AD0D13220E1F0015A9F3 /* debug */,
+				C505AD0E13220E1F0015A9F3 /* develop */,
+				C505AD0F13220E1F0015A9F3 /* semifinal */,
+				C505AD1013220E1F0015A9F3 /* final */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = final;
+		};
+		C50CEC66166F6F5A0079C496 /* Build configuration list for PBXNativeTarget "AeG3dMdlSimple" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C50CEC67166F6F5A0079C496 /* debug */,
+				C50CEC68166F6F5A0079C496 /* develop */,
+				C50CEC69166F6F5A0079C496 /* semifinal */,
+				C50CEC6A166F6F5A0079C496 /* final */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = final;
+		};
+		C523F2DA131B7D6C00AF433C /* Build configuration list for PBXNativeTarget "AeBaseDisplay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C523F2DB131B7D6C00AF433C /* debug */,
+				C523F2DC131B7D6C00AF433C /* develop */,
+				C523F2DD131B7D6C00AF433C /* semifinal */,
+				C523F2DE131B7D6C00AF433C /* final */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = final;
+		};
+		C54E7F40133B8F9C00746155 /* Build configuration list for PBXNativeTarget "AeBaseKeyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C54E7F41133B8F9C00746155 /* debug */,
+				C54E7F42133B8F9C00746155 /* develop */,
+				C54E7F43133B8F9C00746155 /* semifinal */,
+				C54E7F44133B8F9C00746155 /* final */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = final;
+		};
+		C56BA8C6135F2DC50024490B /* Build configuration list for PBXNativeTarget "AeG3dRuntimeTex" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C56BA8C7135F2DC50024490B /* debug */,
+				C56BA8C8135F2DC50024490B /* develop */,
+				C56BA8C9135F2DC50024490B /* semifinal */,
+				C56BA8CA135F2DC50024490B /* final */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = final;
+		};
+		C5AE7EAA133F62C5006DE4B4 /* Build configuration list for PBXNativeTarget "AeBaseMouse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5AE7EAB133F62C5006DE4B4 /* debug */,
+				C5AE7EAC133F62C5006DE4B4 /* develop */,
+				C5AE7EAD133F62C5006DE4B4 /* semifinal */,
+				C5AE7EAE133F62C5006DE4B4 /* final */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = final;
+		};
+		C5B3BCC81335FE5900F08A09 /* Build configuration list for PBXNativeTarget "AeBaseResFile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5B3BCC91335FE5900F08A09 /* debug */,
+				C5B3BCCA1335FE5900F08A09 /* develop */,
+				C5B3BCCB1335FE5900F08A09 /* semifinal */,
+				C5B3BCCC1335FE5900F08A09 /* final */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = final;
+		};
+		C5D3E90E13374EF1002626F5 /* Build configuration list for PBXNativeTarget "AeG3dTexture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5D3E90F13374EF1002626F5 /* debug */,
+				C5D3E91013374EF1002626F5 /* develop */,
+				C5D3E91113374EF1002626F5 /* semifinal */,
+				C5D3E91213374EF1002626F5 /* final */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = final;
+		};
+		C5DA3AE4132A9381006748E0 /* Build configuration list for PBXNativeTarget "AeG3dTriangle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5DA3AE5132A9381006748E0 /* debug */,
+				C5DA3AE6132A9381006748E0 /* develop */,
+				C5DA3AE7132A9381006748E0 /* semifinal */,
+				C5DA3AE8132A9381006748E0 /* final */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = final;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

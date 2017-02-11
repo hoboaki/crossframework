@@ -612,9 +612,9 @@ WARN_LOGFILE           =
 # directories like "/usr/src/myproject". Separate the files or directories 
 # with spaces.
 
-INPUT                  = ../../include/XBase \
-                         ../../include/XData \
-                         ../../include/XG3D \
+INPUT                  = ../../include/ae/base \
+                         ../../include/ae/xdata \
+                         ../../include/ae/g3d \
                          ./src
 
 # This tag can be used to specify the character encoding of the source files 
