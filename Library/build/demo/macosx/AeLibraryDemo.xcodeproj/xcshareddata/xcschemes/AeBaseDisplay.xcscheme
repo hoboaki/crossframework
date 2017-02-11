@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C5DA3AD5132A9381006748E0"
-               BuildableName = "XG3DTriangle.app"
-               BlueprintName = "XG3DTriangle"
-               ReferencedContainer = "container:XLibraryDemo.xcodeproj">
+               BlueprintIdentifier = "C523F2CE131B7D6C00AF433C"
+               BuildableName = "AeBaseDisplay.app"
+               BlueprintName = "AeBaseDisplay"
+               ReferencedContainer = "container:AeLibraryDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C5DA3AD5132A9381006748E0"
-            BuildableName = "XG3DTriangle.app"
-            BlueprintName = "XG3DTriangle"
-            ReferencedContainer = "container:XLibraryDemo.xcodeproj">
+            BlueprintIdentifier = "C523F2CE131B7D6C00AF433C"
+            BuildableName = "AeBaseDisplay.app"
+            BlueprintName = "AeBaseDisplay"
+            ReferencedContainer = "container:AeLibraryDemo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C5DA3AD5132A9381006748E0"
-            BuildableName = "XG3DTriangle.app"
-            BlueprintName = "XG3DTriangle"
-            ReferencedContainer = "container:XLibraryDemo.xcodeproj">
+            BlueprintIdentifier = "C523F2CE131B7D6C00AF433C"
+            BuildableName = "AeBaseDisplay.app"
+            BlueprintName = "AeBaseDisplay"
+            ReferencedContainer = "container:AeLibraryDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C5DA3AD5132A9381006748E0"
-            BuildableName = "XG3DTriangle.app"
-            BlueprintName = "XG3DTriangle"
-            ReferencedContainer = "container:XLibraryDemo.xcodeproj">
+            BlueprintIdentifier = "C523F2CE131B7D6C00AF433C"
+            BuildableName = "AeBaseDisplay.app"
+            BlueprintName = "AeBaseDisplay"
+            ReferencedContainer = "container:AeLibraryDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

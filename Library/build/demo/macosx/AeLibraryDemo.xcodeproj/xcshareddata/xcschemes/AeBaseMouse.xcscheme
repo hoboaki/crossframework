@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C54E7F34133B8F9C00746155"
-               BuildableName = "XBaseKeyboard.app"
-               BlueprintName = "XBaseKeyboard"
-               ReferencedContainer = "container:XLibraryDemo.xcodeproj">
+               BlueprintIdentifier = "C5AE7E9E133F62C5006DE4B4"
+               BuildableName = "AeBaseMouse.app"
+               BlueprintName = "AeBaseMouse"
+               ReferencedContainer = "container:AeLibraryDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C54E7F34133B8F9C00746155"
-            BuildableName = "XBaseKeyboard.app"
-            BlueprintName = "XBaseKeyboard"
-            ReferencedContainer = "container:XLibraryDemo.xcodeproj">
+            BlueprintIdentifier = "C5AE7E9E133F62C5006DE4B4"
+            BuildableName = "AeBaseMouse.app"
+            BlueprintName = "AeBaseMouse"
+            ReferencedContainer = "container:AeLibraryDemo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C54E7F34133B8F9C00746155"
-            BuildableName = "XBaseKeyboard.app"
-            BlueprintName = "XBaseKeyboard"
-            ReferencedContainer = "container:XLibraryDemo.xcodeproj">
+            BlueprintIdentifier = "C5AE7E9E133F62C5006DE4B4"
+            BuildableName = "AeBaseMouse.app"
+            BlueprintName = "AeBaseMouse"
+            ReferencedContainer = "container:AeLibraryDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C54E7F34133B8F9C00746155"
-            BuildableName = "XBaseKeyboard.app"
-            BlueprintName = "XBaseKeyboard"
-            ReferencedContainer = "container:XLibraryDemo.xcodeproj">
+            BlueprintIdentifier = "C5AE7E9E133F62C5006DE4B4"
+            BuildableName = "AeBaseMouse.app"
+            BlueprintName = "AeBaseMouse"
+            ReferencedContainer = "container:AeLibraryDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

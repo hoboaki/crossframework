@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C5B3BCBC1335FE5900F08A09"
-               BuildableName = "XBaseResFile.app"
-               BlueprintName = "XBaseResFile"
-               ReferencedContainer = "container:XLibraryDemo.xcodeproj">
+               BuildableName = "AeBaseResFile.app"
+               BlueprintName = "AeBaseResFile"
+               ReferencedContainer = "container:AeLibraryDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C5B3BCBC1335FE5900F08A09"
-            BuildableName = "XBaseResFile.app"
-            BlueprintName = "XBaseResFile"
-            ReferencedContainer = "container:XLibraryDemo.xcodeproj">
+            BuildableName = "AeBaseResFile.app"
+            BlueprintName = "AeBaseResFile"
+            ReferencedContainer = "container:AeLibraryDemo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C5B3BCBC1335FE5900F08A09"
-            BuildableName = "XBaseResFile.app"
-            BlueprintName = "XBaseResFile"
-            ReferencedContainer = "container:XLibraryDemo.xcodeproj">
+            BuildableName = "AeBaseResFile.app"
+            BlueprintName = "AeBaseResFile"
+            ReferencedContainer = "container:AeLibraryDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C5B3BCBC1335FE5900F08A09"
-            BuildableName = "XBaseResFile.app"
-            BlueprintName = "XBaseResFile"
-            ReferencedContainer = "container:XLibraryDemo.xcodeproj">
+            BuildableName = "AeBaseResFile.app"
+            BlueprintName = "AeBaseResFile"
+            ReferencedContainer = "container:AeLibraryDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
