@@ -22,7 +22,7 @@
 namespace ae {
 /// Xdataのアクセサを定義する名前空間。
 namespace xdata {
-/// @addtogroup Xdata
+/// @addtogroup AeXdata
 //@{
 
 // TypeDef

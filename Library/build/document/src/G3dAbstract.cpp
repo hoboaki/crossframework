@@ -1,6 +1,6 @@
 /**
 
-@page G3DAbstract G3D概要
+@page G3dAbstract G3d概要
 @section 座標系
 ・空間の座標系は右手座標系を使います。@n
 

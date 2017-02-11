@@ -3,26 +3,26 @@
 #else
 #define AE_BASE_INCLUDED_AE_BASE_HPP
 
-/// @namespace XBase XLibraryの基本となるクラス・関数・マクロ群を定義する名前空間。
+/// @namespace AeBase AeLibraryの基本となるクラス・関数・マクロ群を定義する名前空間。
 
-/// @defgroup AeBase-Collection XBase:コレクション
+/// @defgroup AeBase-Collection AeBase:コレクション
 #include <ae/base/BitSet.hpp>
 #include <ae/base/RuntimeArray.hpp>
 #include <ae/base/RuntimeAutoArray.hpp>
 #include <ae/base/RuntimeMArray.hpp>
 
-/// @defgroup AeBase-Env XBase:環境情報
+/// @defgroup AeBase-Env AeBase:環境情報
 #include <ae/base/Compiler.hpp>
 #include <ae/base/Config.hpp>
 #include <ae/base/Endian.hpp>
 #include <ae/base/Os.hpp>
 
-/// @defgroup AeBase-DateTime XBase:日時
+/// @defgroup AeBase-DateTime AeBase:日時
 #include <ae/base/Calendar.hpp>
 #include <ae/base/Time.hpp>
 #include <ae/base/TimeSpan.hpp>
 
-/// @defgroup AeBase-Debug XBase:デバッグ・エラー処理
+/// @defgroup AeBase-Debug AeBase:デバッグ・エラー処理
 #include <ae/base/Console.hpp>
 #include <ae/base/DivideCheck.hpp>
 #include <ae/base/EnumCheck.hpp>
@@ -32,13 +32,13 @@
 #include <ae/base/RuntimeError.hpp>
 #include <ae/base/StaticAssert.hpp>
 
-/// @defgroup AeBase-IO XBase:ファイル操作
+/// @defgroup AeBase-IO AeBase:ファイル操作
 #include <ae/base/IReadStream.hpp>
 #include <ae/base/ResFile.hpp>
 #include <ae/base/ResFileStream.hpp>
 #include <ae/base/SeekOrigin.hpp>
 
-/// @defgroup AeBase-Hid XBase:Hid
+/// @defgroup AeBase-Hid AeBase:Hid
 #include <ae/base/KeyBitSet.hpp>
 #include <ae/base/Keyboard.hpp>
 #include <ae/base/KeyKind.hpp>
@@ -49,7 +49,7 @@
 #include <ae/base/Touch.hpp>
 #include <ae/base/TouchTap.hpp>
 
-/// @defgroup AeBase-Math XBase:数学
+/// @defgroup AeBase-Math AeBase:数学
 #include <ae/base/Aabb2.hpp>
 #include <ae/base/Aabb2i.hpp>
 #include <ae/base/Angle.hpp>
@@ -69,7 +69,7 @@
 #include <ae/base/Vector4.hpp>
 #include <ae/base/Vector4i.hpp>
 
-/// @defgroup AeBase-Memory XBase:メモリ
+/// @defgroup AeBase-Memory AeBase:メモリ
 #include <ae/base/AutoMemBlock.hpp>
 #include <ae/base/AutoPtr.hpp>
 #include <ae/base/AutoSpPtr.hpp>
@@ -77,13 +77,13 @@
 #include <ae/base/MemBlock.hpp>
 #include <ae/base/ScopedPtr.hpp>
 
-/// @defgroup AeBase-String XBase:文字列
+/// @defgroup AeBase-String AeBase:文字列
 #include <ae/base/FixedString.hpp>
 #include <ae/base/ShortString.hpp>
 #include <ae/base/StringTraits.hpp>
 #include <ae/base/ToShortString.hpp>
 
-/// @defgroup AeBase-System XBase:システム
+/// @defgroup AeBase-System AeBase:システム
 #include <ae/base/Application.hpp>
 #include <ae/base/Argument.hpp>
 #include <ae/base/Display.hpp>
@@ -91,10 +91,10 @@
 #include <ae/base/EntryPoint.hpp>
 #include <ae/base/Screen.hpp>
 
-/// @defgroup AeBase-Thread XBase:スレッド
+/// @defgroup AeBase-Thread AeBase:スレッド
 #include <ae/base/Thread.hpp>
 
-/// @defgroup AeBase-Util XBase:ユーティリティ
+/// @defgroup AeBase-Util AeBase:ユーティリティ
 #include <ae/base/ArrayLength.hpp>
 #include <ae/base/Color4.hpp>
 #include <ae/base/Color4b.hpp>
@@ -109,7 +109,7 @@
 #include <ae/base/Unused.hpp>
 #include <ae/base/ValueInRange.hpp>
 
-/// @defgroup AeBase-Types XBase:型
+/// @defgroup AeBase-Types AeBase:型
 #include <ae/base/Bool.hpp>
 #include <ae/base/BuiltInTypes.hpp>
 #include <ae/base/Enum.hpp>
