@@ -6,10 +6,10 @@
 ・アプリケーションは使用するビルドバージョンのプリプロセッサをコンパイル時に定義するようにしてください。@n
 <table>
 <tr><th>名前</th><th>プリプロセッサ</th><th>エラー処理</th><th>コンソール出力</th><th>最適化</th></tr>
-<tr><td>debug</td><td>XLIBRARY_DEBUG</td><td>o</td><td>o</td><td>-</td></tr>
-<tr><td>develop</td><td>XLIBRARY_DEVELOP</td><td>o</td><td>o</td><td>o</td></tr>
-<tr><td>semifinal</td><td>XLIBRARY_SEMIFINAL</td><td>-</td><td>o</td><td>o</td></tr>
-<tr><td>final</td><td>XLIBRARY_FINAL</td><td>-</td><td>-</td><td>o</td></tr>
+<tr><td>debug</td><td>AE_LIBRARY_DEBUG</td><td>o</td><td>o</td><td>-</td></tr>
+<tr><td>develop</td><td>AE_LIBRARY_DEVELOP</td><td>o</td><td>o</td><td>o</td></tr>
+<tr><td>semifinal</td><td>AE_LIBRARY_SEMIFINAL</td><td>-</td><td>o</td><td>o</td></tr>
+<tr><td>final</td><td>AE_LIBRARY_FINAL</td><td>-</td><td>-</td><td>o</td></tr>
 </table>
 ・エラー処理が有効なバージョンではASSERTが有効になり、エラー時に ae::base::RuntimeError::OnError() が呼ばれます。@n
 ・エラー処理が無効なバージョンのほうがCPU・メモリパフォーマンスは優れています。@n
