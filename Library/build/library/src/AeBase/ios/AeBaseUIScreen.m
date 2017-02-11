@@ -4,7 +4,7 @@
 #import <UIKit/UIKit.h>
 
 //------------------------------------------------------------------------------
-void XBaseUIScreen_GetMainScreenBounds( struct XBaseUIRect* aRect )
+void AeBaseUIScreen_GetMainScreenBounds( struct AeBaseUIRect* aRect )
 { 
     CGRect rect = [[UIScreen mainScreen] bounds];
     aRect->originX = rect.origin.x;

@@ -136,7 +136,7 @@
 
 //------------------------------------------------------------------------------
 struct AeG3dUIOpenGLView* AeG3dUIOpenGLView_Setup(
-    struct XBaseUIWindow* aWindow                                              
+    struct AeBaseUIWindow* aWindow
     )
 {  
     UIWindow* window = (UIWindow*)aWindow;

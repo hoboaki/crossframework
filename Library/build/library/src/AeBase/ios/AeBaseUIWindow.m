@@ -4,18 +4,18 @@
 #import <UIKit/UIKit.h>
 
 //------------------------------------------------------------------------------
-@interface XBaseUIWindowImpl : UIWindow
+@interface AeBaseUIWindowImpl : UIWindow
 {
 @private
-    XBaseUITouchSet mTouchSet;
-    XBaseUITouchSet mPrevTouchSet;
+    AeBaseUITouchSet mTouchSet;
+    AeBaseUITouchSet mPrevTouchSet;
 }
-- (const XBaseUITouchSet*) pollTouch;
+- (const AeBaseUITouchSet*) pollTouch;
 @end
 
 //------------------------------------------------------------------------------
-@implementation XBaseUIWindowImpl
--(const XBaseUITouchSet*)pollTouch
+@implementation AeBaseUIWindowImpl
+-(const AeBaseUITouchSet*)pollTouch
 {
     mPrevTouchSet = mTouchSet;
     return &mTouchSet;
@@ -24,13 +24,13 @@
 -(void)addNewTouch:(UITouch*)touch
 {
     // あいているところを検索
-    for ( int i = 0; i < XBASE_UITOUCHSET_TOUCH_COUNT_MAX; ++i )
+    for ( int i = 0; i < AE_BASE_UITOUCHSET_TOUCH_COUNT_MAX; ++i )
     {
         if ( mTouchSet.touches[i].tapCount == 0
             && mPrevTouchSet.touches[i].tapCount == 0
             )
         {// ここに設定
-            XBaseUITouch* target = &mTouchSet.touches[i];
+            AeBaseUITouch* target = &mTouchSet.touches[i];
             target->tapCount = (int)[touch tapCount];
             target->tapPosX  = [touch locationInView:nil].x;
             target->tapPosY  = [touch locationInView:nil].y;
@@ -42,13 +42,13 @@
     assert(false);
 }
 
--(XBaseUITouch*)findTouch:(UITouch*)touch withUsePrevLocation:(BOOL)usePrevLocation
+-(AeBaseUITouch*)findTouch:(UITouch*)touch withUsePrevLocation:(BOOL)usePrevLocation
 {
     // prev座標が一致するものを検索
-    for ( int i = 0; i < XBASE_UITOUCHSET_TOUCH_COUNT_MAX; ++i )
+    for ( int i = 0; i < AE_BASE_UITOUCHSET_TOUCH_COUNT_MAX; ++i )
     {
         // ポインタメモ
-        XBaseUITouch* target = &mTouchSet.touches[i];
+        AeBaseUITouch* target = &mTouchSet.touches[i];
         
         // 一致判定
         CGPoint point = usePrevLocation 
@@ -87,7 +87,7 @@
         }
         
         // 検索
-        XBaseUITouch* target = [self findTouch:touch withUsePrevLocation:NO];
+        AeBaseUITouch* target = [self findTouch:touch withUsePrevLocation:NO];
         if ( target == nil )
         {
             target = [self findTouch:touch withUsePrevLocation:YES];
@@ -118,7 +118,7 @@
 {
     for ( UITouch* touch in touches )
     {
-        XBaseUITouch* target = [self findTouch:touch withUsePrevLocation:YES];
+        AeBaseUITouch* target = [self findTouch:touch withUsePrevLocation:YES];
         if ( target == nil )
         {
             assert(false);
@@ -143,10 +143,10 @@
 @end
 
 //------------------------------------------------------------------------------
-struct XBaseUIWindow* XBaseUIWindow_Create()
+struct AeBaseUIWindow* AeBaseUIWindow_Create()
 {   
     // Window作成
-    UIWindow* window = [[XBaseUIWindowImpl alloc] initWithFrame:[[UIScreen mainScreen]bounds]];
+    UIWindow* window = [[AeBaseUIWindowImpl alloc] initWithFrame:[[UIScreen mainScreen]bounds]];
     
     // フレームをデバイスのスクリーンサイズにセット
     window.frame = CGRectMake(0, 0, [[UIScreen mainScreen]bounds].size.width, [[UIScreen mainScreen]bounds].size.height-20);
@@ -163,16 +163,16 @@ struct XBaseUIWindow* XBaseUIWindow_Create()
     [window addSubview:view];
      
     // 結果を返す
-    return (struct XBaseUIWindow*)window;
+    return (struct AeBaseUIWindow*)window;
 }
 
 //------------------------------------------------------------------------------
-void XBaseUIWindow_Destroy( struct XBaseUIWindow* aWindow )
+void AeBaseUIWindow_Destroy( struct AeBaseUIWindow* aWindow )
 {
 }
 
 //------------------------------------------------------------------------------
-void XBaseUIWindow_Show( struct XBaseUIWindow* aWindow )
+void AeBaseUIWindow_Show( struct AeBaseUIWindow* aWindow )
 {   
     UIWindow* window = (UIWindow*)aWindow;
     [window makeKeyAndVisible];
@@ -180,9 +180,9 @@ void XBaseUIWindow_Show( struct XBaseUIWindow* aWindow )
 }
 
 //------------------------------------------------------------------------------
-const XBaseUITouchSet* XBaseUIWindow_PollTouch( struct XBaseUIWindow* aWindow )
+const AeBaseUITouchSet* AeBaseUIWindow_PollTouch( struct AeBaseUIWindow* aWindow )
 {
-    XBaseUIWindowImpl* window = (XBaseUIWindowImpl*)aWindow;
+    AeBaseUIWindowImpl* window = (AeBaseUIWindowImpl*)aWindow;
     return [window pollTouch];
 }
 

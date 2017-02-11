@@ -32,7 +32,7 @@ Screen& Display::mainScreen()
 //------------------------------------------------------------------------------
 void Display::show()
 {
-    XBaseUIWindow_Show(mExt.windowPtr);
+    AeBaseUIWindow_Show(mExt.windowPtr);
 }
 
 //------------------------------------------------------------------------------
@@ -49,11 +49,11 @@ Display_Ext::Display_Ext(const DisplayContext& aContext)
 , hidPtr()
 {
     // Window作成
-    windowPtr = XBaseUIWindow_Create();
+    windowPtr = AeBaseUIWindow_Create();
 
     // メインスクリーンの作成
-    XBaseUIRect rect = {};
-    XBaseUIScreen_GetMainScreenBounds(&rect);
+    AeBaseUIRect rect = {};
+    AeBaseUIScreen_GetMainScreenBounds(&rect);
     mainScreen.init(Ref(*this), uint(rect.sizeW), uint(rect.sizeH));
 }
 
@@ -64,9 +64,9 @@ Display_Ext::~Display_Ext()
     mainScreen.reset();
 
     // Window解放
-    XBaseUIWindow* ptr = windowPtr;
+    AeBaseUIWindow* ptr = windowPtr;
     windowPtr = 0;
-    XBaseUIWindow_Destroy(ptr);
+    AeBaseUIWindow_Destroy(ptr);
 }
 
 }} // namespace

@@ -1,7 +1,7 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_ENTRYPOINT_EXT_H)
+#if defined(AE_BASE_INCLUDED_ENTRYPOINT_EXT_H)
 #else
-#define XBASE_INCLUDED_ENTRYPOINT_EXT_H
+#define AE_BASE_INCLUDED_ENTRYPOINT_EXT_H
 
 //------------------------------------------------------------------------------
 #ifdef __cplusplus

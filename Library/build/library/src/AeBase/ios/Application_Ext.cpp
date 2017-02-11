@@ -20,24 +20,24 @@ void Application::quit()
 AppEvent::EnumType Application::receiveEventCore()
 {
     // まずUIMainにシグナル送信して同期する
-    XBaseEntryPointSync_UIMainSignal();
-    XBaseEntryPointSync_XMainWait();
+    AeBaseEntryPointSync_UIMainSignal();
+    AeBaseEntryPointSync_XMainWait();
 
     // 新しいイベントを取得
-    switch (XBaseEntryPointSync_GetAppEvent()) {
-        case XBaseAppEvent_Quit:
+    switch (AeBaseEntryPointSync_GetAppEvent()) {
+        case AeBaseAppEvent_Quit:
             return AppEvent::Quit;
 
-        case XBaseAppEvent_Update:
+        case AeBaseAppEvent_Update:
         {// Hidの更新
             if (mDisplayPtr.isValid()) {
                 // タッチ入力ポーリング
-                const XBaseUITouchSet* touchSet = XBaseUIWindow_PollTouch(mDisplayPtr->ext_().windowPtr);
+                const AeBaseUITouchSet* touchSet = AeBaseUIWindow_PollTouch(mDisplayPtr->ext_().windowPtr);
                 if (mDisplayPtr->ext_().hidPtr.isValid()) {
                     const int screenHeight = mDisplayPtr->mainScreen().height();
                     TouchUpdateData data = {};
                     for (int i = 0; i < AE_BASE_UITOUCHSET_TOUCH_COUNT_MAX; ++i) {
-                        const XBaseUITouch& src = touchSet->touches[i];
+                        const AeBaseUITouch& src = touchSet->touches[i];
                         TouchTapUpdateData& dst = data.taps[i];
                         dst.tapCount = src.tapCount;
                         dst.pos.x = s16(src.tapPosX);

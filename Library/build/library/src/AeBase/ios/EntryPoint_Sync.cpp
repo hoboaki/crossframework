@@ -85,7 +85,7 @@ public:
 ::ae::base::Placement< tSyncObjSet > tSyncObjSetInstance;
 AeBaseAppEvent tAppEvent = AeBaseAppEvent_INVALID;
 
-}} // namespace
+} // namespace
 
 //------------------------------------------------------------------------------
 void AeBaseEntryPointSync_Initialize()

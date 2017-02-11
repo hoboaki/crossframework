@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C597AA051323BD1E00A02A44"
-               BuildableName = "XBaseDisplay.app"
-               BlueprintName = "XBaseDisplay"
-               ReferencedContainer = "container:XLibraryDemo.xcodeproj">
+               BlueprintIdentifier = "D2AAC07D0554694100DB518D"
+               BuildableName = "libAeBase.a"
+               BlueprintName = "AeBase"
+               ReferencedContainer = "container:AeLibrary.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,15 +29,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C597AA051323BD1E00A02A44"
-            BuildableName = "XBaseDisplay.app"
-            BlueprintName = "XBaseDisplay"
-            ReferencedContainer = "container:XLibraryDemo.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -51,16 +42,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C597AA051323BD1E00A02A44"
-            BuildableName = "XBaseDisplay.app"
-            BlueprintName = "XBaseDisplay"
-            ReferencedContainer = "container:XLibraryDemo.xcodeproj">
+            BlueprintIdentifier = "D2AAC07D0554694100DB518D"
+            BuildableName = "libAeBase.a"
+            BlueprintName = "AeBase"
+            ReferencedContainer = "container:AeLibrary.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -70,19 +60,9 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C597AA051323BD1E00A02A44"
-            BuildableName = "XBaseDisplay.app"
-            BlueprintName = "XBaseDisplay"
-            ReferencedContainer = "container:XLibraryDemo.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "final">
+      buildConfiguration = "develop">
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "final"

@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D2AAC07D0554694100DB518D"
-               BuildableName = "libXBase.a"
-               BlueprintName = "XBase"
-               ReferencedContainer = "container:XLibrary.xcodeproj">
+               BlueprintIdentifier = "C5D3EA7513375108002626F5"
+               BuildableName = "AeG3dTexture.app"
+               BlueprintName = "AeG3dTexture"
+               ReferencedContainer = "container:AeLibraryDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,6 +29,15 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "C5D3EA7513375108002626F5"
+            BuildableName = "AeG3dTexture.app"
+            BlueprintName = "AeG3dTexture"
+            ReferencedContainer = "container:AeLibraryDemo.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -42,15 +51,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D2AAC07D0554694100DB518D"
-            BuildableName = "libXBase.a"
-            BlueprintName = "XBase"
-            ReferencedContainer = "container:XLibrary.xcodeproj">
+            BlueprintIdentifier = "C5D3EA7513375108002626F5"
+            BuildableName = "AeG3dTexture.app"
+            BlueprintName = "AeG3dTexture"
+            ReferencedContainer = "container:AeLibraryDemo.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -60,9 +70,19 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "C5D3EA7513375108002626F5"
+            BuildableName = "AeG3dTexture.app"
+            BlueprintName = "AeG3dTexture"
+            ReferencedContainer = "container:AeLibraryDemo.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "develop">
+      buildConfiguration = "final">
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "final"

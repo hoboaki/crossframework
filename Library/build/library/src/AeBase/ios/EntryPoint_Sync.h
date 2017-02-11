@@ -1,23 +1,23 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_ENTRYPOINT_SYNC_H)
+#if defined(AE_BASE_INCLUDED_ENTRYPOINT_SYNC_H)
 #else
-#define XBASE_INCLUDED_ENTRYPOINT_SYNC_H
+#define AE_BASE_INCLUDED_ENTRYPOINT_SYNC_H
 
-#include "XBaseAppEvent.h"
+#include "AeBaseAppEvent.h"
 
 //------------------------------------------------------------------------------
 #ifdef __cplusplus
 extern "C" {
 #endif
-extern void XBaseEntryPointSync_Initialize();
-extern void XBaseEntryPointSync_Finalize();
-extern void XBaseEntryPointSync_XMainWait();
-extern void XBaseEntryPointSync_XMainSignal();
-extern void XBaseEntryPointSync_UIMainWait();
-extern void XBaseEntryPointSync_UIMainSignal();
-extern void XBaseEntryPointSync_SetAppEvent( XBaseAppEvent );
-extern XBaseAppEvent XBaseEntryPointSync_GetAppEvent();
-extern void XBaseEntryPointSync_CATransactionFlush();
+extern void AeBaseEntryPointSync_Initialize();
+extern void AeBaseEntryPointSync_Finalize();
+extern void AeBaseEntryPointSync_XMainWait();
+extern void AeBaseEntryPointSync_XMainSignal();
+extern void AeBaseEntryPointSync_UIMainWait();
+extern void AeBaseEntryPointSync_UIMainSignal();
+extern void AeBaseEntryPointSync_SetAppEvent( AeBaseAppEvent );
+extern AeBaseAppEvent AeBaseEntryPointSync_GetAppEvent();
+extern void AeBaseEntryPointSync_CATransactionFlush();
 #ifdef __cplusplus
 }
 #endif

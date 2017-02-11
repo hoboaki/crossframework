@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C50CEF87166F71140079C496"
-               BuildableName = "XG3DMdlSimple.app"
-               BlueprintName = "XG3DMdlSimple"
-               ReferencedContainer = "container:XLibraryDemo.xcodeproj">
+               BlueprintIdentifier = "C53BD1E2133DE9F80014B60C"
+               BuildableName = "AeBaseTouch.app"
+               BlueprintName = "AeBaseTouch"
+               ReferencedContainer = "container:AeLibraryDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C50CEF87166F71140079C496"
-            BuildableName = "XG3DMdlSimple.app"
-            BlueprintName = "XG3DMdlSimple"
-            ReferencedContainer = "container:XLibraryDemo.xcodeproj">
+            BlueprintIdentifier = "C53BD1E2133DE9F80014B60C"
+            BuildableName = "AeBaseTouch.app"
+            BlueprintName = "AeBaseTouch"
+            ReferencedContainer = "container:AeLibraryDemo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C50CEF87166F71140079C496"
-            BuildableName = "XG3DMdlSimple.app"
-            BlueprintName = "XG3DMdlSimple"
-            ReferencedContainer = "container:XLibraryDemo.xcodeproj">
+            BlueprintIdentifier = "C53BD1E2133DE9F80014B60C"
+            BuildableName = "AeBaseTouch.app"
+            BlueprintName = "AeBaseTouch"
+            ReferencedContainer = "container:AeLibraryDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C50CEF87166F71140079C496"
-            BuildableName = "XG3DMdlSimple.app"
-            BlueprintName = "XG3DMdlSimple"
-            ReferencedContainer = "container:XLibraryDemo.xcodeproj">
+            BlueprintIdentifier = "C53BD1E2133DE9F80014B60C"
+            BuildableName = "AeBaseTouch.app"
+            BlueprintName = "AeBaseTouch"
+            ReferencedContainer = "container:AeLibraryDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

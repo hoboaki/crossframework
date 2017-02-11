@@ -1,12 +1,12 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_UIAPPLICATIONDELEGATE_H)
+#if defined(AE_BASE_INCLUDED_UIAPPLICATIONDELEGATE_H)
 #else
-#define XBASE_INCLUDED_UIAPPLICATIONDELEGATE_H
+#define AE_BASE_INCLUDED_UIAPPLICATIONDELEGATE_H
 
 #include <UIKit/UIKit.h>
 
 //------------------------------------------------------------------------------
-@interface XBaseUIApplicationDelegate : NSObject <UIApplicationDelegate> 
+@interface AeBaseUIApplicationDelegate : NSObject <UIApplicationDelegate> 
 {
 }
 @property (nonatomic, retain) id displayLink;

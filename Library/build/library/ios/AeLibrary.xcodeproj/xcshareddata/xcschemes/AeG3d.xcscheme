@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C597AA9D1323BFE600A02A44"
-               BuildableName = "libXG3D.a"
-               BlueprintName = "XG3D"
-               ReferencedContainer = "container:XLibrary.xcodeproj">
+               BuildableName = "libAeG3d.a"
+               BlueprintName = "AeG3d"
+               ReferencedContainer = "container:AeLibrary.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,9 +46,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C597AA9D1323BFE600A02A44"
-            BuildableName = "libXG3D.a"
-            BlueprintName = "XG3D"
-            ReferencedContainer = "container:XLibrary.xcodeproj">
+            BuildableName = "libAeG3d.a"
+            BlueprintName = "AeG3d"
+            ReferencedContainer = "container:AeLibrary.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>

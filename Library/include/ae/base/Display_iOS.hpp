@@ -8,7 +8,7 @@
 #include <ae/base/Pointer.hpp>
 #include <ae/base/Screen.hpp>
 
-struct XBaseUIWindow;
+struct AeBaseUIWindow;
 namespace ae {
 namespace base {
 class Hid;
@@ -23,7 +23,7 @@ class Display_Ext
 {
 public:
     //============================================================
-    XBaseUIWindow* windowPtr;
+    AeBaseUIWindow* windowPtr;
     Placement< Screen > mainScreen;
     Pointer< Hid > hidPtr;
 

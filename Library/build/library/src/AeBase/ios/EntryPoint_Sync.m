@@ -4,7 +4,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 //------------------------------------------------------------------------------
-void XBaseEntryPointSync_CATransactionFlush()
+void AeBaseEntryPointSync_CATransactionFlush()
 {
     [CATransaction flush];
 }

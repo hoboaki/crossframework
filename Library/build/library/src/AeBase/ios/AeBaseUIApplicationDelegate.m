@@ -5,7 +5,7 @@
 #include "EntryPoint_Sync.h"
 
 //------------------------------------------------------------------------------
-@implementation XBaseUIApplicationDelegate
+@implementation AeBaseUIApplicationDelegate
 @synthesize displayLink;
 
 #pragma mark -
@@ -19,8 +19,8 @@
     [[NSFileManager defaultManager] changeCurrentDirectoryPath:path];
     
     // XMainを起動
-    XBaseEntryPointSync_XMainSignal();
-    XBaseEntryPointSync_UIMainWait();
+    AeBaseEntryPointSync_XMainSignal();
+    AeBaseEntryPointSync_UIMainWait();
     
     return YES;
 }
@@ -61,17 +61,17 @@
 - (void)applicationWillTerminate:(UIApplication *)application 
 {
     // Quitイベント送信
-    XBaseEntryPointSync_SetAppEvent( XBaseAppEvent_Quit );
-    XBaseEntryPointSync_XMainSignal();
-    XBaseEntryPointSync_UIMainWait();
+    AeBaseEntryPointSync_SetAppEvent( AeBaseAppEvent_Quit );
+    AeBaseEntryPointSync_XMainSignal();
+    AeBaseEntryPointSync_UIMainWait();
 }
 
 - (void)onUpdate: (id)sender
 {
     // Updateイベント送信
-    XBaseEntryPointSync_SetAppEvent( XBaseAppEvent_Update );
-    XBaseEntryPointSync_XMainSignal();
-    XBaseEntryPointSync_UIMainWait();    
+    AeBaseEntryPointSync_SetAppEvent( AeBaseAppEvent_Update );
+    AeBaseEntryPointSync_XMainSignal();
+    AeBaseEntryPointSync_UIMainWait();    
 }
 
 #pragma mark -

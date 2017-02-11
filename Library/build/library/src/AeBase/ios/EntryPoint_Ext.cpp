@@ -19,7 +19,7 @@ struct tThreadArg
     const ::ae::base::Argument* argPtr;
 };
 
-}} // namespace
+} // namespace
 
 //------------------------------------------------------------------------------
 int xmainThreadEntryPointC(void* aArg)

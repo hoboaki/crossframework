@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C5DA3A7D132A929E006748E0"
-               BuildableName = "XG3DTriangle.app"
-               BlueprintName = "XG3DTriangle"
-               ReferencedContainer = "container:XLibraryDemo.xcodeproj">
+               BuildableName = "AeG3dTriangle.app"
+               BlueprintName = "AeG3dTriangle"
+               ReferencedContainer = "container:AeLibraryDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C5DA3A7D132A929E006748E0"
-            BuildableName = "XG3DTriangle.app"
-            BlueprintName = "XG3DTriangle"
-            ReferencedContainer = "container:XLibraryDemo.xcodeproj">
+            BuildableName = "AeG3dTriangle.app"
+            BlueprintName = "AeG3dTriangle"
+            ReferencedContainer = "container:AeLibraryDemo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C5DA3A7D132A929E006748E0"
-            BuildableName = "XG3DTriangle.app"
-            BlueprintName = "XG3DTriangle"
-            ReferencedContainer = "container:XLibraryDemo.xcodeproj">
+            BuildableName = "AeG3dTriangle.app"
+            BlueprintName = "AeG3dTriangle"
+            ReferencedContainer = "container:AeLibraryDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C5DA3A7D132A929E006748E0"
-            BuildableName = "XG3DTriangle.app"
-            BlueprintName = "XG3DTriangle"
-            ReferencedContainer = "container:XLibraryDemo.xcodeproj">
+            BuildableName = "AeG3dTriangle.app"
+            BlueprintName = "AeG3dTriangle"
+            ReferencedContainer = "container:AeLibraryDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

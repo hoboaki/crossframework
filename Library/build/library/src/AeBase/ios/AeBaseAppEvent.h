@@ -1,17 +1,17 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_XBASEAPPEVENT_H)
+#if defined(AE_BASE_INCLUDED_XBASEAPPEVENT_H)
 #else
-#define XBASE_INCLUDED_XBASEAPPEVENT_H
+#define AE_BASE_INCLUDED_XBASEAPPEVENT_H
 
 //------------------------------------------------------------------------------
 // C言語版AppEvent。
-typedef enum XBaseAppEvent
+typedef enum AeBaseAppEvent
 {
-    XBaseAppEvent_Quit,
-    XBaseAppEvent_Update,
+    AeBaseAppEvent_Quit,
+    AeBaseAppEvent_Update,
     // term
-    XBaseAppEvent_INVALID
-} XBaseAppEvent;
+    AeBaseAppEvent_INVALID
+} AeBaseAppEvent;
 
 #endif
 // EOF

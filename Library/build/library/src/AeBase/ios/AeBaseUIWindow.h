@@ -1,10 +1,10 @@
 // 文字コード：UTF-8
-#if defined(XBASE_INCLUDED_XBASEUIWindow_H)
+#if defined(AE_BASE_INCLUDED_XBASEUIWindow_H)
 #else
-#define XBASE_INCLUDED_XBASEUIWindow_H
+#define AE_BASE_INCLUDED_XBASEUIWindow_H
 
-struct XBaseUIWindow;
-#define XBASE_UITOUCHSET_TOUCH_COUNT_MAX (4)
+struct AeBaseUIWindow;
+#define AE_BASE_UITOUCHSET_TOUCH_COUNT_MAX (4)
 
 //------------------------------------------------------------------------------
 #ifdef __cplusplus
@@ -15,15 +15,15 @@ typedef struct
     int   tapCount;
     float tapPosX;
     float tapPosY;
-} XBaseUITouch;
+} AeBaseUITouch;
 typedef struct
 {
-    XBaseUITouch touches[XBASE_UITOUCHSET_TOUCH_COUNT_MAX];
-} XBaseUITouchSet;
-extern struct XBaseUIWindow* XBaseUIWindow_Create();
-extern void XBaseUIWindow_Destroy( struct XBaseUIWindow* );
-extern void XBaseUIWindow_Show( struct XBaseUIWindow* );
-extern const XBaseUITouchSet* XBaseUIWindow_PollTouch( struct XBaseUIWindow* );
+    AeBaseUITouch touches[AE_BASE_UITOUCHSET_TOUCH_COUNT_MAX];
+} AeBaseUITouchSet;
+extern struct AeBaseUIWindow* AeBaseUIWindow_Create();
+extern void AeBaseUIWindow_Destroy( struct AeBaseUIWindow* );
+extern void AeBaseUIWindow_Show( struct AeBaseUIWindow* );
+extern const AeBaseUITouchSet* AeBaseUIWindow_PollTouch( struct AeBaseUIWindow* );
 #ifdef __cplusplus
 }
 #endif
