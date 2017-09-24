@@ -71,7 +71,7 @@ bool tValidateProgram(GLuint aProgram)
 #if defined(AE_BASE_OS_MACOSX)
         // macos 10.11 環境で動作しないため即リターン。
     return true;
-#endif
+#else
     GLint status = GLint();
     AE_G3D_GLCMD(glValidateProgram(aProgram));
     AE_G3D_GLCMD(glGetProgramiv(aProgram, GL_VALIDATE_STATUS, &status));
@@ -79,6 +79,7 @@ bool tValidateProgram(GLuint aProgram)
         return false;
     }
     return true;
+#endif
 }
 }
 //------------------------------------------------------------------------------
