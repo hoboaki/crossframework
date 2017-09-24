@@ -53,7 +53,7 @@
 {
     // 毎フレーム処理を登録
     self.displayLink = [NSClassFromString(@"CADisplayLink") displayLinkWithTarget:self selector:@selector(onUpdate:)];
-    [displayLink setFrameInterval:1];
+    ((CADisplayLink*)displayLink).preferredFramesPerSecond = 60;
     [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 }
 
