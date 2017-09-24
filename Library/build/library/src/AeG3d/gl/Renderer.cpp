@@ -155,7 +155,7 @@ bool tValidateProgram(GLuint aProgram)
     // Renderer.cpp のコンストラクタはそれよりも前に呼ばれてしまう。
     // 少し気持ち悪いが return することで回避する。
     return true;
-#endif
+#else
     
     GLint status = GLint();
     AE_G3D_GLCMD(glValidateProgram(aProgram));
@@ -167,6 +167,7 @@ bool tValidateProgram(GLuint aProgram)
         return false;
     }
     return true;
+#endif
 }
 
 bool tCreateShaderProgram(GLuint* aProgram)

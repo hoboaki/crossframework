@@ -22,7 +22,7 @@
 
 //------------------------------------------------------------------------------
 @implementation AeBaseOpenGLWindow
-- (id) initWithContentRect: (NSRect)rect styleMask:(NSUInteger)wndStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)deferFlg
+- (id) initWithContentRect: (NSRect)rect styleMask:(NSWindowStyleMask)wndStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)deferFlg
 {
 	id result = [super initWithContentRect:rect styleMask:wndStyle backing:bufferingType defer:deferFlg];
             
@@ -92,7 +92,7 @@
 - (void) mouseEventFunc:(NSEvent *)theEvent
 {
     NSPoint pos = [theEvent locationInWindow];
-    mCBMouseEvent( mOwnerPtr , [NSEvent pressedMouseButtons] , pos.x , pos.y );
+    mCBMouseEvent( mOwnerPtr , (int)[NSEvent pressedMouseButtons] , pos.x , pos.y );
 }
 
 - (void) mouseEntered:(NSEvent *)theEvent
