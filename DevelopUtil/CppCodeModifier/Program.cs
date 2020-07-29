@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.IO;
+using System.Text.RegularExpressions;
+using System.Runtime.InteropServices;
+using System.Net.Http.Headers;
 
 namespace CppCodeModifier
 {
@@ -507,7 +510,7 @@ namespace CppCodeModifier
             }
 
             // include直前のセパレータ削除
-            if (true)
+            if (false)
             {
                 textEditFunc(cppFiles.ToList(),
                     (lines) =>
@@ -527,6 +530,138 @@ namespace CppCodeModifier
                     });
 
             }
+
+            // mHoge -> hoge_
+            if (false)
+            {
+                textEditFunc(cppFileList,
+                    (lines) =>
+                    {
+                        string evaluator(Match m)
+                        {
+                            return m.Groups[1].Value + m.Groups[2].Value.ToLower() + m.Groups[3].Value + "_";
+                        };
+                        bool isModify = false;
+                        for (int i = 0; i < lines.Count; ++i)
+                        {
+                            var line = lines[i];
+                            var newLine = Regex.Replace(line, @"(\W)m([A-Z])([\w\d]*)", evaluator);
+                            if (line != newLine)
+                            {
+                                lines.Insert(i, newLine);
+                                lines.RemoveAt(i + 1);
+                                isModify = true;
+                            }
+                        }
+                        return isModify;
+                    });
+            }
+
+            // hoge() -> Hoge()
+            if (false)
+            {
+                string evaluator(Match m)
+                {
+                    var str = (m.Groups[2].Value + m.Groups[3].Value);
+                    str = str.Substring(0, str.Length - 1);
+                    if (m.Groups[1].Value == "std::")
+                    {
+                        return m.Value;
+                    }
+                    switch (str)
+                    {
+                        case "defined":
+                        case "warning":
+                        case "if":
+                        case "for":
+                        case "while":
+                        case "bool":
+                        case "static_assert":
+                        case "int":
+                        case "uint":
+                        case "float":
+                        case "sizeof":
+                        case "new":
+                        case "delete":
+                        case "operator":
+                        case "template":
+                        case "static_cast":
+                        case "reinterpret_cast":
+                        case "infinity":
+                        case "assert":
+                        case "va_start":
+                        case "va_end":
+                        case "vsnprintf":
+                        case "vswprintf":
+                        case "func":
+                        case "vec":
+                        case "newMin":
+                        case "newTerm":
+                        case "u16":
+                        case "u32":
+                        case "u64":
+                        case "f32":
+                        case "s16":
+                        case "s32":
+                        case "s64":
+                            return m.Value;
+                    }
+                    if (str.EndsWith("_") || str.EndsWith("_t"))
+                    {
+                        return m.Value;
+                    }
+                    if (0 < m.Groups[3].Value.Length && char.IsUpper(m.Groups[3].Value[0]))
+                    {
+                        return m.Value;
+                    }
+                    return m.Groups[1].Value + m.Groups[2].Value.ToUpper() + m.Groups[3].Value;
+                };
+                textEditFunc(cppFileList,
+                    (lines) =>
+                    {
+                        bool isModify = false;
+                        for (int i = 0; i < lines.Count; ++i)
+                        {
+                            var line = lines[i];
+                            var newLine = Regex.Replace(line, @"(\&|\!|\(|std::|::|\.|\s|->)([a-z])(\w+\(|\w+\<)", evaluator);
+                            if (line != newLine)
+                            {
+                                lines.Insert(i, newLine);
+                                lines.RemoveAt(i + 1);
+                                isModify = true;
+                            }
+                        }
+                        return isModify;
+                    });
+            }
+
+            // aHoge -> hoge
+            if (false)
+            {
+                textEditFunc(cppFileList,
+                    (lines) =>
+                    {
+                        string evaluator(Match m)
+                        {
+                            return m.Groups[1].Value + m.Groups[2].Value.ToLower() + m.Groups[3].Value;
+                        };
+                        bool isModify = false;
+                        for (int i = 0; i < lines.Count; ++i)
+                        {
+                            var line = lines[i];
+                            var newLine = Regex.Replace(line, @"(\W)a([A-Z])([\w\d]*)", evaluator);
+                            if (line != newLine)
+                            {
+                                lines.Insert(i, newLine);
+                                lines.RemoveAt(i + 1);
+                                isModify = true;
+                            }
+                        }
+                        return isModify;
+                    });
+            }
+
+
         }
     }
 }
